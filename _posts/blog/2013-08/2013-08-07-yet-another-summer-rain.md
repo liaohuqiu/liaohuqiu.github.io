@@ -1,6 +1,6 @@
 ---
 layout: post
-title: for nobody
+title: Yet another summer rain.
 description: 对于那些为了理想而燃烧的青春，我从来不想多说什么。
 category: blog
 ---
