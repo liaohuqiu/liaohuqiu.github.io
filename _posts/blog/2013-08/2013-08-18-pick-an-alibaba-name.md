@@ -3,7 +3,8 @@ layout: post
 title: 如何起花名
 description: to pick an alibaba name
 category: blog
-js: /js/pick-alibaba-name.js
+js: /js/pick-alibaba-name.js?v=1
+
 ---
 <h2> {{ page.title }} </h2>
 
