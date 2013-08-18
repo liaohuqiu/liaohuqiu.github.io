@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Yet another summer rain.
-description: 对于那些为了理想而燃烧的青春，我从来不想多说什么。
+description: For another rain, for another summer.
 category: blog
 ---
 <h2> {{ page.title }} </h2>

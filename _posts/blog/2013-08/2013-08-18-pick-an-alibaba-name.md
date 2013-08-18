@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 如何起花名
-description: to pick an alibaba name
+description: A tool for picking a nice alibaba name.
 category: blog
 js: /js/pick-alibaba-name.js?v=1
 
@@ -12,7 +12,7 @@ js: /js/pick-alibaba-name.js?v=1
 
 阿里有三大人文文化：`武侠`，`倒立`，`店小二`。作为武侠文化的一部分，每个阿里人都有自己的花名。
 
-花名不是随便起的，因为花名是行走江湖的名号。一般要求花名为2个汉字，要有武侠风情，示意积极向上。
+花名不是随便起的，花名是行走江湖的名号。一般要求花名为2个汉字，要有武侠风情，示意积极向上。
 
 随着阿里集团的壮大，越来越多的人加入，并且阿里会为离开的员工保留花名。所以对新入职的同事来说，起一个好的花名越来越难。
 
@@ -20,7 +20,7 @@ js: /js/pick-alibaba-name.js?v=1
 
 我个人觉得这个方法挺有效的，希望能对大家有帮助。
 
-祝愿你即将开始的阿里生活, 精彩、顺利。
+祝愿你即将开始的阿里生活 精彩，顺利。
 
 对了，我是 `无朽`，我们阿里见。
 
