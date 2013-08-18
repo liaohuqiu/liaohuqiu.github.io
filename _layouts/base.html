@@ -1,14 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 <meta charset='utf-8' />
 <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-<meta name="description" content="Liaohuqiu.github.io : It is my blog on github" />
 
+<meta name="author" content="srain / 廖祜秋 / 无朽 / liaohuqiu" />
+<meta name="description" content="The blog of 廖祜秋 / 无朽 / liaohuqiu" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+<link rel="stylesheet" type="text/css" media="screen" href="/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" media="screen" href="/css/base.css">
 
-<title>Another Rain</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+<title>{% if page.title %}{{ page.title }} | {% endif %} {{ site.title }}</title>
 </head>
 
 <body>
@@ -16,7 +23,6 @@
 <!-- HEADER -->
 <div id="header_wrap" class="outer">
     <header class="inner">
-
         <h1 id="project_title"><a href="/">Yet another summer rain.</a></h1>
     </header>
 </div>
@@ -44,5 +50,6 @@ try {
 } catch(err) {}
 </script>
 
+{% if page.js %}<script src="{{ page.js }}"></script>{% endif %}
 </body>
 </html>

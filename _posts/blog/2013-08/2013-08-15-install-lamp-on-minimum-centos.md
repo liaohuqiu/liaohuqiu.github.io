@@ -70,4 +70,5 @@ OK, the network is set up by far. You can test it by:
 
 ### setup 
 
+    // to be continued
     https://raw.github.com/liaohuqiu/centos_setup/master/setup.sh
