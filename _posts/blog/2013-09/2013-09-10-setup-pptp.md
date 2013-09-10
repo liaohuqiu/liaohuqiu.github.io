@@ -94,3 +94,5 @@ Some reference:
 [http://safesrv.net/setup-pptp-and-freeradius-on-centos-5/](http://safesrv.net/setup-pptp-and-freeradius-on-centos-5/)
 
 TODO: iptables
+
+<p> {{ page.date | date_to_string }} </p>
