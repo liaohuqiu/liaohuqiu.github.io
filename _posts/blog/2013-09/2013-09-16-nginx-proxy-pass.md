@@ -8,28 +8,25 @@ category: blog
 <h1> {{ page.title }} </h1>
 
 
-### 1. base ###
+### 1. about ###
 
-The `proxy_pass` directive sets the address of the proxied server and the URI to which location will be mapped. 
+ 1. The `proxy_pass` directive sets the address of the proxied server and the URI to which location will be mapped. 
 
-Here are some examples to show how the request URI will be mapped.
-
-The version of nginx:
-
-    nginx version: nginx/1.4.2
-
-The server config:
-
-    #server config
-    server {
-        listen        80;
-        server_name   test.com;
-    }
-
+    Here are some examples to show how the request URI will be mapped.
+    
+    The version of nginx:
+    
+        nginx version: nginx/1.4.2
+    
+    The server config:
+    
+        #server config
+        server {
+            listen        80;
+            server_name   test.com;
+        }
 
 ### 2. location without regular expression ###
-
-* * *
     
  1. If the `proxy_pass` directive is specified without a URI,
 
@@ -37,7 +34,8 @@ The server config:
             proxy_pass      http://192.168.154.102;
         }
 
-    test.com/app/xxxxx =>  http://192.168.154.102/xxxxx
+        test.com/app/xxxxx =>  http://192.168.154.102/xxxxx
+
     
  2. If the `proxy_pass` directive is specified with a URI:
 
@@ -45,16 +43,16 @@ The server config:
             proxy_pass      http://192.168.154.102/maped_dir/;
         }
 
-    test.com/app/xxxxx =>  http://192.168.154.102/maped_dir/xxxxx
+        test.com/app/xxxxx =>  http://192.168.154.102/maped_dir/xxxxx
+
+
+ 3. Forward the requested Host header
 
     By default, the Host header from the request is not forwarded, but is set based on the proxy_pass statement. To forward the requested Host header, it is necessary to use:
 
         proxy_set_header Host $host;
     
-    
 ### 3. location with regular expression ###
-
-* * *
 
 1.  If the location is given by regular expression, can not be a URI part in `proxy_pas`s directive,  unless there are variables in the directive.
 
@@ -69,13 +67,15 @@ The server config:
             proxy_pass       http://192.169.154.102:$1;
         }
     
-    test.com/app/8081 => http://192.168.154.102:8081
+        test.com/app/8081 => http://192.168.154.102:8081
+
+    and:
 
         location ~ ^/app/(.*)$ {
             proxy_pass       http://192.169.154.102:9999/some_dir/$1;
         }
 
-    test.com/app/request/xxxxx => http://192.168.154.102:9999/statement/xxxxx
+        test.com/app/request/xxxxx => http://192.168.154.102:9999/statement/xxxxx
 
 3.  with a rewrite directive in the location:
 
