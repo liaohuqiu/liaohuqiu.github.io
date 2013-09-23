@@ -54,7 +54,7 @@ category: blog
     
 ### 3. location with regular expression ###
 
-1.  If the location is given by regular expression, can not be a URI part in `proxy_pas`s directive,  unless there are variables in the directive.
+1.  If the location is given by regular expression, can not be a URI part in `proxy_pass` directive,  unless there are variables in the directive.
 
         location  ~ ^/app/(.*)$ {
             #proxy_pass   http://127.0.0.1/some_dir;    #error
@@ -75,7 +75,7 @@ category: blog
             proxy_pass       http://192.169.154.102:9999/some_dir/$1;
         }
 
-        test.com/app/request/xxxxx => http://192.168.154.102:9999/statement/xxxxx
+        test.com/app/request/xxxxx => http://192.168.154.102:9999/some_dir/xxxxx
 
 3.  with a rewrite directive in the location:
 
