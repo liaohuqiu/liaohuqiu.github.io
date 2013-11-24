@@ -49,12 +49,22 @@ Instrumentation                     |
     |       +- ActivityManagerNative.getDefault().startActivity();  ---+
     |                                          |                       |
     +- newActivity()                           |                       |
+    |       |                                  |                       |
+    |       |  +-------------------------+     |                       |
+    |       |  |                         |     |                       |
+    |       +->| Activity.newInstance()  |     |                       |
+    |          |                         |     |                       |
+    |          +-------------------------+     |                       |
+    |                                          |                       |
+    +- callActivityOnCreate()                  |                       |
             |                                  |                       |
-            |  +---------------------+         |                       |
-            |  |                     |         |                       |
-            +->| class.newInstance() |         |                       |
-               |                     |         |                       |
-               +---------------------+         |                       |
+            |                                  |                       |
+            |  +--------------------------+    |                       |
+            |  |                          |    |                       |
+            +->| Activity.performCreate() |    |                       |
+               |                          |    |                       |
+               +------------------------- +    |                       |
+                                               |                       |
                                                |                       |
                                                |                       |
       +----|> IBinder, IActivityManager        |                       |
@@ -142,11 +152,12 @@ Process         <- android.os                                          |        
         |                                                                        |       |
         +- startViaZygote()                                                      |       |
             |                                                                    |       |
-            +-  zygoteSendArgsAndGetResult()                                     |       |
-                                   |                                             |       |
-ActivityThread                     |                                             |       |
-    |                              |                                             |       |
-    +- main()     <----------------+                                             |       |
+            +-  zygoteSendArgsAndGetResult() <---+                               |       |
+                                                 |                               |       |
+                                                 |                               |       |
+ActivityThread                                   |                               |       |
+    |                   Socket, Unix domain TCP  |                               |       |
+    +- main()     <------------------------------+                               |       |
     |   |                                                                        |       |
     |   +- attach()                                                              |       |
     |       |                                                                    |       |
@@ -165,18 +176,24 @@ ActivityThread                     |                                            
     |           + handleMessage() --------+
     |                                     |
     +- handleLaunchActivity()  <----------+
-    |   |
-    |   +- performLaunchActivity()
-    |                         |
-    +- mInstrumentation       |
-        |                     |
-        +- newActivity()  <---+
+        |
+        +- performLaunchActivity()
+            |
+            +- mInstrumentation.newActivity()
+            +- mInstrumentation.callActivityOnCreate()
+
 </code>
 </pre>
 
 ###Finally
 
-In a word, when we call `startActivity()`, the construct of `Activity` will be called.
+When we call `startActivity()`, `ActivityManagerProxy` will communicate with `Zyogte` by Unix domain TCP.
+
+`Zyogte` will invoke `ActivityThread` to process the request.
+
+Here is a stack call diagram about `ActivityThread` when create a activity.
+
+<img src="/img/create-activity-stack.png" style="Width:initial; max-Width:initial"/>
 
 <hr/>
 <p> {{ page.date | date_to_string }} </p>
