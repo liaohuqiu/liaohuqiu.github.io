@@ -36,7 +36,6 @@ footer, header, hgroup, menu, nav, section {
 }
 
 ol, ul {
-    list-style: none;
 }
 
 blockquote, q {
@@ -51,6 +50,25 @@ table {
 Theme Styles
  *******************************************************************************/
 
+.title-desc ul, .title-desc ol,
+.md-body ul, .md-body ol {
+    padding-left: 30px;
+}
+
+.title-desc {
+}
+
+.article-list .title-desc li {
+    margin: 0;
+}
+.article-list li {
+    margin-bottom: 30px;
+}
+
+code, pre {
+    font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
 body {
     box-sizing: border-box;
     color:#373737;
@@ -62,7 +80,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin: 10px 0;
+    margin: 10px 0 15px;
     font-weight: 700;
     color:#222222;
     font-family: 'Lucida Grande', 'Calibri', Helvetica, Arial, sans-serif;
@@ -162,7 +180,6 @@ pre, code {
     color: #222;
     background-color: #fff;
 
-    font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
     font-size: 14px;
 
     border-radius: 2px;
@@ -197,11 +214,6 @@ blockquote {
 
 ul, ol, dl {
     margin-bottom: 15px
-}
-
-ol li {
-    list-style: decimal inside;
-    padding-left: 20px;
 }
 
 dl dt {
@@ -313,10 +325,7 @@ Full-Width Styles
     text-align: right;
 }
 
-.artical-list li
-{
-    margin-bottom: 30px;
-}
+
 
 
 /*******************************************************************************
@@ -367,3 +376,4 @@ Small Device Styles
       font-size: 11px;
   }
 }
+
