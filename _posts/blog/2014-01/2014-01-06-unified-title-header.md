@@ -24,18 +24,20 @@ category: blog
 
 ####解决方案
 
-页头控件形式存在; 一个基类Activity使用此控件，公开`setTitle()`等方法，处理页头点击返回，数据记录等逻辑。
+* 基本思路
+
+    *   页头控件形式实现。
+    *   一个基类Activity使用此控件，公开`setTitle()`等方法，处理页头点击返回，数据记录等逻辑。
 
 * 抽象和封装
     1. `HeaderBarBase`: 对应的布局文件为：`base_header_bar_base.xml`。 
-
         * 处理左中右三个布局关系，用于样式统一。
         * 监听点击事件。监听左中右布局点击，避免实际区域太小无法点击的糟糕的用户体验。
         * 作为基类抽象，可扩展多多个页头：普通页头/特殊页头等。
 
-        -
+        `HeaderBarBase.java`
 
-           HeaderBarBase
+            HeaderBarBase
                |
                +- +getLeftViewContianer()
                +- +getCenterViewContainer();
@@ -44,52 +46,50 @@ category: blog
                +- +setLeftOnClickListner();
                +- +setCenterOnClickListner();
                +- +setRightOnClickListner();
-
-
     2. `TitleHeaderBar` 继承于 `HeaderBarBase`, 对应的布局文件为：`base_header_bar_title.xml`，处理普通页头UI和业务逻辑。
+
+       `TitleHeaderBar.java`
 
            TitleHeaderBar --> HeaderBarBase
                |
                +- +getLeftImageView();
                +- +getCenterTextView();
                +- +getRightTextView();
+* 易用性的实现
 
-* 易用性
+    `TitleBaseActivity`, 包含了 `TitleHeaderBar`,  统一处理了页面页头逻辑。对应的布局文件为: `activity_title_base.xml`:
 
-    1. `TitleBaseActivity`, 包含了 `TitleHeaderBar`,  统一处理了页面页头逻辑。对应的布局文件为 `activity_title_base.xml`
-        
-        * 使用一个`ContentView`为布局文件中`LinearLayout`, 重写`setContentView`, 将内容添加到了此`LinearLayout`上
-        * `LinearLayout`包含了一个`TitleHeaderBar`, 可以统一统一页面返回，点击数据埋点等细化的业务逻辑
-        * 直接继承此类使用即可, 使用简单
+        <?xml version="1.0" encoding="utf-8"?>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:orientation="vertical" >
 
-        `activity_title_base.xml`:
+            <com.etao.mobile.views.header.TitleHeaderBar
+            android:id="@+id/ly_header_bar_title_wrap"
+            android:layout_width="match_parent"
+            android:layout_height="44dp" >
+            </com.etao.mobile.views.header.TitleHeaderBar>
 
-            <?xml version="1.0" encoding="utf-8"?>
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#ffffff"
-                android:orientation="vertical" >
+        </LinearLayout>
+    <br>
+    * Actvity的内容为布局文件中`LinearLayout`;
+    * `LinearLayout`包含了一个`TitleHeaderBar`, 可以统一统一页面返回，点击数据埋点等细化的业务逻辑;
+    * 重写`setContentView()`, 将内容添加到了此`LinearLayout`上
+    * 直接继承此类使用即可, 使用简单:
 
-                <com.etao.mobile.views.header.TitleHeaderBar
-                android:id="@+id/ly_header_bar_title_wrap"
-                android:layout_width="match_parent"
-                android:layout_height="44dp" >
-                </com.etao.mobile.views.header.TitleHeaderBar>
+    `TitleBaseActivity.java`:
 
-            </LinearLayout>
-        
-        `TitleBaseActivity.java`:
-
-            TitleBaseActivity
-                |
-                +- -mContentViewContainer
-                |
-                +- -mTitleHeaderBar;    // protected
-                |
-                +- -enableDefaultBack(); // 默认为true，点击左侧图标返回上一页
-                |
-                +- -setHeadTitle()      // 设置标题
+        TitleBaseActivity
+           |
+           +- -mContentViewContainer
+           |
+           +- -mTitleHeaderBar;     // protected, 子类可根据自身情况处理
+           |
+           +- -enableDefaultBack(); // 默认为true，点击左侧图标默认行为：返回
+           |
+           +- -setHeadTitle()       // 设置标题
 
 
 * 扩展性
