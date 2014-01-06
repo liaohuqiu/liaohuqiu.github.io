@@ -133,7 +133,7 @@ Android框架Debug类提供了方法，记录方法调用的执行数据到一�
 
 <img src="/img/android-debuging/trace-view-exclusive-time.png"/>
 
-上图中，Excl Time 排名第二的方法 bytesToHexString 和可能是有性能问题的。
+上图中，Excl Time 排名第二的方法 `bytesToHexString` 很可能是有性能问题的。
 
 ---
 
