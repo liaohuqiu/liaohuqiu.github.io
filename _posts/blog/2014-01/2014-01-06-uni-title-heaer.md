@@ -94,6 +94,6 @@ category: blog
 
     即可继承`TitleBaseActivity`, 也可以在布局文件中使用`TitleHeaderBar`, 甚至可以从`HeaderBarBase`继承, 实现定制的头部
 
-<image src='/img/android-header-view/header-title.png'>
+<image src='http://www.liaohuqiu.net/img/android-header-view/header-title.png'>
 
 <p> {{ page.date | date_to_string }} </p>
