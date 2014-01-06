@@ -74,10 +74,10 @@ category: blog
 
         </LinearLayout>
     <br>
-    * Actvity的内容为布局文件中`LinearLayout`;
+    * `TitleBaseActivity`的内容为布局文件中`LinearLayout`;
     * `LinearLayout`包含了一个`TitleHeaderBar`, 可以统一统一页面返回，点击数据埋点等细化的业务逻辑;
     * 重写`setContentView()`, 将内容添加到了此`LinearLayout`上
-    * 直接继承此类使用即可, 使用简单:
+    * 直接继承`TitleBaseActivity`使用即可, 使用简单:
 
     `TitleBaseActivity.java`:
 
