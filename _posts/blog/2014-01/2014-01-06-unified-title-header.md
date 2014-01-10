@@ -7,7 +7,7 @@ category: blog
 
 <h2> {{ page.title }} </h2>
 
-<image src='http://www.liaohuqiu.net/img/android-header-view/header-title.png'>
+<img src='http://www.liaohuqiu.net/img/android-header-view/header-title.png'>
 
 ####需要解决的问题
 
@@ -73,7 +73,6 @@ category: blog
             </com.etao.mobile.views.header.TitleHeaderBar>
 
         </LinearLayout>
-    <br>
     * `TitleBaseActivity`的内容为布局文件中`LinearLayout`;
     * `LinearLayout`包含了一个`TitleHeaderBar`, 可以统一统一页面返回，点击数据埋点等细化的业务逻辑;
     * 重写`setContentView()`, 将内容添加到了此`LinearLayout`上
