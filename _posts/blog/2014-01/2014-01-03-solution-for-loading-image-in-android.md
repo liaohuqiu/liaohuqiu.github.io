@@ -6,6 +6,10 @@ category: blog
 ---
 <h2> {{ page.title }} </h2>
 
+#### pre
+
+A common work flow to load image from network:
+
     +-----------------------+
     |  Start to load        |
     +---------+-------------+
@@ -32,6 +36,7 @@ category: blog
     | Draw in ImageView     |<-+
     +-------+---------------+
 
+---
 #### Local Cache
 
 1. Quota
@@ -40,10 +45,9 @@ category: blog
 
 3. File Cache
 
-
 > Reuse
 
-
+---
 #### Size and Format Control
 
 * When from network
@@ -54,6 +58,7 @@ category: blog
 
 * Support `.webp` format.
 
+---
 #### Cross Thread
 
 1. `Handler` and `LoadImageHandler`
