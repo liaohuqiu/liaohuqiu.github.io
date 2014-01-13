@@ -28,7 +28,7 @@ category: blog
 
 ###code flow
 
-For achieve this, I have spent a whole day in VIM, :).
+To achieve this, I have spent a whole day in VIM, :).
 
 <pre>
 <code>

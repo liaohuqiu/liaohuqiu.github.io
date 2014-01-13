@@ -1,22 +1,31 @@
 ---
 layout: post
 title: LUR cache in Android
-description: 
+description: An introduce to the 
 category: blog
 ---
 <h2> {{ page.title }} </h2>
 
-###LUR cache
+####LUR cache
+
+LUR cache is very convinient to manager a list of data which has a limit space requirement.
 
 LRU cache can manager an set of object. 
 
-* There is a queue in the cache. The recently used object, by get from or put into the cache, will be at the head of the queue.
+There are two kinds of LruCache in Android: `LruCache` and `DiskLruCache`, the fisrt can be used to manager an set of objects, the later can be used to manager files.
 
-* It has a capcity limit. When the total size of the object in the queue has exceed the limit, it will remove the eldest objects from the end of the queue till the total of the size of the remaining objects is at or below the limit size.
+A senoar that the LruCache can be used is to manager the quota of disk cache and memory cache when loading a network image.
 
-LRU cache has some interfaces:
+After an image is loaded from remote server, commonly it will be write to disk for further use. When the image is required to display in the `ImageView` we will decode the bitmap data from this file. The decode operta
+
+#### LruCache
+
+`LruCache` is in the `support V4` package. It is very simple.
+
 
     LRU cache
+        |
+        +- -map, LinkedHashmap
         |
         +- +put(K key, V value)
         |
@@ -28,6 +37,17 @@ LRU cache has some interfaces:
         |
         +- -create(K key)
 
+
+It has a `LinkedHashmap` inside, which is constructed by
+
+     public LinkedHashMap(int initialCapacity, float loadFactor, boolean accessOrder)
+
+The third parameter allow the `LinkedHashmap` to put the element to the head of the linked list after accessed, by `get` / `set`.
+
+* There is a queue in the cache. The recently used object, by get from or put into the cache, will be at the head of the queue.
+
+* It has a capcity limit. When the total size of the object in the queue has exceed the limit, it will remove the eldest objects from the end of the queue till the total of the size of the remaining objects is at or below the limit size.
+
 1. `sizeOf(K key, V value)` method return the size of each count which will be used to calculate the size of the whole size.
      The default implementions returns 1, which make the LUR cache only manager a limit amount of objects.
 
@@ -38,7 +58,8 @@ LRU cache has some interfaces:
 4. `entryRemoved` will be call when an object is removed when the new value conrespong value of this key is put into cache
     or the total size of the cache has exceed the limit.
 
-##Implemtations of LUR cache in Android
+####DiskLurCache
+
 
 
 
