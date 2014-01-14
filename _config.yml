@@ -1,6 +1,7 @@
 baseurl:     /
 auto: true
 
+host: ['liaohuqiu.net', 'www.liaohuqiu.net', 'blog.liaohuqiu.net']
 markdown: rdiscount
 pygments: true
 paginate: 8
