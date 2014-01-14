@@ -65,6 +65,9 @@ Theme Styles
     margin-bottom: 30px;
 }
 
+.article-list .title-box {
+}
+
 code, pre {
     font-family: Consolas, "Liberation Mono", Courier, monospace;
 }
