@@ -80,6 +80,7 @@ android系统自身自带有存储，另外也可以通过sd卡来扩充存储�
         }
     }
     ```
+
 ---
 ####路径的规律
 
@@ -88,35 +89,43 @@ android系统自身自带有存储，另外也可以通过sd卡来扩充存储�
 通过这两个类可获取各种路径，如图：
 
 ```
-   +- /data                -> Environment.getDataDirectory()
-   |   |
-   |   +- data/com.srain.cube.sample
-   |       |
-   |       +- files            -> Context.getFilesDir() / Context.getFileStreamPath("")
-   |       |       |
-   |       |       +- file1    -> Context.getFileStreamPath("file1")
-   |       +- cache            -> Context.getCacheDir()
-   |       |
-   |       +- app_$name        ->(Context.getDir(String name, int mode)
-   |
-   +- /storage/sdcard0     -> Environment.getExternalStorageDirectory()
-       |                       / Environment.getExternalStoragePublicDirectory("")
-       |
-       +- dir1             -> Environment.getExternalStoragePublicDirectory("dir1")
-       |
-       +- Andorid/data/com.srain.cube.sample
-           |
-           +- files        -> Context.getExternalFilesDir("")
-           |   |
-           |   +- file1    -> Context.getExternalFilesDir("file1")
-           |   +- Music    -> Context.getExternalFilesDir(Environment.Music);
-           |   +- Picture  -> ... Environment.Picture
-           |   +- ...
-           |
-           +- cache        -> Context.getExternalCacheDir()
-           |
-           +- ???
-   
+    ($rootDir)
++- /data                -> Environment.getDataDirectory()
+|   |
+|   |   ($appDataDir)
+|   +- data/com.srain.cube.sample
+|       |
+|       |   ($filesDir)
+|       +- files            -> Context.getFilesDir() / Context.getFileStreamPath("")
+|       |       |
+|       |       +- file1    -> Context.getFileStreamPath("file1")
+|       |   ($cacheDir)
+|       +- cache            -> Context.getCacheDir()
+|       |
+|       +- app_$name        ->(Context.getDir(String name, int mode)
+|
+|   ($rootDir)
++- /storage/sdcard0     -> Environment.getExternalStorageDirectory()
+    |                       / Environment.getExternalStoragePublicDirectory("")
+    |
+    +- dir1             -> Environment.getExternalStoragePublicDirectory("dir1")
+    |
+    |   ($appDataDir)
+    +- Andorid/data/com.srain.cube.sample
+        |
+        |   ($filesDir)
+        +- files        -> Context.getExternalFilesDir("")
+        |   |
+        |   +- file1    -> Context.getExternalFilesDir("file1")
+        |   +- Music    -> Context.getExternalFilesDir(Environment.Music);
+        |   +- Picture  -> ... Environment.Picture
+        |   +- ...
+        |
+        |   ($cacheDir)
+        +- cache        -> Context.getExternalCacheDir()
+        |
+        +- ???
+
 ```
 
 ---
@@ -124,10 +133,11 @@ android系统自身自带有存储，另外也可以通过sd卡来扩充存储�
 下面介绍这些路径的特性以及使用中需要注意的细节:
 
 1.  根目录(`$rootDir`)：
-
     * 内部存储路径： `/data`, 通过`Environment.getDataDirectory()` 获取
     * 外部存储路径： `/storage/sdcard0` (也有类似 /mnt/ 这样的）,通过`Environment.getExternalStorageDirectory()`获取
         
+        示例:
+
         ```
         Environment.getDataDirectory(): 
                 /data
@@ -136,81 +146,112 @@ android系统自身自带有存储，另外也可以通过sd卡来扩充存储�
                 /storage/sdcard0
         ```
     ---
-
-2.  应用数据目录(`$appDataDir`)，
-
-    * 内部储存：  `$appDataDir = $rootDir/data/$packageName`, 
-    * 外部存储:   `$appDataDir = $rootDir/Andorid/data/$packageName`
+2.  应用数据目录(`$appDataDir`)
+    * 内部储存: `$appDataDir = $rootDir/data/$packageName`, 
+    * 外部存储: `$appDataDir = $rootDir/Andorid/data/$packageName`
 
     ***在这些目录下的数据，在app卸载之后，会被系统删除，我们应将应用的数据放于这两个目录中。***
 
+    ---
+3. 外部存储中，公开的数据目录。
+    这些目录将不会随着应用的删除而被系统删除，请斟酌使用:
+
+    ```
+    Environment.getExternalStorageDirectory(): 
+        /storage/sdcard0
+
+    // 同 $rootDir
+    Environment.getExternalStoragePublicDirectory(""): 
+        /storage/sdcard0
+
+    Environment.getExternalStoragePublicDirectory("folder1"): 
+        /storage/sdcard0/folder1
+    ```
+
+    ---
+4.  应用数据目录下的目录
+
     **一般的在$appDataDir下，会有两个目录**：
 
-    1.  数据缓存：`$cacheDir = $appDataDir/cache`:  
+    1. 数据缓存：`$cacheDir = $appDataDir/cache`:  
         * 内部存储：`Context.getCacheDir()`, 机身内存不足时，文件会被删除
-        * 外部存储: `Context.getExternalCacheDir()`, 外部存储没有实时监控，当空间不足时，文件不会实时被删除，可能返回空对象
-            
-        ```
-        Context.getCacheDir(): 
-                /data/data/com.srain.cube.sample/cache
+        * 外部存储：`Context.getExternalCacheDir()`
 
-        Context.getExternalCacheDir(): 
-                /storage/sdcard0/Android/data/com.srain.cube.sample/cache
-        ```
+            外部存储没有实时监控，当空间不足时，文件不会实时被删除，可能返回空对象
 
+            示例:
+
+            ```
+            Context.getCacheDir(): 
+                    /data/data/com.srain.cube.sample/cache
+
+            Context.getExternalCacheDir(): 
+                    /storage/sdcard0/Android/data/com.srain.cube.sample/cache
+            ```
     2. 文件目录 `$filesDir = $appDataDir/files`:  
         * 内部存储：通过`Context.getFilesDir()` 获取
 
-          `Context.getFileStreamPath(String name)`返回以`name`为文件名的文件对象，`name`为空，则返回 `$filesDir` 本身
+            `Context.getFileStreamPath(String name)`返回以`name`为文件名的文件对象，`name`为空，则返回 `$filesDir` 本身
 
-        ```
-        Context.getFilesDir(): 
-                /data/data/com.srain.cube.sample/files
+            示例:
 
-        Context.getFileStreamPath(""):
-                /data/data/com.srain.cube.sample/files
+            ```
+            Context.getFilesDir(): 
+                    /data/data/com.srain.cube.sample/files
 
-        Context.getFileStreamPath("file1"):
-                /data/data/com.srain.cube.sample/files/file1
-        ```
+            Context.getFileStreamPath(""):
+                    /data/data/com.srain.cube.sample/files
 
+            Context.getFileStreamPath("file1"):
+                    /data/data/com.srain.cube.sample/files/file1
+            ```
         * 外部存储：通过`Context.getExternalFilesDir(String type)`, `type`为空字符串时获取.
 
             `type`系统指定了几种类型:
 
-        ```
-        Environment.DIRECTORY_MUSIC
-        Environment.DIRECTORY_PICTURES
-        ...
-        ```
+            ```
+            Environment.DIRECTORY_MUSIC
+            Environment.DIRECTORY_PICTURES
+            ...
+            ```
 
-        ```
-        Context.getExternalCacheDirs(): 
-                /storage/sdcard0/Android/data/com.srain.cube.sample/files
+            示例:
 
-        Context.getExternalFilesDir(Environment.DIRECTORY_MUSIC)
-                /storage/sdcard0/Android/data/com.srain.cube.sample/files/Music
-        ```
+            ```
+            Context.getExternalCacheDirs(): 
+                    /storage/sdcard0/Android/data/com.srain.cube.sample/files
 
-    3.  在内部存储中，`$cacheDir`, `$filesDir`是app安全的，其他应用无法读取本应用的数据，而外部存储则不是。
+            Context.getExternalFilesDir(Environment.DIRECTORY_MUSIC)
+                    /storage/sdcard0/Android/data/com.srain.cube.sample/files/Music
+            ```
+
+        ---
+    4.  `$cacheDir / $filesDir` 安全性
+
+        在内部存储中，`$cacheDir`, `$filesDir`是app安全的，其他应用无法读取本应用的数据，而外部存储则不是。
 
         在外部存储中，这两个文件夹其他应用程序也可访问。
 
-        在外部存储中，`$filesDir`中的媒体文件，不会被当做媒体扫描出来，加到媒体库中。
+        ***在外部存储中，`$filesDir`中的媒体文件，不会被当做媒体扫描出来，加到媒体库中。***
 
-    4.  在内部存储中：通过 `Context.getDir(String name, int mode)`可获取和 `$filesDir` / `$cacheDir` 同级的目录
+        ---
+    5.  `$cacheDir / $filesDir` 同级目录
 
-        通过mode可控制此目录为app私有还是其他app可读写。
+        在内部存储中：通过 `Context.getDir(String name, int mode)`可获取和 `$filesDir` / `$cacheDir` 同级的目录
 
-        目录的命名规则为 `app_ + name`:
+        目录的命名规则为 `app_ + name`, 通过mode可控制此目录为app私有还是其他app可读写。
+
+        示例:
 
         ```
         Context.getDir("dir1", MODE_PRIVATE):
                 Context.getDir: /data/data/com.srain.cube.sample/app_dir1
         ```
 
-    5.  **特别注意, 对于外部存储，获取`$cacheDir` 或者 `$filesDir`及其下的路径***
-    >   在API level 8 以下，或者储空间不足，相关的方法获路径为空时，需要自己构造。
+        ---
+    6.  **特别注意, 对于外部存储，获取`$cacheDir` 或者 `$filesDir`及其下的路径**
+
+        在API level 8 以下，或者空间不足，相关的方法获路径为空时，需要自己构造。
 
         ```
         @TargetApi(VERSION_CODES.FROYO)
@@ -233,26 +274,10 @@ android系统自身自带有存储，另外也可以通过sd卡来扩充存储�
             return new File(Environment.getExternalStorageDirectory().getPath() + cacheDir);
         }
         ```
-        ---
 
-3. 外部存储中，公开的数据目录。
-
-    这些目录将不会随着应用的删除而被系统删除，请斟酌使用:
-
-    ```
-    Environment.getExternalStorageDirectory(): 
-        /storage/sdcard0
-
-    // 同 $rootDir
-    Environment.getExternalStoragePublicDirectory(""): 
-        /storage/sdcard0
-
-    Environment.getExternalStoragePublicDirectory("folder1"): 
-        /storage/sdcard0/folder1
-    ```
 ---
 ####相关代码：
-[https://github.com/liaohuqiu/cube-sdk](https://github.com/liaohuqiu/cube-sdk/blob/master/core/src/com/srain/cube/file/FileUtil.java)
+[https://github.com/liaohuqiu/cube-sdk/blob/master/core/src/com/srain/cube/file/FileUtil.java](https://github.com/liaohuqiu/cube-sdk/blob/master/core/src/com/srain/cube/file/FileUtil.java)
 
 ---
 
