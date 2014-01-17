@@ -24,15 +24,15 @@ android系统自身自带有存储，另外也可以通过sd卡来扩充存储�
 4.  数据安全性，本应用数据不愿意被其他应用读写;
 5.  图片缓存等，不应该被扫描加入到用户相册等媒体库中去。
 
-####基本操作
 ---
+####基本操作
 
 1.  使用外部存储，需要的权限，在`AndoridManifest.xml`中:
 
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
         <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-    从API 19 / Andorid 4.4 / KITKAT开始，不再需要显示声明这两个权限，除非要读写其他应用的应用数据(`$appDataDir`)
+    >   从API 19 / Andorid 4.4 / KITKAT开始，不再需要显式声明这两个权限，除非要读写其他应用的应用数据(`$appDataDir`)
 
 2.  判断sd卡可用：
 
@@ -50,6 +50,37 @@ android系统自身自带有存储，另外也可以通过sd卡来扩充存储�
             }
         }
 
+---
+#### 存储的用量情况
+*   根据系统用户不同，所能占用的存储空间大小也有不同
+    >   在API level 9及其以上时，`File`对象的`getFreeSpace()`方法获取系统root用户可用空间；
+
+    >   `getUsableSpace()`取非root用户可用空间
+
+*   当有多个存储可用时获取磁盘用量，根据当前系统情况选用合适的存储。
+*   根据系统存储用量，合理设定app所用的空间大小；运行时，也可做动态调整。
+
+*   在API level 9及其以上的系统，可直接调用`File`对象的相关方法，以下需自行计算:
+    
+    ```
+    @TargetApi(VERSION_CODES.GINGERBREAD)
+    public static long getUsableSpace(File path) {
+        if (path == null) {
+            return -1;
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
+            return path.getUsableSpace();
+        } else {
+            if (!path.exists()) {
+                return 0;
+            } else {
+                final StatFs stats = new StatFs(path.getPath());
+                return (long) stats.getBlockSize() * (long) stats.getAvailableBlocks();
+            }
+        }
+    }
+    ```
+---
 ####路径的规律
 
 一般地，通过`Context` 和 `Environment`相关的方法获取文件存取的路径。
@@ -89,11 +120,12 @@ android系统自身自带有存储，另外也可以通过sd卡来扩充存储�
 ```
 
 ---
+####各个路径的特性
 下面介绍这些路径的特性以及使用中需要注意的细节:
 
 1.  根目录(`$rootDir`)：
 
-    * 一般说来，内部存储路径: `/data`, 通过`Environment.getDataDirectory()` 获取
+    * 内部存储路径： `/data`, 通过`Environment.getDataDirectory()` 获取
     * 外部存储路径： `/storage/sdcard0` (也有类似 /mnt/ 这样的）,通过`Environment.getExternalStorageDirectory()`获取
         
         ```
@@ -103,15 +135,14 @@ android系统自身自带有存储，另外也可以通过sd卡来扩充存储�
         Environment.getExternalStorageDirectory(): 
                 /storage/sdcard0
         ```
+    ---
 
 2.  应用数据目录(`$appDataDir`)，
 
     * 内部储存：  `$appDataDir = $rootDir/data/$packageName`, 
     * 外部存储:   `$appDataDir = $rootDir/Andorid/data/$packageName`
 
-    在这些目录下的数据，在app卸载之后，会被系统删除，我们应将应用的数据放于这两个目录下面。
-
-    > 在API level 8 以下，或者在外部存储空间不足，相关的方法获取$appDataDir下的相关路径为空时，需要自己构造.
+    ***在这些目录下的数据，在app卸载之后，会被系统删除，我们应将应用的数据放于这两个目录中。***
 
     **一般的在$appDataDir下，会有两个目录**：
 
@@ -177,6 +208,33 @@ android系统自身自带有存储，另外也可以通过sd卡来扩充存储�
         Context.getDir("dir1", MODE_PRIVATE):
                 Context.getDir: /data/data/com.srain.cube.sample/app_dir1
         ```
+
+    5.  **特别注意, 对于外部存储，获取`$cacheDir` 或者 `$filesDir`及其下的路径***
+    >   在API level 8 以下，或者储空间不足，相关的方法获路径为空时，需要自己构造。
+
+        ```
+        @TargetApi(VERSION_CODES.FROYO)
+        public static File getExternalCacheDir(Context context) {
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO)) {
+                File path = context.getExternalCacheDir();
+
+                // In some case, even the sd card is mounted,
+                // getExternalCacheDir will return null
+                // may be it is nearly full.
+                if (path != null) {
+                    return path;
+                }
+            }
+
+            // Before Froyo or the path is null,
+            // we need to construct the external cache folder ourselves
+            final String cacheDir = "/Android/data/" + context.getPackageName() + "/cache/";
+            return new File(Environment.getExternalStorageDirectory().getPath() + cacheDir);
+        }
+        ```
+        ---
+
 3. 外部存储中，公开的数据目录。
 
     这些目录将不会随着应用的删除而被系统删除，请斟酌使用:
@@ -193,8 +251,8 @@ android系统自身自带有存储，另外也可以通过sd卡来扩充存储�
         /storage/sdcard0/folder1
     ```
 ---
-#### 磁盘用量
-机身存储在空间不足时会删除一些文件，外部存储
+####相关代码：
+[https://github.com/liaohuqiu/cube-sdk](https://github.com/liaohuqiu/cube-sdk/blob/master/core/src/com/srain/cube/file/FileUtil.java)
 
 ---
 
