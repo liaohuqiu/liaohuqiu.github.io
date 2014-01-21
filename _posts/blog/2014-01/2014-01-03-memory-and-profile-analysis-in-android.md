@@ -40,7 +40,7 @@ Android 应用的性能分析，优化，需要检查分析内存使用情况和
 
 ##### 3. 查看Heap实时情况
 
-<img src="/img/android-debuging/update-heap-status.png"/>
+<img src="http://www.liaohuqiu.net/img/android-debuging/update-heap-status.png"/>
 
 1.  打开DDMS，选中应用,点击Update Heap按钮
 2.  右侧Heap标签页，显示了Heap使用情况
@@ -58,7 +58,7 @@ Android 应用的性能分析，优化，需要检查分析内存使用情况和
 
 我们可以通过DDMS导出hprof文件，在Memeory Analyzer中分析, 如下:
 
-<img src="/img/android-debuging/dump-hprof.png"/>
+<img src="http://www.liaohuqiu.net/img/android-debuging/dump-hprof.png"/>
 
 
 1.  打开DDMS, 选中应用，点击`Dump HPROF file`, 等待一段时间, 10几秒甚至更长，保存hprof文件。
@@ -72,11 +72,11 @@ Android 应用的性能分析，优化，需要检查分析内存使用情况和
     打开文件分析的过程中，会提示是否生成分析报告，分析报告会指出哪些对象是可疑的占用内存的对象。
 
 界面展示大致如下:
-<img src="/img/android-debuging/mat-overview.png"/>
+<img src="http://www.liaohuqiu.net/img/android-debuging/mat-overview.png"/>
 
 点击Histogram:
 
-<img src="/img/android-debuging/mat-histogram.png"/>
+<img src="http://www.liaohuqiu.net/img/android-debuging/mat-histogram.png"/>
 
 各对象在列表中，可排序：
 
@@ -115,7 +115,7 @@ Android框架Debug类提供了方法，记录方法调用的执行数据到一�
 
 直接在ADT的eclipse中打开:
 
-<img src="/img/android-debuging/trace-view-overview.png"/>
+<img src="http://www.liaohuqiu.net/img/android-debuging/trace-view-overview.png"/>
 
 上图中：
 
@@ -131,7 +131,7 @@ Android框架Debug类提供了方法，记录方法调用的执行数据到一�
 3.  选中一个方法，在时间线图中会有突出显示。放大时间线图，可直观看出方法执行时间长度；看调用图，可找出该方法被调用的层次关系。
 4.  查看Excl Time 和Inc Time，分析调用关系，可找出真正耗时的方法，找出性能瓶颈。
 
-<img src="/img/android-debuging/trace-view-exclusive-time.png"/>
+<img src="http://www.liaohuqiu.net/img/android-debuging/trace-view-exclusive-time.png"/>
 
 上图中，Excl Time 排名第二的方法 `bytesToHexString` 很可能是有性能问题的。
 

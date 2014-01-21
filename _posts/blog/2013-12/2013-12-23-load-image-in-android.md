@@ -51,7 +51,6 @@ category: blog
 
 1. Volley
     * 根据ImageView自动加载
-
     * list view / grid view 首项被多次加载，存在问题
     * 无内存缓存
     * 无图片复用
@@ -59,7 +58,6 @@ category: blog
 
 2. BitmapFun
     * 复用和缓存
-
     * list view / grid view 首项被多次加载，存在问题
     * 无图片复用
     * 过量缓存使用: HttpDiskCache / LRU Cache 之后，又有一个Cache
@@ -67,7 +65,6 @@ category: blog
 
 3. novoda/ImageLoader
     * github 上流行的图片加载方案
-
     * list view / grid view 首项被多次加载，存在问题
     * 无缓存配额管理
     * 无图片复用
