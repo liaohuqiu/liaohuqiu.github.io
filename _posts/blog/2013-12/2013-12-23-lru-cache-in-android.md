@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post_wide
 title: LRU cache in Android
 description: An introduce to the LRU cache in Android
 category: blog
@@ -18,7 +18,7 @@ A senoar that a LruCache can be used is to manager the quota of disk cache and m
 
 After an image is loaded from the remote server, commonly it will be write to disk for further use. When the image is required to display in the `ImageView` we will decode the bitmap data from this file. The decoding operation is Cpu-time comsumed. To avoid the same image to be decode for multiple time for the bitmap data, the bitmap data will be cached in the memory after the first time it is decoded.
 
-But the memory and the strage space is very limited, we can not take too much of that. Each time a file is writen to storage of a bitmap data is cached into memory, we must check the total size of the cached data and remove the eldest data if nessery.
+But the memory and the strage space is very limited, we can not take too much of that. Each time a file is writen to storage of a bitmap data is cached into memory, we must check the total size of the cached data and remove the eldest objects if nessery.
 
 Here, the `LRU Cache` will make things easy.
 
@@ -42,25 +42,42 @@ Here, the `LRU Cache` will make things easy.
         +- -create(K key)
 
 
-It has a `LinkedHashmap` inside, which is constructed by
+The `LruCache` has a `LinkedHashmap` inside, which is constructed by
 
      public LinkedHashMap(int initialCapacity, float loadFactor, boolean accessOrder)
 
-The third parameter allow the `LinkedHashmap` to put the element to the head of the linked list after accessed, by `get` / `set`.
-
-* There is a queue in the cache. The recently used object, by get from or put into the cache, will be at the head of the queue.
-
-* It has a capcity limit. When the total size of the object in the queue has exceed the limit, it will remove the eldest objects from the end of the queue till the total of the size of the remaining objects is at or below the limit size.
+The third parameter allow the `LinkedHashmap` to put the element to the head of the linked list after accessed, both by `get` and `set`.
 
 1. `sizeOf(K key, V value)` method return the size of each count which will be used to calculate the size of the whole size.
-     The default implementions returns 1, which make the LRU cache only manager a limit amount of objects.
-
-2. The method `put(K key, V value) cache the value to the cache and check the size. The object will be at the head of the queue.
+> The default implementions returns 1, which make the LRU cache only manager a limit amount of objects.
+2. The method `put(K key, V value) cache the value to the cache and check the size.
 3. The method `get(K key)` will return the value for the key if it is exist in the cache. 
-     When a value is returned, it will move to the head of the queue.
-     If not, method `create(K key)` will be called to create the value. If a the value has been created, it will be put into cache and the limit size will be checked.
+
+    When a value is returned, it will move to the head of the queue, this is grantened by the `LinkedHashmap`;
+
+    If the value is not exist, method `create(K key)` will be called to create the value. If a the value is created, it will be put into cache and the limit size will be checked. This will make the code simple.
+
 4. `entryRemoved` will be call when an object is removed when the new value conrespong value of this key is put into cache
     or the total size of the cache has exceed the limit.
+
+We can make a limit cache to store BitmapData:
+
+    int cacheSizeInKB = 1024 * 10; // 10MB
+    LruCache<String, Bitmap> cache = new LruCache<String, Bitmap>(cacheSizeInKB) {
+
+        @Override
+        protected void entryRemoved(boolean evicted, String key, Bitmap oldValue, Bitmap newValue) {
+        }
+
+        /**
+         * Measure item size in kilobytes rather than units which is more practical for a bitmap cache
+         */
+        @Override
+        protected int sizeOf(String key, Bitmap value) {
+            final int bitmapSize =  value.getByteCount() / 1024;
+            return bitmapSize == 0 ? 1 : bitmapSize;
+        }
+    };
 
 ####DiskLurCache
 

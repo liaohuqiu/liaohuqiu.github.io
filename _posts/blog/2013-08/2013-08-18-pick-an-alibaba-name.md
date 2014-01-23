@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post_wide
 title: 如何起花名
 description: A tool for picking a nice alibaba name.
 category: blog

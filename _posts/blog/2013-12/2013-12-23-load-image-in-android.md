@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post_wide
 title:  Load Image In Android
 description: 
 category: blog

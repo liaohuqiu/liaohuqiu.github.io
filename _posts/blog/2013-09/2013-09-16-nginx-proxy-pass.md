@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post_wide
 title: how does nginx proxy_pass map the request
 description: some examples to show how the request URI will be mapped
 category: blog

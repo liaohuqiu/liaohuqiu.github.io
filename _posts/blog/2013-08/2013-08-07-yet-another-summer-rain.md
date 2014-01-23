@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post_wide
 title: Yet another summer rain.
 description: For another rain, for another summer.
 category: blog

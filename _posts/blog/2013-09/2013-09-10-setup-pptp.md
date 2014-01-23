@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post_wide
 title: Setup PPTP
 description: setup a vpn server
 category: blog

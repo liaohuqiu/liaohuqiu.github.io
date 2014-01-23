@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post_wide
 title: Install jekyll in CentOS
 description: A simple guide about installing jekyll in CentOS.
 category: blog

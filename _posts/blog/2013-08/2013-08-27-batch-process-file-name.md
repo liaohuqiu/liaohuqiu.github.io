@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post_wide
 title:  batch process file name
 description: use find & sed to batch process file name
 category: blog

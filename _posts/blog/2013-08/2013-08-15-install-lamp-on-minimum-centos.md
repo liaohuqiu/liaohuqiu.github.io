@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post_wide
 title: Install LAMP enviroment on a minimum CentOS
 description: A simple guide about installing the LAMP enviroment on a mininum CentOS
 category: blog
