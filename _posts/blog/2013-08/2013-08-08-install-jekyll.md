@@ -4,8 +4,6 @@ title: Install jekyll in CentOS
 description: A simple guide about installing jekyll in CentOS.
 category: blog
 ---
-<h2> {{ page.title }} </h2>
-
 First you need Ruby & RubyGems
 
 `
@@ -34,7 +32,5 @@ Jekyll will server at port: 4000.
 
 
 I created a repository in gitbub, [centos setup], it contains some intallation scripts, inlcuding jekyll,  you can use the installation script to install.
-
-<p> {{ page.date | date_to_string }} </p>
 
 [centos setup]:    https://github.com/liaohuqiu/centos_setup "centos setup"

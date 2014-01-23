@@ -3,13 +3,11 @@ layout: post_wide
 title:  Some Useful Tips in Using Stotage in Andorid
 description: 
              <ul>
-             <li>Som usefule tips</li>
+             <li>Some usefule tips</li>
              <li>安卓使用存储时会遇到的一些问题，以及处理参考</li>
              </ul>
 category: blog
 ---
-<h2> {{ page.title }} </h2>
-
 ####可能遇到的问题
 android系统自身自带有存储，另外也可以通过sd卡来扩充存储空间。前者好比pc中的硬盘，后者好移动硬盘。
 前者空间较小，后者空间大，但后者不一定可用。
@@ -278,7 +276,3 @@ android系统自身自带有存储，另外也可以通过sd卡来扩充存储�
 ---
 ####相关代码：
 [https://github.com/liaohuqiu/cube-sdk/blob/master/core/src/com/srain/cube/file/FileUtil.java](https://github.com/liaohuqiu/cube-sdk/blob/master/core/src/com/srain/cube/file/FileUtil.java)
-
----
-
-<p> {{ page.date | date_to_string }} </p>

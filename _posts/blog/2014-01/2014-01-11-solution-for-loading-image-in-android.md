@@ -4,8 +4,6 @@ title:  Solution for Loading Image in Android
 description: 
 category: blog
 ---
-<h2> {{ page.title }} </h2>
-
 #### Problems
 
 * Memory quota
@@ -103,7 +101,3 @@ A common workflow to load image from network:
 
     > 2592x1936 pixels (5 megapixels)
     > If the bitmap configuration used is ARGB_8888 (the default from the Android 2.3 onward) then loading this image into memory takes about 19MB of memory (2592*1936*4 bytes), immediately exhausting the per-app limit on some devices.
-
----
-
-<p> {{ page.date | date_to_string }} </p>

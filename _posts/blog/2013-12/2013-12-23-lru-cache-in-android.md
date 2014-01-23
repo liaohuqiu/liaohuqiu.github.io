@@ -4,8 +4,6 @@ title: LRU cache in Android
 description: An introduce to the LRU cache in Android
 category: blog
 ---
-<h2> {{ page.title }} </h2>
-
 ####LRU cache
 
 LRU cache is very convinient to manager a list of data which has a limit space requirement.
@@ -84,4 +82,3 @@ We can make a limit cache to store BitmapData:
 
 
 
-<p> {{ page.date | date_to_string }} </p>

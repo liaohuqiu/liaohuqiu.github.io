@@ -4,9 +4,6 @@ title:  Unified Title Header In Android
 description: 安卓统一的页头的一种实现
 category: blog
 ---
-
-<h2> {{ page.title }} </h2>
-
 <img src='http://www.liaohuqiu.net/img/android-header-view/header-title.png'>
 
 ####需要解决的问题
@@ -94,7 +91,3 @@ category: blog
 * 扩展性
 
     即可继承`TitleBaseActivity`, 也可以在布局文件中使用`TitleHeaderBar`, 甚至可以从`HeaderBarBase`继承, 实现定制的头部。
-
----
-
-<p> {{ page.date | date_to_string }} </p>

@@ -4,9 +4,6 @@ title: Install LAMP enviroment on a minimum CentOS
 description: A simple guide about installing the LAMP enviroment on a mininum CentOS
 category: blog
 ---
-
-<h2> {{ page.title }} </h2>
-
 I install my system in a virtual machine (Vamre workstation 7), the version I install is CentOS 6.4 64bit.
 
 After the mininum intallation, there is no network, neither the basic software below:

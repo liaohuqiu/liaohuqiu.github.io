@@ -4,10 +4,6 @@ title: how does nginx proxy_pass map the request
 description: some examples to show how the request URI will be mapped
 category: blog
 ---
-
-<h1> {{ page.title }} </h1>
-
-
 ### 1. about ###
 
  1. The `proxy_pass` directive sets the address of the proxied server and the URI to which location will be mapped. 
@@ -94,8 +90,4 @@ category: blog
 
     => http://192.168.154.102:9999/some_dir/not_hit/some/request/?name=xxxxx
 
-[`proxy_pass` in nginx wiki](http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass)
-
-* * *
-    
-<p> {{ page.date | date_to_string }} </p>
+> [`proxy_pass` in nginx wiki](http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass)

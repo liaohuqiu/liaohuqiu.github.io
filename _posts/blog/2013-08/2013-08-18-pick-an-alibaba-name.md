@@ -6,8 +6,6 @@ category: blog
 js: /js/pick-alibaba-name.js?v=1
 
 ---
-<h2> {{ page.title }} </h2>
-
 在中国三大互联网巨头BAT中，阿里的文化最具魅力。
 
 阿里有三大人文文化：`武侠`，`倒立`，`店小二`。作为武侠文化的一部分，每个阿里人都有自己的花名。
@@ -24,7 +22,7 @@ js: /js/pick-alibaba-name.js?v=1
 
 对了，我是 `无朽`，我们阿里见。
 
-<p class='line'></p>
+---
 
 <div class="row">
     <div id='input-box' class="span3">
@@ -45,5 +43,3 @@ js: /js/pick-alibaba-name.js?v=1
     <pre><code>路人甲
 路人乙</code></pre>
 </div>
-
-<p> {{ page.date | date_to_string }} </p>

@@ -4,8 +4,6 @@ title:  batch process file name
 description: use find & sed to batch process file name
 category: blog
 ---
-<h2> {{ page.title }} </h2>
-
     find . -type f |sed 's/\(.*\)\.html/svn mv "\1.html" "\1.php"/' |sh
 
 the command pass to shell by pipe is:

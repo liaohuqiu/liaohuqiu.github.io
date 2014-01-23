@@ -4,9 +4,6 @@ title: Setup PPTP
 description: setup a vpn server
 category: blog
 ---
-<h2> {{ page.title }} </h2>
-
-
 After a lot of tries, I set up a vpn server on my linode via which I can cross the fucking `GFW`.
 
 Here is a shell script. It is too late tonight, I will reorganize this post in the other day.
@@ -94,5 +91,3 @@ Some reference:
 [http://safesrv.net/setup-pptp-and-freeradius-on-centos-5/](http://safesrv.net/setup-pptp-and-freeradius-on-centos-5/)
 
 TODO: iptables
-
-<p> {{ page.date | date_to_string }} </p>

@@ -8,8 +8,6 @@ description:
              </ul>
 category: blog
 ---
-<h2> {{ page.title }} </h2>
-
 Android 应用的性能分析，优化，需要检查分析内存使用情况和方法调用情况。本文给出进行这两方面分析的工具和方法。
 
 ### 内存使用分析
@@ -134,7 +132,3 @@ Android框架Debug类提供了方法，记录方法调用的执行数据到一�
 <img src="http://www.liaohuqiu.net/img/android-debuging/trace-view-exclusive-time.png"/>
 
 上图中，Excl Time 排名第二的方法 `bytesToHexString` 很可能是有性能问题的。
-
----
-
-<p> {{ page.date | date_to_string }} </p>

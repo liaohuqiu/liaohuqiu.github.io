@@ -4,8 +4,6 @@ title:  Load Image In Android
 description: 
 category: blog
 ---
-<h2> {{ page.title }} </h2>
-
 ### 需要解决的问题
 
 1. 无网络环境下图片不可用
@@ -69,5 +67,3 @@ category: blog
     * 无缓存配额管理
     * 无图片复用
     * 无自动适配
-
-<p> {{ page.date | date_to_string }} </p>

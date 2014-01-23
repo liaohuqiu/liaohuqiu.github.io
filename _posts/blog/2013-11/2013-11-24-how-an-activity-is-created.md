@@ -4,8 +4,6 @@ title:  How an activity is created
 description: What happen when we call startActivity()?
 category: blog
 ---
-<h2> {{ page.title }} </h2>
-
 ###Interfaces
 <pre>
 <code>
@@ -194,6 +192,3 @@ When we call `startActivity()`, `ActivityManagerProxy` will communicate with `Zy
 Here is a stack call diagram about `ActivityThread` when create a activity.
 
 <img src="/img/create-activity-stack.png" style="Width:initial; max-Width:initial"/>
-
-<hr/>
-<p> {{ page.date | date_to_string }} </p>
