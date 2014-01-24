@@ -77,8 +77,58 @@ We can make a limit cache to store BitmapData:
         }
     };
 
+---
 ####DiskLurCache
 
+The `DiskLruCache` has an implementaion in [JB source][source].
 
+    DiskLruCache
+        |
+        +- +get()   // return a snapshot which is realted to the key.
+        |
+        +- +edit()  // return the default `Editor` related the an `Entry` which is related to the key.
+
+Like `LruCache`, it has a `LinkedHashmap` inside to manage the access order of the cached files. 
+
+There are some classes where are used to managed the info of the cached files:
+
+*   Editor
+
+    1.  An `Editor` providers some operations of file: create, save, read;
+
+*   Snapshot
+    
+    1. A `Snapshot` is related to a `key`, 
+    
+*   Entry
+
+    1. `Entry` store the 
+
+
+---
+[source]: https://android.googlesource.com/platform/libcore/+/android-4.1.1_r1/luni/src/main/java/libcore/io/DiskLruCache.java
+
+
+
+There is a class `Snapshot` which is used to describe the cached files, each `Snapshot` has one or more `Editor`, which is related the operataion with the cached file. That is to say,, a cache key in `DiskLruCache` is related to one or more file.
+
+    Snapshot
+      |
+      +- - InputStream[] ins
+
+    Editor
+      |
+      +-
+      +
+
+Unlike `LruCache` a key may associate one or more file
+There is an inner class `Entry` to describe the cached files:
+
+    Entry
+     |  
+     +- -long[] lengths
+     +- -String key
+     +- +setLengths(String[] strings)
+     +- +getLengths()
 
 
