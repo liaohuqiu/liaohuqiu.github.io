@@ -1,9 +1,22 @@
-baseurl:     /
-auto: true
+baseurl:        /
+auto:           true
 
-markdown: rdiscount
-pygments: true
-paginate: 8
-permalink: /:title
+markdown:       redcarpet
+pygments:       true
+paginate:       3
+paginate_path:  "index/page:num"
+permalink:      /:categories/:title
 
-title: Yet Another Summer Rain
+title:          "Yet Another Summer Rain"
+
+exclude:        ['conf', 'tools', 'README.md']
+
+languages:          ['en', 'cn']
+
+# If not config, the first of languages will be the default
+language_default:   "en"
+
+# If a post of default language not set `no_fill_default_content` to true
+# Its content will use to replace if the corresponding content of other languages is not exist.
+# 
+#fill_default_content: true

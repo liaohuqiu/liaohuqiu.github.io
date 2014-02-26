@@ -1,12 +1,11 @@
 ---
 title: about me
-layout: post_wide
-css: /css/about-me.css?v=1
+layout: about_me
+css: /assets/css/about-me.css?v=1
+category: about
 ---
 
 <h2>basics</h2>
-
-<p>福建龙岩 / 北京航空航天大学</p>
 
 [I am On GitHub](https://github.com/liaohuqiu) | [I am On StackOverflow](http://stackoverflow.com/users/2446397/) |
 [Twitter](https://twitter.com/liaohuqiu) | [Facebook](https://www.facebook.com/huqiu.liao) | [Weibo](http://weibo.com/liaohuqiu)
@@ -17,12 +16,12 @@ css: /css/about-me.css?v=1
     <div class='row'>
         <div class='span3 pic'>
             <p>I like this:</p>
-            <img src='/img/srain/srain_skating.jpg' class="img-rounded"/>
+            <img src='/assets/img/srain/srain_skating.jpg' class="img-rounded"/>
         </div>
 
         <div class='span3 pic'>
             <p>And this.</p>
-            <img src='/img/srain/srain_with_helmet.jpeg' class="img-rounded"/>
+            <img src='/assets/img/srain/srain_with_helmet.jpeg' class="img-rounded"/>
         </div>
     </div>
 

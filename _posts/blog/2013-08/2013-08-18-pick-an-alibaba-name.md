@@ -3,7 +3,7 @@ layout: post_wide
 title: 如何起花名
 description: A tool for picking a nice alibaba name.
 category: blog
-js: /js/pick-alibaba-name.js?v=1
+js: /assets/js/pick-alibaba-name.js?v=1
 
 ---
 在中国三大互联网巨头BAT中，阿里的文化最具魅力。

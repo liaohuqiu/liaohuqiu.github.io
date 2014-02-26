@@ -191,4 +191,4 @@ When we call `startActivity()`, `ActivityManagerProxy` will communicate with `Zy
 
 Here is a stack call diagram about `ActivityThread` when create a activity.
 
-<img src="/img/create-activity-stack.png" style="Width:initial; max-Width:initial"/>
+<img src="/assets/img/create-activity-stack.png" style="Width:initial; max-Width:initial"/>
