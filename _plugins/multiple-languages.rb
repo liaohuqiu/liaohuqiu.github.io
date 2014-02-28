@@ -1,6 +1,7 @@
 module Jekyll
   module MultiLang
     attr_accessor :language, :name_no_language, :is_default_language, :url_no_language, :dir_source
+
     def process_initialize(site, base, dir, name)
       name_no_language = name.dup
 
@@ -42,6 +43,16 @@ module Jekyll
       end
       @url
     end
+
+    def process_to_liquid(attrs = nil)
+      data_for_liquid = self.to_liquid_org(attrs)
+      attrs_for_lang = self.language_attributes_for_liquid || []
+      attrs_for_lang.concat(%w[language])
+      further_data = Hash[attrs_for_lang.map { |attribute|
+        [attribute, send(attribute)]
+      }]
+      data_for_liquid.deep_merge(further_data)
+    end
   end
 
   # Rewrite Jekyll.site
@@ -52,6 +63,8 @@ module Jekyll
     def process
       self.begin_inject
       process_org
+    rescue Exception => e
+      print e.backtrace.join("\n")
     end
 
     alias :read_org :read
@@ -67,30 +80,40 @@ module Jekyll
       langs_remain = self.languages.dup
       langs_remain.delete(lang_default)
 
-      self.posts_by_language = {}
-      self.pages_by_language = {}
-      self.posts.each {|post|
-        (self.posts_by_language[post.language] ||= {})[post.url_no_language] = post
-      }
-      self.pages.each {|page|
-        (self.pages_by_language[page.language] ||= {})[page.url_no_language] = page
+      @posts_by_language = {}
+      @pages_by_language = {}
+
+      self.languages.dup.each { |lang|
+        @posts_by_language[lang] ||= {}
+        @pages_by_language[lang] ||= {}
       }
 
-      if (self.fill_default_content)
-        posts = self.posts_by_language[lang_default].select{|k,v| !v.data['no_fill_default_content']}
-        posts.each{|k, post|
-          site = post.site
-          langs_remain.each{|lang|
-            if !@posts_by_language[lang][k]
-              p = Post.new(site, site.source, post.dir_source, post.name)
-              p.language = lang
-              p.is_default_language = false
-              posts_by_language[lang][k] = p
-              site.posts << p
-            end
-          }
-        }
+      self.posts.each {|post|
+        @posts_by_language[post.language][post.url_no_language] = post
+      }
+      self.pages.each {|page|
+        @pages_by_language[page.language][page.url_no_language] = page
+      }
+
+      if (@fill_default_content)
+        self.fill_default_content(@posts, @posts_by_language, lang_default, langs_remain, Post)
+        self.fill_default_content(@pages, @pages_by_language, lang_default, langs_remain, Page)
       end
+    end
+
+    def fill_default_content(contents, grouped_contents, default, targets, kclass)
+      grouped_contents[default].select{|k,v| !v.data['no_fill_default_content']}
+      .each{ |k, content|
+        targets.each{|lang|
+          if !grouped_contents[lang][k]
+            c = kclass.new(self, @source, content.dir_source, content.name)
+            c.language = lang
+            c.is_default_language = false
+            grouped_contents[lang][k] = c
+            contents << c
+          end
+        }
+      }
     end
 
     # Only when site is initialized, this plugin will be loaded
@@ -116,6 +139,8 @@ module Jekyll
 
     include MultiLang
 
+    LANGUAGE_ATTRIBUTES_FOR_LIQUID = %w[]
+
     alias :initialize_org :initialize
     def initialize(site, base, dir, name)
       process_initialize(site, base, dir, name)
@@ -131,15 +156,27 @@ module Jekyll
       process_org(@name_no_language)
     end
 
+    alias :to_liquid_org :to_liquid
+    def to_liquid(attrs = nil)
+      process_to_liquid(attrs)
+    end
+
+    def language_attributes_for_liquid
+      LANGUAGE_ATTRIBUTES_FOR_LIQUID
+    end
+
     def inspect
       "#<Jekyll:Page @name=#{self.name.inspect} @url=#{self.url.inspect}>"
     end
+
   end
 
   class Post
     include MultiLang
 
-    alias :initialize_org :initialize
+    MATCHER_WITH_LANG = /^(.+\/)*(?:.+\.)*(\d+-\d+-\d+)-(.*)(\.[^.]+)$/
+
+      alias :initialize_org :initialize
     def initialize(site, source, dir, name)
       process_initialize(site, source, dir, name)
     end
@@ -158,13 +195,27 @@ module Jekyll
       "<Post: id: #{self.id} url: #{self.url} language: #{self.language}>"
     end
 
-    MATCHER = /^(.+\/)*(?:.+\.)*(\d+-\d+-\d+)-(.*)(\.[^.]+)$/
+    # For match /blog/$lang.2014-02-14-the-blog-name.md 
+    # or /blog/2014-02-14-the-blog-name.$lang.md
+    #
+    def self.valid?(name)
+      name =~ MATCHER_WITH_LANG
+    end
+
+    def language_attributes_for_liquid
+
+    end
+
+    alias :to_liquid_org :to_liquid
+    def to_liquid(attrs = nil)
+      process_to_liquid(attrs)
+    end
 
   end
 
   module Generators
 
-    # index.$lang.html / index.htm
+    # index.$lang.html / index.html
     #
     # => /$lang/... /...
     # 
@@ -242,7 +293,7 @@ module Jekyll
       page_dir = File.dirname(File.expand_path(remove_leading_slash(page.path), config['source']))
       paginate_path = remove_leading_slash(config['paginate_path'])
       paginate_path = File.expand_path(paginate_path, config['source'])
-      page.name_no_language == 'index.html' &&
+      page.basename == 'index' &&
         in_hierarchy(config['source'], page_dir, File.dirname(paginate_path))
     end
 
