@@ -5,7 +5,7 @@ markdown:       redcarpet
 pygments:       true
 paginate:       10
 paginate_path:  "index/page:num"
-permalink:      /:categories/:title
+permalink:      /:title
 
 title:          "Yet Another Summer Rain"
 
