@@ -20,4 +20,4 @@ language_default:   "en"
 # If a post of default language not set `no_fill_default_content` to true
 # Its content will use to replace if the corresponding content of other languages is not exist.
 # 
-fill_default_content: true
+fill_default_content: false
