@@ -226,7 +226,7 @@ dl p {
 hr {
     height: 1px;
     border: none;
-    background: url('/img/bg_hr.png') repeat-x center;
+    background: url('/assets/img/bg_hr.png') repeat-x center;
 }
 
 table {

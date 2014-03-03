@@ -45,3 +45,12 @@ category: blog
     ```
 
 5.  Done.
+
+---
+The motto:
+    
+   * Quick money is not the solution.
+
+   * You must plan ahead.
+
+   * You should see the bigger picture.
