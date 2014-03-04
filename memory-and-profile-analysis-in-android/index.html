@@ -77,7 +77,7 @@
 
 <h5>3. 查看Heap实时情况</h5>
 
-<p><img src="http://www.liaohuqiu.net/assets/img/android-debuging/update-heap-status.png"/></p>
+<p><img class="cimage" src="http://cimage.sinaapp.com/img/org/17/70/1/5/60/update-heap-status.png"/></p>
 
 <ol>
 <li> 打开DDMS，选中应用,点击Update Heap按钮</li>
@@ -99,7 +99,7 @@
 
 <p>我们可以通过DDMS导出hprof文件，在Memeory Analyzer中分析, 如下:</p>
 
-<p><img src="http://www.liaohuqiu.net/assets/img/android-debuging/dump-hprof.png"/></p>
+<p><img class="cimage" src="http://cimage.sinaapp.com/img/org/28/36/67/55/22/dump-hprof.png"/></p>
 
 <ol>
 <li> 打开DDMS, 选中应用，点击<code>Dump HPROF file</code>, 等待一段时间, 10几秒甚至更长，保存hprof文件。</li>
@@ -114,11 +114,11 @@ hprof-conv.exe D:\tmp\com.srain.cube.sample.hprof D:\tmp\com.srain.cube.sample-c
 </ol>
 
 <p>界面展示大致如下:
-<img src="http://www.liaohuqiu.net/assets/img/android-debuging/mat-overview.png"/></p>
+<img class="cimage"src="http://cimage.sinaapp.com/img/org/8/99/48/55/33/mat-overview.png"/></p>
 
 <p>点击Histogram:</p>
 
-<p><img src="http://www.liaohuqiu.net/assets/img/android-debuging/mat-histogram.png"/></p>
+<p><img class="cimage" src="http://cimage.sinaapp.com/img/org/11/78/0/42/66/mat-histogram.png"/></p>
 
 <p>各对象在列表中，可排序：</p>
 
@@ -157,7 +157,7 @@ Debug.stopMethodTracing();
 </code></pre></div>
 <p>直接在ADT的eclipse中打开:</p>
 
-<p><img src="http://www.liaohuqiu.net/assets/img/android-debuging/trace-view-overview.png"/></p>
+<p><img class="cimage" src="http://cimage.sinaapp.com/img/org/19/98/19/71/81/trace-view-overview.png"/></p>
 
 <p>上图中：</p>
 
@@ -181,7 +181,7 @@ Debug.stopMethodTracing();
 <li> 查看Excl Time 和Inc Time，分析调用关系，可找出真正耗时的方法，找出性能瓶颈。</li>
 </ol>
 
-<p><img src="http://www.liaohuqiu.net/assets/img/android-debuging/trace-view-exclusive-time.png"/></p>
+<p><img class="cimage" src="http://cimage.sinaapp.com/img/org/13/42/30/62/45/trace-view-exclusive-time.png"/></p>
 
 <p>上图中，Excl Time 排名第二的方法 <code>bytesToHexString</code> 很可能是有性能问题的。</p>
 
