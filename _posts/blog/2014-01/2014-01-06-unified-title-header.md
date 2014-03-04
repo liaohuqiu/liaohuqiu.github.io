@@ -4,7 +4,7 @@ title:  Unified Title Header In Android
 description: 安卓统一的页头的一种实现
 category: blog
 ---
-<img src='http://www.liaohuqiu.net/assets/img/android-header-view/header-title.png'>
+<img class='cimage' src='http://cimage.sinaapp.com/img/file/16/63/45/55/48.png'>
 
 ####需要解决的问题
 

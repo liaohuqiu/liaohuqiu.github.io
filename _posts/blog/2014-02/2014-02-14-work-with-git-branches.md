@@ -153,7 +153,7 @@ If `git merge` is called on a branch which can fast-forward, `fast-forward` will
 
 `git merge --ff-only origin/master` will try to use `fast-forward`, abort if fast-forward is not possible.
 
-#####git merge in on branch
+#####git merge in one branch
 
 ```
 $ git merge
