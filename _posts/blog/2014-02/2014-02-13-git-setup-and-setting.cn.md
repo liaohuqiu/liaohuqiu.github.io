@@ -1,34 +1,35 @@
 ---
 layout: post_wide
-title: Some tips for git setup and git config
-description:  'some tips related to ssh key; git global config and repository
-config; git alias'
+title: "命令行下的git配置问题: 多个sshkey, 多个用户身份, git alias"
+description:  'git使用多个sshkey；git实用设置'
 tag:
     - git
 category: blog
 ---
 
-#the ssh key
-#####generate ssh key
+##ssh key
+#####生成sshkey
 ```
 cd ~/.ssh/
 ssh-keygen -t rsa -C "changeme@xxx.com" -f filename
 ```
-If the options `f` is not input, the file name of the public/pirvate rsa key pair files will be: id_rsa, id_rsa.pub.
+如果没有指定`f`选项或者`f`选项为空，生成的私钥和公钥为: `id_rsa`, `id_rsa.pub`.
 
-#####add ssh key
+#####添加sshkey
     ssh-add ~/.ssh/xxx
 
-#####list all added ssh key
+#####列出所有的sshkey
     ssh-add -l
 
-#####you may run into this error when try `ssh-add`:
+#####执行 `ssh-add` 可能会遇到的问题:
 <p class="alert alert-error">Could not open a connection to your authentication agent.</p>
+
+解决办法:
    
     eval `ssh-agent -s`
 
-#####add ssh key permanently
-Add the key path to `~/.ssh/config`
+#####机器重启又得重新添加sshkey，如何永久添加sshkey
+把sshkey私钥的路径加入到 `~/.ssh/config`, 如下：
 
 ```
 $ vim ~/.ssh/config
@@ -37,18 +38,19 @@ IdentityFile ~/.ssh/gitHubKey
 IdentityFile ~/.ssh/xxx
 ```
 
-#git config
-#####global config & repository config
+##git config
+#####全局配置和项目配置
 
-The global setting is stored in `~/.gitconfig`
+全局配置信息在: `~/.gitconfig`。
 
-The config of repository is stored in `./.git/config`, in the repository directory.
+项目配置在项目目录下的： `./.git/config`。
 
-`git config --global` will use global config, without `--global` options will use try to use the config file `./git/config` in current directory.
+`git config --global` 操作全局配置, 不带 `--global` 选项的话，会尝试相对于当前目录的： `./git/config`, 找不到的话，报错。
 
-#####config user name & user email for every repository
+#####为各个项目单独配置`user.name` 和 `user.email`
 
-You may work with multiple repositories, so it is a good practice to config user information for every repository.
+你可能会在不同的几个项目中工作，各个项目的用户名可能不同，为了保证日志的准确性和提交时无误，最好对各个项目设置`user.name`和`user.email`
+
 
 ```
 # for global setting
@@ -60,9 +62,10 @@ git config user.name xxxx
 git config user.email xxxx@xxx.com
 ```
 
-#####git alias
+##git alias
 
-Setup alias for convenience.
+使用快捷命令能带来很方便，输入命令更加快速，`git lg` 这个短命令配置，将日志图形化方式展现：
+
 
 ```
 #git st => git status
@@ -77,3 +80,4 @@ git config --global alias.lg "log --all --graph --pretty=format:'%Cred%h%Creset 
 #... 
 # whatever you like
 ```
+<img class="cimage" src="http://cimage.sinaapp.com/img/org/11/37/93/43/47/git-lg-graph.png"/>
