@@ -16,7 +16,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
 
-<title>Work with git branches |  Yet Another Summer Rain</title>
+<title>Git日常分支操作 |  Yet Another Summer Rain</title>
 </head>
 
 <body>
@@ -32,165 +32,223 @@
 <div class='post'>
     <div id="main_content_wrap" class="outer">
         <div class="md-body main-content inner wide">
-            <h2> Work with git branches </h2>
+            <h2> Git日常分支操作 </h2>
             <p> 14 Feb 2014 </p>
             <hr>
-            <h1>Branch</h1>
+            <p>本文介绍日常中经常遇到的一些分支操作，并给出了详细解释。</p>
 
-<h5>create a branch, add some files, push to remote repository</h5>
+<ul>
+<li>创建分支;</li>
+<li>删除分支;</li>
+<li>检出远程分支;</li>
+<li>git merge;</li>
+<li>git rebase;</li>
+<li>git force push;</li>
+<li>git fast-forward.</li>
+</ul>
+
+<hr>
+
+<h2>分支简单操作</h2>
+
+<h5>最简单的用法</h5>
+
+<p>创建一个分支，添加文件，提交，推送。但是日常工作中往往比这个复杂得多。</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">git branch branchName
 echo &quot;Some information&quot; &gt; test.txt
 git add test.txt
 git commit -m &#39;add text.txt&#39;
 git push origin branchName
 </code></pre></div>
-<h5>list all local branches</h5>
+<h5>列出所有分支</h5>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">git branch -a
 </code></pre></div>
-<h5>checkout remote branch</h5>
+<h5>检出一个远程分支</h5>
 
-<p>There is a branch named <code>dev</code> in remote repository, you want to trace that:</p>
+<p>远程有一个<code>dev</code>分支，你想check out这个分支到本地：</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">git branch -b dev origin/dev
 </code></pre></div>
-<h5>delete remote branch</h5>
+<h5>开发告一段落，你把远程一些没用的分支删除：</h5>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">git push origin --delete &lt;branchName&gt;
 
 git push origin :&lt;branchName&gt;
 </code></pre></div>
-<h5>delete local branch</h5>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">// -d means --delete
+<h5>删除本地分支：</h5>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// -d 是 --delete 选项的短选项
 git branch -d branchName
 
-// force delete, even is not merged
+// 强制删除
 git branch -D branchName
 </code></pre></div>
 <hr>
 
 <h1>Merge &amp; Rebase</h1>
 
-<p>Here is a repository has a branch named <code>b1</code>, it has some commits  <code>A</code>, <code>B</code>.
+<p><code>git pull</code>是非常笼统的一种操作，下面我们分析日常所有可能遇到的情况：</p>
+
+<p>假设代码库有一个分支 <code>b1</code>, 当前有两次提交： <code>A</code>, <code>B</code>，如下：
 <code>
 A -- B   [b1]
 </code></p>
 
 <ol>
-<li><p>Local Case A:</p>
+<li><p>本地可能发生的操作 A:</p>
 
-<p>You check out b1, then do some work, your commit is <code>C</code>, after your commit, your local repository will be:</p>
+<p>你检出 <code>b1</code>，修改了代码，然后提交，生成一个提交：<code>C</code></p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">A -- B -- C      [b1]
 </code></pre></div></li>
-<li><p>Local Case B:</p>
+<li><p>本地可能的情况 B:</p>
 
-<p>You create branch b2 from b1, then commit.</p>
+<p>你从<code>b1</code>建了一个新的分支 <code>b2</code>, 提交代码，生成一个提交：<code>C</code></p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">A -- B      [b1]
       \
        C    [b2]
 </code></pre></div></li>
-<li><p>Local Case C:</p>
+<li><p>本地可能的情况 C:</p>
 
-<p>You did nothing.
+<p>本地代码无任何变动。嗯，这也算情况之一。
 <code>
 A -- B      [b1]
 </code></p></li>
-<li><p>Remote Case A:</p>
+<li><p>现在让我们看看远程的集中情况</p>
 
-<p>At the same time, someone commited a change, namely commit <code>D</code>, pushed the commit to repository server. </p>
+<p>远程情况 A:</p>
+
+<p>在提交代码的期间，有人推送代码到了分支<code>b1</code>, 这个提交称为：<code>D</code></p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">A -- B -- D         [remote b1]
       \
        ----- C      [local]
 </code></pre></div></li>
-<li><p>Remote Case B:</p>
+<li><p>远程情况 B:</p>
 
-<p>No commit has been pushed to remote before you push commit <code>C</code> to remote. The remote remains:</p>
+<p>远程情况没任何变动。</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">A -- B   [b1]
 </code></pre></div></li>
 </ol>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ git st
-# On branch develop
-# Your branch and &#39;origin/develop&#39; have diverged,
-# and have 1 and 2 different commit(s) each, respectively.
-#
-nothing to commit (working directory clean)
-</code></pre></div>
+
+<hr>
+
+<blockquote>
+<p>在上面，<code>A</code>, <code>B</code>, <code>C</code>, <code>D</code>指代可以是一次提交，也可以是一系列提交。</p>
+</blockquote>
+
+<hr>
+
 <h5>git fetch</h5>
 
-<p>After <code>git fetch</code>, your local repository will be one of the following status:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">Case A: Local Case A + Remote Case B
+<p>现在你将远程变动取到本地，这时，本地代码库有可能以下几种情况：</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">Case A: 本地情况 A + 远程情况 B
 
 A -- B      [b1]
       \
        C    [b1]
 
-Case B: Local Case B + Remote Case B
+Case B: 本地情况 B + 远程情况 B
 
 A -- B      [b1]
       \
        C    [b2]
 
-Case C: Local Case C + Remote Case A
+Case C: 本地情况 C + 远程情况 A
 
         C   [b1 remote]
       /
 A -- B      [b1,local]
 
-Case D: Local Case A + Remote Case A
+Case D: 本地情况 A + 远程情况 A
 
 A -- B -- D             [b1]
       \
         ---- C          [b1]
 
-Case E: Local Case A + Remote Case B
+Case E: 本地情况 A + 远程情况 B
 
 A -- B -- D             [b1]
       \
         --- C           [b2]
 </code></pre></div>
-<h5>what is <code>fast-forward</code></h5>
+<p>以上5种情况，就是我们日常中经常遇到的情况。</p>
 
-<p>If the branch has not diverged, and <code>HEAD</code> is behind, it can do <code>fast-forward</code>.</p>
+<hr>
 
-<p>If <code>git merge</code> is called on a branch which can fast-forward, <code>fast-forward</code> will be applied automatically</p>
+<h5>什么是： <code>fast-forward</code></h5>
 
-<p><code>git merge --ff-only origin/master</code> will try to use <code>fast-forward</code>, abort if fast-forward is not possible.</p>
+<p>在<code>git fetch</code>之后，如果本地分支和远程分支没有分叉，并且本地分支指向较旧脚本，那么，这个分支称为可以<code>fast-forward</code>;</p>
 
-<h5>git merge in on branch</h5>
+<p>在 <code>fast-forward</code>时，本地分支把指针指向最新的提交，并不会生成一个提交。</p>
+
+<p>如果分支可以<code>fast-forward</code>，执行 <code>git merge</code>时，实际执行的是<code>fast-forward</code>。如果不能，则合并，并自动产生一个提交。</p>
+
+<p>很多情况下，我们并不希望有这样的自动合并产生，因为他产生了一个自动提交，会让版本变得交叉，不清晰。</p>
+
+<p>我们希望，能<code>fast-forward</code>就<code>fast-forward</code>, `，否则我们用rebase命令合并。可以这样：</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">git merge --ff-only origin/master
+</code></pre></div>
+<p>如果不能<code>fast-forward</code>, merge 操作会终止。</p>
+
+<hr>
+
+<h5>git merge 合并一个分支</h5>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">$ git merge
 </code></pre></div>
-<p>After merged:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">Case A: do nothing
-Case B: do nothing
-Case C: Fast-forward will be applied
+<p>操作之后：</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">Case A: 没变化
+Case B: 没变化
+Case C: fast-forward
 
         A -- B -- C      [b1,local/remote]
 
 
-Case D: Merge, a new commit `E` will be created automatically.
+Case D: 合并，并且自动生成一个提交E
 
         A -- B -- D --- E       [b1]
               \        /
                 ---- C          [b1]
 </code></pre></div>
-<h5>git merge two branches</h5>
+<h5>git merge 合并两个分支</h5>
+
+<p>当前在<code>b2</code>上，合并远程<code>b1</code>的改动，对应Case E</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">$ git merge origin/b1
 </code></pre></div>
-<p>After Merged:</p>
+<p>合并之后 ：</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">Case E:
         A -- B ------ D         [b1]
               \        \
                 -- C -- E       [b2]
+
+                图1
 </code></pre></div>
 <h5>git pull</h5>
 
 <p><code>git pull</code> = <code>git fetch + git merge</code></p>
 
-<h5>git rebase in one branch</h5>
+<h5>git rebase</h5>
+
+<p>只有当一个分支出现分叉，或者在不同的分之间，git rebase才有意义。命令格式：</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">git rebase 目标分支
+</code></pre></div>
+<p>在git rebase时：</p>
+
+<ol>
+<li><p>把本地未推送的所有提交，放到暂存区。</p></li>
+<li><p>然后将本分支的指针指向目标分支最新提交，即改变本地分支的基础，简称<code>变基</code>, :).</p></li>
+<li><p>然后将暂存区的本地未推送的提交挨个应用回本分支。</p></li>
+</ol>
+
+<h5>同一个分支的 rebase</h5>
 <div class="highlight"><pre><code class="text language-text" data-lang="text"># Case E
 $ git rebase
 A -- B ------- D        [b1,remote]
       \
         ------ D -- C1  [b1,local]
+
+                图2
 </code></pre></div>
-<h5>git rebase in diffrent branches</h5>
+<p>先将本地的提交<code>C</code>暂存，然后指向<code>D</code>, 应用<code>C</code>，<code>C</code>在<code>D</code>之前，变成了<code>C1</code>。注意这个和上面<code>git merge</code>（图1）的区别。</p>
+
+<h5>不同分支的rebase</h5>
+
+<p>这其实和同一个分支类似，不过注意，不同分支rebase可能需要强制推送：</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text"># Case F
 $ git rebase origin/b1
 
@@ -198,15 +256,15 @@ A -- B ------- D        [b1,remote]
       \
         ------ D -- C1  [b2,local]
 </code></pre></div>
-<h5>git push force</h5>
+<h5>强制推送: git push --force</h5>
 
-<p>Why?</p>
+<p>为什么需要强制推送，官方文档：</p>
 
 <blockquote>
 <p>Usually, the command refuses to update a remote ref that is not an ancestor of the local ref used to overwrite it.</p>
 </blockquote>
 
-<p>Case F, may need force push. If b2 has some pushed commits before <code>D</code> and <code>C</code></p>
+<p>Case F, 如果<code>b2</code>在 <code>D</code> 和 <code>C</code> 之前，有其他的提交已经推送到服务器了，则需要强制推送，因为他们是从<code>B</code>开始分叉的。</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">         pushed
 A -- B -..... --- D        [b1,remote]
       \
@@ -215,6 +273,8 @@ A -- B -..... --- D        [b1,remote]
 $ git push origin b2 --force
 $ git push origin +b2
 </code></pre></div>
+<p>日常git中分支的操作，一般就是以上几种。</p>
+
             <hr>
             <div id="disqus_thread"></div>
 <script type="text/javascript">
