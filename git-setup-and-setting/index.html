@@ -16,7 +16,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
 
-<title>命令行下的git配置问题: 多个sshkey, 多个用户身份, git alias |  Yet Another Summer Rain</title>
+<title>Some tips for git setup and git config |  Yet Another Summer Rain</title>
 </head>
 
 <body>
@@ -32,51 +32,50 @@
 <div class='post'>
     <div id="main_content_wrap" class="outer">
         <div class="md-body main-content inner wide">
-            <h2> 命令行下的git配置问题: 多个sshkey, 多个用户身份, git alias </h2>
+            <h2> Some tips for git setup and git config </h2>
             <p> 13 Feb 2014 </p>
             <hr>
-            <h2>ssh key</h2>
+            <h1>the ssh key</h1>
 
-<h5>生成sshkey</h5>
+<h5>generate ssh key</h5>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">cd ~/.ssh/
 ssh-keygen -t rsa -C &quot;changeme@xxx.com&quot; -f filename
 </code></pre></div>
-<p>如果没有指定<code>f</code>选项或者<code>f</code>选项为空，生成的私钥和公钥为: <code>id_rsa</code>, <code>id_rsa.pub</code>.</p>
+<p>If the options <code>f</code> is not input, the file name of the public/pirvate rsa key pair files will be: id<em>rsa, id</em>rsa.pub.</p>
 
-<h5>添加sshkey</h5>
+<h5>add ssh key</h5>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">ssh-add ~/.ssh/xxx
 </code></pre></div>
-<h5>列出所有的sshkey</h5>
+<h5>list all added ssh key</h5>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">ssh-add -l
 </code></pre></div>
-<h5>执行 <code>ssh-add</code> 可能会遇到的问题:</h5>
+<h5>you may run into this error when try <code>ssh-add</code>:</h5>
 
 <p class="alert alert-error">Could not open a connection to your authentication agent.</p>
-
-<p>解决办法:</p>
+   
 <div class="highlight"><pre><code class="text language-text" data-lang="text">eval `ssh-agent -s`
 </code></pre></div>
-<h5>机器重启又得重新添加sshkey，如何永久添加sshkey</h5>
+<h5>add ssh key permanently</h5>
 
-<p>把sshkey私钥的路径加入到 <code>~/.ssh/config</code>, 如下：</p>
+<p>Add the key path to <code>~/.ssh/config</code></p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">$ vim ~/.ssh/config
 
 IdentityFile ~/.ssh/gitHubKey
 IdentityFile ~/.ssh/xxx
 </code></pre></div>
-<h2>git config</h2>
+<h1>git config</h1>
 
-<h5>全局配置和项目配置</h5>
+<h5>global config &amp; repository config</h5>
 
-<p>全局配置信息在: <code>~/.gitconfig</code>。</p>
+<p>The global setting is stored in <code>~/.gitconfig</code></p>
 
-<p>项目配置在项目目录下的： <code>./.git/config</code>。</p>
+<p>The config of repository is stored in <code>./.git/config</code>, in the repository directory.</p>
 
-<p><code>git config --global</code> 操作全局配置, 不带 <code>--global</code> 选项的话，会尝试相对于当前目录的： <code>./git/config</code>, 找不到的话，报错。</p>
+<p><code>git config --global</code> will use global config, without <code>--global</code> options will use try to use the config file <code>./git/config</code> in current directory.</p>
 
-<h5>为各个项目单独配置<code>user.name</code> 和 <code>user.email</code></h5>
+<h5>config user name &amp; user email for every repository</h5>
 
-<p>你可能会在不同的几个项目中工作，各个项目的用户名可能不同，为了保证日志的准确性和提交时无误，最好对各个项目设置<code>user.name</code>和<code>user.email</code></p>
+<p>You may work with multiple repositories, so it is a good practice to config user information for every repository.</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text"># for global setting
 git config --global user.name xxx
 git config --global user.email xxx@xxx.com
@@ -85,9 +84,9 @@ git config --global user.email xxx@xxx.com
 git config user.name xxxx
 git config user.email xxxx@xxx.com
 </code></pre></div>
-<h2>git alias</h2>
+<h5>git alias</h5>
 
-<p>使用快捷命令能带来很方便，输入命令更加快速，<code>git lg</code> 这个短命令配置，将日志图形化方式展现：</p>
+<p>Setup alias for convenience.</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">#git st =&gt; git status
 git config --global alias.st &#39;status&#39;
 
@@ -100,8 +99,6 @@ git config --global alias.lg &quot;log --all --graph --pretty=format:&#39;%Cred%
 #... 
 # whatever you like
 </code></pre></div>
-<p><img class="cimage" src="http://cimage.sinaapp.com/img/org/11/37/93/43/47/git-lg-graph.png"/></p>
-
             <hr>
             <div id="disqus_thread"></div>
 <script type="text/javascript">
