@@ -34,6 +34,14 @@
     </url>
     
     <url>
+        <loc>http://www.liaohuqiu.net/cn/index/page2/index.html</loc>
+        <lastmod>2014-03-05</lastmod>
+        
+        <changefreq>hourly</changefreq>
+        
+    </url>
+    
+    <url>
         <loc>http://www.liaohuqiu.net/index/page2/index.html</loc>
         <lastmod>2014-03-05</lastmod>
         
@@ -41,6 +49,14 @@
         
     </url>
     
+    
+    <url>
+        <loc>http://www.liaohuqiu.net/cn/posts/android-lifecycle-componet</loc>
+        <lastmod>2014-03-05</lastmod>
+        
+        <changefreq>daily</changefreq>
+        
+    </url>
     
     <url>
         <loc>http://www.liaohuqiu.net/posts/install-php-imagick-on-centos</loc>
@@ -51,7 +67,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/work-with-git-branches</loc>
+        <loc>http://www.liaohuqiu.net/cn/posts/work-with-git-branches</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -59,7 +75,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/work-with-git-branches</loc>
+        <loc>http://www.liaohuqiu.net/posts/work-with-git-branches</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
