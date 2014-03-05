@@ -1,7 +1,7 @@
 ---
 layout: post_wide
-title:  Using High API level Method Compatibly
-description: Using a high API level in method and compatible the low API level system.
+title:  Android 高版本API方法在低版本系统上的兼容性处理
+description: 
 category: blog
 ---
 Android 版本更替，新的版本带来新的特性，新的方法。

@@ -1,11 +1,7 @@
 ---
 layout: post_wide
-title:  Memeory and Profile Analysis in Android
-description: 
-             <ul>
-             <li>Descript how to analysis the memory usage in Anroid, and how view trace profile.
-             <li>安卓开发做性能优化时，如何分析内存使用？如何查看app中方法调用情况，找出性能瓶颈？
-             </ul>
+title:  Android内存使用分析和程序性能分析
+description: 安卓开发做性能优化时，如何分析内存使用？如何查看app中方法调用情况，找出性能瓶颈？
 category: blog
 ---
 Android 应用的性能分析，优化，需要检查分析内存使用情况和方法调用情况。本文给出进行这两方面分析的工具和方法。

@@ -1,11 +1,7 @@
 ---
 layout: post_wide
-title:  Some Useful Tips in Using Stotage in Andorid
-description: 
-             <ul>
-             <li>Some usefule tips</li>
-             <li>安卓使用存储时会遇到的一些问题，以及处理参考</li>
-             </ul>
+title:  Android存储使用参考
+description: 本文介绍了安卓使用存储时会遇到的一些问题，以及处理参考。
 category: blog
 ---
 ####可能遇到的问题

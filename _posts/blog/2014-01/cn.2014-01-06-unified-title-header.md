@@ -1,13 +1,12 @@
 ---
 layout: post_wide
-title:  Unified Title Header In Android
-description: 安卓统一的页头的一种实现
+title:  Android统一的页面头部
+description: 本文介绍了使用Activity做页面，实现统一的页头的方法
 category: blog
 ---
 <img class='cimage' src='http://cimage.sinaapp.com/img/file/16/63/45/55/48.png'>
 
 ####需要解决的问题
-
 
 没有统一的页头处理，导致：
 

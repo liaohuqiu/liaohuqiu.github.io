@@ -1,7 +1,7 @@
 ---
 layout: post_wide
-title:  Load Image In Android
-description: 
+title:  Android加载图片时需要解决的问题
+description: 简述加载图片时需要处理好的几个问题
 category: blog
 ---
 ### 需要解决的问题
@@ -44,26 +44,3 @@ category: blog
 
       需要根据不同的尺寸需求，拼接不同的url
     >  各图片存储拼接格式不同，此为具体的业务逻辑，应该有足够好的扩展性,支持不同的拼接方式
-
-### 现有的解决方案的问题
-
-1. Volley
-    * 根据ImageView自动加载
-    * list view / grid view 首项被多次加载，存在问题
-    * 无内存缓存
-    * 无图片复用
-    * 无缓存配额管理
-
-2. BitmapFun
-    * 复用和缓存
-    * list view / grid view 首项被多次加载，存在问题
-    * 无图片复用
-    * 过量缓存使用: HttpDiskCache / LRU Cache 之后，又有一个Cache
-
-
-3. novoda/ImageLoader
-    * github 上流行的图片加载方案
-    * list view / grid view 首项被多次加载，存在问题
-    * 无缓存配额管理
-    * 无图片复用
-    * 无自动适配
