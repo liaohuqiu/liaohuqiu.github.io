@@ -11,6 +11,8 @@ title:          "Yet Another Summer Rain"
 
 exclude:        ['conf', 'tools', 'README.md']
 
+host_name:      'www.liaohuqiu.net'
+
 # Multiple languages
 languages:          ['en', 'cn']
 
