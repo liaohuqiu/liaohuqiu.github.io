@@ -10,18 +10,18 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/index.html</loc>
-        <lastmod>2014-03-05</lastmod>
-        
-        <changefreq>hourly</changefreq>
-        
-    </url>
-    
-    <url>
         <loc>http://www.liaohuqiu.net/sitemap.xml</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
+        
+    </url>
+    
+    <url>
+        <loc>http://www.liaohuqiu.net/cn/index.html</loc>
+        <lastmod>2014-03-05</lastmod>
+        
+        <changefreq>hourly</changefreq>
         
     </url>
     
@@ -43,7 +43,7 @@
     
     
     <url>
-        <loc>http://www.liaohuqiu.net/install-php-imagick-on-centos</loc>
+        <loc>http://www.liaohuqiu.net/posts/install-php-imagick-on-centos</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -51,7 +51,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/work-with-git-branches</loc>
+        <loc>http://www.liaohuqiu.net/posts/work-with-git-branches</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -59,7 +59,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/work-with-git-branches</loc>
+        <loc>http://www.liaohuqiu.net/cn/posts/work-with-git-branches</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -67,7 +67,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/git-setup-and-setting</loc>
+        <loc>http://www.liaohuqiu.net/posts/git-setup-and-setting</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -75,7 +75,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/git-setup-and-setting</loc>
+        <loc>http://www.liaohuqiu.net/cn/posts/git-setup-and-setting</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -83,7 +83,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/using-high-api-level-method-compatibly</loc>
+        <loc>http://www.liaohuqiu.net/cn/posts/using-high-api-level-method-compatibly</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -91,7 +91,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/storage-in-android</loc>
+        <loc>http://www.liaohuqiu.net/cn/posts/storage-in-android</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -99,7 +99,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/solution-for-loading-image-in-android</loc>
+        <loc>http://www.liaohuqiu.net/posts/solution-for-loading-image-in-android</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -107,7 +107,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/unified-title-header</loc>
+        <loc>http://www.liaohuqiu.net/cn/posts/unified-title-header</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -115,7 +115,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/memory-and-profile-analysis-in-android</loc>
+        <loc>http://www.liaohuqiu.net/cn/posts/memory-and-profile-analysis-in-android</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -123,7 +123,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/lru-cache-in-android</loc>
+        <loc>http://www.liaohuqiu.net/posts/lru-cache-in-android</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -131,7 +131,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/load-image-in-android</loc>
+        <loc>http://www.liaohuqiu.net/cn/posts/load-image-in-android</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -139,7 +139,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/how-an-activity-is-created</loc>
+        <loc>http://www.liaohuqiu.net/posts/how-an-activity-is-created</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -147,7 +147,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/nginx-proxy-pass</loc>
+        <loc>http://www.liaohuqiu.net/posts/nginx-proxy-pass</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -155,7 +155,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/baia</loc>
+        <loc>http://www.liaohuqiu.net/cn/posts/baia</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -163,7 +163,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/setup-pptp</loc>
+        <loc>http://www.liaohuqiu.net/posts/setup-pptp</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -171,7 +171,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/batch-process-file-name</loc>
+        <loc>http://www.liaohuqiu.net/posts/batch-process-file-name</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -179,7 +179,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/pick-an-alibaba-name</loc>
+        <loc>http://www.liaohuqiu.net/cn/posts/pick-an-alibaba-name</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -187,7 +187,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/pick-an-alibaba-name</loc>
+        <loc>http://www.liaohuqiu.net/posts/install-lamp-on-minimum-centos</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -195,7 +195,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/install-lamp-on-minimum-centos</loc>
+        <loc>http://www.liaohuqiu.net/posts/install-jekyll</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -203,7 +203,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/install-jekyll</loc>
+        <loc>http://www.liaohuqiu.net/cn/posts/yet-another-summer-rain</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -211,15 +211,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/yet-another-summer-rain</loc>
-        <lastmod>2014-03-05</lastmod>
-        
-        <changefreq>daily</changefreq>
-        
-    </url>
-    
-    <url>
-        <loc>http://www.liaohuqiu.net/cn/yet-another-summer-rain</loc>
+        <loc>http://www.liaohuqiu.net/posts/yet-another-summer-rain</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>

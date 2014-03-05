@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset='utf-8' />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
+<meta name="description" content="git使用多个sshkey；git实用设置" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<title>命令行下的git配置问题: 多个sshkey, 多个用户身份, git alias |  Yet Another Summer Rain</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <h1 id="site_title"><a href="/">Srain</a></h1>
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class='post'>
+    <div id="main_content_wrap" class="outer">
+        <div class="md-body main-content inner wide">
+            <h2> 命令行下的git配置问题: 多个sshkey, 多个用户身份, git alias </h2>
+            <p> 13 Feb 2014 </p>
+            <hr>
+            <h2>ssh key</h2>
+
+<h5>生成sshkey</h5>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">cd ~/.ssh/
+ssh-keygen -t rsa -C &quot;changeme@xxx.com&quot; -f filename
+</code></pre></div>
+<p>如果没有指定<code>f</code>选项或者<code>f</code>选项为空，生成的私钥和公钥为: <code>id_rsa</code>, <code>id_rsa.pub</code>.</p>
+
+<h5>添加sshkey</h5>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">ssh-add ~/.ssh/xxx
+</code></pre></div>
+<h5>列出所有的sshkey</h5>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">ssh-add -l
+</code></pre></div>
+<h5>执行 <code>ssh-add</code> 可能会遇到的问题:</h5>
+
+<p class="alert alert-error">Could not open a connection to your authentication agent.</p>
+
+<p>解决办法:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">eval `ssh-agent -s`
+</code></pre></div>
+<h5>机器重启又得重新添加sshkey，如何永久添加sshkey</h5>
+
+<p>把sshkey私钥的路径加入到 <code>~/.ssh/config</code>, 如下：</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$ vim ~/.ssh/config
+
+IdentityFile ~/.ssh/gitHubKey
+IdentityFile ~/.ssh/xxx
+</code></pre></div>
+<h2>git config</h2>
+
+<h5>全局配置和项目配置</h5>
+
+<p>全局配置信息在: <code>~/.gitconfig</code>。</p>
+
+<p>项目配置在项目目录下的： <code>./.git/config</code>。</p>
+
+<p><code>git config --global</code> 操作全局配置, 不带 <code>--global</code> 选项的话，会尝试相对于当前目录的： <code>./git/config</code>, 找不到的话，报错。</p>
+
+<h5>为各个项目单独配置<code>user.name</code> 和 <code>user.email</code></h5>
+
+<p>你可能会在不同的几个项目中工作，各个项目的用户名可能不同，为了保证日志的准确性和提交时无误，最好对各个项目设置<code>user.name</code>和<code>user.email</code></p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text"># for global setting
+git config --global user.name xxx
+git config --global user.email xxx@xxx.com
+
+# for repository
+git config user.name xxxx
+git config user.email xxxx@xxx.com
+</code></pre></div>
+<h2>git alias</h2>
+
+<p>使用快捷命令能带来很方便，输入命令更加快速，<code>git lg</code> 这个短命令配置，将日志图形化方式展现：</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">#git st =&gt; git status
+git config --global alias.st &#39;status&#39;
+
+#git co =&gt; git checkout
+git config --global alias.co &#39;checkout&#39;
+
+#git lg to view commit log like network graph
+git config --global alias.lg &quot;log --all --graph --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)&lt;%an&gt;%Creset&#39; --abbrev-commit&quot;
+
+#... 
+# whatever you like
+</code></pre></div>
+<p><img class="cimage" src="http://cimage.sinaapp.com/img/org/11/37/93/43/47/git-lg-graph.png"/></p>
+
+            <hr>
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'srain'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+try
+{
+ga('create', 'UA-43024238-1', 'liaohuqiu.net');
+ga('send', 'pageview');
+} catch(err) {
+    console.log(err);
+}
+</script>
+
+</body>
+</html>

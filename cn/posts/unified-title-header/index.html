@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset='utf-8' />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
+<meta name="description" content="本文介绍了使用Activity做页面，实现统一的页头的方法" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<title>Android统一的页面头部 |  Yet Another Summer Rain</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <h1 id="site_title"><a href="/">Srain</a></h1>
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class='post'>
+    <div id="main_content_wrap" class="outer">
+        <div class="md-body main-content inner wide">
+            <h2> Android统一的页面头部 </h2>
+            <p> 06 Jan 2014 </p>
+            <hr>
+            <p><img class='cimage' src='http://cimage.sinaapp.com/img/file/16/63/45/55/48.png'></p>
+
+<h4>需要解决的问题</h4>
+
+<p>没有统一的页头处理，导致：</p>
+
+<ul>
+<li>各个页面的layout文件都需要细碎地包含页头信息，id的不一致，给管理带来麻烦</li>
+<li>有可能导致样式不统一</li>
+<li>样式如果要改动，那必是伤筋动骨</li>
+<li>各个页面，分头各自处理页头逻辑重复劳动，一些统一的逻辑，比如统一埋点，却又容易出现不一致</li>
+<li>其他的更多</li>
+</ul>
+
+<hr>
+
+<h4>解决方案</h4>
+
+<ul>
+<li><p>基本思路</p>
+
+<ul>
+<li>  页头控件形式实现。</li>
+<li>  一个基类Activity使用此控件，公开<code>setTitle()</code>等方法，处理页头点击返回，数据记录等逻辑。</li>
+</ul></li>
+<li><p>抽象和封装</p>
+
+<ol>
+<li><p><code>HeaderBarBase</code>: 对应的布局文件为：<code>base_header_bar_base.xml</code>。 </p>
+
+<ul>
+<li>处理左中右三个布局关系，用于样式统一。</li>
+<li>监听点击事件。监听左中右布局点击，避免实际区域太小无法点击的糟糕的用户体验。</li>
+<li>作为基类抽象，可扩展多多个页头：普通页头/特殊页头等。</li>
+</ul>
+
+<p><code>HeaderBarBase.java</code></p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">HeaderBarBase
+   |
+   +- +getLeftViewContianer()
+   +- +getCenterViewContainer();
+   +- +getRightViewContainer();
+   |
+   +- +setLeftOnClickListner();
+   +- +setCenterOnClickListner();
+   +- +setRightOnClickListner();
+</code></pre></div></li>
+<li><p><code>TitleHeaderBar</code> 继承于 <code>HeaderBarBase</code>, 对应的布局文件为：<code>base_header_bar_title.xml</code>，处理普通页头UI和业务逻辑。</p>
+
+<p><code>TitleHeaderBar.java</code></p>
+
+<p>TitleHeaderBar --&gt; HeaderBarBase
+       |
+       +- +getLeftImageView();
+       +- +getCenterTextView();
+       +- +getRightTextView();</p></li>
+</ol></li>
+<li><p>易用性的实现</p>
+
+<p><code>TitleBaseActivity</code>, 包含了 <code>TitleHeaderBar</code>,  统一处理了页面页头逻辑。对应的布局文件为: <code>activity_title_base.xml</code>:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:background=&quot;#ffffff&quot;
+    android:orientation=&quot;vertical&quot; &gt;
+
+    &lt;com.etao.mobile.views.header.TitleHeaderBar
+    android:id=&quot;@+id/ly_header_bar_title_wrap&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;44dp&quot; &gt;
+    &lt;/com.etao.mobile.views.header.TitleHeaderBar&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre></div>
+<ul>
+<li><code>TitleBaseActivity</code>的内容为布局文件中<code>LinearLayout</code>;</li>
+<li><code>LinearLayout</code>包含了一个<code>TitleHeaderBar</code>, 可以统一统一页面返回，点击数据埋点等细化的业务逻辑;</li>
+<li>重写<code>setContentView()</code>, 将内容添加到了此<code>LinearLayout</code>上</li>
+<li>直接继承<code>TitleBaseActivity</code>使用即可, 使用简单:</li>
+</ul>
+
+<p><code>TitleBaseActivity.java</code>:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">TitleBaseActivity
+   |
+   +- -mContentViewContainer
+   |
+   +- -mTitleHeaderBar;     // protected, 子类可根据自身情况处理
+   |
+   +- -enableDefaultBack(); // 默认为true，点击左侧图标默认行为：返回
+   |
+   +- -setHeadTitle()       // 设置标题
+</code></pre></div></li>
+<li><p>扩展性</p>
+
+<p>即可继承<code>TitleBaseActivity</code>, 也可以在布局文件中使用<code>TitleHeaderBar</code>, 甚至可以从<code>HeaderBarBase</code>继承, 实现定制的头部。</p></li>
+</ul>
+
+            <hr>
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'srain'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+try
+{
+ga('create', 'UA-43024238-1', 'liaohuqiu.net');
+ga('send', 'pageview');
+} catch(err) {
+    console.log(err);
+}
+</script>
+
+</body>
+</html>
