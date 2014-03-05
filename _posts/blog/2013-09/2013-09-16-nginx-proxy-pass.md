@@ -1,7 +1,8 @@
 ---
 layout: post_wide
-title: how does nginx proxy_pass map the request
-description: some examples to show how the request URI will be mapped
+title: "Nginx proxy_pass: examples for how does nginx proxy_pass map the request"
+description: "Some examples for showing how the request URI will be mapped."
+keywords: 'proxy_pass nginx, proxy_pass examples, nginx proxypass'
 category: blog
 ---
 ### 1. about ###

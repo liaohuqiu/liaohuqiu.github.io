@@ -1,8 +1,9 @@
 ---
 layout: post_wide
-title: 如何起花名
-description: A tool for picking a nice alibaba name.
+title: "阿里花名：如何起花名"
+description: "关于阿里巴巴的花名: 如何取花名"
 category: blog
+keywords: "阿里 花名 阿里花名 阿里巴巴"
 js: /assets/js/pick-alibaba-name.js?v=1
 
 ---

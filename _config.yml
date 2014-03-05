@@ -5,13 +5,17 @@ markdown:       redcarpet
 pygments:       true
 paginate:       10
 paginate_path:  "index/page:num"
-permalink:      /:title
+permalink:      /posts/:title
 
 title:          "Yet Another Summer Rain"
 
 exclude:        ['conf', 'tools', 'README.md']
 
 host_name:      'www.liaohuqiu.net'
+
+author:         liaohuqiu@gmail.com 廖祜秋
+
+# -----------------
 
 # Multiple languages
 languages:          ['en', 'cn']
@@ -23,3 +27,5 @@ language_default:   "en"
 # Its content will use to replace if the corresponding content of other languages is not exist.
 # 
 fill_default_content: false
+
+# -----------------
