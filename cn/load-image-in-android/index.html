@@ -16,7 +16,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
 
-<title>Load Image In Android |  Yet Another Summer Rain</title>
+<title>Android加载图片时需要解决的问题 |  Yet Another Summer Rain</title>
 </head>
 
 <body>
@@ -32,7 +32,7 @@
 <div class='post'>
     <div id="main_content_wrap" class="outer">
         <div class="md-body main-content inner wide">
-            <h2> Load Image In Android </h2>
+            <h2> Android加载图片时需要解决的问题 </h2>
             <p> 23 Dec 2013 </p>
             <hr>
             <h3>需要解决的问题</h3>
@@ -97,37 +97,6 @@
 <blockquote>
 <p>各图片存储拼接格式不同，此为具体的业务逻辑，应该有足够好的扩展性,支持不同的拼接方式</p>
 </blockquote></li>
-</ul></li>
-</ol>
-
-<h3>现有的解决方案的问题</h3>
-
-<ol>
-<li><p>Volley</p>
-
-<ul>
-<li>根据ImageView自动加载</li>
-<li>list view / grid view 首项被多次加载，存在问题</li>
-<li>无内存缓存</li>
-<li>无图片复用</li>
-<li>无缓存配额管理</li>
-</ul></li>
-<li><p>BitmapFun</p>
-
-<ul>
-<li>复用和缓存</li>
-<li>list view / grid view 首项被多次加载，存在问题</li>
-<li>无图片复用</li>
-<li>过量缓存使用: HttpDiskCache / LRU Cache 之后，又有一个Cache</li>
-</ul></li>
-<li><p>novoda/ImageLoader</p>
-
-<ul>
-<li>github 上流行的图片加载方案</li>
-<li>list view / grid view 首项被多次加载，存在问题</li>
-<li>无缓存配额管理</li>
-<li>无图片复用</li>
-<li>无自动适配</li>
 </ul></li>
 </ol>
 
