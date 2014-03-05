@@ -67,7 +67,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/git-setup-and-setting</loc>
+        <loc>http://www.liaohuqiu.net/git-setup-and-setting</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -75,7 +75,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/git-setup-and-setting</loc>
+        <loc>http://www.liaohuqiu.net/cn/git-setup-and-setting</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
@@ -172,6 +172,14 @@
     
     <url>
         <loc>http://www.liaohuqiu.net/batch-process-file-name</loc>
+        <lastmod>2014-03-05</lastmod>
+        
+        <changefreq>daily</changefreq>
+        
+    </url>
+    
+    <url>
+        <loc>http://www.liaohuqiu.net/pick-an-alibaba-name</loc>
         <lastmod>2014-03-05</lastmod>
         
         <changefreq>daily</changefreq>
