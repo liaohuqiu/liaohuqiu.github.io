@@ -9,7 +9,7 @@ permalink:      /posts/:title
 
 title:          "Yet Another Summer Rain"
 
-exclude:        ['conf', 'tools', 'README.md']
+exclude:        ['conf', 'README.md']
 
 host_name:      'www.liaohuqiu.net'
 
