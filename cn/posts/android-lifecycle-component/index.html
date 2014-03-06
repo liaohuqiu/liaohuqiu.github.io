@@ -36,7 +36,7 @@
             <h2> 一花一世界: Android中细小组件的生命周期 </h2>
             <p> 05 Mar 2014 </p>
             <hr>
-            <h2>生命周期定义</h2>
+            <h3>定义</h3>
 
 <p>我们知道，在Android中，<code>Activity</code>有生命周期，<code>Fragement</code>也有生命周期，在他们不同的生命周期阶段，我们需要处理不同的事情。</p>
 
@@ -54,11 +54,11 @@
     <span class="n">mImageLoader</span><span class="o">.</span><span class="na">stopLoadImage</span><span class="o">();</span>
 <span class="o">}</span>
 </code></pre></div>
-<p>然而，<code>一花一世界，一草一精神</code>, 在这样的情景下<code>ImageLoader</code>也是和<code>Activity</code>一样的，是有着生命周期的组件。</p>
+<p>然而，实际在这样的情景下<code>ImageLoader</code>也是和<code>Activity</code>一样，他本身是有着生命周期的。</p>
 
-<p>在每个生命周期的各个阶段，<code>ImageLoader</code>很清楚地知道在生命周期的各个阶段，应该做哪些事情。</p>
+<p>正所谓：<code>一花一世界，一草一精神</code>。在生命周期的各个阶段，<code>ImageLoader</code>很清楚地知道应该做哪些事情。</p>
 
-<p>这些事情是到了各个生命周期阶段，<code>ImageLoader</code>自发去做的，而不是交由外界控制的。</p>
+<p>这些事情是<code>ImageLoader</code>自发去做的，而不是交由外界控制的。</p>
 
 <p>这就好像，到了冬天的时候，由自己的感觉决定是否穿秋裤，而不是你妈觉得到了冬天了你冷，让你穿你就得穿。</p>
 
@@ -68,9 +68,9 @@
 <p>He is walking in others shoes.</p>
 </blockquote>
 
-<p>……好的，现在让我们回到我们的生命周期上来。</p>
+<p>……好的，现在让我们回到我们的讨论的生命周期上来。</p>
 
-<p>我们对每一个有生命周期的生命体进行一个定义，在Andriod中，应该是这样的：</p>
+<p>我们对生命周期进行一个定义，在Andriod中，应该是这样的：</p>
 <div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">LifeCycleComponent</span> <span class="o">{</span>
 
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onRestart</span><span class="o">();</span>
@@ -84,27 +84,28 @@
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">();</span>
 <span class="o">}</span>
 </code></pre></div>
-<p>任何一个有生命周期行为的组件，都有以上的行为，这个就是<code>Ineterface</code>定义最朴素的意义：抽象，封装变化。</p>
+<p>任何一个有生命周期行为的组件，都有以上的行为，这个就是<code>Ineterface</code>最朴素的意义：抽象，封装变化。</p>
 
-<p>现在，一个有着完整人生的真正的<code>ImageLoader</code>应该是这样的:</p>
+<p>一个有着完整人生的真正的<code>ImageLoader</code>应该是这样的:</p>
 <div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kd">class</span> <span class="nc">ImageLoaderWithLife</span> <span class="kd">implements</span> <span class="n">LifeCycleComponent</span> <span class="o">{</span>
 
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStop</span><span class="o">()</span> <span class="o">{</span>
-
         <span class="n">stopLoadImage</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
+<p>在生命周期<code>onStop()</code>触发时，停止图片下载。</p>
+
 <hr>
 
-<h2>生命周期控制</h2>
+<h3>生命周期控制</h3>
 
 <p>现在，<code>ImageLoader</code>掌握了自己的人生。他已经不是一个普通的<code>ImageLoader</code>了，而是：<code>ImageLoaderWithLife</code>。</p>
 
-<h3>LifeCycleComponentManager</h3>
+<h4>LifeCycleComponentManager</h4>
 
-<p>但他总归是生命，犹如自然界，四季交替，百草生长繁荣又枯萎凋零, 任何一个生命体都会有生老病死。</p>
+<p>但终归是生命体。犹如自然界中，四季交替，百草生长繁荣又枯萎凋零——任何一个生命体都会经历生老病死的过程。</p>
 
 <p><code>冥冥之中，自有主宰</code>，这个东西就是<code>LifeCycleComponentManager</code>:</p>
 <div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LifeCycleComponentManager</span> <span class="kd">implements</span> <span class="n">IComponentContainer</span> <span class="o">{</span>
@@ -161,14 +162,14 @@
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
-<h3>宿主</h3>
+<h4>宿主</h4>
 
 <p>在上面，有一个<code>IComponentContainer</code>, 这定义了宿主的行为，能容纳<code>LifeCycleComponent</code>：</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">public interface IComponentContainer {
     public void addComponent(LifeCycleComponent component);
 }
 </code></pre></div>
-<h3>和Activity结合使用</h3>
+<h4>和Activity结合使用</h4>
 
 <p>在<code>Activity</code>这个环境中，我们用<code>LifeCycleComponentManager</code>控制着属于这个<code>Activity</code>的各个组件的生命周期:</p>
 <div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">XActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="kd">implements</span> <span class="n">IComponentContainer</span> <span class="o">{</span>
@@ -205,7 +206,7 @@
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
-<h3>用法</h3>
+<h4>用法</h4>
 
 <p>一般应用场景: 在一个列表页面，<code>Activity</code>含有一个<code>Adapter</code>, 其中有一个<code>ImageLoader</code>, 负责图像加载, 并将<code>Activity</code>作为<code>Context</code>持有。</p>
 
@@ -228,7 +229,7 @@
 
 <hr>
 
-<h2>为什么不是ActivityLifecycleCallbacks</h2>
+<h3>为什么不是ActivityLifecycleCallbacks</h3>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">public interface ActivityLifecycleCallbacks {
     void onActivityCreated(Activity activity, Bundle savedInstanceState);
     void onActivityStarted(Activity activity);
