@@ -4,8 +4,8 @@
 
         var url = location.href;
         var time = 0;
-        var time_interval = 500;
-        var time_n = 4000 / time_interval;
+        var time_interval = 250;
+        var time_n = 3000 / time_interval;
         var ret_data;
 
         function wait() {
@@ -29,12 +29,10 @@
         function show_result() {
 
             var url = ret_data['url'];
-            $('#_j_no_found').fadeIn();
-
             $('#_j_finding').hide();
 
             if (ret_data['succ']) {
-                // location.href = url;
+                location.href = url;
             } else {
                 $('#_j_no_found').fadeIn();
             }
