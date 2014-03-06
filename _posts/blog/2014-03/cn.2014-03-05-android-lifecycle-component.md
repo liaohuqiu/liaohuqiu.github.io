@@ -6,7 +6,7 @@ keywords:   "Android, 组件，生命周期，onStop 停止"
 category: blog
 ---
 
-##生命周期定义
+###定义
 
 我们知道，在Android中，`Activity`有生命周期，`Fragement`也有生命周期，在他们不同的生命周期阶段，我们需要处理不同的事情。
 
@@ -28,11 +28,11 @@ public void function onStop() {
 }
 ```
 
-然而，`一花一世界，一草一精神`, 在这样的情景下`ImageLoader`也是和`Activity`一样的，是有着生命周期的组件。
+然而，实际在这样的情景下`ImageLoader`也是和`Activity`一样，他本身是有着生命周期的。
 
-在每个生命周期的各个阶段，`ImageLoader`很清楚地知道在生命周期的各个阶段，应该做哪些事情。
+正所谓：`一花一世界，一草一精神`。在生命周期的各个阶段，`ImageLoader`很清楚地知道应该做哪些事情。
 
-这些事情是到了各个生命周期阶段，`ImageLoader`自发去做的，而不是交由外界控制的。
+这些事情是`ImageLoader`自发去做的，而不是交由外界控制的。
 
 这就好像，到了冬天的时候，由自己的感觉决定是否穿秋裤，而不是你妈觉得到了冬天了你冷，让你穿你就得穿。
 
@@ -40,9 +40,9 @@ public void function onStop() {
 
 > He is walking in others shoes.
 
-……好的，现在让我们回到我们的生命周期上来。
+……好的，现在让我们回到我们的讨论的生命周期上来。
 
-我们对每一个有生命周期的生命体进行一个定义，在Andriod中，应该是这样的：
+我们对生命周期进行一个定义，在Andriod中，应该是这样的：
 
 
 ```java
@@ -60,31 +60,31 @@ public interface LifeCycleComponent {
 }
 ```
 
-任何一个有生命周期行为的组件，都有以上的行为，这个就是`Ineterface`定义最朴素的意义：抽象，封装变化。
+任何一个有生命周期行为的组件，都有以上的行为，这个就是`Ineterface`最朴素的意义：抽象，封装变化。
 
-现在，一个有着完整人生的真正的`ImageLoader`应该是这样的:
+一个有着完整人生的真正的`ImageLoader`应该是这样的:
 
 ```java
 class ImageLoaderWithLife implements LifeCycleComponent {
 
     @Override
     public void onStop() {
-
         stopLoadImage();
     }
 }
 ```
 
+在生命周期`onStop()`触发时，停止图片下载。
+
 ---
 
-##生命周期控制
+###生命周期控制
 
 现在，`ImageLoader`掌握了自己的人生。他已经不是一个普通的`ImageLoader`了，而是：`ImageLoaderWithLife`。
 
-###LifeCycleComponentManager
+####LifeCycleComponentManager
 
-但他总归是生命，犹如自然界，四季交替，百草生长繁荣又枯萎凋零, 任何一个生命体都会有生老病死。
-
+但终归是生命体。犹如自然界中，四季交替，百草生长繁荣又枯萎凋零——任何一个生命体都会经历生老病死的过程。
 
 `冥冥之中，自有主宰`，这个东西就是`LifeCycleComponentManager`:
 
@@ -144,7 +144,7 @@ public class LifeCycleComponentManager implements IComponentContainer {
 }
 ```
 
-###宿主
+####宿主
 
 在上面，有一个`IComponentContainer`, 这定义了宿主的行为，能容纳`LifeCycleComponent`：
 
@@ -154,7 +154,7 @@ public interface IComponentContainer {
 }
 ```
 
-###和Activity结合使用
+####和Activity结合使用
 
 在`Activity`这个环境中，我们用`LifeCycleComponentManager`控制着属于这个`Activity`的各个组件的生命周期:
 
@@ -196,7 +196,7 @@ public class XActivity extends Activity implements IComponentContainer {
 
 ```
 
-### 用法
+#### 用法
 
 一般应用场景: 在一个列表页面，`Activity`含有一个`Adapter`, 其中有一个`ImageLoader`, 负责图像加载, 并将`Activity`作为`Context`持有。
 
@@ -222,7 +222,7 @@ public class XActivity extends Activity implements IComponentContainer {
 
 ---
 
-##为什么不是ActivityLifecycleCallbacks
+###为什么不是ActivityLifecycleCallbacks
 
 
 ```
