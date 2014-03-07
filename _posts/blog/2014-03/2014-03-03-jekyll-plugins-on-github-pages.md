@@ -1,16 +1,16 @@
 ---
 layout: post_wide
 title: Jekyll Plugins and Github Pages
-description: "Using jekyll plugins on github pages, the right way."
+description: "Using Jekyll plugins on github pages, the right way."
 keywords:   "Jekyll plugins, not working Github pages"
 category: blog
 ---
 
 ####First of all:
 
-Github Pages works in `safe mode` in which most of the jekyll plugins can not work.
+Github Pages works in `safe mode` in which most of the Jekyll plugins can not work.
 
-So we can not use jekyll plugins on github pages, even you have marked it to `safe`. If you have tried, you will know.
+So ***we can not use Jekyll plugins on github pages***, even you have marked it to `safe`. If you have tried, you will know.
 
 **We must use the other way:**
 
@@ -85,7 +85,7 @@ Now we need another branch for the origin destiantion, for example: `docs`.
         branch='gh-pages'
     fi
     
-    jekyll build
+    exe_cmd "jekyll build"
     if [ ! -d '_site' ];then
         echo "not content to be published"
         exit
