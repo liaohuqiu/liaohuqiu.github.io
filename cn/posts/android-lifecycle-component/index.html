@@ -36,7 +36,7 @@
             <h2> 一花一世界: Android中细小组件的生命周期 </h2>
             <p> 05 Mar 2014 </p>
             <hr>
-            <h3>定义</h3>
+            <h3 id="toc_0">定义</h3>
 
 <p>我们知道，在Android中，<code>Activity</code>有生命周期，<code>Fragement</code>也有生命周期，在他们不同的生命周期阶段，我们需要处理不同的事情。</p>
 
@@ -99,11 +99,11 @@
 
 <hr>
 
-<h3>生命周期控制</h3>
+<h3 id="toc_1">生命周期控制</h3>
 
 <p>现在，<code>ImageLoader</code>掌握了自己的人生。他已经不是一个普通的<code>ImageLoader</code>了，而是：<code>ImageLoaderWithLife</code>。</p>
 
-<h4>LifeCycleComponentManager</h4>
+<h4 id="toc_2">LifeCycleComponentManager</h4>
 
 <p>但终归是生命体。犹如自然界中，四季交替，百草生长繁荣又枯萎凋零——任何一个生命体都会经历生老病死的过程。</p>
 
@@ -162,14 +162,14 @@
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
-<h4>宿主</h4>
+<h4 id="toc_3">宿主</h4>
 
 <p>在上面，有一个<code>IComponentContainer</code>, 这定义了宿主的行为，能容纳<code>LifeCycleComponent</code>：</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">public interface IComponentContainer {
     public void addComponent(LifeCycleComponent component);
 }
 </code></pre></div>
-<h4>和Activity结合使用</h4>
+<h4 id="toc_4">和Activity结合使用</h4>
 
 <p>在<code>Activity</code>这个环境中，我们用<code>LifeCycleComponentManager</code>控制着属于这个<code>Activity</code>的各个组件的生命周期:</p>
 <div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">XActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="kd">implements</span> <span class="n">IComponentContainer</span> <span class="o">{</span>
@@ -206,19 +206,19 @@
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
-<h4>用法</h4>
+<h4 id="toc_5">用法</h4>
 
 <p>一般应用场景: 在一个列表页面，<code>Activity</code>含有一个<code>Adapter</code>, 其中有一个<code>ImageLoader</code>, 负责图像加载, 并将<code>Activity</code>作为<code>Context</code>持有。</p>
 
 <ul>
-<li><h5>Don&#39;t</h5>
+<li><h5 id="toc_6">Don&#39;t</h5>
 
 <p>实际调用<code>ImageLoader</code>的<code>stopLoadImage()</code>方法的不是<code>Activity</code>, 而是在这个<code>Adapter</code>内部。然后<code>Adapter</code>公开一个方法，由<code>Activity</code>调用。</p>
 
 <p>当然我也见过将<code>ImageLoader</code>做成<code>Activity</code>的成员，然后公开给<code>Adapter</code>访问的。</p>
 
 <p>对于这样的做法，我想说的是，还不如把所有代码写在一个类里面得了，这样耦合会更强烈一点。</p></li>
-<li><h5>推荐做法</h5>
+<li><h5 id="toc_7">推荐做法</h5>
 
 <p>创建一个<code>ImageLoader</code>, 然后和<code>Context</code>关联:</p>
 <div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="n">mImageLoader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ImageLoader</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
@@ -229,7 +229,7 @@
 
 <hr>
 
-<h3>为什么不是ActivityLifecycleCallbacks</h3>
+<h3 id="toc_8">为什么不是ActivityLifecycleCallbacks</h3>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">public interface ActivityLifecycleCallbacks {
     void onActivityCreated(Activity activity, Bundle savedInstanceState);
     void onActivityStarted(Activity activity);

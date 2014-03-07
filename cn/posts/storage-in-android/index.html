@@ -36,7 +36,7 @@
             <h2> Android存储使用参考 </h2>
             <p> 15 Jan 2014 </p>
             <hr>
-            <h4>可能遇到的问题</h4>
+            <h4 id="toc_0">可能遇到的问题</h4>
 
 <p>android系统自身自带有存储，另外也可以通过sd卡来扩充存储空间。前者好比pc中的硬盘，后者好移动硬盘。
 前者空间较小，后者空间大，但后者不一定可用。
@@ -57,7 +57,7 @@
 
 <hr>
 
-<h4>基本操作</h4>
+<h4 id="toc_1">基本操作</h4>
 
 <ol>
 <li><p>使用外部存储，需要的权限，在<code>AndoridManifest.xml</code>中:</p>
@@ -86,7 +86,7 @@ public static boolean hasSDCardMounted() {
 
 <hr>
 
-<h4>存储的用量情况</h4>
+<h4 id="toc_2">存储的用量情况</h4>
 
 <ul>
 <li><p>根据系统用户不同，所能占用的存储空间大小也有不同</p>
@@ -120,7 +120,7 @@ public static long getUsableSpace(File path) {
 
 <hr>
 
-<h4>路径的规律</h4>
+<h4 id="toc_3">路径的规律</h4>
 
 <p>一般地，通过<code>Context</code> 和 <code>Environment</code>相关的方法获取文件存取的路径。</p>
 
@@ -164,7 +164,7 @@ public static long getUsableSpace(File path) {
 </code></pre></div>
 <hr>
 
-<h4>各个路径的特性</h4>
+<h4 id="toc_4">各个路径的特性</h4>
 
 <p>下面介绍这些路径的特性以及使用中需要注意的细节:</p>
 
@@ -310,7 +310,7 @@ public static File getExternalCacheDir(Context context) {
 
 <hr>
 
-<h4>相关代码：</h4>
+<h4 id="toc_5">相关代码：</h4>
 
 <p><a href="https://github.com/liaohuqiu/cube-sdk/blob/master/core/src/com/srain/cube/file/FileUtil.java">https://github.com/liaohuqiu/cube-sdk/blob/master/core/src/com/srain/cube/file/FileUtil.java</a></p>
 

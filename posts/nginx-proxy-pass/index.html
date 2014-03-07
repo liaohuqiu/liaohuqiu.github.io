@@ -36,7 +36,7 @@
             <h2> Nginx proxy_pass: examples for how does nginx proxy_pass map the request </h2>
             <p> 16 Sep 2013 </p>
             <hr>
-            <h3>1. about</h3>
+            <h3 id="toc_0">1. about</h3>
 
 <ol>
 <li><p>The <code>proxy_pass</code> directive sets the address of the proxied server and the URI to which location will be mapped. </p>
@@ -55,7 +55,7 @@ server {
 </code></pre></div></li>
 </ol>
 
-<h3>2. location without regular expression</h3>
+<h3 id="toc_1">2. location without regular expression</h3>
 
 <ol>
 <li><p>If the <code>proxy_pass</code> directive is specified without a URI,</p>
@@ -79,7 +79,7 @@ test.com/app/xxxxx =&gt;  http://192.168.154.102/maped_dir/xxxxx
 </code></pre></div></li>
 </ol>
 
-<h3>3. location with regular expression</h3>
+<h3 id="toc_2">3. location with regular expression</h3>
 
 <ol>
 <li><p>If the location is given by regular expression, can not be a URI part in <code>proxy_pass</code> directive,  unless there are variables in the directive.</p>
@@ -112,11 +112,11 @@ test.com/app/request/xxxxx =&gt; http://192.168.154.102:9999/some_dir/xxxxx
 </code></pre></div>
 <p>/app/hit/some/request/?name=xxxxx</p>
 
-<p>=&gt;  http://192.168.154.102:9999/hit_page.php?path=some/request/&amp;name=xxxxx</p>
+<p>=&gt;  <a href="http://192.168.154.102:9999/hit_page.php?path=some/request/&amp;name=xxxxx">http://192.168.154.102:9999/hit_page.php?path=some/request/&amp;name=xxxxx</a></p>
 
 <p>/app/not_hit/some/request/?name=xxxxx  </p>
 
-<p>=&gt; http://192.168.154.102:9999/some<em>dir/not</em>hit/some/request/?name=xxxxx</p></li>
+<p>=&gt; <a href="http://192.168.154.102:9999/some_dir/not_hit/some/request/?name=xxxxx">http://192.168.154.102:9999/some_dir/not_hit/some/request/?name=xxxxx</a></p></li>
 </ol>
 
 <blockquote>

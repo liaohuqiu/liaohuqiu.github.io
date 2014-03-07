@@ -38,11 +38,11 @@
             <hr>
             <p>Android 应用的性能分析，优化，需要检查分析内存使用情况和方法调用情况。本文给出进行这两方面分析的工具和方法。</p>
 
-<h3>内存使用分析</h3>
+<h3 id="toc_0">内存使用分析</h3>
 
 <hr>
 
-<h5>1. 分析内存使用</h5>
+<h5 id="toc_1">1. 分析内存使用</h5>
 
 <p>虽然Android系统的Dalvik虚拟机有垃圾回收机制，但因手机内存使用存在不同于普通PC的更大的限制，内存使用方面的问题，我们更应多加注意。</p>
 
@@ -58,7 +58,7 @@
 <li>有些对象一直被创建，从未被释放。</li>
 </ul>
 
-<h5>2. 工具</h5>
+<h5 id="toc_2">2. 工具</h5>
 
 <p>在Android的ADT中，提供了两种工具可以用来分析内存使用</p>
 
@@ -76,7 +76,7 @@
 <p>hprof文件是Java 虚拟机的Heap快照</p>
 </blockquote>
 
-<h5>3. 查看Heap实时情况</h5>
+<h5 id="toc_3">3. 查看Heap实时情况</h5>
 
 <p><img class="cimage" src="http://cimage.sinaapp.com/img/org/17/70/1/5/60/update-heap-status.png"/></p>
 
@@ -86,7 +86,7 @@
 <li> 操作应用，看哪些操作将导致内存用量增大</li>
 </ol>
 
-<h5>4. Memeory Analyzer分析内存使用情况</h5>
+<h5 id="toc_4">4. Memeory Analyzer分析内存使用情况</h5>
 
 <p>根据实时的Heap使用情情况，我们可以大致判断哪些操作，哪些页面可能存在内存是一共问题，但是具体的问题的需要更进一步的数据。</p>
 
@@ -135,7 +135,7 @@ hprof-conv.exe D:\tmp\com.srain.cube.sample.hprof D:\tmp\com.srain.cube.sample-c
 
 <hr>
 
-<h3>方法调用分析</h3>
+<h3 id="toc_5">方法调用分析</h3>
 
 <p>App不流畅卡顿，和方法执行速度有更直接的关系。
 主UI线程上的耗时操作，超过5s，系统就会提示用户，是否终止程序。
