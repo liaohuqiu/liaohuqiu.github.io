@@ -11,7 +11,7 @@ permalink:      /posts/:title
 
 title:          "Yet Another Summer Rain"
 
-exclude:        ['conf', 'README.md']
+exclude:        ['README.md']
 
 host_name:      'www.liaohuqiu.net'
 
