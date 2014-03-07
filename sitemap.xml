@@ -2,23 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
-        <loc>http://www.liaohuqiu.net/404.html</loc>
-        <lastmod>2014-03-07</lastmod>
-        
-        <changefreq>daily</changefreq>
-        
-    </url>
-    
-    <url>
         <loc>http://www.liaohuqiu.net/about/about-me.html</loc>
-        <lastmod>2014-03-07</lastmod>
-        
-        <changefreq>daily</changefreq>
-        
-    </url>
-    
-    <url>
-        <loc>http://www.liaohuqiu.net/sitemap.xml</loc>
         <lastmod>2014-03-07</lastmod>
         
         <changefreq>daily</changefreq>
@@ -30,6 +14,22 @@
         <lastmod>2014-03-07</lastmod>
         
         <changefreq>hourly</changefreq>
+        
+    </url>
+    
+    <url>
+        <loc>http://www.liaohuqiu.net/404.html</loc>
+        <lastmod>2014-03-07</lastmod>
+        
+        <changefreq>daily</changefreq>
+        
+    </url>
+    
+    <url>
+        <loc>http://www.liaohuqiu.net/sitemap.xml</loc>
+        <lastmod>2014-03-07</lastmod>
+        
+        <changefreq>daily</changefreq>
         
     </url>
     
@@ -91,14 +91,6 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/work-with-git-branches</loc>
-        <lastmod>2014-03-07</lastmod>
-        
-        <changefreq>daily</changefreq>
-        
-    </url>
-    
-    <url>
         <loc>http://www.liaohuqiu.net/cn/posts/work-with-git-branches</loc>
         <lastmod>2014-03-07</lastmod>
         
@@ -107,7 +99,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/git-setup-and-setting</loc>
+        <loc>http://www.liaohuqiu.net/posts/work-with-git-branches</loc>
         <lastmod>2014-03-07</lastmod>
         
         <changefreq>daily</changefreq>
@@ -116,6 +108,14 @@
     
     <url>
         <loc>http://www.liaohuqiu.net/posts/git-setup-and-setting</loc>
+        <lastmod>2014-03-07</lastmod>
+        
+        <changefreq>daily</changefreq>
+        
+    </url>
+    
+    <url>
+        <loc>http://www.liaohuqiu.net/cn/posts/git-setup-and-setting</loc>
         <lastmod>2014-03-07</lastmod>
         
         <changefreq>daily</changefreq>
@@ -243,7 +243,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/yet-another-summer-rain</loc>
+        <loc>http://www.liaohuqiu.net/posts/yet-another-summer-rain</loc>
         <lastmod>2014-03-07</lastmod>
         
         <changefreq>daily</changefreq>
@@ -251,7 +251,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/yet-another-summer-rain</loc>
+        <loc>http://www.liaohuqiu.net/cn/posts/yet-another-summer-rain</loc>
         <lastmod>2014-03-07</lastmod>
         
         <changefreq>daily</changefreq>

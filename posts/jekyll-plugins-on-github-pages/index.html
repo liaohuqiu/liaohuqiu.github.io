@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="chrome=1" />
 
 <meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
-<meta name="description" content="Using jekyll plugins on github pages, the right way." />
+<meta name="description" content="Using Jekyll plugins on github pages, the right way." />
 <meta name="keywords" content="Jekyll plugins, not working Github pages" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
@@ -38,9 +38,9 @@
             <hr>
             <h4 id="toc_0">First of all:</h4>
 
-<p>Github Pages works in <code>safe mode</code> in which most of the jekyll plugins can not work.</p>
+<p>Github Pages works in <code>safe mode</code> in which most of the Jekyll plugins can not work.</p>
 
-<p>So we can not use jekyll plugins on github pages, even you have marked it to <code>safe</code>. If you have tried, you will know.</p>
+<p>So <strong><em>we can not use Jekyll plugins on github pages</em></strong>, even you have marked it to <code>safe</code>. If you have tried, you will know.</p>
 
 <p><strong>We must use the other way:</strong></p>
 
@@ -101,29 +101,29 @@ git push --all origin
     <span class="nb">eval</span> <span class="nv">$1</span>
 <span class="o">}</span>
 
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$# </span>-lt 1 <span class="o">]</span>; <span class="k">then</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$# </span>-lt 1 <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
 <span class="k">    </span><span class="nb">echo</span> <span class="s2">&quot;Usage: sh $0 [ gh-pages | master ]&quot;</span>
     <span class="nb">exit</span>
 <span class="k">fi</span>
 
 <span class="nv">branch</span><span class="o">=</span><span class="nv">$1</span>
-<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;$branch&quot;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="s2">&quot;$branch&quot;</span> !<span class="o">=</span> <span class="s2">&quot;master&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;$branch&quot;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="s2">&quot;$branch&quot;</span> !<span class="o">=</span> <span class="s2">&quot;master&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
 <span class="k">    </span><span class="nv">branch</span><span class="o">=</span><span class="s1">&#39;gh-pages&#39;</span>
 <span class="k">fi</span>
 
-jekyll build
-<span class="k">if</span> <span class="o">[</span> ! -d <span class="s1">&#39;_site&#39;</span> <span class="o">]</span>;<span class="k">then</span>
+exe_cmd <span class="s2">&quot;jekyll build&quot;</span>
+<span class="k">if</span> <span class="o">[</span> ! -d <span class="s1">&#39;_site&#39;</span> <span class="o">]</span><span class="p">;</span><span class="k">then</span>
 <span class="k">    </span><span class="nb">echo</span> <span class="s2">&quot;not content to be published&quot;</span>
     <span class="nb">exit</span>
 <span class="k">fi</span>
 
 exe_cmd <span class="s2">&quot;git checkout $branch&quot;</span>
 <span class="nv">error_code</span><span class="o">=</span><span class="nv">$?</span>
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$error_code</span> !<span class="o">=</span> 0 <span class="o">]</span>;<span class="k">then</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$error_code</span> !<span class="o">=</span> 0 <span class="o">]</span><span class="p">;</span><span class="k">then</span>
 <span class="k">    </span><span class="nb">echo</span> <span class="s1">&#39;Switch branch fail.&#39;</span>
     <span class="nb">exit</span>
 <span class="k">else</span>
-<span class="k">    </span>ls | grep -v _site|xargs rm -rf
+<span class="k">    </span>ls <span class="p">|</span> grep -v _site<span class="p">|</span>xargs rm -rf
     exe_cmd <span class="s2">&quot;cp -r _site/* .&quot;</span>
     exe_cmd <span class="s2">&quot;rm -rf _site/&quot;</span>
     exe_cmd <span class="s2">&quot;touch .nojekyll&quot;</span>
