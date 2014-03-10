@@ -312,13 +312,14 @@ Full-Width Styles
     padding-bottom: 20px;
 }
 
-.about-me h3
+.about-me
 {
     text-align: right;
 }
-
-
-
+.about-me h3 a
+{
+    margin: 0 0 0 20px;
+}
 
 /*******************************************************************************
 Small Device Styles
