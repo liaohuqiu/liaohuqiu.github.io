@@ -69,7 +69,7 @@
 <h3 id="toc_3">分页</h3>
 
 <p><code>limit num, offset</code>在sqlite，还是会全部读出数据，所以分页不用offset。
-`<code>read_time</code>有索引，分页操作，根据之前的<code>read_time</code>用做条件筛选。</p>
+<code>read_time</code>有索引，分页操作，根据之前的<code>read_time</code>用做条件筛选。</p>
 
 <p>首次</p>
 <div class="highlight"><pre><code class="sql language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">s_read_books</span> <span class="k">order</span> <span class="k">by</span> <span class="n">read_time</span> <span class="k">desc</span> <span class="k">limit</span> <span class="err">$</span><span class="n">num_per_page</span>

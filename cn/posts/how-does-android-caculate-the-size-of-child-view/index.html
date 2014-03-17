@@ -6,8 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="chrome=1" />
 
 <meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
-<meta name="description" content="How does android caculate the size of view." />
-<meta name="keywords" content="" />
+<meta name="description" content="Android中有ViewGroup，ViewGroup可以包含子View，本文讲解View尺寸大小的确定过程" />
+<meta name="keywords" content="安卓View大小，安卓View计算大小" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
 <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/bootstrap.min.css">
@@ -17,7 +17,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
 
-<title>How Android caculates view size |  Yet Another Summer Rain</title>
+<title>Android中View大小的确定过程 |  Yet Another Summer Rain</title>
 </head>
 
 <body>
@@ -33,12 +33,12 @@
 <div class='post'>
     <div id="main_content_wrap" class="outer">
         <div class="md-body main-content inner wide">
-            <h2> How Android caculates view size </h2>
+            <h2> Android中View大小的确定过程 </h2>
             <p> 14 Mar 2014 </p>
             <hr>
             <h3 id="toc_0">View and ViewGroup</h3>
 
-<p>There are five basic <code>ViewGroup</code> in Android:</p>
+<p>安卓中有5种基本的 <code>ViewGroup</code>:</p>
 
 <ul>
 <li>  FrameLayout</li>
@@ -48,7 +48,7 @@
 <li>  AbsoluteLayout</li>
 </ul>
 
-<p>The <code>ViewGroup</code> can contains children views:</p>
+<p><code>ViewGroup</code>可以添加子View，在xml文件里面，我们可以这样写：</p>
 <div class="highlight"><pre><code class="xml language-xml" data-lang="xml"><span class="nt">&lt;RelativeLayout</span>
     <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
     <span class="na">android:layout_height=</span><span class="s">&quot;100dp&quot;</span> <span class="nt">&gt;</span>
@@ -63,35 +63,33 @@
 
 <span class="nt">&lt;/RelativeLayout&gt;</span>
 </code></pre></div>
-<h3 id="toc_1">How big the child view want to be</h3>
+<h3 id="toc_1">子View的大小</h3>
 
 <ul>
 <li><p><strong>LayoutParams</strong></p>
 
-<p>We use <code>LayoutParams</code> to describe how big a view will be both width and height. For each dimension, its data type is <code>int</code> and it can specify one of:</p>
+<p><code>LayoutParams</code>用来描述一个View在父容器中大小，它包括了高度和宽度两个维度的信息，每个维度的数据类型都是<code>int</code>，取值是下面三种情况之一:</p>
 
 <ol>
-<li><p><code>FILL_PARENT</code> / <code>MATCH_PARENT</code>, the value is <code>-1</code>. </p>
+<li><p><code>FILL_PARENT</code> / <code>MATCH_PARENT</code>, 取值是 <code>-1</code>. </p>
 
-<p>Make the view as big as its parent, <strong>minus padding</strong>.</p></li>
-<li><p><code>WRAP_CONTENT</code>, the value is <code>-2</code>. </p>
+<p>填充满父容器, <strong>minus padding</strong>.</p></li>
+<li><p><code>WRAP_CONTENT</code>, 取值是 <code>-2</code>. </p>
 
-<p>Make the view just be big enough to enclose its content, <strong>plus padding</strong>.</p></li>
-<li><p>An exact number, not lower than 0.</p></li>
+<p>尺寸尽量小，能包住自身的全部内容就行, <strong>plus padding</strong>.</p></li>
+<li><p>一个确定的尺寸，大于等于0的一个数值。</p></li>
 </ol></li>
 </ul>
 
-<h3 id="toc_2">How big the parent view is</h3>
+<h3 id="toc_2">父容器的大小状态</h3>
 
 <ul>
 <li><p><strong>Padding</strong></p>
 
-<p>The space between the real size and the content of the view.</p></li>
+<p>留白。自身内容的大小加上留白就是父容器的内容的真正大小。</p></li>
 <li><p><strong>MeasureSpec</strong></p>
 
-<p>When parent view try to figure out the size of its children, it must tell the child the size information of itself.</p>
-
-<p>The size of child view  will be under different constraint when parent view is in different view mode, there are 3 view modes:</p>
+<p>当父容器要确定子View的大小的时候，父容器需要告诉子View自身的大小状态。当父容器所属的大小状态不同时，对子View的尺寸约束是不一样的。父容器大小状态有下面三种情况：</p>
 
 <table><thead>
 <tr>
@@ -101,90 +99,88 @@
 </thead><tbody>
 <tr>
 <td>UNSPECIFIED</td>
-<td>The parent has not imposed any constraint on the child. It can be whatever size it wants.</td>
+<td>父容器对子View没有任何约束，子View可以按自身需要，任意大小。</td>
 </tr>
 <tr>
 <td>EXACTLY</td>
-<td>The parent has determined an exact size for the child. The child is going to be given those bounds regardless of how big it wants to be.</td>
+<td>父容器大小是一个确定的数值，子View只能限定在指定大小内。</td>
 </tr>
 <tr>
 <td>AT_MOST</td>
-<td>The child can be as large as it wants up to the specified size.</td>
+<td>父容器本身以及内含的所有子View大小不能超过指定大小。</td>
 </tr>
 </tbody></table></li>
-<li><p><strong>size value and size mode</strong></p>
+<li><p><strong>View的尺寸大小和尺寸状态</strong></p>
 
-<p>The data type of a dimension of size is <code>int</code>, the length is 8 bytes.</p>
+<p>尺寸大小的数据类型是 <code>int</code>, 8个字节。</p>
 
-<p>For the size vaule and size mode will be passed to child view from parent view, for reducing object allocation.</p>
-
-<p>The size mode information has been packed into the size value, ine the fist 2 bits in the first byte.</p>
+<p>尺寸大小和尺寸状态在很多时候需要一起传递，为了减少对象的分配，把三种尺寸状态编码到尺寸大小<code>int</code>变量的最高位2个位中。</p>
 
 <ol>
 <li><p><code>UNSPECIFIED</code></p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+----------
-| 00xx xxxx | The other 7 bytes.    0x00 &lt;&lt; 30 + value
+| 00xx xxxx | 剩余的7个字节.    0x00 &lt;&lt; 30 + value
 +-----------+----------
 </code></pre></div></li>
 <li><p><code>EXACTLY</code></p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+----------
-| 01xx xxxx | The other 7 bytes.    0x01 &lt;&lt; 30 + value
+| 01xx xxxx | 剩余的7个字节.    0x01 &lt;&lt; 30 + value
 +-----------+----------
 </code></pre></div></li>
 <li><p><code>AT_MOST</code></p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+----------
-| 10xx xxxx | The other 7 bytes.    0x02 &lt;&lt; 30 + value
+| 10xx xxxx | 剩余的7个字节.    0x10 &lt;&lt; 30 + value
 +-----------+----------
 </code></pre></div></li>
 </ol></li>
 </ul>
 
-<h3 id="toc_3">How big the child will be</h3>
+<h3 id="toc_3">子View尺寸的最终确定</h3>
 
-<p>The parent has a size constraint and the children have their desire. So the negotiation begins:</p>
+<p>子View有一个期望的尺寸大小，父容器有尺寸大小约束，这两方面的约束协调，用来计算View的大小状态。</p>
 
 <ol>
-<li><p>Acroding accroding parent&#39;s size constraint and children&#39;s LayoutParams, parent view can figure out the view size and view mode of its children.</p>
+<li><p>根据父容器的尺寸状态，以及子View的<code>LayoutParams</code>，可以确定子View的大小和状态：<code>MeasureSpec</code>，并要求子View确定自身大小。</p>
 
-<p>Then the parent will reqiure the children view to measure itself, by calling child&#39;s <code>measure()</code> method.</p></li>
-<li><p>In the <code>onMeasure()</code> method in the child view, acroding the size information given out by its parent, child view will decide the final view size of itself.</p></li>
-<li><p>Acroding this final size of children views, parent view also can decide its final view size.</p></li>
+<p>调用子View的<code>measure()</code>方法，子View的<code>onMeasure()</code>方法也会被执行。</p></li>
+<li><p>子View在<code>onMeasure()</code>方法中，根据父容器给出的尺寸大小和约束，根据自身情况，确定最终的大小。</p></li>
+<li><p>父容器根据子View的确定的大小，最终确定自身大小。</p></li>
 </ol>
 
-<p><strong>Factors should be taken into consideration:</strong></p>
+<p><strong>需要考虑的因素</strong></p>
 
 <ul>
-<li>  parent view modes:
+<li>  父容器的尺寸状态:
 
 <ol>
 <li>EXACTLY</li>
 <li>AT_MOST</li>
 <li>UNSPECIFIED</li>
 </ol></li>
-<li>  parent view size: <code>parentSize</code></li>
-<li><p>parent padding:<code>parentPadding</code></p>
+<li>  父容器的尺寸大小: <code>parentSize</code></li>
+<li><p>父容器的留白:<code>parentPadding</code></p>
 
-<p>The content size of parent is <code>parentSize</code> - <code>parentPadding</code>, name it <code>parentContentSize</code></p></li>
-<li><p>child LayoutParams:</p>
+<p>父容器真正内容的大小是： <code>parentSize</code> - <code>parentPadding</code>, 用变量 <code>parentContentSize</code>代替。</p></li>
+<li><p>子View的LayoutParams:</p>
 
 <ol>
-<li> exact number, <code>childSize</code></li>
+<li> 确定的数值, <code>childSize</code></li>
 <li> MATCH_PARENT</li>
 <li> WRAP_CONTENT</li>
 </ol></li>
 </ul>
 
-<p><strong>What should be settled:</strong></p>
+<p><strong>需要确定的</strong></p>
 
 <ul>
-<li>  child view mode</li>
-<li>  child view size</li>
+<li>  子View的大小状态</li>
+<li>  子view的尺寸大小</li>
 </ul>
 
-<p><strong>The rule</strong></p>
+<p><strong>尺寸确定的规则</strong></p>
 
 <ul>
-<li><p>Parent view is in <code>EXACTLY</code> view mode, it has imposed an exact size on its children</p>
+<li><p>父容器的大小状态处于 <code>EXACTLY</code> 状态时, 子容器限定在这个大小。</p>
 
 <table><thead>
 <tr>
@@ -195,25 +191,25 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>exact size</td>
+<td>确定的大小</td>
 <td>EXACTLY</td>
 <td>childSize</td>
-<td>Child wants a specific size.</td>
+<td>子View大小可以是自身大小，后期再做确定。</td>
 </tr>
 <tr>
 <td>MATCH_PARENT</td>
 <td>EXACTLY</td>
 <td>parentContentSize</td>
-<td>Child wants to be parent&#39;s size.</td>
+<td>父容器多大，子View就可以多大。大小为父容器大小。</td>
 </tr>
 <tr>
 <td>WRAP_CONTENT</td>
 <td>AT_MOST</td>
 <td>parentContentSize</td>
-<td>Child wants to determine its own size. It can not be bigger than parent.</td>
+<td>最大尺寸为父容器尺寸，本身内容不能超过和父容器尺寸。</td>
 </tr>
 </tbody></table></li>
-<li><p>Parent view is in <code>AT_MOST</code> view mode, it has imposed a <strong>maximum</strong> size on its children.</p>
+<li><p>父容器尺寸处于<code>AT_MOST</code>状态时, 子View尺寸不能超过这个尺寸。</p>
 
 <table><thead>
 <tr>
@@ -224,25 +220,25 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>exact size</td>
+<td>确定的大小</td>
 <td>EXACTLY</td>
 <td>childSize</td>
-<td>Child wants a specific size</td>
+<td>子View的大小可以为自身的大小。后期再做确定</td>
 </tr>
 <tr>
 <td>MATCH_PARENT</td>
 <td>AT_MOST</td>
 <td>parentContentSize</td>
-<td>Child wants to be parent&#39;s size, but parent&#39;s size is not fixed. Constrain child to not be bigger than parent.</td>
+<td>父容器大小未确定，但子容器想要和父容器一定大。那么确定子View最大可以和父容器一样大。</td>
 </tr>
 <tr>
 <td>WRAP_CONTENT</td>
 <td>AT_MOST</td>
-<td>parentContentSize</td>
-<td>Child wants to determine its own size, but it can not be bigger than parent.</td>
+<td>parentSize</td>
+<td>子View需要确定自己的尺寸，最大不超过父容器大小。</td>
 </tr>
 </tbody></table></li>
-<li><p>Parent view is in <code>UNSPECIFIED</code> view mode, it ask to see how big its children want to be.</p>
+<li><p>父容器处于 <code>UNSPECIFIED</code> 状态，需要根据子View的最终大小来确定自己状态。</p>
 
 <table><thead>
 <tr>
@@ -253,22 +249,22 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>exact size</td>
+<td>确定的大小</td>
 <td>EXACTLY</td>
 <td>childSize</td>
-<td>Child wants a specific size.</td>
+<td>子View尺寸为一个确定大小.</td>
 </tr>
 <tr>
 <td>MATCH_PARENT</td>
 <td>UNSPECIFIED</td>
-<td>can not decide yet</td>
-<td>Child wants to be parent&#39;s size. Child will decide its own size later.</td>
+<td>待定</td>
+<td>子view根据自身情况，确定大小。</td>
 </tr>
 <tr>
 <td>WRAP_CONTENT</td>
 <td>UNSPECIFIED</td>
-<td>can not decide yet</td>
-<td>Child wants to be its own size. Child will decide its own size later.</td>
+<td>待定</td>
+<td>子View根据自身情况，确定大小。</td>
 </tr>
 </tbody></table></li>
 </ul>

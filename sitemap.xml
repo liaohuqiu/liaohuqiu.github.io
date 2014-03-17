@@ -83,6 +83,14 @@
     </url>
     
     <url>
+        <loc>http://www.liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view</loc>
+        <lastmod>2014-03-17</lastmod>
+        
+        <changefreq>daily</changefreq>
+        
+    </url>
+    
+    <url>
         <loc>http://www.liaohuqiu.net/posts/how-does-android-caculate-the-size-of-child-view</loc>
         <lastmod>2014-03-17</lastmod>
         
@@ -91,7 +99,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/truncate-table-in-sqlite</loc>
+        <loc>http://www.liaohuqiu.net/cn/posts/truncate-table-in-sqlite</loc>
         <lastmod>2014-03-17</lastmod>
         
         <changefreq>daily</changefreq>
@@ -99,7 +107,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/truncate-table-in-sqlite</loc>
+        <loc>http://www.liaohuqiu.net/posts/truncate-table-in-sqlite</loc>
         <lastmod>2014-03-17</lastmod>
         
         <changefreq>daily</changefreq>
