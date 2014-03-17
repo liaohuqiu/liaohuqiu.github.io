@@ -44,15 +44,17 @@
 
 <p>There are two kinds of LruCache in Android: <code>LruCache</code> and <code>DiskLruCache</code>, the fisrt can be used to manager an set of objects, the later can be used to manager files.</p>
 
-<p>A senoar that a LruCache can be used is to manager the quota of disk cache and memory cache when loading a network image.</p>
+<h5 id="toc_1">When to use</h5>
 
-<p>After an image is loaded from the remote server, commonly it will be write to disk for further use. When the image is required to display in the <code>ImageView</code> we will decode the bitmap data from this file. The decoding operation is Cpu-time comsumed. To avoid the same image to be decode for multiple time for the bitmap data, the bitmap data will be cached in the memory after the first time it is decoded.</p>
+<p>A scenario that a LruCache can be used is to manager the quota of disk cache and memory cache when loading a network image.</p>
 
-<p>But the memory and the strage space is very limited, we can not take too much of that. Each time a file is writen to storage of a bitmap data is cached into memory, we must check the total size of the cached data and remove the eldest objects if nessery.</p>
+<p>After an image is loaded from the remote server, commonly it will be writen to disk for further use. When the image is required to display in the <code>ImageView</code> we will decode the bitmap data from this file. The decoding operation will take a long time. To avoid the same image to be decode for multiple time for the bitmap data, the bitmap data will be cached in the memory after the first time it is decoded.</p>
+
+<p>But the memory and the storage space is very limited, we can not take too much of that. Each time a file is writen to storage of a bitmap data is cached into memory, we must check the total size of the cached data and remove the eldest objects if nessery.</p>
 
 <p>Here, the <code>LRU Cache</code> will make things easy.</p>
 
-<h4 id="toc_1">LruCache</h4>
+<h4 id="toc_2">Memory LruCache</h4>
 
 <p><code>LruCache</code> is in the <code>support V4</code> package. It is very simple.</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">LRU cache
@@ -70,14 +72,14 @@
     +- -create(K key)
 </code></pre></div>
 <p>The <code>LruCache</code> has a <code>LinkedHashmap</code> inside, which is constructed by</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text"> public LinkedHashMap(int initialCapacity, float loadFactor, boolean accessOrder)
+<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kd">public</span> <span class="nf">LinkedHashMap</span><span class="o">(</span><span class="kt">int</span> <span class="n">initialCapacity</span><span class="o">,</span> <span class="kt">float</span> <span class="n">loadFactor</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">accessOrder</span><span class="o">)</span>
 </code></pre></div>
 <p>The third parameter allow the <code>LinkedHashmap</code> to put the element to the head of the linked list after accessed, both by <code>get</code> and <code>set</code>.</p>
 
 <ol>
 <li><code>sizeOf(K key, V value)</code> method return the size of each count which will be used to calculate the size of the whole size.
 &gt; The default implementions returns 1, which make the LRU cache only manager a limit amount of objects.</li>
-<li>The method `put(K key, V value) cache the value to the cache and check the size.</li>
+<li>The method <code>put(K key, V value)</code> cache the value to the cache and check the size.</li>
 <li><p>The method <code>get(K key)</code> will return the value for the key if it is exist in the cache. </p>
 
 <p>When a value is returned, it will move to the head of the queue, this is grantened by the <code>LinkedHashmap</code>;</p>
@@ -88,26 +90,27 @@ or the total size of the cache has exceed the limit.</p></li>
 </ol>
 
 <p>We can make a limit cache to store BitmapData:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">int cacheSizeInKB = 1024 * 10; // 10MB
-LruCache&lt;String, Bitmap&gt; cache = new LruCache&lt;String, Bitmap&gt;(cacheSizeInKB) {
+<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kt">int</span> <span class="n">cacheSizeInKB</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">10</span><span class="o">;</span> <span class="c1">// 10MB</span>
+<span class="n">LruCache</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Bitmap</span><span class="o">&gt;</span> <span class="n">cache</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LruCache</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Bitmap</span><span class="o">&gt;(</span><span class="n">cacheSizeInKB</span><span class="o">)</span> <span class="o">{</span>
 
-    @Override
-    protected void entryRemoved(boolean evicted, String key, Bitmap oldValue, Bitmap newValue) {
-    }
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">entryRemoved</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">evicted</span><span class="o">,</span> <span class="n">String</span> <span class="n">key</span><span class="o">,</span> <span class="n">Bitmap</span> <span class="n">old</span><span class="o">,</span> <span class="n">Bitmap</span> <span class="k">new</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">}</span>
 
-    /**
-     * Measure item size in kilobytes rather than units which is more practical for a bitmap cache
-     */
-    @Override
-    protected int sizeOf(String key, Bitmap value) {
-        final int bitmapSize =  value.getByteCount() / 1024;
-        return bitmapSize == 0 ? 1 : bitmapSize;
-    }
-};
+    <span class="cm">/**</span>
+<span class="cm">     * Measure item size in kilobytes rather than units,</span>
+<span class="cm">     * which is more practical for a bitmap cache</span>
+<span class="cm">     */</span>
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">int</span> <span class="nf">sizeOf</span><span class="o">(</span><span class="n">String</span> <span class="n">key</span><span class="o">,</span> <span class="n">Bitmap</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">final</span> <span class="kt">int</span> <span class="n">bitmapSize</span> <span class="o">=</span>  <span class="n">value</span><span class="o">.</span><span class="na">getByteCount</span><span class="o">()</span> <span class="o">/</span> <span class="mi">1024</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">bitmapSize</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="n">bitmapSize</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">};</span>
 </code></pre></div>
 <hr>
 
-<h4 id="toc_2">DiskLurCache</h4>
+<h4 id="toc_3">DiskLurCache</h4>
 
 <p>The <code>DiskLruCache</code> has an implementaion in <a href="https://android.googlesource.com/platform/libcore/+/android-4.1.1_r1/luni/src/main/java/libcore/io/DiskLruCache.java">JB source</a>.</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">DiskLruCache
@@ -121,41 +124,11 @@ LruCache&lt;String, Bitmap&gt; cache = new LruCache&lt;String, Bitmap&gt;(cacheS
 <p>There are some classes where are used to managed the info of the cached files:</p>
 
 <ul>
-<li>  Editor</li>
+<li><p>Editor</p></li>
+<li><p>Snapshot</p></li>
+<li><p>Entry</p></li>
 </ul>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">1.  An `Editor` providers some operations of file: create, save, read;
-</code></pre></div>
-<ul>
-<li>  Snapshot</li>
-</ul>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">1. A `Snapshot` is related to a `key`, 
-</code></pre></div>
-<ul>
-<li>  Entry</li>
-</ul>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">1. `Entry` store the 
-</code></pre></div>
-<hr>
 
-<p>There is a class <code>Snapshot</code> which is used to describe the cached files, each <code>Snapshot</code> has one or more <code>Editor</code>, which is related the operataion with the cached file. That is to say,, a cache key in <code>DiskLruCache</code> is related to one or more file.</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">Snapshot
-  |
-  +- - InputStream[] ins
-
-Editor
-  |
-  +-
-  +
-</code></pre></div>
-<p>Unlike <code>LruCache</code> a key may associate one or more file
-There is an inner class <code>Entry</code> to describe the cached files:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">Entry
- |  
- +- -long[] lengths
- +- -String key
- +- +setLengths(String[] strings)
- +- +getLengths()
-</code></pre></div>
             <hr>
             <div id="disqus_thread"></div>
 <script type="text/javascript">
