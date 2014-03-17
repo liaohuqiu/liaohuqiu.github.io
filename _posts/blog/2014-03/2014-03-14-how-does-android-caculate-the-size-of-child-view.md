@@ -92,16 +92,14 @@ The `ViewGroup` can contains children views:
         +-----------+----------
         ```
 
-*   Padding
-
-    The space between the real size and the content of the view.
-
 ###How big the child will be
 
 The parent has a size constraint and the children have their desire. So the negotiation begins:
 
 1.  Acroding accroding parent's size constraint and children's LayoutParams, parent view can figure out the view size and view mode of its children.
-2.  Acroding the size information given out by its parent, child view will decide the final view size of itself.
+
+    Then the parent will reqiure the children view to measure itself, by calling child's `measure()` method.
+2.  In the `onMeasure()` method in the child view, acroding the size information given out by its parent, child view will decide the final view size of itself.
 3.  Acroding this final size of children views, parent view also can decide its final view size.
 
 **Factors should be taken into consideration:**

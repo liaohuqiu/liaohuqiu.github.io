@@ -36,7 +36,7 @@ INSERT INTO s_read_books(code, time, read_time) VALUES ($code, $time, $read_time
 
 ###分页
 `limit num, offset`在sqlite，还是会全部读出数据，所以分页不用offset。
-``read_time`有索引，分页操作，根据之前的`read_time`用做条件筛选。
+`read_time`有索引，分页操作，根据之前的`read_time`用做条件筛选。
 
 首次
 
