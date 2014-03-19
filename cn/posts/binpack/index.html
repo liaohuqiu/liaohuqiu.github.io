@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset='utf-8' />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<title>一种简单高效的二进制编码方法 |  Yet Another Summer Rain</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <h1 id="site_title"><a href="/">Srain</a></h1>
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class='post'>
+    <div id="main_content_wrap" class="outer">
+        <div class="md-body main-content inner wide">
+            <h2> 一种简单高效的二进制编码方法 </h2>
+            <p> 18 Mar 2014 </p>
+            <hr>
+            <p>JSON是一种非常常见的编码方法，数据编码之后，可进行持久存储或者网络传输。
+和xml类似，JSON也是自描述的，编码后的数据具有一定的可读性并且相对xml数据更小。</p>
+
+<p>但在RPC调用的数据传输时，使用JSON编解码速度慢，数据量也太大。</p>
+
+<p>本文介绍一种二进制编码方法，具有编码解码速度快，编码后数据量小的特点，同时类似JSON，编码后的数据也是自描述的。</p>
+
+<h3 id="toc_0">支持的常用数据类型</h3>
+
+<ul>
+<li><p>Null。空类型。</p></li>
+<li><p>Bool。布尔值，<code>true</code>或者<code>false</code>。</p></li>
+<li><p><a href="http://en.wikipedia.org/wiki/Integer_%28computer_science%29">Integer</a>。根据长度不同，支持：8 ~ 64位。</p></li>
+<li><p>Blob，二进制流。</p></li>
+<li><p>String。字符串。C风格字符串不包含最后一个字符。</p></li>
+<li><p>Float，浮点数。</p>
+
+<ul>
+<li>Single，单精度浮点数，32位，4字节。</li>
+<li>Double，双精度浮点数，64为，8字节。</li>
+</ul></li>
+<li><p>List，数组。值可以是支持的任意类型，包括List本身。</p></li>
+<li><p>Dictionary，key-value键值对。值可以是支持的任意类型，包括Dictionary本身</p></li>
+</ul>
+
+<h1 id="toc_1">编码方法</h1>
+
+<hr>
+
+<h3 id="toc_2">Null</h3>
+
+<ul>
+<li><p>编码成一个特殊字节</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+| 0000 1111 |   0x0f
++-----------+
+</code></pre></div></li>
+</ul>
+
+<h3 id="toc_3">Bool</h3>
+
+<p><code>true</code>和<code>false</code>分别被编码成一个特殊的字节。</p>
+
+<ul>
+<li><p><code>true</code></p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+| 0000 0100 |   0x04
++-----------+
+</code></pre></div></li>
+<li><p><code>false</code></p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+| 0000 0101 |   0x05
++-----------+
+</code></pre></div></li>
+</ul>
+
+<h3 id="toc_4">Integer</h3>
+
+<p>整数会被编码成一个或者多个字节。</p>
+
+<ul>
+<li><p>整数的类型信息和符号信息被编码到最后一个字节</p>
+
+<p>最后一个字节前三个位用来存储整数区别于其他数据类型的标志以及符号位，第4，5个位用来存储整数的长度信息</p>
+
+<ul>
+<li><p>非负整数的前三位</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+| 010x xxxx |  0x40
++-----------+
+</code></pre></div></li>
+<li><p>负整数的前三位</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+| 011x xxxx |  0x60
++-----------+
+</code></pre></div></li>
+<li><p>整数的长度信息被编码进第4，5位:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+| xxx0 0xxx |   64bits
++-----------+
++-----------+
+| xxx0 1xxx |   8bits
++-----------+
++-----------+
+| xxx1 0xxx |   16bits
++-----------+
++-----------+
+| xxx1 1xxx |   32bits
++-----------+
+</code></pre></div></li>
+</ul></li>
+<li><p>除去最后一个字节，其他字节（如果编码后的数据是多个字节的话）的首位都是1，最后一个字节存储整数数据类型信息，该字节首位是0。这样设计，会给解码带来便利。</p>
+
+<p>最后一个字节的3个位，以及其他字节的7个位，用来储存整数的数值信息，如图：</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">    7 bits                  3 bits
++-----------+...........+-----------+
+| 1xxx xxxx | 1xxx xxxx | .... .xxx |
++-----------+...........+-----------+
+</code></pre></div>
+<p>整数的绝对值数值的二进制补码(Two&#39;s Complement)，低位在前，高位在后，7位一组，填充到这些编码位上。</p>
+<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="c1">// allocate buf</span>
+<span class="kt">char</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="n">buf</span><span class="p">;</span>
+<span class="c1">// 小于0x08的数值，编码到最后一个字节的后三位</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">num</span> <span class="o">&gt;=</span> <span class="mh">0x08</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">*</span><span class="n">p</span><span class="o">++</span> <span class="o">=</span> <span class="mh">0x80</span> <span class="o">|</span> <span class="n">num</span><span class="p">;</span>
+    <span class="n">num</span> <span class="o">&gt;&gt;=</span> <span class="mi">7</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="o">*</span><span class="n">p</span><span class="o">++</span> <span class="o">=</span> <span class="n">type</span> <span class="o">|</span> <span class="n">num</span><span class="p">;</span>
+</code></pre></div>
+<p>1 编码后：</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+| 0100 0001 |
++-----------+
+</code></pre></div>
+<p>-16 编码后：</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+-----------+
+| 1001 0000 | 0110 0000 |  
++-----------+-----------+
+</code></pre></div></li>
+</ul>
+
+<h3 id="toc_5">Blob</h3>
+
+<ul>
+<li><p>二进制流编码后的数据分成两部分，前一部分是原始数据的长度（字节数），后部分是二进制流原始数据。如下：</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">+----------------+
+| length + data  |  
++----------------+
+</code></pre></div></li>
+</ul>
+
+<p>原始数据的长度的编码和整数相似，但有两个地方不一样：</p>
+
+<ol>
+<li><p>编码到最后一个字节的<code>Blob</code>的数据类型信息是<code>0x10</code>;</p></li>
+<li><p>最后一个字节有4个位可用来存储编码后的长度信息，对于整数，只有3个:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">              0x10 + 4bits
++...........+-----------+
+| 1xxx xxxx | 0001 xxxx |
++...........+-----------+
+</code></pre></div>
+<p>编码后：</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">                                     binary data
++-----------+...........+-----------+============+
+| 1xxx xxxx | 1xxx xxxx | 0001 xxxx |    data    |
++-----------+...........+-----------+============+
+</code></pre></div></li>
+</ol>
+
+<h3 id="toc_6">String</h3>
+
+<ul>
+<li><p>字符串数据的编码方式和<code>Blob</code>一样，也是先编码长度，然后编码数据。</p>
+
+<p><strong>字符串数据以及长度不包括C风格字符串中的结束字节。</strong></p>
+
+<p>编码到长度数据最后一个字节的<code>String</code>的数据类型信息是: <code>0x20</code>，如下:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">              0x20 + 4 bits
++...........+-----------+
+| 1xxx xxxx | 0010 xxxx |
++...........+-----------+
+
++-----------+...........+-----------+============+
+| 1xxx xxxx | 1xxx xxxx | 0010 xxxx |    data    |
++-----------+...........+-----------+============+
+</code></pre></div></li>
+</ul>
+
+<h3 id="toc_7">Float</h3>
+
+<ul>
+<li><p>浮点数类型支持单精度和双精度。编码时，先编码这两种数据类型的类型信息到一个字节。然后再编码浮点数<code>IEEE-754</code>标准表示的32位或64位数据。</p></li>
+<li><p>编码时高位在前。 </p></li>
+<li><p>编码后，单精度浮点数占5个字节；双精度浮点数占9个字节，如下所示：</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">  0x06        8 bytes
++-----------+===========+
+| 0000 0110 |    data   |  双精度
++-----------+===========+
+
+  0x07        4 bytes
++-----------+===========+
+| 0000 0111 |    data   |  单精度
++-----------+===========+
+</code></pre></div></li>
+</ul>
+
+<h3 id="toc_8">List</h3>
+
+<ul>
+<li><p>为了编码<code>List</code>和<code>Dictionary</code>数据类型，定义了一个特殊的字节，用来做闭合标志，如下：</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+| 0000 0001 |   0x01
++-----------+
+</code></pre></div></li>
+<li><p><code>List</code>的数据类型信息编码成一个字节：</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+| 0000 0010 |   0x02
++-----------+
+</code></pre></div></li>
+<li><p>在编码时，第一个字节是类型信息，然后是每个子元素，最后是闭合字节：</p>
+
+<p>The last byte is <code>Closure</code>.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+| 0000 0010 | List类型信息字节
++-----------+----------------------------
+|          元素 1                       
++----------------------------------------
+|          元素 2                       
++----------------------------------------
+.    .    .
+.    .    .
+.    .    .
++----------------------------------------
+|          元素 N                       
++-----------+----------------------------
+| 0000 0001 | 闭合字节
++-----------+
+</code></pre></div></li>
+</ul>
+
+<h3 id="toc_9">Dictionary</h3>
+
+<ul>
+<li><p>和<code>List</code>编码类似，<code>Dictionary</code>编码时先编码类型信息，<code>Dictionary</code>类型信息是：</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+| 0000 0011 |   0x03
++-----------+
+</code></pre></div></li>
+<li><p>类型信息之后，是<code>Dictionary</code>的每个键值对，最后是闭合字节：</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+| 0000 0011 | 类型信息
++-----------+----------------------------
+|            key 1   
++----------------------------------------
+|          value 1
++----------------------------------------
+|            key 2   
++----------------------------------------
+|          value 2
++----------------------------------------
+.    .    .
+.    .    .
+.    .    .
++----------------------------------------
+|            key N   
++----------------------------------------
+|          value N
++-----------+----------------------------
+| 0000 0001 | 闭合字节
++-----------+
+</code></pre></div></li>
+</ul>
+
+<h3 id="toc_10">一些常量值定义</h3>
+
+<ul>
+<li><p>类型信息：</p>
+<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="k">typedef</span> <span class="k">enum</span> <span class="p">{</span>
+    <span class="n">BIN_TYPE_CLOSURE</span>                <span class="o">=</span> <span class="mh">0x01</span><span class="p">,</span> 
+    <span class="n">BIN_TYPE_LIST</span>                   <span class="o">=</span> <span class="mh">0x02</span><span class="p">,</span>
+    <span class="n">BIN_TYPE_DICT</span>                   <span class="o">=</span> <span class="mh">0x03</span><span class="p">,</span>
+    <span class="n">BIN_TYPE_BOOL</span>                   <span class="o">=</span> <span class="mh">0x04</span><span class="p">,</span>     <span class="cm">/* 0000 0100 T */</span>
+    <span class="n">BIN_TYPE_BOOL_FALSE</span>             <span class="o">=</span> <span class="mh">0x05</span><span class="p">,</span>     <span class="cm">/* 0000 0101 F */</span>
+
+    <span class="n">BIN_TYPE_FLOAT_DOUBLE</span>           <span class="o">=</span> <span class="mh">0x06</span><span class="p">,</span>     <span class="cm">/* 0010 0110   */</span>
+    <span class="n">BIN_TYPE_FLOAT_SINGLE</span>           <span class="o">=</span> <span class="mh">0x07</span><span class="p">,</span>     <span class="cm">/* 0000 0111   */</span>
+
+    <span class="n">BIN_TYPE_NULL</span>                   <span class="o">=</span> <span class="mh">0x0f</span><span class="p">,</span>
+
+    <span class="n">BIN_TYPE_BLOB</span>                   <span class="o">=</span> <span class="mh">0x10</span><span class="p">,</span>     <span class="cm">/* 0001 xxxx   */</span>
+    <span class="n">BIN_TYPE_STRING</span>                 <span class="o">=</span> <span class="mh">0x20</span><span class="p">,</span>     <span class="cm">/* 0010 xxxx   */</span>
+
+    <span class="n">BIN_TYPE_INTEGER</span>                <span class="o">=</span> <span class="mh">0x40</span><span class="p">,</span>     <span class="cm">/* 010x xxxx + */</span>
+    <span class="n">BIN_TYPE_INTEGER_NEGATIVE</span>       <span class="o">=</span> <span class="mh">0x60</span><span class="p">,</span>     <span class="cm">/* 011x xxxx - */</span>
+<span class="p">}</span> <span class="kt">bin_type_t</span><span class="p">;</span>
+</code></pre></div></li>
+<li><p>整数子类型：</p>
+<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="cp">#define BIN_INTEGER_TYPE_64                 0x00 &lt;&lt; 3   </span><span class="c1">// default implementation</span>
+<span class="cp">#define BIN_INTEGER_TYPE_8                  0x01 &lt;&lt; 3</span>
+<span class="cp">#define BIN_INTEGER_TYPE_16                 0x02 &lt;&lt; 3</span>
+<span class="cp">#define BIN_INTEGER_TYPE_32                 0x03 &lt;&lt; 3</span>
+
+<span class="cp">#define BIN_INTEGER_SUBTYPE_MASK            0x03 &lt;&lt; 3</span>
+</code></pre></div></li>
+</ul>
+
+<h3 id="toc_11">实现</h3>
+
+<ul>
+<li><p>php实现: <a href="https://github.com/binpack/binpack-php">https://github.com/binpack/binpack-php</a></p></li>
+<li><p>Java实现: <a href="https://github.com/binpack/binpack-java">https://github.com/binpack/binpack-java</a></p></li>
+<li><p>其他语言，TODO</p></li>
+</ul>
+
+<h3 id="toc_12">性能</h3>
+
+<ul>
+<li>  在php实现中，对比msgpack，编码后两者数据量大小相等，但本编码方法所耗时间是前者是前者3/4。</li>
+</ul>
+
+<p><a href="https://github.com/binpack/binpack">https://github.com/binpack/binpack</a></p>
+
+            <hr>
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'srain'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+try
+{
+ga('create', 'UA-43024238-1', 'liaohuqiu.net');
+ga('send', 'pageview');
+} catch(err) {
+    console.log(err);
+}
+</script>
+
+</body>
+</html>
