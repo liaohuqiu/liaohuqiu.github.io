@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset='utf-8' />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
+<meta name="description" content="为各个项目单独设置用户名和邮箱，并在提交前强制检查。" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<title>git: 提交前强制检查各个项目用户名邮箱设置 |  Yet Another Summer Rain</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <h1 id="site_title"><a href="/">Srain</a></h1>
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class='post'>
+    <div id="main_content_wrap" class="outer">
+        <div class="md-body main-content inner wide">
+            <h2> git: 提交前强制检查各个项目用户名邮箱设置 </h2>
+            <p> 20 Mar 2014 </p>
+            <hr>
+            <h3 id="toc_0">保证提交日志的准确性</h3>
+
+<p>在提交时，<code>user.name</code>, <code>user.email</code>会进入日志。这些信息，是追踪代码变更的关键。</p>
+
+<p>我们公司为了保证这些信息的准确性，在push时，强制检查，如果<code>user.name</code>和<code>user.email</code>信息不正确，则拒绝push。</p>
+
+<p><strong>全局配置</strong></p>
+
+<p>如果我们工作中只涉及一个git服务器，用一个全局配置就可以搞定了：</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">git config --global user.name <span class="s2">&quot;huqiu.lhq&quot;</span>
+git config --global user.email <span class="s2">&quot;huqiu.lhq@alibaba-inc.com&quot;</span>
+</code></pre></div>
+<h3 id="toc_1">工作在多个git项目</h3>
+
+<p>但是我们可能同时工作在多个项目中，公司内部用自有的git管理项目，我们在github上还有自己的项目。</p>
+
+<p>对于使用不同的用户身份，需要设置不用的sshkey，具体的配置可以看这里：<a href="/cn/posts/git-setup-and-setting/">多个sshkey配置</a></p>
+
+<p>这个时候，对于<code>user.name</code>和<code>user.email</code>我们不能采用全局的配置。而是要对各个项目单独配置。</p>
+
+<p><strong>项目配置</strong></p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">git config user.name <span class="s2">&quot;huqiu.lhq&quot;</span>
+git config user.email <span class="s2">&quot;huqiu.lhq@alibaba-inc.com&quot;</span>
+</code></pre></div>
+<h3 id="toc_2">忘记了做配置</h3>
+
+<p>对于项目配置，有时我们会忘记在<code>git init</code>或者<code>git clone</code>之后，配置<code>user.name</code>以及<code>user.email</code>。</p>
+
+<p>如果有全局配置，则使用全局配置。如果没全局配置，报错。</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="o">[</span>huqiu@srain <span class="nb">test</span><span class="o">]</span><span class="nv">$ </span>git commit -m <span class="s1">&#39;commit for testing no user.name empty&#39;</span>
+
+*** Please tell me who you are.
+
+Run
+
+git config --global user.email <span class="s2">&quot;you@example.com&quot;</span>
+git config --global user.name <span class="s2">&quot;Your Name&quot;</span>
+
+to <span class="nb">set </span>your account<span class="err">&#39;</span>s default identity.
+Omit --global to <span class="nb">set </span>the identity only in this repository.
+
+fatal: empty ident name <span class="o">(</span><span class="k">for</span> &lt;huqiu@srain.localhost&gt;<span class="o">)</span> not allowed
+</code></pre></div>
+<p>报错能够及时纠正我们的错误，最糟糕的情况是：</p>
+
+<ul>
+<li>  <strong>没有项目单独配置，提交的时候，自动采用全局配置。在发现问题之后需要对日志进行修复。</strong></li>
+</ul>
+
+<h3 id="toc_3">强制检查</h3>
+
+<p>强制检查可以在服务器端push的时候检查，也可以在客户端进行检查，这里介绍使用<code>pre-commit</code>钩子进行检查。</p>
+
+<p>全局钩子的配置，可以参见这里: <a href="http://srain.test.com/cn/posts/git-global-hooks/">git全局钩子</a></p>
+
+<p><strong>如何确定配置正确</strong></p>
+
+<ul>
+<li><p>确定没有全局配置：<code>global_email</code>为空</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">global_email</span><span class="o">=</span><span class="k">$(</span>git config --global user.email<span class="k">)</span>
+</code></pre></div></li>
+<li><p>确定有项目配置：<code>repository_email</code>不为空</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">repository_email</span><span class="o">=</span><span class="k">$(</span>git config user.email<span class="k">)</span>
+</code></pre></div></li>
+</ul>
+
+<p><strong>pre-commit hook</strong></p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">global_email</span><span class="o">=</span><span class="k">$(</span>git config --global user.email<span class="k">)</span>
+<span class="nv">global_name</span><span class="o">=</span><span class="k">$(</span>git config --global user.name<span class="k">)</span>
+
+<span class="nv">repository_email</span><span class="o">=</span><span class="k">$(</span>git config user.email<span class="k">)</span>
+<span class="nv">repository_name</span><span class="o">=</span><span class="k">$(</span>git config user.name<span class="k">)</span>
+
+<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;$repository_email&quot;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> -z <span class="s2">&quot;$repository_name&quot;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> -n <span class="s2">&quot;$global_email&quot;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> -n <span class="s2">&quot;$global_name&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="c"># user.email is empty</span>
+    <span class="nb">echo</span> <span class="s2">&quot;ERROR: [pre-commit hook] Aborting commit because user.email or user.name is missing. Configure them for this repository. Make sure not to configure globally.&quot;</span>
+    <span class="nb">exit </span>1
+<span class="k">else</span>  
+    <span class="c"># user.email is not empty</span>
+    <span class="nb">exit </span>0
+<span class="k">fi</span> 
+</code></pre></div>
+<h3 id="toc_4">直接可用的代码</h3>
+
+<p>上面谈到的：</p>
+
+<ul>
+<li><a href="https://github.com/liaohuqiu/work-anywhere/blob/master/sample/git-template/hooks/pre-commit">pre-commit 的源码</a></li>
+</ul>
+
+<p>自动设置全局钩子的脚本(其中包含了这个强制检查的pre-commit钩子)，并对git做一些易用配置：</p>
+
+<ul>
+<li><a href="https://github.com/liaohuqiu/work-anywhere/blob/master/tools/update-git-config.sh">update-git-config.sh</a></li>
+</ul>
+
+            <hr>
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'srain'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+try
+{
+ga('create', 'UA-43024238-1', 'liaohuqiu.net');
+ga('send', 'pageview');
+} catch(err) {
+    console.log(err);
+}
+</script>
+
+</body>
+</html>
