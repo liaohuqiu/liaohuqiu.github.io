@@ -65,7 +65,7 @@ git config user.email <span class="s2">&quot;huqiu.lhq@alibaba-inc.com&quot;</sp
 <p>对于项目配置，有时我们会忘记在<code>git init</code>或者<code>git clone</code>之后，配置<code>user.name</code>以及<code>user.email</code>。</p>
 
 <p>如果有全局配置，则使用全局配置。如果没全局配置，报错。</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="o">[</span>huqiu@srain <span class="nb">test</span><span class="o">]</span><span class="nv">$ </span>git commit -m <span class="s1">&#39;commit for testing no user.name empty&#39;</span>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="o">[</span>huqiu@srain <span class="nb">test</span><span class="o">]</span><span class="nv">$ </span>git ci -a -m <span class="s1">&#39;commit for testing no user.name empty&#39;</span>
 
 *** Please tell me who you are.
 
@@ -82,25 +82,21 @@ fatal: empty ident name <span class="o">(</span><span class="k">for</span> &lt;h
 <p>报错能够及时纠正我们的错误，最糟糕的情况是：</p>
 
 <ul>
-<li>  <strong>没有项目单独配置，提交的时候，自动采用全局配置。在发现问题之后需要对日志进行修复。</strong></li>
+<li> <strong>没有项目单独配置，提交的时候，自动采用全局配置。在发现问题之后需要对日志进行修复。</strong></li>
 </ul>
 
 <h3 id="toc_3">强制检查</h3>
 
-<p>强制检查可以在服务器端push的时候检查，也可以在客户端进行检查，这里介绍使用<code>pre-commit</code>钩子进行检查。</p>
+<p>强制检查可以在服务器端push的时候检查，也可以在客户端进行检查，这里介绍使用`pre-commit</code>钩子进行检查。</p>
 
 <p>全局钩子的配置，可以参见这里: <a href="http://srain.test.com/cn/posts/git-global-hooks/">git全局钩子</a></p>
 
 <p><strong>如何确定配置正确</strong></p>
 
-<ul>
-<li><p>确定没有全局配置：<code>global_email</code>为空</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">global_email</span><span class="o">=</span><span class="k">$(</span>git config --global user.email<span class="k">)</span>
-</code></pre></div></li>
-<li><p>确定有项目配置：<code>repository_email</code>不为空</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">repository_email</span><span class="o">=</span><span class="k">$(</span>git config user.email<span class="k">)</span>
-</code></pre></div></li>
-</ul>
+<ol>
+<li>确定没有全局配置</li>
+<li>确定有项目配置</li>
+</ol>
 
 <p><strong>pre-commit hook</strong></p>
 <div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">global_email</span><span class="o">=</span><span class="k">$(</span>git config --global user.email<span class="k">)</span>
@@ -123,13 +119,13 @@ fatal: empty ident name <span class="o">(</span><span class="k">for</span> &lt;h
 <p>上面谈到的：</p>
 
 <ul>
-<li><a href="https://github.com/liaohuqiu/work-anywhere/blob/master/sample/git-template/hooks/pre-commit">pre-commit 的源码</a></li>
+<li>  <a href="https://github.com/liaohuqiu/work-anywhere/blob/master/sample/git-template/hooks/pre-commit">pre-commit 的源码</a></li>
 </ul>
 
 <p>自动设置全局钩子的脚本(其中包含了这个强制检查的pre-commit钩子)，并对git做一些易用配置：</p>
 
 <ul>
-<li><a href="https://github.com/liaohuqiu/work-anywhere/blob/master/tools/update-git-config.sh">update-git-config.sh</a></li>
+<li>  <a href="https://github.com/liaohuqiu/work-anywhere/blob/master/tools/update-git-config.sh">update-git-config.sh</a></li>
 </ul>
 
             <hr>
