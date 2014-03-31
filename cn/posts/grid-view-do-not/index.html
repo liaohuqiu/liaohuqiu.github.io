@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="chrome=1" />
 
 <meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
-<meta name="description" content="" />
+<meta name="description" content="类似9宫格的页面，使用GridView，有可能导致首项被多次创建和绘制，本文给出一个替代方案。" />
 <meta name="keywords" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
@@ -36,7 +36,132 @@
             <h2> Gridview的错误用法及替代方案 </h2>
             <p> 15 Mar 2014 </p>
             <hr>
-            
+            <p>九宫格是很常见的一种UI表现形式，当然根据实际情况，有可能是4宫格，6宫格之类的。</p>
+
+<h3 id="toc_0">常规实现</h3>
+
+<p>这样的 <code>m x n</code> 的表现形式，很容易让人想起用GridView。但是数据项又不够多，不够翻页。</p>
+
+<p>有些能够滑动翻页的，是重写<code>Gridview</code> 的 <code>onMeasure</code> 方法，设置一个很大的高度，然后外面包一层 <code>ScrollView</code>。</p>
+
+<ul>
+<li><p>带来的问题</p>
+
+<ol>
+<li>这样会导致<code>GirdView</code>一次把全部列表项都加载完。<code>GirdView</code> 设计的View复用的初衷就达不到了。</li>
+<li><p>如果列表项中有一个图片是后加载的，图片加载完后，<code>ImageView</code>会<code>requestLayout()</code>。这将会导致<code>GridView</code>绘制第一项。</p>
+
+<p>如果总共有9项。最坏的情况，首项将会被绘制9次甚至更多。</p></li>
+</ol></li>
+</ul>
+
+<h3 id="toc_1">替代方案</h3>
+
+<p>对于这样的应用场景，如果不需要复用view也没有翻页的需求，简单绘制每一项就可以了。</p>
+
+<ol>
+<li><p>从索引0开始绘制每一项，计算行列位置。根据行列位置以及行列间距，每项大小确定每个view的起始位置。</p></li>
+<li><p>使用<code>RelativeLayout</code>做父容器，使用margin 来偏移每项子元素。</p></li>
+<li><p>设定每项使用<code>RelativeLayout.LayoutParams</code>，确定每项尺寸大小。尺寸状态都是<code>EXACTLY</code>.</p>
+
+<hr>
+
+<p>简要代码如下：</p>
+<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="c1">// 总项数， 每项宽度和长度</span>
+<span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">mBlockListAdpater</span><span class="o">.</span><span class="na">getCount</span><span class="o">();</span>
+<span class="kt">int</span> <span class="n">w</span> <span class="o">=</span> <span class="n">mBlockListAdpater</span><span class="o">.</span><span class="na">getBlockWidth</span><span class="o">();</span>
+<span class="kt">int</span> <span class="n">h</span> <span class="o">=</span> <span class="n">mBlockListAdpater</span><span class="o">.</span><span class="na">getBlockHeight</span><span class="o">();</span>
+<span class="kt">int</span> <span class="n">cloumnNum</span> <span class="o">=</span> <span class="n">mBlockListAdpater</span><span class="o">.</span><span class="na">getCloumnNum</span><span class="o">();</span>
+
+<span class="c1">// 水平间隔</span>
+<span class="kt">int</span> <span class="n">horizontalSpacing</span> <span class="o">=</span> <span class="n">mBlockListAdpater</span><span class="o">.</span><span class="na">getHorizontalSpacing</span><span class="o">();</span>
+
+<span class="c1">// 垂直间隔</span>
+<span class="kt">int</span> <span class="n">verticalSpacing</span> <span class="o">=</span> <span class="n">mBlockListAdpater</span><span class="o">.</span><span class="na">getVerticalSpacing</span><span class="o">();</span>
+
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+
+    <span class="n">RelativeLayout</span><span class="o">.</span><span class="na">LayoutParams</span> <span class="n">lyp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RelativeLayout</span><span class="o">.</span><span class="na">LayoutParams</span><span class="o">(</span><span class="n">w</span><span class="o">,</span> <span class="n">h</span><span class="o">);</span>
+
+    <span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="n">cloumnNum</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">clo</span> <span class="o">=</span> <span class="n">i</span> <span class="o">%</span> <span class="n">cloumnNum</span><span class="o">;</span>
+
+    <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">top</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+    <span class="c1">// 计算偏移</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">clo</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">left</span> <span class="o">=</span> <span class="o">(</span><span class="n">horizontalSpacing</span> <span class="o">+</span> <span class="n">w</span><span class="o">)</span> <span class="o">*</span> <span class="n">clo</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">row</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">top</span> <span class="o">=</span> <span class="o">(</span><span class="n">verticalSpacing</span> <span class="o">+</span> <span class="n">h</span><span class="o">)</span> <span class="o">*</span> <span class="n">row</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// 用margin 来偏移</span>
+    <span class="n">lyp</span><span class="o">.</span><span class="na">setMargins</span><span class="o">(</span><span class="n">left</span><span class="o">,</span> <span class="n">top</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+
+    <span class="c1">// 创建view</span>
+    <span class="n">View</span> <span class="n">view</span> <span class="o">=</span> <span class="n">mBlockListAdpater</span><span class="o">.</span><span class="na">getView</span><span class="o">(</span><span class="n">mLayoutInflater</span><span class="o">,</span> <span class="n">i</span><span class="o">);</span>
+    <span class="n">addView</span><span class="o">(</span><span class="n">view</span><span class="o">,</span> <span class="n">lyp</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></li>
+</ol>
+
+<p>在上面代码中，实际创建view是在<code>BlockListAdapter</code>的<code>getView()</code>完成的，这是和<code>ListAdapter</code>类似的Adapter，但是更简单。</p>
+
+<ul>
+<li>带来的好处
+
+<ol>
+<li> 简单可依赖，既然不用复用，那么就不用AbsListView的复用机制。继承于<code>RelativeLayout</code>，核心函数简单可靠。</li>
+<li> 效率提升，不使用复用机制，每个view只被创建一次。</li>
+</ol></li>
+</ul>
+
+<h3 id="toc_2">例子</h3>
+
+<ul>
+<li><p>Adapter</p>
+<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="n">mBlockListAdapter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BlockListAdapter</span><span class="o">&lt;</span><span class="n">ItemInfo</span><span class="o">&gt;()</span> <span class="o">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">View</span> <span class="nf">getView</span><span class="o">(</span><span class="n">LayoutInflater</span> <span class="n">layoutInflater</span><span class="o">,</span> <span class="kt">int</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ItemInfo</span> <span class="n">itemInfo</span> <span class="o">=</span> <span class="n">mBlockListAdapter</span><span class="o">.</span><span class="na">getItem</span><span class="o">(</span><span class="n">position</span><span class="o">);</span>
+
+        <span class="c1">// 创建</span>
+        <span class="n">View</span> <span class="n">view</span> <span class="o">=</span>  <span class="n">LayoutInflater</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">getContext</span><span class="o">()).</span><span class="na">inflate</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">item_home</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+
+        <span class="c1">// 业务相关代码</span>
+        <span class="n">TextView</span> <span class="n">textView</span> <span class="o">=</span> <span class="o">((</span><span class="n">TextView</span><span class="o">)</span> <span class="n">view</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">tv_item_home_title</span><span class="o">));</span>
+
+        <span class="o">...</span>
+
+        <span class="k">return</span> <span class="n">view</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">};</span>
+</code></pre></div></li>
+<li><p>ListView</p>
+<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="c1">// 设置水平距离和垂直距离，每项大小，列数</span>
+<span class="n">mBlockListAdapter</span><span class="o">.</span><span class="na">setSpace</span><span class="o">(</span><span class="n">horizontalSpacing</span><span class="o">,</span> <span class="n">verticalSpacing</span><span class="o">);</span>
+<span class="n">mBlockListAdapter</span><span class="o">.</span><span class="na">setBlockSize</span><span class="o">(</span><span class="n">mSize</span><span class="o">,</span> <span class="n">mSize</span><span class="o">);</span>
+<span class="n">mBlockListAdapter</span><span class="o">.</span><span class="na">setColumnNum</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+
+<span class="c1">// 关联Adapte</span>
+<span class="n">mBlockListView</span><span class="o">.</span><span class="na">setAdapter</span><span class="o">(</span><span class="n">mBlockListAdapter</span><span class="o">);</span>
+
+<span class="c1">// 显示数据</span>
+<span class="n">mBlockListAdapter</span><span class="o">.</span><span class="na">displayBlocks</span><span class="o">(</span><span class="n">mItemInfos</span><span class="o">);</span>
+</code></pre></div></li>
+</ul>
+
+<h3 id="toc_3">源码</h3>
+
+<p><a href="https://github.com/etao-open-source/cube-sdk/blob/master/core/src/com/srain/cube/views/block/BlockListAdapter.java">BlockListAdapter 源码</a></p>
+
+<p><a href="https://github.com/etao-open-source/cube-sdk/blob/master/core/src/com/srain/cube/views/block/BlockListView.java">BlockListView的源码</a></p>
+
+<p><a href="https://github.com/etao-open-source/cube-sdk/blob/master/sample-and-tests/src/com/srain/cube/sample/ui/fragment/HomeFragment.java">例子的源码</a></p>
+
             <hr>
             <div id="disqus_thread"></div>
 <script type="text/javascript">
