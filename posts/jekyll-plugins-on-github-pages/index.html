@@ -101,29 +101,29 @@ git push --all origin
     <span class="nb">eval</span> <span class="nv">$1</span>
 <span class="o">}</span>
 
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$# </span>-lt 1 <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$# </span>-lt 1 <span class="o">]</span>; <span class="k">then</span>
 <span class="k">    </span><span class="nb">echo</span> <span class="s2">&quot;Usage: sh $0 [ gh-pages | master ]&quot;</span>
     <span class="nb">exit</span>
 <span class="k">fi</span>
 
 <span class="nv">branch</span><span class="o">=</span><span class="nv">$1</span>
-<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;$branch&quot;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="s2">&quot;$branch&quot;</span> !<span class="o">=</span> <span class="s2">&quot;master&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;$branch&quot;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="s2">&quot;$branch&quot;</span> !<span class="o">=</span> <span class="s2">&quot;master&quot;</span> <span class="o">]</span>; <span class="k">then</span>
 <span class="k">    </span><span class="nv">branch</span><span class="o">=</span><span class="s1">&#39;gh-pages&#39;</span>
 <span class="k">fi</span>
 
 exe_cmd <span class="s2">&quot;jekyll build&quot;</span>
-<span class="k">if</span> <span class="o">[</span> ! -d <span class="s1">&#39;_site&#39;</span> <span class="o">]</span><span class="p">;</span><span class="k">then</span>
+<span class="k">if</span> <span class="o">[</span> ! -d <span class="s1">&#39;_site&#39;</span> <span class="o">]</span>;<span class="k">then</span>
 <span class="k">    </span><span class="nb">echo</span> <span class="s2">&quot;not content to be published&quot;</span>
     <span class="nb">exit</span>
 <span class="k">fi</span>
 
 exe_cmd <span class="s2">&quot;git checkout $branch&quot;</span>
 <span class="nv">error_code</span><span class="o">=</span><span class="nv">$?</span>
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$error_code</span> !<span class="o">=</span> 0 <span class="o">]</span><span class="p">;</span><span class="k">then</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$error_code</span> !<span class="o">=</span> 0 <span class="o">]</span>;<span class="k">then</span>
 <span class="k">    </span><span class="nb">echo</span> <span class="s1">&#39;Switch branch fail.&#39;</span>
     <span class="nb">exit</span>
 <span class="k">else</span>
-<span class="k">    </span>ls <span class="p">|</span> grep -v _site<span class="p">|</span>xargs rm -rf
+<span class="k">    </span>ls | grep -v _site|xargs rm -rf
     exe_cmd <span class="s2">&quot;cp -r _site/* .&quot;</span>
     exe_cmd <span class="s2">&quot;rm -rf _site/&quot;</span>
     exe_cmd <span class="s2">&quot;touch .nojekyll&quot;</span>
