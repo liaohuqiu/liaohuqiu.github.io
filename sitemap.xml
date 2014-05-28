@@ -75,6 +75,14 @@
     </url>
     
     <url>
+        <loc>http://www.liaohuqiu.net/posts/log-center</loc>
+        <lastmod>2014-05-28</lastmod>
+        
+        <changefreq>daily</changefreq>
+        
+    </url>
+    
+    <url>
         <loc>http://www.liaohuqiu.net/posts/smallest-number-greater-than-given-number</loc>
         <lastmod>2014-05-28</lastmod>
         
@@ -163,14 +171,6 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/how-does-android-caculate-the-size-of-child-view</loc>
-        <lastmod>2014-05-28</lastmod>
-        
-        <changefreq>daily</changefreq>
-        
-    </url>
-    
-    <url>
         <loc>http://www.liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view</loc>
         <lastmod>2014-05-28</lastmod>
         
@@ -179,7 +179,7 @@
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/truncate-table-in-sqlite</loc>
+        <loc>http://www.liaohuqiu.net/posts/how-does-android-caculate-the-size-of-child-view</loc>
         <lastmod>2014-05-28</lastmod>
         
         <changefreq>daily</changefreq>
@@ -188,6 +188,14 @@
     
     <url>
         <loc>http://www.liaohuqiu.net/cn/posts/truncate-table-in-sqlite</loc>
+        <lastmod>2014-05-28</lastmod>
+        
+        <changefreq>daily</changefreq>
+        
+    </url>
+    
+    <url>
+        <loc>http://www.liaohuqiu.net/posts/truncate-table-in-sqlite</loc>
         <lastmod>2014-05-28</lastmod>
         
         <changefreq>daily</changefreq>
