@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset='utf-8' />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
+<meta name="description" content="统一日志服务器配置" />
+<meta name="keywords" content="syslog syslogd syslog-ng rsyslog" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<title>日志中心：统一日志服务器 |  Yet Another Summer Rain</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <h1 id="site_title"><a href="/">Srain</a></h1>
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class='post'>
+    <div id="main_content_wrap" class="outer">
+        <div class="md-body main-content inner wide">
+            <h2> 日志中心：统一日志服务器 </h2>
+            <p> 28 May 2014 </p>
+            <hr>
+            <p>在 *iux 系统上，有 syslog, rsyslog, syslog-ng 几种程序记录日志。</p>
+
+<p>我们可以在php中这样记录日志:</p>
+<div class="highlight"><pre><code class="php language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="nv">$priority</span> <span class="o">=</span> <span class="nx">LOG_NOTICE</span><span class="p">;</span>
+<span class="nv">$ident</span> <span class="o">=</span> <span class="s1">&#39;srain&#39;</span><span class="p">;</span>
+
+<span class="nv">$message</span> <span class="o">=</span> <span class="s1">&#39;some messages@&#39;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;Y-m-d H:i:s&#39;</span><span class="p">);</span>
+<span class="nx">openlog</span><span class="p">(</span><span class="nv">$ident</span><span class="p">,</span> <span class="nx">LOG_PID</span><span class="p">,</span> <span class="nx">LOG_LOCAL6</span><span class="p">);</span>
+<span class="nx">syslog</span><span class="p">(</span><span class="nv">$priority</span><span class="p">,</span> <span class="nv">$message</span><span class="p">);</span>
+<span class="nb">closelog</span><span class="p">();</span>
+</code></pre></div>
+<p>我们在各个web前端输出日志。然后把日志统一输出到一个日志服务器上，便于使用。</p>
+
+<p>在产生日志的机器上，我们配置好日志转发，在日志中心服务器，收集这些日志。</p>
+
+<p>可以通过tcp协议和udp协议进行日志转发。</p>
+
+<h3 id="toc_0">转发配置</h3>
+
+<ul>
+<li><p>syslog</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">*.local6    10.11.2.13  # 默认 514 udp转发
+</code></pre></div></li>
+<li><p>rsyslog</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">*.local6    @@10.11.2.13:514    # udp
+*.local6    @10.11.2.13:514     # tcp 更稳定
+</code></pre></div></li>
+<li><p>syslog-ng</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">description d_loghost { udp(&quot;10.11.2.13&quot; port(514)};
+
+log { source(s_sys); description(d_loghost)};
+</code></pre></div></li>
+</ul>
+
+<h3 id="toc_1">接收配置</h3>
+
+<ul>
+<li><p>rsyslog</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text"># 接收udp
+$ModLoad imudp
+$UDPServerRun 514
+
+# 接收tcp
+$ModLoad imtcp
+$InputTCPServerRun 514
+</code></pre></div></li>
+<li><p>syslog-ng</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">destination df_wrt0 {
+    # 不同的ident 不同的文件
+    file(&quot;/var/log/$PROGRAM-$YEAR$MONTH$DAY&quot;
+            template(&quot;$FULLDATE $SOURCEIP-$HOST[$PID]: $MSG\n&quot;)
+            template_escape(yes)
+        );
+};
+
+source s_net {
+    udp(ip(0.0.0.0) port(514));
+    tcp(ip(0.0.0.0) port(514));
+};
+
+log { source(s_net); description(df_wrt0)};
+</code></pre></div></li>
+</ul>
+
+<h3 id="toc_2">性能</h3>
+
+<p>syslog + syslog-ng。曾经有2000+的web往一台日志服务器上汇总。</p>
+
+            <hr>
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'srain'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+try
+{
+ga('create', 'UA-43024238-1', 'liaohuqiu.net');
+ga('send', 'pageview');
+} catch(err) {
+    console.log(err);
+}
+</script>
+
+</body>
+</html>
