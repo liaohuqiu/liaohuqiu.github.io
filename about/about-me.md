@@ -5,11 +5,28 @@ css: /assets/css/about-me.css?v=1
 category: about
 ---
 
-<h2>basics</h2>
+### Basic
 
-[I am On GitHub](https://github.com/liaohuqiu) | [I am On StackOverflow](http://stackoverflow.com/users/2446397/) |
-[Twitter](https://twitter.com/liaohuqiu) | [Facebook](https://www.facebook.com/huqiu.liao) | [Weibo](http://weibo.com/liaohuqiu)
+* [I am On GitHub](https://github.com/liaohuqiu) 
 
+* [I am On StackOverflow](http://stackoverflow.com/users/2446397/) 
+
+### Projects
+
+*  cube-sdk
+
+    An android develop package. It has an Imageloader enable your App load image effiently.
+
+*  binpack
+
+    A binnary data serialize format, enable exchanging data crossing languages.
+
+    Multiple languages implementation.
+
+*  Cube RPC protocol and implementations in multilple languages.
+
+
+<!---
 <h2>hobbies</h2>
 
 <div class='about-me'>
@@ -31,3 +48,4 @@ category: about
 
 </div>
 
+-->
