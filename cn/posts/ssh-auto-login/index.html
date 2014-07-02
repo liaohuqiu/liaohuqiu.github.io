@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="chrome=1" />
 
 <meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
-<meta name="description" content="setup a vpn server" />
+<meta name="description" content="mac下 ssh自动登录" />
 <meta name="keywords" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
@@ -17,7 +17,7 @@
 <script src="/assets/js/jquery.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
 
-<title>Install php imagick extension on CentOS |  Yet Another Summer Rain</title>
+<title>ssh + expect 自动登录服务器 |  Yet Another Summer Rain</title>
 </head>
 
 <body>
@@ -33,46 +33,47 @@
 <div class='post'>
     <div id="main_content_wrap" class="outer">
         <div class="md-body main-content inner wide">
-            <h2> Install php imagick extension on CentOS </h2>
-            <p> 03 Mar 2014 </p>
+            <h2> ssh + expect 自动登录服务器 </h2>
+            <p> 02 Jul 2014 </p>
             <hr>
-            <ol>
-<li><p>Download souce code</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">wget http://pecl.php.net/get/imagick-3.1.2.tgz
-tar xzfv imagick-3.1.2.tgz 
-<span class="nb">cd </span>imagick-3.1.2
-</code></pre></div></li>
-<li><p>Install <code>ImageMagick-devel</code> first.</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">yum install ImageMagick-devel
-</code></pre></div></li>
-<li><p>Build</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">phpize
-./configure --with-php-config<span class="o">=</span>/usr/local/php/bin/php-config 
-make
-make install
-</code></pre></div></li>
-<li><p>Copy <code>imagick.so</code> to extension directory. </p>
+            <p>secureCRT 记住用户名和密码的功能确实方便，如果你不愿意付费，也不想用破解，你就得另外想一些办法了。</p>
 
-<p>If you do not know the path, find it out by (or change it in <code>php.ini</code>):</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">php -i | grep &quot;extension_dir&quot;
+<p>ssh + expect 自动输入密码登录服务器的方式很多人都很熟悉，在mac或者 linux系统用这样的方式登录服务器确实很方便。我将这个方法做了整理，方便大家使用。</p>
+
+<p>在配置好之后，你要登录只需要一个命令即可，比如你有一个服务器，你登录的时候只要：</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>to-101
 </code></pre></div>
-<p>Then, edit <code>php.ini</code>, add <code>extension=imagick.so</code>.</p>
+<p><code>to-101</code> 是你自己设置的一个短命令。</p>
 
-<p>If you run php in a webserver, restart the it, for example:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo service httpd restart
-</code></pre></div></li>
-<li><p>Done.</p></li>
-</ol>
+<h3 id="toc_0">下载和安装</h3>
 
-<hr>
+<p>工具的地址在这里：<a href="https://github.com/liaohuqiu/ssh-auto-login">https://github.com/liaohuqiu/ssh-auto-login</a></p>
 
-<p>The motto:</p>
+<p>git clone或者下载之后，目录结构是这样的</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">ssh-auto-login/
+ ├── files
+ ├── base.sh
+ ├── install.sh
+ ├── install_shortcut.sh
+</code></pre></div>
+<p>配置方法：</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nb">source </span>install_shortcut.sh to-101 192.168.154.101 用户名 密码
+</code></pre></div>
+<p>其中:</p>
 
 <ul>
-<li><p>Quick money is not the solution.</p></li>
-<li><p>You must plan ahead.</p></li>
-<li><p>You should see the bigger picture.</p></li>
+<li>to-101 是你自己指定的登录命令</li>
 </ul>
+
+<p>这样直接输入 <code>to-101</code> 就可以登录了。</p>
+
+<p><strong>好了，欢迎star和贡献代码。</strong> <a href="https://github.com/liaohuqiu/ssh-auto-login">https://github.com/liaohuqiu/ssh-auto-login</a></p>
+
+<h3 id="toc_1">注意</h3>
+
+<blockquote>
+<p>配置完后生成一个auto-gen 目录，这里保存着用户名和密码，请注意账号安全。</p>
+</blockquote>
 
             <hr>
             <div id="disqus_thread"></div>
