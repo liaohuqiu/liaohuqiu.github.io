@@ -17,11 +17,11 @@ $ to-101
 
 `to-101` 是你自己设置的一个短命令。
 
-#####下载和安装
+###下载和安装
 
 工具的地址在这里：https://github.com/liaohuqiu/ssh-auto-login
 
-fork或者下载之后，目录结构是这样的
+git clone或者下载之后，目录结构是这样的
 
 ```bash
 ssh-auto-login/
@@ -43,6 +43,8 @@ source install_shortcut.sh to-101 192.168.154.101 用户名 密码
 
 这样直接输入 `to-101` 就可以登录了。
 
-##### 注意
+**好了，欢迎star和贡献代码。** https://github.com/liaohuqiu/ssh-auto-login
+
+### 注意
 
 >  配置完后生成一个auto-gen 目录，这里保存着用户名和密码，请注意账号安全。
