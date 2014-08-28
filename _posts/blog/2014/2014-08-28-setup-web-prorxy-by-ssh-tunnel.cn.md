@@ -7,7 +7,7 @@ category: blog
 
 现在连google也不能访问了。
 
-如果你有国外的服务器或者vps，现在亚马逊一年免费了，你可以自己搭建vpn
+如果你有国外的服务器或者vps，(现在亚马逊云主机第一年免费)，你可以自己搭建代理服务。
 
 但是vpn (pptp / openvpn) 架设和管理还是相对复杂的, 部分运营商还有限制。
 
@@ -48,9 +48,7 @@ chrome 为例, 安装一个代理扩展，比如[Proxy SwitchySharp](https://chr
     </div>
 </div>
 
-设置自动代理:
-
-规则文件: [switch-sharp-rule](https://github.com/liaohuqiu/proxy/blob/master/switch-sharp-rule)
+设置自动代理, 可以使用我的规则文件: [switch-sharp-rule](https://github.com/liaohuqiu/proxy/blob/master/switch-sharp-rule)
 
 <div class='row'>
     <div class='col-md-offset-2 col-md-8'>
