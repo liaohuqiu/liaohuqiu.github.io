@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset='utf-8' />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
+<meta name="description" content="gitlab 使用做私人项目托管和管理，本文介绍简单的配置和使用" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+
+<!-- Bootstrap core CSS -->
+<link href="/assets/static/bt3/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Documentation extras -->
+<!--[if lt IE 9]><script src="/assets/static/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="/assets/static/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="/assets/static/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- jquery -->
+<script src="/assets/static/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
+
+
+<title>Gitlab 简单配置使用 |  Yet Another Summer Rain</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <h1 id="site_title"><a href="/">Srain</a></h1>
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class='post'>
+    <div id="main_content_wrap" class="outer">
+        <div class="md-body main-content inner wide">
+            <h2> Gitlab 简单配置使用 </h2>
+            <p> 11 Sep 2014 </p>
+            <hr>
+            <h3 id="toc_0">gitlab的安装</h3>
+
+<p>对于个人私有项目，github不太适合做托管，github也有收费的托管服务，可以控制项目的权限。</p>
+
+<p>gitlab提供免费的私人项目托管，同时也可以安装社区版到自己的服务器。</p>
+
+<p>安装非常简单，<a href="https://about.gitlab.com/gitlab-ce/">看这里</a></p>
+
+<p>安装使用，使用默认的用户root用户登录，可以创建用户，管理用户。</p>
+
+<div class='row'>
+    <div class='col-md-12'>
+        <img src='/assets/img/gitlab-abc-admin-area.png'/>
+    </div>
+</div>
+
+<h3 id="toc_1">客户端生成ssh-key</h3>
+
+<p>在客户端执行命令
+<code>
+ssh-keygen -t rsa -C &quot;for xxx&quot;
+</code></p>
+
+<p><code>-C</code> 选项后是备注，可随意。</p>
+
+<p>命令执行后会要求输入key存储的文件名和<code>passphrase</code>：</p>
+
+<ul>
+<li>  输入一个特有的文件名，否则使用默认的 <code>id_rsa</code>。</li>
+<li>  <code>passphrase</code>。不输入也可以。输入之后，提交的时候要输入这个<code>passphrase</code></li>
+</ul>
+
+<p>完成后在 ~/.ssh/ 会生成2个文件。<code>id_rsa</code> 和 <code>id_rsa.pub</code>。前者是私钥，注意保管，后者是<code>公钥</code>。</p>
+
+<p>如下:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">[huqiu@101 liaohuqiu]$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/huqiu/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+</code></pre></div>
+<h3 id="toc_2">添加ssh-key到gitlab</h3>
+
+<p>登录之后: Profile Settings =&gt; SSH-Keys =&gt; Add SSH key。</p>
+
+<p>输入之前生成的<code>公钥</code>，标题随意。</p>
+
+<div class='row'>
+    <div class='col-md-12'>
+        <img src='/assets/img/gitlab-abc-add-ssh-key.png'/>
+    </div>
+</div>
+
+<h3 id="toc_3">基本使用介绍</h3>
+
+<p>配置好sshkey之后，你就可以在命令行下使用git命令进行操作了。强烈建议使用命令行而不是使用图形界面客户端。</p>
+
+<ul>
+<li>  创建项目:</li>
+</ul>
+
+<div class='row'>
+    <div class='col-md-12'>
+        <img src='/assets/img/gitlab-abc-project-create.png'/>
+    </div>
+</div>
+
+<ul>
+<li> 创建完成:</li>
+</ul>
+
+<div class='row'>
+    <div class='col-md-12'>
+        <img src='/assets/img/gitlab-abc-project-after-created.png'/>
+    </div>
+</div>
+
+<ul>
+<li><p>基本操作</p>
+
+<ul>
+<li><code>clone</code></li>
+<li><code>add</code></li>
+<li><code>commit</code></li>
+<li><code>push</code></li>
+</ul></li>
+</ul>
+
+<p>如下:</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="c"># clone</span>
+
+<span class="o">[</span>huqiu@101 git<span class="o">]</span><span class="nv">$ </span>git clone git@git.liaohuqiu.net:huqiu/test.git
+Cloning into <span class="s1">&#39;test&#39;</span>...
+warning: You appear to have cloned an empty repository.
+Checking connectivity... <span class="k">done</span>
+
+<span class="c"># 进入目录</span>
+<span class="o">[</span>huqiu@101 git<span class="o">]</span><span class="nv">$ </span><span class="nb">cd test</span>/
+<span class="o">[</span>huqiu@101 <span class="nb">test</span><span class="o">]</span><span class="nv">$ </span>ll
+total 0
+
+<span class="c"># 创建一个文件</span>
+<span class="o">[</span>huqiu@101 <span class="nb">test</span><span class="o">]</span><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">&quot;### hello, test&quot;</span> &gt; README.md
+
+<span class="c"># 为项目配置用户名和邮箱，用户名和邮箱会进入到日志</span>
+<span class="o">[</span>huqiu@101 <span class="nb">test</span><span class="o">]</span><span class="nv">$ </span>git config user.name liaohuqiu
+<span class="o">[</span>huqiu@101 <span class="nb">test</span><span class="o">]</span><span class="nv">$ </span>git config user.email liaohuqiu@gmail.com
+
+
+<span class="c"># 添加文件到本地库</span>
+<span class="o">[</span>huqiu@101 <span class="nb">test</span><span class="o">]</span><span class="nv">$ </span>git add README.md
+
+<span class="c"># 提交</span>
+<span class="o">[</span>huqiu@101 <span class="nb">test</span><span class="o">]</span><span class="nv">$ </span>git commit -a -m <span class="s1">&#39;add README&#39;</span>
+<span class="o">[</span>master <span class="o">(</span>root-commit<span class="o">)</span> 1095bd8<span class="o">]</span> add README
+ 1 file changed, 1 insertion<span class="o">(</span>+<span class="o">)</span>
+ create mode 100644 README.md
+
+<span class="c"># push</span>
+<span class="o">[</span>huqiu@101 <span class="nb">test</span><span class="o">]</span><span class="nv">$ </span>git push origin master
+Counting objects: 3, <span class="k">done</span>.
+Writing objects: 100% <span class="o">(</span>3/3<span class="o">)</span>, 230 bytes <span class="p">|</span> 0 bytes/s, <span class="k">done</span>.
+Total 3 <span class="o">(</span>delta 0<span class="o">)</span>, reused 0 <span class="o">(</span>delta 0<span class="o">)</span>
+To git@git.liaohuqiu.net:huqiu/test.git
+ * <span class="o">[</span>new branch<span class="o">]</span>      master -&gt; master
+</code></pre></div>
+<ul>
+<li>提交完成后记录:</li>
+</ul>
+
+<div class='row'>
+    <div class='col-md-12'>
+        <img src='/assets/img/gitlab-abc-activity-line.png'/>
+    </div>
+</div>
+
+<ul>
+<li>项目的文件情况:</li>
+</ul>
+
+<div class='row'>
+    <div class='col-md-12'>
+        <img src='/assets/img/gitlab-abc-project-files.png'/>
+    </div>
+</div>
+
+<h3 id="toc_4">祝使用愉快，欢迎交流</h3>
+
+            <hr>
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'srain'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+try
+{
+ga('create', 'UA-43024238-1', 'liaohuqiu.net');
+ga('send', 'pageview');
+} catch(err) {
+    console.log(err);
+}
+</script>
+
+<script src="/assets/static/bt3/js/bootstrap.min.js"></script>
+</body>
+</html>
