@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset='utf-8' />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
+<meta name="description" content="利用ssh 公钥认证实现免密码登录服务器" />
+<meta name="keywords" content="ssh-keygen, ssh public key, 免登录" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+
+<!-- Bootstrap core CSS -->
+<link href="/assets/static/bt3/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Documentation extras -->
+<!--[if lt IE 9]><script src="/assets/static/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="/assets/static/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="/assets/static/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- jquery -->
+<script src="/assets/static/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
+
+
+<title>ssh public key认证免密码登录 |  Yet Another Summer Rain</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <h1 id="site_title"><a href="/">Srain</a></h1>
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class='post'>
+    <div id="main_content_wrap" class="outer">
+        <div class="md-body main-content inner wide">
+            <h2> ssh public key认证免密码登录 </h2>
+            <p> 16 Sep 2014 </p>
+            <hr>
+            <p>ssh 登录可以使用公钥认证(ssh public key authentication)。</p>
+
+<p>将客户端机器的ssh public key添加到服务器的 <code>~/.ssh/authorized_keys</code> 文件中，可实现ssh的免密码登录。</p>
+
+<p>这样做使得登录服务器更加安全和快捷。</p>
+
+<h3 id="toc_0">客户端生成公钥和私钥</h3>
+
+<p>生成一个名为test的公钥和私钥对，密码留空不输入。具体的说明请看这里: <a href="http://www.liaohuqiu.net/cn/posts/ssh-keygen-abc/">ssh-keygen 基本用法</a></p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">[huqiu@101 ~]$ cd .ssh/
+[huqiu@101 .ssh]$ ssh-keygen -t rsa -f test -C &quot;test-key&quot;
+Generating public/private rsa key pair.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+</code></pre></div>
+<p>查看公钥内容</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">[huqiu@101 .ssh]$ cat test.pub
+ssh-rsa
+AAAAB3NzaC1yc2EAAAABIwAAAQEAogyXOlD77fWF0bTm0r2HrRf8SKPKWjSv4pZKPZfBHOSZI8B0EDGr5/dpsMCPHUcZBt9v5BgJvLao/znBabap6TWt1yuStDh2rnzXY5uTFah0AiMlnQ7DhjkcctdLfLErz1V2jFTXEC2oGOanLoObpHV+LyeXkn/+i0VekT3QiULSkpzK/gsCtaLmaHLbGxv4GGGAoHtTZrfw09hGo47AeiyxzczcBa7TPXSATVPtCStWk+jzMcIyTyxcE7ORIsClN5xNLnbXiEQF5jOcP0qbjAmOH256E565VFh2WC8srjadfUm6jZLEiE5w7lp2/3rRynAsnF0zjEONE9aPUPhiNw==
+test-key
+</code></pre></div>
+<h3 id="toc_1">配置公钥到服务器</h3>
+
+<p>将公钥内容添加到服务器的<code>~/.ssh/authorized_keys</code> 文件中.</p>
+
+<h3 id="toc_2">alias 实现命令快速登陆</h3>
+
+<p>做好配置之后，通过ssh可以直接登录了。对经常登录的服务器，可以将ssh登录命令的alias加到 <code>~/.bash_profile</code>文件中。</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>cat ~/.bash_profile <span class="p">|</span> grep 101
+<span class="nb">alias </span>to-101<span class="o">=</span><span class="s1">&#39;ssh huqiu@192.168.154.101&#39;</span>
+</code></pre></div>
+<p>登录的时候:</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>to-101
+</code></pre></div>
+<h3 id="toc_3">无法登录一般的原因</h3>
+
+<ul>
+<li><p>客户端的私钥和公钥文件位置必须位于 <code>~/.ssh</code> 下。</p></li>
+<li><p>确保双方 ~/.ssh 目录，父目录，公钥私钥，<code>authorized_keys</code> 文件的权限对当前用户至少要有执行权限，对其他用户最多只能有执行权限。</p></li>
+<li><p>服务器端 <code>~/.ssh/authorized_keys</code> 文件名确保没错. :)</p></li>
+</ul>
+
+            <hr>
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'srain'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+try
+{
+ga('create', 'UA-43024238-1', 'liaohuqiu.net');
+ga('send', 'pageview');
+} catch(err) {
+    console.log(err);
+}
+</script>
+
+<script src="/assets/static/bt3/js/bootstrap.min.js"></script>
+</body>
+</html>
