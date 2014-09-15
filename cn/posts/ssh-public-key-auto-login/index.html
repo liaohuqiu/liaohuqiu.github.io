@@ -86,9 +86,15 @@ test-key
 
 <ul>
 <li><p>客户端的私钥和公钥文件位置必须位于 <code>~/.ssh</code> 下。</p></li>
-<li><p>确保双方 ~/.ssh 目录，父目录，公钥私钥，<code>authorized_keys</code> 文件的权限对当前用户至少要有执行权限，对其他用户最多只能有执行权限。</p></li>
-<li><p>服务器端 <code>~/.ssh/authorized_keys</code> 文件名确保没错. :)</p></li>
+<li><p>确保双方 ~/.ssh 目录，父目录，公钥私钥，<code>authorized_keys</code> 文件的权限对当前用户至少要有执行权限，对其他用户最多只能有执行权限。</p>
+
+<p><strong>注意git登录，要求对公钥和私钥以及config文件，其他用户不能有任何权限。</strong></p></li>
+<li><p>服务器端 <code>~/.ssh/authorized_keys</code> 文件名确保没错 :).</p></li>
 </ul>
+
+<h3 id="toc_4">ssh-copy-id</h3>
+
+<p><code>ssh-copy-id</code> 是一个小脚本，你可以用这个小脚本完成以上工作。这个脚本在linux系统上一般都有。</p>
 
             <hr>
             <div id="disqus_thread"></div>
