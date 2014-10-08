@@ -51,7 +51,7 @@
             <hr>
             <p>九宫格是很常见的一种UI表现形式，当然根据实际情况，有可能是4宫格，6宫格之类的。</p>
 
-<h3 id="toc_0">常规实现</h3>
+<h3 id="常规实现">常规实现</h3>
 
 <p>这样的 <code>m x n</code> 的表现形式，很容易让人想起用GridView。但是数据项又不够多，不够翻页。</p>
 
@@ -68,7 +68,7 @@
 </ol></li>
 </ul>
 
-<h3 id="toc_1">替代方案</h3>
+<h3 id="替代方案">替代方案</h3>
 
 <p>对于这样的应用场景，如果不需要复用view也没有翻页的需求，简单绘制每一项就可以了。</p>
 
@@ -80,7 +80,7 @@
 <hr>
 
 <p>简要代码如下：</p>
-<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="c1">// 总项数， 每项宽度和长度</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// 总项数， 每项宽度和长度</span>
 <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">mBlockListAdpater</span><span class="o">.</span><span class="na">getCount</span><span class="o">();</span>
 <span class="kt">int</span> <span class="n">w</span> <span class="o">=</span> <span class="n">mBlockListAdpater</span><span class="o">.</span><span class="na">getBlockWidth</span><span class="o">();</span>
 <span class="kt">int</span> <span class="n">h</span> <span class="o">=</span> <span class="n">mBlockListAdpater</span><span class="o">.</span><span class="na">getBlockHeight</span><span class="o">();</span>
@@ -131,11 +131,11 @@
 </ol></li>
 </ul>
 
-<h3 id="toc_2">例子</h3>
+<h3 id="例子">例子</h3>
 
 <ul>
 <li><p>Adapter</p>
-<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="n">mBlockListAdapter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BlockListAdapter</span><span class="o">&lt;</span><span class="n">ItemInfo</span><span class="o">&gt;()</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">mBlockListAdapter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BlockListAdapter</span><span class="o">&lt;</span><span class="n">ItemInfo</span><span class="o">&gt;()</span> <span class="o">{</span>
 
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="n">View</span> <span class="nf">getView</span><span class="o">(</span><span class="n">LayoutInflater</span> <span class="n">layoutInflater</span><span class="o">,</span> <span class="kt">int</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
@@ -154,7 +154,7 @@
 <span class="o">};</span>
 </code></pre></div></li>
 <li><p>ListView</p>
-<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="c1">// 设置水平距离和垂直距离，每项大小，列数</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// 设置水平距离和垂直距离，每项大小，列数</span>
 <span class="n">mBlockListAdapter</span><span class="o">.</span><span class="na">setSpace</span><span class="o">(</span><span class="n">horizontalSpacing</span><span class="o">,</span> <span class="n">verticalSpacing</span><span class="o">);</span>
 <span class="n">mBlockListAdapter</span><span class="o">.</span><span class="na">setBlockSize</span><span class="o">(</span><span class="n">mSize</span><span class="o">,</span> <span class="n">mSize</span><span class="o">);</span>
 <span class="n">mBlockListAdapter</span><span class="o">.</span><span class="na">setColumnNum</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
@@ -167,7 +167,7 @@
 </code></pre></div></li>
 </ul>
 
-<h3 id="toc_3">源码</h3>
+<h3 id="源码">源码</h3>
 
 <p><a href="https://github.com/etao-open-source/cube-sdk/blob/master/core/src/com/srain/cube/views/block/BlockListAdapter.java">BlockListAdapter 源码</a></p>
 

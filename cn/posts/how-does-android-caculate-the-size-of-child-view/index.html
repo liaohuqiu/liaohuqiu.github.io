@@ -49,7 +49,7 @@
             <h2> Android中View大小的确定过程 </h2>
             <p> 14 Mar 2014 </p>
             <hr>
-            <h3 id="toc_0">View and ViewGroup</h3>
+            <h3 id="view-and-viewgroup">View and ViewGroup</h3>
 
 <p>安卓中有5种基本的 <code>ViewGroup</code>:</p>
 
@@ -62,7 +62,7 @@
 </ul>
 
 <p><code>ViewGroup</code>可以添加子View，在xml文件里面，我们可以这样写：</p>
-<div class="highlight"><pre><code class="xml language-xml" data-lang="xml"><span class="nt">&lt;RelativeLayout</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;RelativeLayout</span>
     <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
     <span class="na">android:layout_height=</span><span class="s">&quot;100dp&quot;</span> <span class="nt">&gt;</span>
 
@@ -76,7 +76,7 @@
 
 <span class="nt">&lt;/RelativeLayout&gt;</span>
 </code></pre></div>
-<h3 id="toc_1">子View的大小</h3>
+<h3 id="子view的大小">子View的大小</h3>
 
 <ul>
 <li><p><strong>LayoutParams</strong></p>
@@ -94,7 +94,7 @@
 </ol></li>
 </ul>
 
-<h3 id="toc_2">父容器的大小状态</h3>
+<h3 id="父容器的大小状态">父容器的大小状态</h3>
 
 <ul>
 <li><p><strong>Padding</strong></p>
@@ -131,24 +131,24 @@
 
 <ol>
 <li><p><code>UNSPECIFIED</code></p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+----------
+<div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+----------
 | 00xx xxxx | 剩余的7个字节.    0x00 &lt;&lt; 30 + value
 +-----------+----------
 </code></pre></div></li>
 <li><p><code>EXACTLY</code></p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+----------
+<div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+----------
 | 01xx xxxx | 剩余的7个字节.    0x01 &lt;&lt; 30 + value
 +-----------+----------
 </code></pre></div></li>
 <li><p><code>AT_MOST</code></p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+----------
+<div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+----------
 | 10xx xxxx | 剩余的7个字节.    0x10 &lt;&lt; 30 + value
 +-----------+----------
 </code></pre></div></li>
 </ol></li>
 </ul>
 
-<h3 id="toc_3">子View尺寸的最终确定</h3>
+<h3 id="子view尺寸的最终确定">子View尺寸的最终确定</h3>
 
 <p>子View有一个期望的尺寸大小，父容器有尺寸大小约束，这两方面的约束协调，用来计算View的大小状态。</p>
 

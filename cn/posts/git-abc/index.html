@@ -49,7 +49,7 @@
             <h2> Gitlab 简单配置使用 </h2>
             <p> 11 Sep 2014 </p>
             <hr>
-            <h3 id="toc_0">gitlab的安装</h3>
+            <h3 id="gitlab的安装">gitlab的安装</h3>
 
 <p>对于个人私有项目，github不太适合做托管，github也有收费的托管服务，可以控制项目的权限。</p>
 
@@ -65,7 +65,7 @@
     </div>
 </div>
 
-<h3 id="toc_1">客户端生成ssh-key</h3>
+<h3 id="客户端生成ssh-key">客户端生成ssh-key</h3>
 
 <p>如果已经有sshkey，可用之前的。</p>
 
@@ -86,12 +86,12 @@ ssh-keygen -t rsa -C &quot;for xxx&quot;
 <p>完成后在 ~/.ssh/ 会生成2个文件。<code>id_rsa</code> 和 <code>id_rsa.pub</code>。前者是私钥，注意保管，后者是<code>公钥</code>。</p>
 
 <p>如下:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">[huqiu@101 liaohuqiu]$ ssh-keygen
+<div class="highlight"><pre><code class="language-text" data-lang="text">[huqiu@101 liaohuqiu]$ ssh-keygen
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/huqiu/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase):
 </code></pre></div>
-<h3 id="toc_2">添加ssh-key到gitlab</h3>
+<h3 id="添加ssh-key到gitlab">添加ssh-key到gitlab</h3>
 
 <p>登录之后: Profile Settings =&gt; SSH-Keys =&gt; Add SSH key。</p>
 
@@ -103,7 +103,7 @@ Enter passphrase (empty for no passphrase):
     </div>
 </div>
 
-<h3 id="toc_3">基本使用介绍</h3>
+<h3 id="基本使用介绍">基本使用介绍</h3>
 
 <p>配置好sshkey之后，你就可以在命令行下使用git命令进行操作了。强烈建议使用命令行而不是使用图形界面客户端。</p>
 
@@ -139,7 +139,7 @@ Enter passphrase (empty for no passphrase):
 </ul>
 
 <p>如下:</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="c"># clone</span>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># clone</span>
 
 <span class="o">[</span>huqiu@101 git<span class="o">]</span><span class="nv">$ </span>git clone git@git.liaohuqiu.net:huqiu/test.git
 Cloning into <span class="s1">&#39;test&#39;</span>...
@@ -165,14 +165,14 @@ total 0
 <span class="c"># 提交</span>
 <span class="o">[</span>huqiu@101 <span class="nb">test</span><span class="o">]</span><span class="nv">$ </span>git commit -a -m <span class="s1">&#39;add README&#39;</span>
 <span class="o">[</span>master <span class="o">(</span>root-commit<span class="o">)</span> 1095bd8<span class="o">]</span> add README
- 1 file changed, 1 insertion<span class="o">(</span>+<span class="o">)</span>
- create mode 100644 README.md
+ <span class="m">1</span> file changed, <span class="m">1</span> insertion<span class="o">(</span>+<span class="o">)</span>
+ create mode <span class="m">100644</span> README.md
 
 <span class="c"># push</span>
 <span class="o">[</span>huqiu@101 <span class="nb">test</span><span class="o">]</span><span class="nv">$ </span>git push origin master
 Counting objects: 3, <span class="k">done</span>.
-Writing objects: 100% <span class="o">(</span>3/3<span class="o">)</span>, 230 bytes <span class="p">|</span> 0 bytes/s, <span class="k">done</span>.
-Total 3 <span class="o">(</span>delta 0<span class="o">)</span>, reused 0 <span class="o">(</span>delta 0<span class="o">)</span>
+Writing objects: 100% <span class="o">(</span>3/3<span class="o">)</span>, <span class="m">230</span> bytes <span class="p">|</span> <span class="m">0</span> bytes/s, <span class="k">done</span>.
+Total <span class="m">3</span> <span class="o">(</span>delta 0<span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta 0<span class="o">)</span>
 To git@git.liaohuqiu.net:huqiu/test.git
  * <span class="o">[</span>new branch<span class="o">]</span>      master -&gt; master
 </code></pre></div>
@@ -196,7 +196,7 @@ To git@git.liaohuqiu.net:huqiu/test.git
     </div>
 </div>
 
-<h3 id="toc_4">祝使用愉快，欢迎交流</h3>
+<h3 id="祝使用愉快，欢迎交流">祝使用愉快，欢迎交流</h3>
 
             <hr>
             <div id="disqus_thread"></div>

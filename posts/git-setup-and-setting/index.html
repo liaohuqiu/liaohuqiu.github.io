@@ -49,37 +49,37 @@
             <h2> Some tips for git setup and git config </h2>
             <p> 13 Feb 2014 </p>
             <hr>
-            <h1 id="toc_0">the ssh key</h1>
+            <h1 id="the-ssh-key">the ssh key</h1>
 
-<h5 id="toc_1">generate ssh key</h5>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">cd ~/.ssh/
+<h5 id="generate-ssh-key">generate ssh key</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text">cd ~/.ssh/
 ssh-keygen -t rsa -C &quot;changeme@xxx.com&quot; -f filename
 </code></pre></div>
 <p>If the options <code>f</code> is not input, the file name of the public/pirvate rsa key pair files will be: id_rsa, id_rsa.pub.</p>
 
-<h5 id="toc_2">add ssh key</h5>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">ssh-add ~/.ssh/xxx
+<h5 id="add-ssh-key">add ssh key</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text">ssh-add ~/.ssh/xxx
 </code></pre></div>
-<h5 id="toc_3">list all added ssh key</h5>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">ssh-add -l
+<h5 id="list-all-added-ssh-key">list all added ssh key</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text">ssh-add -l
 </code></pre></div>
-<h5 id="toc_4">you may run into this error when try <code>ssh-add</code>:</h5>
+<h5 id="you-may-run-into-this-error-when-try-ssh-add:">you may run into this error when try <code>ssh-add</code>:</h5>
 
 <p class="alert alert-error">Could not open a connection to your authentication agent.</p>
    
-<div class="highlight"><pre><code class="text language-text" data-lang="text">eval `ssh-agent -s`
+<div class="highlight"><pre><code class="language-text" data-lang="text">eval `ssh-agent -s`
 </code></pre></div>
-<h5 id="toc_5">add ssh key permanently</h5>
+<h5 id="add-ssh-key-permanently">add ssh key permanently</h5>
 
 <p>Add the key path to <code>~/.ssh/config</code></p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ vim ~/.ssh/config
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ vim ~/.ssh/config
 
 IdentityFile ~/.ssh/gitHubKey
 IdentityFile ~/.ssh/xxx
 </code></pre></div>
-<h1 id="toc_6">git config</h1>
+<h1 id="git-config">git config</h1>
 
-<h5 id="toc_7">global config &amp; repository config</h5>
+<h5 id="global-config-&amp;-repository-config">global config &amp; repository config</h5>
 
 <p>The global setting is stored in <code>~/.gitconfig</code></p>
 
@@ -87,10 +87,10 @@ IdentityFile ~/.ssh/xxx
 
 <p><code>git config --global</code> will use global config, without <code>--global</code> options will use try to use the config file <code>./git/config</code> in current directory.</p>
 
-<h5 id="toc_8">config user name &amp; user email for every repository</h5>
+<h5 id="config-user-name-&amp;-user-email-for-every-repository">config user name &amp; user email for every repository</h5>
 
 <p>You may work with multiple repositories, so it is a good practice to config user information for every repository.</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text"># for global setting
+<div class="highlight"><pre><code class="language-text" data-lang="text"># for global setting
 git config --global user.name xxx
 git config --global user.email xxx@xxx.com
 
@@ -98,10 +98,10 @@ git config --global user.email xxx@xxx.com
 git config user.name xxxx
 git config user.email xxxx@xxx.com
 </code></pre></div>
-<h5 id="toc_9">git alias</h5>
+<h5 id="git-alias">git alias</h5>
 
 <p>Setup alias for convenience.</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">#git st =&gt; git status
+<div class="highlight"><pre><code class="language-text" data-lang="text">#git st =&gt; git status
 git config --global alias.st &#39;status&#39;
 
 #git co =&gt; git checkout

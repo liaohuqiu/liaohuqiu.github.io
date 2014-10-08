@@ -49,7 +49,7 @@
             <h2> How Android caculates view size </h2>
             <p> 14 Mar 2014 </p>
             <hr>
-            <h3 id="toc_0">View and ViewGroup</h3>
+            <h3 id="view-and-viewgroup">View and ViewGroup</h3>
 
 <p>There are five basic <code>ViewGroup</code> in Android:</p>
 
@@ -62,7 +62,7 @@
 </ul>
 
 <p>The <code>ViewGroup</code> can contains children views:</p>
-<div class="highlight"><pre><code class="xml language-xml" data-lang="xml"><span class="nt">&lt;RelativeLayout</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;RelativeLayout</span>
     <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
     <span class="na">android:layout_height=</span><span class="s">&quot;100dp&quot;</span> <span class="nt">&gt;</span>
 
@@ -76,7 +76,7 @@
 
 <span class="nt">&lt;/RelativeLayout&gt;</span>
 </code></pre></div>
-<h3 id="toc_1">How big the child view want to be</h3>
+<h3 id="how-big-the-child-view-want-to-be">How big the child view want to be</h3>
 
 <ul>
 <li><p><strong>LayoutParams</strong></p>
@@ -94,7 +94,7 @@
 </ol></li>
 </ul>
 
-<h3 id="toc_2">How big the parent view is</h3>
+<h3 id="how-big-the-parent-view-is">How big the parent view is</h3>
 
 <ul>
 <li><p><strong>Padding</strong></p>
@@ -135,24 +135,24 @@
 
 <ol>
 <li><p><code>UNSPECIFIED</code></p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+----------
+<div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+----------
 | 00xx xxxx | The other 7 bytes.    0x00 &lt;&lt; 30 + value
 +-----------+----------
 </code></pre></div></li>
 <li><p><code>EXACTLY</code></p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+----------
+<div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+----------
 | 01xx xxxx | The other 7 bytes.    0x01 &lt;&lt; 30 + value
 +-----------+----------
 </code></pre></div></li>
 <li><p><code>AT_MOST</code></p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+----------
+<div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+----------
 | 10xx xxxx | The other 7 bytes.    0x02 &lt;&lt; 30 + value
 +-----------+----------
 </code></pre></div></li>
 </ol></li>
 </ul>
 
-<h3 id="toc_3">How big the child will be</h3>
+<h3 id="how-big-the-child-will-be">How big the child will be</h3>
 
 <p>The parent has a size constraint and the children have their desire. So the negotiation begins:</p>
 

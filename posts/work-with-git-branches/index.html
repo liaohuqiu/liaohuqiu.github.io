@@ -49,30 +49,30 @@
             <h2> Work with git branches </h2>
             <p> 14 Feb 2014 </p>
             <hr>
-            <h1 id="toc_0">Branch</h1>
+            <h1 id="branch">Branch</h1>
 
-<h5 id="toc_1">create a branch, add some files, push to remote repository</h5>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">git branch branchName
+<h5 id="create-a-branch,-add-some-files,-push-to-remote-repository">create a branch, add some files, push to remote repository</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git branch branchName
 echo &quot;Some information&quot; &gt; test.txt
 git add test.txt
 git commit -m &#39;add text.txt&#39;
 git push origin branchName
 </code></pre></div>
-<h5 id="toc_2">list all local branches</h5>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">git branch -a
+<h5 id="list-all-local-branches">list all local branches</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git branch -a
 </code></pre></div>
-<h5 id="toc_3">checkout remote branch</h5>
+<h5 id="checkout-remote-branch">checkout remote branch</h5>
 
 <p>There is a branch named <code>dev</code> in remote repository, you want to trace that:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">git branch -b dev origin/dev
+<div class="highlight"><pre><code class="language-text" data-lang="text">git branch -b dev origin/dev
 </code></pre></div>
-<h5 id="toc_4">delete remote branch</h5>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">git push origin --delete &lt;branchName&gt;
+<h5 id="delete-remote-branch">delete remote branch</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git push origin --delete &lt;branchName&gt;
 
 git push origin :&lt;branchName&gt;
 </code></pre></div>
-<h5 id="toc_5">delete local branch</h5>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">// -d means --delete
+<h5 id="delete-local-branch">delete local branch</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text">// -d means --delete
 git branch -d branchName
 
 // force delete, even is not merged
@@ -80,7 +80,7 @@ git branch -D branchName
 </code></pre></div>
 <hr>
 
-<h1 id="toc_6">Merge &amp; Rebase</h1>
+<h1 id="merge-&amp;-rebase">Merge &amp; Rebase</h1>
 
 <p>Here is a repository has a branch named <code>b1</code>, it has some commits  <code>A</code>, <code>B</code>.
 <code>
@@ -91,12 +91,12 @@ A -- B   [b1]
 <li><p>Local Case A:</p>
 
 <p>You check out b1, then do some work, your commit is <code>C</code>, after your commit, your local repository will be:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">A -- B -- C      [b1]
+<div class="highlight"><pre><code class="language-text" data-lang="text">A -- B -- C      [b1]
 </code></pre></div></li>
 <li><p>Local Case B:</p>
 
 <p>You create branch b2 from b1, then commit.</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">A -- B      [b1]
+<div class="highlight"><pre><code class="language-text" data-lang="text">A -- B      [b1]
       \
        C    [b2]
 </code></pre></div></li>
@@ -109,27 +109,27 @@ A -- B      [b1]
 <li><p>Remote Case A:</p>
 
 <p>At the same time, someone commited a change, namely commit <code>D</code>, pushed the commit to repository server. </p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">A -- B -- D         [remote b1]
+<div class="highlight"><pre><code class="language-text" data-lang="text">A -- B -- D         [remote b1]
       \
        ----- C      [local]
 </code></pre></div></li>
 <li><p>Remote Case B:</p>
 
 <p>No commit has been pushed to remote before you push commit <code>C</code> to remote. The remote remains:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">A -- B   [b1]
+<div class="highlight"><pre><code class="language-text" data-lang="text">A -- B   [b1]
 </code></pre></div></li>
 </ol>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ git st
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ git st
 # On branch develop
 # Your branch and &#39;origin/develop&#39; have diverged,
 # and have 1 and 2 different commit(s) each, respectively.
 #
 nothing to commit (working directory clean)
 </code></pre></div>
-<h5 id="toc_7">git fetch</h5>
+<h5 id="git-fetch">git fetch</h5>
 
 <p>After <code>git fetch</code>, your local repository will be one of the following status:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">Case A: Local Case A + Remote Case B
+<div class="highlight"><pre><code class="language-text" data-lang="text">Case A: Local Case A + Remote Case B
 
 A -- B      [b1]
       \
@@ -159,7 +159,7 @@ A -- B -- D             [b1]
       \
         --- C           [b2]
 </code></pre></div>
-<h5 id="toc_8">what is <code>fast-forward</code></h5>
+<h5 id="what-is-fast-forward">what is <code>fast-forward</code></h5>
 
 <p>If the branch has not diverged, and <code>HEAD</code> is behind, it can do <code>fast-forward</code>.</p>
 
@@ -167,11 +167,11 @@ A -- B -- D             [b1]
 
 <p><code>git merge --ff-only origin/master</code> will try to use <code>fast-forward</code>, abort if fast-forward is not possible.</p>
 
-<h5 id="toc_9">git merge in one branch</h5>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ git merge
+<h5 id="git-merge-in-one-branch">git merge in one branch</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ git merge
 </code></pre></div>
 <p>After merged:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">Case A: do nothing
+<div class="highlight"><pre><code class="language-text" data-lang="text">Case A: do nothing
 Case B: do nothing
 Case C: Fast-forward will be applied
 
@@ -184,35 +184,35 @@ Case D: Merge, a new commit `E` will be created automatically.
               \        /
                 ---- C          [b1]
 </code></pre></div>
-<h5 id="toc_10">git merge two branches</h5>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ git merge origin/b1
+<h5 id="git-merge-two-branches">git merge two branches</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ git merge origin/b1
 </code></pre></div>
 <p>After Merged:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">Case E:
+<div class="highlight"><pre><code class="language-text" data-lang="text">Case E:
         A -- B ------ D         [b1]
               \        \
                 -- C -- E       [b2]
 </code></pre></div>
-<h5 id="toc_11">git pull</h5>
+<h5 id="git-pull">git pull</h5>
 
 <p><code>git pull</code> = <code>git fetch + git merge</code></p>
 
-<h5 id="toc_12">git rebase in one branch</h5>
-<div class="highlight"><pre><code class="text language-text" data-lang="text"># Case E
+<h5 id="git-rebase-in-one-branch">git rebase in one branch</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text"># Case E
 $ git rebase
 A -- B ------- D        [b1,remote]
       \
         ------ D -- C1  [b1,local]
 </code></pre></div>
-<h5 id="toc_13">git rebase in diffrent branches</h5>
-<div class="highlight"><pre><code class="text language-text" data-lang="text"># Case F
+<h5 id="git-rebase-in-diffrent-branches">git rebase in diffrent branches</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text"># Case F
 $ git rebase origin/b1
 
 A -- B ------- D        [b1,remote]
       \
         ------ D -- C1  [b2,local]
 </code></pre></div>
-<h5 id="toc_14">git push force</h5>
+<h5 id="git-push-force">git push force</h5>
 
 <p>Why?</p>
 
@@ -221,11 +221,11 @@ A -- B ------- D        [b1,remote]
 </blockquote>
 
 <p>Case F, may need force push. If b2 has some pushed commits before <code>D</code> and <code>C</code></p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">         pushed
+<div class="highlight"><pre><code class="language-text" data-lang="text">         pushed
 A -- B -..... --- D        [b1,remote]
       \
         -.... --- D -- C1  [b2,local]
-</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">$ git push origin b2 -f
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">$ git push origin b2 -f
 $ git push origin b2 --force
 $ git push origin +b2
 </code></pre></div>

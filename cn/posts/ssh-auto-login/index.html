@@ -54,23 +54,23 @@
 <p>ssh + expect 自动输入密码登录服务器的方式很多人都很熟悉，在mac或者 linux系统用这样的方式登录服务器确实很方便。我将这个方法做了整理，方便大家使用。</p>
 
 <p>在配置好之后，你要登录只需要一个命令即可，比如你有一个服务器，你登录的时候只要：</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>to-101
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>to-101
 </code></pre></div>
 <p><code>to-101</code> 是你自己设置的一个短命令。</p>
 
-<h3 id="toc_0">下载和安装</h3>
+<h3 id="下载和安装">下载和安装</h3>
 
 <p>工具的地址在这里：<a href="https://github.com/liaohuqiu/ssh-auto-login">https://github.com/liaohuqiu/ssh-auto-login</a></p>
 
 <p>git clone或者下载之后，目录结构是这样的</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">ssh-auto-login/
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">ssh-auto-login/
  ├── files
  ├── base.sh
  ├── install.sh
  ├── install_shortcut.sh
 </code></pre></div>
 <p>配置方法：</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nb">source </span>install_shortcut.sh to-101 192.168.154.101 用户名 密码
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">source </span>install_shortcut.sh to-101 192.168.154.101 用户名 密码
 </code></pre></div>
 <p>其中:</p>
 
@@ -82,7 +82,7 @@
 
 <p><strong>好了，欢迎star和贡献代码。</strong> <a href="https://github.com/liaohuqiu/ssh-auto-login">https://github.com/liaohuqiu/ssh-auto-login</a></p>
 
-<h3 id="toc_1">注意</h3>
+<h3 id="注意">注意</h3>
 
 <blockquote>
 <p>配置完后生成一个auto-gen 目录，这里保存着用户名和密码，请注意账号安全。</p>

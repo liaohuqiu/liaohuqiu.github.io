@@ -49,7 +49,7 @@
             <h2> git: 提交前强制检查各个项目用户名邮箱设置 </h2>
             <p> 20 Mar 2014 </p>
             <hr>
-            <h3 id="toc_0">保证提交日志的准确性</h3>
+            <h3 id="保证提交日志的准确性">保证提交日志的准确性</h3>
 
 <p>在提交时，<code>user.name</code>, <code>user.email</code>会进入日志。这些信息，是追踪代码变更的关键。</p>
 
@@ -58,10 +58,10 @@
 <p><strong>全局配置</strong></p>
 
 <p>如果我们工作中只涉及一个git服务器，用一个全局配置就可以搞定了：</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">git config --global user.name <span class="s2">&quot;huqiu.lhq&quot;</span>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git config --global user.name <span class="s2">&quot;huqiu.lhq&quot;</span>
 git config --global user.email <span class="s2">&quot;huqiu.lhq@alibaba-inc.com&quot;</span>
 </code></pre></div>
-<h3 id="toc_1">工作在多个git项目</h3>
+<h3 id="工作在多个git项目">工作在多个git项目</h3>
 
 <p>但是我们可能同时工作在多个项目中，公司内部用自有的git管理项目，我们在github上还有自己的项目。</p>
 
@@ -70,15 +70,15 @@ git config --global user.email <span class="s2">&quot;huqiu.lhq@alibaba-inc.com&
 <p>这个时候，对于<code>user.name</code>和<code>user.email</code>我们不能采用全局的配置。而是要对各个项目单独配置。</p>
 
 <p><strong>项目配置</strong></p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">git config user.name <span class="s2">&quot;huqiu.lhq&quot;</span>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git config user.name <span class="s2">&quot;huqiu.lhq&quot;</span>
 git config user.email <span class="s2">&quot;huqiu.lhq@alibaba-inc.com&quot;</span>
 </code></pre></div>
-<h3 id="toc_2">忘记了做配置</h3>
+<h3 id="忘记了做配置">忘记了做配置</h3>
 
 <p>对于项目配置，有时我们会忘记在<code>git init</code>或者<code>git clone</code>之后，配置<code>user.name</code>以及<code>user.email</code>。</p>
 
 <p>如果有全局配置，则使用全局配置。如果没全局配置，报错。</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="o">[</span>huqiu@srain <span class="nb">test</span><span class="o">]</span><span class="nv">$ </span>git ci -a -m <span class="s1">&#39;commit for testing no user.name empty&#39;</span>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>huqiu@srain <span class="nb">test</span><span class="o">]</span><span class="nv">$ </span>git ci -a -m <span class="s1">&#39;commit for testing no user.name empty&#39;</span>
 
 *** Please tell me who you are.
 
@@ -98,7 +98,7 @@ fatal: empty ident name <span class="o">(</span><span class="k">for</span> &lt;h
 <li> <strong>没有项目单独配置，提交的时候，自动采用全局配置。在发现问题之后需要对日志进行修复。</strong></li>
 </ul>
 
-<h3 id="toc_3">强制检查</h3>
+<h3 id="强制检查">强制检查</h3>
 
 <p>强制检查可以在服务器端push的时候检查，也可以在客户端进行检查，这里介绍使用`pre-commit</code>钩子进行检查。</p>
 
@@ -112,7 +112,7 @@ fatal: empty ident name <span class="o">(</span><span class="k">for</span> &lt;h
 </ol>
 
 <p><strong>pre-commit hook</strong></p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">global_email</span><span class="o">=</span><span class="k">$(</span>git config --global user.email<span class="k">)</span>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">global_email</span><span class="o">=</span><span class="k">$(</span>git config --global user.email<span class="k">)</span>
 <span class="nv">global_name</span><span class="o">=</span><span class="k">$(</span>git config --global user.name<span class="k">)</span>
 
 <span class="nv">repository_email</span><span class="o">=</span><span class="k">$(</span>git config user.email<span class="k">)</span>
@@ -127,7 +127,7 @@ fatal: empty ident name <span class="o">(</span><span class="k">for</span> &lt;h
     <span class="nb">exit </span>0
 <span class="k">fi</span> 
 </code></pre></div>
-<h3 id="toc_4">直接可用的代码</h3>
+<h3 id="直接可用的代码">直接可用的代码</h3>
 
 <p>上面谈到的：</p>
 

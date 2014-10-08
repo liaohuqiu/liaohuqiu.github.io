@@ -49,7 +49,7 @@
             <h2> LRU cache in Android </h2>
             <p> 23 Dec 2013 </p>
             <hr>
-            <h4 id="toc_0">LRU cache</h4>
+            <h4 id="lru-cache">LRU cache</h4>
 
 <p>LRU cache is very convinient to manager a list of data which has a limit space requirement.</p>
 
@@ -57,7 +57,7 @@
 
 <p>There are two kinds of LruCache in Android: <code>LruCache</code> and <code>DiskLruCache</code>, the fisrt can be used to manager an set of objects, the later can be used to manager files.</p>
 
-<h5 id="toc_1">When to use</h5>
+<h5 id="when-to-use">When to use</h5>
 
 <p>A scenario that a LruCache can be used is to manager the quota of disk cache and memory cache when loading a network image.</p>
 
@@ -67,10 +67,10 @@
 
 <p>Here, the <code>LRU Cache</code> will make things easy.</p>
 
-<h4 id="toc_2">Memory LruCache</h4>
+<h4 id="memory-lrucache">Memory LruCache</h4>
 
 <p><code>LruCache</code> is in the <code>support V4</code> package. It is very simple.</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">LRU cache
+<div class="highlight"><pre><code class="language-text" data-lang="text">LRU cache
     |
     +- -map, LinkedHashmap
     |
@@ -85,7 +85,7 @@
     +- -create(K key)
 </code></pre></div>
 <p>The <code>LruCache</code> has a <code>LinkedHashmap</code> inside, which is constructed by</p>
-<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kd">public</span> <span class="nf">LinkedHashMap</span><span class="o">(</span><span class="kt">int</span> <span class="n">initialCapacity</span><span class="o">,</span> <span class="kt">float</span> <span class="n">loadFactor</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">accessOrder</span><span class="o">)</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="nf">LinkedHashMap</span><span class="o">(</span><span class="kt">int</span> <span class="n">initialCapacity</span><span class="o">,</span> <span class="kt">float</span> <span class="n">loadFactor</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">accessOrder</span><span class="o">)</span>
 </code></pre></div>
 <p>The third parameter allow the <code>LinkedHashmap</code> to put the element to the head of the linked list after accessed, both by <code>get</code> and <code>set</code>.</p>
 
@@ -103,7 +103,7 @@ or the total size of the cache has exceed the limit.</p></li>
 </ol>
 
 <p>We can make a limit cache to store BitmapData:</p>
-<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kt">int</span> <span class="n">cacheSizeInKB</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">10</span><span class="o">;</span> <span class="c1">// 10MB</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kt">int</span> <span class="n">cacheSizeInKB</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">10</span><span class="o">;</span> <span class="c1">// 10MB</span>
 <span class="n">LruCache</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Bitmap</span><span class="o">&gt;</span> <span class="n">cache</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LruCache</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Bitmap</span><span class="o">&gt;(</span><span class="n">cacheSizeInKB</span><span class="o">)</span> <span class="o">{</span>
 
     <span class="nd">@Override</span>
@@ -123,10 +123,10 @@ or the total size of the cache has exceed the limit.</p></li>
 </code></pre></div>
 <hr>
 
-<h4 id="toc_3">DiskLurCache</h4>
+<h4 id="disklurcache">DiskLurCache</h4>
 
 <p>The <code>DiskLruCache</code> has an implementaion in <a href="https://android.googlesource.com/platform/libcore/+/android-4.1.1_r1/luni/src/main/java/libcore/io/DiskLruCache.java">JB source</a>.</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">DiskLruCache
+<div class="highlight"><pre><code class="language-text" data-lang="text">DiskLruCache
     |
     +- +get()   // return a snapshot which is realted to the key.
     |

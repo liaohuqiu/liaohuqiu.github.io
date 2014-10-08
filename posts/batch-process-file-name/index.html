@@ -49,10 +49,10 @@
             <h2> batch process file name </h2>
             <p> 27 Aug 2013 </p>
             <hr>
-            <div class="highlight"><pre><code class="text language-text" data-lang="text">find . -type f |sed &#39;s/\(.*\)\.html/svn mv &quot;\1.html&quot; &quot;\1.php&quot;/&#39; |sh
+            <div class="highlight"><pre><code class="language-text" data-lang="text">find . -type f |sed &#39;s/\(.*\)\.html/svn mv &quot;\1.html&quot; &quot;\1.php&quot;/&#39; |sh
 </code></pre></div>
 <p>the command pass to shell by pipe is:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">svn mv &quot;./cp_m/list/search_content.html&quot; &quot;./cp_m/list/search_content.php&quot;
+<div class="highlight"><pre><code class="language-text" data-lang="text">svn mv &quot;./cp_m/list/search_content.html&quot; &quot;./cp_m/list/search_content.php&quot;
 svn mv &quot;./cp_m/list/search_list.html&quot; &quot;./cp_m/list/search_list.php&quot;
 svn mv &quot;./cp_m/list/list_item.html&quot; &quot;./cp_m/list/list_item.php&quot;
 svn mv &quot;./cp_m/base/tail.html&quot; &quot;./cp_m/base/tail.php&quot;

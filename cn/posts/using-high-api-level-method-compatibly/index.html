@@ -55,7 +55,7 @@
 
 <p>本文以一个具体的例子说明如何在使用高API level的方法时处理好兼容性问题。</p>
 
-<p>例子：**根据给出路径，获取此路径所在分区的总空间大小。**</p>
+<p>例子：<strong>根据给出路径，获取此路径所在分区的总空间大小。</strong></p>
 
 <p>在<a href="http://www.liaohuqiu.net/storage-in-android/" title="安卓文件存储使用参考">安卓中的文件存储使用参考</a>中提到:</p>
 
@@ -63,12 +63,12 @@
 <p>获取文件系统用量情况，在API level 9及其以上的系统，可直接调用<code>File</code>对象的相关方法，以下需自行计算</p>
 </blockquote>
 
-<h5 id="toc_0">一般实现</h5>
+<h5 id="一般实现">一般实现</h5>
 
 <p>就此需求而言，API level 9及其以上，调用 <code>File.getTotalSpace()</code> 即可, 但是在API level 8 以下系统<code>File</code>对象并不存在此方法。</p>
 
 <p>如以下方法：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">/**
+<div class="highlight"><pre><code class="language-text" data-lang="text">/**
  * Returns the total size in bytes of the partition containing this path.
  * Returns 0 if this path does not exist.
  * 
@@ -82,10 +82,10 @@ public static long getTotalSpace(File path) {
     return path.getTotalSpace();
 }
 </code></pre></div>
-<h5 id="toc_1">处理无法编译通过</h5>
+<h5 id="处理无法编译通过">处理无法编译通过</h5>
 
 <p>如果<code>minSdkVersion</code>设置为8，那么build时候会报以下错误：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">Call requires API level 9 (current min is 8)
+<div class="highlight"><pre><code class="language-text" data-lang="text">Call requires API level 9 (current min is 8)
 </code></pre></div>
 <p>为了编译可以通过，可以添加 <code>@SuppressLint(&quot;NewApi&quot;)</code> 或者 <code>@TargeApi(9)</code>。</p>
 
@@ -95,7 +95,7 @@ public static long getTotalSpace(File path) {
 
 <p>但是这样只是能编译通过，到了API level8的系统运行，将会引发 <code>java.lang.NoSuchMethodError</code>。</p>
 
-<h5 id="toc_2">正确的做法</h5>
+<h5 id="正确的做法">正确的做法</h5>
 
 <p>为了运行时不报错, 需要:</p>
 
@@ -104,7 +104,7 @@ public static long getTotalSpace(File path) {
 <li><p>同时为了保证功能的完整性，需要提供低版本功能实现</p>
 
 <p>如下：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">/**
+<div class="highlight"><pre><code class="language-text" data-lang="text">/**
  * Returns the total size in bytes of the partition containing this path.
  * Returns 0 if this path does not exist.
  * 
@@ -136,7 +136,7 @@ public static long getTotalSpace(File path) {
 </code></pre></div></li>
 </ol>
 
-<h4 id="toc_3">总结</h4>
+<h4 id="总结">总结</h4>
 
 <p>在使用高于<code>minSdkVersion</code> API level的方法需要:</p>
 

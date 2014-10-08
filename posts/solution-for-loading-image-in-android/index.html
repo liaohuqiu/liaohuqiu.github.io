@@ -49,7 +49,7 @@
             <h2> Solution for Loading Image in Android </h2>
             <p> 11 Jan 2014 </p>
             <hr>
-            <h4 id="toc_0">Problems</h4>
+            <h4 id="problems">Problems</h4>
 
 <ul>
 <li>Memory quota</li>
@@ -61,7 +61,7 @@
 <hr>
 
 <p>A common workflow to load image from network:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------------------+
+<div class="highlight"><pre><code class="language-text" data-lang="text">+-----------------------+
 |  Start to load        |
 +-------+---------------+
         |
@@ -89,7 +89,7 @@
 </code></pre></div>
 <hr>
 
-<h4 id="toc_1">Local Cache</h4>
+<h4 id="local-cache">Local Cache</h4>
 
 <ol>
 <li><p>Quota</p></li>
@@ -103,7 +103,7 @@
 
 <hr>
 
-<h4 id="toc_2">Cross Thread</h4>
+<h4 id="cross-thread">Cross Thread</h4>
 
 <ol>
 <li><p><code>Handler</code> and <code>LoadImageHandler</code></p></li>
@@ -113,7 +113,7 @@
 
 <hr>
 
-<h4 id="toc_3">Size and Format Control</h4>
+<h4 id="size-and-format-control">Size and Format Control</h4>
 
 <ul>
 <li><p>From network</p></li>
@@ -128,7 +128,7 @@
 <li>Support <code>.webp</code> format.</li>
 </ul>
 
-<h4 id="toc_4">Notice</h4>
+<h4 id="notice">Notice</h4>
 
 <ul>
 <li><p>Memory In android</p>
@@ -139,7 +139,7 @@
 </ul></li>
 <li><p>API Level &lt; 11 (Android 3.0), native + heap : <code>bitmap.recycle()</code></p></li>
 <li><p>Bitmap Memory Use</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">private static int getBytesPerPixel(Config config) {
+<div class="highlight"><pre><code class="language-text" data-lang="text">private static int getBytesPerPixel(Config config) {
     if (config == Config.ARGB_8888) {
         return 4;
     } else if (config == Config.RGB_565) {

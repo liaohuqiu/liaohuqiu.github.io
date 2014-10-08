@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="chrome=1" />
 
 <meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
-<meta name="description" content="简述加载图片时需要处理好的几个问题" />
+<meta name="description" content="Chrome 扩展开发参考" />
 <meta name="keywords" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
@@ -29,7 +29,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
 
 
-<title>Android加载图片时需要解决的问题 |  Yet Another Summer Rain</title>
+<title>Chrome 扩展开发参考 |  Yet Another Summer Rain</title>
 </head>
 
 <body>
@@ -46,73 +46,12 @@
 <div class='post'>
     <div id="main_content_wrap" class="outer">
         <div class="md-body main-content inner wide">
-            <h2> Android加载图片时需要解决的问题 </h2>
-            <p> 23 Dec 2013 </p>
+            <h2> Chrome 扩展开发参考 </h2>
+            <p> 30 Sep 2014 </p>
             <hr>
-            <h3 id="需要解决的问题">需要解决的问题</h3>
+            <p>这里是一个开源的chrome扩展的源码，你可以先看这源码，如果看明白了，那就不用看本文了，如果没看明白，那回来继续往下看。</p>
 
-<ol>
-<li><p>无网络环境下图片不可用</p>
-
-<ul>
-<li>图片的本地缓存</li>
-</ul></li>
-<li><p>低配置机型，加载图像资源超内存(OutOfMemory, OoM)</p>
-
-<ul>
-<li>需要合理使用内存</li>
-</ul></li>
-<li><p>ListView, GridView等控件</p>
-
-<ul>
-<li>初始化或者移动过程中，列表项的重复绘制导致图片重复加载多次</li>
-<li>列表快速滑动后，停止区域图像没有被快速加载</li>
-</ul>
-
-<blockquote>
-<p>快速滑动过程中，在getView中进行图像加载逻辑，在随后view被复用于加载另外的不同的图片
-前一个加载应该立即被取消，保证新的加载应该很快被执行
-* 往前或往后滑动之后，反向滑动,之前已浏览过区域，等待图片重新加载</p>
-</blockquote>
-
-<p>在逆向滑动后，之前的图像应该立刻被加载
-* 快速滑动过程中，列表卡顿</p>
-
-<p>快速滑动过程中，频繁的图像的加载，创建和释放，可能导致内存回收</p></li>
-<li><p>缓存使用, 配额管理</p>
-
-<ul>
-<li>缓存图像(Bitmap)于内存，命中缓存的图像可立刻加载，但限于zygoate虚拟机内存有限
-
-<ul>
-<li>过大的内存占用，容易造成OoM</li>
-<li>占用用户过多内存，造成用户反感</li>
-</ul></li>
-<li>缓存文件于sd卡或者机身存储，配额管理
-
-<ul>
-<li>应该适度使用用户机器资源</li>
-<li>应用卸载后，不应该有遗留数据</li>
-</ul></li>
-</ul></li>
-<li><p>图片复用</p>
-
-<ul>
-<li>比如用户头像，120x120图像下载到本地之后，如有80x80的需求, 无需再次下载，直接复用120x120图片</li>
-</ul></li>
-<li><p>图片的尺寸的适配</p>
-
-<ul>
-<li>如无特殊指定，可根据ImageView尺寸适配最合适尺寸的图</li>
-<li>大部分的图片存储服务，支持通过拼接不同url获得不同尺寸，不同质量, 不同格式(<code>webp</code>)的图片</li>
-</ul>
-
-<p>需要根据不同的尺寸需求，拼接不同的url</p>
-
-<blockquote>
-<p>各图片存储拼接格式不同，此为具体的业务逻辑，应该有足够好的扩展性,支持不同的拼接方式</p>
-</blockquote></li>
-</ol>
+<p><a href="https://chrome.google.com/webstore/detail/list-sorter/ekfniknfklfanjjjddebmpdeldjkdnnp">List Sorter</a>。</p>
 
             <hr>
             <div id="disqus_thread"></div>

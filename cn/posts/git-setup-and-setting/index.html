@@ -49,38 +49,38 @@
             <h2> 命令行下的git配置问题: 多个sshkey, 多个用户身份, git alias </h2>
             <p> 13 Feb 2014 </p>
             <hr>
-            <h2 id="toc_0">ssh key</h2>
+            <h2 id="ssh-key">ssh key</h2>
 
-<h5 id="toc_1">生成sshkey</h5>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">cd ~/.ssh/
+<h5 id="生成sshkey">生成sshkey</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text">cd ~/.ssh/
 ssh-keygen -t rsa -C &quot;changeme@xxx.com&quot; -f filename
 </code></pre></div>
 <p>如果没有指定<code>f</code>选项或者<code>f</code>选项为空，生成的私钥和公钥为: <code>id_rsa</code>, <code>id_rsa.pub</code>.</p>
 
-<h5 id="toc_2">添加sshkey</h5>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">ssh-add ~/.ssh/xxx
+<h5 id="添加sshkey">添加sshkey</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text">ssh-add ~/.ssh/xxx
 </code></pre></div>
-<h5 id="toc_3">列出所有的sshkey</h5>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">ssh-add -l
+<h5 id="列出所有的sshkey">列出所有的sshkey</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text">ssh-add -l
 </code></pre></div>
-<h5 id="toc_4">执行 <code>ssh-add</code> 可能会遇到的问题:</h5>
+<h5 id="执行-ssh-add-可能会遇到的问题:">执行 <code>ssh-add</code> 可能会遇到的问题:</h5>
 
 <p class="alert alert-error">Could not open a connection to your authentication agent.</p>
 
 <p>解决办法:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">eval `ssh-agent -s`
+<div class="highlight"><pre><code class="language-text" data-lang="text">eval `ssh-agent -s`
 </code></pre></div>
-<h5 id="toc_5">机器重启又得重新添加sshkey，如何永久添加sshkey</h5>
+<h5 id="机器重启又得重新添加sshkey，如何永久添加sshkey">机器重启又得重新添加sshkey，如何永久添加sshkey</h5>
 
 <p>把sshkey私钥的路径加入到 <code>~/.ssh/config</code>, 如下：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ vim ~/.ssh/config
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ vim ~/.ssh/config
 
 IdentityFile ~/.ssh/gitHubKey
 IdentityFile ~/.ssh/xxx
 </code></pre></div>
-<h2 id="toc_6">git config</h2>
+<h2 id="git-config">git config</h2>
 
-<h5 id="toc_7">全局配置和项目配置</h5>
+<h5 id="全局配置和项目配置">全局配置和项目配置</h5>
 
 <p>全局配置信息在: <code>~/.gitconfig</code>。</p>
 
@@ -88,10 +88,10 @@ IdentityFile ~/.ssh/xxx
 
 <p><code>git config --global</code> 操作全局配置, 不带 <code>--global</code> 选项的话，会尝试相对于当前目录的： <code>./git/config</code>, 找不到的话，报错。</p>
 
-<h5 id="toc_8">为各个项目单独配置<code>user.name</code> 和 <code>user.email</code></h5>
+<h5 id="为各个项目单独配置user.name-和-user.email">为各个项目单独配置<code>user.name</code> 和 <code>user.email</code></h5>
 
 <p>你可能会在不同的几个项目中工作，各个项目的用户名可能不同，为了保证日志的准确性和提交时无误，最好对各个项目设置<code>user.name</code>和<code>user.email</code></p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text"># for global setting
+<div class="highlight"><pre><code class="language-text" data-lang="text"># for global setting
 git config --global user.name xxx
 git config --global user.email xxx@xxx.com
 
@@ -99,10 +99,10 @@ git config --global user.email xxx@xxx.com
 git config user.name xxxx
 git config user.email xxxx@xxx.com
 </code></pre></div>
-<h2 id="toc_9">git alias</h2>
+<h2 id="git-alias">git alias</h2>
 
 <p>使用快捷命令能带来很方便，输入命令更加快速，<code>git lg</code> 这个短命令配置，将日志图形化方式展现：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">#git st =&gt; git status
+<div class="highlight"><pre><code class="language-text" data-lang="text">#git st =&gt; git status
 git config --global alias.st &#39;status&#39;
 
 #git co =&gt; git checkout

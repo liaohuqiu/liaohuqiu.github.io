@@ -52,19 +52,19 @@
             <p>I install my system in a virtual machine (Vamre workstation 7), the version I install is CentOS 6.4 64bit.</p>
 
 <p>After the mininum intallation, there is no network, neither the basic software below:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">vim
+<div class="highlight"><pre><code class="language-text" data-lang="text">vim
 wget
 unzip
 </code></pre></div>
-<h3 id="toc_0">set up network</h3>
+<h3 id="set-up-network">set up network</h3>
 
 <p>We should setup network first:</p>
 
 <p>The system connect to the host by NAT network. I will use a static IP address: <code>192.168.154.101</code></p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">vi /etc/sysconfig/network-scripts/ifcfg-eth0 
+<div class="highlight"><pre><code class="language-text" data-lang="text">vi /etc/sysconfig/network-scripts/ifcfg-eth0 
 </code></pre></div>
 <p>You will see the config like below:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">DEVICE=eth0
+<div class="highlight"><pre><code class="language-text" data-lang="text">DEVICE=eth0
 HWADDR=00:0C:29:C2:A9:5D
 TYPE=Ethernet
 UUID=c652bfb6-a4fd-422c-98b8-a5a42905b971
@@ -73,7 +73,7 @@ NM_CONTROLLED=yes
 BOOTPROTO=dhcp
 </code></pre></div>
 <p>You should change the config accroding to your situaion. I use the config blow:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">DEVICE=eth0
+<div class="highlight"><pre><code class="language-text" data-lang="text">DEVICE=eth0
 HWADDR=00:0C:29:C2:A9:5D
 TYPE=Ethernet
 UUID=c652bfb6-a4fd-422c-98b8-a5a42905b971
@@ -94,16 +94,16 @@ PEERDNS=yes
 <p>More information about the network config you can <a href="http://www.centos.org/docs/4/html/rhel-rg-en-4/s1-networkscripts-interfaces.html">turn to here</a>.</p>
 
 <p>After you change the config, bring up the <code>Ethernet Interface</code>, <code>eth0</code> for example, which You modified the config just now.</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">ifup eth0
+<div class="highlight"><pre><code class="language-text" data-lang="text">ifup eth0
 </code></pre></div>
 <p>Then restart the network service:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">service network restart.
+<div class="highlight"><pre><code class="language-text" data-lang="text">service network restart.
 </code></pre></div>
 <p>OK, the network is set up by far. You can test it by:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">ping google.com
+<div class="highlight"><pre><code class="language-text" data-lang="text">ping google.com
 </code></pre></div>
-<h3 id="toc_1">setup</h3>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">// to be continued
+<h3 id="setup">setup</h3>
+<div class="highlight"><pre><code class="language-text" data-lang="text">// to be continued
 https://raw.github.com/liaohuqiu/centos_setup/master/setup.sh
 </code></pre></div>
             <hr>

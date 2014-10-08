@@ -52,13 +52,13 @@
             <p>在 *iux 系统上，有 syslog, rsyslog, syslog-ng 几种程序记录日志。</p>
 
 <p>我们可以在php中这样记录日志:</p>
-<div class="highlight"><pre><code class="php language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 <span class="nv">$priority</span> <span class="o">=</span> <span class="nx">LOG_NOTICE</span><span class="p">;</span>
 <span class="nv">$ident</span> <span class="o">=</span> <span class="s1">&#39;srain&#39;</span><span class="p">;</span>
 
 <span class="nv">$message</span> <span class="o">=</span> <span class="s1">&#39;some messages@&#39;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;Y-m-d H:i:s&#39;</span><span class="p">);</span>
-<span class="nx">openlog</span><span class="p">(</span><span class="nv">$ident</span><span class="p">,</span> <span class="nx">LOG_PID</span><span class="p">,</span> <span class="nx">LOG_LOCAL6</span><span class="p">);</span>
-<span class="nx">syslog</span><span class="p">(</span><span class="nv">$priority</span><span class="p">,</span> <span class="nv">$message</span><span class="p">);</span>
+<span class="nb">openlog</span><span class="p">(</span><span class="nv">$ident</span><span class="p">,</span> <span class="nx">LOG_PID</span><span class="p">,</span> <span class="nx">LOG_LOCAL6</span><span class="p">);</span>
+<span class="nb">syslog</span><span class="p">(</span><span class="nv">$priority</span><span class="p">,</span> <span class="nv">$message</span><span class="p">);</span>
 <span class="nb">closelog</span><span class="p">();</span>
 </code></pre></div>
 <p>我们在各个web前端输出日志。然后把日志统一输出到一个日志服务器上，便于使用。</p>
@@ -67,28 +67,28 @@
 
 <p>可以通过tcp协议和udp协议进行日志转发。</p>
 
-<h3 id="toc_0">转发配置</h3>
+<h3 id="转发配置">转发配置</h3>
 
 <ul>
 <li><p>syslog</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">*.local6    10.11.2.13  # 默认 514 udp转发
+<div class="highlight"><pre><code class="language-text" data-lang="text">*.local6    10.11.2.13  # 默认 514 udp转发
 </code></pre></div></li>
 <li><p>rsyslog</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">*.local6    @@10.11.2.13:514    # udp
+<div class="highlight"><pre><code class="language-text" data-lang="text">*.local6    @@10.11.2.13:514    # udp
 *.local6    @10.11.2.13:514     # tcp 更稳定
 </code></pre></div></li>
 <li><p>syslog-ng</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">description d_loghost { udp(&quot;10.11.2.13&quot; port(514)};
+<div class="highlight"><pre><code class="language-text" data-lang="text">description d_loghost { udp(&quot;10.11.2.13&quot; port(514)};
 
 log { source(s_sys); description(d_loghost)};
 </code></pre></div></li>
 </ul>
 
-<h3 id="toc_1">接收配置</h3>
+<h3 id="接收配置">接收配置</h3>
 
 <ul>
 <li><p>rsyslog</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text"># 接收udp
+<div class="highlight"><pre><code class="language-text" data-lang="text"># 接收udp
 $ModLoad imudp
 $UDPServerRun 514
 
@@ -97,7 +97,7 @@ $ModLoad imtcp
 $InputTCPServerRun 514
 </code></pre></div></li>
 <li><p>syslog-ng</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">destination df_wrt0 {
+<div class="highlight"><pre><code class="language-text" data-lang="text">destination df_wrt0 {
     # 不同的ident 不同的文件
     file(&quot;/var/log/$PROGRAM-$YEAR$MONTH$DAY&quot;
             template(&quot;$FULLDATE $SOURCEIP-$HOST[$PID]: $MSG\n&quot;)
@@ -114,7 +114,7 @@ log { source(s_net); description(df_wrt0)};
 </code></pre></div></li>
 </ul>
 
-<h3 id="toc_2">性能</h3>
+<h3 id="性能">性能</h3>
 
 <p>syslog + syslog-ng。曾经有2000+的web往一台日志服务器上汇总。</p>
 

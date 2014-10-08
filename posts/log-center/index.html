@@ -52,39 +52,39 @@
             <p>In *inux System, there are some log tools, for example: syslog, rsyslog, syslog-ng, etc..</p>
 
 <p>In our program we can record log to syslog, for example in php:</p>
-<div class="highlight"><pre><code class="php language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 <span class="nv">$priority</span> <span class="o">=</span> <span class="nx">LOG_NOTICE</span><span class="p">;</span>
 <span class="nv">$ident</span> <span class="o">=</span> <span class="s1">&#39;srain&#39;</span><span class="p">;</span>
 
 <span class="nv">$message</span> <span class="o">=</span> <span class="s1">&#39;some messages@&#39;</span> <span class="o">.</span> <span class="nb">date</span><span class="p">(</span><span class="s1">&#39;Y-m-d H:i:s&#39;</span><span class="p">);</span>
-<span class="nx">openlog</span><span class="p">(</span><span class="nv">$ident</span><span class="p">,</span> <span class="nx">LOG_PID</span><span class="p">,</span> <span class="nx">LOG_LOCAL6</span><span class="p">);</span>
-<span class="nx">syslog</span><span class="p">(</span><span class="nv">$priority</span><span class="p">,</span> <span class="nv">$message</span><span class="p">);</span>
+<span class="nb">openlog</span><span class="p">(</span><span class="nv">$ident</span><span class="p">,</span> <span class="nx">LOG_PID</span><span class="p">,</span> <span class="nx">LOG_LOCAL6</span><span class="p">);</span>
+<span class="nb">syslog</span><span class="p">(</span><span class="nv">$priority</span><span class="p">,</span> <span class="nv">$message</span><span class="p">);</span>
 <span class="nb">closelog</span><span class="p">();</span>
 </code></pre></div>
 <p>When we have more than one webserver which will record log, we need a log center to keep all of the log.</p>
 
-<h3 id="toc_0">Forwarding</h3>
+<h3 id="forwarding">Forwarding</h3>
 
 <ul>
 <li><p>syslog</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">*.local6    10.11.2.13  # the port is 514 and using the UDP protocal.
+<div class="highlight"><pre><code class="language-text" data-lang="text">*.local6    10.11.2.13  # the port is 514 and using the UDP protocal.
 </code></pre></div></li>
 <li><p>rsyslog</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">*.local6    @@10.11.2.13:514    # udp
+<div class="highlight"><pre><code class="language-text" data-lang="text">*.local6    @@10.11.2.13:514    # udp
 *.local6    @10.11.2.13:514     # tcp more reliable than udp
 </code></pre></div></li>
 <li><p>syslog-ng</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">description d_loghost { udp(&quot;10.11.2.13&quot; port(514)};
+<div class="highlight"><pre><code class="language-text" data-lang="text">description d_loghost { udp(&quot;10.11.2.13&quot; port(514)};
 
 log { source(s_sys); description(d_loghost)};
 </code></pre></div></li>
 </ul>
 
-<h3 id="toc_1">Reciving</h3>
+<h3 id="reciving">Reciving</h3>
 
 <ul>
 <li><p>rsyslog</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text"># for udp reception
+<div class="highlight"><pre><code class="language-text" data-lang="text"># for udp reception
 $ModLoad imudp
 $UDPServerRun 514
 
@@ -93,7 +93,7 @@ $ModLoad imtcp
 $InputTCPServerRun 514
 </code></pre></div></li>
 <li><p>syslog-ng</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">destination df_wrt0 {
+<div class="highlight"><pre><code class="language-text" data-lang="text">destination df_wrt0 {
     #  keep log into diffrent files
     file(&quot;/var/log/$PROGRAM-$YEAR$MONTH$DAY&quot;
             template(&quot;$FULLDATE $SOURCEIP-$HOST[$PID]: $MSG\n&quot;)
@@ -110,7 +110,7 @@ log { source(s_net); description(df_wrt0)};
 </code></pre></div></li>
 </ul>
 
-<h3 id="toc_2">Preformance</h3>
+<h3 id="preformance">Preformance</h3>
 
 <p>I prefer syslog/rsyslog + syslog-ng. It will be more stable and easy to config.</p>
 

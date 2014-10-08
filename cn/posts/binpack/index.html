@@ -56,7 +56,7 @@
 
 <p>本文介绍一种二进制编码方法，具有编码解码速度快，编码后数据量小的特点，同时类似JSON，编码后的数据也是自描述的。</p>
 
-<h3 id="toc_0">支持的常用数据类型</h3>
+<h3 id="支持的常用数据类型">支持的常用数据类型</h3>
 
 <ul>
 <li><p>Null。空类型。</p></li>
@@ -74,38 +74,38 @@
 <li><p>Dictionary，key-value键值对。值可以是支持的任意类型，包括Dictionary本身</p></li>
 </ul>
 
-<h1 id="toc_1">编码方法</h1>
+<h1 id="编码方法">编码方法</h1>
 
 <hr>
 
-<h3 id="toc_2">Null</h3>
+<h3 id="null">Null</h3>
 
 <ul>
 <li><p>编码成一个特殊字节</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+<div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+
 | 0000 1111 |   0x0f
 +-----------+
 </code></pre></div></li>
 </ul>
 
-<h3 id="toc_3">Bool</h3>
+<h3 id="bool">Bool</h3>
 
 <p><code>true</code>和<code>false</code>分别被编码成一个特殊的字节。</p>
 
 <ul>
 <li><p><code>true</code></p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+<div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+
 | 0000 0100 |   0x04
 +-----------+
 </code></pre></div></li>
 <li><p><code>false</code></p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+<div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+
 | 0000 0101 |   0x05
 +-----------+
 </code></pre></div></li>
 </ul>
 
-<h3 id="toc_4">Integer</h3>
+<h3 id="integer">Integer</h3>
 
 <p>整数会被编码成一个或者多个字节。</p>
 
@@ -116,17 +116,17 @@
 
 <ul>
 <li><p>非负整数的前三位</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+<div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+
 | 010x xxxx |  0x40
 +-----------+
 </code></pre></div></li>
 <li><p>负整数的前三位</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+<div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+
 | 011x xxxx |  0x60
 +-----------+
 </code></pre></div></li>
 <li><p>整数的长度信息被编码进第4，5位:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+<div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+
 | xxx0 0xxx |   64bits
 +-----------+
 +-----------+
@@ -143,13 +143,13 @@
 <li><p>除去最后一个字节，其他字节（如果编码后的数据是多个字节的话）的首位都是1，最后一个字节存储整数数据类型信息，该字节首位是0。这样设计，会给解码带来便利。</p>
 
 <p>最后一个字节的3个位，以及其他字节的7个位，用来储存整数的数值信息，如图：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">    7 bits                  3 bits
+<div class="highlight"><pre><code class="language-text" data-lang="text">    7 bits                  3 bits
 +-----------+...........+-----------+
 | 1xxx xxxx | 1xxx xxxx | .... .xxx |
 +-----------+...........+-----------+
 </code></pre></div>
 <p>整数的绝对值数值的二进制补码(Two&#39;s Complement)，低位在前，高位在后，7位一组，填充到这些编码位上。</p>
-<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="c1">// allocate buf</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// allocate buf</span>
 <span class="kt">char</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="n">buf</span><span class="p">;</span>
 <span class="c1">// 小于0x08的数值，编码到最后一个字节的后三位</span>
 <span class="k">while</span> <span class="p">(</span><span class="n">num</span> <span class="o">&gt;=</span> <span class="mh">0x08</span><span class="p">)</span>
@@ -160,22 +160,22 @@
 <span class="o">*</span><span class="n">p</span><span class="o">++</span> <span class="o">=</span> <span class="n">type</span> <span class="o">|</span> <span class="n">num</span><span class="p">;</span>
 </code></pre></div>
 <p>1 编码后：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+<div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+
 | 0100 0001 |
 +-----------+
 </code></pre></div>
 <p>-16 编码后：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+-----------+
+<div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+-----------+
 | 1001 0000 | 0110 0000 |  
 +-----------+-----------+
 </code></pre></div></li>
 </ul>
 
-<h3 id="toc_5">Blob</h3>
+<h3 id="blob">Blob</h3>
 
 <ul>
 <li><p>二进制流编码后的数据分成两部分，前一部分是原始数据的长度（字节数），后部分是二进制流原始数据。如下：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">+----------------+
+<div class="highlight"><pre><code class="language-text" data-lang="text">+----------------+
 | length + data  |  
 +----------------+
 </code></pre></div></li>
@@ -186,20 +186,20 @@
 <ol>
 <li><p>编码到最后一个字节的<code>Blob</code>的数据类型信息是<code>0x10</code>;</p></li>
 <li><p>最后一个字节有4个位可用来存储编码后的长度信息，对于整数，只有3个:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">              0x10 + 4bits
+<div class="highlight"><pre><code class="language-text" data-lang="text">              0x10 + 4bits
 +...........+-----------+
 | 1xxx xxxx | 0001 xxxx |
 +...........+-----------+
 </code></pre></div>
 <p>编码后：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">                                     binary data
+<div class="highlight"><pre><code class="language-text" data-lang="text">                                     binary data
 +-----------+...........+-----------+============+
 | 1xxx xxxx | 1xxx xxxx | 0001 xxxx |    data    |
 +-----------+...........+-----------+============+
 </code></pre></div></li>
 </ol>
 
-<h3 id="toc_6">String</h3>
+<h3 id="string">String</h3>
 
 <ul>
 <li><p>字符串数据的编码方式和<code>Blob</code>一样，也是先编码长度，然后编码数据。</p>
@@ -207,7 +207,7 @@
 <p><strong>字符串数据以及长度不包括C风格字符串中的结束字节。</strong></p>
 
 <p>编码到长度数据最后一个字节的<code>String</code>的数据类型信息是: <code>0x20</code>，如下:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">              0x20 + 4 bits
+<div class="highlight"><pre><code class="language-text" data-lang="text">              0x20 + 4 bits
 +...........+-----------+
 | 1xxx xxxx | 0010 xxxx |
 +...........+-----------+
@@ -218,13 +218,13 @@
 </code></pre></div></li>
 </ul>
 
-<h3 id="toc_7">Float</h3>
+<h3 id="float">Float</h3>
 
 <ul>
 <li><p>浮点数类型支持单精度和双精度。编码时，先编码这两种数据类型的类型信息到一个字节。然后再编码浮点数<code>IEEE-754</code>标准表示的32位或64位数据。</p></li>
 <li><p>编码时高位在前。 </p></li>
 <li><p>编码后，单精度浮点数占5个字节；双精度浮点数占9个字节，如下所示：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">  0x06        8 bytes
+<div class="highlight"><pre><code class="language-text" data-lang="text">  0x06        8 bytes
 +-----------+===========+
 | 0000 0110 |    data   |  双精度
 +-----------+===========+
@@ -236,23 +236,23 @@
 </code></pre></div></li>
 </ul>
 
-<h3 id="toc_8">List</h3>
+<h3 id="list">List</h3>
 
 <ul>
 <li><p>为了编码<code>List</code>和<code>Dictionary</code>数据类型，定义了一个特殊的字节，用来做闭合标志，如下：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+<div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+
 | 0000 0001 |   0x01
 +-----------+
 </code></pre></div></li>
 <li><p><code>List</code>的数据类型信息编码成一个字节：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+<div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+
 | 0000 0010 |   0x02
 +-----------+
 </code></pre></div></li>
 <li><p>在编码时，第一个字节是类型信息，然后是每个子元素，最后是闭合字节：</p>
 
 <p>The last byte is <code>Closure</code>.</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+<div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+
 | 0000 0010 | List类型信息字节
 +-----------+----------------------------
 |          元素 1                       
@@ -270,16 +270,16 @@
 </code></pre></div></li>
 </ul>
 
-<h3 id="toc_9">Dictionary</h3>
+<h3 id="dictionary">Dictionary</h3>
 
 <ul>
 <li><p>和<code>List</code>编码类似，<code>Dictionary</code>编码时先编码类型信息，<code>Dictionary</code>类型信息是：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+<div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+
 | 0000 0011 |   0x03
 +-----------+
 </code></pre></div></li>
 <li><p>类型信息之后，是<code>Dictionary</code>的每个键值对，最后是闭合字节：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">+-----------+
+<div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+
 | 0000 0011 | 类型信息
 +-----------+----------------------------
 |            key 1   
@@ -303,11 +303,11 @@
 </code></pre></div></li>
 </ul>
 
-<h3 id="toc_10">一些常量值定义</h3>
+<h3 id="一些常量值定义">一些常量值定义</h3>
 
 <ul>
 <li><p>类型信息：</p>
-<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="k">typedef</span> <span class="k">enum</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">typedef</span> <span class="k">enum</span> <span class="p">{</span>
     <span class="n">BIN_TYPE_CLOSURE</span>                <span class="o">=</span> <span class="mh">0x01</span><span class="p">,</span> 
     <span class="n">BIN_TYPE_LIST</span>                   <span class="o">=</span> <span class="mh">0x02</span><span class="p">,</span>
     <span class="n">BIN_TYPE_DICT</span>                   <span class="o">=</span> <span class="mh">0x03</span><span class="p">,</span>
@@ -327,7 +327,7 @@
 <span class="p">}</span> <span class="kt">bin_type_t</span><span class="p">;</span>
 </code></pre></div></li>
 <li><p>整数子类型：</p>
-<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="cp">#define BIN_INTEGER_TYPE_64                 0x00 &lt;&lt; 3   </span><span class="c1">// default implementation</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#define BIN_INTEGER_TYPE_64                 0x00 &lt;&lt; 3   </span><span class="c1">// default implementation</span>
 <span class="cp">#define BIN_INTEGER_TYPE_8                  0x01 &lt;&lt; 3</span>
 <span class="cp">#define BIN_INTEGER_TYPE_16                 0x02 &lt;&lt; 3</span>
 <span class="cp">#define BIN_INTEGER_TYPE_32                 0x03 &lt;&lt; 3</span>
@@ -336,7 +336,7 @@
 </code></pre></div></li>
 </ul>
 
-<h3 id="toc_11">实现</h3>
+<h3 id="实现">实现</h3>
 
 <ul>
 <li><p>php实现: <a href="https://github.com/binpack/binpack-php">https://github.com/binpack/binpack-php</a></p></li>
@@ -344,7 +344,7 @@
 <li><p>其他语言，TODO</p></li>
 </ul>
 
-<h3 id="toc_12">性能</h3>
+<h3 id="性能">性能</h3>
 
 <ul>
 <li>  在php实现中，对比msgpack，编码后两者数据量大小相等，但本编码方法所耗时间是前者是前者3/4。</li>

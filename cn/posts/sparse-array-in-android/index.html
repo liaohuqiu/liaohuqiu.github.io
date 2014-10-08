@@ -54,7 +54,7 @@
 <p>和<code>HashMap</code>类似，<code>SparseArray</code>建立整数索引和对象的关系。和简单的对象数组相比，<code>SparseArray</code>允许索引之间有间隔。</p>
 
 <p><code>SparseArray</code>支持和<code>HashMap</code>类似的<code>put</code>和<code>get</code>方法。在其内部，维护着两个数组，一个用于存储索引，一个用于存储对象。</p>
-<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SparseArray</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">Cloneable</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SparseArray</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">Cloneable</span> <span class="o">{</span>
 
     <span class="kd">private</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">mKeys</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">Object</span><span class="o">[]</span> <span class="n">mValues</span><span class="o">;</span>
@@ -62,12 +62,12 @@
 </code></pre></div>
 <p>整数索引被从小到大映射到<code>mKeys</code>数组中。</p>
 
-<h3 id="toc_0">索引的映射</h3>
+<h3 id="索引的映射">索引的映射</h3>
 
 <p>在计算整数索引映射到数组中的位置的时候，用了一个改造过的的二分搜索算法：</p>
 
 <p>这个算法输入的参数是：要搜索的数组<code>a</code>，搜索的起始位置<code>start</code>, 搜索的长度<code>len</code>, 要检索的关键字<code>key</code>，如下:</p>
-<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">binarySearch</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">len</span><span class="o">,</span> <span class="kt">int</span> <span class="n">key</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">binarySearch</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">len</span><span class="o">,</span> <span class="kt">int</span> <span class="n">key</span><span class="o">)</span> <span class="o">{</span>
     <span class="kt">int</span> <span class="n">high</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">len</span><span class="o">,</span> <span class="n">low</span> <span class="o">=</span> <span class="n">start</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">guess</span><span class="o">;</span>
 
     <span class="k">while</span> <span class="o">(</span><span class="n">high</span> <span class="o">-</span> <span class="n">low</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
@@ -92,7 +92,7 @@
 <p>如果关键字不在区间内，则将区间首个索引或者区间最后一个索引加1取反码，非负数的反码都是负数，因为符号位被取反了。</p>
 
 <p>有一个数组： <code>int[] a = new int[] {2, 5, 8, 0, 0};</code> 结构如下:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">  0   1   2   3   4
+<div class="highlight"><pre><code class="language-text" data-lang="text">  0   1   2   3   4
 +---+---+---+---+---+
 | 2 | 5 | 8 |   |   |
 +---+---+---+---+---+
@@ -133,7 +133,7 @@
 </tr>
 </tbody></table>
 
-<h3 id="toc_1">put过程</h3>
+<h3 id="put过程">put过程</h3>
 
 <p>put的过程分为以下几步：</p>
 
@@ -149,7 +149,7 @@
 <p>如果计算出的映射索引，在现有对象的位置上，需要移动区段。</p>
 
 <p>对于上述数组，如果要插入4：计算得的索引为1，需要将索引位置开始的所有元素后移：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">  0   1   2   3   4
+<div class="highlight"><pre><code class="language-text" data-lang="text">  0   1   2   3   4
 +---+---+---+---+---+
 | 2 |   | 5 | 8 |   | 
 +---+---+---+---+---+
@@ -159,7 +159,7 @@
 <hr>
 
 <p>主要代码如下，省略了部分细节：</p>
-<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">put</span><span class="o">(</span><span class="kt">int</span> <span class="n">key</span><span class="o">,</span> <span class="n">E</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">put</span><span class="o">(</span><span class="kt">int</span> <span class="n">key</span><span class="o">,</span> <span class="n">E</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
 
     <span class="c1">// 1. 计算索引</span>
     <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">binarySearch</span><span class="o">(</span><span class="n">mKeys</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">mSize</span><span class="o">,</span> <span class="n">key</span><span class="o">);</span>
@@ -190,12 +190,12 @@
 </code></pre></div></li>
 </ol>
 
-<h3 id="toc_2">get和遍历</h3>
+<h3 id="get和遍历">get和遍历</h3>
 
 <ul>
 <li>  如果索引不存在，<code>indexOfKey(int key)</code>，将会返回负数值。</li>
 <li><p>遍历需要获取数组的总的对象大小，然后用<code>keyAt(int index)</code>获取索引或者<code>valueAt(int index)</code>获取值。</p>
-<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kt">int</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kt">int</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">sparseArray</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
        <span class="n">key</span> <span class="o">=</span> <span class="n">sparseArray</span><span class="o">.</span><span class="na">keyAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
        <span class="n">Object</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">sparseArray</span><span class="o">.</span><span class="na">valueAt</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
@@ -203,7 +203,7 @@
 </code></pre></div></li>
 </ul>
 
-<h3 id="toc_3">效率的提升和使用限制</h3>
+<h3 id="效率的提升和使用限制">效率的提升和使用限制</h3>
 
 <p>稀疏数组的使用，对于索引是整数的情景，有时能带来一些效率的提升。</p>
 

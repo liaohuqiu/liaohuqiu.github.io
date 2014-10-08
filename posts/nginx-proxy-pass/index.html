@@ -49,7 +49,7 @@
             <h2> Nginx proxy_pass: examples for how does nginx proxy_pass map the request </h2>
             <p> 16 Sep 2013 </p>
             <hr>
-            <h3 id="toc_0">1. about</h3>
+            <h3 id="1.-about">1. about</h3>
 
 <ol>
 <li><p>The <code>proxy_pass</code> directive sets the address of the proxied server and the URI to which location will be mapped. </p>
@@ -57,10 +57,10 @@
 <p>Here are some examples to show how the request URI will be mapped.</p>
 
 <p>The version of nginx:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">nginx version: nginx/1.4.2
+<div class="highlight"><pre><code class="language-text" data-lang="text">nginx version: nginx/1.4.2
 </code></pre></div>
 <p>The server config:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">#server config
+<div class="highlight"><pre><code class="language-text" data-lang="text">#server config
 server {
     listen        80;
     server_name   test.com;
@@ -68,18 +68,18 @@ server {
 </code></pre></div></li>
 </ol>
 
-<h3 id="toc_1">2. location without regular expression</h3>
+<h3 id="2.-location-without-regular-expression">2. location without regular expression</h3>
 
 <ol>
 <li><p>If the <code>proxy_pass</code> directive is specified without a URI,</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">location /app/ {
+<div class="highlight"><pre><code class="language-text" data-lang="text">location /app/ {
     proxy_pass      http://192.168.154.102;
 }
 
 test.com/app/xxxxx =&gt;  http://192.168.154.102/xxxxx
 </code></pre></div></li>
 <li><p>If the <code>proxy_pass</code> directive is specified with a URI:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">location /app/ {
+<div class="highlight"><pre><code class="language-text" data-lang="text">location /app/ {
     proxy_pass      http://192.168.154.102/maped_dir/;
 }
 
@@ -88,28 +88,28 @@ test.com/app/xxxxx =&gt;  http://192.168.154.102/maped_dir/xxxxx
 <li><p>Forward the requested Host header</p>
 
 <p>By default, the Host header from the request is not forwarded, but is set based on the proxy_pass statement. To forward the requested Host header, it is necessary to use:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">proxy_set_header Host $host;
+<div class="highlight"><pre><code class="language-text" data-lang="text">proxy_set_header Host $host;
 </code></pre></div></li>
 </ol>
 
-<h3 id="toc_2">3. location with regular expression</h3>
+<h3 id="3.-location-with-regular-expression">3. location with regular expression</h3>
 
 <ol>
 <li><p>If the location is given by regular expression, can not be a URI part in <code>proxy_pass</code> directive,  unless there are variables in the directive.</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">location  ~ ^/app/(.*)$ {
+<div class="highlight"><pre><code class="language-text" data-lang="text">location  ~ ^/app/(.*)$ {
     #proxy_pass   http://127.0.0.1/some_dir;    #error
     proxy_pass   http://127.0.0.1/some_dir/$1r;    #ok
 }
 </code></pre></div></li>
 <li><p>variables in <code>proxy_pass</code> directive:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">location ~ ^/app/(.*)$ {
+<div class="highlight"><pre><code class="language-text" data-lang="text">location ~ ^/app/(.*)$ {
     proxy_pass       http://192.169.154.102:$1;
 }
 
 test.com/app/8081 =&gt; http://192.168.154.102:8081
 </code></pre></div>
 <p>and:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">location ~ ^/app/(.*)$ {
+<div class="highlight"><pre><code class="language-text" data-lang="text">location ~ ^/app/(.*)$ {
     proxy_pass       http://192.169.154.102:9999/some_dir/$1;
 }
 
@@ -118,7 +118,7 @@ test.com/app/request/xxxxx =&gt; http://192.168.154.102:9999/some_dir/xxxxx
 <li><p>with a rewrite directive in the location:</p>
 
 <p>If the rewrite rule is hit, the URI specified in the directive is ignored and the full changed request URI is passed to the server:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">location  /app/ {
+<div class="highlight"><pre><code class="language-text" data-lang="text">location  /app/ {
     rewrite    ^/app/hit/(.*)$ /hit_page.php?path=$1 break;
     proxy_pass   http://192.168.154.102:9999/some_dir/;
 }

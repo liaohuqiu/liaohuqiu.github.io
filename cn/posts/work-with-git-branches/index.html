@@ -63,32 +63,32 @@
 
 <hr>
 
-<h2 id="toc_0">分支简单操作</h2>
+<h2 id="分支简单操作">分支简单操作</h2>
 
-<h5 id="toc_1">最简单的用法</h5>
+<h5 id="最简单的用法">最简单的用法</h5>
 
 <p>创建一个分支，添加文件，提交，推送。但是日常工作中往往比这个复杂得多。</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">git branch branchName
+<div class="highlight"><pre><code class="language-text" data-lang="text">git branch branchName
 echo &quot;Some information&quot; &gt; test.txt
 git add test.txt
 git commit -m &#39;add text.txt&#39;
 git push origin branchName
 </code></pre></div>
-<h5 id="toc_2">列出所有分支</h5>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">git branch -a
+<h5 id="列出所有分支">列出所有分支</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git branch -a
 </code></pre></div>
-<h5 id="toc_3">检出一个远程分支</h5>
+<h5 id="检出一个远程分支">检出一个远程分支</h5>
 
 <p>远程有一个<code>dev</code>分支，你想check out这个分支到本地：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">git branch -b dev origin/dev
+<div class="highlight"><pre><code class="language-text" data-lang="text">git branch -b dev origin/dev
 </code></pre></div>
-<h5 id="toc_4">开发告一段落，你把远程一些没用的分支删除：</h5>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">git push origin --delete &lt;branchName&gt;
+<h5 id="开发告一段落，你把远程一些没用的分支删除：">开发告一段落，你把远程一些没用的分支删除：</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git push origin --delete &lt;branchName&gt;
 
 git push origin :&lt;branchName&gt;
 </code></pre></div>
-<h5 id="toc_5">删除本地分支：</h5>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">// -d 是 --delete 选项的短选项
+<h5 id="删除本地分支：">删除本地分支：</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text">// -d 是 --delete 选项的短选项
 git branch -d branchName
 
 // 强制删除
@@ -96,7 +96,7 @@ git branch -D branchName
 </code></pre></div>
 <hr>
 
-<h1 id="toc_6">Merge &amp; Rebase</h1>
+<h1 id="merge-&amp;-rebase">Merge &amp; Rebase</h1>
 
 <p><code>git pull</code>是非常笼统的一种操作，下面我们分析日常所有可能遇到的情况：</p>
 
@@ -109,12 +109,12 @@ A -- B   [b1]
 <li><p>本地可能发生的操作 A:</p>
 
 <p>你检出 <code>b1</code>，修改了代码，然后提交，生成一个提交：<code>C</code></p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">A -- B -- C      [b1]
+<div class="highlight"><pre><code class="language-text" data-lang="text">A -- B -- C      [b1]
 </code></pre></div></li>
 <li><p>本地可能的情况 B:</p>
 
 <p>你从<code>b1</code>建了一个新的分支 <code>b2</code>, 提交代码，生成一个提交：<code>C</code></p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">A -- B      [b1]
+<div class="highlight"><pre><code class="language-text" data-lang="text">A -- B      [b1]
       \
        C    [b2]
 </code></pre></div></li>
@@ -129,14 +129,14 @@ A -- B      [b1]
 <p>远程情况 A:</p>
 
 <p>在提交代码的期间，有人推送代码到了分支<code>b1</code>, 这个提交称为：<code>D</code></p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">A -- B -- D         [remote b1]
+<div class="highlight"><pre><code class="language-text" data-lang="text">A -- B -- D         [remote b1]
       \
        ----- C      [local]
 </code></pre></div></li>
 <li><p>远程情况 B:</p>
 
 <p>远程情况没任何变动。</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">A -- B   [b1]
+<div class="highlight"><pre><code class="language-text" data-lang="text">A -- B   [b1]
 </code></pre></div></li>
 </ol>
 
@@ -148,10 +148,10 @@ A -- B      [b1]
 
 <hr>
 
-<h5 id="toc_7">git fetch</h5>
+<h5 id="git-fetch">git fetch</h5>
 
 <p>现在你将远程变动取到本地，这时，本地代码库有可能以下几种情况：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">Case A: 本地情况 A + 远程情况 B
+<div class="highlight"><pre><code class="language-text" data-lang="text">Case A: 本地情况 A + 远程情况 B
 
 A -- B      [b1]
       \
@@ -185,7 +185,7 @@ A -- B -- D             [b1]
 
 <hr>
 
-<h5 id="toc_8">什么是： <code>fast-forward</code></h5>
+<h5 id="什么是：-fast-forward">什么是： <code>fast-forward</code></h5>
 
 <p>在<code>git fetch</code>之后，如果本地分支和远程分支没有分叉，并且本地分支指向较旧脚本，那么，这个分支称为可以<code>fast-forward</code>;</p>
 
@@ -196,17 +196,17 @@ A -- B -- D             [b1]
 <p>很多情况下，我们并不希望有这样的自动合并产生，因为他产生了一个自动提交，会让版本变得交叉，不清晰。</p>
 
 <p>我们希望，能<code>fast-forward</code>就<code>fast-forward</code>, `，否则我们用rebase命令合并。可以这样：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">git merge --ff-only origin/master
+<div class="highlight"><pre><code class="language-text" data-lang="text">git merge --ff-only origin/master
 </code></pre></div>
 <p>如果不能<code>fast-forward</code>, merge 操作会终止。</p>
 
 <hr>
 
-<h5 id="toc_9">git merge 合并一个分支</h5>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ git merge
+<h5 id="git-merge-合并一个分支">git merge 合并一个分支</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ git merge
 </code></pre></div>
 <p>操作之后：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">Case A: 没变化
+<div class="highlight"><pre><code class="language-text" data-lang="text">Case A: 没变化
 Case B: 没变化
 Case C: fast-forward
 
@@ -219,27 +219,27 @@ Case D: 合并，并且自动生成一个提交E
               \        /
                 ---- C          [b1]
 </code></pre></div>
-<h5 id="toc_10">git merge 合并两个分支</h5>
+<h5 id="git-merge-合并两个分支">git merge 合并两个分支</h5>
 
 <p>当前在<code>b2</code>上，合并远程<code>b1</code>的改动，对应Case E</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ git merge origin/b1
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ git merge origin/b1
 </code></pre></div>
 <p>合并之后 ：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">Case E:
+<div class="highlight"><pre><code class="language-text" data-lang="text">Case E:
         A -- B ------ D         [b1]
               \        \
                 -- C -- E       [b2]
 
                 图1
 </code></pre></div>
-<h5 id="toc_11">git pull</h5>
+<h5 id="git-pull">git pull</h5>
 
 <p><code>git pull</code> = <code>git fetch + git merge</code></p>
 
-<h5 id="toc_12">git rebase</h5>
+<h5 id="git-rebase">git rebase</h5>
 
 <p>只有当一个分支出现分叉，或者在不同的分之间，git rebase才有意义。命令格式：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">git rebase 目标分支
+<div class="highlight"><pre><code class="language-text" data-lang="text">git rebase 目标分支
 </code></pre></div>
 <p>在git rebase时：</p>
 
@@ -249,8 +249,8 @@ Case D: 合并，并且自动生成一个提交E
 <li><p>然后将暂存区的本地未推送的提交挨个应用回本分支。</p></li>
 </ol>
 
-<h5 id="toc_13">同一个分支的 rebase</h5>
-<div class="highlight"><pre><code class="text language-text" data-lang="text"># Case E
+<h5 id="同一个分支的-rebase">同一个分支的 rebase</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text"># Case E
 $ git rebase
 A -- B ------- D        [b1,remote]
       \
@@ -260,17 +260,17 @@ A -- B ------- D        [b1,remote]
 </code></pre></div>
 <p>先将本地的提交<code>C</code>暂存，然后指向<code>D</code>, 应用<code>C</code>，<code>C</code>在<code>D</code>之前，变成了<code>C1</code>。注意这个和上面<code>git merge</code>（图1）的区别。</p>
 
-<h5 id="toc_14">不同分支的rebase</h5>
+<h5 id="不同分支的rebase">不同分支的rebase</h5>
 
 <p>这其实和同一个分支类似，不过注意，不同分支rebase可能需要强制推送：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text"># Case F
+<div class="highlight"><pre><code class="language-text" data-lang="text"># Case F
 $ git rebase origin/b1
 
 A -- B ------- D        [b1,remote]
       \
         ------ D -- C1  [b2,local]
 </code></pre></div>
-<h5 id="toc_15">强制推送: git push --force</h5>
+<h5 id="强制推送:-git-push---force">强制推送: git push --force</h5>
 
 <p>为什么需要强制推送，官方文档：</p>
 
@@ -279,11 +279,11 @@ A -- B ------- D        [b1,remote]
 </blockquote>
 
 <p>Case F, 如果<code>b2</code>在 <code>D</code> 和 <code>C</code> 之前，有其他的提交已经推送到服务器了，则需要强制推送，因为他们是从<code>B</code>开始分叉的。</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">         pushed
+<div class="highlight"><pre><code class="language-text" data-lang="text">         pushed
 A -- B -..... --- D        [b1,remote]
       \
         -.... --- D -- C1  [b2,local]
-</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">$ git push origin b2 -f
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">$ git push origin b2 -f
 $ git push origin b2 --force
 $ git push origin +b2
 </code></pre></div>

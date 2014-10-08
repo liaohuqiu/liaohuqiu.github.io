@@ -50,10 +50,10 @@
             <p> 20 May 2014 </p>
             <hr>
             <p>Give out a sort list:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">60, 80, 100, 120, 160, 320, 480, 640, 720, 1080
+<div class="highlight"><pre><code class="language-text" data-lang="text">60, 80, 100, 120, 160, 320, 480, 640, 720, 1080
 </code></pre></div>
 <p>Find out the smallest number but greater than given number. For example:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">10 =&gt; 80
+<div class="highlight"><pre><code class="language-text" data-lang="text">10 =&gt; 80
 60 =&gt; 80
 100 =&gt; 100
 140 =&gt; 160
@@ -64,7 +64,7 @@
 <p>Simply, we can use for a for loop to archive this, and its complexity is O(n);</p>
 
 <p>Here I use a binary search, whose complexity will be O(logn):</p>
-<div class="highlight"><pre><code class="php language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 <span class="k">function</span> <span class="nf">bin_search</span><span class="p">(</span><span class="nv">$map</span><span class="p">,</span> <span class="nv">$num</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="nv">$l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -73,7 +73,7 @@
     <span class="nv">$f</span> <span class="o">=</span> <span class="nv">$num</span><span class="p">;</span>
     <span class="k">while</span> <span class="p">(</span><span class="nv">$h</span> <span class="o">&gt;</span> <span class="nv">$l</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="nv">$m</span> <span class="o">=</span> <span class="nx">floor</span><span class="p">((</span><span class="nv">$h</span> <span class="o">+</span> <span class="nv">$l</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+        <span class="nv">$m</span> <span class="o">=</span> <span class="nb">floor</span><span class="p">((</span><span class="nv">$h</span> <span class="o">+</span> <span class="nv">$l</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
         <span class="k">if</span> <span class="p">(</span><span class="nv">$map</span><span class="p">[</span><span class="nv">$m</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="nv">$num</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="nv">$h</span> <span class="o">=</span> <span class="nv">$m</span><span class="p">;</span>
@@ -115,7 +115,7 @@
 <span class="nx">test</span><span class="p">(</span><span class="mi">1800</span><span class="p">);</span>
 </code></pre></div>
 <p>The output:</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="o">[</span>huqiu@101 ~<span class="o">]</span><span class="nv">$ </span>php test.php
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>huqiu@101 ~<span class="o">]</span><span class="nv">$ </span>php test.php
 <span class="nv">10</span> <span class="o">=</span>&gt; 80
 <span class="nv">60</span> <span class="o">=</span>&gt; 80
 <span class="nv">100</span> <span class="o">=</span>&gt; 100

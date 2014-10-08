@@ -50,7 +50,7 @@
             <p> 15 Mar 2014 </p>
             <hr>
             <p>通过Adapter为<code>AbslistView</code>提供内容是一个常见的做法：在ListView或者GridView的Adapter中的<code>getView()</code>方法中，加入一行日志，看<code>getView()</code>被调用的情况</p>
-<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kd">public</span> <span class="n">View</span> <span class="nf">getView</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">,</span> <span class="n">View</span> <span class="n">convertView</span><span class="o">,</span> <span class="n">ViewGroup</span> <span class="n">parent</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">View</span> <span class="nf">getView</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">,</span> <span class="n">View</span> <span class="n">convertView</span><span class="o">,</span> <span class="n">ViewGroup</span> <span class="n">parent</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="err">&#39;</span><span class="n">cube_list</span><span class="err">&#39;</span><span class="o">,</span> 
         <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;getView %s, %s&quot;</span><span class="o">,</span> <span class="n">position</span><span class="o">,</span> <span class="n">convertView</span> <span class="o">==</span> <span class="kc">null</span><span class="o">));</span>
     <span class="c1">// 创建</span>
@@ -62,10 +62,10 @@
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
-<h3 id="toc_0">问题表现</h3>
+<h3 id="问题表现">问题表现</h3>
 
 <p>对于ListView，我们使用如下的一个xml文件：</p>
-<div class="highlight"><pre><code class="xml language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="nt">&lt;RelativeLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
     <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
     <span class="na">android:layout_height=</span><span class="s">&quot;match_parent&quot;</span> <span class="nt">&gt;</span>
@@ -85,7 +85,7 @@
 <p><strong>getView 方法返回的view含有一个网络图片，下载完成后，会导致重新绘制。</strong></p>
 
 <p>运行程序，在Logcat中 <strong><em>有可能</em></strong> 会看到<code>getView 0</code>会被打印出很多条。</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">03-15 14:32:41.980    cube_list﹕ getView 0, true
+<div class="highlight"><pre><code class="language-text" data-lang="text">03-15 14:32:41.980    cube_list﹕ getView 0, true
 03-15 14:32:41.980    cube_list﹕ getView 1, false
 03-15 14:32:41.980    cube_list﹕ getView 2, false
 03-15 14:32:41.990    cube_list﹕ getView 3, false
@@ -105,11 +105,11 @@
 
 <hr>
 
-<h3 id="toc_1">原因分析</h3>
+<h3 id="原因分析">原因分析</h3>
 
 <p>起因：类似这样的情况，都是加入了列表项之后，列表项自身的一些操作，比如加入图片，导致整个view重新绘制。在重新绘制的过程中，onMeasure方法会创建出列表项来确定大小。</p>
 
-<h4 id="toc_2">ListView</h4>
+<h4 id="listview">ListView</h4>
 
 <p>在<code>onMeasure()</code>时：</p>
 
@@ -119,7 +119,7 @@
 </ol>
 
 <p>主要代码如下：</p>
-<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onMeasure</span><span class="o">(</span><span class="kt">int</span> <span class="n">widthMeasureSpec</span><span class="o">,</span> <span class="kt">int</span> <span class="n">heightMeasureSpec</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onMeasure</span><span class="o">(</span><span class="kt">int</span> <span class="n">widthMeasureSpec</span><span class="o">,</span> <span class="kt">int</span> <span class="n">heightMeasureSpec</span><span class="o">)</span> <span class="o">{</span>
 
     <span class="kd">super</span><span class="o">.</span><span class="na">onMeasure</span><span class="o">(</span><span class="n">widthMeasureSpec</span><span class="o">,</span> <span class="n">heightMeasureSpec</span><span class="o">);</span>
 
@@ -151,7 +151,7 @@
     <span class="c1">// other code</span>
 <span class="o">}</span>
 </code></pre></div>
-<h4 id="toc_3">解决方案：</h4>
+<h4 id="解决方案：">解决方案：</h4>
 
 <p>如果<code>ListView</code>大小未决，则会绘制列表项，以确定自身大小。让<code>ListView</code>大小处于<code>EXACTLY</code>状态即可。</p>
 
@@ -164,10 +164,10 @@
 
 <hr>
 
-<h3 id="toc_4">GirdView</h3>
+<h3 id="girdview">GirdView</h3>
 
 <p><code>GridView</code>看起来比较无解，每次<code>onMeasure()</code>都会导致列表首项被绘制。</p>
-<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onMeasure</span><span class="o">(</span><span class="kt">int</span> <span class="n">widthMeasureSpec</span><span class="o">,</span> <span class="kt">int</span> <span class="n">heightMeasureSpec</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onMeasure</span><span class="o">(</span><span class="kt">int</span> <span class="n">widthMeasureSpec</span><span class="o">,</span> <span class="kt">int</span> <span class="n">heightMeasureSpec</span><span class="o">)</span> <span class="o">{</span>
 
     <span class="c1">// other code</span>
 

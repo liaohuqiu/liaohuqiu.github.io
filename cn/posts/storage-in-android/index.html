@@ -49,7 +49,7 @@
             <h2> Android存储使用参考 </h2>
             <p> 15 Jan 2014 </p>
             <hr>
-            <h4 id="toc_0">可能遇到的问题</h4>
+            <h4 id="可能遇到的问题">可能遇到的问题</h4>
 
 <p>android系统自身自带有存储，另外也可以通过sd卡来扩充存储空间。前者好比pc中的硬盘，后者好移动硬盘。
 前者空间较小，后者空间大，但后者不一定可用。
@@ -70,18 +70,18 @@
 
 <hr>
 
-<h4 id="toc_1">基本操作</h4>
+<h4 id="基本操作">基本操作</h4>
 
 <ol>
 <li><p>使用外部存储，需要的权限，在<code>AndoridManifest.xml</code>中:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&gt;
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&gt;
 &lt;uses-permission android:name=&quot;android.permission.READ_EXTERNAL_STORAGE&quot; /&gt;
 </code></pre></div>
 <blockquote>
 <p>从API 19 / Andorid 4.4 / KITKAT开始，不再需要显式声明这两个权限，除非要读写其他应用的应用数据(<code>$appDataDir</code>)</p>
 </blockquote></li>
 <li><p>判断sd卡可用：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">/**
+<div class="highlight"><pre><code class="language-text" data-lang="text">/**
  * Check if the primary &quot;external&quot; storage device is available.
  * 
  * @return
@@ -99,7 +99,7 @@ public static boolean hasSDCardMounted() {
 
 <hr>
 
-<h4 id="toc_2">存储的用量情况</h4>
+<h4 id="存储的用量情况">存储的用量情况</h4>
 
 <ul>
 <li><p>根据系统用户不同，所能占用的存储空间大小也有不同</p>
@@ -112,7 +112,7 @@ public static boolean hasSDCardMounted() {
 <li><p>当有多个存储可用时获取磁盘用量，根据当前系统情况选用合适的存储。</p></li>
 <li><p>根据系统存储用量，合理设定app所用的空间大小；运行时，也可做动态调整。</p></li>
 <li><p>在API level 9及其以上的系统，可直接调用<code>File</code>对象的相关方法，以下需自行计算:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">@TargetApi(VERSION_CODES.GINGERBREAD)
+<div class="highlight"><pre><code class="language-text" data-lang="text">@TargetApi(VERSION_CODES.GINGERBREAD)
 public static long getUsableSpace(File path) {
     if (path == null) {
         return -1;
@@ -133,12 +133,12 @@ public static long getUsableSpace(File path) {
 
 <hr>
 
-<h4 id="toc_3">路径的规律</h4>
+<h4 id="路径的规律">路径的规律</h4>
 
 <p>一般地，通过<code>Context</code> 和 <code>Environment</code>相关的方法获取文件存取的路径。</p>
 
 <p>通过这两个类可获取各种路径，如图：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">    ($rootDir)
+<div class="highlight"><pre><code class="language-text" data-lang="text">    ($rootDir)
 +- /data                -&gt; Environment.getDataDirectory()
 |   |
 |   |   ($appDataDir)
@@ -177,7 +177,7 @@ public static long getUsableSpace(File path) {
 </code></pre></div>
 <hr>
 
-<h4 id="toc_4">各个路径的特性</h4>
+<h4 id="各个路径的特性">各个路径的特性</h4>
 
 <p>下面介绍这些路径的特性以及使用中需要注意的细节:</p>
 
@@ -189,7 +189,7 @@ public static long getUsableSpace(File path) {
 <li><p>外部存储路径： <code>/storage/sdcard0</code> (也有类似 /mnt/ 这样的）,通过<code>Environment.getExternalStorageDirectory()</code>获取</p>
 
 <p>示例:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">Environment.getDataDirectory(): 
+<div class="highlight"><pre><code class="language-text" data-lang="text">Environment.getDataDirectory(): 
         /data
 
 Environment.getExternalStorageDirectory(): 
@@ -209,7 +209,7 @@ Environment.getExternalStorageDirectory():
 <hr></li>
 <li><p>外部存储中，公开的数据目录。
 这些目录将不会随着应用的删除而被系统删除，请斟酌使用:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">Environment.getExternalStorageDirectory(): 
+<div class="highlight"><pre><code class="language-text" data-lang="text">Environment.getExternalStorageDirectory(): 
     /storage/sdcard0
 
 // 同 $rootDir
@@ -234,7 +234,7 @@ Environment.getExternalStoragePublicDirectory(&quot;folder1&quot;):
 <p>外部存储没有实时监控，当空间不足时，文件不会实时被删除，可能返回空对象</p>
 
 <p>示例:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">Context.getCacheDir(): 
+<div class="highlight"><pre><code class="language-text" data-lang="text">Context.getCacheDir(): 
         /data/data/com.srain.cube.sample/cache
 
 Context.getExternalCacheDir(): 
@@ -249,7 +249,7 @@ Context.getExternalCacheDir():
 <p><code>Context.getFileStreamPath(String name)</code>返回以<code>name</code>为文件名的文件对象，<code>name</code>为空，则返回 <code>$filesDir</code> 本身</p>
 
 <p>示例:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">Context.getFilesDir(): 
+<div class="highlight"><pre><code class="language-text" data-lang="text">Context.getFilesDir(): 
         /data/data/com.srain.cube.sample/files
 
 Context.getFileStreamPath(&quot;&quot;):
@@ -261,12 +261,12 @@ Context.getFileStreamPath(&quot;file1&quot;):
 <li><p>外部存储：通过<code>Context.getExternalFilesDir(String type)</code>, <code>type</code>为空字符串时获取.</p>
 
 <p><code>type</code>系统指定了几种类型:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">Environment.DIRECTORY_MUSIC
+<div class="highlight"><pre><code class="language-text" data-lang="text">Environment.DIRECTORY_MUSIC
 Environment.DIRECTORY_PICTURES
 ...
 </code></pre></div>
 <p>示例:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">Context.getExternalCacheDirs(): 
+<div class="highlight"><pre><code class="language-text" data-lang="text">Context.getExternalCacheDirs(): 
         /storage/sdcard0/Android/data/com.srain.cube.sample/files
 
 Context.getExternalFilesDir(Environment.DIRECTORY_MUSIC)
@@ -291,14 +291,14 @@ Context.getExternalFilesDir(Environment.DIRECTORY_MUSIC)
 <p>目录的命名规则为 <code>app_ + name</code>, 通过mode可控制此目录为app私有还是其他app可读写。</p>
 
 <p>示例:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">Context.getDir(&quot;dir1&quot;, MODE_PRIVATE):
+<div class="highlight"><pre><code class="language-text" data-lang="text">Context.getDir(&quot;dir1&quot;, MODE_PRIVATE):
         Context.getDir: /data/data/com.srain.cube.sample/app_dir1
 </code></pre></div>
 <hr></li>
 <li><p><strong>特别注意, 对于外部存储，获取<code>$cacheDir</code> 或者 <code>$filesDir</code>及其下的路径</strong></p>
 
 <p>在API level 8 以下，或者空间不足，相关的方法获路径为空时，需要自己构造。</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">@TargetApi(VERSION_CODES.FROYO)
+<div class="highlight"><pre><code class="language-text" data-lang="text">@TargetApi(VERSION_CODES.FROYO)
 public static File getExternalCacheDir(Context context) {
 
     if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.FROYO)) {
@@ -323,7 +323,7 @@ public static File getExternalCacheDir(Context context) {
 
 <hr>
 
-<h4 id="toc_5">相关代码：</h4>
+<h4 id="相关代码：">相关代码：</h4>
 
 <p><a href="https://github.com/liaohuqiu/cube-sdk/blob/master/core/src/com/srain/cube/file/FileUtil.java">https://github.com/liaohuqiu/cube-sdk/blob/master/core/src/com/srain/cube/file/FileUtil.java</a></p>
 
