@@ -13,6 +13,8 @@ title:          "Yet Another Summer Rain"
 
 exclude:        ['README.md']
 
+gems:           ['jekyll-multiple-languages']
+
 host_name:      'www.liaohuqiu.net'
 
 author:         liaohuqiu@gmail.com 廖祜秋
