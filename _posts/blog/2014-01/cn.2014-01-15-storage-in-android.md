@@ -212,7 +212,7 @@ android系统自身自带有存储，另外也可以通过sd卡来扩充存储�
             示例:
 
             ```
-            Context.getExternalCacheDirs(): 
+            Context.getExternalFilesDir(""): 
                     /storage/sdcard0/Android/data/com.srain.cube.sample/files
 
             Context.getExternalFilesDir(Environment.DIRECTORY_MUSIC)
