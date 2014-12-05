@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="chrome=1" />
 
 <meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
-<meta name="description" content="git全局钩子的配置" />
+<meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
@@ -29,7 +29,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
 
 
-<title>git全局钩子 |  Yet Another Summer Rain</title>
+<title>Ultra-Ptr 在eclipse中编译的办法 |  Yet Another Summer Rain</title>
 </head>
 
 <body>
@@ -48,53 +48,49 @@
 <div class='post'>
     <div id="main_content_wrap" class="outer">
         <div class="md-body main-content inner wide">
-            <h2> git全局钩子 </h2>
-            <p> 20 Mar 2014 </p>
+            <h2> Ultra-Ptr 在eclipse中编译的办法 </h2>
+            <p> 05 Dec 2014 </p>
             <hr>
-            <h3 id="钩子文件在项目目录下">钩子文件在项目目录下</h3>
+            <p><a href="https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh">android-Ultra-Pull-To-Refresh</a>发布之后，收到许多反馈说在eclipse中编译不通过，缺少资源文件。</p>
 
-<p><a href="http://git-scm.com/book/en/Customizing-Git-Git-Hooks">git的钩子</a>放在git项目下的<code>.git/hooks</code>目录。</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">ls -l .git/hooks
-</code></pre></div>
-<p>如果我们所有项目都需要一个通用的钩子，那么我们需要在所有的项目中都放置钩子文件。挨个复制显然不是一个可行的方案。</p>
+<p>项目包含两个子项目: </p>
 
-<h3 id="模板目录">模板目录</h3>
+<ul>
+<li><p>ptr-lib文件夹中的是类库</p></li>
+<li><p>ptr-demo 文件中的是demo</p></li>
+</ul>
 
-<p>我们可用模板目录来解决这个问题。</p>
+<p>在这两个项目中都有一个libs文件，这两个文件夹是eclipse中需要的依赖包和源码。</p>
 
-<p>在<code>git init</code> 或者 <code>git clone</code>时，如果指定有模板目录，会使用拷贝模板目录下的文件到<code>.git/</code>目录下。</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">git init --template <span class="s2">&quot;path-to-template-dir&quot;</span>
-git clone --template <span class="s2">&quot;path-to-template-dir&quot;</span>
-</code></pre></div>
-<p>好了，那么解决方案就是：把统一的钩子文件放到模板目录，然后在<code>git init</code> / <code>git clone</code>时候指定模板目录？</p>
+<ol>
+<li><p>ptr-lib</p>
 
-<p>不行，这样还是太麻烦了。</p>
+<ul>
+<li>clog用于调试日志， 直接将libs/clog-{version}.jar 加入到项目中即可。</li>
+</ul></li>
+<li><p>ptr-demo</p>
 
-<h3 id="模板目录写入全局配置">模板目录写入全局配置</h3>
+<ul>
+<li>clog用于调试日志， 直接将libs/clog-{version}.jar 加入到项目中即可。</li>
+<li>support-v4, 直接将 libs/support-v4-{version}.jar 加入到项目中即可，<strong>注意避免重复依赖，已经有了就不用再加了</strong></li>
+<li>cube-sdk 这是demo项目的基础框架依赖。这是一个带资源的类库。目前打包成了<code>apklib</code>和<code>aar</code>两种格式。
+通过maven和gradle(Android Studio/Intellij IDEA)可以很好地使用这两个类库(maven 支持两种格式，gradle目前只支持<code>apklib</code>)
+但是很遗憾，eclipse不能使用这两种格式中的任何一种。</li>
+</ul></li>
+</ol>
 
-<p>模板目录固定在一个地方，我们可以把模板目录写入全局配置。</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"># 定义模板目录，模板目录下的钩子目录
-template_dir=$HOME/.git-templates
-tempalte_hooks_dir=$template_dir/hooks
+<h3 id="解决方案">解决方案</h3>
 
-# 拷贝全局钩子文件目录到模板目录下
-mkdir -p $template_dir
-cp -rf $root_dir/sample/git-template/hooks/ $template_dir/
+<p>有两种方案:</p>
 
-# 修改模板目录下钩子目录权限
-chmod -R a+x $tempalte_hooks_dir
+<ol>
+<li><p>利用maven插件, 这样，就直接和maven一样了。如果你没有使用过maven，不建议用这种方式，可以尝试，但是中途你会遇到很多问题。</p></li>
+<li><p>这也是比较简单的方案: 直接将 cube-sdk 项目用eclipse打开，这是一个类库项目，然后在ptr-demo中引用这个项目。</p>
 
-# 设置全局模板目录
-git config --global init.templatedir $template_dir
-</code></pre></div>
-<p>在<code>git init</code>或者<code>git clone</code>时，会自动拷贝钩子文件到项目的钩子目录。
-已有项目，执行<code>git init</code>重新初始化项目即可。</p>
+<p>cube-sdk 项目的源码在这里 <a href="https://github.com/etao-open-source/cube-sdk">https://github.com/etao-open-source/cube-sdk</a>, <strong><code>core</code>文件夹中的内容就是项目源码。</strong></p></li>
+</ol>
 
-<h3 id="直接可用的脚本">直接可用的脚本</h3>
-
-<p>上面那段脚本，来自我的github：<a href="https://github.com/liaohuqiu/work-anywhere/blob/master/tools/update-git-config.sh">https://github.com/liaohuqiu/work-anywhere/blob/master/tools/update-git-config.sh</a></p>
-
-<p>将你需要的钩子文件放在<code>sample/git-templete/hooks</code>文件夹下即可。</p>
+<p>如有问题，请在这里留言。</p>
 
             <hr>
             <div id="disqus_thread"></div>

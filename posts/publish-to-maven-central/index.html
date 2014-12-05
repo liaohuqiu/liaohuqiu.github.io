@@ -6,8 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="chrome=1" />
 
 <meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
-<meta name="description" content="关于阿里巴巴的花名: 如何取花名" />
-<meta name="keywords" content="阿里 花名 阿里花名 阿里巴巴" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
 
@@ -29,7 +29,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
 
 
-<title>阿里花名：如何起花名 |  Yet Another Summer Rain</title>
+<title>aar vs apklib |  Yet Another Summer Rain</title>
 </head>
 
 <body>
@@ -39,7 +39,6 @@
     <header class="inner">
         <h1 id="site_title"><a href="/">Srain</a></h1>
         
-        <a>质有高低，境界不同。别无其他，唯手熟尔。</a>
         
     </header>
 </div>
@@ -48,47 +47,20 @@
 <div class='post'>
     <div id="main_content_wrap" class="outer">
         <div class="md-body main-content inner wide">
-            <h2> 阿里花名：如何起花名 </h2>
-            <p> 18 Aug 2013 </p>
+            <h2> aar vs apklib </h2>
+            <p> 03 Dec 2014 </p>
             <hr>
-            <p>在中国三大互联网巨头BAT中，阿里的文化最具魅力。</p>
+            <p>Using <code>android-maven-plugin</code>, maven can use both <code>apklib</code> and <code>aar</code> format.</p>
 
-<p>阿里有三大人文文化：<code>武侠</code>，<code>倒立</code>，<code>店小二</code>。作为武侠文化的一部分，每个阿里人都有自己的花名。</p>
+<p>But gradle only can use <code>aar</code> foramt.</p>
 
-<p>花名不是随便起的，花名是行走江湖的名号。一般要求花名为2个汉字，要有武侠风情，示意积极向上。</p>
+<p>Eclipse can use maven plugin to work with <code>apklib</code> and <code>aar</code>. But I can not work that out. I did that before.</p>
 
-<p>随着阿里集团的壮大，越来越多的人加入，并且阿里会为离开的员工保留花名。所以对新入职的同事来说，起一个好的花名越来越难。</p>
+<p>Using <code>android-maven-plugin</code>, maven can generate apklib and aar format. But the files in <code>libs</code> will be packed. I don&#39;t know how to exclude that. I was not sure weather the <code>aar</code> war right or not.</p>
 
-<p>当时我想了好些天也没有想到满意的名字。最后，写了一个程序，把3000多个常用汉字随机组合，从中挑让我感到眼前一亮的。</p>
+<p>Using gradle, it&#39;s easy to generate <code>aar</code> and apklib.</p>
 
-<p>我个人觉得这个方法挺有效的，希望能对大家有帮助。</p>
-
-<p>祝愿你即将开始的阿里生活 精彩，顺利。</p>
-
-<p>对了，我是 <code>无朽</code>，我们阿里见。</p>
-
-<hr>
-
-<div class="row">
-    <div id='input-box' class="span3">
-        <textarea id='input_words' rows="3" placeholder='包含特定的字，可以为一个或者多个，留空则全部随机'></textarea>
-    </div>
-
-    <div id='input' class="form-inline span4">
-        <label class="radio">
-        <input type="radio" name="optionsRadios" id="optionsRadios1" checked=true value="1">在前</label>
-        <label class="radio">
-        <input type="radio" name="optionsRadios" id="optionsRadios2" value="2">在后</label>
-        <button type="submit" class="btn" id='j_id_gen_list'>试试手气</button>
-    </div>
-</div>
-
-<p></p>
-
-<div id='result'>
-    <pre><code>路人甲
-路人乙</code></pre>
-</div>
+<p>So I use gradle to package library project into aar and apklib.</p>
 
             <hr>
             <div id="disqus_thread"></div>
@@ -124,7 +96,7 @@ ga('send', 'pageview');
     console.log(err);
 }
 </script>
-<script src="/assets/js/pick-alibaba-name.js?v=1"></script>
+
 <script src="/assets/static/bt3/js/bootstrap.min.js"></script>
 </body>
 </html>
