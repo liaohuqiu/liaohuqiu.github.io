@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-title: "Android object size in Davlik"
+title: "Android object size in Dalvik"
 description: ""
 category: blog
 ---
@@ -9,7 +9,7 @@ category: blog
 
 * reference 
 
-    In HotSpot, an object reference is 4 bytes in 32 bit JVM, 8 bytes in 64 bit JVM with `-UseCompressedOops` and 4 bytes with `+UseCompressedOops`. In Davlik, reference is always 4 bytes.
+    In HotSpot, an object reference is 4 bytes in 32 bit JVM, 8 bytes in 64 bit JVM with `-UseCompressedOops` and 4 bytes with `+UseCompressedOops`. In Dalvik, reference is always 4 bytes.
 
 * primitive data type
 
@@ -27,7 +27,7 @@ category: blog
     |long               | 8 | 8 | 8 |
     |double             | 8 | 8 | 8 |
 
-    But the size of the primitive type data is very diffrent in Davlik. 
+    But the size of the primitive type data is very diffrent in Dalvik. 
 
     The size of a primitive data type is not the same when it is a field of object or a variable, from when it is an element in Array.
 
@@ -47,13 +47,13 @@ category: blog
 
 *   Alignment
 
-    In Davlik, **the boundary alignment of an object is also 8 bytes**. 
+    In Dalvik, **the boundary alignment of an object is also 8 bytes**. 
 
 *   Overhead of Object
 
     In HotSpot, as we know, the overhead of object is 8 bytes in 32 bit JVM, and 16 bytes in 64 bit JVM without `UseCompressedOops` and 12 bytes with `+UseCompressedOops`. The data size is as following:
 
-    In Davlik, this is diffrent. The memory of an object looks like:
+    In Dalvik, this is diffrent. The memory of an object looks like:
 
     ```
     +---------------------+----------------------+----------+
