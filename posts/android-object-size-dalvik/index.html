@@ -29,7 +29,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
 
 
-<title>Android object size in Davlik |  Yet Another Summer Rain</title>
+<title>Android object size in Dalvik |  Yet Another Summer Rain</title>
 </head>
 
 <body>
@@ -47,7 +47,7 @@
 <div class='post'>
     <div id="main_content_wrap" class="outer">
         <div class="md-body main-content inner wide">
-            <h2> Android object size in Davlik </h2>
+            <h2> Android object size in Dalvik </h2>
             <p> 29 Dec 2014 </p>
             <hr>
             <h3 id="size-of-data">size of data</h3>
@@ -55,7 +55,7 @@
 <ul>
 <li><p>reference </p>
 
-<p>In HotSpot, an object reference is 4 bytes in 32 bit JVM, 8 bytes in 64 bit JVM with <code>-UseCompressedOops</code> and 4 bytes with <code>+UseCompressedOops</code>. In Davlik, reference is always 4 bytes.</p></li>
+<p>In HotSpot, an object reference is 4 bytes in 32 bit JVM, 8 bytes in 64 bit JVM with <code>-UseCompressedOops</code> and 4 bytes with <code>+UseCompressedOops</code>. In Dalvik, reference is always 4 bytes.</p></li>
 <li><p>primitive data type</p>
 
 <p>The size of the primitive data type is fixd, as following:</p>
@@ -124,7 +124,7 @@
 </tr>
 </tbody></table>
 
-<p>But the size of the primitive type data is very diffrent in Davlik. </p>
+<p>But the size of the primitive type data is very diffrent in Dalvik. </p>
 
 <p>The size of a primitive data type is not the same when it is a field of object or a variable, from when it is an element in Array.</p>
 
@@ -218,12 +218,12 @@
 <ul>
 <li><p>Alignment</p>
 
-<p>In Davlik, <strong>the boundary alignment of an object is also 8 bytes</strong>. </p></li>
+<p>In Dalvik, <strong>the boundary alignment of an object is also 8 bytes</strong>. </p></li>
 <li><p>Overhead of Object</p>
 
 <p>In HotSpot, as we know, the overhead of object is 8 bytes in 32 bit JVM, and 16 bytes in 64 bit JVM without <code>UseCompressedOops</code> and 12 bytes with <code>+UseCompressedOops</code>. The data size is as following:</p>
 
-<p>In Davlik, this is diffrent. The memory of an object looks like:</p>
+<p>In Dalvik, this is diffrent. The memory of an object looks like:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">+---------------------+----------------------+----------+
 |overheade of Object  | overhead of dlmalloc |   data   |
 +---------------------+----------------------+----------+
