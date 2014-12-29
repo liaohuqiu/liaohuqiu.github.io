@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset='utf-8' />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+
+<!-- Bootstrap core CSS -->
+<link href="/assets/static/bt3/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Documentation extras -->
+<!--[if lt IE 9]><script src="/assets/static/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="/assets/static/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="/assets/static/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- jquery -->
+<script src="/assets/static/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
+
+
+<title>JAVA对象大小 |  Yet Another Summer Rain</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <h1 id="site_title"><a href="/">Srain</a></h1>
+        
+        <a>质有高低，境界不同。</a>
+        
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class='post'>
+    <div id="main_content_wrap" class="outer">
+        <div class="md-body main-content inner wide">
+            <h2> JAVA对象大小 </h2>
+            <p> 27 Dec 2014 </p>
+            <hr>
+            <h4 id="对象内存大小度量">对象内存大小度量</h4>
+
+<p>在做内存优化时，需要知道每个对象占用的内存的大小，</p>
+
+<p>一个实例化的对象在内存中需要存储的信息包括：</p>
+
+<ol>
+<li>对象的头部(对象的GC信息，hash值，类定义引用等)</li>
+<li>对象的成员变量: 包括基本数据类型和引用。 如成员变量是一个引用, 引用了其他对象，被引用的对象内存另外计算。</li>
+</ol>
+
+<p>如下一个简单的类的定义:</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">MyClass</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="o">;</span>
+    <span class="n">Object</span> <span class="n">object</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>实例化一个对象:</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">MyClass</span> <span class="n">myClass</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">MyClass</span><span class="o">();</span>
+</code></pre></div>
+<p>对象大小分为:</p>
+
+<ol>
+<li>自身的大小(Shadow heap size)</li>
+<li>所引用的对象的大小(Retained heap size)。</li>
+</ol>
+
+<p><code>myClass</code>实例创建出来之后，在内存中所占的大小就是<code>myClass</code>自身大小(Shadow heap size)。包括类的头部大小以及一个int的大小和一个引用的大小。</p>
+
+<p><code>myClass</code> 中<code>object</code> 成员变量是一个对象引用，这个被引用的对象也占一定大小。<code>myClass</code>实例所维护的引用的对象所占的大小，称为<code>myClass</code>实例的Retained heap size。</p>
+
+<p>本文讨论的是对象自身的大小，即Shadow heap size。Retained heap size 递归计算即可得。</p>
+
+<h4 id="度量工具">度量工具</h4>
+
+<p>对象大小的计算可用<code>java.lang.instrument.Instrumentation</code> 或者 dump内存之后用memory analyzer分析。 这是一份示例代码<a href="https://github.com/liaohuqiu/java-object-size">java-object-size</a></p>
+
+<h4 id="基本数据类型大小">基本数据类型大小</h4>
+
+<p>基本数据类型大小如下: <a href="http://en.wikibooks.org/wiki/Java_Programming/Primitive_Types">From WIKI</a></p>
+
+<table><thead>
+<tr>
+<th>type</th>
+<th>size(bits)</th>
+<th>bytes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>boolean</td>
+<td>8</td>
+<td>1</td>
+</tr>
+<tr>
+<td>byte</td>
+<td>8</td>
+<td>1</td>
+</tr>
+<tr>
+<td>char</td>
+<td>16</td>
+<td>2</td>
+</tr>
+<tr>
+<td>short</td>
+<td>16</td>
+<td>2</td>
+</tr>
+<tr>
+<td>int</td>
+<td>32</td>
+<td>4</td>
+</tr>
+<tr>
+<td>long</td>
+<td>64</td>
+<td>8</td>
+</tr>
+<tr>
+<td>float</td>
+<td>32</td>
+<td>4</td>
+</tr>
+<tr>
+<td>double</td>
+<td>64</td>
+<td>8</td>
+</tr>
+</tbody></table>
+
+<h4 id="引用的大小">引用的大小</h4>
+
+<p>在32位的JVM上，一个对象引用占用4个字节；在64位上，占用8个字节。通过 <code>java -d64 -version</code>可确定是否是64位的JVM。</p>
+
+<p>使用8个字节是为了能够管理大于4G的内存，如果你的程序不需要访问大于4G的内存，</p>
+
+<p>可通过<code>-XX:+UseCompressedOops</code>选项，开启指针压缩。从<code>Java 1.6.0_23</code>起，这个选项默认是开的。可通过<code>jinfo -flag UseCompressedOops &lt;pid&gt;</code>查看。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">localhost:~ srain$ jinfo -flag UseCompressedOops 13133
+-XX:+UseCompressedOops
+</code></pre></div>
+<h4 id="对象头部的大小">对象头部的大小</h4>
+
+<p>对象头，结构如下<a href="http://mail.openjdk.java.net/pipermail/hotspot-runtime-dev/2008-May/000147.html">(来源)</a>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">+------------------+------------------+------------------ +---------------.
+|    mark word     |   klass pointer  |  array size (opt) |    padding    |
++------------------+------------------+-------------------+---------------&#39;
+</code></pre></div>
+<p>每个对象都有一个mark work头部，以及一个引用，指向类的信息。在32位JVM上，mark word 4个字节，整个头部有8字节大小。</p>
+
+<p>在未开启<code>UseCompressedOops</code>的64位JVM上，对象头有16字节大小。</p>
+
+<p>在开启<code>UseCompressedOops</code>的64位机器上，引用成了4字节，一共12字节。 按照8位对齐，实际占用16字节。</p>
+
+<h4 id="对象的内存布局">对象的内存布局</h4>
+
+<ol>
+<li><p>每个对象的内存占用按8字节对齐</p></li>
+<li><p>空对象和类实例成员变量</p>
+
+<p>空对象，指的非inner-class，没有实例属性的类。<code>Object</code> 类或者直接继承<code>Object</code> 没有添加任何实例成员的类。</p>
+
+<p>空对象的不包含任何成员变量，其大小即对象头大小:  </p>
+
+<ul>
+<li>在32位JVM上，占用8字节；</li>
+<li>在开启<code>UseCompressedOops</code>的64位JVM上，12 + 4 = 16；</li>
+<li>在未开启<code>UseCompressedOops</code>的64位JVM上，16 + 4 = 20; 对齐后为24。</li>
+</ul></li>
+<li><p>对象实例成员重排序</p>
+
+<p>实例成员变量紧随对象头。每个成员变量都尽量使本身的大小在内存中尽量对齐。</p>
+
+<p>比如int按4位对齐，long按8位对齐。为了内存紧凑，实例成员在内存中的排列和声明的顺序可能不一致，实际会按以下顺序排序:</p>
+
+<ol>
+<li>doubles and longs</li>
+<li>ints and floats</li>
+<li>shorts and chars</li>
+<li>booleans and bytes</li>
+<li>references</li>
+</ol>
+
+<p>这样做可尽量节省空间。</p>
+
+<p>如:</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">MyClass</span> <span class="o">{</span>
+    <span class="kt">byte</span> <span class="n">a</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">c</span><span class="o">;</span>
+    <span class="kt">boolean</span> <span class="n">d</span><span class="o">;</span>
+    <span class="kt">long</span> <span class="n">e</span><span class="o">;</span>
+    <span class="n">Object</span> <span class="n">f</span><span class="o">;</span>        
+<span class="o">}</span>
+</code></pre></div>
+<p>未重排之前:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">     32 bit                    64bit +UseCompressedOops
+
+[HEADER: 12 bytes]  8           [HEADER: 12 bytes] 12
+[a:       1 byte ]  9           [a:       1 byte ] 13
+[padding: 3 bytes] 12           [padding: 3 bytes] 16
+[c:       4 bytes] 16           [c:       4 bytes] 20
+[d:       1 byte ] 17           [d:       1 byte ] 21
+[padding: 7 bytes] 24           [padding: 3 bytes] 24
+[e:       8 bytes] 32           [e:       8 bytes] 32
+[f:       4 bytes] 36           [f:       4 bytes] 36
+[padding: 4 bytes] 40           [padding: 4 bytes] 40
+</code></pre></div>
+<p>重新排列之后：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">    32 bit                      64bit +UseCompressedOops
+
+[HEADER:  8 bytes]  8           [HEADER: 12 bytes] 12
+[e:       8 bytes] 16           [e:       8 bytes] 20
+[c:       4 bytes] 20           [c:       4 bytes] 24
+[a:       1 byte ] 21           [a:       1 byte ] 25
+[d:       1 byte ] 22           [d:       1 byte ] 26
+[padding: 2 bytes] 24           [padding: 2 bytes] 28
+[f:       4 bytes] 28           [f:       4 bytes] 32
+[padding: 4 bytes] 32
+</code></pre></div></li>
+<li><p>父类和子类的实例成员</p>
+
+<p>父类和子类的成员变量分开存放，先是父类的实例成员。父类实例成员变量结束之后，按4位对齐，随后接着子类实例成员变量。</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">A</span> <span class="o">{</span>
+    <span class="kt">byte</span> <span class="n">a</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">B</span> <span class="kd">extends</span> <span class="n">A</span> <span class="o">{</span>
+    <span class="kt">byte</span> <span class="n">b</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>内存结构如下:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">    32 bit                  64bit +UseCompressedOops
+
+[HEADER:  8 bytes]  8       [HEADER: 12 bytes] 12
+[a:       1 byte ]  9       [a:       1 byte ] 13
+[padding: 3 bytes] 12       [padding: 3 bytes] 16
+[b:       1 byte ] 13       [b:       1 byte ] 17
+[padding: 3 bytes] 16       [padding: 7 bytes] 24
+</code></pre></div>
+<p>如果子类首个成员变量是long或者double等8字节数据类型，而父类结束时没有8位对齐。会把子类的小于8字节的实例成员先排列，直到能8字节对齐。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">class A {
+    byte a;
+}
+
+class B extends A{
+    long b;
+    short c;  
+    byte d;
+}
+</code></pre></div>
+<p>内存结构如下:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">    32 bit                  64bit +UseCompressedOops
+
+[HEADER:  8 bytes]  8       [HEADER:  8 bytes] 12
+[a:       1 byte ]  9       [a:       1 byte ] 13
+[padding: 3 bytes] 12       [padding: 3 bytes] 16
+[c:       2 bytes] 14       [b:       8 bytes] 24
+[d:       1 byte ] 15       [c:       4 byte ] 28
+[padding: 1 byte ] 16       [d:       1 byte ] 29
+[b:       8 bytes] 24       [padding: 3 bytes] 32
+</code></pre></div>
+<p>上面的示例中，在32位的JVM上，B的2个实例成员c, d被提前了。</p></li>
+<li><p>非静态的内部类，有一个隐藏的对外部类的引用。</p></li>
+</ol>
+
+<h4 id="数组的内存占用大小">数组的内存占用大小</h4>
+
+<p>数组也是对象，故有对象的头部，另外数组还有一个记录数组长度的int类型，随后是每一个数组的元素：基本数据类型或者引用。8字节对齐。</p>
+
+<ul>
+<li><p>32 位的机器上</p>
+
+<p>byte[0] 8字节的对象头部，4字节的int长度, 12字节，对齐后是16字节，实际 byte[0] ~ byte[4] 都是16字节。</p></li>
+<li><p>64 位+UseCompressedOops</p>
+
+<p>byte[0] 是16字节大小，byte[1] ~ byte[8] 24字节大小。</p></li>
+<li><p>64 位-UseCompressedOops</p>
+
+<p>byte[0], 16字节头部，4字节的int长度信息，20字节，对齐后 24 字节。byte[0] ~ byte[4] 都是24字节。</p></li>
+</ul>
+
+<h4 id="字符串大小">字符串大小</h4>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>64 bit -UseCompressedOops</th>
+<th>64 bit +UseCompressedOops</th>
+<th>32 bit</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>HEADER</td>
+<td></td>
+<td>16</td>
+<td>12</td>
+<td>8</td>
+</tr>
+<tr>
+<td>value</td>
+<td>char[]</td>
+<td>8</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>int</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>count</td>
+<td>int</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>hash</td>
+<td>int</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>PADDING</td>
+<td></td>
+<td>4</td>
+<td>4</td>
+<td>0</td>
+</tr>
+<tr>
+<td>TOTAL</td>
+<td></td>
+<td>40</td>
+<td>32</td>
+<td>24</td>
+</tr>
+</tbody></table>
+
+<p>不计算value引用的Retained heap size, 字符串本身就需要 24 ~ 40 字节大小。</p>
+
+<h4 id="参考资料">参考资料</h4>
+
+<hr>
+
+<p><a href="http://www.codeinstructions.com/2008/12/java-objects-memory-structure.html">http://www.codeinstructions.com/2008/12/java-objects-memory-structure.html</a></p>
+
+<p><a href="http://btoddb-java-sizing.blogspot.com/2012/01/object-sizes.html">http://btoddb-java-sizing.blogspot.com/2012/01/object-sizes.html</a></p>
+
+<p><a href="http://stackoverflow.com/questions/2120437/object-vs-byte0-as-lock">http://stackoverflow.com/questions/2120437/object-vs-byte0-as-lock</a></p>
+
+            <hr>
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'srain'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+try
+{
+ga('create', 'UA-43024238-1', 'liaohuqiu.net');
+ga('send', 'pageview');
+} catch(err) {
+    console.log(err);
+}
+</script>
+
+<script src="/assets/static/bt3/js/bootstrap.min.js"></script>
+</body>
+</html>
