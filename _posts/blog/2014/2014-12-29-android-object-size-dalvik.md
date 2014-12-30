@@ -5,13 +5,13 @@ description: ""
 category: blog
 ---
 
-### size of data
+### Size of data
 
-* reference 
+* Size of reference 
 
     In HotSpot, an object reference is 4 bytes in 32 bit JVM, 8 bytes in 64 bit JVM with `-UseCompressedOops` and 4 bytes with `+UseCompressedOops`. In Dalvik, reference is always 4 bytes.
 
-* primitive data type
+* Size of primitive data type
 
     The size of the primitive data type is fixd, as following:
 
@@ -74,7 +74,7 @@ category: blog
     }
     ```
 
-    Total size: 8 (Object overhead) + 4 (dlmalloc)  = 12 bytes. For 8 byte alignment, the final total size is 16 bytes.
+    Total size: 8 (Object overhead) + 4 (dlmalloc)  = 12 bytes. For 8 bytes alignment, the final total size is 16 bytes.
 
     ```java
     class Integer {
@@ -109,16 +109,16 @@ The memory layout of Array looks like:
 
 The alignment is also 8 bytes.
 
-So `byte[0]` will take: 8 + 4 + 4 + 4 = 20 bytes. The final size after aligned is 24 bytes.
+So `byte[0]` will take: 8 + 4 + 4 + 4 = 20 bytes. The final size after alignment is 24 bytes.
 
 `byte[0]` ~ `byte[4]` are all 24 bytes.
 
-`char[0] will also take 24 bytes. And from `char[0]` to `char[2]`, ther are all 24 bytes.
+`char[0] will also take 24 bytes. And from `char[0]` to `char[2]`, they are all 24 bytes.
 
 
-#### String
+#### Size of `String`
 
-String is defined as below:
+String is defined as follow:
 
 ```java
 class String {
@@ -132,7 +132,7 @@ class String {
 }
 ```
 
-Total size: 8 + 4 + 4 * 4 = 28 bytes. Total aligned is 32 bytes, which is exlcude the retained memory of char array(at least 24 bytes).
+Total size: 8 + 4 + 4 * 4 = 28 bytes. Total aligned is 32 bytes, which excludes the retained memory of char array(at least 24 bytes).
 
 So even an empty String, it will still take at least 32 bytes of shadow heap and 24 bytes of retained heap.
 
