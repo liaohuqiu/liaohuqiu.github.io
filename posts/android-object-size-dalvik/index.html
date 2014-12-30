@@ -50,13 +50,13 @@
             <h2> Android object size in Dalvik </h2>
             <p> 29 Dec 2014 </p>
             <hr>
-            <h3 id="size-of-data">size of data</h3>
+            <h3 id="size-of-data">Size of data</h3>
 
 <ul>
-<li><p>reference </p>
+<li><p>Size of reference </p>
 
 <p>In HotSpot, an object reference is 4 bytes in 32 bit JVM, 8 bytes in 64 bit JVM with <code>-UseCompressedOops</code> and 4 bytes with <code>+UseCompressedOops</code>. In Dalvik, reference is always 4 bytes.</p></li>
-<li><p>primitive data type</p>
+<li><p>Size of primitive data type</p>
 
 <p>The size of the primitive data type is fixd, as following:</p>
 
@@ -126,7 +126,7 @@
 
 <p>But the size of the primitive type data is very diffrent in Dalvik. </p>
 
-<p>The size of a primitive data type is not the same when it is a field of object or a variable, from when it is an element in Array.</p>
+<p>The size of a primitive data type is not the same when it is a field of object or a variable from when it is an element in Array.</p>
 
 <table><thead>
 <tr>
@@ -238,7 +238,7 @@
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">EmptyClass</span> <span class="o">{</span>
 <span class="o">}</span>
 </code></pre></div>
-<p>Total size: 8 (Object overhead) + 4 (dlmalloc)  = 12 bytes. For 8 byte alignment, the final total size is 16 bytes.</p>
+<p>Total size: 8 (Object overhead) + 4 (dlmalloc)  = 12 bytes. For 8 bytes alignment, the final total size is 16 bytes.</p>
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Integer</span> <span class="o">{</span>
     <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>  <span class="c1">// 4 bytes</span>
 <span class="o">}</span>
@@ -265,15 +265,15 @@
 </code></pre></div>
 <p>The alignment is also 8 bytes.</p>
 
-<p>So <code>byte[0]</code> will take: 8 + 4 + 4 + 4 = 20 bytes. The final size after aligned is 24 bytes.</p>
+<p>So <code>byte[0]</code> will take: 8 + 4 + 4 + 4 = 20 bytes. The final size after alignment is 24 bytes.</p>
 
 <p><code>byte[0]</code> ~ <code>byte[4]</code> are all 24 bytes.</p>
 
-<p><code>char[0] will also take 24 bytes. And from</code>char[0]<code>to</code>char[2]`, ther are all 24 bytes.</p>
+<p><code>char[0] will also take 24 bytes. And from</code>char[0]<code>to</code>char[2]`, they are all 24 bytes.</p>
 
-<h4 id="string">String</h4>
+<h4 id="size-of-string">Size of <code>String</code></h4>
 
-<p>String is defined as below:</p>
+<p>String is defined as follow:</p>
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">String</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="kd">final</span> <span class="kt">char</span><span class="o">[]</span> <span class="n">value</span><span class="o">;</span> <span class="c1">// 4 bytes</span>
 
@@ -284,9 +284,9 @@
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">hashCode</span><span class="o">;</span>       <span class="c1">// 4 bytes</span>
 <span class="o">}</span>
 </code></pre></div>
-<p>Total size: 8 + 4 + 4 * 4 = 28 bytes. Total aligned is 32 bytes, which is exlcude the retained memory of char array(at least 24 bytes).</p>
+<p>Total size: 8 + 4 + 4 * 4 = 28 bytes. Total aligned is 32 bytes, which excludes the retained memory of char array(at least 24 bytes).</p>
 
-<p>So even an empty String, it will still take at least 32 bytes of shadow heap and 24 bytes of retained heap.</p>
+<p>So,  even an empty String will still take at least 32 bytes of shadow heap and 24 bytes of retained heap.</p>
 
 <h4 id="references">References</h4>
 
