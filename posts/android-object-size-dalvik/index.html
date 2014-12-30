@@ -58,7 +58,7 @@
 <p>In HotSpot, an object reference is 4 bytes in 32 bit JVM, 8 bytes in 64 bit JVM with <code>-UseCompressedOops</code> and 4 bytes with <code>+UseCompressedOops</code>. In Dalvik, reference is always 4 bytes.</p></li>
 <li><p>Size of primitive data type</p>
 
-<p>The size of the primitive data type is fixd, as following:</p>
+<p>The size of the primitive data type is fixd, as follows:</p>
 
 <table><thead>
 <tr>
@@ -221,7 +221,7 @@
 <p>In Dalvik, <strong>the boundary alignment of an object is also 8 bytes</strong>. </p></li>
 <li><p>Overhead of Object</p>
 
-<p>In HotSpot, as we know, the overhead of object is 8 bytes in 32 bit JVM, and 16 bytes in 64 bit JVM without <code>UseCompressedOops</code> and 12 bytes with <code>+UseCompressedOops</code>. The data size is as following:</p>
+<p>In HotSpot, as we know, the overhead of object is 8 bytes in 32 bit JVM, and 16 bytes in 64 bit JVM without <code>UseCompressedOops</code> and 12 bytes with <code>+UseCompressedOops</code>. </p>
 
 <p>In Dalvik, this is diffrent. The memory of an object looks like:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">+---------------------+----------------------+----------+
@@ -273,7 +273,7 @@
 
 <h4 id="size-of-string">Size of <code>String</code></h4>
 
-<p>String is defined as follow:</p>
+<p>String is defined as follows:</p>
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">String</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="kd">final</span> <span class="kt">char</span><span class="o">[]</span> <span class="n">value</span><span class="o">;</span> <span class="c1">// 4 bytes</span>
 
