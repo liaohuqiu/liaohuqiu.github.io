@@ -13,7 +13,7 @@ category: blog
 
 * Size of primitive data type
 
-    The size of the primitive data type is fixd, as follows:
+    The size of the primitive data type is fixd as follows:
 
     |Data type          | 32 bit JVM | 64 bit -UseCompressedOops | 64bit +UseCompressedOops |
     |---|---|---|---|
