@@ -13,7 +13,7 @@ category: blog
 
 * Size of primitive data type
 
-    The size of the primitive data type is fixd, as following:
+    The size of the primitive data type is fixd, as follows:
 
     |Data type          | 32 bit JVM | 64 bit -UseCompressedOops | 64bit +UseCompressedOops |
     |---|---|---|---|
@@ -51,7 +51,7 @@ category: blog
 
 *   Overhead of Object
 
-    In HotSpot, as we know, the overhead of object is 8 bytes in 32 bit JVM, and 16 bytes in 64 bit JVM without `UseCompressedOops` and 12 bytes with `+UseCompressedOops`. The data size is as following:
+    In HotSpot, as we know, the overhead of object is 8 bytes in 32 bit JVM, and 16 bytes in 64 bit JVM without `UseCompressedOops` and 12 bytes with `+UseCompressedOops`. 
 
     In Dalvik, this is diffrent. The memory of an object looks like:
 
@@ -118,7 +118,7 @@ So `byte[0]` will take: 8 + 4 + 4 + 4 = 20 bytes. The final size after alignment
 
 #### Size of `String`
 
-String is defined as follow:
+String is defined as follows:
 
 ```java
 class String {
