@@ -29,7 +29,7 @@ category: blog
 
     But the size of the primitive type data is very diffrent in Dalvik. 
 
-    The size of a primitive data type is not the same when it is a field of object or a variable, from when it is an element in Array.
+    The size of a primitive data type is not the same when it is a field of object or a variable from when it is an element in Array.
 
     |Data type          | Size as field / variable | Size in Array | 32 bit JVM | 64 bit - | 64bit + |
     |---|---|---|---|---|---|
