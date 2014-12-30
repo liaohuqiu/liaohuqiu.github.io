@@ -15,7 +15,7 @@ category: blog
 
     The size of the primitive data type is fixd as follows:
 
-    |Data type          | 32 bit JVM | 64 bit -UseCompressedOops | 64bit +UseCompressedOops |
+    |Data type          | 32 bit JVM | 64 bit +UseCompressedOops | 64bit -UseCompressedOops |
     |---|---|---|---|
     |Object reference   | 4 | 4 | 8 |
     |boolean            | 1 | 1 | 1 |
@@ -31,7 +31,7 @@ category: blog
 
     The size of a primitive data type is not the same when it is a field of object or a variable from when it is an element in Array.
 
-    |Data type          | Size as field / variable | Size in Array | 32 bit JVM | 64 bit - | 64bit + |
+    |Data type          | Size as field / variable | Size in Array | 32 bit JVM | 64 bit + | 64bit - |
     |---|---|---|---|---|---|
     |Object reference   | 4 | 4 | 4 | 4 | 8 |
     |boolean            | 4 | 1 | 1 | 1 | 1 |
