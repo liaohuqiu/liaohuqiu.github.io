@@ -134,7 +134,7 @@ class String {
 
 Total size: 8 + 4 + 4 * 4 = 28 bytes. Total aligned is 32 bytes, which excludes the retained memory of char array(at least 24 bytes).
 
-So even an empty String, it will still take at least 32 bytes of shadow heap and 24 bytes of retained heap.
+So,  even an empty String will still take at least 32 bytes of shadow heap and 24 bytes of retained heap.
 
 #### References
 
