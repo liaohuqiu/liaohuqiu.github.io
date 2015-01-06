@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset='utf-8' />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+
+<!-- Bootstrap core CSS -->
+<link href="/assets/static/bt3/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Documentation extras -->
+<!--[if lt IE 9]><script src="/assets/static/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="/assets/static/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="/assets/static/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- jquery -->
+<script src="/assets/static/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
+
+
+<title>CentOS的gradle构建环境 |  Yet Another Summer Rain</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <h1 id="site_title"><a href="/">Srain</a></h1>
+        
+        <a>质有高低，境界不同。</a>
+        
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class='post'>
+    <div id="main_content_wrap" class="outer">
+        <div class="md-body main-content inner wide">
+            <h2> CentOS的gradle构建环境 </h2>
+            <p> 07 Jan 2015 </p>
+            <hr>
+            <p>在CentOS下，用gradle进行编译打包，配合定时任务或者push webhook可以实现定时自动打包或者push后自动打包。</p>
+
+<h3 id="准备-jdk">准备 JDK</h3>
+
+<p>这个比较简单，安装JRE和JDK。直接安装devel版本的openjdk即可。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo yum install -y java-1.7.0-openjdk-devel.x86_64
+</code></pre></div>
+<p>yum 安装完成之后，<code>JAVA_HOME</code> 环境变量可不设置。
+如果一定要设置的话，先<a href="http://serverfault.com/questions/50883/what-is-the-value-of-java-home-for-centos">查看安装路径</a>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">update-alternatives --display java
+
+...
+ slave unpack200.1.gz: /usr/share/man/man1/unpack200-java-1.7.0-openjdk.1.gz
+ Current &#39;best&#39; version is /usr/lib/jvm/jre-1.7.0-openjdk.x86_64/bin/java.
+</code></pre></div>
+<p>编辑 <code>~/.bash_prifile</code></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">vim ~/.bash_prifile
+export JAVA_HOME=&#39;/usr/lib/jvm/jre-1.7.0-openjdk.x86_64/&#39;
+</code></pre></div>
+<p>至此，JDK准备完毕。</p>
+
+<h3 id="准备android-sdk">准备Android-SDK</h3>
+
+<ol>
+<li><p>下载<code>SDK Tools Only</code>: <a href="http://developer.android.com/sdk/index.html">http://developer.android.com/sdk/index.html</a></p></li>
+<li><p>解压后，设置<code>ANDROID_HOME</code></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">[huqiu@127 android-sdk-linux]$ ls -l
+total 32
+drwxrwxr-x  2 huqiu huqiu 4096 Dec 18 00:10 add-ons
+drwxrwxr-x 10 huqiu huqiu 4096 Jan  6 14:07 build-tools
+drwxrwxr-x 24 huqiu huqiu 4096 Jan  6 13:43 docs
+drwxrwxr-x 18 huqiu huqiu 4096 Jan  6 13:45 platforms
+drwxrwxr-x  4 huqiu huqiu 4096 Jan  6 14:07 platform-tools
+-rw-rw-r--  1 huqiu huqiu 1158 Jan  6 13:42 SDK Readme.txt
+drwxrwxr-x  2 huqiu huqiu 4096 Jan  6 14:07 temp
+drwxrwxr-x  8 huqiu huqiu 4096 Jan  6 14:07 tools
+[huqiu@127 android-sdk-linux]$ pwd
+/data1/android-sdk-linux
+[huqiu@127 android-sdk-linux]$ cat ~/.bash_profile
+</code></pre></div>
+<p>更新 <code>~/.bash_prifile</code></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">export ANDROID_HOME=&#39;/data1/android-sdk-linux&#39;
+</code></pre></div></li>
+<li><p>安装所需的API level的SDK和Build Tools，全部安装耗时时间很长，所占空间也很大。<a href="http://stackoverflow.com/questions/17963508/how-to-install-android-sdk-build-tools-on-the-command-line">2</a></p>
+
+<p>查看所有安装</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">android list sdk --all
+
+Packages available for installation or update: 124
+   1- Android SDK Tools, revision 24.0.2
+   2- Android SDK Platform-tools, revision 21
+   3- Android SDK Build-tools, revision 21.1.2
+   4- Android SDK Build-tools, revision 21.1.1
+   5- Android SDK Build-tools, revision 21.1
+   6- Android SDK Build-tools, revision 21.0.2
+   7- Android SDK Build-tools, revision 21.0.1
+   8- Android SDK Build-tools, revision 21
+   9- Android SDK Build-tools, revision 20
+  10- Android SDK Build-tools, revision 19.1
+  11- Android SDK Build-tools, revision 19.0.3
+  12- Android SDK Build-tools, revision 19.0.2
+  13- Android SDK Build-tools, revision 19.0.1
+  14- Android SDK Build-tools, revision 19
+  15- Android SDK Build-tools, revision 18.1.1
+  16- Android SDK Build-tools, revision 18.1
+  17- Android SDK Build-tools, revision 18.0.1
+  18- Android SDK Build-tools, revision 17
+  19- Documentation for Android SDK, API 21, revision 1
+  20- SDK Platform Android 5.0.1, API 21, revision 2
+  21- SDK Platform Android 4.4W.2, API 20, revision 2
+  22- SDK Platform Android 4.4.2, API 19, revision 4
+  ....
+</code></pre></div>
+<p>安装需要安装的包, 假设我需要的是API Level 19的SDK，用21.1.1的Build Tools 进行编译:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">android update sdk -u -a -t 4,22
+</code></pre></div></li>
+<li><p>安装各种依赖:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sudo yum install -y compat-libstdc++-296.i686
+sudo yum install -y compat-libstdc++-33.i686
+sudo yum install -y zlib.i686
+sudo yum install -y libstdc++.so.6
+</code></pre></div></li>
+</ol>
+
+<h3 id="安装完成">安装完成</h3>
+
+<p>至此已经完成安装了。</p>
+
+<p>建议项目内置gradle。安装完成之后，进行build:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">./gradlew build
+</code></pre></div>
+<hr>
+
+            <hr>
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'srain'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+try
+{
+ga('create', 'UA-43024238-1', 'liaohuqiu.net');
+ga('send', 'pageview');
+} catch(err) {
+    console.log(err);
+}
+</script>
+
+<script src="/assets/static/bt3/js/bootstrap.min.js"></script>
+</body>
+</html>
