@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset='utf-8' />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+
+<!-- Bootstrap core CSS -->
+<link href="/assets/static/bt3/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Documentation extras -->
+<!--[if lt IE 9]><script src="/assets/static/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="/assets/static/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="/assets/static/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- jquery -->
+<script src="/assets/static/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
+
+
+<title>关于安装Android Maven 本地依赖库 |  Yet Another Summer Rain</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <h1 id="site_title"><a href="/">Srain</a></h1>
+        
+        <a>质有高低，境界不同。</a>
+        
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class='post'>
+    <div id="main_content_wrap" class="outer">
+        <div class="md-body main-content inner wide">
+            <h2> 关于安装Android Maven 本地依赖库 </h2>
+            <p> 29 Jan 2015 </p>
+            <hr>
+            <p>如果使用gradle方式，类似这样的依赖非常轻松:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">compile &#39;com.android.support:appcompat-v7:23.0.1&#39;
+</code></pre></div>
+<p>但是对于Maven来说，这样就比较困难了:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;dependency&gt;
+  &lt;groupId&gt;com.android.support&lt;/groupId&gt;
+  &lt;artifactId&gt;appcompat-v7&lt;/artifactId&gt;
+  &lt;version&gt;23.0.1&lt;/version&gt;
+  &lt;type&gt;aar&lt;/type&gt;
+&lt;/dependency&gt;
+</code></pre></div>
+<p>因为不管是Maven中央库还是，jcenter，都没有类似的类库了。他们在SDK Manager中的Android Support Repository中，gradle方式可以轻松使用，但是Maven不行。</p>
+
+<p>如果需要在Maven中使用，需要我们自己安装到本地的Maven库。借助这个项目可以较为轻松实现此目的: <a href="https://github.com/simpligility/maven-android-sdk-deployer">https://github.com/simpligility/maven-android-sdk-deployer</a></p>
+
+<p>默认安装，安装所有的API level和support 类库，我从来没成功过。需要SDK Manager把所有的API的和相关的Support库都下载完成，这是一个耗时的事情。</p>
+
+<h4 id="部分安装">部分安装</h4>
+
+<p>如果仅仅需要安装部分的话，可以到各个子项目中安装。比如仅仅需要安装<code>appcompat-v7</code>, 这个是由 Android Support Repository 提供的:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">cd repositories/
+mvn install
+</code></pre></div>
+<p>仅仅安装5.0，在SDK Manager中下载完SDK Platform和Source Code之后</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">cd platforms
+mvn install -P 5.0
+</code></pre></div>
+<h4 id="修改版本号">修改版本号</h4>
+
+<p>如果你下载了5.0的SDK Platform 和 Source Code, 发现<code>mvn install -P 5.0</code> 之后 版本是 <code>5.0.1_r2</code>, 你需要的是 <code>5.0_r2</code>:</p>
+
+<p>修改 Android SDK 目录下的 <code>platforms/android-21/source.properties</code> 文件:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Pkg.LicenseRef=android-sdk-license
+Pkg.Revision=2
+Pkg.SourceUrl=https\://dl-ssl.google.com/android/repository/repository-10.xml
+Platform.MinToolsRev=22
+Platform.Version=5.0.1
+</code></pre></div>
+<p>修改 <code>Platform.Version</code> 之后再 <code>mvn install</code> 即可。</p>
+
+            <hr>
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'srain'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+try
+{
+ga('create', 'UA-43024238-1', 'liaohuqiu.net');
+ga('send', 'pageview');
+} catch(err) {
+    console.log(err);
+}
+</script>
+
+<script src="/assets/static/bt3/js/bootstrap.min.js"></script>
+</body>
+</html>
