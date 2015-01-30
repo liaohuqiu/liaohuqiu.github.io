@@ -67,7 +67,7 @@
 
 <p>aar格式是在 Google I/O 2013 才提出的。<a href="https://code.google.com/p/maven-android-plugin">maven-android-plugin</a> 3.7 版本开始支持aar格式。Android Studio 1.0的发布和流行，标志着apklib格式将要退出历史舞台。</p>
 
-<p>在带资源的的类库不能被很好支持的时代，自定义组件的封装和实现也受到了极大的限制。<a href="https://github.com/chrisbanes/Android-PullToRefresh">Android-PullToRefresh</a> 的实现便是这一限制的一种体现。为了支持常用的几种View: <code>ListView</code>, <code>GridView</code>, <code>ScrollView</code>, <code>ViewPager</code>，该项目为这些View都做了适配。然而由于设计的缺陷，每种View都要做相应的适配, 缺乏定制性和扩展性，现在这个项目不再维护了。</p>
+<p>在带资源的的类库不能被很好支持的时代，自定义组件的封装和实现也受到了极大的限制。<a href="https://github.com/chrisbanes/Android-PullToRefresh">Android-PullToRefresh</a> 的实现便是这一限制的一种体现。为了支持常用的几种View: <code>ListView</code>, <code>GridView</code>, <code>ScrollView</code>, <code>ViewPager</code>，该项目为这些View都做了适配。然而由于设计的缺陷，每种View都要做相应的适配， 缺乏定制性和扩展性，现在这个项目不再维护了。</p>
 
 <p>这个项目的流行，对Android UI的表现是有一定影响的，和iOS 上各种新颖美妙的样式相比，Android 的样式总是显得较为逊色。</p>
 
@@ -96,9 +96,9 @@
                +--------------------+
 </code></pre></div>
 <ol>
-<li><p>外部是一个框架(<code>PtrFrameLayout</code>), 内含 Header View 和 Content View。需要支持通用布局属性 Padding 和 Margin。</p></li>
-<li><p>Header View 是头部，展示刷新相关动画。默认会有一些头部，用户可以自定义头部。</p></li>
-<li><p>Content View 是内容，比如<code>ListView</code>, <code>ScrollView</code>等。用户可以加入任意的View。</p></li>
+<li><p>外部是一个框架(<code>PtrFrameLayout</code>), 内含 Header View 和 Content View。需要支持通用布局属性 padding 和 margin。</p></li>
+<li><p>Header View 是头部，展示刷新相关动画。</p></li>
+<li><p>Content View 是内容，比如<code>ListView</code>, <code>ScrollView</code>等。</p></li>
 <li><p>在xml文件中，可以方便指定Header View 和 Content View，也可以通过Java代码指定。</p></li>
 </ol>
 
@@ -162,15 +162,15 @@
 <ul>
 <li><p>下拉距离<code>(Offset)</code></p>
 
-<p>在往下移动的过程中，Content View 上边界距离 <code>PtrFrameLayout</code> 上边界的距离，我们称为<strong>下拉距离<code>(Offset)</code></strong>。这是一个大于等于0的值。</p></li>
+<p>在往下移动的过程中，Content View 上边界距离 <code>PtrFrameLayout</code> 上边界的距离，我们称为<strong>下拉距离</strong>。这是一个大于等于0的值。</p></li>
 <li><p>刷新距离<code>(Offset to Refresh)</code></p>
 
-<p>下拉距离达到一定距离之后，释放， 将会触发刷新。这个距离我们称为<strong>刷新距离<code>(Offset to Refresh)</code></strong> ；</p></li>
+<p>下拉距离达到一定距离之后，释放， 将会触发刷新。这个距离我们称为<strong>刷新距离</strong>。</p></li>
 <li><p>刷新时保持头部的距离<code>(Offset to Keep Header While Loading)</code></p>
 
 <p>在刷新时，会显示Header View，Header View上显示loading 动画，提示用户用户正在加载数据。</p>
 
-<p>这个时候的<code>下拉距离</code>，我们称为<strong>刷新时保持头部的距离<code>(Offset to Keep Header While Loading)</code></strong>，这个距离一般是头部的高度。</p></li>
+<p>这个时候的<code>下拉距离</code>，我们称为<strong>刷新时保持头部的距离</strong>，这个距离一般是头部的高度，但是只要你愿意，你可以自定义。</p></li>
 </ul>
 
 <h4 id="下拉刷新和释放刷新">下拉刷新和释放刷新</h4>
