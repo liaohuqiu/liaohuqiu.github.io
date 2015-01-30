@@ -21,7 +21,7 @@ apklib 格式的类库使用 [maven-android-plugin][] 生成。使用apklib格�
 
 aar格式是在 Google I/O 2013 才提出的。[maven-android-plugin][] 3.7 版本开始支持aar格式。Android Studio 1.0的发布和流行，标志着apklib格式将要退出历史舞台。
 
-在带资源的的类库不能被很好支持的时代，自定义组件的封装和实现也受到了极大的限制。[Android-PullToRefresh][] 的实现便是这一限制的一种体现。为了支持常用的几种View: `ListView`, `GridView`, `ScrollView`, `ViewPager`，该项目为这些View都做了适配。然而由于设计的缺陷，每种View都要做相应的适配, 缺乏定制性和扩展性，现在这个项目不再维护了。
+在带资源的的类库不能被很好支持的时代，自定义组件的封装和实现也受到了极大的限制。[Android-PullToRefresh][] 的实现便是这一限制的一种体现。为了支持常用的几种View: `ListView`, `GridView`, `ScrollView`, `ViewPager`，该项目为这些View都做了适配。然而由于设计的缺陷，每种View都要做相应的适配， 缺乏定制性和扩展性，现在这个项目不再维护了。
 
 这个项目的流行，对Android UI的表现是有一定影响的，和iOS 上各种新颖美妙的样式相比，Android 的样式总是显得较为逊色。
 
@@ -54,11 +54,11 @@ aar格式是在 Google I/O 2013 才提出的。[maven-android-plugin][] 3.7 版�
                
 ```
 
-1.  外部是一个框架(`PtrFrameLayout`), 内含 Header View 和 Content View。需要支持通用布局属性 Padding 和 Margin。
+1.  外部是一个框架(`PtrFrameLayout`), 内含 Header View 和 Content View。需要支持通用布局属性 padding 和 margin。
 
-2.  Header View 是头部，展示刷新相关动画。默认会有一些头部，用户可以自定义头部。
+2.  Header View 是头部，展示刷新相关动画。
 
-3.  Content View 是内容，比如`ListView`, `ScrollView`等。用户可以加入任意的View。
+3.  Content View 是内容，比如`ListView`, `ScrollView`等。
 
 4.  在xml文件中，可以方便指定Header View 和 Content View，也可以通过Java代码指定。
 
@@ -123,17 +123,17 @@ Header View 和 Content View 的位置关系如下图:
 
 *   下拉距离`(Offset)`
 
-    在往下移动的过程中，Content View 上边界距离 `PtrFrameLayout` 上边界的距离，我们称为**下拉距离`(Offset)`**。这是一个大于等于0的值。
+    在往下移动的过程中，Content View 上边界距离 `PtrFrameLayout` 上边界的距离，我们称为**下拉距离**。这是一个大于等于0的值。
 
 *   刷新距离`(Offset to Refresh)`
 
-    下拉距离达到一定距离之后，释放， 将会触发刷新。这个距离我们称为**刷新距离`(Offset to Refresh)`** ；
+    下拉距离达到一定距离之后，释放， 将会触发刷新。这个距离我们称为**刷新距离**。
 
 *   刷新时保持头部的距离`(Offset to Keep Header While Loading)`
 
     在刷新时，会显示Header View，Header View上显示loading 动画，提示用户用户正在加载数据。
 
-    这个时候的`下拉距离`，我们称为**刷新时保持头部的距离`(Offset to Keep Header While Loading)`**，这个距离一般是头部的高度。
+    这个时候的`下拉距离`，我们称为**刷新时保持头部的距离**，这个距离一般是头部的高度，但是只要你愿意，你可以自定义。
 
 
 #### 下拉刷新和释放刷新
