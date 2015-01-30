@@ -184,27 +184,20 @@ Header View 和 Content View 的位置关系如下图:
 *  `PtrHandler` 
 
     这个是开发者最常接触的接口，这个接口关注业务的变化。其包含2个方法:
-
     1.  `onRefreshBegin`。多种模式刷新模式可以选，多种UI样式可选。不管万千变化，在开始刷新时，都会调用这个方法进行数据刷新。
-
     2.  `checkCanDoRefresh`。开发者面对的业务各不一样，众口难调，封装变化：开发者可以通过此方法，确定可以进行下拉刷新的时机。比如列表数据为空，比如列表数据过期，比如嵌套在ViewPager中的某个Fragment中的一个列表数据为空。
 
 
-*  `PtrUIHandler`这个的抽象，使得实现一个UI样式非常简单。这个接口关注UI的变化:
-
-    1.  `onUIReset`。当位置回到初始位置。
-
-    2.  `onUIRefreshPrepare`。当位置离开初始位置。
-
-    3.  `onUIRefreshBegin`。开始刷新动画。
-
-    4.  `onUIRefreshComplete`。刷新动画完成。刷新完成之后，开始回归初始位置。
+*  `PtrUIHandler`这个接口关注UI的变化，这个接口使得实现一个UI样式非常简单。
+    1.  `onUIReset`。当位置回到初始位置。   
+    2.  `onUIRefreshPrepare`。当位置离开初始位置。   
+    3.  `onUIRefreshBegin`。开始刷新动画。   
+    4.  `onUIRefreshComplete`。刷新动画完成。刷新完成之后，开始回归初始位置。   
 
         如果刷新完成需要播放一个动画，动画完成之后，才开始回归到初始位置。`PtrFrameLayout.setRefreshCompleteHook` 会有所帮助。
-
     5.  `onUIPositionChange`。 位置发生变化时此方法通知UI更新。
 
-    得益于这个接口的抽象，我才能在段时间内完成类库内置的几种样式。
+        得益于这个接口的抽象，我才能在段时间内完成类库内置的几种样式。
 
     `PtrFrameLayout` 接受一个`PtrHandler` 和多个`PtrUIHandler`。在下拉刷新的过程中，你可以通过非常灵活的方式展现出各种效果。
 
