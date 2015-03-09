@@ -15,7 +15,7 @@ category: about
 
 *  cube-sdk
 
-    An android develop package. It has an Imageloader enable your App load image effiently.
+    An android develop package. It has an Imageloader enable your App load image efficiently.
 
 *  binpack
 
