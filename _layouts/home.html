@@ -6,12 +6,15 @@ title: Yet Another Summer Rain
     <div id="main_content_wrap" class="outer">
         <div class="main-content inner">
             <div class='about-me'>
-                {% if page.language == 'en' %}
-                <h3><a href='/cn'>中文 / </a>
-                {% else %}
-                <h3><a href='/'>English / </a>
-                {% endif %}
-                <a href='/about/about-me.html'>about me</a></h3>
+                <h3>
+                    {% if page.language == 'en' %}
+                    <a href='/cn'>中文 / </a>
+                    {% else %}
+                    <a href='/'>English / </a>
+                    {% endif %}
+                    <a href='/about/about-me.html'>about me / </a>
+                    <a href='/about/feed.html'>feed</a>
+                </h3>
                 <p class='line'></p>
             </div>
             {{ content }}
