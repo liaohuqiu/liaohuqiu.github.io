@@ -35,4 +35,10 @@ category: blog
 
     cube-sdk 项目的源码在这里 https://github.com/etao-open-source/cube-sdk, **`core`文件夹中的内容就是项目源码。**
 
+### 常见问题
+
+*   ClassNotFound
+
+    清理资源，重启eclipse
+
 如有问题，请在这里留言。

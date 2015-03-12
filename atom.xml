@@ -1,0 +1,32 @@
+---
+layout: nil
+---
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+  <title>Yet Another Summer Rain</title>
+  <link href="http://liaohuqiu.net/"/>
+  <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>http://liaohuqiu.net/</id>
+  <author>
+    <name>Huqiu Liao / Srain</name>
+    <email>srain@php.net</email>
+  </author>
+
+  {% for post in site.posts %}
+  <entry>
+    <id>http://liaohuqiu.net{{ post.id }}</id>
+    <link type="text/html" rel="alternate" href="http://liaohuqiu.net{{ post.url }}"/>
+    <title>{{ post.title }}</title>
+    <published>{{ post.date | date_to_xmlschema }}</published>
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
+    <author>
+      <name>Huqiu Liao / Srain</name>
+      <uri>http://liaohuqiu.net/</uri>
+    </author>
+    <content type="html">{{ post.content | xml_escape }}</content>
+  </entry>
+  {% endfor %}
+ 
+</feed>
