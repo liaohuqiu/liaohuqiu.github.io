@@ -6,8 +6,8 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Wed, 11 Mar 2015 22:41:15 -0400</pubDate>
-    <lastBuildDate>Wed, 11 Mar 2015 22:41:15 -0400</lastBuildDate>
+    <pubDate>Thu, 19 Mar 2015 23:52:08 -0400</pubDate>
+    <lastBuildDate>Thu, 19 Mar 2015 23:52:08 -0400</lastBuildDate>
 
     
     <item>
@@ -1407,7 +1407,9 @@ TCP的包头: 954.6 * 1000 * 2 * 64 / 1024 / 1024 = 116Mb&lt;/p&gt;
 &lt;li&gt;&lt;p&gt;利用maven插件, 这样，就直接和maven一样了。如果你没有使用过maven，不建议用这种方式，可以尝试，但是中途你会遇到很多问题。&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;这也是比较简单的方案: 直接将 cube-sdk 项目用eclipse打开，这是一个类库项目，然后在ptr-demo中引用这个项目。&lt;/p&gt;
 
-&lt;p&gt;cube-sdk 项目的源码在这里 &lt;a href=&quot;https://github.com/etao-open-source/cube-sdk&quot;&gt;https://github.com/etao-open-source/cube-sdk&lt;/a&gt;, &lt;strong&gt;&lt;code&gt;core&lt;/code&gt;文件夹中的内容就是项目源码。&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;cube-sdk 项目的源码在这里 &lt;a href=&quot;https://github.com/etao-open-source/cube-sdk&quot;&gt;https://github.com/etao-open-source/cube-sdk&lt;/a&gt;, &lt;strong&gt;&lt;code&gt;core&lt;/code&gt;文件夹中的内容就是项目源码。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;需要 SDK 版本 &amp;gt;= 19&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3 id=&quot;常见问题&quot;&gt;常见问题&lt;/h3&gt;
@@ -1416,6 +1418,9 @@ TCP的包头: 954.6 * 1000 * 2 * 64 / 1024 / 1024 = 116Mb&lt;/p&gt;
 &lt;li&gt;&lt;p&gt;ClassNotFound&lt;/p&gt;
 
 &lt;p&gt;清理资源，重启eclipse&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;getAllocationByteCount()&lt;/p&gt;
+
+&lt;p&gt;需要版本SDK &amp;gt;= 19&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;如有问题，请在这里留言。&lt;/p&gt;
