@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset='utf-8' />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+
+<!-- Bootstrap core CSS -->
+<link href="/assets/static/bt3/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Documentation extras -->
+<!--[if lt IE 9]><script src="/assets/static/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="/assets/static/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="/assets/static/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- jquery -->
+<script src="/assets/static/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
+
+
+<title>gitlab 启用注册 |  Yet Another Summer Rain</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <h1 id="site_title"><a href="/">Srain</a></h1>
+        
+        <a>质有高低，境界不同。</a>
+        
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class='post'>
+    <div id="main_content_wrap" class="outer">
+        <div class="md-body main-content inner wide">
+            <h2> gitlab 启用注册 </h2>
+            <p> 21 Mar 2015 </p>
+            <hr>
+            <p>gitlab 默认安装是没有注册入口的。</p>
+
+<p>如果要开启注册，需要修改:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">vim /opt/gitlab/embedded/service/gitlab-rails/config/gitlab.yml
+</code></pre></div>
+<p>设置 <code>signup_enabled=true</code>，随后重启。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">gitlab-ctl restart
+</code></pre></div>
+<p>重启之后，成功生成socket文件，如果不是用内置的nginx服务器，注意文件权限是否匹配。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">var/opt/gitlab/gitlab-rails/tmp/sockets/gitlab.socket
+</code></pre></div>
+            <hr>
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'srain'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+try
+{
+ga('create', 'UA-43024238-1', 'liaohuqiu.net');
+ga('send', 'pageview');
+} catch(err) {
+    console.log(err);
+}
+</script>
+
+<script src="/assets/static/bt3/js/bootstrap.min.js"></script>
+</body>
+</html>
