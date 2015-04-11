@@ -5,6 +5,16 @@ description: ""
 category: blog
 ---
 
+红杏开放了公益代理，专门为开发人员服务。
+
+从今以后更新android sdk，使用Android Studio都会顺利很多。为红杏点赞。同时郑重推荐大家使用红杏。
+
+使用红杏，让获取知识变得不那么困难和艰辛。使用及其方便，节约宝贵时间，创造更多价值。
+
+这个是我的推广链接: http://honx.in/i/VHRiboIaAxADyQus, 你通过这个链接安装购买1个月以上的服务，你我都将获赠10天。
+
+---
+
 ### 关于科学上网和资料搜索
 
 1.  使用英文进行资料检索。
@@ -23,7 +33,7 @@ category: blog
 
     多在stackoverflow这样的技术社区活跃你将受益匪浅。对了，这个是[我在stackoverflow的profile](http://stackoverflow.com/users/2446397/srain) 。
 
-    **千万不要在qq群提问, 但是可以对某一问题进行交流。除非是专业客服群。** 
+    **千万不要在qq群提问， 但是可以对某一问题进行交流。除非是专业客服群。** 
 
 ### 关于红杏
 
@@ -65,8 +75,6 @@ category: blog
 这也就是为什么我没有推荐vpn类或者shadowsocks类产品的原因了。
 
 >  苦苦寻找免费的代理，修改host？那花去的时间，你可以创造更多价值。
-
-这个是我的推广链接: http://honx.in/i/VHRiboIaAxADyQus, 你通过这个链接安装购买1个月以上的服务，你我都将获赠10天。
 
 ### 如何使用红杏的公益代理
 
