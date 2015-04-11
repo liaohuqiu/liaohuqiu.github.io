@@ -1,13 +1,19 @@
 ---
 layout: post_wide
-title: "红杏的公益代理"
+title: "关于红杏的公益代理, Android Studio以及freso的编译"
 description: "使用红杏代理更新Android SDK，让使用Android Studio轻松愉快"
 category: blog
 ---
 
-红杏开放了公益代理，专门为开发人员服务。
+前几天红杏开放了公益代理，专门为开发人员开放，免费使用。
 
-从今以后更新android sdk，使用Android Studio都会顺利很多。为红杏点赞。同时郑重推荐大家使用红杏。
+从今以后更新android sdk，使用Android Studio都会顺利很多。一直以来使用Android Studio最大的障碍，现在通过红杏公益代理可以得到解决了。
+
+Facebook上月开源的Fresco 是一个Android Studio项目，作为一个基础类库，Fresco的流行，会使更多的国内开发者转向Android Studio。本文的最后，简单说明Fresco的编译。
+
+---
+
+一直在使用红杏，这次郑重推荐大家使用红杏。
 
 使用红杏，让获取知识变得不那么困难和艰辛。使用极其方便，节约宝贵时间，创造更多价值。
 
@@ -115,6 +121,24 @@ category: blog
             <img src='http://srain-blog.qiniudn.com/red-apricot/red-apricot-android-stuido-set-proxy.png' width='100%'/>
         </div>
     </div>
+
+### 编译Fresco
+
+1. 设置好代理，从github顺利clone项目
+
+1. 给SDK Manager 设置好代理，顺利更新sdk到最新
+
+1. 给Android Studio设置好代理，顺利打开freso项目
+    * Open an exsiting Android Studio Project
+    * 选择build.gradle
+
+1. 但是，Android Studio目前还不支持NDK，所以需要在命令行下预编译。
+
+    ```
+    ./gradlew :sample:assembleDebug
+    ```
+
+好了，编译完成之后，Android Studio就可以正常运行了。
 
 ---
 [红杏]: http://honx.in/i/VHRiboIaAxADyQus
