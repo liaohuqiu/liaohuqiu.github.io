@@ -29,7 +29,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
 
 
-<title>红杏的公益代理 |  Yet Another Summer Rain</title>
+<title>关于红杏的公益代理, Android Studio以及freso的编译 |  Yet Another Summer Rain</title>
 </head>
 
 <body>
@@ -48,16 +48,20 @@
 <div class='post'>
     <div id="main_content_wrap" class="outer">
         <div class="md-body main-content inner wide">
-            <h2> 红杏的公益代理 </h2>
+            <h2> 关于红杏的公益代理, Android Studio以及freso的编译 </h2>
             <p> 11 Apr 2015 </p>
             <hr>
-            <p>红杏开放了公益代理，专门为开发人员服务。</p>
+            <p>前几天红杏开放了公益代理，专门为开发人员开放，免费使用。</p>
 
-<p>从今以后更新android sdk，使用Android Studio都会顺利很多。为红杏点赞。同时郑重推荐大家使用红杏。</p>
+<p>从今以后更新android sdk，使用Android Studio都会顺利很多。一直以来使用Android Studio最大的障碍，现在通过红杏公益代理可以得到解决了。</p>
+
+<p>一直在使用红杏，这次郑重推荐大家使用红杏。</p>
 
 <p>使用红杏，让获取知识变得不那么困难和艰辛。使用极其方便，节约宝贵时间，创造更多价值。</p>
 
 <p>这个是我的推广链接: <a href="http://honx.in/i/VHRiboIaAxADyQus">http://honx.in/i/VHRiboIaAxADyQus</a>, 你通过这个链接安装购买1个月以上的服务，你我都将获赠10天。</p>
+
+<p>Facebook上月开源的Fresco 是一个Android Studio项目，作为一个基础类库，Fresco的流行，会使更多的国内开发者转向Android Studio。本文的最后，简单说明Fresco的编译。</p>
 
 <hr>
 
@@ -161,6 +165,24 @@
     </div>
 </div></li>
 </ol>
+
+<h3 id="编译fresco">编译Fresco</h3>
+
+<ol>
+<li><p>设置好代理，从github顺利clone项目</p></li>
+<li><p>给SDK Manager 设置好代理，顺利更新sdk到最新</p></li>
+<li><p>给Android Studio设置好代理，顺利打开freso项目</p>
+
+<ul>
+<li>Open an exsiting Android Studio Project</li>
+<li>选择build.gradle</li>
+</ul></li>
+<li><p>但是，Android Studio目前还不支持NDK，所以需要在命令行下预编译。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">./gradlew :sample:assembleDebug
+</code></pre></div></li>
+</ol>
+
+<p>好了，编译完成之后，Android Studio就可以正常运行了。</p>
 
 <hr>
 

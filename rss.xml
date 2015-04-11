@@ -6,23 +6,27 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Sat, 11 Apr 2015 11:31:18 +0800</pubDate>
-    <lastBuildDate>Sat, 11 Apr 2015 11:31:18 +0800</lastBuildDate>
+    <pubDate>Sat, 11 Apr 2015 11:52:20 +0800</pubDate>
+    <lastBuildDate>Sat, 11 Apr 2015 11:52:20 +0800</lastBuildDate>
 
     
     <item>
-      <title>红杏的公益代理</title>
+      <title>关于红杏的公益代理, Android Studio以及freso的编译</title>
       <link>http://liaohuqiu.net/cn/posts/about-red-apricot-and-compiling-fresco</link>
       <pubDate>Sat, 11 Apr 2015 00:00:00 +0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/about-red-apricot-and-compiling-fresco</guid>
-      <description>&lt;p&gt;红杏开放了公益代理，专门为开发人员服务。&lt;/p&gt;
+      <description>&lt;p&gt;前几天红杏开放了公益代理，专门为开发人员开放，免费使用。&lt;/p&gt;
 
-&lt;p&gt;从今以后更新android sdk，使用Android Studio都会顺利很多。为红杏点赞。同时郑重推荐大家使用红杏。&lt;/p&gt;
+&lt;p&gt;从今以后更新android sdk，使用Android Studio都会顺利很多。一直以来使用Android Studio最大的障碍，现在通过红杏公益代理可以得到解决了。&lt;/p&gt;
+
+&lt;p&gt;一直在使用红杏，这次郑重推荐大家使用红杏。&lt;/p&gt;
 
 &lt;p&gt;使用红杏，让获取知识变得不那么困难和艰辛。使用极其方便，节约宝贵时间，创造更多价值。&lt;/p&gt;
 
 &lt;p&gt;这个是我的推广链接: &lt;a href=&quot;http://honx.in/i/VHRiboIaAxADyQus&quot;&gt;http://honx.in/i/VHRiboIaAxADyQus&lt;/a&gt;, 你通过这个链接安装购买1个月以上的服务，你我都将获赠10天。&lt;/p&gt;
+
+&lt;p&gt;Facebook上月开源的Fresco 是一个Android Studio项目，作为一个基础类库，Fresco的流行，会使更多的国内开发者转向Android Studio。本文的最后，简单说明Fresco的编译。&lt;/p&gt;
 
 &lt;hr&gt;
 
@@ -126,6 +130,24 @@
     &lt;/div&gt;
 &lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;h3 id=&quot;编译fresco&quot;&gt;编译Fresco&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;设置好代理，从github顺利clone项目&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;给SDK Manager 设置好代理，顺利更新sdk到最新&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;给Android Studio设置好代理，顺利打开freso项目&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Open an exsiting Android Studio Project&lt;/li&gt;
+&lt;li&gt;选择build.gradle&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;但是，Android Studio目前还不支持NDK，所以需要在命令行下预编译。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;./gradlew :sample:assembleDebug
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;好了，编译完成之后，Android Studio就可以正常运行了。&lt;/p&gt;
 
 &lt;hr&gt;
 </description>
