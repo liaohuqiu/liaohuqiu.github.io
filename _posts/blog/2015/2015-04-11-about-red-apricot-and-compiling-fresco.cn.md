@@ -1,7 +1,7 @@
 ---
 layout: post_wide
 title: "红杏的公益代理"
-description: ""
+description: "使用红杏代理更新Android SDK，让使用Android Studio轻松愉快"
 category: blog
 ---
 
