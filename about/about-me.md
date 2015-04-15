@@ -11,20 +11,13 @@ category: about
 
 * [I am On StackOverflow](http://stackoverflow.com/users/2446397/) 
 
-### Projects
+* [twitter](https://twitter.com/liaohuqiu)
 
-*  cube-sdk
+* [Facebook](https://www.facebook.com/huqiu.liao)
 
-    An android develop package. It has an Imageloader enable your App load image efficiently.
+* [微博](http://weibo.com/liaohuqiu/)
 
-*  binpack
-
-    A binnary data serialize format, enable exchanging data crossing languages.
-
-    Multiple languages implementation.
-
-*  Cube RPC protocol and implementations in multilple languages.
-
+* [email](mailto:srain@php.net)
 
 <!---
 <h2>hobbies</h2>
