@@ -82,7 +82,7 @@ Facebook上月开源的Fresco 是一个Android Studio项目，作为一个基础
 
 ### 如何使用红杏的公益代理
 
-公益代理为: http://hx.gy:1080。注意: hostname为`hx.py`, 不要带上`http://`。
+公益代理为: http://hx.gy:1080。注意: hostname为`hx.gy`, 不要带上`http://`。
 
 1.  github加速
 
