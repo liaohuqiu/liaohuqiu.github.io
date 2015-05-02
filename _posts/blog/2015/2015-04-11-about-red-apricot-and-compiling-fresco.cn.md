@@ -13,7 +13,7 @@ category: blog
 
 使用红杏，让获取知识变得不那么困难和艰辛。使用极其方便，节约宝贵时间，创造更多价值。
 
-这个是我的推广链接: http://honx.in/i/VIFKiM6vD2SwWZWt, 你通过这个链接安装购买1个月以上的服务，你我都将获赠10天。
+这个是我的推广链接: http://honx.in/i/VHRiboIaAxADyQus, 你通过这个链接安装购买1个月以上的服务，你我都将获赠10天。
 
 Facebook上月开源的Fresco 是一个Android Studio项目，作为一个基础类库，Fresco的流行，会使更多的国内开发者转向Android Studio。本文的最后，简单说明Fresco的编译。
 
@@ -139,4 +139,4 @@ Facebook上月开源的Fresco 是一个Android Studio项目，作为一个基础
 好了，编译完成之后，Android Studio就可以正常运行了。
 
 ---
-[红杏]: http://honx.in/i/VIFKiM6vD2SwWZWt
+[红杏]: http://honx.in/i/VHRiboIaAxADyQus
