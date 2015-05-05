@@ -315,10 +315,11 @@ Full-Width Styles
 .about-me
 {
     text-align: right;
+    float: right;
 }
-.about-me h3 a
-{
-    margin: 0 0 0 20px;
+.about-me a {
+    margin: 0 10px;
+    font-size: 18px;
 }
 
 /*******************************************************************************
