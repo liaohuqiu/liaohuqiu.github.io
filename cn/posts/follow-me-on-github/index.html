@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="chrome=1" />
 
 <meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
-<meta name="description" content="客户端绑定微博流程 客户端一键关注微博" />
+<meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
@@ -29,7 +29,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
 
 
-<title>手机客户端应用新浪微博绑定流程 |  Yet Another Summer Rain</title>
+<title>有一事相求, 请在 GitHub 上关注我吧 |  Yet Another Summer Rain</title>
 </head>
 
 <body>
@@ -49,29 +49,31 @@
     <div id="main_content_wrap" class="outer">
         <div class="md-body main-content inner wide">
             
-            <div class="alert alert-warning" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                
-                <strong><a target='_blank' href='/cn/posts/follow-me-on-github/'>一事相求, 还望相助：请在 GitHub 上关注我吧!</a></strong>
-                
-            </div>
             
-            <h2> 手机客户端应用新浪微博绑定流程 </h2>
-            <p> 08 Oct 2014 </p>
+            <h2> 有一事相求, 请在 GitHub 上关注我吧 </h2>
+            <p> 05 May 2015 </p>
             <hr>
-            <p>以网站形式接入新浪微博之后，可以调用丰富的api，实现比如，发布微博，关注公共账号等功能。</p>
+            <p>非常抱歉写这样一个文章，我遇到一个事情，需要大家的帮助。</p>
 
-<p>在移动客户端要实现一个一键关注公共账号的流程如下：</p>
+<p>最近内部公司举行一个活动，评比开源社区的活跃贡献者。评比指标是 GitHub 上 Follower 和 Contribution 的数量。</p>
 
-<ol>
-<li><p>点击关注按钮之后，app通过webview跳转到一个url，此url带上公共主页等必要参数</p></li>
-<li><p>此url对应的页面检查该用户是否有新浪微博绑定关系，如有且token没有过期，则利用token直接关注账号，否则到3.</p></li>
-<li><p>页面跳转到新浪认证绑定界面，此界面有app样式，在此界面，用户登录完成之后，页面回跳到新浪开放平台填写的回调地址，并附上code参数，用于获取token。</p></li>
-<li><p>在回调页面，获取token，执行2需要的操作。</p></li>
-<li><p>操作完成，跳转到一个自定义schema的url，客户端webview拦截每个跳转的url，发现是自定义url，告知操作成功。</p></li>
-</ol>
+<p>GitHub是一个伟大的网站，我们可以和来自世界各地的朋友协作，交流，分享： <code>Build software better, together.</code></p>
 
-<p>步骤2和3之间，因为回调地址不允许带用户自定义参数，在步骤4需要取到步骤2的用户信息。在php中可简单用session完成。</p>
+<p>我也开源了一些项目，并且认真维护和改进：跟进issue，修复问题，更新完善文档。我希望这些项目对需要的人有帮助，希望我的工作可以让项目的使用者们心生喜悦。</p>
+
+<p>我参加了公司的这个评比活动，希望成为公司和同事认同的 “<code>开源社区的活跃贡献者</code>”，我持续提交, 一直很活跃，但我发现我的 Follower 数量较少,可能无法被评选上，所以我在这里请求朋友们关注我的 GitHub ：</p>
+
+<ul>
+<li><h4><a href="https://github.com/liaohuqiu">https://github.com/liaohuqiu</a></h4></li>
+</ul>
+
+<p>谢谢大家。</p>
+
+<p>我关注多个技术领域，如果发现有新的好的项目，我也会通过 Star 分享给大家。</p>
+
+<hr>
+
+<p>另外，这个是我的新浪微博，<a href="http://weibo.com/liaohuqiu">http://weibo.com/liaohuqiu</a> 欢迎和朋友们分享交流。</p>
 
             <hr>
             <div id="disqus_thread"></div>

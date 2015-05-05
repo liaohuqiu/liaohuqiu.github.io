@@ -6,9 +6,73 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Sun, 03 May 2015 07:43:38 +0800</pubDate>
-    <lastBuildDate>Sun, 03 May 2015 07:43:38 +0800</lastBuildDate>
+    <pubDate>Tue, 05 May 2015 14:17:18 +0800</pubDate>
+    <lastBuildDate>Tue, 05 May 2015 14:17:18 +0800</lastBuildDate>
 
+    
+    <item>
+      <title>有一事相求, 请在 GitHub 上关注我吧</title>
+      <link>http://liaohuqiu.net/cn/posts/follow-me-on-github</link>
+      <pubDate>Tue, 05 May 2015 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/cn/posts/follow-me-on-github</guid>
+      <description>&lt;p&gt;非常抱歉写这样一个文章，我遇到一个事情，需要大家的帮助。&lt;/p&gt;
+
+&lt;p&gt;最近内部公司举行一个活动，评比开源社区的活跃贡献者。评比指标是 GitHub 上 Follower 和 Contribution 的数量。&lt;/p&gt;
+
+&lt;p&gt;GitHub是一个伟大的网站，我们可以和来自世界各地的朋友协作，交流，分享： &lt;code&gt;Build software better, together.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;我也开源了一些项目，并且认真维护和改进：跟进issue，修复问题，更新完善文档。我希望这些项目对需要的人有帮助，希望我的工作可以让项目的使用者们心生喜悦。&lt;/p&gt;
+
+&lt;p&gt;我参加了公司的这个评比活动，希望成为公司和同事认同的 “&lt;code&gt;开源社区的活跃贡献者&lt;/code&gt;”，我持续提交, 一直很活跃，但我发现我的 Follower 数量较少,可能无法被评选上，所以我在这里请求朋友们关注我的 GitHub ：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;h4&gt;&lt;a href=&quot;https://github.com/liaohuqiu&quot;&gt;https://github.com/liaohuqiu&lt;/a&gt;&lt;/h4&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;谢谢大家。&lt;/p&gt;
+
+&lt;p&gt;我关注多个技术领域，如果发现有新的好的项目，我也会通过 Star 分享给大家。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;另外，这个是我的新浪微博，&lt;a href=&quot;http://weibo.com/liaohuqiu&quot;&gt;http://weibo.com/liaohuqiu&lt;/a&gt; 欢迎和朋友们分享交流。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Help: Would you please follow me on GitHub</title>
+      <link>http://liaohuqiu.net/posts/follow-me-on-github</link>
+      <pubDate>Tue, 05 May 2015 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/posts/follow-me-on-github</guid>
+      <description>&lt;p&gt;My dear friends:&lt;/p&gt;
+
+&lt;p&gt;I need your help!&lt;/p&gt;
+
+&lt;p&gt;My company is hosting an event, the one who has more GitHub &lt;strong&gt;Followers&lt;/strong&gt; and &lt;strong&gt;Public Contributions&lt;/strong&gt; will be selected as the &amp;quot;Active Open Source Community Contributor&amp;quot;.&lt;/p&gt;
+
+&lt;p&gt;GitHub is the greatest open source community: &lt;code&gt;Build software better, together.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;I also post some repositories, like: &lt;a href=&quot;https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh&quot;&gt;android-Ultra-Pull-To-Refresh&lt;/a&gt;. &lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;m keep tracing issues, fixing bugs, updating documents. I hope the work I do will help someone.&lt;/p&gt;
+
+&lt;p&gt;I want to be selected in the event and I&amp;#39;m really active on GitHub. But I notice that I didn&amp;#39;t have much followers. So I would like to ask you to follow me on GitHub.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;h4&gt;&lt;a href=&quot;https://github.com/liaohuqiu&quot;&gt;https://github.com/liaohuqiu&lt;/a&gt;&lt;/h4&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I&amp;#39;m interested in a lot of technical fields, I&amp;#39;ll share the latest wonderful projects with you by &lt;strong&gt;&lt;em&gt;Staring&lt;/em&gt;&lt;/strong&gt; them.&lt;/p&gt;
+
+&lt;p&gt;Thank you for your help.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;And here is my twitter: &lt;a href=&quot;https://twitter.com/liaohuqiu&quot;&gt;https://twitter.com/liaohuqiu&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>关于红杏的公益代理, Android Studio以及freso的编译</title>
@@ -2504,81 +2568,6 @@ B
     </item>
     
     <item>
-      <title>setup log center</title>
-      <link>http://liaohuqiu.net/posts/log-center</link>
-      <pubDate>Wed, 28 May 2014 00:00:00 +0800</pubDate>
-      <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/posts/log-center</guid>
-      <description>&lt;p&gt;In *inux System, there are some log tools, for example: syslog, rsyslog, syslog-ng, etc..&lt;/p&gt;
-
-&lt;p&gt;In our program we can record log to syslog, for example in php:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_NOTICE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;srain&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;some messages@&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Y-m-d H:i:s&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;openlog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_PID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_LOCAL6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;syslog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;closelog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;When we have more than one webserver which will record log, we need a log center to keep all of the log.&lt;/p&gt;
-
-&lt;h3 id=&quot;forwarding&quot;&gt;Forwarding&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;syslog&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    10.11.2.13  # the port is 514 and using the UDP protocal.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    @@10.11.2.13:514    # udp
-*.local6    @10.11.2.13:514     # tcp more reliable than udp
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;description d_loghost { udp(&amp;quot;10.11.2.13&amp;quot; port(514)};
-
-log { source(s_sys); description(d_loghost)};
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;reciving&quot;&gt;Reciving&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# for udp reception
-$ModLoad imudp
-$UDPServerRun 514
-
-# for tcp reception
-$ModLoad imtcp
-$InputTCPServerRun 514
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;destination df_wrt0 {
-    #  keep log into diffrent files
-    file(&amp;quot;/var/log/$PROGRAM-$YEAR$MONTH$DAY&amp;quot;
-            template(&amp;quot;$FULLDATE $SOURCEIP-$HOST[$PID]: $MSG\n&amp;quot;)
-            template_escape(yes)
-        );
-};
-
-source s_net {
-    udp(ip(0.0.0.0) port(514));
-    tcp(ip(0.0.0.0) port(514));
-};
-
-log { source(s_net); description(df_wrt0)};
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;preformance&quot;&gt;Preformance&lt;/h3&gt;
-
-&lt;p&gt;I prefer syslog/rsyslog + syslog-ng. It will be more stable and easy to config.&lt;/p&gt;
-
-&lt;p&gt;There were more than 2000 clients to send log to a log center.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>日志中心：统一日志服务器</title>
       <link>http://liaohuqiu.net/cn/posts/log-center</link>
       <pubDate>Wed, 28 May 2014 00:00:00 +0800</pubDate>
@@ -2652,6 +2641,81 @@ log { source(s_net); description(df_wrt0)};
 &lt;h3 id=&quot;性能&quot;&gt;性能&lt;/h3&gt;
 
 &lt;p&gt;syslog + syslog-ng。曾经有2000+的web往一台日志服务器上汇总。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>setup log center</title>
+      <link>http://liaohuqiu.net/posts/log-center</link>
+      <pubDate>Wed, 28 May 2014 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/posts/log-center</guid>
+      <description>&lt;p&gt;In *inux System, there are some log tools, for example: syslog, rsyslog, syslog-ng, etc..&lt;/p&gt;
+
+&lt;p&gt;In our program we can record log to syslog, for example in php:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_NOTICE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;srain&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;some messages@&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Y-m-d H:i:s&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;openlog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_PID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_LOCAL6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;syslog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;closelog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;When we have more than one webserver which will record log, we need a log center to keep all of the log.&lt;/p&gt;
+
+&lt;h3 id=&quot;forwarding&quot;&gt;Forwarding&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;syslog&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    10.11.2.13  # the port is 514 and using the UDP protocal.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    @@10.11.2.13:514    # udp
+*.local6    @10.11.2.13:514     # tcp more reliable than udp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;description d_loghost { udp(&amp;quot;10.11.2.13&amp;quot; port(514)};
+
+log { source(s_sys); description(d_loghost)};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;reciving&quot;&gt;Reciving&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# for udp reception
+$ModLoad imudp
+$UDPServerRun 514
+
+# for tcp reception
+$ModLoad imtcp
+$InputTCPServerRun 514
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;destination df_wrt0 {
+    #  keep log into diffrent files
+    file(&amp;quot;/var/log/$PROGRAM-$YEAR$MONTH$DAY&amp;quot;
+            template(&amp;quot;$FULLDATE $SOURCEIP-$HOST[$PID]: $MSG\n&amp;quot;)
+            template_escape(yes)
+        );
+};
+
+source s_net {
+    udp(ip(0.0.0.0) port(514));
+    tcp(ip(0.0.0.0) port(514));
+};
+
+log { source(s_net); description(df_wrt0)};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;preformance&quot;&gt;Preformance&lt;/h3&gt;
+
+&lt;p&gt;I prefer syslog/rsyslog + syslog-ng. It will be more stable and easy to config.&lt;/p&gt;
+
+&lt;p&gt;There were more than 2000 clients to send log to a log center.&lt;/p&gt;
 </description>
     </item>
     

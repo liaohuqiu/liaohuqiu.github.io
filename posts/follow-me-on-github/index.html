@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="chrome=1" />
 
 <meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
-<meta name="description" content="客户端绑定微博流程 客户端一键关注微博" />
+<meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
@@ -29,7 +29,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
 
 
-<title>手机客户端应用新浪微博绑定流程 |  Yet Another Summer Rain</title>
+<title>Help: Would you please follow me on GitHub |  Yet Another Summer Rain</title>
 </head>
 
 <body>
@@ -39,7 +39,6 @@
     <header class="inner">
         <h1 id="site_title"><a href="/">Srain</a></h1>
         
-        <a>质有高低，境界不同。</a>
         
     </header>
 </div>
@@ -49,29 +48,35 @@
     <div id="main_content_wrap" class="outer">
         <div class="md-body main-content inner wide">
             
-            <div class="alert alert-warning" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                
-                <strong><a target='_blank' href='/cn/posts/follow-me-on-github/'>一事相求, 还望相助：请在 GitHub 上关注我吧!</a></strong>
-                
-            </div>
             
-            <h2> 手机客户端应用新浪微博绑定流程 </h2>
-            <p> 08 Oct 2014 </p>
+            <h2> Help: Would you please follow me on GitHub </h2>
+            <p> 05 May 2015 </p>
             <hr>
-            <p>以网站形式接入新浪微博之后，可以调用丰富的api，实现比如，发布微博，关注公共账号等功能。</p>
+            <p>My dear friends:</p>
 
-<p>在移动客户端要实现一个一键关注公共账号的流程如下：</p>
+<p>I need your help!</p>
 
-<ol>
-<li><p>点击关注按钮之后，app通过webview跳转到一个url，此url带上公共主页等必要参数</p></li>
-<li><p>此url对应的页面检查该用户是否有新浪微博绑定关系，如有且token没有过期，则利用token直接关注账号，否则到3.</p></li>
-<li><p>页面跳转到新浪认证绑定界面，此界面有app样式，在此界面，用户登录完成之后，页面回跳到新浪开放平台填写的回调地址，并附上code参数，用于获取token。</p></li>
-<li><p>在回调页面，获取token，执行2需要的操作。</p></li>
-<li><p>操作完成，跳转到一个自定义schema的url，客户端webview拦截每个跳转的url，发现是自定义url，告知操作成功。</p></li>
-</ol>
+<p>My company is hosting an event, the one who has more GitHub <strong>Followers</strong> and <strong>Public Contributions</strong> will be selected as the &quot;Active Open Source Community Contributor&quot;.</p>
 
-<p>步骤2和3之间，因为回调地址不允许带用户自定义参数，在步骤4需要取到步骤2的用户信息。在php中可简单用session完成。</p>
+<p>GitHub is the greatest open source community: <code>Build software better, together.</code></p>
+
+<p>I also post some repositories, like: <a href="https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh">android-Ultra-Pull-To-Refresh</a>. </p>
+
+<p>I&#39;m keep tracing issues, fixing bugs, updating documents. I hope the work I do will help someone.</p>
+
+<p>I want to be selected in the event and I&#39;m really active on GitHub. But I notice that I didn&#39;t have much followers. So I would like to ask you to follow me on GitHub.</p>
+
+<ul>
+<li><h4><a href="https://github.com/liaohuqiu">https://github.com/liaohuqiu</a></h4></li>
+</ul>
+
+<p>I&#39;m interested in a lot of technical fields, I&#39;ll share the latest wonderful projects with you by <strong><em>Staring</em></strong> them.</p>
+
+<p>Thank you for your help.</p>
+
+<hr>
+
+<p>And here is my twitter: <a href="https://twitter.com/liaohuqiu">https://twitter.com/liaohuqiu</a></p>
 
             <hr>
             <div id="disqus_thread"></div>
