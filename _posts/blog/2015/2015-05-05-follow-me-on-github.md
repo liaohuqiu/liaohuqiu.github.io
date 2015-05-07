@@ -13,17 +13,17 @@ My company is hosting an event, the one who has more GitHub **Followers** and **
 
 GitHub is the greatest open source community: `Build software better, together.`
 
-I also post some repositories, like: [android-Ultra-Pull-To-Refresh](https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh). 
+I have also posted some repositories, like: [android-Ultra-Pull-To-Refresh](https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh). 
 
-I'm keep tracing issues, fixing bugs, updating documents. I hope the work I do will help someone.
+I keep tracing issues, fixing bugs, updating documents. I hope the work I do will help someone.
 
-I want to be selected in the event and I'm really active on GitHub. But I notice that I didn't have much followers. So I would like to ask you to follow me on GitHub.
+I want to be selected in the event and I'm really active on GitHub. But I notice that I didn't have many followers. So I would really appreciate if you could follow me on GitHub:
 
 <ul>
 <li><h4><a href="https://github.com/liaohuqiu">https://github.com/liaohuqiu</a></h4></li>
 </ul>
 
-I'm interested in a lot of technical fields, I'll share the latest wonderful projects with you by ***Staring*** them.
+I'm interested in a lot of technical fields, I'll share the latest **COOL** projects with you by ***Staring*** them.
 
 Thank you for your help.
 
