@@ -63,7 +63,7 @@ export JAVA_HOME='/usr/lib/jvm/jre-1.7.0-openjdk.x86_64/'
     export ANDROID_HOME='/data1/android-sdk-linux'
     ```
 
-3.  安装所需的API level的SDK和Build Tools，全部安装耗时时间很长，所占空间也很大。[2]
+3.  安装所需的API level的SDK和Build Tools，全部安装耗时时间很长，所占空间也很大。参考: [2]
 
     查看所有安装
 
@@ -121,6 +121,5 @@ export JAVA_HOME='/usr/lib/jvm/jre-1.7.0-openjdk.x86_64/'
 ./gradlew build
 ```
 
----
 [查看安装路径]:   http://serverfault.com/questions/50883/what-is-the-value-of-java-home-for-centos
 [2]: http://stackoverflow.com/questions/17963508/how-to-install-android-sdk-build-tools-on-the-command-line
