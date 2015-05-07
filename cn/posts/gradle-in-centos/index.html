@@ -65,7 +65,14 @@
             </div>
             
             <h2> CentOS的gradle构建环境 </h2>
-            <p> 07 Jan 2015 </p>
+            
+            <div>
+                <div class="pull-right bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more">分享到：</a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a><a href="#" class="bds_weixin" data-cmd="weixin"
+                        title="分享到微信">微信</a></div><script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16},"image":{"viewList":["tsina","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["tsina","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new
+Date()/36e5)];</script>
+                
+                <p> 07 Jan 2015 </p>
+            </div>
             <hr>
             <p>在CentOS下，用gradle进行编译打包，配合定时任务或者push webhook可以实现定时自动打包或者push后自动打包。</p>
 
@@ -110,7 +117,7 @@ drwxrwxr-x  8 huqiu huqiu 4096 Jan  6 14:07 tools
 <p>更新 <code>~/.bash_prifile</code></p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">export ANDROID_HOME=&#39;/data1/android-sdk-linux&#39;
 </code></pre></div></li>
-<li><p>安装所需的API level的SDK和Build Tools，全部安装耗时时间很长，所占空间也很大。<a href="http://stackoverflow.com/questions/17963508/how-to-install-android-sdk-build-tools-on-the-command-line">2</a></p>
+<li><p>安装所需的API level的SDK和Build Tools，全部安装耗时时间很长，所占空间也很大。参考: <a href="http://stackoverflow.com/questions/17963508/how-to-install-android-sdk-build-tools-on-the-command-line">2</a></p>
 
 <p>查看所有安装</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">android list sdk --all
@@ -158,8 +165,6 @@ sudo yum install -y libstdc++.so.6
 <p>建议项目内置gradle。安装完成之后，进行build:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">./gradlew build
 </code></pre></div>
-<hr>
-
             <hr>
             <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -176,6 +181,7 @@ var disqus_shortname = 'srain'; // required: replace example with your forum sho
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
+            
         </div>
     </div>
 </div>

@@ -4,7 +4,7 @@
   <title>Yet Another Summer Rain</title>
   <link href="http://liaohuqiu.net/"/>
   <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
-  <updated>2015-05-06T22:17:49-04:00</updated>
+  <updated>2015-05-06T22:43:59-04:00</updated>
   <id>http://liaohuqiu.net/</id>
   <author>
     <name>Huqiu Liao / Srain</name>
@@ -835,7 +835,7 @@ drwxrwxr-x  8 huqiu huqiu 4096 Jan  6 14:07 tools
 &lt;p&gt;更新 &lt;code&gt;~/.bash_prifile&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;export ANDROID_HOME=&amp;#39;/data1/android-sdk-linux&amp;#39;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;安装所需的API level的SDK和Build Tools，全部安装耗时时间很长，所占空间也很大。&lt;a href=&quot;http://stackoverflow.com/questions/17963508/how-to-install-android-sdk-build-tools-on-the-command-line&quot;&gt;2&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;安装所需的API level的SDK和Build Tools，全部安装耗时时间很长，所占空间也很大。参考: &lt;a href=&quot;http://stackoverflow.com/questions/17963508/how-to-install-android-sdk-build-tools-on-the-command-line&quot;&gt;2&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;查看所有安装&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;android list sdk --all
@@ -882,9 +882,7 @@ sudo yum install -y libstdc++.so.6
 
 &lt;p&gt;建议项目内置gradle。安装完成之后，进行build:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;./gradlew build
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;hr&gt;
-</content>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
   </entry>
   
   <entry>
