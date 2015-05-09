@@ -77,17 +77,6 @@ Date()/36e5)];</script>
             <blockquote>
 <p>本文为<a href="https://corner.squareup.com/2015/05/leak-canary.html">LeakCanary: Detect all memory leaks!</a>的翻译。原文在: <a href="https://corner.squareup.com/2015/05/leak-canary.html">https://corner.squareup.com/2015/05/leak-canary.html</a></p>
 </blockquote>
-
-<p>相关链接:</p>
-
-<ul>
-<li><p><a href="/cn/posts/leak-canary-read-me/">LeakCanary 中文使用说明</a></p></li>
-<li><p>一个非常简单的 LeakCanary demo: <a href="https://github.com/liaohuqiu/leakcanary-demo">https://github.com/liaohuqiu/leakcanary-demo</a></p></li>
-</ul>
-
-<hr>
-
-<p><br/></p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">java.lang.OutOfMemoryError
         at android.graphics.Bitmap.nativeCreate(Bitmap.java:-2)
         at android.graphics.Bitmap.createBitmap(Bitmap.java:689)
@@ -209,6 +198,13 @@ refWatcher.watch(schrodingerCat);
 <p></div></p>
 
 <p>如果你也想消灭 OOM crash，那还犹豫什么，赶快使用 <a href="https://github.com/square/leakcanary">LeakCanary</a></p>
+
+<p>相关链接:</p>
+
+<ul>
+<li><p><a href="/cn/posts/leak-canary-read-me/">LeakCanary 中文使用说明</a></p></li>
+<li><p>一个非常简单的 LeakCanary demo: <a href="https://github.com/liaohuqiu/leakcanary-demo">https://github.com/liaohuqiu/leakcanary-demo</a></p></li>
+</ul>
 
             <hr>
             <div id="disqus_thread"></div>

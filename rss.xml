@@ -6,8 +6,8 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Sun, 10 May 2015 00:03:26 +0800</pubDate>
-    <lastBuildDate>Sun, 10 May 2015 00:03:26 +0800</lastBuildDate>
+    <pubDate>Sun, 10 May 2015 07:44:29 +0800</pubDate>
+    <lastBuildDate>Sun, 10 May 2015 07:44:29 +0800</lastBuildDate>
 
     
     <item>
@@ -236,17 +236,6 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;本文为&lt;a href=&quot;https://corner.squareup.com/2015/05/leak-canary.html&quot;&gt;LeakCanary: Detect all memory leaks!&lt;/a&gt;的翻译。原文在: &lt;a href=&quot;https://corner.squareup.com/2015/05/leak-canary.html&quot;&gt;https://corner.squareup.com/2015/05/leak-canary.html&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-
-&lt;p&gt;相关链接:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;/cn/posts/leak-canary-read-me/&quot;&gt;LeakCanary 中文使用说明&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;一个非常简单的 LeakCanary demo: &lt;a href=&quot;https://github.com/liaohuqiu/leakcanary-demo&quot;&gt;https://github.com/liaohuqiu/leakcanary-demo&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;java.lang.OutOfMemoryError
         at android.graphics.Bitmap.nativeCreate(Bitmap.java:-2)
         at android.graphics.Bitmap.createBitmap(Bitmap.java:689)
@@ -368,6 +357,13 @@ refWatcher.watch(schrodingerCat);
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
 
 &lt;p&gt;如果你也想消灭 OOM crash，那还犹豫什么，赶快使用 &lt;a href=&quot;https://github.com/square/leakcanary&quot;&gt;LeakCanary&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;相关链接:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;/cn/posts/leak-canary-read-me/&quot;&gt;LeakCanary 中文使用说明&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;一个非常简单的 LeakCanary demo: &lt;a href=&quot;https://github.com/liaohuqiu/leakcanary-demo&quot;&gt;https://github.com/liaohuqiu/leakcanary-demo&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
