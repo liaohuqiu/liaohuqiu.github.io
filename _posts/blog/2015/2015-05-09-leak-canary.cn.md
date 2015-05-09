@@ -7,15 +7,6 @@ category: blog
 
 > 本文为[LeakCanary: Detect all memory leaks!](https://corner.squareup.com/2015/05/leak-canary.html)的翻译。原文在: https://corner.squareup.com/2015/05/leak-canary.html
 
-相关链接:
-
-*    [LeakCanary 中文使用说明](/cn/posts/leak-canary-read-me/)
-
-*    一个非常简单的 LeakCanary demo: https://github.com/liaohuqiu/leakcanary-demo
-
----
-<br/>
-
 
 ```
 java.lang.OutOfMemoryError
@@ -154,3 +145,9 @@ public class ExampleApplication extends Application {
 </div>
 
 如果你也想消灭 OOM crash，那还犹豫什么，赶快使用 [LeakCanary](https://github.com/square/leakcanary)
+
+相关链接:
+
+*    [LeakCanary 中文使用说明](/cn/posts/leak-canary-read-me/)
+
+*    一个非常简单的 LeakCanary demo: https://github.com/liaohuqiu/leakcanary-demo
