@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset='utf-8' />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+
+<!-- Bootstrap core CSS -->
+<link href="/assets/static/bt3/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Documentation extras -->
+<!--[if lt IE 9]><script src="/assets/static/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="/assets/static/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="/assets/static/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- jquery -->
+<script src="/assets/static/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
+
+
+<title>LeakCanary 中文使用说明 |  Yet Another Summer Rain</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <h1 id="site_title"><a href="/">Srain</a>
+            <div class='about-me'>
+                
+                <a href='/'>English posts</a>
+                <a href='/about/about-me.html'>About</a>
+                
+                <a href='/about/feed.html'>feed</a>
+            </div>
+        </h1>
+        
+        <a>质有高低，境界不同。</a>
+        
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class='post'>
+    <div id="main_content_wrap" class="outer">
+        <div class="md-body main-content inner wide">
+            
+            <div class="alert alert-warning" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                
+                <strong><a target='_blank' href='/cn/posts/follow-me-on-github/'>一事相求, 还望相助：请在 GitHub 上关注我吧!</a></strong>
+                
+            </div>
+            
+            <h2> LeakCanary 中文使用说明 </h2>
+            <div>
+                
+                <div class="pull-right bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more">分享到：</a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a><a href="#" class="bds_weixin" data-cmd="weixin"
+                        title="分享到微信">微信</a></div><script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16},"image":{"viewList":["tsina","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["tsina","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new
+Date()/36e5)];</script>
+                
+                <p> 10 May 2015 </p>
+            </div>
+            <hr>
+            <h3 id="leakcanary">LeakCanary</h3>
+
+<p>Android 和 Java 内存泄露检测。</p>
+
+<p><em>“A small leak will sink a great ship.”</em> - Benjamin Franklin</p>
+
+<div class='row'>
+<div class='col-md-8 col-md-offset-2'>
+<img src='https://github.com/square/leakcanary/raw/master/assets/screenshot.png' />
+</div>
+
+<p></div></p>
+
+<h3 id="开始使用">开始使用</h3>
+
+<p>在 <code>build.gradle</code> 中加入引用，不同的编译使用不同的引用：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"> dependencies {
+   debugCompile &#39;com.squareup.leakcanary:leakcanary-android:1.3&#39;
+   releaseCompile &#39;com.squareup.leakcanary:leakcanary-android-no-op:1.3&#39;
+ }
+</code></pre></div>
+<p>在 <code>Application</code> 中：</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleApplication</span> <span class="kd">extends</span> <span class="n">Application</span> <span class="o">{</span>
+
+  <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">();</span>
+    <span class="n">LeakCanary</span><span class="o">.</span><span class="na">install</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<p><strong>这样，就万事俱备了！</strong> 在 debug build 中，如果检测到某个 activity 有内存泄露，LeakCanary 就是自动地显示一个通知。</p>
+
+<h2 id="为什么需要使用-leakcanary？">为什么需要使用 LeakCanary？</h2>
+
+<p>问得好，看这个文章<a href="/cn/posts/leak-canary/">LeakCanary: 让内存泄露无所遁形</a></p>
+
+<h3 id="如何使用">如何使用</h3>
+
+<p>使用 <code>RefWatcher</code> 监控那些本该被回收的对象。</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">RefWatcher</span> <span class="n">refWatcher</span> <span class="o">=</span> <span class="o">{...};</span>
+
+<span class="c1">// 监控</span>
+<span class="n">refWatcher</span><span class="o">.</span><span class="na">watch</span><span class="o">(</span><span class="n">schrodingerCat</span><span class="o">);</span>
+</code></pre></div>
+<p><code>LeakCanary.install()</code> 会返回一个预定义的 <code>RefWatcher</code>，同时也会启用一个 <code>ActivityRefWatcher</code>，用于自动监控调用 <code>Activity.onDestroy()</code> 之后泄露的 activity。</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleApplication</span> <span class="kd">extends</span> <span class="n">Application</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">RefWatcher</span> <span class="nf">getRefWatcher</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">ExampleApplication</span> <span class="n">application</span> <span class="o">=</span> <span class="o">(</span><span class="n">ExampleApplication</span><span class="o">)</span> <span class="n">context</span><span class="o">.</span><span class="na">getApplicationContext</span><span class="o">();</span>
+    <span class="k">return</span> <span class="n">application</span><span class="o">.</span><span class="na">refWatcher</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">private</span> <span class="n">RefWatcher</span> <span class="n">refWatcher</span><span class="o">;</span>
+
+  <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">();</span>
+    <span class="n">refWatcher</span> <span class="o">=</span> <span class="n">LeakCanary</span><span class="o">.</span><span class="na">install</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>使用 <code>RefWatcher</code> 监控 Fragment：</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">BaseFragment</span> <span class="kd">extends</span> <span class="n">Fragment</span> <span class="o">{</span>
+
+  <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
+    <span class="n">RefWatcher</span> <span class="n">refWatcher</span> <span class="o">=</span> <span class="n">ExampleApplication</span><span class="o">.</span><span class="na">getRefWatcher</span><span class="o">(</span><span class="n">getActivity</span><span class="o">());</span>
+    <span class="n">refWatcher</span><span class="o">.</span><span class="na">watch</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<h3 id="工作机制">工作机制</h3>
+
+<ol>
+<li><p><code>RefWatcher.watch()</code> 创建一个 <a href="https://github.com/square/leakcanary/blob/master/library/leakcanary-watcher/src/main/java/com/squareup/leakcanary/KeyedWeakReference.java">KeyedWeakReference</a> 到要被监控的对象。</p></li>
+<li><p>然后在后台线程检查引用是否被清除，如果没有，调用GC。</p></li>
+<li><p>如果引用还是未被清除，把 heap 内存 dump 到 APP 对应的文件系统中的一个 <code>.hprof</code> 文件中。</p></li>
+<li><p>在另外一个进程中的 <code>HeapAnalyzerService</code> 有一个 <code>HeapAnalyzer</code> 使用<a href="https://github.com/square/haha">HAHA</a> 解析这个文件。</p></li>
+<li><p>得益于唯一的 reference key, <code>HeapAnalyzer</code> 找到 <code>KeyedWeakReference</code>，定位内存泄露。</p></li>
+<li><p><code>HeapAnalyzer</code> 计算 <em>到 GC roots 的最短强引用路径</em>，并确定是否是泄露。如果是的话，建立导致泄露的引用链。</p></li>
+<li><p>引用链传递到 APP 进程中的 <code>DisplayLeakService</code>， 并以通知的形式展示出来。</p></li>
+</ol>
+
+<h3 id="如何复制-leak-trace？">如何复制 leak trace？</h3>
+
+<p>在 Logcat 中，你可以看到类似这样的 leak trace：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">In com.example.leakcanary:1.0:1 com.example.leakcanary.MainActivity has leaked:
+
+* GC ROOT thread java.lang.Thread.&lt;Java Local&gt; (named &#39;AsyncTask #1&#39;)
+* references com.example.leakcanary.MainActivity$3.this$0 (anonymous class extends android.os.AsyncTask)
+* leaks com.example.leakcanary.MainActivity instance
+
+* Reference Key: e71f3bf5-d786-4145-8539-584afaecad1d
+* Device: Genymotion generic Google Nexus 6 - 5.1.0 - API 22 - 1440x2560 vbox86p
+* Android Version: 5.1 API: 22
+* Durations: watch=5086ms, gc=110ms, heap dump=435ms, analysis=2086ms
+</code></pre></div>
+<p>你甚至可以通过分享按钮把这些东西分享出去。</p>
+
+<h3 id="sdk-导致的内存泄露">SDK 导致的内存泄露</h3>
+
+<p>随着时间的推移，很多SDK 和厂商 ROM 中的内存泄露问题已经被尽快修复了。但是，当这样的问题发生时，一般的开发者能做的事情很有限。</p>
+
+<p>LeakCanary 有一个已知问题的忽略列表，<a href="https://github.com/square/leakcanary/blob/master/library/leakcanary-android/src/main/java/com/squareup/leakcanary/AndroidExcludedRefs.java">AndroidExcludedRefs.java</a>，如果你发现了一个新的问题，<a href="https://github.com/square/leakcanary/issues/new">请提一个 issue</a> 并附上 leak trace, reference key, 机器型号和 SDK 版本。如果可以附带上 dump 文件的 链接那就再好不过了。</p>
+
+<p>对于<strong>最新发布的 Android</strong>，这点尤其重要。你有机会在帮助在早期发现新的内存泄露，这对整个 Android 社区都有极大的益处。</p>
+
+<p>开发版本的 Snapshots 包在这里： <a href="https://oss.sonatype.org/content/repositories/snapshots/">Sonatype&#39;s <code>snapshots</code> repository</a>。</p>
+
+<h3 id="leak-trace-之外">leak trace 之外</h3>
+
+<p>有时，leak trace 不够，你需要通过 <a href="http://eclipse.org/mat/">MAT</a> 或者 <a href="https://www.yourkit.com/">YourKit</a> 深挖 dump 文件。</p>
+
+<p>通过以下方法，你能找到问题所在：</p>
+
+<ol>
+<li>查找所有的 <code>com.squareup.leakcanary.KeyedWeakReference</code> 实例。</li>
+<li>检查 <code>key</code> 字段</li>
+<li>Find the <code>KeyedWeakReference</code> that has a <code>key</code> field equal to the reference key reported by LeakCanary.</li>
+<li>找到 key 和 和 logcat 输出的 key 值一样的 <code>KeyedWeakReference</code>。</li>
+<li><code>referent</code> 字段对应的就是泄露的对象。</li>
+<li>剩下的，就是动手修复了。最好是检查到 GC root 的最短强引用路径开始。</li>
+</ol>
+
+<h3 id="自定义">自定义</h3>
+
+<h4 id="ui-样式">UI 样式</h4>
+
+<p><code>DisplayLeakActivity</code> 有一个默认的图标和标签，你只要在你自己的 APP 资源中，替换以下资源就可。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">res/
+  drawable-hdpi/
+    __leak_canary_icon.png
+  drawable-mdpi/
+    __leak_canary_icon.png
+  drawable-xhdpi/
+    __leak_canary_icon.png
+  drawable-xxhdpi/
+    __leak_canary_icon.png
+  drawable-xxxhdpi/
+    __leak_canary_icon.png
+</code></pre></div><div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;resources&gt;</span>
+  <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&quot;__leak_canary_display_activity_label&quot;</span><span class="nt">&gt;</span>MyLeaks<span class="nt">&lt;/string&gt;</span>
+<span class="nt">&lt;/resources&gt;</span>
+</code></pre></div>
+<h4 id="保存-leak-trace">保存 leak trace</h4>
+
+<p><code>DisplayLeakActivity</code> saves up to 7 heap dumps &amp; leak traces in the app directory. You can change that number by providing <code>R.integer.__leak_canary_max_stored_leaks</code> in your app:</p>
+
+<p>在 APP 的目录中，<code>DisplayLeakActivity</code> 保存了 7 个 dump 文件和 leak trace。你可以在你的 APP 中，定义 <code>R.integer.__leak_canary_max_stored_leaks</code> 来覆盖类库的默认值。</p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;resources&gt;</span>
+  <span class="nt">&lt;integer</span> <span class="na">name=</span><span class="s">&quot;__leak_canary_max_stored_leaks&quot;</span><span class="nt">&gt;</span>20<span class="nt">&lt;/integer&gt;</span>
+<span class="nt">&lt;/resources&gt;</span>
+</code></pre></div>
+<h4 id="上传-leak-trace-到服务器">上传 leak trace 到服务器</h4>
+
+<p>你可以改变处理完成的默认行为，将 leak trace 和 heap dump 上传到你的服务器以便统计分析。</p>
+
+<p>创建一个 <code>AbstractAnalysisResultService</code>， 最简单的就是继承 <code>DefaultAnalysisResultService</code> ：</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LeakUploadService</span> <span class="kd">extends</span> <span class="n">DefaultAnalysisResultService</span> <span class="o">{</span>
+  <span class="nd">@Override</span> <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">afterDefaultHandling</span><span class="o">(</span><span class="n">HeapDump</span> <span class="n">heapDump</span><span class="o">,</span> <span class="n">AnalysisResult</span> <span class="n">result</span><span class="o">,</span> <span class="n">String</span> <span class="n">leakInfo</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(!</span><span class="n">result</span><span class="o">.</span><span class="na">leakFound</span> <span class="o">||</span> <span class="n">result</span><span class="o">.</span><span class="na">excludedLeak</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="n">myServer</span><span class="o">.</span><span class="na">uploadLeakBlocking</span><span class="o">(</span><span class="n">heapDump</span><span class="o">.</span><span class="na">heapDumpFile</span><span class="o">,</span> <span class="n">leakInfo</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>请确认 release 版本 使用 <code>RefWatcher.DISABLED</code>：</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleApplication</span> <span class="kd">extends</span> <span class="n">Application</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">RefWatcher</span> <span class="nf">getRefWatcher</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">ExampleApplication</span> <span class="n">application</span> <span class="o">=</span> <span class="o">(</span><span class="n">ExampleApplication</span><span class="o">)</span> <span class="n">context</span><span class="o">.</span><span class="na">getApplicationContext</span><span class="o">();</span>
+    <span class="k">return</span> <span class="n">application</span><span class="o">.</span><span class="na">refWatcher</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">private</span> <span class="n">RefWatcher</span> <span class="n">refWatcher</span><span class="o">;</span>
+
+  <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">();</span>
+    <span class="n">refWatcher</span> <span class="o">=</span> <span class="n">installLeakCanary</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="kd">protected</span> <span class="n">RefWatcher</span> <span class="nf">installLeakCanary</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">RefWatcher</span><span class="o">.</span><span class="na">DISABLED</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>自定义 <code>RefWatcher</code>：</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DebugExampleApplication</span> <span class="kd">extends</span> <span class="n">ExampleApplication</span> <span class="o">{</span>
+  <span class="kd">protected</span> <span class="n">RefWatcher</span> <span class="nf">installLeakCanary</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">LeakCanary</span><span class="o">.</span><span class="na">install</span><span class="o">(</span><span class="n">app</span><span class="o">,</span> <span class="n">LeakUploadService</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>别忘了注册 service：</p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="na">xmlns:tools=</span><span class="s">&quot;http://schemas.android.com/tools&quot;</span>
+    <span class="nt">&gt;</span>
+  <span class="nt">&lt;application</span> <span class="na">android:name=</span><span class="s">&quot;com.example.DebugExampleApplication&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;service</span> <span class="na">android:name=</span><span class="s">&quot;com.example.LeakUploadService&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/application&gt;</span>
+<span class="nt">&lt;/manifest&gt;</span>
+</code></pre></div>
+<h4 id="demo">demo</h4>
+
+<p>一个非常简单的 LeakCanary demo: <a href="https://github.com/liaohuqiu/leakcanary-demo">https://github.com/liaohuqiu/leakcanary-demo</a></p>
+
+            <hr>
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'srain'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+            
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+try
+{
+    ga('create', 'UA-43024238-1', 'liaohuqiu.net');
+    ga('send', 'pageview');
+} catch(err) {
+    console.log(err);
+}
+</script>
+
+<script src="/assets/static/bt3/js/bootstrap.min.js"></script>
+</body>
+</html>

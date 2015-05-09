@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset='utf-8' />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+
+<!-- Bootstrap core CSS -->
+<link href="/assets/static/bt3/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Documentation extras -->
+<!--[if lt IE 9]><script src="/assets/static/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="/assets/static/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="/assets/static/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- jquery -->
+<script src="/assets/static/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
+
+
+<title>LeakCanary: 让内存泄露无所遁形 |  Yet Another Summer Rain</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <h1 id="site_title"><a href="/">Srain</a>
+            <div class='about-me'>
+                
+                <a href='/'>English posts</a>
+                <a href='/about/about-me.html'>About</a>
+                
+                <a href='/about/feed.html'>feed</a>
+            </div>
+        </h1>
+        
+        <a>质有高低，境界不同。</a>
+        
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class='post'>
+    <div id="main_content_wrap" class="outer">
+        <div class="md-body main-content inner wide">
+            
+            <div class="alert alert-warning" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                
+                <strong><a target='_blank' href='/cn/posts/follow-me-on-github/'>一事相求, 还望相助：请在 GitHub 上关注我吧!</a></strong>
+                
+            </div>
+            
+            <h2> LeakCanary: 让内存泄露无所遁形 </h2>
+            <div>
+                
+                <div class="pull-right bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more">分享到：</a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a><a href="#" class="bds_weixin" data-cmd="weixin"
+                        title="分享到微信">微信</a></div><script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16},"image":{"viewList":["tsina","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["tsina","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new
+Date()/36e5)];</script>
+                
+                <p> 09 May 2015 </p>
+            </div>
+            <hr>
+            <blockquote>
+<p>本文为<a href="https://corner.squareup.com/2015/05/leak-canary.html">LeakCanary: Detect all memory leaks!</a>的翻译。原文在: <a href="https://corner.squareup.com/2015/05/leak-canary.html">https://corner.squareup.com/2015/05/leak-canary.html</a></p>
+</blockquote>
+
+<p>相关链接:</p>
+
+<ul>
+<li><p><a href="/cn/posts/leak-canary-read-me/">LeakCanary 中文使用说明</a></p></li>
+<li><p>一个非常简单的 LeakCanary demo: <a href="https://github.com/liaohuqiu/leakcanary-demo">https://github.com/liaohuqiu/leakcanary-demo</a></p></li>
+</ul>
+
+<hr>
+
+<p><br/></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">java.lang.OutOfMemoryError
+        at android.graphics.Bitmap.nativeCreate(Bitmap.java:-2)
+        at android.graphics.Bitmap.createBitmap(Bitmap.java:689)
+        at com.squareup.ui.SignView.createSignatureBitmap(SignView.java:121)
+</code></pre></div>
+<h4 id="谁也不会喜欢-outofmemoryerror">谁也不会喜欢 <code>OutOfMemoryError</code></h4>
+
+<p>在 <a href="https://squareup.com/help/global/en/article/5243-download-the-square-register-app">Square Register</a> 中, 在签名页面，<a href="https://corner.squareup.com/2010/07/smooth-signatures.html">我们把客户的签名画在 bitmap cache 上</a>。 这个 bitmap 的尺寸几乎和屏幕的尺寸一样大，在创建这个 bitmap 对象时，经常会引发 <code>OutOfMemoryError</code>，简称<code>OOM</code>。</p>
+
+<div class='row'>
+<div class='col-md-8 col-md-offset-2'>
+<img src='https://corner.squareup.com/images/leakcanary/signature.png' />
+</div>
+
+<p></div></p>
+
+<p>当时，我们尝试过一些解决方案，但都没解决问题</p>
+
+<ul>
+<li><p>使用 Bitmap.Config.ALPHA_8 因为，签名仅有黑色。</p></li>
+<li><p>捕捉 <code>OutOfMemoryError</code>, 尝试 GC 并重试（受 <a href="https://android.googlesource.com/platform/packages/inputmethods/LatinIME/+/ics-mr1/java/src/com/android/inputmethod/latin/Utils.java">GCUtils</a> 启发）。</p></li>
+<li><p>我们没想过在 Java heap 内存之外创建 bitmap 。苦逼的我们，那会 <a href="https://github.com/facebook/fresco">Fresco</a> 还不存在。</p></li>
+</ul>
+
+<h4 id="路子走错了">路子走错了</h4>
+
+<p>其实 bitmap 的尺寸不是真正的问题，当内存吃紧的时候，到处都有可能引发 OO。在创建大对象，比如 bitmap 的时候，更有可能发生。OOM 只是一个表象，更深层次的问题可能是: <strong>内存泄露</strong>。</p>
+
+<h4 id="什么是内存泄露">什么是内存泄露</h4>
+
+<p>一些对象有着有限的生命周期。当这些对象所要做的事情完成了，我们希望他们会被回收掉。但是如果有一系列对这个对象的引用，那么在我们期待这个对象生命周期结束的时候被收回的时候，它是不会被回收的。它还会占用内存，这就造成了内存泄露。持续累加，内存很快被耗尽。</p>
+
+<p>比如，当 <code>Activity.onDestroy</code> 被调用之后，activity 以及它涉及到的 view 和相关的 bitmap 都应该被回收。但是，如果有一个后台线程持有这个 activity 的引用，那么 activity 对应的内存就不能被回收。这最终将会导致内存耗尽，然后因为 OOM 而 crash。</p>
+
+<h4 id="对战内存泄露">对战内存泄露</h4>
+
+<p>排查内存泄露是一个全手工的过程，这在 Raizlabs 的 <a href="http://www.raizlabs.com/dev/2014/03/wrangling-dalvik-memory-management-in-android-part-1-of-2/">Wrangling Dalvik</a> 系列文章中有详细描述。</p>
+
+<p>以下几个关键步骤：</p>
+
+<ol>
+<li><p>通过 <a href="https://bugsnag.com/">Bugsnag</a>, <a href="https://try.crashlytics.com/">Crashlytics</a> 或者 <a href="https://play.google.com/apps/publish/">Developer Console</a> 等统计平台，了解 <code>OutOfMemoryError</code> 情况。</p></li>
+<li><p>重现问题。为了重现问题，机型非常重要，因为一些问题只在特定的设备上会出现。为了找到特定的机型，你需要想尽一切办法，你可能需要去买，去借，甚至去偷。 当然，为了确定复现步骤，你需要一遍一遍地去尝试。一切都是非常原始和粗暴的。</p></li>
+<li><p>在发生内存泄露的时候，把内存 Dump 出来。具体<a href="https://gist.github.com/pyricau/4726389fd64f3b7c6f32">看这里</a>。</p></li>
+<li><p>然后，你需要在 <a href="http://eclipse.org/mat/">MAT</a> 或者 <a href="https://www.yourkit.com/">YourKit</a> 之类的内存分析工具中反复查看，找到那些原本该被回收掉的对象。</p></li>
+<li><p>计算这个对象到 GC roots 的最短强引用路径。</p></li>
+<li><p>确定引用路径中的哪个引用是不该有的，然后修复问题。</p></li>
+</ol>
+
+<p>很复杂对吧？</p>
+
+<p>如果有一个类库能在发生 OOM 之前把这些事情全部都搞定，然后你只要修复这些问题就好了，岂不妙哉！</p>
+
+<h4 id="leakcanary">LeakCanary</h4>
+
+<p><a href="https://github.com/square/leakcanary">LeakCanary</a> 是一个检测内存楼的开源类库。你可以在 debug 包种轻松检测内存泄露。</p>
+
+<p>先看一个例子:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">class Cat {
+}
+
+class Box {
+  Cat hiddenCat;
+}
+class Docker {
+    // 静态变量，将不会被回收，除非加载 Docker 类的 ClassLoader 被回收。
+    static Box container;
+}
+
+// ...
+
+Box box = new Box();
+
+// 薛定谔之猫
+Cat schrodingerCat = new Cat();
+box.hiddenCat = schrodingerCat;
+Docker.container = box;
+</code></pre></div>
+<p>创建一个<code>RefWatcher</code>，监控对象引用情况。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">// 我们期待薛定谔之猫很快就会消失（或者不消失），我们监控一下
+refWatcher.watch(schrodingerCat);
+</code></pre></div>
+<p>当发现有内存泄露的时候，你会看到一个很漂亮的 leak trace 报告:</p>
+
+<ul>
+<li>GC ROOT static Docker.container</li>
+<li>references Box.hiddenCat</li>
+<li>leaks Cat instance</li>
+</ul>
+
+<p>我们知道，你很忙，每天都有一大堆需求。所以我们把这个事情弄得很简单，你只需要添加一行代码就行了。然后 LeakCanary 就会自动侦测 activity 的内存泄露了。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">public class ExampleApplication extends Application {
+  @Override public void onCreate() {
+    super.onCreate();
+    LeakCanary.install(this);
+  }
+}
+</code></pre></div>
+<p>然后你会在通知栏看到这样很漂亮的一个界面:</p>
+
+<div class='row'>
+<div class='col-md-8 col-md-offset-2'>
+<img src='https://corner.squareup.com/images/leakcanary/leaktrace.png'/>
+</div>
+
+<p></div></p>
+
+<h4 id="结论">结论</h4>
+
+<p>使用 LeakCanary 之后，我们修复了我们 APP 中相当多的内存泄露。我们甚至发现了 <a href="https://github.com/square/leakcanary/blob/master/library/leakcanary-android/src/main/java/com/squareup/leakcanary/AndroidExcludedRefs.java">Android SDK 中的一些内存泄露问题</a>。</p>
+
+<p>结果是惊艳的，我们减少了 94% 的由 OOM 导致的 crash。</p>
+
+<div class='row'>
+<div class='col-md-8 col-md-offset-2'>
+<img src='https://corner.squareup.com/images/leakcanary/oom_rate.png'/>
+</div>
+
+<p></div></p>
+
+<p>如果你也想消灭 OOM crash，那还犹豫什么，赶快使用 <a href="https://github.com/square/leakcanary">LeakCanary</a></p>
+
+            <hr>
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'srain'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+            
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+try
+{
+    ga('create', 'UA-43024238-1', 'liaohuqiu.net');
+    ga('send', 'pageview');
+} catch(err) {
+    console.log(err);
+}
+</script>
+
+<script src="/assets/static/bt3/js/bootstrap.min.js"></script>
+</body>
+</html>
