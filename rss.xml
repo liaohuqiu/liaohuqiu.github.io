@@ -6,8 +6,8 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Sun, 10 May 2015 07:44:29 +0800</pubDate>
-    <lastBuildDate>Sun, 10 May 2015 07:44:29 +0800</lastBuildDate>
+    <pubDate>Sun, 10 May 2015 08:00:56 +0800</pubDate>
+    <lastBuildDate>Sun, 10 May 2015 08:00:56 +0800</lastBuildDate>
 
     
     <item>
@@ -20,14 +20,22 @@
 
 &lt;p&gt;Android 和 Java 内存泄露检测。&lt;/p&gt;
 
+&lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;“A small leak will sink a great ship.”&lt;/em&gt; - Benjamin Franklin&lt;/p&gt;
+
+&lt;p&gt;千里之堤， 毁于蚁穴。 -- 《韩非子·喻老》&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;div class='row'&gt;
 &lt;div class='col-md-8 col-md-offset-2'&gt;
-&lt;img src='https://github.com/square/leakcanary/raw/master/assets/screenshot.png' /&gt;
+&lt;img src='https://raw.githubusercontent.com/liaohuqiu/leakcanary/master/assets/screenshot.png' /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;demo&quot;&gt;demo&lt;/h4&gt;
+
+&lt;p&gt;一个非常简单的 LeakCanary demo: &lt;a href=&quot;https://github.com/liaohuqiu/leakcanary-demo&quot;&gt;https://github.com/liaohuqiu/leakcanary-demo&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;开始使用&quot;&gt;开始使用&lt;/h3&gt;
 
@@ -221,6 +229,15 @@
   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/application&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/manifest&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class='row'&gt;
+&lt;div class='col-md-4 col-md-offset-4'&gt;
+&lt;img src='https://github.com/liaohuqiu/leakcanary/raw/master/assets/icon_512.png'/&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;hr&gt;
+
 &lt;h4 id=&quot;demo&quot;&gt;demo&lt;/h4&gt;
 
 &lt;p&gt;一个非常简单的 LeakCanary demo: &lt;a href=&quot;https://github.com/liaohuqiu/leakcanary-demo&quot;&gt;https://github.com/liaohuqiu/leakcanary-demo&lt;/a&gt;&lt;/p&gt;
