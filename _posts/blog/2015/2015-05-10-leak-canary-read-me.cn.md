@@ -9,13 +9,21 @@ category: blog
 
 Android 和 Java 内存泄露检测。
 
-*“A small leak will sink a great ship.”* - Benjamin Franklin
+> *“A small leak will sink a great ship.”* - Benjamin Franklin
+
+> 千里之堤， 毁于蚁穴。 -- 《韩非子·喻老》
 
 <div class='row'>
 <div class='col-md-8 col-md-offset-2'>
-<img src='https://github.com/square/leakcanary/raw/master/assets/screenshot.png' />
+<img src='https://raw.githubusercontent.com/liaohuqiu/leakcanary/master/assets/screenshot.png' />
 </div>
 </div>
+
+
+#### demo
+
+一个非常简单的 LeakCanary demo: https://github.com/liaohuqiu/leakcanary-demo
+
 
 ### 开始使用
 
@@ -250,6 +258,14 @@ public class DebugExampleApplication extends ExampleApplication {
   </application>
 </manifest>
 ```
+
+<div class='row'>
+<div class='col-md-4 col-md-offset-4'>
+<img src='https://github.com/liaohuqiu/leakcanary/raw/master/assets/icon_512.png'/>
+</div>
+</div>
+
+---
 
 #### demo
 
