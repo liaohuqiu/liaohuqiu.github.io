@@ -4,7 +4,7 @@
   <title>Yet Another Summer Rain</title>
   <link href="http://liaohuqiu.net/"/>
   <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
-  <updated>2015-05-10T08:00:56+08:00</updated>
+  <updated>2015-05-11T09:42:53+08:00</updated>
   <id>http://liaohuqiu.net/</id>
   <author>
     <name>Huqiu Liao / Srain</name>
@@ -318,7 +318,7 @@
 
 &lt;h4 id=&quot;leakcanary&quot;&gt;LeakCanary&lt;/h4&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/square/leakcanary&quot;&gt;LeakCanary&lt;/a&gt; 是一个检测内存楼的开源类库。你可以在 debug 包种轻松检测内存泄露。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/square/leakcanary&quot;&gt;LeakCanary&lt;/a&gt; 是一个检测内存泄露的开源类库。你可以在 debug 包种轻松检测内存泄露。&lt;/p&gt;
 
 &lt;p&gt;先看一个例子:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;class Cat {
