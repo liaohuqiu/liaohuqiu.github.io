@@ -71,7 +71,7 @@ java.lang.OutOfMemoryError
 
 #### LeakCanary
 
-[LeakCanary](https://github.com/square/leakcanary) 是一个检测内存楼的开源类库。你可以在 debug 包种轻松检测内存泄露。
+[LeakCanary](https://github.com/square/leakcanary) 是一个检测内存泄露的开源类库。你可以在 debug 包种轻松检测内存泄露。
 
 先看一个例子:
 
