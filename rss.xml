@@ -6,9 +6,56 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Mon, 11 May 2015 09:42:53 +0800</pubDate>
-    <lastBuildDate>Mon, 11 May 2015 09:42:53 +0800</lastBuildDate>
+    <pubDate>Wed, 13 May 2015 15:05:51 +0800</pubDate>
+    <lastBuildDate>Wed, 13 May 2015 15:05:51 +0800</lastBuildDate>
 
+    
+    <item>
+      <title>通过 shell 执行 python 报错: No such file or directory</title>
+      <link>http://liaohuqiu.net/cn/posts/python-script-in-bin-directory</link>
+      <pubDate>Wed, 13 May 2015 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/cn/posts/python-script-in-bin-directory</guid>
+      <description>&lt;h4 id=&quot;问题&quot;&gt;问题&lt;/h4&gt;
+
+&lt;p&gt;有一个 python 的小脚本 &lt;a href=&quot;https://github.com/liaohuqiu/keep-running&quot;&gt;keep-running&lt;/a&gt;，是用来实现守护进程的，当进程退出之后，会重新启动进程。&lt;/p&gt;
+
+&lt;p&gt;这是一个工具脚本，发布到了Pypi: &lt;a href=&quot;https://pypi.python.org/pypi/keep-running&quot;&gt;https://pypi.python.org/pypi/keep-running&lt;/a&gt; ，安装时只要一个命令：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;pip install keep-running
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;安装之后，这个脚本会拷贝到 &lt;code&gt;/usr//bin&lt;/code&gt;。我们期待安装之后，可以通过命令行运行：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;[huqiu@101 android-gems-middleware]$ keep-running
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;当然，为了可以直接运行，需要在脚本头部加上这样一段，这个是基础知识了：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;#!/usr/bin/env python
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;实际上，运行之后：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;[huqiu@101 android-gems-middleware]$ keep-running
+: No such file or directory
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;但是可以通过 python 执行：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;[huqiu@101 android-gems-middleware]$ python keep-running
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4 id=&quot;原因&quot;&gt;原因&lt;/h4&gt;
+
+&lt;p&gt;原因是：该脚本文件格式是 dos 格式 而非 unix 格式。&lt;/p&gt;
+
+&lt;p&gt;dos格式下，换行符是 CRLF 的问题，使得第一行变成了（CR 的 ascii 码是 016）：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;#!/usr/bin/env python\015
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;修改成 unix 格式就好了。我刚发布了 &lt;a href=&quot;https://github.com/liaohuqiu/keep-running/releases/tag/1.0.0&quot;&gt;1.0.0&lt;/a&gt; 解决了这个问题。&lt;/p&gt;
+
+&lt;h4 id=&quot;修改方法&quot;&gt;修改方法&lt;/h4&gt;
+
+&lt;p&gt;在 vim 中，查看文件格式，并设置，保存即可&lt;/p&gt;
+
+&lt;p&gt;查看&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;:set ff
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;设置&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;:set ff=unix
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
     
     <item>
       <title>LeakCanary 中文使用说明</title>
@@ -2940,6 +2987,81 @@ B
     </item>
     
     <item>
+      <title>setup log center</title>
+      <link>http://liaohuqiu.net/posts/log-center</link>
+      <pubDate>Wed, 28 May 2014 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/posts/log-center</guid>
+      <description>&lt;p&gt;In *inux System, there are some log tools, for example: syslog, rsyslog, syslog-ng, etc..&lt;/p&gt;
+
+&lt;p&gt;In our program we can record log to syslog, for example in php:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_NOTICE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;srain&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;some messages@&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Y-m-d H:i:s&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;openlog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_PID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_LOCAL6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;syslog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;closelog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;When we have more than one webserver which will record log, we need a log center to keep all of the log.&lt;/p&gt;
+
+&lt;h3 id=&quot;forwarding&quot;&gt;Forwarding&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;syslog&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    10.11.2.13  # the port is 514 and using the UDP protocal.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    @@10.11.2.13:514    # udp
+*.local6    @10.11.2.13:514     # tcp more reliable than udp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;description d_loghost { udp(&amp;quot;10.11.2.13&amp;quot; port(514)};
+
+log { source(s_sys); description(d_loghost)};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;reciving&quot;&gt;Reciving&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# for udp reception
+$ModLoad imudp
+$UDPServerRun 514
+
+# for tcp reception
+$ModLoad imtcp
+$InputTCPServerRun 514
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;destination df_wrt0 {
+    #  keep log into diffrent files
+    file(&amp;quot;/var/log/$PROGRAM-$YEAR$MONTH$DAY&amp;quot;
+            template(&amp;quot;$FULLDATE $SOURCEIP-$HOST[$PID]: $MSG\n&amp;quot;)
+            template_escape(yes)
+        );
+};
+
+source s_net {
+    udp(ip(0.0.0.0) port(514));
+    tcp(ip(0.0.0.0) port(514));
+};
+
+log { source(s_net); description(df_wrt0)};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;preformance&quot;&gt;Preformance&lt;/h3&gt;
+
+&lt;p&gt;I prefer syslog/rsyslog + syslog-ng. It will be more stable and easy to config.&lt;/p&gt;
+
+&lt;p&gt;There were more than 2000 clients to send log to a log center.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>日志中心：统一日志服务器</title>
       <link>http://liaohuqiu.net/cn/posts/log-center</link>
       <pubDate>Wed, 28 May 2014 00:00:00 +0800</pubDate>
@@ -3013,81 +3135,6 @@ log { source(s_net); description(df_wrt0)};
 &lt;h3 id=&quot;性能&quot;&gt;性能&lt;/h3&gt;
 
 &lt;p&gt;syslog + syslog-ng。曾经有2000+的web往一台日志服务器上汇总。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>setup log center</title>
-      <link>http://liaohuqiu.net/posts/log-center</link>
-      <pubDate>Wed, 28 May 2014 00:00:00 +0800</pubDate>
-      <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/posts/log-center</guid>
-      <description>&lt;p&gt;In *inux System, there are some log tools, for example: syslog, rsyslog, syslog-ng, etc..&lt;/p&gt;
-
-&lt;p&gt;In our program we can record log to syslog, for example in php:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_NOTICE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;srain&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;some messages@&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Y-m-d H:i:s&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;openlog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_PID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_LOCAL6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;syslog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;closelog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;When we have more than one webserver which will record log, we need a log center to keep all of the log.&lt;/p&gt;
-
-&lt;h3 id=&quot;forwarding&quot;&gt;Forwarding&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;syslog&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    10.11.2.13  # the port is 514 and using the UDP protocal.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    @@10.11.2.13:514    # udp
-*.local6    @10.11.2.13:514     # tcp more reliable than udp
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;description d_loghost { udp(&amp;quot;10.11.2.13&amp;quot; port(514)};
-
-log { source(s_sys); description(d_loghost)};
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;reciving&quot;&gt;Reciving&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# for udp reception
-$ModLoad imudp
-$UDPServerRun 514
-
-# for tcp reception
-$ModLoad imtcp
-$InputTCPServerRun 514
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;destination df_wrt0 {
-    #  keep log into diffrent files
-    file(&amp;quot;/var/log/$PROGRAM-$YEAR$MONTH$DAY&amp;quot;
-            template(&amp;quot;$FULLDATE $SOURCEIP-$HOST[$PID]: $MSG\n&amp;quot;)
-            template_escape(yes)
-        );
-};
-
-source s_net {
-    udp(ip(0.0.0.0) port(514));
-    tcp(ip(0.0.0.0) port(514));
-};
-
-log { source(s_net); description(df_wrt0)};
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;preformance&quot;&gt;Preformance&lt;/h3&gt;
-
-&lt;p&gt;I prefer syslog/rsyslog + syslog-ng. It will be more stable and easy to config.&lt;/p&gt;
-
-&lt;p&gt;There were more than 2000 clients to send log to a log center.&lt;/p&gt;
 </description>
     </item>
     
