@@ -98,7 +98,7 @@ Date()/36e5)];</script>
 
 <p>原因是：该脚本文件格式是 dos 格式 而非 unix 格式。</p>
 
-<p>dos格式下，换行符是 CRLF 的问题，使得第一行变成了（CR 的 ascii 码是 016）：</p>
+<p>dos格式下，换行符是 CRLF 的问题，使得第一行变成了（CR 的 ascii 码是 015）：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">#!/usr/bin/env python\015
 </code></pre></div>
 <p>修改成 unix 格式就好了。我刚发布了 <a href="https://github.com/liaohuqiu/keep-running/releases/tag/1.0.0">1.0.0</a> 解决了这个问题。</p>

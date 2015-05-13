@@ -6,8 +6,8 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Wed, 13 May 2015 15:05:51 +0800</pubDate>
-    <lastBuildDate>Wed, 13 May 2015 15:05:51 +0800</lastBuildDate>
+    <pubDate>Wed, 13 May 2015 15:22:21 +0800</pubDate>
+    <lastBuildDate>Wed, 13 May 2015 15:22:21 +0800</lastBuildDate>
 
     
     <item>
@@ -40,7 +40,7 @@
 
 &lt;p&gt;原因是：该脚本文件格式是 dos 格式 而非 unix 格式。&lt;/p&gt;
 
-&lt;p&gt;dos格式下，换行符是 CRLF 的问题，使得第一行变成了（CR 的 ascii 码是 016）：&lt;/p&gt;
+&lt;p&gt;dos格式下，换行符是 CRLF 的问题，使得第一行变成了（CR 的 ascii 码是 015）：&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;#!/usr/bin/env python\015
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;修改成 unix 格式就好了。我刚发布了 &lt;a href=&quot;https://github.com/liaohuqiu/keep-running/releases/tag/1.0.0&quot;&gt;1.0.0&lt;/a&gt; 解决了这个问题。&lt;/p&gt;
