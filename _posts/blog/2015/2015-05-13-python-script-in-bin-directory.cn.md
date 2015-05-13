@@ -44,7 +44,7 @@ pip install keep-running
 
 原因是：该脚本文件格式是 dos 格式 而非 unix 格式。
 
-dos格式下，换行符是 CRLF 的问题，使得第一行变成了（CR 的 ascii 码是 016）：
+dos格式下，换行符是 CRLF 的问题，使得第一行变成了（CR 的 ascii 码是 015）：
 
 ```
 #!/usr/bin/env python\015
