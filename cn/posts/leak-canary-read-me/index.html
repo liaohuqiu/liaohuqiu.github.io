@@ -240,9 +240,10 @@ Date()/36e5)];</script>
 
 <p>你可以改变处理完成的默认行为，将 leak trace 和 heap dump 上传到你的服务器以便统计分析。</p>
 
-<p>创建一个 <code>AbstractAnalysisResultService</code>， 最简单的就是继承 <code>DefaultAnalysisResultService</code> ：</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LeakUploadService</span> <span class="kd">extends</span> <span class="n">DefaultAnalysisResultService</span> <span class="o">{</span>
-  <span class="nd">@Override</span> <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">afterDefaultHandling</span><span class="o">(</span><span class="n">HeapDump</span> <span class="n">heapDump</span><span class="o">,</span> <span class="n">AnalysisResult</span> <span class="n">result</span><span class="o">,</span> <span class="n">String</span> <span class="n">leakInfo</span><span class="o">)</span> <span class="o">{</span>
+<p>创建一个 <code>LeakUploadService</code>， 最简单的就是继承 <code>DisplayLeakService</code> ：</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LeakUploadService</span> <span class="kd">extends</span> <span class="n">DisplayLeakService</span> <span class="o">{</span>
+  <span class="nd">@Override</span>
+  <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">afterDefaultHandling</span><span class="o">(</span><span class="n">HeapDump</span> <span class="n">heapDump</span><span class="o">,</span> <span class="n">AnalysisResult</span> <span class="n">result</span><span class="o">,</span> <span class="n">String</span> <span class="n">leakInfo</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">if</span> <span class="o">(!</span><span class="n">result</span><span class="o">.</span><span class="na">leakFound</span> <span class="o">||</span> <span class="n">result</span><span class="o">.</span><span class="na">excludedLeak</span><span class="o">)</span> <span class="o">{</span>
       <span class="k">return</span><span class="o">;</span>
     <span class="o">}</span>
