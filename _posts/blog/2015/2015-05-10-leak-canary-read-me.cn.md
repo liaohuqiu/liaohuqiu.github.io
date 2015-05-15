@@ -200,11 +200,12 @@ res/
 
 你可以改变处理完成的默认行为，将 leak trace 和 heap dump 上传到你的服务器以便统计分析。
 
-创建一个 `AbstractAnalysisResultService`， 最简单的就是继承 `DefaultAnalysisResultService` ：
+创建一个 `LeakUploadService`， 最简单的就是继承 `DisplayLeakService` ：
 
 ```java
-public class LeakUploadService extends DefaultAnalysisResultService {
-  @Override protected void afterDefaultHandling(HeapDump heapDump, AnalysisResult result, String leakInfo) {
+public class LeakUploadService extends DisplayLeakService {
+  @Override
+  protected void afterDefaultHandling(HeapDump heapDump, AnalysisResult result, String leakInfo) {
     if (!result.leakFound || result.excludedLeak) {
       return;
     }
