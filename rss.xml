@@ -6,9 +6,99 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Fri, 15 May 2015 09:41:19 +0800</pubDate>
-    <lastBuildDate>Fri, 15 May 2015 09:41:19 +0800</lastBuildDate>
+    <pubDate>Sat, 30 May 2015 11:12:47 +0800</pubDate>
+    <lastBuildDate>Sat, 30 May 2015 11:12:47 +0800</lastBuildDate>
 
+    
+    <item>
+      <title>2015年5月：在路上</title>
+      <link>http://liaohuqiu.net/cn/posts/2015-may</link>
+      <pubDate>Sat, 30 May 2015 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/cn/posts/2015-may</guid>
+      <description>&lt;h3 id=&quot;流水的五月&quot;&gt;流水的五月&lt;/h3&gt;
+
+&lt;p&gt;流水般，5 月过去了。这个月中发生了好多事情。&lt;/p&gt;
+
+&lt;p&gt;月初假期，大醉了一场，祭一次结束，祈一个开始。&lt;/p&gt;
+
+&lt;p&gt;三天假期结束了，每天的重复：上班，下班，上班，下班……工作之余收拾收拾 android-gems，于是很快就弄好了。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;听别人悲欢离合，看掌心幸福，已淡薄如烟。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;感谢这段时间一起陪伴的朋友们，尤其是：我弟弟，雷子，国征，文科。沁。伽非，本月。&lt;/p&gt;
+
+&lt;p&gt;感谢 Panda。&lt;/p&gt;
+
+&lt;p&gt;月底辗转了杭州和上海。感谢国征每天帮我浇花。其实，我想说的是牵牛花死了不是寿终正寝，而是你没浇他们。&lt;/p&gt;
+
+&lt;p&gt;27号，在杭州事情完了之后，请了一天假，周四晚上到上海，本想周五找黄黎明见面吃个饭什么的。&lt;/p&gt;
+
+&lt;p&gt;到了酒店，看了一晚上 Google IO。睡了一小会，醒来感觉疲惫至极，病患隐隐作痛，想先回家歇歇先了。直接定了回北京的机票。&lt;/p&gt;
+
+&lt;h3 id=&quot;两个女孩&quot;&gt;两个女孩&lt;/h3&gt;
+
+&lt;p&gt;12:20 的 HU7608，买票太晚，座位被随机安排在机尾的 50C。&lt;/p&gt;
+
+&lt;p&gt;到了座位，隔壁的浓妆女孩在很用心地自拍：左边来一张！右边再来一张！我赶紧退出摄像头视野。&lt;/p&gt;
+
+&lt;p&gt;延误，说什么飞机故障。&lt;/p&gt;
+
+&lt;p&gt;在等待的一个小时中，给 android-gems 加了 badge，从中间件到js全改了一遍。&lt;/p&gt;
+
+&lt;p&gt;51D 座上，一个素颜女孩厚厚的《白夜行》。&lt;/p&gt;
+
+&lt;p&gt;好吧，“梦想着偶然能有一天再相见”。&lt;/p&gt;
+
+&lt;h3 id=&quot;异地双活&quot;&gt;异地双活&lt;/h3&gt;
+
+&lt;p&gt;互联网黑色的五月。异地双活在过去一周成了热词。&lt;/p&gt;
+
+&lt;p&gt;27 号，答辩前，17点30左右，伽非想买一个可乐的，发现支付宝出问题了。群里说光纤断了，P1。PE正在切流。&lt;/p&gt;
+
+&lt;p&gt;2个小时左右服务恢复。光纤是半夜才恢复的。确实是双活。&lt;/p&gt;
+
+&lt;p&gt;28 号，携程因发布问题导致全站。首页直接导流到了艺龙，开启了双活新模式:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;携程不行上艺龙，这是为大家指出双活新模式，看来以后同业公司要一对一对的开。 &lt;a href=&quot;http://weibo.com/1421147990/CjW09kXRu&quot;&gt;@eygle&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class='row'&gt;
+    &lt;div class='col-md-6 col-md-offset-3'&gt;
+    &lt;img src='http://ww4.sinaimg.cn/large/54b4ff56gw1esk1q41fayj20ox05fq58.jpg' /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;异地双活系统的几个大范例，优酷收购土豆，58收购赶集、安居客，滴滴收购快的，携程收购艺龙。今天，携程服务器出问题，收购艺龙的伟大意义展现出来了，流量还是自己的。不要什么事情都从技术出发。你看掏钱买不是更快更好么？  &lt;a href=&quot;http://weibo.com/1400229064/CjW04i83F&quot;&gt;@tinyfool&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;同日，艺龙又被 DDOS 了。&lt;/p&gt;
+
+&lt;h3 id=&quot;uber&quot;&gt;UBer&lt;/h3&gt;
+
+&lt;p&gt;Uber 真是一个伟大的产品。这个月，即使是周末去公司，也改成用 UBer 了。&lt;/p&gt;
+
+&lt;p&gt;Uber 的派单模式，不管在哪都能让乘客很容易叫上车。&lt;/p&gt;
+
+&lt;p&gt;资费比出租车低，一般地，从惠新西街南口四环到国贸不到30元。车租车是45左右。&lt;/p&gt;
+
+&lt;p&gt;在淘宝城外面，乱哄哄的出租车，那体验简直糟糕极了。拒载，拼车，服务态度差。27号雨夜，我还担心建瓴他们怎么回去呢。到大门口时，车双闪在那里等着了。&lt;/p&gt;
+
+&lt;p&gt;今年春节，又从上海中转，南北广场上那出租车的态度，简直就是一个恶棍。28 号我到上海时，轻松愉快，半个小时就到了外滩。&lt;/p&gt;
+
+&lt;p&gt;一大早，在松江也叫上了车，很快把我送到了虹桥。&lt;/p&gt;
+
+&lt;p&gt;服务好，车也比出租车好，私家车的司机们的素质更是高出不少。这段时间遇到的司机，和他们交流，让我开了不少眼界。&lt;/p&gt;
+
+&lt;p&gt;Uber 是一个伟大的产品，高速发展中，他们也招人。 Android: &lt;a href=&quot;https://www.uber.com/jobs/4801&quot;&gt;https://www.uber.com/jobs/4801&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;最后，我的邀请码是： &lt;strong&gt;ubersrain&lt;/strong&gt;  。首次乘车，使用这个优惠码，我们都将得到 30 元的优惠。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>通过 shell 执行 python 报错: No such file or directory</title>
@@ -433,36 +523,6 @@ refWatcher.watch(schrodingerCat);
     </item>
     
     <item>
-      <title>有一事相求，请在 GitHub 上关注我吧</title>
-      <link>http://liaohuqiu.net/cn/posts/follow-me-on-github</link>
-      <pubDate>Tue, 05 May 2015 00:00:00 +0800</pubDate>
-      <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/cn/posts/follow-me-on-github</guid>
-      <description>&lt;p&gt;非常抱歉写这样一个文章，我遇到一个事情，需要大家的帮助。&lt;/p&gt;
-
-&lt;p&gt;最近内部公司举行一个活动，评比开源社区的活跃贡献者。评比指标是 GitHub 上 Follower 和 Contribution 的数量。&lt;/p&gt;
-
-&lt;p&gt;GitHub是一个伟大的网站，我们可以和来自世界各地的朋友协作，交流，分享： &lt;code&gt;Build software better, together.&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;我也开源了一些项目，并且认真维护和改进：跟进issue，修复问题，更新完善文档。我希望这些项目对需要的人有帮助，希望我的工作可以让项目的使用者们心生喜悦。&lt;/p&gt;
-
-&lt;p&gt;我参加了公司的这个评比活动，希望成为公司和同事认同的 “&lt;code&gt;开源社区的活跃贡献者&lt;/code&gt;”，我持续提交， 一直很活跃，但我发现我的 Follower 数量较少，可能无法被评选上，所以我在这里请求朋友们关注我的 GitHub ：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;h4&gt;&lt;a href=&quot;https://github.com/liaohuqiu&quot;&gt;https://github.com/liaohuqiu&lt;/a&gt;&lt;/h4&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;谢谢大家。&lt;/p&gt;
-
-&lt;p&gt;我对很多技术领域都感兴趣，如果发现有新的好的项目，我也会通过 Star 来分享给大家。&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;另外，这个是我的新浪微博，&lt;a href=&quot;http://weibo.com/liaohuqiu&quot;&gt;http://weibo.com/liaohuqiu&lt;/a&gt; 欢迎和朋友们分享交流。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Help: Would you please follow me on GitHub</title>
       <link>http://liaohuqiu.net/posts/follow-me-on-github</link>
       <pubDate>Tue, 05 May 2015 00:00:00 +0800</pubDate>
@@ -493,6 +553,36 @@ refWatcher.watch(schrodingerCat);
 &lt;hr&gt;
 
 &lt;p&gt;And here is my twitter: &lt;a href=&quot;https://twitter.com/liaohuqiu&quot;&gt;https://twitter.com/liaohuqiu&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>有一事相求，请在 GitHub 上关注我吧</title>
+      <link>http://liaohuqiu.net/cn/posts/follow-me-on-github</link>
+      <pubDate>Tue, 05 May 2015 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/cn/posts/follow-me-on-github</guid>
+      <description>&lt;p&gt;非常抱歉写这样一个文章，我遇到一个事情，需要大家的帮助。&lt;/p&gt;
+
+&lt;p&gt;最近内部公司举行一个活动，评比开源社区的活跃贡献者。评比指标是 GitHub 上 Follower 和 Contribution 的数量。&lt;/p&gt;
+
+&lt;p&gt;GitHub是一个伟大的网站，我们可以和来自世界各地的朋友协作，交流，分享： &lt;code&gt;Build software better, together.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;我也开源了一些项目，并且认真维护和改进：跟进issue，修复问题，更新完善文档。我希望这些项目对需要的人有帮助，希望我的工作可以让项目的使用者们心生喜悦。&lt;/p&gt;
+
+&lt;p&gt;我参加了公司的这个评比活动，希望成为公司和同事认同的 “&lt;code&gt;开源社区的活跃贡献者&lt;/code&gt;”，我持续提交， 一直很活跃，但我发现我的 Follower 数量较少，可能无法被评选上，所以我在这里请求朋友们关注我的 GitHub ：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;h4&gt;&lt;a href=&quot;https://github.com/liaohuqiu&quot;&gt;https://github.com/liaohuqiu&lt;/a&gt;&lt;/h4&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;谢谢大家。&lt;/p&gt;
+
+&lt;p&gt;我对很多技术领域都感兴趣，如果发现有新的好的项目，我也会通过 Star 来分享给大家。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;另外，这个是我的新浪微博，&lt;a href=&quot;http://weibo.com/liaohuqiu&quot;&gt;http://weibo.com/liaohuqiu&lt;/a&gt; 欢迎和朋友们分享交流。&lt;/p&gt;
 </description>
     </item>
     
