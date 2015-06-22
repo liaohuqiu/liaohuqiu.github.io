@@ -13,7 +13,7 @@ She walks out the door, turns into thousands of butterflies in the moonlight. Th
 
 <div class='row'>
 <div class='col-md-8 col-md-offset-2'>
-<img src='/images/corpse-bride/trun-to-butter-fly.png' />
+<img src='http://srain-blog.qiniudn.com/corpse-bride/trun-to-butter-fly.png' />
 </div>
 </div>
 
@@ -51,7 +51,7 @@ Even after he had cheat her, hurt her, she still loved him very much:
 
 <div class='row'>
 <div class='col-md-8 col-md-offset-2'>
-<img src='/images/corpse-bride/shed-the-tears.png' />
+<img src='http://srain-blog.qiniudn.com/corpse-bride/shed-the-tears.png' />
 </div>
 </div>
 
@@ -69,7 +69,7 @@ Even after he had cheat her, hurt her, she still loved him very much:
 
 <div class='row'>
 <div class='col-md-8 col-md-offset-2'>
-<img src='/images/corpse-bride/but-you-are-not-mine.png' />
+<img src='http://srain-blog.qiniudn.com/corpse-bride/but-you-are-not-mine.png' />
 </div>
 </div>
 
