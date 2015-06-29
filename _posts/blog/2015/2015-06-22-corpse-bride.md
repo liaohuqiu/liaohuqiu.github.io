@@ -43,7 +43,7 @@ This is another kind of implicit evil.
 
 ### the Sweet and Kind
 
-Even was betrayed, and was hurt by the greatest evil in the world, she still keep her wonderful personality, and she is Emily.
+Even was betrayed, and was hurt by the greatest evil in the world, she still kept her wonderful personality, and she is Emily.
 
 She tried to love Victor, try to make him happy. Though she was in shabby, she gave Victor his long-dead dog, the Scraps. I think that is very sweet of her.
 
