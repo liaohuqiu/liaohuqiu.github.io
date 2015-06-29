@@ -7,9 +7,9 @@ category: blog
 
 Finally, Victor and Victoria are together, and it seems that the story has a happy ending.
 
-And finally after suffered a long pain, Emily find the peace.
+And finally after suffered a long pain, Emily finds the peace.
 
-She walks out the door, turns into thousands of butterflies in the moonlight. The butterflies fly up towards to the moon.
+She walks out the door, turns into thousands of butterflies in the moonlight. The butterflies fly towards to the moon.
 
 <div class='row'>
 <div class='col-md-8 col-md-offset-2'>
@@ -21,15 +21,15 @@ She walks out the door, turns into thousands of butterflies in the moonlight. Th
 
 I think her life is sorrowful, even when she is an undead.
 
-There are two kind of men who always hurt the girl like Emily, who is beautiful and sweet, kind and innocent.
+There are two kinds of men who always hurt the girls like Emily, who are beautiful and sweet, kind and innocent.
 
-The first one is the guys who like Lord Barkis, who is handsome, mysterious and sophisticated.
+The first one is the guys like Lord Barkis, who are handsome, mysterious and sophisticated.
 
-He lied to her, cheated her, murdered her. He was really a bad guy, he tried to lie the whole world, and should and also had been punished. 
+He lied to her, cheated her, murdered her. He was really a bad guy, he tried to lie to the whole world, and should and also had been punished. 
 
 This is a kind of explicit evil.
 
-The second one is the guys who like Victor, who is also good looking but naive and irresponsible.
+The second one is the guys like Victor, who are also good looking but naive and irresponsible.
 
 He was far away from ready for the marriage with Victoria. He always tried to make things right, but in fact just made it worse.
 
@@ -37,9 +37,9 @@ He practiced the vows in the dark woods, and placed the wedding ring to Emily's 
 
 After Emily misunderstood that, he did not try to explain that at the first time, instead of that, he try to cheat her and make use of her to take him back the Land of the Living.
 
-In fact, He didn't love Emily. After he was told by Mayhew that Victoria would marry with Lord Barkis, he decided to marry with Emily in the name of keeping his promise.
+In fact, He didn't love Emily. After he was told by Mayhew that Victoria would marry Lord Barkis, he decided to marry Emily in the name of keeping his promise.
 
-This another kind of implicit evil.
+This is another kind of implicit evil.
 
 ### the Sweet and Kind
 
