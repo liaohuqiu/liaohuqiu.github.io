@@ -4,13 +4,84 @@
   <title>Yet Another Summer Rain</title>
   <link href="http://liaohuqiu.net/"/>
   <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
-  <updated>2015-06-29T23:43:29+08:00</updated>
+  <updated>2015-07-19T14:43:02+08:00</updated>
   <id>http://liaohuqiu.net/</id>
   <author>
     <name>Huqiu Liao / Srain</name>
     <email>srain@php.net</email>
   </author>
 
+  
+  <entry>
+    <id>http://liaohuqiu.net/posts/iso-8601-date-format</id>
+    <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/iso-8601-date-format"/>
+    <title>ISO 8601 in Bash, Java, PHP, Python</title>
+    <published>2015-07-17T00:00:00+08:00</published>
+    <updated>2015-07-17T00:00:00+08:00</updated>
+    <author>
+      <name>Huqiu Liao / Srain</name>
+      <uri>http://liaohuqiu.net/</uri>
+    </author>
+    <content type="html">&lt;p&gt;Here is &lt;a href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot;&gt;https://en.wikipedia.org/wiki/ISO_8601&lt;/a&gt;,  what we want is &lt;code&gt;2015-07-17T17:47:18+08:00&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;bash&quot;&gt;BASH&lt;/h3&gt;
+
+&lt;p&gt;format:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;date +&lt;span class=&quot;s2&quot;&gt;&amp;quot;%Y-%m-%dT%H:%M:%S%:z&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/&quot;&gt;http://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;php&quot;&gt;PHP&lt;/h3&gt;
+
+&lt;p&gt;It is easy!&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;$time = time();&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;$time_str = date(&amp;#39;c&amp;#39;, $time);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The parsing is also easy.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;$time = strtotime($time_str);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;http://php.net/manual/en/function.date.php&quot;&gt;http://php.net/manual/en/function.date.php&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;java&quot;&gt;Java&lt;/h3&gt;
+
+&lt;p&gt;Java is verbose.&lt;/p&gt;
+
+&lt;p&gt;Format:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * Transform Date to ISO 8601 string.&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; */&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fromDate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;formatted&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;SimpleDateFormat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;yyyy-MM-dd&amp;#39;T&amp;#39;HH:mm:ssZ&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;formatted&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;substring&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;:&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;formatted&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;substring&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Parse:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * Transform ISO 8601 string to Date.&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; */&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;toDate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iso8601string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ParseException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iso8601string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Z&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;+00:00&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;substring&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;substring&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// to get rid of the &amp;quot;:&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IndexOutOfBoundsException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ParseException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Invalid length&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;SimpleDateFormat&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;SimpleDateFormat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;yyyy-MM-dd&amp;#39;T&amp;#39;HH:mm:ssZ&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;date&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/2201925/converting-iso-8601-compliant-string-to-java-util-date&quot;&gt;http://stackoverflow.com/questions/2201925/converting-iso-8601-compliant-string-to-java-util-date&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;python&quot;&gt;Python&lt;/h3&gt;
+
+&lt;p&gt;Format, oh no.&lt;/p&gt;
+
+&lt;p&gt;About parsing, you may need these:  &lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://pypi.python.org/pypi/iso8601&quot;&gt;https://pypi.python.org/pypi/iso8601&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <id>http://liaohuqiu.net/posts/corpse-bride</id>
@@ -652,40 +723,6 @@ refWatcher.watch(schrodingerCat);
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/follow-me-on-github</id>
-    <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/follow-me-on-github"/>
-    <title>有一事相求，请在 GitHub 上关注我吧</title>
-    <published>2015-05-05T00:00:00+08:00</published>
-    <updated>2015-05-05T00:00:00+08:00</updated>
-    <author>
-      <name>Huqiu Liao / Srain</name>
-      <uri>http://liaohuqiu.net/</uri>
-    </author>
-    <content type="html">&lt;p&gt;非常抱歉写这样一个文章，我遇到一个事情，需要大家的帮助。&lt;/p&gt;
-
-&lt;p&gt;最近内部公司举行一个活动，评比开源社区的活跃贡献者。评比指标是 GitHub 上 Follower 和 Contribution 的数量。&lt;/p&gt;
-
-&lt;p&gt;GitHub是一个伟大的网站，我们可以和来自世界各地的朋友协作，交流，分享： &lt;code&gt;Build software better, together.&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;我也开源了一些项目，并且认真维护和改进：跟进issue，修复问题，更新完善文档。我希望这些项目对需要的人有帮助，希望我的工作可以让项目的使用者们心生喜悦。&lt;/p&gt;
-
-&lt;p&gt;我参加了公司的这个评比活动，希望成为公司和同事认同的 “&lt;code&gt;开源社区的活跃贡献者&lt;/code&gt;”，我持续提交， 一直很活跃，但我发现我的 Follower 数量较少，可能无法被评选上，所以我在这里请求朋友们关注我的 GitHub ：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;h4&gt;&lt;a href=&quot;https://github.com/liaohuqiu&quot;&gt;https://github.com/liaohuqiu&lt;/a&gt;&lt;/h4&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;谢谢大家。&lt;/p&gt;
-
-&lt;p&gt;我对很多技术领域都感兴趣，如果发现有新的好的项目，我也会通过 Star 来分享给大家。&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;另外，这个是我的新浪微博，&lt;a href=&quot;http://weibo.com/liaohuqiu&quot;&gt;http://weibo.com/liaohuqiu&lt;/a&gt; 欢迎和朋友们分享交流。&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
     <id>http://liaohuqiu.net/posts/follow-me-on-github</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/follow-me-on-github"/>
     <title>Help: Would you please follow me on GitHub</title>
@@ -720,6 +757,40 @@ refWatcher.watch(schrodingerCat);
 &lt;hr&gt;
 
 &lt;p&gt;And here is my twitter: &lt;a href=&quot;https://twitter.com/liaohuqiu&quot;&gt;https://twitter.com/liaohuqiu&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <id>http://liaohuqiu.net/cn/posts/follow-me-on-github</id>
+    <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/follow-me-on-github"/>
+    <title>有一事相求，请在 GitHub 上关注我吧</title>
+    <published>2015-05-05T00:00:00+08:00</published>
+    <updated>2015-05-05T00:00:00+08:00</updated>
+    <author>
+      <name>Huqiu Liao / Srain</name>
+      <uri>http://liaohuqiu.net/</uri>
+    </author>
+    <content type="html">&lt;p&gt;非常抱歉写这样一个文章，我遇到一个事情，需要大家的帮助。&lt;/p&gt;
+
+&lt;p&gt;最近内部公司举行一个活动，评比开源社区的活跃贡献者。评比指标是 GitHub 上 Follower 和 Contribution 的数量。&lt;/p&gt;
+
+&lt;p&gt;GitHub是一个伟大的网站，我们可以和来自世界各地的朋友协作，交流，分享： &lt;code&gt;Build software better, together.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;我也开源了一些项目，并且认真维护和改进：跟进issue，修复问题，更新完善文档。我希望这些项目对需要的人有帮助，希望我的工作可以让项目的使用者们心生喜悦。&lt;/p&gt;
+
+&lt;p&gt;我参加了公司的这个评比活动，希望成为公司和同事认同的 “&lt;code&gt;开源社区的活跃贡献者&lt;/code&gt;”，我持续提交， 一直很活跃，但我发现我的 Follower 数量较少，可能无法被评选上，所以我在这里请求朋友们关注我的 GitHub ：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;h4&gt;&lt;a href=&quot;https://github.com/liaohuqiu&quot;&gt;https://github.com/liaohuqiu&lt;/a&gt;&lt;/h4&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;谢谢大家。&lt;/p&gt;
+
+&lt;p&gt;我对很多技术领域都感兴趣，如果发现有新的好的项目，我也会通过 Star 来分享给大家。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;另外，这个是我的新浪微博，&lt;a href=&quot;http://weibo.com/liaohuqiu&quot;&gt;http://weibo.com/liaohuqiu&lt;/a&gt; 欢迎和朋友们分享交流。&lt;/p&gt;
 </content>
   </entry>
   
@@ -1215,6 +1286,60 @@ Platform.Version=5.0.1
   </entry>
   
   <entry>
+    <id>http://liaohuqiu.net/posts/simple-hashset</id>
+    <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/simple-hashset"/>
+    <title>SimpleHashSet, save 25% memory</title>
+    <published>2015-01-12T00:00:00+08:00</published>
+    <updated>2015-01-12T00:00:00+08:00</updated>
+    <author>
+      <name>Huqiu Liao / Srain</name>
+      <uri>http://liaohuqiu.net/</uri>
+    </author>
+    <content type="html">&lt;p&gt;In fact, &lt;code&gt;java.util.HashSet&lt;/code&gt; is just a wrapper of &lt;code&gt;java.util.HashMap&lt;/code&gt;, so its retained heap size is O(&lt;code&gt;n&lt;/code&gt; * &lt;code&gt;entry_size&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;java.util.HashMap&lt;/code&gt; is using separate chaining to process collision, &lt;code&gt;n&lt;/code&gt; is the sum of the count of element and the count of free slots remain in array.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;entry_size&lt;/code&gt; is the shadow heap size of the &lt;code&gt;jave.util.HashMap.Entry&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The definition of &lt;code&gt;java.util.HashMap.Entry&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;static class Entry&amp;lt;K,V&amp;gt; implements Map.Entry&amp;lt;K,V&amp;gt; {
+    final K key;
+    V value;          
+    Entry&amp;lt;K,V&amp;gt; next;
+    int hash;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So the shadow heap size is:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt; 32bit JVM:  8 + 4 * 4 = 24 bytes&lt;/li&gt;
+&lt;li&gt; 64bit JVM &lt;code&gt;-UseCompressedOops&lt;/code&gt;: 16 + 8 * 4 = 48 bytes.&lt;/li&gt;
+&lt;li&gt; 64bit JVM &lt;code&gt;+UseCompressedOops&lt;/code&gt;: 12 + 4 * 4 + 4(padding) = 32 bytes.&lt;/li&gt;
+&lt;li&gt; Davlik:    12 + 4 * 4 + 4(padding) = 32 bytes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In fact &lt;code&gt;V value&lt;/code&gt; is usless for &lt;code&gt;HashSet&lt;/code&gt;, we can implement a HashSet use the following &lt;code&gt;SimpleHashSetEntry&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;private static class SimpleHashSetEntry&amp;lt;T&amp;gt; {
+
+    private int mHash;
+    private T mKey;
+    private SimpleHashSetEntry&amp;lt;T&amp;gt; mNext;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The retained heap size is:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt; 32bit JVM:  8 + 4 * 3 + (padding) = 24 bytes&lt;/li&gt;
+&lt;li&gt; 64bit JVM &lt;code&gt;-UseCompressedOops&lt;/code&gt;: 16 + 8 * 3 = 40 bytes. (8 bytes saved, 16.66%)&lt;/li&gt;
+&lt;li&gt; 64bit JVM &lt;code&gt;+UseCompressedOops&lt;/code&gt;: 12 + 4 * 3 = 24 bytes. (8 bytes saved, 25%)&lt;/li&gt;
+&lt;li&gt; Davlik:    12 + 4 * 3 = 24 bytes (8 bytes saved, 25%).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;SimpleHashSet at Github: &lt;a href=&quot;https://github.com/liaohuqiu/SimpleHashSet&quot;&gt;https://github.com/liaohuqiu/SimpleHashSet&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
     <id>http://liaohuqiu.net/cn/posts/simple-hashset</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/simple-hashset"/>
     <title>SimpleHashSet, 节省25%内存</title>
@@ -1267,60 +1392,6 @@ Platform.Version=5.0.1
 &lt;p&gt;除了了32位的JVM上，都能节省可观的内存。&lt;/p&gt;
 
 &lt;p&gt;项目地址: &lt;a href=&quot;https://github.com/liaohuqiu/SimpleHashSet&quot;&gt;https://github.com/liaohuqiu/SimpleHashSet&lt;/a&gt;&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
-    <id>http://liaohuqiu.net/posts/simple-hashset</id>
-    <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/simple-hashset"/>
-    <title>SimpleHashSet, save 25% memory</title>
-    <published>2015-01-12T00:00:00+08:00</published>
-    <updated>2015-01-12T00:00:00+08:00</updated>
-    <author>
-      <name>Huqiu Liao / Srain</name>
-      <uri>http://liaohuqiu.net/</uri>
-    </author>
-    <content type="html">&lt;p&gt;In fact, &lt;code&gt;java.util.HashSet&lt;/code&gt; is just a wrapper of &lt;code&gt;java.util.HashMap&lt;/code&gt;, so its retained heap size is O(&lt;code&gt;n&lt;/code&gt; * &lt;code&gt;entry_size&lt;/code&gt;).&lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;java.util.HashMap&lt;/code&gt; is using separate chaining to process collision, &lt;code&gt;n&lt;/code&gt; is the sum of the count of element and the count of free slots remain in array.&lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;entry_size&lt;/code&gt; is the shadow heap size of the &lt;code&gt;jave.util.HashMap.Entry&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;The definition of &lt;code&gt;java.util.HashMap.Entry&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;static class Entry&amp;lt;K,V&amp;gt; implements Map.Entry&amp;lt;K,V&amp;gt; {
-    final K key;
-    V value;          
-    Entry&amp;lt;K,V&amp;gt; next;
-    int hash;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;So the shadow heap size is:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt; 32bit JVM:  8 + 4 * 4 = 24 bytes&lt;/li&gt;
-&lt;li&gt; 64bit JVM &lt;code&gt;-UseCompressedOops&lt;/code&gt;: 16 + 8 * 4 = 48 bytes.&lt;/li&gt;
-&lt;li&gt; 64bit JVM &lt;code&gt;+UseCompressedOops&lt;/code&gt;: 12 + 4 * 4 + 4(padding) = 32 bytes.&lt;/li&gt;
-&lt;li&gt; Davlik:    12 + 4 * 4 + 4(padding) = 32 bytes.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In fact &lt;code&gt;V value&lt;/code&gt; is usless for &lt;code&gt;HashSet&lt;/code&gt;, we can implement a HashSet use the following &lt;code&gt;SimpleHashSetEntry&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;private static class SimpleHashSetEntry&amp;lt;T&amp;gt; {
-
-    private int mHash;
-    private T mKey;
-    private SimpleHashSetEntry&amp;lt;T&amp;gt; mNext;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The retained heap size is:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt; 32bit JVM:  8 + 4 * 3 + (padding) = 24 bytes&lt;/li&gt;
-&lt;li&gt; 64bit JVM &lt;code&gt;-UseCompressedOops&lt;/code&gt;: 16 + 8 * 3 = 40 bytes. (8 bytes saved, 16.66%)&lt;/li&gt;
-&lt;li&gt; 64bit JVM &lt;code&gt;+UseCompressedOops&lt;/code&gt;: 12 + 4 * 3 = 24 bytes. (8 bytes saved, 25%)&lt;/li&gt;
-&lt;li&gt; Davlik:    12 + 4 * 3 = 24 bytes (8 bytes saved, 25%).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;SimpleHashSet at Github: &lt;a href=&quot;https://github.com/liaohuqiu/SimpleHashSet&quot;&gt;https://github.com/liaohuqiu/SimpleHashSet&lt;/a&gt;&lt;/p&gt;
 </content>
   </entry>
   
