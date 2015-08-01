@@ -4,13 +4,170 @@
   <title>Yet Another Summer Rain</title>
   <link href="http://liaohuqiu.net/"/>
   <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
-  <updated>2015-07-19T14:43:02+08:00</updated>
+  <updated>2015-08-01T11:41:47+08:00</updated>
   <id>http://liaohuqiu.net/</id>
   <author>
     <name>Huqiu Liao / Srain</name>
     <email>srain@php.net</email>
   </author>
 
+  
+  <entry>
+    <id>http://liaohuqiu.net/posts/speed-up-your-build</id>
+    <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/speed-up-your-build"/>
+    <title>Speed up your build in Android Studio</title>
+    <published>2015-07-22T00:00:00+08:00</published>
+    <updated>2015-07-22T00:00:00+08:00</updated>
+    <author>
+      <name>Huqiu Liao / Srain</name>
+      <uri>http://liaohuqiu.net/</uri>
+    </author>
+    <content type="html">&lt;p&gt;Gradle provides a lot of flexibility, but this power comes at the cost of a slower build process. Android Studio is based on Gradle.&lt;/p&gt;
+
+&lt;p&gt;When we are working with Android Studio, as our project is getting bigger and bigger, our daily / development build is getting slower and slower.&lt;/p&gt;
+
+&lt;p&gt;For example, one of our project need more than 40s to complete build once after we modified the Java code. If we build 100 times per day, the build process will take nearly an hour. Image that we can do nothing but only wait in an hour, that is really a waste of time.&lt;/p&gt;
+
+&lt;p&gt;Today we will try to make the build a little faster.&lt;/p&gt;
+
+&lt;p&gt;There are some solution we can find easily by a simple search:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;org.gradle.daemon = true&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;org.gradle.parallel = true&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;make gradle work in &lt;code&gt;offline work&lt;/code&gt; mode&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;set up large vm heap size: 2G&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;But all of them can not bring significant speeding up, the build tools in Android Studio has already done most these work.&lt;/p&gt;
+
+&lt;h3 id=&quot;profile&quot;&gt;Profile&lt;/h3&gt;
+
+&lt;p&gt;If you want to figure out the cause, you can try profiling your build process. You can add the &lt;code&gt;--profile&lt;/code&gt; flag to any Gradle task. Adding this flag will create a report under &lt;code&gt;build/reports/profile&lt;/code&gt;. It looks like:&lt;/p&gt;
+
+&lt;div class='row'&gt;
+    &lt;div class='col-md-8 col-md-offset-2'&gt;
+        &lt;img src='/assets/img/speed-up-your-build/profile.png' width='100%'/&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/speed-up-your-build-profile/profile-sample.html&quot;&gt;Here&lt;/a&gt; is an example.&lt;/p&gt;
+
+&lt;p&gt;To enable &lt;code&gt;profile&lt;/code&gt; in Android Studio, you must config the command line options like bellow:&lt;/p&gt;
+
+&lt;div class='row'&gt;
+    &lt;div class='col-md-8 col-md-offset-2'&gt;
+        &lt;img src='/assets/img/speed-up-your-build/enable-profile-in-as.png' width='100%'/&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;why-it-is-so-slow&quot;&gt;Why it is so slow&lt;/h3&gt;
+
+&lt;p&gt;After we inspect the profile again and again, we can figure out some reasons that make build process slow:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;some long running tasks&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;multiDexEnabled&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;too much dependencies&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;solutions&quot;&gt;Solutions&lt;/h3&gt;
+
+&lt;h4 id=&quot;1.-disable-long-running-task&quot;&gt;1. Disable long running task&lt;/h4&gt;
+
+&lt;p&gt;We can disable some long running tasks in dev mode.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;n&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;whenTaskAdded&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;task&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;startsWith&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;:zxing:&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;startsWith&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;:share-lib:&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;enabled&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4 id=&quot;2.-shrink-the-project&quot;&gt;2. Shrink the project&lt;/h4&gt;
+
+&lt;p&gt;We can not really shrink the project unless we remove some functions of our APP. But we can shrink our project in dev mode. We can disable some module, here is the structure of our project:&lt;/p&gt;
+
+&lt;div class='row'&gt;
+    &lt;div class='col-md-4 col-md-offset-4'&gt;
+        &lt;img src='/assets/img/speed-up-your-build/project-structure.png' width='100%'/&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;There are two grops of module:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;share-lib&lt;/code&gt; and &lt;code&gt;share-lib-no-op&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;zxing&lt;/code&gt; and &lt;code&gt;zxing-no-op&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;no-op&lt;/code&gt; project is an empty module, we include this empty module in debug complie:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;n&quot;&gt;debugCompile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;project&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;:share-lib-no-op&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;releaseCompile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;project&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;:share-lib&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;debugCompile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;project&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;:zxing-no-op&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;releaseCompile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;project&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;:zxing&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The code in &lt;code&gt;share-lib&lt;/code&gt; do the real work:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ShareProxyImpl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sendShare&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ShareRequestDO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Activity&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ISShareController&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;startShare&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;activity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ShareRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onActivityResult&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Context&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requestCode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resultCode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Intent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;ISShareController&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;onActivityResult&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;requestCode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resultCode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And the code in &lt;code&gt;share-lib-no-op&lt;/code&gt; does nothing:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ShareProxyImpl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sendShare&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ShareRequestDO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Activity&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Toast&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;makeText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;activity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;ShareProxyImpl:no-op:sendShare&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Toast&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;LENGTH_SHORT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onActivityResult&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Context&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requestCode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resultCode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Intent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Toast&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;makeText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;ShareProxyImpl:no-op:onActivityResult&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Toast&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;LENGTH_SHORT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In this way, we can reduce a lot of dependence in debug complie. Once the project is shrinked, we do not need &lt;code&gt;multiDexEnabled&lt;/code&gt; in debug mode. &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;This is the profile before we adjust our project:&lt;/p&gt;
+
+&lt;div class='row'&gt;
+    &lt;div class='col-md-8 col-md-offset-2'&gt;
+        &lt;img src='/assets/img/speed-up-your-build/profile-before.png' width='100%'/&gt;
+    &lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;And this is the current profile:&lt;/p&gt;
+
+&lt;div class='row'&gt;
+    &lt;div class='col-md-8 col-md-offset-2'&gt;
+        &lt;img src='/assets/img/speed-up-your-build/profile-after.png' width='100%'/&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We only need about 15 seconds to finish a debug build, if we only modify the resource, that will be faster.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;3.-jack-and-jill&quot;&gt;3. Jack and Jill&lt;/h4&gt;
+
+&lt;p&gt;It is a experimental new Android tool chain, it may be faster in the future, for it can meger the dex file in a very fast way.&lt;/p&gt;
+
+&lt;div class='row'&gt;
+    &lt;div class='col-md-8 col-md-offset-2'&gt;
+        &lt;img src='/assets/img/speed-up-your-build/jack-and-jill.png' width='100%'/&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;But currently(2015/07/28) it is very slow, the complie process take a very long time, it is nearly 2 minitues in our project.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <id>http://liaohuqiu.net/posts/iso-8601-date-format</id>
@@ -840,15 +997,15 @@ refWatcher.watch(schrodingerCat);
 
 &lt;h3 id=&quot;关于红杏&quot;&gt;关于红杏&lt;/h3&gt;
 
-&lt;p&gt;现在我有2个linode的vps一个在日本，一个在亚特兰大。在使用&lt;a href=&quot;http://honx.in/_VQUKQ4kWGnizm1m6&quot;&gt;红杏&lt;/a&gt;之前，我一直用他们。&lt;/p&gt;
+&lt;p&gt;现在我有2个linode的vps一个在日本，一个在亚特兰大。在使用&lt;a href=&quot;http://honx.in/_VHRiboIaAxADyQus&quot;&gt;红杏&lt;/a&gt;之前，我一直用他们。&lt;/p&gt;
 
-&lt;p&gt;后来用了&lt;a href=&quot;http://honx.in/_VQUKQ4kWGnizm1m6&quot;&gt;红杏&lt;/a&gt;，但是遗憾的是，&lt;a href=&quot;http://honx.in/_VQUKQ4kWGnizm1m6&quot;&gt;红杏&lt;/a&gt;只能在chrome使用。虽然这对我来说足够了。但是遇到更新android sdk之类的时候，还是需要借助vpn或者代理。&lt;/p&gt;
+&lt;p&gt;后来用了&lt;a href=&quot;http://honx.in/_VHRiboIaAxADyQus&quot;&gt;红杏&lt;/a&gt;，但是遗憾的是，&lt;a href=&quot;http://honx.in/_VHRiboIaAxADyQus&quot;&gt;红杏&lt;/a&gt;只能在chrome使用。虽然这对我来说足够了。但是遇到更新android sdk之类的时候，还是需要借助vpn或者代理。&lt;/p&gt;
 
 &lt;p&gt;但是红杏实在是太方便了。我再也不用折腾那些代理配置，整理添加网站名单了。这为我节省出来很多可观的时间。&lt;/p&gt;
 
 &lt;p&gt;但是除了推荐给我身边的几个朋友使用，我并没有我大范围推荐给大家使用。&lt;/p&gt;
 
-&lt;p&gt;直到&lt;a href=&quot;http://honx.in/_VQUKQ4kWGnizm1m6&quot;&gt;红杏&lt;/a&gt;推出了公益版: &lt;a href=&quot;http://blog.honx.in/dev-only&quot;&gt;http://blog.honx.in/dev-only&lt;/a&gt; ，这是一个http代理，可免费使用，专供开发人员使用。&lt;/p&gt;
+&lt;p&gt;直到&lt;a href=&quot;http://honx.in/_VHRiboIaAxADyQus&quot;&gt;红杏&lt;/a&gt;推出了公益版: &lt;a href=&quot;http://blog.honx.in/dev-only&quot;&gt;http://blog.honx.in/dev-only&lt;/a&gt; ，这是一个http代理，可免费使用，专供开发人员使用。&lt;/p&gt;
 
 &lt;p&gt;使用这个代理，你可以很顺畅地做很多事情了:&lt;/p&gt;
 
@@ -865,17 +1022,17 @@ refWatcher.watch(schrodingerCat);
 
 &lt;p&gt;在此，我郑重推荐大家使用红杏。节省你的时间，让获取知识的过程变得不那么艰难。&lt;/p&gt;
 
-&lt;p&gt;目前&lt;a href=&quot;http://honx.in/_VQUKQ4kWGnizm1m6&quot;&gt;红杏&lt;/a&gt;按月付费是10元每月。这个已经是低得不能再低的资费。我不知道现在10块钱还可以做些什么事情: 一顿饭？一碗饺子?&lt;/p&gt;
+&lt;p&gt;目前&lt;a href=&quot;http://honx.in/_VHRiboIaAxADyQus&quot;&gt;红杏&lt;/a&gt;按月付费是10元每月。这个已经是低得不能再低的资费。我不知道现在10块钱还可以做些什么事情: 一顿饭？一碗饺子?&lt;/p&gt;
 
-&lt;p&gt;每月10元，打开所有原来打不开的网页。&lt;a href=&quot;http://honx.in/_VQUKQ4kWGnizm1m6&quot;&gt;红杏&lt;/a&gt; 支持2个终端同时在线。如果你有两个电脑，你可以共用一个账号。当然，也可以两人共享。&lt;/p&gt;
+&lt;p&gt;每月10元，打开所有原来打不开的网页。&lt;a href=&quot;http://honx.in/_VHRiboIaAxADyQus&quot;&gt;红杏&lt;/a&gt; 支持2个终端同时在线。如果你有两个电脑，你可以共用一个账号。当然，也可以两人共享。&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;我弟弟还在学校读博，有很强的这个需求，之前都是用我的vpn的。我跟他推荐&lt;a href=&quot;http://honx.in/_VQUKQ4kWGnizm1m6&quot;&gt;红杏&lt;/a&gt;，说你可以用我的账号。他说不用，自己买，没多少钱，也算是对良心企业的一个支持，做事真体面，这点特别像我。&lt;/p&gt;
+&lt;p&gt;我弟弟还在学校读博，有很强的这个需求，之前都是用我的vpn的。我跟他推荐&lt;a href=&quot;http://honx.in/_VHRiboIaAxADyQus&quot;&gt;红杏&lt;/a&gt;，说你可以用我的账号。他说不用，自己买，没多少钱，也算是对良心企业的一个支持，做事真体面，这点特别像我。&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;每个人访问的站点需求不一样，每个人网络情况也不一样，一份大而全的白名单并不能很好解决问题，这也是我使用&lt;code&gt;Proxy SwitchySharp&lt;/code&gt;遇到的问题。&lt;/p&gt;
 
-&lt;p&gt;而&lt;a href=&quot;http://honx.in/_VQUKQ4kWGnizm1m6&quot;&gt;红杏&lt;/a&gt;对我最大的好处是可以轻松管理需要代理的域名，对于不可访问的域名，智能提示。我不再需要打开chrome的控制台，看到底是哪些域名没法访问了。&lt;/p&gt;
+&lt;p&gt;而&lt;a href=&quot;http://honx.in/_VHRiboIaAxADyQus&quot;&gt;红杏&lt;/a&gt;对我最大的好处是可以轻松管理需要代理的域名，对于不可访问的域名，智能提示。我不再需要打开chrome的控制台，看到底是哪些域名没法访问了。&lt;/p&gt;
 
 &lt;p&gt;我自己有vps，但我已经厌倦管理名单那样琐碎，耗时的事情。使用工具在于节省时间，而不是投入更多时间。&lt;/p&gt;
 
@@ -1286,60 +1443,6 @@ Platform.Version=5.0.1
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/posts/simple-hashset</id>
-    <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/simple-hashset"/>
-    <title>SimpleHashSet, save 25% memory</title>
-    <published>2015-01-12T00:00:00+08:00</published>
-    <updated>2015-01-12T00:00:00+08:00</updated>
-    <author>
-      <name>Huqiu Liao / Srain</name>
-      <uri>http://liaohuqiu.net/</uri>
-    </author>
-    <content type="html">&lt;p&gt;In fact, &lt;code&gt;java.util.HashSet&lt;/code&gt; is just a wrapper of &lt;code&gt;java.util.HashMap&lt;/code&gt;, so its retained heap size is O(&lt;code&gt;n&lt;/code&gt; * &lt;code&gt;entry_size&lt;/code&gt;).&lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;java.util.HashMap&lt;/code&gt; is using separate chaining to process collision, &lt;code&gt;n&lt;/code&gt; is the sum of the count of element and the count of free slots remain in array.&lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;entry_size&lt;/code&gt; is the shadow heap size of the &lt;code&gt;jave.util.HashMap.Entry&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;The definition of &lt;code&gt;java.util.HashMap.Entry&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;static class Entry&amp;lt;K,V&amp;gt; implements Map.Entry&amp;lt;K,V&amp;gt; {
-    final K key;
-    V value;          
-    Entry&amp;lt;K,V&amp;gt; next;
-    int hash;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;So the shadow heap size is:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt; 32bit JVM:  8 + 4 * 4 = 24 bytes&lt;/li&gt;
-&lt;li&gt; 64bit JVM &lt;code&gt;-UseCompressedOops&lt;/code&gt;: 16 + 8 * 4 = 48 bytes.&lt;/li&gt;
-&lt;li&gt; 64bit JVM &lt;code&gt;+UseCompressedOops&lt;/code&gt;: 12 + 4 * 4 + 4(padding) = 32 bytes.&lt;/li&gt;
-&lt;li&gt; Davlik:    12 + 4 * 4 + 4(padding) = 32 bytes.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In fact &lt;code&gt;V value&lt;/code&gt; is usless for &lt;code&gt;HashSet&lt;/code&gt;, we can implement a HashSet use the following &lt;code&gt;SimpleHashSetEntry&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;private static class SimpleHashSetEntry&amp;lt;T&amp;gt; {
-
-    private int mHash;
-    private T mKey;
-    private SimpleHashSetEntry&amp;lt;T&amp;gt; mNext;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The retained heap size is:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt; 32bit JVM:  8 + 4 * 3 + (padding) = 24 bytes&lt;/li&gt;
-&lt;li&gt; 64bit JVM &lt;code&gt;-UseCompressedOops&lt;/code&gt;: 16 + 8 * 3 = 40 bytes. (8 bytes saved, 16.66%)&lt;/li&gt;
-&lt;li&gt; 64bit JVM &lt;code&gt;+UseCompressedOops&lt;/code&gt;: 12 + 4 * 3 = 24 bytes. (8 bytes saved, 25%)&lt;/li&gt;
-&lt;li&gt; Davlik:    12 + 4 * 3 = 24 bytes (8 bytes saved, 25%).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;SimpleHashSet at Github: &lt;a href=&quot;https://github.com/liaohuqiu/SimpleHashSet&quot;&gt;https://github.com/liaohuqiu/SimpleHashSet&lt;/a&gt;&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
     <id>http://liaohuqiu.net/cn/posts/simple-hashset</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/simple-hashset"/>
     <title>SimpleHashSet, 节省25%内存</title>
@@ -1392,6 +1495,60 @@ Platform.Version=5.0.1
 &lt;p&gt;除了了32位的JVM上，都能节省可观的内存。&lt;/p&gt;
 
 &lt;p&gt;项目地址: &lt;a href=&quot;https://github.com/liaohuqiu/SimpleHashSet&quot;&gt;https://github.com/liaohuqiu/SimpleHashSet&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <id>http://liaohuqiu.net/posts/simple-hashset</id>
+    <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/simple-hashset"/>
+    <title>SimpleHashSet, save 25% memory</title>
+    <published>2015-01-12T00:00:00+08:00</published>
+    <updated>2015-01-12T00:00:00+08:00</updated>
+    <author>
+      <name>Huqiu Liao / Srain</name>
+      <uri>http://liaohuqiu.net/</uri>
+    </author>
+    <content type="html">&lt;p&gt;In fact, &lt;code&gt;java.util.HashSet&lt;/code&gt; is just a wrapper of &lt;code&gt;java.util.HashMap&lt;/code&gt;, so its retained heap size is O(&lt;code&gt;n&lt;/code&gt; * &lt;code&gt;entry_size&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;java.util.HashMap&lt;/code&gt; is using separate chaining to process collision, &lt;code&gt;n&lt;/code&gt; is the sum of the count of element and the count of free slots remain in array.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;entry_size&lt;/code&gt; is the shadow heap size of the &lt;code&gt;jave.util.HashMap.Entry&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The definition of &lt;code&gt;java.util.HashMap.Entry&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;static class Entry&amp;lt;K,V&amp;gt; implements Map.Entry&amp;lt;K,V&amp;gt; {
+    final K key;
+    V value;          
+    Entry&amp;lt;K,V&amp;gt; next;
+    int hash;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So the shadow heap size is:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt; 32bit JVM:  8 + 4 * 4 = 24 bytes&lt;/li&gt;
+&lt;li&gt; 64bit JVM &lt;code&gt;-UseCompressedOops&lt;/code&gt;: 16 + 8 * 4 = 48 bytes.&lt;/li&gt;
+&lt;li&gt; 64bit JVM &lt;code&gt;+UseCompressedOops&lt;/code&gt;: 12 + 4 * 4 + 4(padding) = 32 bytes.&lt;/li&gt;
+&lt;li&gt; Davlik:    12 + 4 * 4 + 4(padding) = 32 bytes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In fact &lt;code&gt;V value&lt;/code&gt; is usless for &lt;code&gt;HashSet&lt;/code&gt;, we can implement a HashSet use the following &lt;code&gt;SimpleHashSetEntry&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;private static class SimpleHashSetEntry&amp;lt;T&amp;gt; {
+
+    private int mHash;
+    private T mKey;
+    private SimpleHashSetEntry&amp;lt;T&amp;gt; mNext;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The retained heap size is:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt; 32bit JVM:  8 + 4 * 3 + (padding) = 24 bytes&lt;/li&gt;
+&lt;li&gt; 64bit JVM &lt;code&gt;-UseCompressedOops&lt;/code&gt;: 16 + 8 * 3 = 40 bytes. (8 bytes saved, 16.66%)&lt;/li&gt;
+&lt;li&gt; 64bit JVM &lt;code&gt;+UseCompressedOops&lt;/code&gt;: 12 + 4 * 3 = 24 bytes. (8 bytes saved, 25%)&lt;/li&gt;
+&lt;li&gt; Davlik:    12 + 4 * 3 = 24 bytes (8 bytes saved, 25%).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;SimpleHashSet at Github: &lt;a href=&quot;https://github.com/liaohuqiu/SimpleHashSet&quot;&gt;https://github.com/liaohuqiu/SimpleHashSet&lt;/a&gt;&lt;/p&gt;
 </content>
   </entry>
   
@@ -3401,85 +3558,6 @@ B
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/posts/log-center</id>
-    <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/log-center"/>
-    <title>setup log center</title>
-    <published>2014-05-28T00:00:00+08:00</published>
-    <updated>2014-05-28T00:00:00+08:00</updated>
-    <author>
-      <name>Huqiu Liao / Srain</name>
-      <uri>http://liaohuqiu.net/</uri>
-    </author>
-    <content type="html">&lt;p&gt;In *inux System, there are some log tools, for example: syslog, rsyslog, syslog-ng, etc..&lt;/p&gt;
-
-&lt;p&gt;In our program we can record log to syslog, for example in php:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_NOTICE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;srain&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;some messages@&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Y-m-d H:i:s&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;openlog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_PID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_LOCAL6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;syslog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;closelog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;When we have more than one webserver which will record log, we need a log center to keep all of the log.&lt;/p&gt;
-
-&lt;h3 id=&quot;forwarding&quot;&gt;Forwarding&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;syslog&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    10.11.2.13  # the port is 514 and using the UDP protocal.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    @@10.11.2.13:514    # udp
-*.local6    @10.11.2.13:514     # tcp more reliable than udp
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;description d_loghost { udp(&amp;quot;10.11.2.13&amp;quot; port(514)};
-
-log { source(s_sys); description(d_loghost)};
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;reciving&quot;&gt;Reciving&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# for udp reception
-$ModLoad imudp
-$UDPServerRun 514
-
-# for tcp reception
-$ModLoad imtcp
-$InputTCPServerRun 514
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;destination df_wrt0 {
-    #  keep log into diffrent files
-    file(&amp;quot;/var/log/$PROGRAM-$YEAR$MONTH$DAY&amp;quot;
-            template(&amp;quot;$FULLDATE $SOURCEIP-$HOST[$PID]: $MSG\n&amp;quot;)
-            template_escape(yes)
-        );
-};
-
-source s_net {
-    udp(ip(0.0.0.0) port(514));
-    tcp(ip(0.0.0.0) port(514));
-};
-
-log { source(s_net); description(df_wrt0)};
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;preformance&quot;&gt;Preformance&lt;/h3&gt;
-
-&lt;p&gt;I prefer syslog/rsyslog + syslog-ng. It will be more stable and easy to config.&lt;/p&gt;
-
-&lt;p&gt;There were more than 2000 clients to send log to a log center.&lt;/p&gt;
-</content>
-  </entry>
-  
-  <entry>
     <id>http://liaohuqiu.net/cn/posts/log-center</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/log-center"/>
     <title>日志中心：统一日志服务器</title>
@@ -3557,6 +3635,85 @@ log { source(s_net); description(df_wrt0)};
 &lt;h3 id=&quot;性能&quot;&gt;性能&lt;/h3&gt;
 
 &lt;p&gt;syslog + syslog-ng。曾经有2000+的web往一台日志服务器上汇总。&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <id>http://liaohuqiu.net/posts/log-center</id>
+    <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/log-center"/>
+    <title>setup log center</title>
+    <published>2014-05-28T00:00:00+08:00</published>
+    <updated>2014-05-28T00:00:00+08:00</updated>
+    <author>
+      <name>Huqiu Liao / Srain</name>
+      <uri>http://liaohuqiu.net/</uri>
+    </author>
+    <content type="html">&lt;p&gt;In *inux System, there are some log tools, for example: syslog, rsyslog, syslog-ng, etc..&lt;/p&gt;
+
+&lt;p&gt;In our program we can record log to syslog, for example in php:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_NOTICE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;srain&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;some messages@&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Y-m-d H:i:s&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;openlog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_PID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_LOCAL6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;syslog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;closelog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;When we have more than one webserver which will record log, we need a log center to keep all of the log.&lt;/p&gt;
+
+&lt;h3 id=&quot;forwarding&quot;&gt;Forwarding&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;syslog&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    10.11.2.13  # the port is 514 and using the UDP protocal.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    @@10.11.2.13:514    # udp
+*.local6    @10.11.2.13:514     # tcp more reliable than udp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;description d_loghost { udp(&amp;quot;10.11.2.13&amp;quot; port(514)};
+
+log { source(s_sys); description(d_loghost)};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;reciving&quot;&gt;Reciving&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# for udp reception
+$ModLoad imudp
+$UDPServerRun 514
+
+# for tcp reception
+$ModLoad imtcp
+$InputTCPServerRun 514
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;destination df_wrt0 {
+    #  keep log into diffrent files
+    file(&amp;quot;/var/log/$PROGRAM-$YEAR$MONTH$DAY&amp;quot;
+            template(&amp;quot;$FULLDATE $SOURCEIP-$HOST[$PID]: $MSG\n&amp;quot;)
+            template_escape(yes)
+        );
+};
+
+source s_net {
+    udp(ip(0.0.0.0) port(514));
+    tcp(ip(0.0.0.0) port(514));
+};
+
+log { source(s_net); description(df_wrt0)};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;preformance&quot;&gt;Preformance&lt;/h3&gt;
+
+&lt;p&gt;I prefer syslog/rsyslog + syslog-ng. It will be more stable and easy to config.&lt;/p&gt;
+
+&lt;p&gt;There were more than 2000 clients to send log to a log center.&lt;/p&gt;
 </content>
   </entry>
   

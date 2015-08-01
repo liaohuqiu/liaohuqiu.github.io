@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset='utf-8' />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+
+<!-- Bootstrap core CSS -->
+<link href="/assets/static/bt3/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Documentation extras -->
+<!--[if lt IE 9]><script src="/assets/static/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="/assets/static/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="/assets/static/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- jquery -->
+<script src="/assets/static/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
+
+
+<title>Speed up your build in Android Studio |  Yet Another Summer Rain</title>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <h1 id="site_title"><a href="/">Srain</a>
+            <div class='about-me'>
+                
+                <a href='/cn'>中文文章</a>
+                <a href='/about/about-me.html'>关于</a>
+                
+                <a href='/about/feed.html'>feed</a>
+            </div>
+        </h1>
+        
+        <a>Make it better.</a>
+        
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class='post'>
+    <div id="main_content_wrap" class="outer">
+        <div class="md-body main-content inner wide">
+            <!--
+            
+            <div class="alert alert-warning" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                
+                <strong><a target='_blank' href='/posts/follow-me-on-github/'>Help: Would you please follow me on GitHub</a></strong>
+                
+            </div>
+            
+            --->
+            <h2> Speed up your build in Android Studio </h2>
+            <div>
+                
+                <p> 22 Jul 2015 </p>
+            </div>
+            <hr>
+            <p>Gradle provides a lot of flexibility, but this power comes at the cost of a slower build process. Android Studio is based on Gradle.</p>
+
+<p>When we are working with Android Studio, as our project is getting bigger and bigger, our daily / development build is getting slower and slower.</p>
+
+<p>For example, one of our project need more than 40s to complete build once after we modified the Java code. If we build 100 times per day, the build process will take nearly an hour. Image that we can do nothing but only wait in an hour, that is really a waste of time.</p>
+
+<p>Today we will try to make the build a little faster.</p>
+
+<p>There are some solution we can find easily by a simple search:</p>
+
+<ul>
+<li><p><code>org.gradle.daemon = true</code></p></li>
+<li><p><code>org.gradle.parallel = true</code></p></li>
+<li><p>make gradle work in <code>offline work</code> mode</p></li>
+<li><p>set up large vm heap size: 2G</p></li>
+</ul>
+
+<p>But all of them can not bring significant speeding up, the build tools in Android Studio has already done most these work.</p>
+
+<h3 id="profile">Profile</h3>
+
+<p>If you want to figure out the cause, you can try profiling your build process. You can add the <code>--profile</code> flag to any Gradle task. Adding this flag will create a report under <code>build/reports/profile</code>. It looks like:</p>
+
+<div class='row'>
+    <div class='col-md-8 col-md-offset-2'>
+        <img src='/assets/img/speed-up-your-build/profile.png' width='100%'/>
+    </div>
+</div>
+
+<p><a href="/assets/speed-up-your-build-profile/profile-sample.html">Here</a> is an example.</p>
+
+<p>To enable <code>profile</code> in Android Studio, you must config the command line options like bellow:</p>
+
+<div class='row'>
+    <div class='col-md-8 col-md-offset-2'>
+        <img src='/assets/img/speed-up-your-build/enable-profile-in-as.png' width='100%'/>
+    </div>
+</div>
+
+<h3 id="why-it-is-so-slow">Why it is so slow</h3>
+
+<p>After we inspect the profile again and again, we can figure out some reasons that make build process slow:</p>
+
+<ul>
+<li><p>some long running tasks</p></li>
+<li><p>multiDexEnabled</p></li>
+<li><p>too much dependencies</p></li>
+</ul>
+
+<h3 id="solutions">Solutions</h3>
+
+<h4 id="1.-disable-long-running-task">1. Disable long running task</h4>
+
+<p>We can disable some long running tasks in dev mode.</p>
+<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">tasks</span><span class="o">.</span><span class="na">whenTaskAdded</span> <span class="o">{</span> <span class="n">task</span> <span class="o">-&gt;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">task</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">startsWith</span><span class="o">(</span><span class="s2">&quot;:zxing:&quot;</span><span class="o">)</span> <span class="o">||</span> <span class="n">task</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">startsWith</span><span class="o">(</span><span class="s2">&quot;:share-lib:&quot;</span><span class="o">))</span> <span class="o">{</span>
+        <span class="n">task</span><span class="o">.</span><span class="na">enabled</span> <span class="o">=</span> <span class="kc">false</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<h4 id="2.-shrink-the-project">2. Shrink the project</h4>
+
+<p>We can not really shrink the project unless we remove some functions of our APP. But we can shrink our project in dev mode. We can disable some module, here is the structure of our project:</p>
+
+<div class='row'>
+    <div class='col-md-4 col-md-offset-4'>
+        <img src='/assets/img/speed-up-your-build/project-structure.png' width='100%'/>
+    </div>
+</div>
+
+<p>There are two grops of module:</p>
+
+<ul>
+<li><p><code>share-lib</code> and <code>share-lib-no-op</code></p></li>
+<li><p><code>zxing</code> and <code>zxing-no-op</code></p>
+
+<p>The <code>no-op</code> project is an empty module, we include this empty module in debug complie:</p>
+<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">debugCompile</span><span class="o">(</span><span class="n">project</span><span class="o">(</span><span class="s1">&#39;:share-lib-no-op&#39;</span><span class="o">))</span> <span class="o">{</span>
+<span class="o">}</span>
+<span class="n">releaseCompile</span><span class="o">(</span><span class="n">project</span><span class="o">(</span><span class="s1">&#39;:share-lib&#39;</span><span class="o">))</span> <span class="o">{</span>
+<span class="o">}</span>
+<span class="n">debugCompile</span><span class="o">(</span><span class="n">project</span><span class="o">(</span><span class="s1">&#39;:zxing-no-op&#39;</span><span class="o">))</span> <span class="o">{</span>
+<span class="o">}</span>
+<span class="n">releaseCompile</span><span class="o">(</span><span class="n">project</span><span class="o">(</span><span class="s1">&#39;:zxing&#39;</span><span class="o">))</span> <span class="o">{</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>The code in <code>share-lib</code> do the real work:</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ShareProxyImpl</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sendShare</span><span class="o">(</span><span class="n">ShareRequestDO</span> <span class="n">request</span><span class="o">,</span> <span class="n">Activity</span> <span class="n">activity</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">new</span> <span class="nf">ISShareController</span><span class="o">().</span><span class="na">startShare</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="k">new</span> <span class="nf">ShareRequest</span><span class="o">(</span><span class="n">request</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onActivityResult</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="kt">int</span> <span class="n">requestCode</span><span class="o">,</span> <span class="kt">int</span> <span class="n">resultCode</span><span class="o">,</span> <span class="n">Intent</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ISShareController</span><span class="o">.</span><span class="na">onActivityResult</span><span class="o">(</span><span class="n">requestCode</span><span class="o">,</span> <span class="n">resultCode</span><span class="o">,</span> <span class="n">data</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>And the code in <code>share-lib-no-op</code> does nothing:</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ShareProxyImpl</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sendShare</span><span class="o">(</span><span class="n">ShareRequestDO</span> <span class="n">request</span><span class="o">,</span> <span class="n">Activity</span> <span class="n">activity</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">activity</span><span class="o">,</span> <span class="s">&quot;ShareProxyImpl:no-op:sendShare&quot;</span><span class="o">,</span> <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onActivityResult</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="kt">int</span> <span class="n">requestCode</span><span class="o">,</span> <span class="kt">int</span> <span class="n">resultCode</span><span class="o">,</span> <span class="n">Intent</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="s">&quot;ShareProxyImpl:no-op:onActivityResult&quot;</span><span class="o">,</span> <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></li>
+</ul>
+
+<p>In this way, we can reduce a lot of dependence in debug complie. Once the project is shrinked, we do not need <code>multiDexEnabled</code> in debug mode. </p>
+
+<ul>
+<li><p>This is the profile before we adjust our project:</p>
+
+<div class='row'>
+    <div class='col-md-8 col-md-offset-2'>
+        <img src='/assets/img/speed-up-your-build/profile-before.png' width='100%'/>
+    </div>
+</div></li>
+<li><p>And this is the current profile:</p>
+
+<div class='row'>
+    <div class='col-md-8 col-md-offset-2'>
+        <img src='/assets/img/speed-up-your-build/profile-after.png' width='100%'/>
+    </div>
+</div>
+
+<p>We only need about 15 seconds to finish a debug build, if we only modify the resource, that will be faster.</p></li>
+</ul>
+
+<h4 id="3.-jack-and-jill">3. Jack and Jill</h4>
+
+<p>It is a experimental new Android tool chain, it may be faster in the future, for it can meger the dex file in a very fast way.</p>
+
+<div class='row'>
+    <div class='col-md-8 col-md-offset-2'>
+        <img src='/assets/img/speed-up-your-build/jack-and-jill.png' width='100%'/>
+    </div>
+</div>
+
+<p>But currently(2015/07/28) it is very slow, the complie process take a very long time, it is nearly 2 minitues in our project.</p>
+
+            <hr>
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'srain'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+            
+            <script>var sharebutton_is_horizontal = false; document.write('<script src="//cdn.script.to/share2.js"></scr' + 'ipt>'); document.write("<div style='display: none'>");</script><a href="http://sharebutton.org/">social sharing buttons</a><script>document.write("</div>");</script>
+            
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+try
+{
+    ga('create', 'UA-43024238-1', 'liaohuqiu.net');
+    ga('send', 'pageview');
+} catch(err) {
+    console.log(err);
+}
+</script>
+
+<script src="/assets/static/bt3/js/bootstrap.min.js"></script>
+</body>
+</html>
