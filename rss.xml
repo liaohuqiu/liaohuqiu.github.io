@@ -6,8 +6,8 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Sat, 01 Aug 2015 11:41:47 +0800</pubDate>
-    <lastBuildDate>Sat, 01 Aug 2015 11:41:47 +0800</lastBuildDate>
+    <pubDate>Sat, 01 Aug 2015 15:11:20 +0800</pubDate>
+    <lastBuildDate>Sat, 01 Aug 2015 15:11:20 +0800</lastBuildDate>
 
     
     <item>
@@ -33,7 +33,7 @@
 &lt;li&gt;&lt;p&gt;set up large vm heap size: 2G&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;But all of them can not bring significant speeding up, the build tools in Android Studio has already done most these work.&lt;/p&gt;
+&lt;p&gt;But all of them can not bring significant speeding up, the build tool in Android Studio has already done most these work.&lt;/p&gt;
 
 &lt;h3 id=&quot;profile&quot;&gt;Profile&lt;/h3&gt;
 
