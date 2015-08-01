@@ -139,4 +139,4 @@ Facebook上月开源的Fresco 是一个Android Studio项目，作为一个基础
 好了，编译完成之后，Android Studio就可以正常运行了。
 
 ---
-[红杏]: http://honx.in/_VQUKQ4kWGnizm1m6
+[红杏]: http://honx.in/_VHRiboIaAxADyQus

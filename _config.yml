@@ -18,6 +18,8 @@ gems:           ['jekyll-multiple-languages']
 host_name:      'www.liaohuqiu.net'
 
 author:         liaohuqiu@gmail.com 廖祜秋
+s_host:         'http://srain-blog.qiniudn.com'
+# s_host:         ''
 
 # -----------------
 
