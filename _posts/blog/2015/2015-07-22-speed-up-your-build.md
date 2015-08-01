@@ -23,7 +23,7 @@ There are some solution we can find easily by a simple search:
 
 * set up large vm heap size: 2G
 
-But all of them can not bring significant speeding up, the build tools in Android Studio has already done most these work.
+But all of them can not bring significant speeding up, the build tool in Android Studio has already done most these work.
 
 ### Profile
 
