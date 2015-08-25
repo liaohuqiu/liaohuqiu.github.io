@@ -312,8 +312,7 @@ Full-Width Styles
     padding-bottom: 20px;
 }
 
-.about-me
-{
+.about-me {
     text-align: right;
     float: right;
 }
@@ -368,6 +367,11 @@ Small Device Styles
       min-width: 320px;
       max-width: 480px;
       font-size: 11px;
+  }
+
+  .about-me a {
+      margin: 0 5px;
+      font-size: 14px;
   }
 }
 
