@@ -6,9 +6,247 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Tue, 25 Aug 2015 12:10:57 +0800</pubDate>
-    <lastBuildDate>Tue, 25 Aug 2015 12:10:57 +0800</lastBuildDate>
+    <pubDate>Sat, 29 Aug 2015 12:13:44 +0800</pubDate>
+    <lastBuildDate>Sat, 29 Aug 2015 12:13:44 +0800</lastBuildDate>
 
+    
+    <item>
+      <title>为 PHP 构建 RPC 服务</title>
+      <link>http://liaohuqiu.net/cn/posts/build-rpc-service-for-php</link>
+      <pubDate>Thu, 27 Aug 2015 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/cn/posts/build-rpc-service-for-php</guid>
+      <description>&lt;p&gt;本文为 &lt;a href=&quot;http://wattech.eventdove.com/&quot;&gt;&amp;quot;2015 年一淘网、腾讯网媒&amp;amp;微博商业联合技术沙龙&amp;quot;&lt;/a&gt; Keynote 对应的博客文章。&lt;/p&gt;
+
+&lt;p&gt;对应的 Keynote 在 &lt;a href=&quot;http://www.slideshare.net/HuqiuLiao/build-rpc-for-php&quot;&gt;http://www.slideshare.net/HuqiuLiao/build-rpc-for-php&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;有问题随时交流，欢迎关注我新浪微博: &lt;a href=&quot;http://weibo.com/liaohuqiu&quot;&gt;http://weibo.com/liaohuqiu&lt;/a&gt; &lt;/p&gt;
+
+&lt;p&gt;本文提到的所有项目和代码都在我的 GitHub: &lt;a href=&quot;https://github.com/liaohuqiu&quot;&gt;https://github.com/liaohuqiu&lt;/a&gt; 同样欢迎关注。&lt;/p&gt;
+
+&lt;h3 id=&quot;php-+-rpc&quot;&gt;PHP + RPC&lt;/h3&gt;
+
+&lt;p&gt;PHP 为了资源格式，用进程方式处理请求，这使得一些和业务系统的状态量无法在 PHP 程序中进行良好的访问。&lt;/p&gt;
+
+&lt;p&gt;一些类似实时排行的业务需求，借助缓存实现或者 DB （当然，这时非常错误的做法）都无法很好实现。&lt;/p&gt;
+
+&lt;p&gt;对于类似这样系统业务状态量的实时计算更新使用中间件来实现再方便不过了。&lt;/p&gt;
+
+&lt;p&gt;现在 ICE， Thrift 等解决方案稍显笨重，开发调试部署并非一件轻松愉快的事情。而类似 YAR 这样的实现，简单但却非高效。&lt;/p&gt;
+
+&lt;p&gt;对于 PHP 我们需要一个简单高效，容易开发，容易调试，容易维护和扩展的 RPC 服务。&lt;/p&gt;
+
+&lt;h3 id=&quot;cube-prc&quot;&gt;Cube PRC&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://weibo.com/liaohuqiu&quot;&gt;Cube RPC&lt;/a&gt; 是基于 TCP/UDP 的半双工的 RPC 协议。简单，高效，容易调试和部署。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    +--------+           +--------+
+    |        | &amp;lt;-------- |        |
+    | Server |           | Client |
+    |        | --------&amp;gt; |        |
+    +--------+           +--------+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;本文给出该协议设计时的一些考虑。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;序列化协议的选择&lt;/p&gt;
+
+&lt;p&gt;选用简单类型的序列化协议，没有选择低效的 JSON， 也没有使用 Google Protobuf。选用了 &lt;a href=&quot;http://binpack.liaohuqiu.net/&quot;&gt;BinPack&lt;/a&gt;，比 MessagePack 更为简单和高效。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;RPC 协议&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;消息包含消息头部和消息体，如下&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;+--------------------+ 
+| HEADER + BODY ...  |
++--------------------+ 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;消息类型&lt;/p&gt;
+
+&lt;p&gt;Query (From client to server)
+Answer (From server to client)
+Welcome (From server to client)
+Close (client to server, or server to client)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;调用流程图&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;+--------+      +--------+
+| Server |      | Client |
++--------+      +--------+
+     |               |
+     | &amp;lt;-------------|
+     |               |
+     |  Welcome      |
+     | ------------&amp;gt; |
+     |               |
+     |  Query        |
+     | &amp;lt;-------------|
+     |               |
+     |  Answer       |
+     | ------------&amp;gt; |
+     |               |
+     | &amp;lt;-------------|
+     | ------------&amp;gt; |
+     |               |
+     |  Closed       |
+     | &amp;lt;-------------|
+     |               |
+     |               |
+     | ---- X -------|
+     |               |
+     |               |
+     |               |
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;调用流程&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;连接建立，Server 发送 Welcome 消息。Client 收到 Welcome 消息之后才可以发送 &lt;code&gt;Query&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;当 Client 或者 Server 要关闭连接时，发送 Closed 消息，另一方资源清理然后断开链接，己方侦测到链接断开后清理资源。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Proxy&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;在 Server 侧，Proxy 看起来是一个 Client&lt;/li&gt;
+&lt;li&gt;在 Client 侧，Proxy 看起来却又像一个 Server&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;消息头部&quot;&gt;消息头部&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;数据结构&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Header&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;union&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;uint16_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;u16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;magic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msgType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;cm&quot;&gt;/**&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;     * only Query and Answer has this field&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;     */&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;uint32_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bodySize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// little engine&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;文本表现形式:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;byte    &amp;quot;C&amp;quot;
+byte    &amp;quot;B&amp;quot;
+byte    version
+byte    message_type
+
+int32   body_size
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Message Type&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;MESSAGE_TYPE_WELCOME        = 0x01
+MESSAGE_TYPE_CLOSE          = 0x02
+MESSAGE_TYPE_QUERY          = 0x03
+MESSAGE_TYPE_ANSWER         = 0x04
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;消息体&quot;&gt;消息体&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Query&lt;/p&gt;
+
+&lt;p&gt;Query 消息体是一个数组&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;int     qid;      // 1
+string  service;  // android-gems
+string  method;   // get_index_data
+dict    params;   // {}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;PHP 代码如下:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-PHP&quot; data-lang=&quot;PHP&quot;&gt;&lt;span class=&quot;x&quot;&gt;// pack data&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;$data = array($qid, $this-&amp;gt;service, $method, $params);&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;$str = bin_encode($data);&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;$data_len = strlen($str);&lt;/span&gt;
+
+&lt;span class=&quot;x&quot;&gt;// pack header&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;$header = pack(&amp;#39;A2C2V&amp;#39;, self::MESSAGE_MAGIC, self::MESSAGE_VER, self::MESSAGE_TYPE_QUERY, $data_len);&lt;/span&gt;
+
+&lt;span class=&quot;x&quot;&gt;// send data&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;$buf = $header . $str;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;$ret = socket_write($this-&amp;gt;socket, $buf);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Answer Body&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;int     qid;        // 1
+integer status;     // 0 for normal response, none-zero for exception
+dict    data;       // {}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;正常响应下，status 为 0，否则为非零数字，并且 data 需要包含以下字段：&lt;/p&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Key&lt;/th&gt;
+&lt;th&gt;Value type&lt;/th&gt;
+&lt;th&gt;description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;exception&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;exception name&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;code&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;message&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;raiser&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;method*service @proto:host:port&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;detail&lt;/td&gt;
+&lt;td&gt;dict&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;日志-/-异常-/-调试&quot;&gt;日志 / 异常 / 调试&lt;/h4&gt;
+
+&lt;p&gt;日志&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;2015-08-27 12:24:43,692 DEBUG (&amp;#39;127.0.0.1&amp;#39;, 33441): message received: proxy.Query((2, &amp;#39;android-gems&amp;#39;, &amp;#39;index_data&amp;#39;, []))
+2015-08-27 12:24:43,692 DEBUG handle_normal_servant: proxy.Query((2, &amp;#39;android-gems&amp;#39;, &amp;#39;index_data&amp;#39;, []))
+2015-08-27 12:24:43,692 DEBUG (&amp;#39;127.0.0.1&amp;#39;, 33441): reply answer: proxy.Answer((2, 0, {&amp;#39;libs&amp;#39;: [], &amp;#39;un_review_count&amp;#39;: 1, &amp;#39;users&amp;#39;: []}))
+2015-08-27 12:24:43,723 DEBUG (&amp;#39;127.0.0.1&amp;#39;, 33441): connection has been closed by client.
+2015-08-27 12:24:43,723 DEBUG (&amp;#39;127.0.0.1&amp;#39;, 33441): close connection
+2015-08-27 12:24:43,723 DEBUG (&amp;#39;127.0.0.1&amp;#39;, 33441): answer fiber stop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;包含异常信息的错误日志&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;2015-08-27 12:25:06,468 DEBUG (&amp;#39;127.0.0.1&amp;#39;, 33452): message received: proxy.Query((3, &amp;#39;android-gems&amp;#39;, &amp;#39;index_data1&amp;#39;, []))
+2015-08-27 12:25:06,468 DEBUG handle_normal_servant: proxy.Query((3, &amp;#39;android-gems&amp;#39;, &amp;#39;index_data1&amp;#39;, []))
+2015-08-27 12:25:06,469 ERROR method index_data1 not found
+2015-08-27 12:25:06,469 DEBUG (&amp;#39;127.0.0.1&amp;#39;, 33452): reply answer: proxy.Answer((3, 100, {&amp;#39;exception&amp;#39;: &amp;#39;MethodNotFound&amp;#39;, &amp;#39;code&amp;#39;: 1, &amp;#39;raiser&amp;#39;: u&amp;#39;android-gems@tcp:0.0.0.0:2099&amp;#39;, &amp;#39;message&amp;#39;: u&amp;#39;servant android-gems do no have method index_data1 in adapter android-gems@tcp:0.0.0.0:2099&amp;#39;}))
+2015-08-27 12:25:06,491 DEBUG (&amp;#39;127.0.0.1&amp;#39;, 33452): connection has been closed by client.
+2015-08-27 12:25:06,491 DEBUG (&amp;#39;127.0.0.1&amp;#39;, 33452): close connection
+2015-08-27 12:25:06,491 DEBUG (&amp;#39;127.0.0.1&amp;#39;, 33452): answer fiber stop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4 id=&quot;实现&quot;&gt;实现&lt;/h4&gt;
+
+&lt;p&gt;目前已经有的实现：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Python:  &lt;a href=&quot;https://github.com/liaohuqiu/cube-rpc-python&quot;&gt;https://github.com/liaohuqiu/cube-rpc-python&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;JAVA，即将开源&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;C++，即将开源&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;现实世界的例子&quot;&gt;现实世界的例子&lt;/h4&gt;
+
+&lt;p&gt;现实世界中，已经有一些应用了。&lt;/p&gt;
+
+&lt;p&gt;比如 &lt;a href=&quot;http://www.android-gems.com/&quot;&gt;Android-Gems&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;另外，在阿里巴巴内部的一些应用，比如 “阿里巴巴技术协会” 网站，提供了排行，动态，标签等服务。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>升级到 Android 6.0</title>
@@ -868,6 +1106,36 @@ refWatcher.watch(schrodingerCat);
     </item>
     
     <item>
+      <title>有一事相求，请在 GitHub 上关注我吧</title>
+      <link>http://liaohuqiu.net/cn/posts/follow-me-on-github</link>
+      <pubDate>Tue, 05 May 2015 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/cn/posts/follow-me-on-github</guid>
+      <description>&lt;p&gt;非常抱歉写这样一个文章，我遇到一个事情，需要大家的帮助。&lt;/p&gt;
+
+&lt;p&gt;最近内部公司举行一个活动，评比开源社区的活跃贡献者。评比指标是 GitHub 上 Follower 和 Contribution 的数量。&lt;/p&gt;
+
+&lt;p&gt;GitHub是一个伟大的网站，我们可以和来自世界各地的朋友协作，交流，分享： &lt;code&gt;Build software better, together.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;我也开源了一些项目，并且认真维护和改进：跟进issue，修复问题，更新完善文档。我希望这些项目对需要的人有帮助，希望我的工作可以让项目的使用者们心生喜悦。&lt;/p&gt;
+
+&lt;p&gt;我参加了公司的这个评比活动，希望成为公司和同事认同的 “&lt;code&gt;开源社区的活跃贡献者&lt;/code&gt;”，我持续提交， 一直很活跃，但我发现我的 Follower 数量较少，可能无法被评选上，所以我在这里请求朋友们关注我的 GitHub ：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;h4&gt;&lt;a href=&quot;https://github.com/liaohuqiu&quot;&gt;https://github.com/liaohuqiu&lt;/a&gt;&lt;/h4&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;谢谢大家。&lt;/p&gt;
+
+&lt;p&gt;我对很多技术领域都感兴趣，如果发现有新的好的项目，我也会通过 Star 来分享给大家。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;另外，这个是我的新浪微博，&lt;a href=&quot;http://weibo.com/liaohuqiu&quot;&gt;http://weibo.com/liaohuqiu&lt;/a&gt; 欢迎和朋友们分享交流。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Help: Would you please follow me on GitHub</title>
       <link>http://liaohuqiu.net/posts/follow-me-on-github</link>
       <pubDate>Tue, 05 May 2015 00:00:00 +0800</pubDate>
@@ -898,36 +1166,6 @@ refWatcher.watch(schrodingerCat);
 &lt;hr&gt;
 
 &lt;p&gt;And here is my twitter: &lt;a href=&quot;https://twitter.com/liaohuqiu&quot;&gt;https://twitter.com/liaohuqiu&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>有一事相求，请在 GitHub 上关注我吧</title>
-      <link>http://liaohuqiu.net/cn/posts/follow-me-on-github</link>
-      <pubDate>Tue, 05 May 2015 00:00:00 +0800</pubDate>
-      <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/cn/posts/follow-me-on-github</guid>
-      <description>&lt;p&gt;非常抱歉写这样一个文章，我遇到一个事情，需要大家的帮助。&lt;/p&gt;
-
-&lt;p&gt;最近内部公司举行一个活动，评比开源社区的活跃贡献者。评比指标是 GitHub 上 Follower 和 Contribution 的数量。&lt;/p&gt;
-
-&lt;p&gt;GitHub是一个伟大的网站，我们可以和来自世界各地的朋友协作，交流，分享： &lt;code&gt;Build software better, together.&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;我也开源了一些项目，并且认真维护和改进：跟进issue，修复问题，更新完善文档。我希望这些项目对需要的人有帮助，希望我的工作可以让项目的使用者们心生喜悦。&lt;/p&gt;
-
-&lt;p&gt;我参加了公司的这个评比活动，希望成为公司和同事认同的 “&lt;code&gt;开源社区的活跃贡献者&lt;/code&gt;”，我持续提交， 一直很活跃，但我发现我的 Follower 数量较少，可能无法被评选上，所以我在这里请求朋友们关注我的 GitHub ：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;h4&gt;&lt;a href=&quot;https://github.com/liaohuqiu&quot;&gt;https://github.com/liaohuqiu&lt;/a&gt;&lt;/h4&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;谢谢大家。&lt;/p&gt;
-
-&lt;p&gt;我对很多技术领域都感兴趣，如果发现有新的好的项目，我也会通过 Star 来分享给大家。&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;另外，这个是我的新浪微博，&lt;a href=&quot;http://weibo.com/liaohuqiu&quot;&gt;http://weibo.com/liaohuqiu&lt;/a&gt; 欢迎和朋友们分享交流。&lt;/p&gt;
 </description>
     </item>
     
@@ -1403,56 +1641,6 @@ Platform.Version=5.0.1
     </item>
     
     <item>
-      <title>SimpleHashSet, save 25% memory</title>
-      <link>http://liaohuqiu.net/posts/simple-hashset</link>
-      <pubDate>Mon, 12 Jan 2015 00:00:00 +0800</pubDate>
-      <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/posts/simple-hashset</guid>
-      <description>&lt;p&gt;In fact, &lt;code&gt;java.util.HashSet&lt;/code&gt; is just a wrapper of &lt;code&gt;java.util.HashMap&lt;/code&gt;, so its retained heap size is O(&lt;code&gt;n&lt;/code&gt; * &lt;code&gt;entry_size&lt;/code&gt;).&lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;java.util.HashMap&lt;/code&gt; is using separate chaining to process collision, &lt;code&gt;n&lt;/code&gt; is the sum of the count of element and the count of free slots remain in array.&lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;entry_size&lt;/code&gt; is the shadow heap size of the &lt;code&gt;jave.util.HashMap.Entry&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;The definition of &lt;code&gt;java.util.HashMap.Entry&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;static class Entry&amp;lt;K,V&amp;gt; implements Map.Entry&amp;lt;K,V&amp;gt; {
-    final K key;
-    V value;          
-    Entry&amp;lt;K,V&amp;gt; next;
-    int hash;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;So the shadow heap size is:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt; 32bit JVM:  8 + 4 * 4 = 24 bytes&lt;/li&gt;
-&lt;li&gt; 64bit JVM &lt;code&gt;-UseCompressedOops&lt;/code&gt;: 16 + 8 * 4 = 48 bytes.&lt;/li&gt;
-&lt;li&gt; 64bit JVM &lt;code&gt;+UseCompressedOops&lt;/code&gt;: 12 + 4 * 4 + 4(padding) = 32 bytes.&lt;/li&gt;
-&lt;li&gt; Davlik:    12 + 4 * 4 + 4(padding) = 32 bytes.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In fact &lt;code&gt;V value&lt;/code&gt; is usless for &lt;code&gt;HashSet&lt;/code&gt;, we can implement a HashSet use the following &lt;code&gt;SimpleHashSetEntry&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;private static class SimpleHashSetEntry&amp;lt;T&amp;gt; {
-
-    private int mHash;
-    private T mKey;
-    private SimpleHashSetEntry&amp;lt;T&amp;gt; mNext;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The retained heap size is:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt; 32bit JVM:  8 + 4 * 3 + (padding) = 24 bytes&lt;/li&gt;
-&lt;li&gt; 64bit JVM &lt;code&gt;-UseCompressedOops&lt;/code&gt;: 16 + 8 * 3 = 40 bytes. (8 bytes saved, 16.66%)&lt;/li&gt;
-&lt;li&gt; 64bit JVM &lt;code&gt;+UseCompressedOops&lt;/code&gt;: 12 + 4 * 3 = 24 bytes. (8 bytes saved, 25%)&lt;/li&gt;
-&lt;li&gt; Davlik:    12 + 4 * 3 = 24 bytes (8 bytes saved, 25%).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;SimpleHashSet at Github: &lt;a href=&quot;https://github.com/liaohuqiu/SimpleHashSet&quot;&gt;https://github.com/liaohuqiu/SimpleHashSet&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>SimpleHashSet, 节省25%内存</title>
       <link>http://liaohuqiu.net/cn/posts/simple-hashset</link>
       <pubDate>Mon, 12 Jan 2015 00:00:00 +0800</pubDate>
@@ -1501,6 +1689,56 @@ Platform.Version=5.0.1
 &lt;p&gt;除了了32位的JVM上，都能节省可观的内存。&lt;/p&gt;
 
 &lt;p&gt;项目地址: &lt;a href=&quot;https://github.com/liaohuqiu/SimpleHashSet&quot;&gt;https://github.com/liaohuqiu/SimpleHashSet&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SimpleHashSet, save 25% memory</title>
+      <link>http://liaohuqiu.net/posts/simple-hashset</link>
+      <pubDate>Mon, 12 Jan 2015 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/posts/simple-hashset</guid>
+      <description>&lt;p&gt;In fact, &lt;code&gt;java.util.HashSet&lt;/code&gt; is just a wrapper of &lt;code&gt;java.util.HashMap&lt;/code&gt;, so its retained heap size is O(&lt;code&gt;n&lt;/code&gt; * &lt;code&gt;entry_size&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;java.util.HashMap&lt;/code&gt; is using separate chaining to process collision, &lt;code&gt;n&lt;/code&gt; is the sum of the count of element and the count of free slots remain in array.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;entry_size&lt;/code&gt; is the shadow heap size of the &lt;code&gt;jave.util.HashMap.Entry&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The definition of &lt;code&gt;java.util.HashMap.Entry&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;static class Entry&amp;lt;K,V&amp;gt; implements Map.Entry&amp;lt;K,V&amp;gt; {
+    final K key;
+    V value;          
+    Entry&amp;lt;K,V&amp;gt; next;
+    int hash;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So the shadow heap size is:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt; 32bit JVM:  8 + 4 * 4 = 24 bytes&lt;/li&gt;
+&lt;li&gt; 64bit JVM &lt;code&gt;-UseCompressedOops&lt;/code&gt;: 16 + 8 * 4 = 48 bytes.&lt;/li&gt;
+&lt;li&gt; 64bit JVM &lt;code&gt;+UseCompressedOops&lt;/code&gt;: 12 + 4 * 4 + 4(padding) = 32 bytes.&lt;/li&gt;
+&lt;li&gt; Davlik:    12 + 4 * 4 + 4(padding) = 32 bytes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In fact &lt;code&gt;V value&lt;/code&gt; is usless for &lt;code&gt;HashSet&lt;/code&gt;, we can implement a HashSet use the following &lt;code&gt;SimpleHashSetEntry&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;private static class SimpleHashSetEntry&amp;lt;T&amp;gt; {
+
+    private int mHash;
+    private T mKey;
+    private SimpleHashSetEntry&amp;lt;T&amp;gt; mNext;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The retained heap size is:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt; 32bit JVM:  8 + 4 * 3 + (padding) = 24 bytes&lt;/li&gt;
+&lt;li&gt; 64bit JVM &lt;code&gt;-UseCompressedOops&lt;/code&gt;: 16 + 8 * 3 = 40 bytes. (8 bytes saved, 16.66%)&lt;/li&gt;
+&lt;li&gt; 64bit JVM &lt;code&gt;+UseCompressedOops&lt;/code&gt;: 12 + 4 * 3 = 24 bytes. (8 bytes saved, 25%)&lt;/li&gt;
+&lt;li&gt; Davlik:    12 + 4 * 3 = 24 bytes (8 bytes saved, 25%).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;SimpleHashSet at Github: &lt;a href=&quot;https://github.com/liaohuqiu/SimpleHashSet&quot;&gt;https://github.com/liaohuqiu/SimpleHashSet&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -3241,6 +3479,67 @@ To git@git.liaohuqiu.net:huqiu/test.git
     </item>
     
     <item>
+      <title>PHP静态延迟绑定: 获取子类的单例</title>
+      <link>http://liaohuqiu.net/cn/posts/php-singleton-of-children-class</link>
+      <pubDate>Thu, 24 Jul 2014 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/cn/posts/php-singleton-of-children-class</guid>
+      <description>&lt;p&gt;在一定的需求场景下，你有一个父类和一些子类，你需要获取这些子类的实例又不想在每个子类中写重复的&lt;code&gt;getInstance()&lt;/code&gt;方法。&lt;/p&gt;
+
+&lt;p&gt;在各种语言中，一般会用一个工具类去做这个实现。但在php5.3之后，会有另外一种方法。&lt;/p&gt;
+
+&lt;p&gt;php5.3之后加入的新的特性：静态延迟绑定。这个特性允许在运行时获取静态继承的上下文。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;get_called_class()&lt;/code&gt; 可以获取被调用的类。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;static&lt;/code&gt; 关键字用来访问静态继承的上下文。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;在这个特性下，可以通过父类的静态方法获取子类的实例:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Base&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;$class&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;get_called_class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// new $class() will work too&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Base&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;A&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Base&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;B&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;程序输出:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;A
+B
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
       <title>PHP: singleton of children class</title>
       <link>http://liaohuqiu.net/posts/php-singleton-of-children-class</link>
       <pubDate>Thu, 24 Jul 2014 00:00:00 +0800</pubDate>
@@ -3298,67 +3597,6 @@ To git@git.liaohuqiu.net:huqiu/test.git
 &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The output will be:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;A
-B
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>PHP静态延迟绑定: 获取子类的单例</title>
-      <link>http://liaohuqiu.net/cn/posts/php-singleton-of-children-class</link>
-      <pubDate>Thu, 24 Jul 2014 00:00:00 +0800</pubDate>
-      <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/cn/posts/php-singleton-of-children-class</guid>
-      <description>&lt;p&gt;在一定的需求场景下，你有一个父类和一些子类，你需要获取这些子类的实例又不想在每个子类中写重复的&lt;code&gt;getInstance()&lt;/code&gt;方法。&lt;/p&gt;
-
-&lt;p&gt;在各种语言中，一般会用一个工具类去做这个实现。但在php5.3之后，会有另外一种方法。&lt;/p&gt;
-
-&lt;p&gt;php5.3之后加入的新的特性：静态延迟绑定。这个特性允许在运行时获取静态继承的上下文。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;get_called_class()&lt;/code&gt; 可以获取被调用的类。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;static&lt;/code&gt; 关键字用来访问静态继承的上下文。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;在这个特性下，可以通过父类的静态方法获取子类的实例:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Base&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nv&quot;&gt;$class&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;get_called_class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;c1&quot;&gt;// new $class() will work too&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Base&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;A&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Base&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;B&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;程序输出:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;A
 B
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
