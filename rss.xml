@@ -6,8 +6,8 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Thu, 24 Sep 2015 11:00:33 +0800</pubDate>
-    <lastBuildDate>Thu, 24 Sep 2015 11:00:33 +0800</lastBuildDate>
+    <pubDate>Thu, 24 Sep 2015 11:06:42 +0800</pubDate>
+    <lastBuildDate>Thu, 24 Sep 2015 11:06:42 +0800</lastBuildDate>
 
     
     <item>
@@ -23,7 +23,7 @@
 &lt;li&gt;&lt;p&gt;实时热部署&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;在接下来的时间，我会通过一系列文章来介绍 React Native。本文介绍环境配置以及如何建立一个简单的项目。&lt;/p&gt;
+&lt;p&gt;在接下来的时间，我会通过一系列文章来介绍 React Native。本文介绍环境配置以及如何建立一个简单的项目。本篇文章 iOS 和 Android 开发都适用。&lt;/p&gt;
 
 &lt;p&gt;目前使用 React Native 开发&lt;strong&gt;只能在 Mac 系统&lt;/strong&gt; 上进行。写 iOS 的同学，应该都是 Mac （除了听说网易有些部门写 iOS 给黑苹果之外，哈哈哈哈）。 开发 Android 的同学, 如果公司配发的不是 Mac 的话，建议自己入手一个，能显著提高生产力，就当投资自己吧。我大阿里对 Android 开发也是不给 Mac 的（不知道公司什么思路，现在倒是可以申请 Mac air了，air的性能……），所以我也是自己买的。&lt;/p&gt;
 
@@ -177,11 +177,15 @@ iOS 和 Android 的模拟器，连接 Mac 本机的服务都很方便。但是�
 &lt;li&gt;&lt;p&gt;多端代码复用&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;参考文档:&lt;/p&gt;
+&lt;h4 id=&quot;参考文档:&quot;&gt;参考文档:&lt;/h4&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;官方文档：&lt;a href=&quot;https://facebook.github.io/react-native/docs/getting-started.html#content&quot;&gt;https://facebook.github.io/react-native/docs/getting-started.html#content&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;p&gt;时间仓促，水平有限，如有谬误，还请纠正，原始文档在&lt;a href=&quot;https://github.com/liaohuqiu/liaohuqiu.github.io/blob/docs/_posts%2Fblog%2F2015%2F2015-09-23-react-native-1.cn.md&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;有问题欢迎留言或在微博上和我交流: &lt;a href=&quot;http://weibo.com/liaohuqiu&quot;&gt;http://weibo.com/liaohuqiu&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr&gt;
 </description>
