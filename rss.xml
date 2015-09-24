@@ -6,9 +6,186 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Sat, 29 Aug 2015 12:13:44 +0800</pubDate>
-    <lastBuildDate>Sat, 29 Aug 2015 12:13:44 +0800</lastBuildDate>
+    <pubDate>Thu, 24 Sep 2015 11:00:33 +0800</pubDate>
+    <lastBuildDate>Thu, 24 Sep 2015 11:00:33 +0800</lastBuildDate>
 
+    
+    <item>
+      <title>React Native: 配置和起步</title>
+      <link>http://liaohuqiu.net/cn/posts/react-native-1</link>
+      <pubDate>Wed, 23 Sep 2015 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/cn/posts/react-native-1</guid>
+      <description>&lt;p&gt;2015 年 9 月 15 号，React Native for Android 发布。至此，React 基本完成了对多端的支持。基于 React / React Native 可以：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;H5, Android, iOS 多端代码复用&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;实时热部署&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;在接下来的时间，我会通过一系列文章来介绍 React Native。本文介绍环境配置以及如何建立一个简单的项目。&lt;/p&gt;
+
+&lt;p&gt;目前使用 React Native 开发&lt;strong&gt;只能在 Mac 系统&lt;/strong&gt; 上进行。写 iOS 的同学，应该都是 Mac （除了听说网易有些部门写 iOS 给黑苹果之外，哈哈哈哈）。 开发 Android 的同学, 如果公司配发的不是 Mac 的话，建议自己入手一个，能显著提高生产力，就当投资自己吧。我大阿里对 Android 开发也是不给 Mac 的（不知道公司什么思路，现在倒是可以申请 Mac air了，air的性能……），所以我也是自己买的。&lt;/p&gt;
+
+&lt;h3 id=&quot;环境配置&quot;&gt;环境配置&lt;/h3&gt;
+
+&lt;p&gt;需要安装的有:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://brew.sh/&quot;&gt;Homebrew&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://brew.sh/&quot;&gt;Homebrew&lt;/a&gt; 是 Mac 中的一个包管理器。没有安装的话，&lt;a href=&quot;http://brew.sh/&quot;&gt;点击这里安装&lt;/a&gt; 我的版本如下:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;mac-2:~ srain&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;brew -v
+Homebrew 0.9.5 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;git revision ac9a7&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; last commit 2015-09-21&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;版本过低将会导致无法安装后续几个组件。可用  &lt;code&gt;brew update&lt;/code&gt; 升级。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;mac-2:react-native srain&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;brew update
+Updated Homebrew from ac9a71c8 to 4257c3da.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://nodejs.org/&quot;&gt;Node.js&lt;/a&gt; 和 &lt;a href=&quot;https://docs.npmjs.com/&quot;&gt;npm&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://nodejs.org/&quot;&gt;Node.js&lt;/a&gt; 需要 &lt;code&gt;4.0&lt;/code&gt; 及其以上版本。安装好之后，&lt;a href=&quot;https://docs.npmjs.com/&quot;&gt;npm&lt;/a&gt; 也有了。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;通过 &lt;a href=&quot;https://github.com/creationix/nvm#installation&quot;&gt;nvm&lt;/a&gt; 安装 &lt;a href=&quot;https://nodejs.org/&quot;&gt;Node.js&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/creationix/nvm#installation&quot;&gt;nvm&lt;/a&gt; 是 &lt;a href=&quot;https://nodejs.org/&quot;&gt;Node.js&lt;/a&gt; 的版本管理器，可以轻松安装各个版本的 &lt;a href=&quot;https://nodejs.org/&quot;&gt;Node.js&lt;/a&gt; 版本。&lt;/p&gt;
+
+&lt;p&gt;安装 &lt;a href=&quot;https://github.com/creationix/nvm#installation&quot;&gt;nvm&lt;/a&gt; 可以通过 &lt;a href=&quot;http://brew.sh/&quot;&gt;Homebrew&lt;/a&gt; 安装:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;brew install nvm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;或者 &lt;a href=&quot;https://github.com/creationix/nvm#installation&quot;&gt;按照这里的方法&lt;/a&gt; 安装。&lt;/p&gt;
+
+&lt;p&gt;然后安装 &lt;a href=&quot;https://nodejs.org/&quot;&gt;Node.js&lt;/a&gt;：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;nvm install node &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; nvm &lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;default node
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;也可以直接下载安装 &lt;a href=&quot;https://nodejs.org/&quot;&gt;Node.js&lt;/a&gt;： &lt;a href=&quot;https://nodejs.org/en/download/&quot;&gt;https://nodejs.org/en/download/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;安装好之后，如下：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;mac-2:react-native srain$ node -v
+v4.0.0
+mac-2:react-native srain$ npm -v
+2.14.2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;安装 &lt;a href=&quot;https://facebook.github.io/watchman/docs/install.html&quot;&gt;watchman&lt;/a&gt; 和 &lt;a href=&quot;http://www.flowtype.org/&quot;&gt;flow&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;这两个包分别是监控文件变化和类型检查的。安装如下：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;brew install watchman
+brew install flow
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;安装-react-native&quot;&gt;安装 React-Native&lt;/h3&gt;
+
+&lt;p&gt;通过 &lt;a href=&quot;https://docs.npmjs.com/&quot;&gt;npm&lt;/a&gt; 安装即可：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;npm install -g react-native-cli
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;app-开发环境的设置&quot;&gt;APP 开发环境的设置&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;iOS &lt;/p&gt;
+
+&lt;p&gt;XCode 6.3 及其以上即可。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Android &lt;/p&gt;
+
+&lt;p&gt;这个比较麻烦。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;设置环境变量：&lt;code&gt;ANDROID_HOME&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ANDROID_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/opt/android-sdk
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;SDK Manager 安装以下包：&lt;/p&gt;
+
+&lt;p&gt;Android SDK Build-tools version 23.0.1&lt;/p&gt;
+
+&lt;p&gt;Android 6.0 (API 23)&lt;/p&gt;
+
+&lt;p&gt;Android Support Repository&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;初始化一个项目&quot;&gt;初始化一个项目&lt;/h3&gt;
+
+&lt;p&gt;文档提到：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;react-native init AwesomeProject
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;初始化一个项目，其中 &lt;code&gt;AwesomeProject&lt;/code&gt; 是项目名字，这个随意。等待&lt;strong&gt;一段时间之后&lt;/strong&gt;（具体视网络情况而定），项目初始化完成。&lt;/p&gt;
+
+&lt;p&gt;进入到项目目录：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;AwesomeProject
+mac-2:AwesomeProject srain&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ls -l
+total 24
+drwxr-xr-x  &lt;span class=&quot;m&quot;&gt;14&lt;/span&gt; srain  staff   &lt;span class=&quot;m&quot;&gt;476&lt;/span&gt; Sep &lt;span class=&quot;m&quot;&gt;21&lt;/span&gt; 09:52 android
+-rw-r--r--   &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; srain  staff  &lt;span class=&quot;m&quot;&gt;1023&lt;/span&gt; Sep &lt;span class=&quot;m&quot;&gt;21&lt;/span&gt; 11:47 index.android.js
+-rw-r--r--   &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; srain  staff  &lt;span class=&quot;m&quot;&gt;1065&lt;/span&gt; Sep &lt;span class=&quot;m&quot;&gt;20&lt;/span&gt; 11:58 index.ios.js
+drwxr-xr-x   &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt; srain  staff   &lt;span class=&quot;m&quot;&gt;204&lt;/span&gt; Sep &lt;span class=&quot;m&quot;&gt;20&lt;/span&gt; 11:58 ios
+drwxr-xr-x   &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt; srain  staff   &lt;span class=&quot;m&quot;&gt;170&lt;/span&gt; Sep &lt;span class=&quot;m&quot;&gt;21&lt;/span&gt; 10:31 node_modules
+-rw-r--r--   &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; srain  staff   &lt;span class=&quot;m&quot;&gt;209&lt;/span&gt; Sep &lt;span class=&quot;m&quot;&gt;20&lt;/span&gt; 11:58 package.json
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;其中 &lt;code&gt;android&lt;/code&gt; 和 &lt;code&gt;ios&lt;/code&gt; 中分别为两个平台的项目文件。&lt;code&gt;index.android.js&lt;/code&gt; 和 &lt;code&gt;index.ios.js&lt;/code&gt; 为两个页面对应的 js 文件。&lt;/p&gt;
+
+&lt;h3 id=&quot;运行项目&quot;&gt;运行项目&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;不管是 iOS 还是 Android，在开发调试阶段，都需要在 Mac 上启动一个 HTTP 服务，称为`Debug Server`，默认运行在 8081 端口，APP 通 Debug Server 加载 js。
+
+iOS 和 Android 的模拟器，连接 Mac 本机的服务都很方便。但是通过 USB 或者 Wifi 连接调试，就稍微麻烦一些了。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;iOS &lt;/p&gt;
+
+&lt;p&gt;还是非常简单，XCode 打开项目，点击运行就好。修改 &lt;code&gt;index.ios.js&lt;/code&gt;, 在模拟器中 &lt;code&gt;⌘ + R&lt;/code&gt; 重新载入 js 即可看到相应的变化。&lt;/p&gt;
+
+&lt;p&gt;iOS 真机调试也简单，修改HTTP地址即可。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;jsCodeLocation = [NSURL URLWithString:@&amp;quot;http://localhost:8081/index.ios.bundle&amp;quot;];
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Android&lt;/p&gt;
+
+&lt;p&gt;按照官方文档，需要一个模拟器（Genymotion模拟器也可以）。但是不像 iOS，Android 开发平时更多是直接用真机进行开发和调试，如何运行部署到真机，下面会提到。&lt;/p&gt;
+
+&lt;p&gt;运行命令&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;react-native run-android
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;然后就会部署到模拟器，修改 &lt;code&gt;index.android.js&lt;/code&gt; ，调出模拟器菜单键，选择重新载入 js 即可看到变化。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Android 真机调试&lt;/p&gt;
+
+&lt;p&gt;示例 APP 直接部署到真机，红色界面报错，无法连接到 Debug Server。&lt;/p&gt;
+
+&lt;p&gt;如果是 5.0 或者以上机型，可通过 adb 反向代理端口，将 Mac 端口反向代理到测试机上。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;adb reverse tcp:8081 tcp:8081
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;如果 5.0 以下机器，应用安装到测试机上之后，摇动设备，在弹出菜单中选择 Dev Setting &amp;gt; Debug Server host for device，然后填入 Mac 的 IP 地址（&lt;code&gt;ifconfig&lt;/code&gt; 命令可查看本机 IP）&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;关于修改 DevHelper 来进行和 iOS 一样的开发调试，后续关于热部署时，我会介绍到。&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在 Android Studio 中调试开发&lt;/p&gt;
+
+&lt;p&gt;我们可能希望在 Android Studio 打开项目，然后编译部署到真机。&lt;/p&gt;
+
+&lt;p&gt;这个时候，在命令行启动 Debug Server 即可：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;react-native start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;结论和后续&quot;&gt;结论和后续&lt;/h3&gt;
+
+&lt;p&gt;本篇文章，iOS 和 Android 都适用。至此，环境配置和示例项目运行应该都好了。后续我会继续发几篇文章介绍：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;重点介绍 Android 相关的开发：包括组件，源码分析等&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;动态热部署&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;多端代码复用&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;参考文档:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;官方文档：&lt;a href=&quot;https://facebook.github.io/react-native/docs/getting-started.html#content&quot;&gt;https://facebook.github.io/react-native/docs/getting-started.html#content&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr&gt;
+</description>
+    </item>
     
     <item>
       <title>为 PHP 构建 RPC 服务</title>
@@ -1106,36 +1283,6 @@ refWatcher.watch(schrodingerCat);
     </item>
     
     <item>
-      <title>有一事相求，请在 GitHub 上关注我吧</title>
-      <link>http://liaohuqiu.net/cn/posts/follow-me-on-github</link>
-      <pubDate>Tue, 05 May 2015 00:00:00 +0800</pubDate>
-      <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/cn/posts/follow-me-on-github</guid>
-      <description>&lt;p&gt;非常抱歉写这样一个文章，我遇到一个事情，需要大家的帮助。&lt;/p&gt;
-
-&lt;p&gt;最近内部公司举行一个活动，评比开源社区的活跃贡献者。评比指标是 GitHub 上 Follower 和 Contribution 的数量。&lt;/p&gt;
-
-&lt;p&gt;GitHub是一个伟大的网站，我们可以和来自世界各地的朋友协作，交流，分享： &lt;code&gt;Build software better, together.&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;我也开源了一些项目，并且认真维护和改进：跟进issue，修复问题，更新完善文档。我希望这些项目对需要的人有帮助，希望我的工作可以让项目的使用者们心生喜悦。&lt;/p&gt;
-
-&lt;p&gt;我参加了公司的这个评比活动，希望成为公司和同事认同的 “&lt;code&gt;开源社区的活跃贡献者&lt;/code&gt;”，我持续提交， 一直很活跃，但我发现我的 Follower 数量较少，可能无法被评选上，所以我在这里请求朋友们关注我的 GitHub ：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;h4&gt;&lt;a href=&quot;https://github.com/liaohuqiu&quot;&gt;https://github.com/liaohuqiu&lt;/a&gt;&lt;/h4&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;谢谢大家。&lt;/p&gt;
-
-&lt;p&gt;我对很多技术领域都感兴趣，如果发现有新的好的项目，我也会通过 Star 来分享给大家。&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;另外，这个是我的新浪微博，&lt;a href=&quot;http://weibo.com/liaohuqiu&quot;&gt;http://weibo.com/liaohuqiu&lt;/a&gt; 欢迎和朋友们分享交流。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Help: Would you please follow me on GitHub</title>
       <link>http://liaohuqiu.net/posts/follow-me-on-github</link>
       <pubDate>Tue, 05 May 2015 00:00:00 +0800</pubDate>
@@ -1166,6 +1313,36 @@ refWatcher.watch(schrodingerCat);
 &lt;hr&gt;
 
 &lt;p&gt;And here is my twitter: &lt;a href=&quot;https://twitter.com/liaohuqiu&quot;&gt;https://twitter.com/liaohuqiu&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>有一事相求，请在 GitHub 上关注我吧</title>
+      <link>http://liaohuqiu.net/cn/posts/follow-me-on-github</link>
+      <pubDate>Tue, 05 May 2015 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/cn/posts/follow-me-on-github</guid>
+      <description>&lt;p&gt;非常抱歉写这样一个文章，我遇到一个事情，需要大家的帮助。&lt;/p&gt;
+
+&lt;p&gt;最近内部公司举行一个活动，评比开源社区的活跃贡献者。评比指标是 GitHub 上 Follower 和 Contribution 的数量。&lt;/p&gt;
+
+&lt;p&gt;GitHub是一个伟大的网站，我们可以和来自世界各地的朋友协作，交流，分享： &lt;code&gt;Build software better, together.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;我也开源了一些项目，并且认真维护和改进：跟进issue，修复问题，更新完善文档。我希望这些项目对需要的人有帮助，希望我的工作可以让项目的使用者们心生喜悦。&lt;/p&gt;
+
+&lt;p&gt;我参加了公司的这个评比活动，希望成为公司和同事认同的 “&lt;code&gt;开源社区的活跃贡献者&lt;/code&gt;”，我持续提交， 一直很活跃，但我发现我的 Follower 数量较少，可能无法被评选上，所以我在这里请求朋友们关注我的 GitHub ：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;h4&gt;&lt;a href=&quot;https://github.com/liaohuqiu&quot;&gt;https://github.com/liaohuqiu&lt;/a&gt;&lt;/h4&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;谢谢大家。&lt;/p&gt;
+
+&lt;p&gt;我对很多技术领域都感兴趣，如果发现有新的好的项目，我也会通过 Star 来分享给大家。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;另外，这个是我的新浪微博，&lt;a href=&quot;http://weibo.com/liaohuqiu&quot;&gt;http://weibo.com/liaohuqiu&lt;/a&gt; 欢迎和朋友们分享交流。&lt;/p&gt;
 </description>
     </item>
     
