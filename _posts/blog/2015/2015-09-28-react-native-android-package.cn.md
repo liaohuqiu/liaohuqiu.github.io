@@ -144,38 +144,38 @@ category: blog
 
 ### Demo
 
-    这里是一个 Demo: https://github.com/liaohuqiu/ReactNativeTestGradlePlugin。
-    
-    Demo 主要演示了 build.gradle 的配置，用 Android Stuido 打开即可运行，不要修改 Dev Setting 中的 Debug Server，因为资源都已经打包，不再在从 Debug Server 下载。可以解开 debug.apk 看 assets 目录下的文件。
-    
-    其中包含了一个编译安装 react-native-gradle 到本地 Maven 库的脚本，运行即可。
+这里是一个 Demo: https://github.com/liaohuqiu/ReactNativeTestGradlePlugin。
 
-### `react-native bundle` 命令简介
+Demo 主要演示了 build.gradle 的配置，用 Android Stuido 打开即可运行，不要修改 Dev Setting 中的 Debug Server，因为资源都已经打包，不再在从 Debug Server 下载。可以解开 debug.apk 看 assets 目录下的文件。
 
-命令用法如下:
+其中包含了一个编译安装 react-native-gradle 到本地 Maven 库的脚本，运行即可。
 
-```bash
-mac-2:AwesomeProject srain$ react-native bundle --help
-Usage: react-native bundle [options]
+### react-native bundle 命令简介
 
-Options:
-  --dev     sets DEV flag to true，同插件配置的 dev 
-  --minify  minify js bundle，同插件配置的 minify
-  --root        add another root(s) to be used in bundling in this project
-  --assetRoots      specify the root directories of app assets
-  --out     specify the output file， 输出文件的位置
-  --url     specify the bundle file url，js bundle 路径
-```
+* 命令用法如下:
 
-对 iOS 打包时：
+    ```bash
+    mac-2:AwesomeProject srain$ react-native bundle --help
+    Usage: react-native bundle [options]
 
-```bash
-react-native bundle --minify
-```
+    Options:
+      --dev     sets DEV flag to true，同插件配置的 dev 
+      --minify  minify js bundle，同插件配置的 minify
+      --root        add another root(s) to be used in bundling in this project
+      --assetRoots      specify the root directories of app assets
+      --out     specify the output file， 输出文件的位置
+      --url     specify the bundle file url，js bundle 路径
+    ```
+
+* 对 iOS 打包时：
+
+    ```bash
+    react-native bundle --minify
+    ```
 
 ---
 
-本文写于旅途，从洛杉矶到旧金山的 greyhound 大巴车上。时间仓促，水平有限，如有谬误，还请纠正，原始文档在[这里]()
+本文写于旅途，从洛杉矶到旧金山的 greyhound 大巴车上。时间仓促，水平有限，如有谬误，还请纠正，原始文档在[这里](https://github.com/liaohuqiu/liaohuqiu.github.io/blob/docs/_posts%2Fblog%2F2015%2F2015-09-28-react-android-package.cn.md)
 
 有问题欢迎留言或在微博上和我交流: http://weibo.com/liaohuqiu
 
