@@ -6,9 +6,176 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Thu, 24 Sep 2015 11:06:42 +0800</pubDate>
-    <lastBuildDate>Thu, 24 Sep 2015 11:06:42 +0800</lastBuildDate>
+    <pubDate>Tue, 29 Sep 2015 15:49:49 +0800</pubDate>
+    <lastBuildDate>Tue, 29 Sep 2015 15:49:49 +0800</lastBuildDate>
 
+    
+    <item>
+      <title>React Native: Android 的打包</title>
+      <link>http://liaohuqiu.net/cn/posts/react-native-android-package</link>
+      <pubDate>Thu, 24 Sep 2015 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/cn/posts/react-native-android-package</guid>
+      <description>&lt;p&gt;&lt;a href=&quot;http://www.liaohuqiu.net/cn/posts/react-native-1/&quot;&gt;上一篇文章&lt;/a&gt;提到了 React Native 的环境配置和基本的开发调试。本文介绍 React Native 中的资源打包，重点介绍使用 react-native-gradle 插件进行 Android APP 的打包。&lt;/p&gt;
+
+&lt;h3 id=&quot;关于打包&quot;&gt;关于打包&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;打包目的&lt;/p&gt;
+
+&lt;p&gt;除了热部署，我们知道，APP 运行的时候不应再从 Debug Server 获取资源。分发应用时 js 资源应该被打包到 APP 中。&lt;/p&gt;
+
+&lt;p&gt;另外对外发布的安装包，资源中的业务代码的混淆也是必须的。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;React Native 打包方式&lt;/p&gt;
+
+&lt;p&gt;目前 iOS 应用可用 &lt;code&gt;react-native bundle&lt;/code&gt; 命令进行打包，同时对 Android 的支持工作也已经开始了。但在目前 npm 中最新的版本(0.11.4)暂时还不支持。&lt;a href=&quot;https://github.com/facebook/react-native/tree/0ff3a421c9adbe4137e07e158c9812062b34ea5a/local-cli%2Fbundle.js&quot;&gt;最新的代码中&lt;/a&gt;看似已经支持了，但还没最终发布。等正式发布支持了，我另写一篇文章介绍使用 &lt;code&gt;react-native bundle&lt;/code&gt; 命令进行打包。&lt;/p&gt;
+
+&lt;p&gt;目前对于 Android 的 React Native 应用，可用 react-native-gradle 插件进行打包。该插件灵活配置打包参数，使用 Gradle Task 将资源打包到资源文件夹。&lt;/p&gt;
+
+&lt;p&gt;但&lt;a href=&quot;https://github.com/facebook/react-native/issues/2786&quot;&gt;官方计划使用 &lt;code&gt;react-native bundle&lt;/code&gt; 命令进行打包，并且有放弃对 Gradle 插件支持的倾向&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;都使用 &lt;code&gt;react-native bundle&lt;/code&gt; 进行打包，对开发人员来说，只要掌握一套打包命令即可。但是对于 Android 的开发者来说，插件方式似乎更符合平时的开发习惯。各位自行取舍。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;React Native 开发目前非常活跃，代码变迭频繁，本文所讨论的代码版本为: &lt;a href=&quot;https://github.com/facebook/react-native/tree/0ff3a421c9adbe4137e07e158c9812062b34ea5a&quot;&gt;https://github.com/facebook/react-native/tree/0ff3a421c9adbe4137e07e158c9812062b34ea5a&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;本文中目前所指的时间为: 2015年09月28日20点，太平洋时间；中国2015年09月29日11点。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;react-native-gradle-插件&quot;&gt;react-native-gradle 插件&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;编译插件&lt;/p&gt;
+
+&lt;p&gt;借助插件 react-native-gradle：&lt;a href=&quot;https://github.com/facebook/react-native/tree/0ff3a421c9adbe4137e07e158c9812062b34ea5a/react-native-gradle%2FREADME.md&quot;&gt;com.facebook.react:gradleplugin:1.0.+&lt;/a&gt; 可完成混淆及资源打包。&lt;/p&gt;
+
+&lt;p&gt;然而这个插件并没有发布到 JCenter 或者 Maven Centry。需要自己编译，然后发布到本地 Maven 库。源码在 &lt;a href=&quot;https://github.com/facebook/react-native/tree/0ff3a421c9adbe4137e07e158c9812062b34ea5a/react-native-gradle&quot;&gt;react-native-gradle&lt;/a&gt; 目录下。按照&lt;a href=&quot;https://github.com/facebook/react-native/tree/0ff3a421c9adbe4137e07e158c9812062b34ea5a/react-native-gradle%2FREADME.md&quot;&gt;文档&lt;/a&gt; 编译安装：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;mac-2:react-native-gradle srain&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gradle build install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;结果是测试用例报错，这个问题，官方一直没修复，且置之不理。&lt;a href=&quot;https://github.com/facebook/react-native/issues/2786&quot;&gt;给出的解释&lt;/a&gt;前面提到了。&lt;/p&gt;
+
+&lt;p&gt;我们可跳过测试用例，直接安装。虽然官方提供的测试用例本身有问题，无法进行测试，但我&lt;code&gt;亲测可用&lt;/code&gt;。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;题外话，对于给出的解释，显得非常不讲究，目前整个项目处于高度活跃中，文档和实际功能严重脱节，很多不一致的地方。
+看来任何团队都会面临项目压力，变得节奏不再优雅啊，所谓的理想团队都是瞬时态。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;跳过测试用例，直接安装:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;mac-2:react-native-gradle srain&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gradle install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;安装完成：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;mac-2:react-native-gradle srain&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ll ~/.m2/repository/com/facebook/react/gradleplugin/
+total 8
+drwxr-xr-x  &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt; srain  staff  &lt;span class=&quot;m&quot;&gt;170&lt;/span&gt; Sep &lt;span class=&quot;m&quot;&gt;28&lt;/span&gt; 15:10 1.0.0-SNAPSHOT
+-rw-r--r--  &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; srain  staff  &lt;span class=&quot;m&quot;&gt;326&lt;/span&gt; Sep &lt;span class=&quot;m&quot;&gt;28&lt;/span&gt; 15:10 maven-metadata-local.xml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在项目中使用&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;build.gradle&lt;/code&gt; 配置如下:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;n&quot;&gt;buildscript&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;repositories&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;mavenLocal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// 本地依赖&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;jcenter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;dependencies&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;classpath&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;com.android.tools.build:gradle:1.3.0&amp;#39;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;classpath&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;com.facebook.react:gradleplugin:1.0.+&amp;#39;&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// 插件依赖&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;app/build.gradle&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;plugin:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;com.facebook.react&amp;#39;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;react&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;bundleFileName&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;index.android.bundle&amp;quot;&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// assets 目录下 js 文件名&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;bundlePath&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;/index.android.bundle&amp;quot;&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;// js 路径&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;jsRoot&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;../&amp;quot;&lt;/span&gt;                            &lt;span class=&quot;c1&quot;&gt;// js 源文件位置&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;packagerHost&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;localhost:8081&amp;quot;&lt;/span&gt;           &lt;span class=&quot;c1&quot;&gt;// debug server 地址&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;packagerCommand&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;./node_modules/react-native/packager/packager.sh&amp;quot;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 打包命令地址&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;devParams&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;skip&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;dev&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;inlineSourceMap&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;minify&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;runModule&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;releaseParams&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;skip&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;dev&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;inlineSourceMap&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;minify&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;runModule&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;配置说明&lt;/p&gt;
+
+&lt;p&gt;上面 react 项中的配置已经在注释中说明。其中，&lt;code&gt;packagerCommand&lt;/code&gt; &lt;a href=&quot;https://github.com/facebook/react-native/tree/0ff3a421c9adbe4137e07e158c9812062b34ea5a/react-native-gradle%2FREADME.md&quot;&gt;官方给出的文档描述有误&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;devParams&lt;/code&gt; 和 &lt;code&gt;releaseParams&lt;/code&gt; 分别 debug 版本和 release 版本的参数。它们各有五个参数：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;skip&lt;/code&gt; 参数为 &lt;code&gt;true&lt;/code&gt; 则跳过从本地资源加载，从 Debug Server 请求资源。为 false 时从打包资源，运行时，从本地加载。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;其他四个参数通过 url 传给 Debug Server&lt;/p&gt;
+
+&lt;p&gt;比如: &lt;code&gt;http://localhost:8081/index.android.bundle?dev=true&amp;amp;inlineSourceMap=true&amp;amp;minify=false&amp;amp;runModule=true&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;参数意义如下：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;dev: 等同于全局变量 &lt;code&gt;__DEV__&lt;/code&gt;, React Native 核心类库的开发选项。&lt;/li&gt;
+&lt;li&gt;minify: 混淆。&lt;/li&gt;
+&lt;li&gt;inlineSourceMap: 是否加入 source map。默认为 &lt;code&gt;false&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;runModule: 默认为 &lt;code&gt;true&lt;/code&gt;，是否在最后以 &lt;code&gt;require(XXX)&lt;/code&gt; 的形式加入 module 的入口点。如:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;require(&amp;quot;AwesomeProject/index.android.js&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;参数的英文说明文档在: &lt;a href=&quot;https://github.com/facebook/react-native/blob/master/packager/README.md&quot;&gt;https://github.com/facebook/react-native/blob/master/packager/README.md&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;打包&lt;/p&gt;
+
+&lt;p&gt;每次打包，插件都会根据配置，决定是否打包以及以怎样的配置打包资源。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;demo&quot;&gt;Demo&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;这里是一个 Demo: https://github.com/liaohuqiu/ReactNativeTestGradlePlugin。
+
+Demo 主要演示了 build.gradle 的配置，用 Android Stuido 打开即可运行，不要修改 Dev Setting 中的 Debug Server，因为资源都已经打包，不再在从 Debug Server 下载。可以解开 debug.apk 看 assets 目录下的文件。
+
+其中包含了一个编译安装 react-native-gradle 到本地 Maven 库的脚本，运行即可。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;react-native-bundle-命令简介&quot;&gt;&lt;code&gt;react-native bundle&lt;/code&gt; 命令简介&lt;/h3&gt;
+
+&lt;p&gt;命令用法如下:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;mac-2:AwesomeProject srain&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;react-native bundle --help
+Usage: react-native bundle &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;options&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+
+Options:
+  --dev     sets DEV flag to &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;，同插件配置的 dev 
+  --minify  minify js bundle，同插件配置的 minify
+  --root        add another root&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;s&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; to be used in bundling in this project
+  --assetRoots      specify the root directories of app assets
+  --out     specify the output file， 输出文件的位置
+  --url     specify the bundle file url，js bundle 路径
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;对 iOS 打包时：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;react-native bundle --minify
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+
+&lt;p&gt;本文写于旅途，从洛杉矶到旧金山的 greyhound 大巴车上。时间仓促，水平有限，如有谬误，还请纠正，原始文档在&lt;a href=&quot;&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;有问题欢迎留言或在微博上和我交流: &lt;a href=&quot;http://weibo.com/liaohuqiu&quot;&gt;http://weibo.com/liaohuqiu&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr&gt;
+</description>
+    </item>
     
     <item>
       <title>React Native: 配置和起步</title>
@@ -1822,6 +1989,56 @@ Platform.Version=5.0.1
     </item>
     
     <item>
+      <title>SimpleHashSet, save 25% memory</title>
+      <link>http://liaohuqiu.net/posts/simple-hashset</link>
+      <pubDate>Mon, 12 Jan 2015 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/posts/simple-hashset</guid>
+      <description>&lt;p&gt;In fact, &lt;code&gt;java.util.HashSet&lt;/code&gt; is just a wrapper of &lt;code&gt;java.util.HashMap&lt;/code&gt;, so its retained heap size is O(&lt;code&gt;n&lt;/code&gt; * &lt;code&gt;entry_size&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;java.util.HashMap&lt;/code&gt; is using separate chaining to process collision, &lt;code&gt;n&lt;/code&gt; is the sum of the count of element and the count of free slots remain in array.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;entry_size&lt;/code&gt; is the shadow heap size of the &lt;code&gt;jave.util.HashMap.Entry&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The definition of &lt;code&gt;java.util.HashMap.Entry&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;static class Entry&amp;lt;K,V&amp;gt; implements Map.Entry&amp;lt;K,V&amp;gt; {
+    final K key;
+    V value;          
+    Entry&amp;lt;K,V&amp;gt; next;
+    int hash;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So the shadow heap size is:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt; 32bit JVM:  8 + 4 * 4 = 24 bytes&lt;/li&gt;
+&lt;li&gt; 64bit JVM &lt;code&gt;-UseCompressedOops&lt;/code&gt;: 16 + 8 * 4 = 48 bytes.&lt;/li&gt;
+&lt;li&gt; 64bit JVM &lt;code&gt;+UseCompressedOops&lt;/code&gt;: 12 + 4 * 4 + 4(padding) = 32 bytes.&lt;/li&gt;
+&lt;li&gt; Davlik:    12 + 4 * 4 + 4(padding) = 32 bytes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In fact &lt;code&gt;V value&lt;/code&gt; is usless for &lt;code&gt;HashSet&lt;/code&gt;, we can implement a HashSet use the following &lt;code&gt;SimpleHashSetEntry&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;private static class SimpleHashSetEntry&amp;lt;T&amp;gt; {
+
+    private int mHash;
+    private T mKey;
+    private SimpleHashSetEntry&amp;lt;T&amp;gt; mNext;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The retained heap size is:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt; 32bit JVM:  8 + 4 * 3 + (padding) = 24 bytes&lt;/li&gt;
+&lt;li&gt; 64bit JVM &lt;code&gt;-UseCompressedOops&lt;/code&gt;: 16 + 8 * 3 = 40 bytes. (8 bytes saved, 16.66%)&lt;/li&gt;
+&lt;li&gt; 64bit JVM &lt;code&gt;+UseCompressedOops&lt;/code&gt;: 12 + 4 * 3 = 24 bytes. (8 bytes saved, 25%)&lt;/li&gt;
+&lt;li&gt; Davlik:    12 + 4 * 3 = 24 bytes (8 bytes saved, 25%).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;SimpleHashSet at Github: &lt;a href=&quot;https://github.com/liaohuqiu/SimpleHashSet&quot;&gt;https://github.com/liaohuqiu/SimpleHashSet&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>SimpleHashSet, 节省25%内存</title>
       <link>http://liaohuqiu.net/cn/posts/simple-hashset</link>
       <pubDate>Mon, 12 Jan 2015 00:00:00 +0800</pubDate>
@@ -1870,56 +2087,6 @@ Platform.Version=5.0.1
 &lt;p&gt;除了了32位的JVM上，都能节省可观的内存。&lt;/p&gt;
 
 &lt;p&gt;项目地址: &lt;a href=&quot;https://github.com/liaohuqiu/SimpleHashSet&quot;&gt;https://github.com/liaohuqiu/SimpleHashSet&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>SimpleHashSet, save 25% memory</title>
-      <link>http://liaohuqiu.net/posts/simple-hashset</link>
-      <pubDate>Mon, 12 Jan 2015 00:00:00 +0800</pubDate>
-      <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/posts/simple-hashset</guid>
-      <description>&lt;p&gt;In fact, &lt;code&gt;java.util.HashSet&lt;/code&gt; is just a wrapper of &lt;code&gt;java.util.HashMap&lt;/code&gt;, so its retained heap size is O(&lt;code&gt;n&lt;/code&gt; * &lt;code&gt;entry_size&lt;/code&gt;).&lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;java.util.HashMap&lt;/code&gt; is using separate chaining to process collision, &lt;code&gt;n&lt;/code&gt; is the sum of the count of element and the count of free slots remain in array.&lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;entry_size&lt;/code&gt; is the shadow heap size of the &lt;code&gt;jave.util.HashMap.Entry&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;The definition of &lt;code&gt;java.util.HashMap.Entry&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;static class Entry&amp;lt;K,V&amp;gt; implements Map.Entry&amp;lt;K,V&amp;gt; {
-    final K key;
-    V value;          
-    Entry&amp;lt;K,V&amp;gt; next;
-    int hash;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;So the shadow heap size is:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt; 32bit JVM:  8 + 4 * 4 = 24 bytes&lt;/li&gt;
-&lt;li&gt; 64bit JVM &lt;code&gt;-UseCompressedOops&lt;/code&gt;: 16 + 8 * 4 = 48 bytes.&lt;/li&gt;
-&lt;li&gt; 64bit JVM &lt;code&gt;+UseCompressedOops&lt;/code&gt;: 12 + 4 * 4 + 4(padding) = 32 bytes.&lt;/li&gt;
-&lt;li&gt; Davlik:    12 + 4 * 4 + 4(padding) = 32 bytes.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In fact &lt;code&gt;V value&lt;/code&gt; is usless for &lt;code&gt;HashSet&lt;/code&gt;, we can implement a HashSet use the following &lt;code&gt;SimpleHashSetEntry&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;private static class SimpleHashSetEntry&amp;lt;T&amp;gt; {
-
-    private int mHash;
-    private T mKey;
-    private SimpleHashSetEntry&amp;lt;T&amp;gt; mNext;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The retained heap size is:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt; 32bit JVM:  8 + 4 * 3 + (padding) = 24 bytes&lt;/li&gt;
-&lt;li&gt; 64bit JVM &lt;code&gt;-UseCompressedOops&lt;/code&gt;: 16 + 8 * 3 = 40 bytes. (8 bytes saved, 16.66%)&lt;/li&gt;
-&lt;li&gt; 64bit JVM &lt;code&gt;+UseCompressedOops&lt;/code&gt;: 12 + 4 * 3 = 24 bytes. (8 bytes saved, 25%)&lt;/li&gt;
-&lt;li&gt; Davlik:    12 + 4 * 3 = 24 bytes (8 bytes saved, 25%).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;SimpleHashSet at Github: &lt;a href=&quot;https://github.com/liaohuqiu/SimpleHashSet&quot;&gt;https://github.com/liaohuqiu/SimpleHashSet&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -3845,6 +4012,81 @@ B
     </item>
     
     <item>
+      <title>setup log center</title>
+      <link>http://liaohuqiu.net/posts/log-center</link>
+      <pubDate>Wed, 28 May 2014 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/posts/log-center</guid>
+      <description>&lt;p&gt;In *inux System, there are some log tools, for example: syslog, rsyslog, syslog-ng, etc..&lt;/p&gt;
+
+&lt;p&gt;In our program we can record log to syslog, for example in php:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_NOTICE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;srain&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;some messages@&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Y-m-d H:i:s&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;openlog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_PID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_LOCAL6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;syslog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;closelog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;When we have more than one webserver which will record log, we need a log center to keep all of the log.&lt;/p&gt;
+
+&lt;h3 id=&quot;forwarding&quot;&gt;Forwarding&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;syslog&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    10.11.2.13  # the port is 514 and using the UDP protocal.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    @@10.11.2.13:514    # udp
+*.local6    @10.11.2.13:514     # tcp more reliable than udp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;description d_loghost { udp(&amp;quot;10.11.2.13&amp;quot; port(514)};
+
+log { source(s_sys); description(d_loghost)};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;reciving&quot;&gt;Reciving&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# for udp reception
+$ModLoad imudp
+$UDPServerRun 514
+
+# for tcp reception
+$ModLoad imtcp
+$InputTCPServerRun 514
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;destination df_wrt0 {
+    #  keep log into diffrent files
+    file(&amp;quot;/var/log/$PROGRAM-$YEAR$MONTH$DAY&amp;quot;
+            template(&amp;quot;$FULLDATE $SOURCEIP-$HOST[$PID]: $MSG\n&amp;quot;)
+            template_escape(yes)
+        );
+};
+
+source s_net {
+    udp(ip(0.0.0.0) port(514));
+    tcp(ip(0.0.0.0) port(514));
+};
+
+log { source(s_net); description(df_wrt0)};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;preformance&quot;&gt;Preformance&lt;/h3&gt;
+
+&lt;p&gt;I prefer syslog/rsyslog + syslog-ng. It will be more stable and easy to config.&lt;/p&gt;
+
+&lt;p&gt;There were more than 2000 clients to send log to a log center.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>日志中心：统一日志服务器</title>
       <link>http://liaohuqiu.net/cn/posts/log-center</link>
       <pubDate>Wed, 28 May 2014 00:00:00 +0800</pubDate>
@@ -3918,81 +4160,6 @@ log { source(s_net); description(df_wrt0)};
 &lt;h3 id=&quot;性能&quot;&gt;性能&lt;/h3&gt;
 
 &lt;p&gt;syslog + syslog-ng。曾经有2000+的web往一台日志服务器上汇总。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>setup log center</title>
-      <link>http://liaohuqiu.net/posts/log-center</link>
-      <pubDate>Wed, 28 May 2014 00:00:00 +0800</pubDate>
-      <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/posts/log-center</guid>
-      <description>&lt;p&gt;In *inux System, there are some log tools, for example: syslog, rsyslog, syslog-ng, etc..&lt;/p&gt;
-
-&lt;p&gt;In our program we can record log to syslog, for example in php:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_NOTICE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;srain&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;some messages@&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Y-m-d H:i:s&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;openlog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_PID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_LOCAL6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;syslog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;closelog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;When we have more than one webserver which will record log, we need a log center to keep all of the log.&lt;/p&gt;
-
-&lt;h3 id=&quot;forwarding&quot;&gt;Forwarding&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;syslog&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    10.11.2.13  # the port is 514 and using the UDP protocal.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    @@10.11.2.13:514    # udp
-*.local6    @10.11.2.13:514     # tcp more reliable than udp
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;description d_loghost { udp(&amp;quot;10.11.2.13&amp;quot; port(514)};
-
-log { source(s_sys); description(d_loghost)};
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;reciving&quot;&gt;Reciving&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# for udp reception
-$ModLoad imudp
-$UDPServerRun 514
-
-# for tcp reception
-$ModLoad imtcp
-$InputTCPServerRun 514
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;destination df_wrt0 {
-    #  keep log into diffrent files
-    file(&amp;quot;/var/log/$PROGRAM-$YEAR$MONTH$DAY&amp;quot;
-            template(&amp;quot;$FULLDATE $SOURCEIP-$HOST[$PID]: $MSG\n&amp;quot;)
-            template_escape(yes)
-        );
-};
-
-source s_net {
-    udp(ip(0.0.0.0) port(514));
-    tcp(ip(0.0.0.0) port(514));
-};
-
-log { source(s_net); description(df_wrt0)};
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;preformance&quot;&gt;Preformance&lt;/h3&gt;
-
-&lt;p&gt;I prefer syslog/rsyslog + syslog-ng. It will be more stable and easy to config.&lt;/p&gt;
-
-&lt;p&gt;There were more than 2000 clients to send log to a log center.&lt;/p&gt;
 </description>
     </item>
     
