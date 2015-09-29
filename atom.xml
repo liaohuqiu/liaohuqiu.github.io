@@ -4,7 +4,7 @@
   <title>Yet Another Summer Rain</title>
   <link href="http://liaohuqiu.net/"/>
   <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
-  <updated>2015-09-29T15:49:49+08:00</updated>
+  <updated>2015-09-29T15:54:07+08:00</updated>
   <id>http://liaohuqiu.net/</id>
   <author>
     <name>Huqiu Liao / Srain</name>
@@ -16,8 +16,8 @@
     <id>http://liaohuqiu.net/cn/posts/react-native-android-package</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/react-native-android-package"/>
     <title>React Native: Android 的打包</title>
-    <published>2015-09-24T00:00:00+08:00</published>
-    <updated>2015-09-24T00:00:00+08:00</updated>
+    <published>2015-09-28T00:00:00+08:00</published>
+    <updated>2015-09-28T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -150,15 +150,17 @@ drwxr-xr-x  &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt; srain  staff  &lt;spa
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;demo&quot;&gt;Demo&lt;/h3&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;这里是一个 Demo: https://github.com/liaohuqiu/ReactNativeTestGradlePlugin。
 
-Demo 主要演示了 build.gradle 的配置，用 Android Stuido 打开即可运行，不要修改 Dev Setting 中的 Debug Server，因为资源都已经打包，不再在从 Debug Server 下载。可以解开 debug.apk 看 assets 目录下的文件。
+&lt;p&gt;这里是一个 Demo: &lt;a href=&quot;https://github.com/liaohuqiu/ReactNativeTestGradlePlugin%E3%80%82&quot;&gt;https://github.com/liaohuqiu/ReactNativeTestGradlePlugin。&lt;/a&gt;&lt;/p&gt;
 
-其中包含了一个编译安装 react-native-gradle 到本地 Maven 库的脚本，运行即可。
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id=&quot;react-native-bundle-命令简介&quot;&gt;&lt;code&gt;react-native bundle&lt;/code&gt; 命令简介&lt;/h3&gt;
+&lt;p&gt;Demo 主要演示了 build.gradle 的配置，用 Android Stuido 打开即可运行，不要修改 Dev Setting 中的 Debug Server，因为资源都已经打包，不再在从 Debug Server 下载。可以解开 debug.apk 看 assets 目录下的文件。&lt;/p&gt;
 
-&lt;p&gt;命令用法如下:&lt;/p&gt;
+&lt;p&gt;其中包含了一个编译安装 react-native-gradle 到本地 Maven 库的脚本，运行即可。&lt;/p&gt;
+
+&lt;h3 id=&quot;react-native-bundle-命令简介&quot;&gt;react-native bundle 命令简介&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;命令用法如下:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;mac-2:AwesomeProject srain&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;react-native bundle --help
 Usage: react-native bundle &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;options&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
 
@@ -169,13 +171,15 @@ Options:
   --assetRoots      specify the root directories of app assets
   --out     specify the output file， 输出文件的位置
   --url     specify the bundle file url，js bundle 路径
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;对 iOS 打包时：&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;对 iOS 打包时：&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;react-native bundle --minify
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;hr&gt;
 
-&lt;p&gt;本文写于旅途，从洛杉矶到旧金山的 greyhound 大巴车上。时间仓促，水平有限，如有谬误，还请纠正，原始文档在&lt;a href=&quot;&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;本文写于旅途，从洛杉矶到旧金山的 greyhound 大巴车上。时间仓促，水平有限，如有谬误，还请纠正，原始文档在&lt;a href=&quot;https://github.com/liaohuqiu/liaohuqiu.github.io/blob/docs/_posts%2Fblog%2F2015%2F2015-09-28-react-android-package.cn.md&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;有问题欢迎留言或在微博上和我交流: &lt;a href=&quot;http://weibo.com/liaohuqiu&quot;&gt;http://weibo.com/liaohuqiu&lt;/a&gt;&lt;/p&gt;
 
