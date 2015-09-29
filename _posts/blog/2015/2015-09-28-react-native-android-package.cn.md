@@ -173,11 +173,9 @@ Demo 主要演示了 build.gradle 的配置，用 Android Stuido 打开即可运
     react-native bundle --minify
     ```
 
----
+> 本文写于旅途，从洛杉矶到旧金山的 greyhound 大巴车上。时间仓促，水平有限，如有谬误，还请纠正，原始文档在[这里](https://github.com/liaohuqiu/liaohuqiu.github.io/blob/docs/_posts/blog/2015/2015-09-28-react-native-android-package.cn.md)
 
-本文写于旅途，从洛杉矶到旧金山的 greyhound 大巴车上。时间仓促，水平有限，如有谬误，还请纠正，原始文档在[这里](https://github.com/liaohuqiu/liaohuqiu.github.io/blob/docs/_posts%2Fblog%2F2015%2F2015-09-28-react-android-package.cn.md)
-
-有问题欢迎留言或在微博上和我交流: http://weibo.com/liaohuqiu
+> 有问题欢迎留言或在微博上和我交流: http://weibo.com/liaohuqiu
 
 ---
 
