@@ -6,9 +6,61 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Tue, 29 Sep 2015 15:59:42 +0800</pubDate>
-    <lastBuildDate>Tue, 29 Sep 2015 15:59:42 +0800</lastBuildDate>
+    <pubDate>Thu, 22 Oct 2015 07:38:04 +0800</pubDate>
+    <lastBuildDate>Thu, 22 Oct 2015 07:38:04 +0800</lastBuildDate>
 
+    
+    <item>
+      <title>Android 悬浮窗的小结</title>
+      <link>http://liaohuqiu.net/cn/posts/android-api-compat-guide</link>
+      <pubDate>Fri, 23 Oct 2015 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/cn/posts/android-api-compat-guide</guid>
+      <description>&lt;p&gt;在 &lt;a href=&quot;http://www.liaohuqiu.net/cn/posts/using-high-api-level-method-compatibly/&quot;&gt;Android
+高版本API方法在低版本系统上的兼容性处理&lt;/a&gt; 一文中提到了简单的 API 兼容性处理。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Android 悬浮窗的小结</title>
+      <link>http://liaohuqiu.net/cn/posts/android-windows-manager</link>
+      <pubDate>Thu, 22 Oct 2015 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/cn/posts/android-windows-manager</guid>
+      <description>&lt;p&gt;&lt;a href=&quot;http://weibo.com/2951317192&quot;&gt;睡不着起不来的万先生&lt;/a&gt; 的 &lt;a href=&quot;http://www.jianshu.com/p/167fd5f47d5c&quot;&gt;Android无需权限显示悬浮窗, 兼谈逆向分析app&lt;/a&gt; 对 UC 浏览器的弹窗实现做了详尽的分析。&lt;/p&gt;
+
+&lt;h3 id=&quot;目的&quot;&gt;目的&lt;/h3&gt;
+
+&lt;p&gt;使用 &lt;code&gt;WindowManager&lt;/code&gt; 在尽可能多的机器上，在任何应用，以及桌面上，显示悬浮窗（System overlay view)，并且这些 View 需要可以接收触摸（点击）和按键事件，点击悬浮窗可以跳转进入到应用。&lt;/p&gt;
+
+&lt;p&gt;总结起来:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;WindowManager.LayoutParams.TYPE_TOAST&lt;/code&gt; 不需要申请权限，显示 System overlay view&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;WindowManager.LayoutParams.TYPE_PHONE&lt;/code&gt; 和 &lt;code&gt;WindowManager.LayoutParams.TYPE_SYSTEM_ALERT&lt;/code&gt; 需要申请 &lt;code&gt;android.permission.SYSTEM_ALERT_WINDOW&lt;/code&gt; 权限，否则无法弹窗，报错：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;E/AndroidRuntime: android.view.WindowManager$BadTokenException: Unable to add window android.view.ViewRoot$W@b64b5458 -- permission denied for this window type
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;type&lt;/code&gt; 为 &lt;code&gt;WindowManager.LayoutParams.TYPE_TOAST&lt;/code&gt; 显示的 System overlay view 不需要权限，即可在任何平台显示。&lt;/p&gt;
+
+&lt;p&gt;但仅在 API level &amp;gt;= 19 时可以达到目的。API level 19 以下因无法接收无法接收触摸（点击)和按键事件，故无法达到目的。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;对于 API level &amp;lt; 19 的机器（MIUI除外），想要达到目的，需要:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt; 要有 &lt;code&gt;android.permission.SYSTEM_ALERT_WINDOW&lt;/code&gt; 权限&lt;/li&gt;
+&lt;li&gt; 将 &lt;code&gt;type&lt;/code&gt; 设置为 &lt;code&gt;WindowManager.LayoutParams.TYPE_PHONE&lt;/code&gt; 或者 &lt;code&gt;WindowManager.LayoutParams.TYPE_SYSTEM_ALERT&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;MIUI&lt;/p&gt;
+
+&lt;p&gt;我今天晚上借了台MIUI V5 4.2.2实测了一下, 这台机器上UC的快速搜索功能也无法正常使用.&lt;/p&gt;
+
+&lt;p&gt;表现为:
+    使用TYPE_PHONE这类需要权限的type时, 只有在app处于前台时能显示悬浮窗, 且能正常接受触摸事件. 如果在应用详情里面授悬浮窗权限, 则工作完全正常.&lt;/p&gt;
+
+&lt;p&gt;Shawon： @tanranran 我测了一下UC在MIUI V5 4.2.2上的表现, 它即便是在授权的情况下悬浮窗也出不来&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
     
     <item>
       <title>React Native: Android 的打包</title>
@@ -1993,56 +2045,6 @@ Platform.Version=5.0.1
     </item>
     
     <item>
-      <title>SimpleHashSet, save 25% memory</title>
-      <link>http://liaohuqiu.net/posts/simple-hashset</link>
-      <pubDate>Mon, 12 Jan 2015 00:00:00 +0800</pubDate>
-      <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/posts/simple-hashset</guid>
-      <description>&lt;p&gt;In fact, &lt;code&gt;java.util.HashSet&lt;/code&gt; is just a wrapper of &lt;code&gt;java.util.HashMap&lt;/code&gt;, so its retained heap size is O(&lt;code&gt;n&lt;/code&gt; * &lt;code&gt;entry_size&lt;/code&gt;).&lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;java.util.HashMap&lt;/code&gt; is using separate chaining to process collision, &lt;code&gt;n&lt;/code&gt; is the sum of the count of element and the count of free slots remain in array.&lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;entry_size&lt;/code&gt; is the shadow heap size of the &lt;code&gt;jave.util.HashMap.Entry&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;The definition of &lt;code&gt;java.util.HashMap.Entry&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;static class Entry&amp;lt;K,V&amp;gt; implements Map.Entry&amp;lt;K,V&amp;gt; {
-    final K key;
-    V value;          
-    Entry&amp;lt;K,V&amp;gt; next;
-    int hash;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;So the shadow heap size is:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt; 32bit JVM:  8 + 4 * 4 = 24 bytes&lt;/li&gt;
-&lt;li&gt; 64bit JVM &lt;code&gt;-UseCompressedOops&lt;/code&gt;: 16 + 8 * 4 = 48 bytes.&lt;/li&gt;
-&lt;li&gt; 64bit JVM &lt;code&gt;+UseCompressedOops&lt;/code&gt;: 12 + 4 * 4 + 4(padding) = 32 bytes.&lt;/li&gt;
-&lt;li&gt; Davlik:    12 + 4 * 4 + 4(padding) = 32 bytes.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In fact &lt;code&gt;V value&lt;/code&gt; is usless for &lt;code&gt;HashSet&lt;/code&gt;, we can implement a HashSet use the following &lt;code&gt;SimpleHashSetEntry&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;private static class SimpleHashSetEntry&amp;lt;T&amp;gt; {
-
-    private int mHash;
-    private T mKey;
-    private SimpleHashSetEntry&amp;lt;T&amp;gt; mNext;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The retained heap size is:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt; 32bit JVM:  8 + 4 * 3 + (padding) = 24 bytes&lt;/li&gt;
-&lt;li&gt; 64bit JVM &lt;code&gt;-UseCompressedOops&lt;/code&gt;: 16 + 8 * 3 = 40 bytes. (8 bytes saved, 16.66%)&lt;/li&gt;
-&lt;li&gt; 64bit JVM &lt;code&gt;+UseCompressedOops&lt;/code&gt;: 12 + 4 * 3 = 24 bytes. (8 bytes saved, 25%)&lt;/li&gt;
-&lt;li&gt; Davlik:    12 + 4 * 3 = 24 bytes (8 bytes saved, 25%).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;SimpleHashSet at Github: &lt;a href=&quot;https://github.com/liaohuqiu/SimpleHashSet&quot;&gt;https://github.com/liaohuqiu/SimpleHashSet&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>SimpleHashSet, 节省25%内存</title>
       <link>http://liaohuqiu.net/cn/posts/simple-hashset</link>
       <pubDate>Mon, 12 Jan 2015 00:00:00 +0800</pubDate>
@@ -2091,6 +2093,56 @@ Platform.Version=5.0.1
 &lt;p&gt;除了了32位的JVM上，都能节省可观的内存。&lt;/p&gt;
 
 &lt;p&gt;项目地址: &lt;a href=&quot;https://github.com/liaohuqiu/SimpleHashSet&quot;&gt;https://github.com/liaohuqiu/SimpleHashSet&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SimpleHashSet, save 25% memory</title>
+      <link>http://liaohuqiu.net/posts/simple-hashset</link>
+      <pubDate>Mon, 12 Jan 2015 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/posts/simple-hashset</guid>
+      <description>&lt;p&gt;In fact, &lt;code&gt;java.util.HashSet&lt;/code&gt; is just a wrapper of &lt;code&gt;java.util.HashMap&lt;/code&gt;, so its retained heap size is O(&lt;code&gt;n&lt;/code&gt; * &lt;code&gt;entry_size&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;java.util.HashMap&lt;/code&gt; is using separate chaining to process collision, &lt;code&gt;n&lt;/code&gt; is the sum of the count of element and the count of free slots remain in array.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;entry_size&lt;/code&gt; is the shadow heap size of the &lt;code&gt;jave.util.HashMap.Entry&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The definition of &lt;code&gt;java.util.HashMap.Entry&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;static class Entry&amp;lt;K,V&amp;gt; implements Map.Entry&amp;lt;K,V&amp;gt; {
+    final K key;
+    V value;          
+    Entry&amp;lt;K,V&amp;gt; next;
+    int hash;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So the shadow heap size is:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt; 32bit JVM:  8 + 4 * 4 = 24 bytes&lt;/li&gt;
+&lt;li&gt; 64bit JVM &lt;code&gt;-UseCompressedOops&lt;/code&gt;: 16 + 8 * 4 = 48 bytes.&lt;/li&gt;
+&lt;li&gt; 64bit JVM &lt;code&gt;+UseCompressedOops&lt;/code&gt;: 12 + 4 * 4 + 4(padding) = 32 bytes.&lt;/li&gt;
+&lt;li&gt; Davlik:    12 + 4 * 4 + 4(padding) = 32 bytes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In fact &lt;code&gt;V value&lt;/code&gt; is usless for &lt;code&gt;HashSet&lt;/code&gt;, we can implement a HashSet use the following &lt;code&gt;SimpleHashSetEntry&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;private static class SimpleHashSetEntry&amp;lt;T&amp;gt; {
+
+    private int mHash;
+    private T mKey;
+    private SimpleHashSetEntry&amp;lt;T&amp;gt; mNext;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The retained heap size is:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt; 32bit JVM:  8 + 4 * 3 + (padding) = 24 bytes&lt;/li&gt;
+&lt;li&gt; 64bit JVM &lt;code&gt;-UseCompressedOops&lt;/code&gt;: 16 + 8 * 3 = 40 bytes. (8 bytes saved, 16.66%)&lt;/li&gt;
+&lt;li&gt; 64bit JVM &lt;code&gt;+UseCompressedOops&lt;/code&gt;: 12 + 4 * 3 = 24 bytes. (8 bytes saved, 25%)&lt;/li&gt;
+&lt;li&gt; Davlik:    12 + 4 * 3 = 24 bytes (8 bytes saved, 25%).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;SimpleHashSet at Github: &lt;a href=&quot;https://github.com/liaohuqiu/SimpleHashSet&quot;&gt;https://github.com/liaohuqiu/SimpleHashSet&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -5431,247 +5483,6 @@ git config --global init.templatedir $template_dir
     </item>
     
     <item>
-      <title>Android中View大小的确定过程</title>
-      <link>http://liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view</link>
-      <pubDate>Fri, 14 Mar 2014 00:00:00 +0800</pubDate>
-      <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view</guid>
-      <description>&lt;h3 id=&quot;view-and-viewgroup&quot;&gt;View and ViewGroup&lt;/h3&gt;
-
-&lt;p&gt;安卓中有5种基本的 &lt;code&gt;ViewGroup&lt;/code&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;  FrameLayout&lt;/li&gt;
-&lt;li&gt;  RelativeLayout&lt;/li&gt;
-&lt;li&gt;  LinearLayout&lt;/li&gt;
-&lt;li&gt;  TableLayout&lt;/li&gt;
-&lt;li&gt;  AbsoluteLayout&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;ViewGroup&lt;/code&gt;可以添加子View，在xml文件里面，我们可以这样写：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;RelativeLayout&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;match_parent&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;100dp&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;match_parent&amp;quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;ImageView&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;match_parent&amp;quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;20dp&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/RelativeLayout&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id=&quot;子view的大小&quot;&gt;子View的大小&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;LayoutParams&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;LayoutParams&lt;/code&gt;用来描述一个View在父容器中大小，它包括了高度和宽度两个维度的信息，每个维度的数据类型都是&lt;code&gt;int&lt;/code&gt;，取值是下面三种情况之一:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;FILL_PARENT&lt;/code&gt; / &lt;code&gt;MATCH_PARENT&lt;/code&gt;, 取值是 &lt;code&gt;-1&lt;/code&gt;. &lt;/p&gt;
-
-&lt;p&gt;填充满父容器, &lt;strong&gt;minus padding&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;WRAP_CONTENT&lt;/code&gt;, 取值是 &lt;code&gt;-2&lt;/code&gt;. &lt;/p&gt;
-
-&lt;p&gt;尺寸尽量小，能包住自身的全部内容就行, &lt;strong&gt;plus padding&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;一个确定的尺寸，大于等于0的一个数值。&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;父容器的大小状态&quot;&gt;父容器的大小状态&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Padding&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;留白。自身内容的大小加上留白就是父容器的内容的真正大小。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;MeasureSpec&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;当父容器要确定子View的大小的时候，父容器需要告诉子View自身的大小状态。当父容器所属的大小状态不同时，对子View的尺寸约束是不一样的。父容器大小状态有下面三种情况：&lt;/p&gt;
-
-&lt;table&gt;&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;parent&lt;/th&gt;
-&lt;th&gt;child&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;UNSPECIFIED&lt;/td&gt;
-&lt;td&gt;父容器对子View没有任何约束，子View可以按自身需要，任意大小。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;EXACTLY&lt;/td&gt;
-&lt;td&gt;父容器大小是一个确定的数值，子View只能限定在指定大小内。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;AT_MOST&lt;/td&gt;
-&lt;td&gt;父容器本身以及内含的所有子View大小不能超过指定大小。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;View的尺寸大小和尺寸状态&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;尺寸大小的数据类型是 &lt;code&gt;int&lt;/code&gt;, 8个字节。&lt;/p&gt;
-
-&lt;p&gt;尺寸大小和尺寸状态在很多时候需要一起传递，为了减少对象的分配，把三种尺寸状态编码到尺寸大小&lt;code&gt;int&lt;/code&gt;变量的最高位2个位中。&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;UNSPECIFIED&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;+-----------+----------
-| 00xx xxxx | 剩余的7个字节.    0x00 &amp;lt;&amp;lt; 30 + value
-+-----------+----------
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;EXACTLY&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;+-----------+----------
-| 01xx xxxx | 剩余的7个字节.    0x01 &amp;lt;&amp;lt; 30 + value
-+-----------+----------
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;AT_MOST&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;+-----------+----------
-| 10xx xxxx | 剩余的7个字节.    0x10 &amp;lt;&amp;lt; 30 + value
-+-----------+----------
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;子view尺寸的最终确定&quot;&gt;子View尺寸的最终确定&lt;/h3&gt;
-
-&lt;p&gt;子View有一个期望的尺寸大小，父容器有尺寸大小约束，这两方面的约束协调，用来计算View的大小状态。&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;根据父容器的尺寸状态，以及子View的&lt;code&gt;LayoutParams&lt;/code&gt;，可以确定子View的大小和状态：&lt;code&gt;MeasureSpec&lt;/code&gt;，并要求子View确定自身大小。&lt;/p&gt;
-
-&lt;p&gt;调用子View的&lt;code&gt;measure()&lt;/code&gt;方法，子View的&lt;code&gt;onMeasure()&lt;/code&gt;方法也会被执行。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;子View在&lt;code&gt;onMeasure()&lt;/code&gt;方法中，根据父容器给出的尺寸大小和约束，根据自身情况，确定最终的大小。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;父容器根据子View的确定的大小，最终确定自身大小。&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;strong&gt;需要考虑的因素&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;  父容器的尺寸状态:
-
-&lt;ol&gt;
-&lt;li&gt;EXACTLY&lt;/li&gt;
-&lt;li&gt;AT_MOST&lt;/li&gt;
-&lt;li&gt;UNSPECIFIED&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;li&gt;  父容器的尺寸大小: &lt;code&gt;parentSize&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;父容器的留白:&lt;code&gt;parentPadding&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;父容器真正内容的大小是： &lt;code&gt;parentSize&lt;/code&gt; - &lt;code&gt;parentPadding&lt;/code&gt;, 用变量 &lt;code&gt;parentContentSize&lt;/code&gt;代替。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;子View的LayoutParams:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt; 确定的数值, &lt;code&gt;childSize&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt; MATCH_PARENT&lt;/li&gt;
-&lt;li&gt; WRAP_CONTENT&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;需要确定的&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;  子View的大小状态&lt;/li&gt;
-&lt;li&gt;  子view的尺寸大小&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;尺寸确定的规则&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;父容器的大小状态处于 &lt;code&gt;EXACTLY&lt;/code&gt; 状态时, 子容器限定在这个大小。&lt;/p&gt;
-
-&lt;table&gt;&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;child layout&lt;/th&gt;
-&lt;th&gt;mode&lt;/th&gt;
-&lt;th&gt;size&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;确定的大小&lt;/td&gt;
-&lt;td&gt;EXACTLY&lt;/td&gt;
-&lt;td&gt;childSize&lt;/td&gt;
-&lt;td&gt;子View大小可以是自身大小，后期再做确定。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;MATCH_PARENT&lt;/td&gt;
-&lt;td&gt;EXACTLY&lt;/td&gt;
-&lt;td&gt;parentContentSize&lt;/td&gt;
-&lt;td&gt;父容器多大，子View就可以多大。大小为父容器大小。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;WRAP_CONTENT&lt;/td&gt;
-&lt;td&gt;AT_MOST&lt;/td&gt;
-&lt;td&gt;parentContentSize&lt;/td&gt;
-&lt;td&gt;最大尺寸为父容器尺寸，本身内容不能超过和父容器尺寸。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;父容器尺寸处于&lt;code&gt;AT_MOST&lt;/code&gt;状态时, 子View尺寸不能超过这个尺寸。&lt;/p&gt;
-
-&lt;table&gt;&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;child layout&lt;/th&gt;
-&lt;th&gt;mode&lt;/th&gt;
-&lt;th&gt;size&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;确定的大小&lt;/td&gt;
-&lt;td&gt;EXACTLY&lt;/td&gt;
-&lt;td&gt;childSize&lt;/td&gt;
-&lt;td&gt;子View的大小可以为自身的大小。后期再做确定&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;MATCH_PARENT&lt;/td&gt;
-&lt;td&gt;AT_MOST&lt;/td&gt;
-&lt;td&gt;parentContentSize&lt;/td&gt;
-&lt;td&gt;父容器大小未确定，但子容器想要和父容器一定大。那么确定子View最大可以和父容器一样大。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;WRAP_CONTENT&lt;/td&gt;
-&lt;td&gt;AT_MOST&lt;/td&gt;
-&lt;td&gt;parentSize&lt;/td&gt;
-&lt;td&gt;子View需要确定自己的尺寸，最大不超过父容器大小。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;父容器处于 &lt;code&gt;UNSPECIFIED&lt;/code&gt; 状态，需要根据子View的最终大小来确定自己状态。&lt;/p&gt;
-
-&lt;table&gt;&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;child layout&lt;/th&gt;
-&lt;th&gt;mode&lt;/th&gt;
-&lt;th&gt;size&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;确定的大小&lt;/td&gt;
-&lt;td&gt;EXACTLY&lt;/td&gt;
-&lt;td&gt;childSize&lt;/td&gt;
-&lt;td&gt;子View尺寸为一个确定大小.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;MATCH_PARENT&lt;/td&gt;
-&lt;td&gt;UNSPECIFIED&lt;/td&gt;
-&lt;td&gt;待定&lt;/td&gt;
-&lt;td&gt;子view根据自身情况，确定大小。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;WRAP_CONTENT&lt;/td&gt;
-&lt;td&gt;UNSPECIFIED&lt;/td&gt;
-&lt;td&gt;待定&lt;/td&gt;
-&lt;td&gt;子View根据自身情况，确定大小。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
       <title>How Android caculates view size</title>
       <link>http://liaohuqiu.net/posts/how-does-android-caculate-the-size-of-child-view</link>
       <pubDate>Fri, 14 Mar 2014 00:00:00 +0800</pubDate>
@@ -5917,15 +5728,243 @@ git config --global init.templatedir $template_dir
     </item>
     
     <item>
-      <title>Truncate talbe in SQLite</title>
-      <link>http://liaohuqiu.net/posts/truncate-table-in-sqlite</link>
-      <pubDate>Thu, 13 Mar 2014 00:00:00 +0800</pubDate>
+      <title>Android中View大小的确定过程</title>
+      <link>http://liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view</link>
+      <pubDate>Fri, 14 Mar 2014 00:00:00 +0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/posts/truncate-table-in-sqlite</guid>
-      <description>&lt;p&gt;Sqlite doesn&amp;#39;t have a &lt;code&gt;truncate&lt;/code&gt; command, we can use &lt;code&gt;DELETE&lt;/code&gt; command.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;DELETE FROM table_name
+      <guid>http://liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view</guid>
+      <description>&lt;h3 id=&quot;view-and-viewgroup&quot;&gt;View and ViewGroup&lt;/h3&gt;
+
+&lt;p&gt;安卓中有5种基本的 &lt;code&gt;ViewGroup&lt;/code&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  FrameLayout&lt;/li&gt;
+&lt;li&gt;  RelativeLayout&lt;/li&gt;
+&lt;li&gt;  LinearLayout&lt;/li&gt;
+&lt;li&gt;  TableLayout&lt;/li&gt;
+&lt;li&gt;  AbsoluteLayout&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;ViewGroup&lt;/code&gt;可以添加子View，在xml文件里面，我们可以这样写：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;RelativeLayout&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;match_parent&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;100dp&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;match_parent&amp;quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;ImageView&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;match_parent&amp;quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;20dp&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/RelativeLayout&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;However, it is much more efficient to drop the table and recreate it.&lt;/p&gt;
+&lt;h3 id=&quot;子view的大小&quot;&gt;子View的大小&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;LayoutParams&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;LayoutParams&lt;/code&gt;用来描述一个View在父容器中大小，它包括了高度和宽度两个维度的信息，每个维度的数据类型都是&lt;code&gt;int&lt;/code&gt;，取值是下面三种情况之一:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;FILL_PARENT&lt;/code&gt; / &lt;code&gt;MATCH_PARENT&lt;/code&gt;, 取值是 &lt;code&gt;-1&lt;/code&gt;. &lt;/p&gt;
+
+&lt;p&gt;填充满父容器, &lt;strong&gt;minus padding&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;WRAP_CONTENT&lt;/code&gt;, 取值是 &lt;code&gt;-2&lt;/code&gt;. &lt;/p&gt;
+
+&lt;p&gt;尺寸尽量小，能包住自身的全部内容就行, &lt;strong&gt;plus padding&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;一个确定的尺寸，大于等于0的一个数值。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;父容器的大小状态&quot;&gt;父容器的大小状态&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Padding&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;留白。自身内容的大小加上留白就是父容器的内容的真正大小。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;MeasureSpec&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;当父容器要确定子View的大小的时候，父容器需要告诉子View自身的大小状态。当父容器所属的大小状态不同时，对子View的尺寸约束是不一样的。父容器大小状态有下面三种情况：&lt;/p&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;parent&lt;/th&gt;
+&lt;th&gt;child&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;UNSPECIFIED&lt;/td&gt;
+&lt;td&gt;父容器对子View没有任何约束，子View可以按自身需要，任意大小。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EXACTLY&lt;/td&gt;
+&lt;td&gt;父容器大小是一个确定的数值，子View只能限定在指定大小内。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AT_MOST&lt;/td&gt;
+&lt;td&gt;父容器本身以及内含的所有子View大小不能超过指定大小。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;View的尺寸大小和尺寸状态&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;尺寸大小的数据类型是 &lt;code&gt;int&lt;/code&gt;, 8个字节。&lt;/p&gt;
+
+&lt;p&gt;尺寸大小和尺寸状态在很多时候需要一起传递，为了减少对象的分配，把三种尺寸状态编码到尺寸大小&lt;code&gt;int&lt;/code&gt;变量的最高位2个位中。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;UNSPECIFIED&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;+-----------+----------
+| 00xx xxxx | 剩余的7个字节.    0x00 &amp;lt;&amp;lt; 30 + value
++-----------+----------
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;EXACTLY&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;+-----------+----------
+| 01xx xxxx | 剩余的7个字节.    0x01 &amp;lt;&amp;lt; 30 + value
++-----------+----------
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;AT_MOST&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;+-----------+----------
+| 10xx xxxx | 剩余的7个字节.    0x10 &amp;lt;&amp;lt; 30 + value
++-----------+----------
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;子view尺寸的最终确定&quot;&gt;子View尺寸的最终确定&lt;/h3&gt;
+
+&lt;p&gt;子View有一个期望的尺寸大小，父容器有尺寸大小约束，这两方面的约束协调，用来计算View的大小状态。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;根据父容器的尺寸状态，以及子View的&lt;code&gt;LayoutParams&lt;/code&gt;，可以确定子View的大小和状态：&lt;code&gt;MeasureSpec&lt;/code&gt;，并要求子View确定自身大小。&lt;/p&gt;
+
+&lt;p&gt;调用子View的&lt;code&gt;measure()&lt;/code&gt;方法，子View的&lt;code&gt;onMeasure()&lt;/code&gt;方法也会被执行。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;子View在&lt;code&gt;onMeasure()&lt;/code&gt;方法中，根据父容器给出的尺寸大小和约束，根据自身情况，确定最终的大小。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;父容器根据子View的确定的大小，最终确定自身大小。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;需要考虑的因素&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  父容器的尺寸状态:
+
+&lt;ol&gt;
+&lt;li&gt;EXACTLY&lt;/li&gt;
+&lt;li&gt;AT_MOST&lt;/li&gt;
+&lt;li&gt;UNSPECIFIED&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;  父容器的尺寸大小: &lt;code&gt;parentSize&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;父容器的留白:&lt;code&gt;parentPadding&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;父容器真正内容的大小是： &lt;code&gt;parentSize&lt;/code&gt; - &lt;code&gt;parentPadding&lt;/code&gt;, 用变量 &lt;code&gt;parentContentSize&lt;/code&gt;代替。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;子View的LayoutParams:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt; 确定的数值, &lt;code&gt;childSize&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt; MATCH_PARENT&lt;/li&gt;
+&lt;li&gt; WRAP_CONTENT&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;需要确定的&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  子View的大小状态&lt;/li&gt;
+&lt;li&gt;  子view的尺寸大小&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;尺寸确定的规则&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;父容器的大小状态处于 &lt;code&gt;EXACTLY&lt;/code&gt; 状态时, 子容器限定在这个大小。&lt;/p&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;child layout&lt;/th&gt;
+&lt;th&gt;mode&lt;/th&gt;
+&lt;th&gt;size&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;确定的大小&lt;/td&gt;
+&lt;td&gt;EXACTLY&lt;/td&gt;
+&lt;td&gt;childSize&lt;/td&gt;
+&lt;td&gt;子View大小可以是自身大小，后期再做确定。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MATCH_PARENT&lt;/td&gt;
+&lt;td&gt;EXACTLY&lt;/td&gt;
+&lt;td&gt;parentContentSize&lt;/td&gt;
+&lt;td&gt;父容器多大，子View就可以多大。大小为父容器大小。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WRAP_CONTENT&lt;/td&gt;
+&lt;td&gt;AT_MOST&lt;/td&gt;
+&lt;td&gt;parentContentSize&lt;/td&gt;
+&lt;td&gt;最大尺寸为父容器尺寸，本身内容不能超过和父容器尺寸。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;父容器尺寸处于&lt;code&gt;AT_MOST&lt;/code&gt;状态时, 子View尺寸不能超过这个尺寸。&lt;/p&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;child layout&lt;/th&gt;
+&lt;th&gt;mode&lt;/th&gt;
+&lt;th&gt;size&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;确定的大小&lt;/td&gt;
+&lt;td&gt;EXACTLY&lt;/td&gt;
+&lt;td&gt;childSize&lt;/td&gt;
+&lt;td&gt;子View的大小可以为自身的大小。后期再做确定&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MATCH_PARENT&lt;/td&gt;
+&lt;td&gt;AT_MOST&lt;/td&gt;
+&lt;td&gt;parentContentSize&lt;/td&gt;
+&lt;td&gt;父容器大小未确定，但子容器想要和父容器一定大。那么确定子View最大可以和父容器一样大。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WRAP_CONTENT&lt;/td&gt;
+&lt;td&gt;AT_MOST&lt;/td&gt;
+&lt;td&gt;parentSize&lt;/td&gt;
+&lt;td&gt;子View需要确定自己的尺寸，最大不超过父容器大小。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;父容器处于 &lt;code&gt;UNSPECIFIED&lt;/code&gt; 状态，需要根据子View的最终大小来确定自己状态。&lt;/p&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;child layout&lt;/th&gt;
+&lt;th&gt;mode&lt;/th&gt;
+&lt;th&gt;size&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;确定的大小&lt;/td&gt;
+&lt;td&gt;EXACTLY&lt;/td&gt;
+&lt;td&gt;childSize&lt;/td&gt;
+&lt;td&gt;子View尺寸为一个确定大小.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MATCH_PARENT&lt;/td&gt;
+&lt;td&gt;UNSPECIFIED&lt;/td&gt;
+&lt;td&gt;待定&lt;/td&gt;
+&lt;td&gt;子view根据自身情况，确定大小。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WRAP_CONTENT&lt;/td&gt;
+&lt;td&gt;UNSPECIFIED&lt;/td&gt;
+&lt;td&gt;待定&lt;/td&gt;
+&lt;td&gt;子View根据自身情况，确定大小。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
@@ -5939,6 +5978,19 @@ git config --global init.templatedir $template_dir
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;DELETE FROM table_name
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;但是效率更高的做法是，drop掉表，然后重建。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Truncate talbe in SQLite</title>
+      <link>http://liaohuqiu.net/posts/truncate-table-in-sqlite</link>
+      <pubDate>Thu, 13 Mar 2014 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/posts/truncate-table-in-sqlite</guid>
+      <description>&lt;p&gt;Sqlite doesn&amp;#39;t have a &lt;code&gt;truncate&lt;/code&gt; command, we can use &lt;code&gt;DELETE&lt;/code&gt; command.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;DELETE FROM table_name
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;However, it is much more efficient to drop the table and recreate it.&lt;/p&gt;
 </description>
     </item>
     
@@ -6169,11 +6221,11 @@ git config --global init.templatedir $template_dir
     </item>
     
     <item>
-      <title>Jekyll Plugins and Github Pages</title>
-      <link>http://liaohuqiu.net/posts/jekyll-plugins-on-github-pages</link>
+      <title>Jekyll 插件和Github Pages</title>
+      <link>http://liaohuqiu.net/cn/posts/jekyll-plugins-on-github-pages</link>
       <pubDate>Mon, 03 Mar 2014 00:00:00 +0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/posts/jekyll-plugins-on-github-pages</guid>
+      <guid>http://liaohuqiu.net/cn/posts/jekyll-plugins-on-github-pages</guid>
       <description>&lt;h4 id=&quot;first-of-all:&quot;&gt;First of all:&lt;/h4&gt;
 
 &lt;p&gt;Github Pages works in &lt;code&gt;safe mode&lt;/code&gt; in which most of the Jekyll plugins can not work.&lt;/p&gt;
@@ -6272,11 +6324,11 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;git checkout $branch&amp;quot
     </item>
     
     <item>
-      <title>Jekyll 插件和Github Pages</title>
-      <link>http://liaohuqiu.net/cn/posts/jekyll-plugins-on-github-pages</link>
+      <title>Jekyll Plugins and Github Pages</title>
+      <link>http://liaohuqiu.net/posts/jekyll-plugins-on-github-pages</link>
       <pubDate>Mon, 03 Mar 2014 00:00:00 +0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/cn/posts/jekyll-plugins-on-github-pages</guid>
+      <guid>http://liaohuqiu.net/posts/jekyll-plugins-on-github-pages</guid>
       <description>&lt;h4 id=&quot;first-of-all:&quot;&gt;First of all:&lt;/h4&gt;
 
 &lt;p&gt;Github Pages works in &lt;code&gt;safe mode&lt;/code&gt; in which most of the Jekyll plugins can not work.&lt;/p&gt;
@@ -6857,6 +6909,78 @@ $ git push origin +b2
     </item>
     
     <item>
+      <title>Some tips for git setup and git config</title>
+      <link>http://liaohuqiu.net/posts/git-setup-and-setting</link>
+      <pubDate>Thu, 13 Feb 2014 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/posts/git-setup-and-setting</guid>
+      <description>&lt;h1 id=&quot;the-ssh-key&quot;&gt;the ssh key&lt;/h1&gt;
+
+&lt;h5 id=&quot;generate-ssh-key&quot;&gt;generate ssh key&lt;/h5&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;cd ~/.ssh/
+ssh-keygen -t rsa -C &amp;quot;changeme@xxx.com&amp;quot; -f filename
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If the options &lt;code&gt;f&lt;/code&gt; is not input, the file name of the public/pirvate rsa key pair files will be: id_rsa, id_rsa.pub.&lt;/p&gt;
+
+&lt;h5 id=&quot;add-ssh-key&quot;&gt;add ssh key&lt;/h5&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;ssh-add ~/.ssh/xxx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h5 id=&quot;list-all-added-ssh-key&quot;&gt;list all added ssh key&lt;/h5&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;ssh-add -l
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h5 id=&quot;you-may-run-into-this-error-when-try-ssh-add:&quot;&gt;you may run into this error when try &lt;code&gt;ssh-add&lt;/code&gt;:&lt;/h5&gt;
+
+&lt;p class=&quot;alert alert-error&quot;&gt;Could not open a connection to your authentication agent.&lt;/p&gt;
+   
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;eval `ssh-agent -s`
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h5 id=&quot;add-ssh-key-permanently&quot;&gt;add ssh key permanently&lt;/h5&gt;
+
+&lt;p&gt;Add the key path to &lt;code&gt;~/.ssh/config&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ vim ~/.ssh/config
+
+IdentityFile ~/.ssh/gitHubKey
+IdentityFile ~/.ssh/xxx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1 id=&quot;git-config&quot;&gt;git config&lt;/h1&gt;
+
+&lt;h5 id=&quot;global-config-&amp;amp;-repository-config&quot;&gt;global config &amp;amp; repository config&lt;/h5&gt;
+
+&lt;p&gt;The global setting is stored in &lt;code&gt;~/.gitconfig&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The config of repository is stored in &lt;code&gt;./.git/config&lt;/code&gt;, in the repository directory.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git config --global&lt;/code&gt; will use global config, without &lt;code&gt;--global&lt;/code&gt; options will use try to use the config file &lt;code&gt;./git/config&lt;/code&gt; in current directory.&lt;/p&gt;
+
+&lt;h5 id=&quot;config-user-name-&amp;amp;-user-email-for-every-repository&quot;&gt;config user name &amp;amp; user email for every repository&lt;/h5&gt;
+
+&lt;p&gt;You may work with multiple repositories, so it is a good practice to config user information for every repository.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# for global setting
+git config --global user.name xxx
+git config --global user.email xxx@xxx.com
+
+# for repository
+git config user.name xxxx
+git config user.email xxxx@xxx.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h5 id=&quot;git-alias&quot;&gt;git alias&lt;/h5&gt;
+
+&lt;p&gt;Setup alias for convenience.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;#git st =&amp;gt; git status
+git config --global alias.st &amp;#39;status&amp;#39;
+
+#git co =&amp;gt; git checkout
+git config --global alias.co &amp;#39;checkout&amp;#39;
+
+#git lg to view commit log like network graph
+git config --global alias.lg &amp;quot;log --all --graph --pretty=format:&amp;#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)&amp;lt;%an&amp;gt;%Creset&amp;#39; --abbrev-commit&amp;quot;
+
+#... 
+# whatever you like
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
       <title>命令行下的git配置问题: 多个sshkey, 多个用户身份, git alias</title>
       <link>http://liaohuqiu.net/cn/posts/git-setup-and-setting</link>
       <pubDate>Thu, 13 Feb 2014 00:00:00 +0800</pubDate>
@@ -6929,78 +7053,6 @@ git config --global alias.lg &amp;quot;log --all --graph --pretty=format:&amp;#3
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;img class=&quot;cimage&quot; src=&quot;http://cimage.sinaapp.com/img/org/11/37/93/43/47/git-lg-graph.png&quot;/&gt;&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Some tips for git setup and git config</title>
-      <link>http://liaohuqiu.net/posts/git-setup-and-setting</link>
-      <pubDate>Thu, 13 Feb 2014 00:00:00 +0800</pubDate>
-      <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/posts/git-setup-and-setting</guid>
-      <description>&lt;h1 id=&quot;the-ssh-key&quot;&gt;the ssh key&lt;/h1&gt;
-
-&lt;h5 id=&quot;generate-ssh-key&quot;&gt;generate ssh key&lt;/h5&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;cd ~/.ssh/
-ssh-keygen -t rsa -C &amp;quot;changeme@xxx.com&amp;quot; -f filename
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;If the options &lt;code&gt;f&lt;/code&gt; is not input, the file name of the public/pirvate rsa key pair files will be: id_rsa, id_rsa.pub.&lt;/p&gt;
-
-&lt;h5 id=&quot;add-ssh-key&quot;&gt;add ssh key&lt;/h5&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;ssh-add ~/.ssh/xxx
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h5 id=&quot;list-all-added-ssh-key&quot;&gt;list all added ssh key&lt;/h5&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;ssh-add -l
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h5 id=&quot;you-may-run-into-this-error-when-try-ssh-add:&quot;&gt;you may run into this error when try &lt;code&gt;ssh-add&lt;/code&gt;:&lt;/h5&gt;
-
-&lt;p class=&quot;alert alert-error&quot;&gt;Could not open a connection to your authentication agent.&lt;/p&gt;
-   
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;eval `ssh-agent -s`
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h5 id=&quot;add-ssh-key-permanently&quot;&gt;add ssh key permanently&lt;/h5&gt;
-
-&lt;p&gt;Add the key path to &lt;code&gt;~/.ssh/config&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ vim ~/.ssh/config
-
-IdentityFile ~/.ssh/gitHubKey
-IdentityFile ~/.ssh/xxx
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h1 id=&quot;git-config&quot;&gt;git config&lt;/h1&gt;
-
-&lt;h5 id=&quot;global-config-&amp;amp;-repository-config&quot;&gt;global config &amp;amp; repository config&lt;/h5&gt;
-
-&lt;p&gt;The global setting is stored in &lt;code&gt;~/.gitconfig&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;The config of repository is stored in &lt;code&gt;./.git/config&lt;/code&gt;, in the repository directory.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;git config --global&lt;/code&gt; will use global config, without &lt;code&gt;--global&lt;/code&gt; options will use try to use the config file &lt;code&gt;./git/config&lt;/code&gt; in current directory.&lt;/p&gt;
-
-&lt;h5 id=&quot;config-user-name-&amp;amp;-user-email-for-every-repository&quot;&gt;config user name &amp;amp; user email for every repository&lt;/h5&gt;
-
-&lt;p&gt;You may work with multiple repositories, so it is a good practice to config user information for every repository.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# for global setting
-git config --global user.name xxx
-git config --global user.email xxx@xxx.com
-
-# for repository
-git config user.name xxxx
-git config user.email xxxx@xxx.com
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h5 id=&quot;git-alias&quot;&gt;git alias&lt;/h5&gt;
-
-&lt;p&gt;Setup alias for convenience.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;#git st =&amp;gt; git status
-git config --global alias.st &amp;#39;status&amp;#39;
-
-#git co =&amp;gt; git checkout
-git config --global alias.co &amp;#39;checkout&amp;#39;
-
-#git lg to view commit log like network graph
-git config --global alias.lg &amp;quot;log --all --graph --pretty=format:&amp;#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)&amp;lt;%an&amp;gt;%Creset&amp;#39; --abbrev-commit&amp;quot;
-
-#... 
-# whatever you like
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
