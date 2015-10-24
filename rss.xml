@@ -6,18 +6,113 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Thu, 22 Oct 2015 07:38:04 +0800</pubDate>
-    <lastBuildDate>Thu, 22 Oct 2015 07:38:04 +0800</lastBuildDate>
+    <pubDate>Sat, 24 Oct 2015 15:55:11 +0800</pubDate>
+    <lastBuildDate>Sat, 24 Oct 2015 15:55:11 +0800</lastBuildDate>
 
     
     <item>
-      <title>Android 悬浮窗的小结</title>
+      <title>再谈 Android API 兼容性处理</title>
       <link>http://liaohuqiu.net/cn/posts/android-api-compat-guide</link>
       <pubDate>Fri, 23 Oct 2015 00:00:00 +0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/android-api-compat-guide</guid>
       <description>&lt;p&gt;在 &lt;a href=&quot;http://www.liaohuqiu.net/cn/posts/using-high-api-level-method-compatibly/&quot;&gt;Android
 高版本API方法在低版本系统上的兼容性处理&lt;/a&gt; 一文中提到了简单的 API 兼容性处理。&lt;/p&gt;
+
+&lt;p&gt;简单的兼容，if else 分支就可以，复杂的兼容就没这么简单了。在 &lt;code&gt;android.support.v4.view.ViewCompat&lt;/code&gt; 中有很好的一个复杂的兼容性处理的例子。&lt;/p&gt;
+
+&lt;p&gt;本文以 ClipboardManager 的兼容性处理为例，阐述兼容性处理的一般方法，即：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt; 抽象。即抽象出通用的方法或者接口。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;根据情况&lt;/strong&gt;对各个API进行实现。&lt;/p&gt;
+
+&lt;p&gt;之所以是&lt;strong&gt;根据情况&lt;/strong&gt;，是因为在不同的 API level 中，可能无法做实现，或者花费代价巨大。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;运行时，根据 API level 选择不同的 API level 对应的实现。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;clipboardmanager&quot;&gt;ClipboardManager&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;在 API level &amp;lt; 11 之前，ClipboardManager 在 &lt;code&gt;android.text&lt;/code&gt; 中，功能有限:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ClipboardManager&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;CharSequence&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharSequence&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;var1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hasText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;而在 API level &amp;gt;= 11 之后，&lt;code&gt;android.text.ClipboardManager&lt;/code&gt; 已经弃用，&lt;code&gt;Context.getSystemService(Context.CLIPBOARD_SERVICE)&lt;/code&gt; 返回的是 &lt;code&gt;android.content.ClipboardManager&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;功能也丰富了许多，比如有了 &lt;code&gt;OnPrimaryClipChangedListener&lt;/code&gt; 可以监控剪切板变化了：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OnPrimaryClipChangedListener&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onPrimaryClipChanged&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;ClipboardManager&lt;/code&gt; 中也增加了相关的方法：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ClipboardManager&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;addPrimaryClipChangedListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OnPrimaryClipChangedListener&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;what&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;removePrimaryClipChangedListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OnPrimaryClipChangedListener&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;what&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;兼容到-api-level-1&quot;&gt;兼容到 API level 1&lt;/h3&gt;
+
+&lt;p&gt;为了在所有的 API level 上方便使用 &lt;code&gt;ClipboardManager&lt;/code&gt; 需要对其进行兼容性处理。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;抽象：&lt;/p&gt;
+
+&lt;p&gt;我们希望所有 API level 上都可以监听剪切板变化，即都有 &lt;code&gt;OnPrimaryClipChangedListener&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;因 &lt;code&gt;android.content.ClipboardManager.OnPrimaryClipChangedListener&lt;/code&gt; 仅在 API level 11 及其以后中才有，故我们需要重新定义一个 API level 无关的接口：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;srain&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;cube&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;clipboardcompat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OnPrimaryClipChangedListener&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onPrimaryClipChanged&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;同样，&lt;code&gt;ClipboardManager&lt;/code&gt; 我们也定义一个 API level 无关的接口： &lt;code&gt;ClipboardManagerCompat&lt;/code&gt; ：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;srain&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;cube&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;clipboardcompat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ClipboardManagerCompat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;addPrimaryClipChangedListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OnPrimaryClipChangedListener&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;listener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;removePrimaryClipChangedListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OnPrimaryClipChangedListener&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;listener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;CharSequence&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharSequence&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hasText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;实现：&lt;/p&gt;
+
+&lt;p&gt;在 API level 11 及其之后，简单包装一下即可。API level 11 之前，对 &lt;code&gt;addPrimaryClipChangedListener&lt;/code&gt; 和 &lt;code&gt;removePrimaryClipChangedListener&lt;/code&gt; 需要重新做实现。&lt;/p&gt;
+
+&lt;p&gt;此处采用的是间隔为 1 秒的定时器调用 &lt;code&gt;getText&lt;/code&gt; 方法进行检查。&lt;/p&gt;
+
+&lt;p&gt;具体实现细节，可参考&lt;a href=&quot;https://github.com/liaohuqiu/android-ClipboardManagerCompat&quot;&gt;源码&lt;/a&gt;。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;运行时，根据 API level 不同选择不同实现：&lt;/p&gt;
+
+&lt;p&gt;采用一个 Factory 实现，如下：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ClipboardManagerCompatFactory&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ClipboardManagerCompat&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Context&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;VERSION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;SDK_INT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;VERSION_CODES&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;HONEYCOMB&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ClipboardManagerCompatImplHC&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ClipboardManagerCompatImplHCBefore&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;结论&lt;/p&gt;
+
+&lt;p&gt;嗯，就是这样。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/liaohuqiu/android-ClipboardManagerCompat&quot;&gt;源码&lt;/a&gt; 在这里。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr&gt;
 </description>
     </item>
     
@@ -29,19 +124,21 @@
       <guid>http://liaohuqiu.net/cn/posts/android-windows-manager</guid>
       <description>&lt;p&gt;&lt;a href=&quot;http://weibo.com/2951317192&quot;&gt;睡不着起不来的万先生&lt;/a&gt; 的 &lt;a href=&quot;http://www.jianshu.com/p/167fd5f47d5c&quot;&gt;Android无需权限显示悬浮窗, 兼谈逆向分析app&lt;/a&gt; 对 UC 浏览器的弹窗实现做了详尽的分析。&lt;/p&gt;
 
+&lt;p&gt;我看了顺手做了个小 &lt;a href=&quot;https://github.com/liaohuqiu/android-UCToast&quot;&gt;Demo&lt;/a&gt; ，发布之后收到反馈说并非所有机型都可以显示悬浮窗。&lt;a href=&quot;http://weibo.com/2951317192&quot;&gt;睡不着起不来的万先生&lt;/a&gt; 也收到了类似的反馈，并第一时间(凌晨2，3点)做了研究并给出了一个结论。我资质愚钝，在他之后，继续花了很多时间，想把这个事情弄清楚，现在算弄明白了，这里小结一下。&lt;/p&gt;
+
 &lt;h3 id=&quot;目的&quot;&gt;目的&lt;/h3&gt;
 
-&lt;p&gt;使用 &lt;code&gt;WindowManager&lt;/code&gt; 在尽可能多的机器上，在任何应用，以及桌面上，显示悬浮窗（System overlay view)，并且这些 View 需要可以接收触摸（点击）和按键事件，点击悬浮窗可以跳转进入到应用。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/liaohuqiu/android-UCToast&quot;&gt;Demo&lt;/a&gt; 和 UC 浏览器的目的都是使用 &lt;code&gt;WindowManager&lt;/code&gt; 在尽可能多的机器上，在任何应用中（包括在桌面时），显示悬浮窗（System Overlay View)，并且这些 View 需要可以接收触摸（点击）和按键事件，点击悬浮窗可以跳转进入到应用。&lt;/p&gt;
+
+&lt;h3 id=&quot;总结&quot;&gt;总结&lt;/h3&gt;
 
 &lt;p&gt;总结起来:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;WindowManager.LayoutParams.TYPE_TOAST&lt;/code&gt; 不需要申请权限，显示 System overlay view&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;WindowManager.LayoutParams.TYPE_PHONE&lt;/code&gt; 和 &lt;code&gt;WindowManager.LayoutParams.TYPE_SYSTEM_ALERT&lt;/code&gt; 需要申请 &lt;code&gt;android.permission.SYSTEM_ALERT_WINDOW&lt;/code&gt; 权限，否则无法弹窗，报错：&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;使用 &lt;code&gt;type&lt;/code&gt; 值为 &lt;code&gt;WindowManager.LayoutParams.TYPE_PHONE&lt;/code&gt; 和 &lt;code&gt;WindowManager.LayoutParams.TYPE_SYSTEM_ALERT&lt;/code&gt; 需要申请 &lt;code&gt;android.permission.SYSTEM_ALERT_WINDOW&lt;/code&gt; 权限，否则无法显示，报错：&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;E/AndroidRuntime: android.view.WindowManager$BadTokenException: Unable to add window android.view.ViewRoot$W@b64b5458 -- permission denied for this window type
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;type&lt;/code&gt; 为 &lt;code&gt;WindowManager.LayoutParams.TYPE_TOAST&lt;/code&gt; 显示的 System overlay view 不需要权限，即可在任何平台显示。&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;type&lt;/code&gt; 值为 &lt;code&gt;WindowManager.LayoutParams.TYPE_TOAST&lt;/code&gt; 显示的 System overlay view 不需要权限，即可在任何平台显示。&lt;/p&gt;
 
 &lt;p&gt;但仅在 API level &amp;gt;= 19 时可以达到目的。API level 19 以下因无法接收无法接收触摸（点击)和按键事件，故无法达到目的。&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;对于 API level &amp;lt; 19 的机器（MIUI除外），想要达到目的，需要:&lt;/p&gt;
@@ -50,15 +147,42 @@
 &lt;li&gt; 要有 &lt;code&gt;android.permission.SYSTEM_ALERT_WINDOW&lt;/code&gt; 权限&lt;/li&gt;
 &lt;li&gt; 将 &lt;code&gt;type&lt;/code&gt; 设置为 &lt;code&gt;WindowManager.LayoutParams.TYPE_PHONE&lt;/code&gt; 或者 &lt;code&gt;WindowManager.LayoutParams.TYPE_SYSTEM_ALERT&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;MIUI&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;MIUI V5&lt;/p&gt;
 
-&lt;p&gt;我今天晚上借了台MIUI V5 4.2.2实测了一下, 这台机器上UC的快速搜索功能也无法正常使用.&lt;/p&gt;
-
-&lt;p&gt;表现为:
-    使用TYPE_PHONE这类需要权限的type时, 只有在app处于前台时能显示悬浮窗, 且能正常接受触摸事件. 如果在应用详情里面授悬浮窗权限, 则工作完全正常.&lt;/p&gt;
-
-&lt;p&gt;Shawon： @tanranran 我测了一下UC在MIUI V5 4.2.2上的表现, 它即便是在授权的情况下悬浮窗也出不来&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;在给悬浮窗权限之后，表现同 3 。但是，不给悬浮窗权限时，应用在前台时，却&lt;strong&gt;可以&lt;/strong&gt;显示。这点非常不一样。&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;h3 id=&quot;最后&quot;&gt;最后&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;为什么采用 &lt;code&gt;TYPE_TOAST&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;API level 19 之后，&lt;code&gt;TYPE_SYSTEM_ALERT&lt;/code&gt; 就可以达到 &lt;code&gt;TYPE_SYSTEM_ALERT&lt;/code&gt; 效果（即可以达到&lt;strong&gt;目的&lt;/strong&gt;）。&lt;/p&gt;
+
+&lt;p&gt;但在 API level 23 (Android 6.0) 上，悬浮窗权限也单独弄出来了，需要到单独开启，这个处理和现在 Smartisan 还有小米类似。&lt;/p&gt;
+
+&lt;p&gt;故采用 &lt;code&gt;TYPE_TOAST&lt;/code&gt; 能让用不开启悬浮窗权限的情况下，也能显示。为的就是尽量少请求权限。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;为什么 API level 19 之后 &lt;code&gt;TYPE_TOAST&lt;/code&gt; 可以接受事件&lt;/p&gt;
+
+&lt;p&gt;花了一些时间研究，发现 API level 19 之后，多了一个 &lt;code&gt;AccessibilityManagerService.getTypeForWindowManagerWindowType()&lt;/code&gt;，但没找到之前对应的处理逻辑。&lt;/p&gt;
+
+&lt;p&gt;有知道的朋友，还望赐教。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;争取做到极致&lt;/p&gt;
+
+&lt;p&gt;在弹窗这个事情上，UC 也算做得挺极致了。&lt;/p&gt;
+
+&lt;p&gt;发现问题，&lt;a href=&quot;http://weibo.com/2951317192&quot;&gt;睡不着起不来的万先生&lt;/a&gt; 第一时间探求真相，并本着认真负责的态度立刻更新了博客。&lt;/p&gt;
+
+&lt;p&gt;我也修改了 &lt;a href=&quot;https://github.com/liaohuqiu/android-UCToast&quot;&gt;Demo&lt;/a&gt; 将 API level 兼容到了 9 。 为此还专门做了 &lt;code&gt;ClipboardManager&lt;/code&gt; 的兼容。&lt;/p&gt;
+
+&lt;p&gt;由于手头没机器，幸得群里 &lt;a href=&quot;http://weibo.com/u/2319578217&quot;&gt;脉脉不嘚語&lt;/a&gt; &lt;a href=&quot;http://weibo.com/u/1649198280&quot;&gt;付国征&lt;/a&gt; 等朋友的帮助，期间也一直和 &lt;a href=&quot;http://weibo.com/2951317192&quot;&gt;睡不着起不来的万先生&lt;/a&gt; 一直交流。&lt;/p&gt;
+
+&lt;p&gt;现在这个问题，我们已经最大的能力，给弄清楚了。谢谢上面提到的几个朋友的帮助。&lt;/p&gt;
+
+&lt;p&gt;非常感谢，尤其是 &lt;a href=&quot;http://weibo.com/2951317192&quot;&gt;睡不着起不来的万先生&lt;/a&gt;。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr&gt;
 </description>
     </item>
     

@@ -29,7 +29,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
 
 
-<title>Android 悬浮窗的小结 |  Yet Another Summer Rain</title>
+<title>再谈 Android API 兼容性处理 |  Yet Another Summer Rain</title>
 </head>
 
 <body>
@@ -66,7 +66,7 @@
             </div>
             
             --->
-            <h2> Android 悬浮窗的小结 </h2>
+            <h2> 再谈 Android API 兼容性处理 </h2>
             <div>
                 
                 <div class="pull-right bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more">分享到：</a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a><a href="#" class="bds_weixin" data-cmd="weixin"
@@ -78,6 +78,101 @@ Date()/36e5)];</script>
             <hr>
             <p>在 <a href="http://www.liaohuqiu.net/cn/posts/using-high-api-level-method-compatibly/">Android
 高版本API方法在低版本系统上的兼容性处理</a> 一文中提到了简单的 API 兼容性处理。</p>
+
+<p>简单的兼容，if else 分支就可以，复杂的兼容就没这么简单了。在 <code>android.support.v4.view.ViewCompat</code> 中有很好的一个复杂的兼容性处理的例子。</p>
+
+<p>本文以 ClipboardManager 的兼容性处理为例，阐述兼容性处理的一般方法，即：</p>
+
+<ol>
+<li> 抽象。即抽象出通用的方法或者接口。</li>
+<li><p><strong>根据情况</strong>对各个API进行实现。</p>
+
+<p>之所以是<strong>根据情况</strong>，是因为在不同的 API level 中，可能无法做实现，或者花费代价巨大。</p></li>
+<li><p>运行时，根据 API level 选择不同的 API level 对应的实现。</p></li>
+</ol>
+
+<h3 id="clipboardmanager">ClipboardManager</h3>
+
+<ul>
+<li><p>在 API level &lt; 11 之前，ClipboardManager 在 <code>android.text</code> 中，功能有限:</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">ClipboardManager</span> <span class="o">{</span>
+    <span class="n">CharSequence</span> <span class="nf">getText</span><span class="o">();</span>
+    <span class="kt">void</span> <span class="nf">setText</span><span class="o">(</span><span class="n">CharSequence</span> <span class="n">var1</span><span class="o">);</span>
+    <span class="kt">boolean</span> <span class="nf">hasText</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></li>
+<li><p>而在 API level &gt;= 11 之后，<code>android.text.ClipboardManager</code> 已经弃用，<code>Context.getSystemService(Context.CLIPBOARD_SERVICE)</code> 返回的是 <code>android.content.ClipboardManager</code>。</p>
+
+<p>功能也丰富了许多，比如有了 <code>OnPrimaryClipChangedListener</code> 可以监控剪切板变化了：</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">interface</span> <span class="nc">OnPrimaryClipChangedListener</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">onPrimaryClipChanged</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div>
+<p><code>ClipboardManager</code> 中也增加了相关的方法：</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">ClipboardManager</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">addPrimaryClipChangedListener</span><span class="o">(</span><span class="n">OnPrimaryClipChangedListener</span> <span class="n">what</span><span class="o">);</span>
+    <span class="kt">void</span> <span class="nf">removePrimaryClipChangedListener</span><span class="o">(</span><span class="n">OnPrimaryClipChangedListener</span> <span class="n">what</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></li>
+</ul>
+
+<h3 id="兼容到-api-level-1">兼容到 API level 1</h3>
+
+<p>为了在所有的 API level 上方便使用 <code>ClipboardManager</code> 需要对其进行兼容性处理。</p>
+
+<ol>
+<li><p>抽象：</p>
+
+<p>我们希望所有 API level 上都可以监听剪切板变化，即都有 <code>OnPrimaryClipChangedListener</code>。</p>
+
+<p>因 <code>android.content.ClipboardManager.OnPrimaryClipChangedListener</code> 仅在 API level 11 及其以后中才有，故我们需要重新定义一个 API level 无关的接口：</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">in</span><span class="o">.</span><span class="na">srain</span><span class="o">.</span><span class="na">cube</span><span class="o">.</span><span class="na">clipboardcompat</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">OnPrimaryClipChangedListener</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">onPrimaryClipChanged</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>同样，<code>ClipboardManager</code> 我们也定义一个 API level 无关的接口： <code>ClipboardManagerCompat</code> ：</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">in</span><span class="o">.</span><span class="na">srain</span><span class="o">.</span><span class="na">cube</span><span class="o">.</span><span class="na">clipboardcompat</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ClipboardManagerCompat</span> <span class="o">{</span>
+
+    <span class="kt">void</span> <span class="nf">addPrimaryClipChangedListener</span><span class="o">(</span><span class="n">OnPrimaryClipChangedListener</span> <span class="n">listener</span><span class="o">);</span>
+    <span class="kt">void</span> <span class="nf">removePrimaryClipChangedListener</span><span class="o">(</span><span class="n">OnPrimaryClipChangedListener</span> <span class="n">listener</span><span class="o">);</span>
+    <span class="n">CharSequence</span> <span class="nf">getText</span><span class="o">();</span>
+    <span class="kt">void</span> <span class="nf">setText</span><span class="o">(</span><span class="n">CharSequence</span> <span class="n">text</span><span class="o">);</span>
+    <span class="kt">boolean</span> <span class="nf">hasText</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></li>
+<li><p>实现：</p>
+
+<p>在 API level 11 及其之后，简单包装一下即可。API level 11 之前，对 <code>addPrimaryClipChangedListener</code> 和 <code>removePrimaryClipChangedListener</code> 需要重新做实现。</p>
+
+<p>此处采用的是间隔为 1 秒的定时器调用 <code>getText</code> 方法进行检查。</p>
+
+<p>具体实现细节，可参考<a href="https://github.com/liaohuqiu/android-ClipboardManagerCompat">源码</a>。</p></li>
+<li><p>运行时，根据 API level 不同选择不同实现：</p>
+
+<p>采用一个 Factory 实现，如下：</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ClipboardManagerCompatFactory</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">ClipboardManagerCompat</span> <span class="nf">create</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">Build</span><span class="o">.</span><span class="na">VERSION</span><span class="o">.</span><span class="na">SDK_INT</span> <span class="o">&gt;=</span> <span class="n">Build</span><span class="o">.</span><span class="na">VERSION_CODES</span><span class="o">.</span><span class="na">HONEYCOMB</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nf">ClipboardManagerCompatImplHC</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nf">ClipboardManagerCompatImplHCBefore</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></li>
+<li><p>结论</p>
+
+<p>嗯，就是这样。</p>
+
+<p><a href="https://github.com/liaohuqiu/android-ClipboardManagerCompat">源码</a> 在这里。</p></li>
+</ol>
+
+<hr>
 
             <hr>
             <div id="disqus_thread"></div>
