@@ -50,9 +50,13 @@ category: blog
 
 *   为什么 API level 19 之后 `TYPE_TOAST` 可以接受事件
 
-    花了一些时间研究，发现 API level 19 之后，多了一个 `AccessibilityManagerService.getTypeForWindowManagerWindowType()`，但没找到之前对应的处理逻辑。
+    `PhoneWindowManager.adjustWindowParamsLw()`，API level 19 后做了调整。
 
-    有知道的朋友，还望赐教。
+    > 当我们使用 `TYPE_TOAST`, Android 会偷偷给我们加上 `FLAG_NOT_FOCUSABLE` 和 `FLAG_NOT_TOUCHABLE` , 4.0.1 开始, 会额外再去掉 `FLAG_WATCH_OUTSIDE_TOUCH`。 这样真的是什么事件都没了。
+
+    >  而4.4开始, `TYPE_TOAST被移除了`。所以从 4.4 开始, 使用 `TYPE_TOAST` 的同时还可以接收触摸事件和按键事件了, 而4.4以前只能显示出来, 不能交互。
+
+    > 来自[睡不着起不来的万先生][] 的 [Android悬浮窗使用TYPE_TOAST的小结](http://www.jianshu.com/p/634cd056b90c)
 
 *   争取做到极致
 
