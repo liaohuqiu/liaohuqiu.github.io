@@ -4,7 +4,7 @@
   <title>Yet Another Summer Rain</title>
   <link href="http://liaohuqiu.net/"/>
   <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
-  <updated>2015-10-24T15:55:11+08:00</updated>
+  <updated>2015-10-25T03:10:41+08:00</updated>
   <id>http://liaohuqiu.net/</id>
   <author>
     <name>Huqiu Liao / Srain</name>
@@ -174,9 +174,15 @@
 &lt;p&gt;故采用 &lt;code&gt;TYPE_TOAST&lt;/code&gt; 能让用不开启悬浮窗权限的情况下，也能显示。为的就是尽量少请求权限。&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;为什么 API level 19 之后 &lt;code&gt;TYPE_TOAST&lt;/code&gt; 可以接受事件&lt;/p&gt;
 
-&lt;p&gt;花了一些时间研究，发现 API level 19 之后，多了一个 &lt;code&gt;AccessibilityManagerService.getTypeForWindowManagerWindowType()&lt;/code&gt;，但没找到之前对应的处理逻辑。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;PhoneWindowManager.adjustWindowParamsLw()&lt;/code&gt;，API level 19 后做了调整。&lt;/p&gt;
 
-&lt;p&gt;有知道的朋友，还望赐教。&lt;/p&gt;&lt;/li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当我们使用 &lt;code&gt;TYPE_TOAST&lt;/code&gt;, Android 会偷偷给我们加上 &lt;code&gt;FLAG_NOT_FOCUSABLE&lt;/code&gt; 和 &lt;code&gt;FLAG_NOT_TOUCHABLE&lt;/code&gt; , 4.0.1 开始, 会额外再去掉 &lt;code&gt;FLAG_WATCH_OUTSIDE_TOUCH&lt;/code&gt;。 这样真的是什么事件都没了。&lt;/p&gt;
+
+&lt;p&gt;而4.4开始, &lt;code&gt;TYPE_TOAST被移除了&lt;/code&gt;。所以从 4.4 开始, 使用 &lt;code&gt;TYPE_TOAST&lt;/code&gt; 的同时还可以接收触摸事件和按键事件了, 而4.4以前只能显示出来, 不能交互。&lt;/p&gt;
+
+&lt;p&gt;来自&lt;a href=&quot;http://weibo.com/2951317192&quot;&gt;睡不着起不来的万先生&lt;/a&gt; 的 &lt;a href=&quot;http://www.jianshu.com/p/634cd056b90c&quot;&gt;Android悬浮窗使用TYPE_TOAST的小结&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;争取做到极致&lt;/p&gt;
 
 &lt;p&gt;在弹窗这个事情上，UC 也算做得挺极致了。&lt;/p&gt;
