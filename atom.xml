@@ -4,7 +4,7 @@
   <title>Yet Another Summer Rain</title>
   <link href="http://liaohuqiu.net/"/>
   <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
-  <updated>2015-10-25T03:10:41+08:00</updated>
+  <updated>2015-10-27T09:20:24+08:00</updated>
   <id>http://liaohuqiu.net/</id>
   <author>
     <name>Huqiu Liao / Srain</name>
@@ -117,6 +117,30 @@
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/liaohuqiu/android-ClipboardManagerCompat&quot;&gt;源码&lt;/a&gt; 在这里。&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;h3 id=&quot;关于-google-support-library-风格的兼容性处理&quot;&gt;关于 Google Support Library 风格的兼容性处理&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://weibo.com/u/1869137113&quot;&gt;杨辉&lt;/a&gt; 同学提到 Google Support Library 风格的兼容性处理。如果是工具类或者其他构造参数是 API level 无关的类时，用 Google Support Library 风格的兼容性处理。&lt;/p&gt;
+
+&lt;p&gt;以下为 &lt;a href=&quot;http://weibo.com/u/1869137113&quot;&gt;杨辉&lt;/a&gt; 同学提到的内容，括号内是我加的注释。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;先是提供一个统一入口：&lt;code&gt;ClipboardMangerCompat&lt;/code&gt;，里面有一些需要兼容的 static 函数，第一个参数为 &lt;code&gt;ClipboardManager&lt;/code&gt; 实例（注意，此时，该实例应该是 API level 无关的，但本例子中 &lt;code&gt;ClipboardManager&lt;/code&gt; 是和 API level 相关的）。&lt;/p&gt;
+
+&lt;p&gt;内部针对 &lt;code&gt;ClipboardManagerCompatImpl&lt;/code&gt; 接口实现各个版本的实现，如 &lt;code&gt;HCClipboardManagerCompatImpl&lt;/code&gt;，&lt;code&gt;BaseClipboardManagerCompatImpl&lt;/code&gt;。&lt;code&gt;ClipboardManagerCompat&lt;/code&gt; 内部再根据 API level 实现对应实例，并利用这种暴露接口对应调用，如下:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;static final ClipboardManagerImpl IMPL;
+
+static {
+    final int version = android.os.Build.VERSION.SDK_INT;
+    if (version &amp;gt;= 11) {
+        IMPL = new HCClipboardManagerCompatImpl();
+    } else {
+        IMPL = new BaseClipboardManagerCompatImpl();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;感谢 &lt;a href=&quot;http://weibo.com/u/1869137113&quot;&gt;杨辉&lt;/a&gt; 同学：&lt;/p&gt;
 
 &lt;hr&gt;
 </content>
