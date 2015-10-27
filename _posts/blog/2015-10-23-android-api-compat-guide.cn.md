@@ -116,5 +116,31 @@ category: blog
 
     [源码][] 在这里。
 
+### 关于 Google Support Library 风格的兼容性处理
+
+[杨辉][] 同学提到 Google Support Library 风格的兼容性处理。如果是工具类或者其他构造参数是 API level 无关的类时，用 Google Support Library 风格的兼容性处理。
+
+以下为 [杨辉][] 同学提到的内容，括号内是我加的注释。
+
+>   先是提供一个统一入口：`ClipboardMangerCompat`，里面有一些需要兼容的 static 函数，第一个参数为 `ClipboardManager` 实例（注意，此时，该实例应该是 API level 无关的，但本例子中 `ClipboardManager` 是和 API level 相关的）。
+
+>   内部针对 `ClipboardManagerCompatImpl` 接口实现各个版本的实现，如 `HCClipboardManagerCompatImpl`，`BaseClipboardManagerCompatImpl`。`ClipboardManagerCompat` 内部再根据 API level 实现对应实例，并利用这种暴露接口对应调用，如下:
+
+> ```
+> static final ClipboardManagerImpl IMPL;
+> 
+> static {
+>     final int version = android.os.Build.VERSION.SDK_INT;
+>     if (version >= 11) {
+>         IMPL = new HCClipboardManagerCompatImpl();
+>     } else {
+>         IMPL = new BaseClipboardManagerCompatImpl();
+>     }
+> }
+> ```
+
+感谢 [杨辉][] 同学：
+
 ---
-[源码]:   https://github.com/liaohuqiu/android-ClipboardManagerCompat
+[源码]:     https://github.com/liaohuqiu/android-ClipboardManagerCompat
+[杨辉]:     http://weibo.com/u/1869137113
