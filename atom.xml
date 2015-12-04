@@ -4,7 +4,7 @@
   <title>Yet Another Summer Rain</title>
   <link href="http://liaohuqiu.net/"/>
   <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
-  <updated>2015-12-04T10:33:48+08:00</updated>
+  <updated>2015-12-04T14:41:49+08:00</updated>
   <id>http://liaohuqiu.net/</id>
   <author>
     <name>Huqiu Liao / Srain</name>
@@ -30,7 +30,7 @@
 
 &lt;p&gt;项目现在已经有 28000+ 个提交，回溯提交历史，第一个提交，来自于 2010 年，所用的版本管理系统，还是 svn。人们纷纷在&lt;a href=&quot;https://github.com/apple/swift/commit/18844bc65229786b96b89a9fc7739c0fc897905e&quot;&gt;第一个提交&lt;/a&gt;下，用各国文字评论和留言。Swift 项目，从第一行代码到 2014 年发布，四年时间。&lt;/p&gt;
 
-&lt;p&gt;Swfit 和 PHP7 无疑是伟大的项目。发布或者开源之后，引起了业界巨大的轰动，随之而来的，可以想象的，是各种报道，新闻，项目看起来光鲜无比。&lt;/p&gt;
+&lt;p&gt;Swift 和 PHP7 无疑是伟大的项目。发布或者开源之后，引起了业界巨大的轰动，随之而来的，可以想象的，是各种报道，新闻，项目看起来光鲜无比。&lt;/p&gt;
 
 &lt;p&gt;然而又有多少人知道，这些项目的开发者的艰辛和寂寞？&lt;/p&gt;
 
@@ -43,11 +43,18 @@
 
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
 
-&lt;p&gt;而对于 PHP7：项目早期成员的辛苦的，甚至夜以继日的工作；PHP NG 是否要合并的纷争；PHP 7 长达将近两年的开发。相信只有很少的，也许只是订阅了邮件组的那些人知道。&lt;/p&gt;
+&lt;p&gt;而对于 PHP7：项目早期成员的辛苦的，甚至夜以继日的工作；PHP NG 是否要合并的纷争；PHP7 长达将近两年的开发。相信只有很少的，也许只是订阅了邮件组的那些人知道。&lt;/p&gt;
 
 &lt;p&gt;我们都渴望做出伟大的事情，向往远方，向往海阔天空。然而十年磨一剑，又有多少人，能够忍受日复一日的寂寞，长长的路途，无边的寂寞？&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://weibo.com/laruence&quot;&gt;@Laruence&lt;/a&gt; 说：PHP7 要发布了，他们只是在 twitter 相互庆祝一下罢了。因为他们中的很多人，甚至都没见过面。&lt;/p&gt;
+
+&lt;div class='row'&gt;
+&lt;div class='col-md-5 col-md-offset-3'&gt;
+&lt;img src='http://ww2.sinaimg.cn/large/599e230bgw1eynm9leb0uj20ku112n34.jpg' /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
 </content>
   </entry>
   
