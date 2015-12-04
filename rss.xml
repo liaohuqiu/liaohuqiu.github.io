@@ -6,12 +6,12 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Fri, 04 Dec 2015 09:58:27 +0800</pubDate>
-    <lastBuildDate>Fri, 04 Dec 2015 09:58:27 +0800</lastBuildDate>
+    <pubDate>Fri, 04 Dec 2015 10:09:40 +0800</pubDate>
+    <lastBuildDate>Fri, 04 Dec 2015 10:09:40 +0800</lastBuildDate>
 
     
     <item>
-      <title>十年磨一剑: PHP7 和 Swift 开源</title>
+      <title>十年磨一剑: 开发者的孤独与伟大</title>
       <link>http://liaohuqiu.net/cn/posts/roman-wasnot-built-in-a-day</link>
       <pubDate>Thu, 03 Dec 2015 00:00:00 +0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>

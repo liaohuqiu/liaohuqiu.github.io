@@ -4,7 +4,7 @@
   <title>Yet Another Summer Rain</title>
   <link href="http://liaohuqiu.net/"/>
   <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
-  <updated>2015-12-04T09:58:27+08:00</updated>
+  <updated>2015-12-04T10:09:40+08:00</updated>
   <id>http://liaohuqiu.net/</id>
   <author>
     <name>Huqiu Liao / Srain</name>
@@ -15,7 +15,7 @@
   <entry>
     <id>http://liaohuqiu.net/cn/posts/roman-wasnot-built-in-a-day</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/roman-wasnot-built-in-a-day"/>
-    <title>十年磨一剑: PHP7 和 Swift 开源</title>
+    <title>十年磨一剑: 开发者的孤独与伟大</title>
     <published>2015-12-03T00:00:00+08:00</published>
     <updated>2015-12-03T00:00:00+08:00</updated>
     <author>
