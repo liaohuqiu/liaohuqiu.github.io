@@ -1,7 +1,7 @@
 ---
 layout: post_wide
-title: "十年磨一剑: PHP7 和 Swift 开源"
-description: ""
+title: "十年磨一剑: 开发者的孤独与伟大"
+description: "写在 PHP7 发布和 Swift 开源之日"
 category: blog
 ---
 
