@@ -24,6 +24,12 @@ Swfit 和 PHP7 无疑是伟大的项目。发布或者开源之后，引起了�
 
 看着 Swift 项目开发者们时疏时密的提交频率，以及 2014 年发布之前和发布之后截然不同的提交频率，我想象着他们遇到的困难。而在 2013 年之前，长达将近三年的时间里，一直只有 [@lattner][] 和 [@DougGregor][] 两个人，我无法想象他们的孤独和寂寞。
 
+<div class='row'>
+<div class='col-md-8 col-md-offset-2'>
+<img src='http://ww1.sinaimg.cn/large/599e230bgw1eynf3qvyr1j20s70iz77r.jpg' />
+</div>
+</div>
+
 
 而对于 PHP7：项目早期成员的辛苦的，甚至夜以继日的工作；PHP NG 是否要合并的纷争；PHP 7 长达将近两年的开发。相信只有很少的，也许只是订阅了邮件组的那些人知道。
 
