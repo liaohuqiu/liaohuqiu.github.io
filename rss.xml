@@ -6,9 +6,37 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Wed, 11 Nov 2015 18:18:41 +0800</pubDate>
-    <lastBuildDate>Wed, 11 Nov 2015 18:18:41 +0800</lastBuildDate>
+    <pubDate>Fri, 04 Dec 2015 09:58:27 +0800</pubDate>
+    <lastBuildDate>Fri, 04 Dec 2015 09:58:27 +0800</lastBuildDate>
 
+    
+    <item>
+      <title>十年磨一剑: PHP7 和 Swift 开源</title>
+      <link>http://liaohuqiu.net/cn/posts/roman-wasnot-built-in-a-day</link>
+      <pubDate>Thu, 03 Dec 2015 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/cn/posts/roman-wasnot-built-in-a-day</guid>
+      <description>&lt;p&gt;美国西海岸时间，2015 年 12 月 3 号。&lt;/p&gt;
+
+&lt;p&gt;php.net 挂出了 《&lt;a href=&quot;http://php.net/archive/2015.php#id2015-12-03-1&quot;&gt;PHP 7.0.0 Released&lt;/a&gt;》的 Release Note，PHP7 终于正式发布！有幸在社区，目睹整个过程，深感过程之不易。曾经一度，我还以为项目会流产，而现在终于发布，带来了 100% 的性能提升和许多新特性。从 2014 年初开始到现在，两年时间。&lt;/p&gt;
+
+&lt;p&gt;同时，今天早上，&lt;a href=&quot;https://github.com/apple/swift/&quot;&gt;Swift&lt;/a&gt; 开源了。一天下来，已经将近 10000 个 star。从早上9点到现在，这个项目异常活跃，一整天都在不停地 merge。&lt;/p&gt;
+
+&lt;p&gt;项目现在已经有 28000+ 个提交，回溯提交历史，第一个提交，来自于 2010 年，所用的版本管理系统，还是 svn。人们纷纷在&lt;a href=&quot;https://github.com/apple/swift/commit/18844bc65229786b96b89a9fc7739c0fc897905e&quot;&gt;第一个提交&lt;/a&gt;下，用各国文字评论和留言。Swift 项目，从第一行代码到 2014 年发布，四年时间。&lt;/p&gt;
+
+&lt;p&gt;Swfit 和 PHP7 无疑是伟大的项目。发布或者开源之后，引起了业界巨大的轰动，随之而来的，可以想象的，是各种报道，新闻，项目看起来光鲜无比。&lt;/p&gt;
+
+&lt;p&gt;然而又有多少人知道，这些项目的开发者的艰辛和寂寞？&lt;/p&gt;
+
+&lt;p&gt;看着 Swift 项目开发者们时疏时密的提交频率，以及 2014 年发布之前和发布之后截然不同的提交频率，我想象着他们遇到的困难。而在 2013 年之前，长达将近三年的时间里，一直只有 &lt;a href=&quot;https://github.com/lattner&quot;&gt;@lattner&lt;/a&gt; 和 &lt;a href=&quot;https://github.com/DougGregor&quot;&gt;@DougGregor&lt;/a&gt; 两个人，我无法想象他们的孤独和寂寞。&lt;/p&gt;
+
+&lt;p&gt;而对于 PHP7：项目早期成员的辛苦的，甚至夜以继日的工作；PHP NG 是否要合并的纷争；PHP 7 长达将近两年的开发。相信只有很少的，也许只是订阅了邮件组的那些人知道。&lt;/p&gt;
+
+&lt;p&gt;我们都渴望做出伟大的事情，向往远方，向往海阔天空。然而十年磨一剑，又有多少人，能够忍受日复一日的寂寞，长长的路途，无边的寂寞？&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://weibo.com/laruence&quot;&gt;@Laruence&lt;/a&gt; 说：PHP7 要发布了，他们只是在 twitter 相互庆祝一下罢了。因为他们中的很多人，甚至都没见过面。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>我们辛勤劳作的母亲</title>
@@ -4150,67 +4178,6 @@ To git@git.liaohuqiu.net:huqiu/test.git
     </item>
     
     <item>
-      <title>PHP静态延迟绑定: 获取子类的单例</title>
-      <link>http://liaohuqiu.net/cn/posts/php-singleton-of-children-class</link>
-      <pubDate>Thu, 24 Jul 2014 00:00:00 +0800</pubDate>
-      <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/cn/posts/php-singleton-of-children-class</guid>
-      <description>&lt;p&gt;在一定的需求场景下，你有一个父类和一些子类，你需要获取这些子类的实例又不想在每个子类中写重复的&lt;code&gt;getInstance()&lt;/code&gt;方法。&lt;/p&gt;
-
-&lt;p&gt;在各种语言中，一般会用一个工具类去做这个实现。但在php5.3之后，会有另外一种方法。&lt;/p&gt;
-
-&lt;p&gt;php5.3之后加入的新的特性：静态延迟绑定。这个特性允许在运行时获取静态继承的上下文。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;get_called_class()&lt;/code&gt; 可以获取被调用的类。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;static&lt;/code&gt; 关键字用来访问静态继承的上下文。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;在这个特性下，可以通过父类的静态方法获取子类的实例:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Base&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nv&quot;&gt;$class&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;get_called_class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;c1&quot;&gt;// new $class() will work too&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Base&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;A&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Base&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;B&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;程序输出:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;A
-B
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-    </item>
-    
-    <item>
       <title>PHP: singleton of children class</title>
       <link>http://liaohuqiu.net/posts/php-singleton-of-children-class</link>
       <pubDate>Thu, 24 Jul 2014 00:00:00 +0800</pubDate>
@@ -4274,6 +4241,67 @@ B
     </item>
     
     <item>
+      <title>PHP静态延迟绑定: 获取子类的单例</title>
+      <link>http://liaohuqiu.net/cn/posts/php-singleton-of-children-class</link>
+      <pubDate>Thu, 24 Jul 2014 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/cn/posts/php-singleton-of-children-class</guid>
+      <description>&lt;p&gt;在一定的需求场景下，你有一个父类和一些子类，你需要获取这些子类的实例又不想在每个子类中写重复的&lt;code&gt;getInstance()&lt;/code&gt;方法。&lt;/p&gt;
+
+&lt;p&gt;在各种语言中，一般会用一个工具类去做这个实现。但在php5.3之后，会有另外一种方法。&lt;/p&gt;
+
+&lt;p&gt;php5.3之后加入的新的特性：静态延迟绑定。这个特性允许在运行时获取静态继承的上下文。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;get_called_class()&lt;/code&gt; 可以获取被调用的类。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;static&lt;/code&gt; 关键字用来访问静态继承的上下文。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;在这个特性下，可以通过父类的静态方法获取子类的实例:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Base&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;$class&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;get_called_class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// new $class() will work too&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Base&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;A&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Base&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;B&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;程序输出:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;A
+B
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
       <title>ssh + expect 自动登录服务器</title>
       <link>http://liaohuqiu.net/cn/posts/ssh-auto-login</link>
       <pubDate>Wed, 02 Jul 2014 00:00:00 +0800</pubDate>
@@ -4331,81 +4359,6 @@ B
 &lt;p&gt;在 Chrome 浏览器打开:  &lt;code&gt;chrome://flags/&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;启用「实验性 QUIC 协议」和「经由实验性 QUIC 协议发出的 HTTPS请求」，重启浏览器后可以正常登陆 Google 相关服务。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>setup log center</title>
-      <link>http://liaohuqiu.net/posts/log-center</link>
-      <pubDate>Wed, 28 May 2014 00:00:00 +0800</pubDate>
-      <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/posts/log-center</guid>
-      <description>&lt;p&gt;In *inux System, there are some log tools, for example: syslog, rsyslog, syslog-ng, etc..&lt;/p&gt;
-
-&lt;p&gt;In our program we can record log to syslog, for example in php:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_NOTICE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;srain&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;some messages@&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Y-m-d H:i:s&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;openlog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_PID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_LOCAL6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;syslog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;closelog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;When we have more than one webserver which will record log, we need a log center to keep all of the log.&lt;/p&gt;
-
-&lt;h3 id=&quot;forwarding&quot;&gt;Forwarding&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;syslog&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    10.11.2.13  # the port is 514 and using the UDP protocal.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    @@10.11.2.13:514    # udp
-*.local6    @10.11.2.13:514     # tcp more reliable than udp
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;description d_loghost { udp(&amp;quot;10.11.2.13&amp;quot; port(514)};
-
-log { source(s_sys); description(d_loghost)};
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;reciving&quot;&gt;Reciving&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# for udp reception
-$ModLoad imudp
-$UDPServerRun 514
-
-# for tcp reception
-$ModLoad imtcp
-$InputTCPServerRun 514
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;destination df_wrt0 {
-    #  keep log into diffrent files
-    file(&amp;quot;/var/log/$PROGRAM-$YEAR$MONTH$DAY&amp;quot;
-            template(&amp;quot;$FULLDATE $SOURCEIP-$HOST[$PID]: $MSG\n&amp;quot;)
-            template_escape(yes)
-        );
-};
-
-source s_net {
-    udp(ip(0.0.0.0) port(514));
-    tcp(ip(0.0.0.0) port(514));
-};
-
-log { source(s_net); description(df_wrt0)};
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;preformance&quot;&gt;Preformance&lt;/h3&gt;
-
-&lt;p&gt;I prefer syslog/rsyslog + syslog-ng. It will be more stable and easy to config.&lt;/p&gt;
-
-&lt;p&gt;There were more than 2000 clients to send log to a log center.&lt;/p&gt;
 </description>
     </item>
     
@@ -4483,6 +4436,81 @@ log { source(s_net); description(df_wrt0)};
 &lt;h3 id=&quot;性能&quot;&gt;性能&lt;/h3&gt;
 
 &lt;p&gt;syslog + syslog-ng。曾经有2000+的web往一台日志服务器上汇总。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>setup log center</title>
+      <link>http://liaohuqiu.net/posts/log-center</link>
+      <pubDate>Wed, 28 May 2014 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/posts/log-center</guid>
+      <description>&lt;p&gt;In *inux System, there are some log tools, for example: syslog, rsyslog, syslog-ng, etc..&lt;/p&gt;
+
+&lt;p&gt;In our program we can record log to syslog, for example in php:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_NOTICE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;srain&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;some messages@&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Y-m-d H:i:s&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;openlog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_PID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_LOCAL6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;syslog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;closelog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;When we have more than one webserver which will record log, we need a log center to keep all of the log.&lt;/p&gt;
+
+&lt;h3 id=&quot;forwarding&quot;&gt;Forwarding&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;syslog&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    10.11.2.13  # the port is 514 and using the UDP protocal.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    @@10.11.2.13:514    # udp
+*.local6    @10.11.2.13:514     # tcp more reliable than udp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;description d_loghost { udp(&amp;quot;10.11.2.13&amp;quot; port(514)};
+
+log { source(s_sys); description(d_loghost)};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;reciving&quot;&gt;Reciving&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# for udp reception
+$ModLoad imudp
+$UDPServerRun 514
+
+# for tcp reception
+$ModLoad imtcp
+$InputTCPServerRun 514
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;destination df_wrt0 {
+    #  keep log into diffrent files
+    file(&amp;quot;/var/log/$PROGRAM-$YEAR$MONTH$DAY&amp;quot;
+            template(&amp;quot;$FULLDATE $SOURCEIP-$HOST[$PID]: $MSG\n&amp;quot;)
+            template_escape(yes)
+        );
+};
+
+source s_net {
+    udp(ip(0.0.0.0) port(514));
+    tcp(ip(0.0.0.0) port(514));
+};
+
+log { source(s_net); description(df_wrt0)};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;preformance&quot;&gt;Preformance&lt;/h3&gt;
+
+&lt;p&gt;I prefer syslog/rsyslog + syslog-ng. It will be more stable and easy to config.&lt;/p&gt;
+
+&lt;p&gt;There were more than 2000 clients to send log to a log center.&lt;/p&gt;
 </description>
     </item>
     
@@ -5750,6 +5778,247 @@ git config --global init.templatedir $template_dir
     </item>
     
     <item>
+      <title>Android中View大小的确定过程</title>
+      <link>http://liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view</link>
+      <pubDate>Fri, 14 Mar 2014 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view</guid>
+      <description>&lt;h3 id=&quot;view-and-viewgroup&quot;&gt;View and ViewGroup&lt;/h3&gt;
+
+&lt;p&gt;安卓中有5种基本的 &lt;code&gt;ViewGroup&lt;/code&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  FrameLayout&lt;/li&gt;
+&lt;li&gt;  RelativeLayout&lt;/li&gt;
+&lt;li&gt;  LinearLayout&lt;/li&gt;
+&lt;li&gt;  TableLayout&lt;/li&gt;
+&lt;li&gt;  AbsoluteLayout&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;ViewGroup&lt;/code&gt;可以添加子View，在xml文件里面，我们可以这样写：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;RelativeLayout&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;match_parent&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;100dp&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;match_parent&amp;quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;ImageView&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;match_parent&amp;quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;20dp&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/RelativeLayout&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;子view的大小&quot;&gt;子View的大小&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;LayoutParams&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;LayoutParams&lt;/code&gt;用来描述一个View在父容器中大小，它包括了高度和宽度两个维度的信息，每个维度的数据类型都是&lt;code&gt;int&lt;/code&gt;，取值是下面三种情况之一:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;FILL_PARENT&lt;/code&gt; / &lt;code&gt;MATCH_PARENT&lt;/code&gt;, 取值是 &lt;code&gt;-1&lt;/code&gt;. &lt;/p&gt;
+
+&lt;p&gt;填充满父容器, &lt;strong&gt;minus padding&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;WRAP_CONTENT&lt;/code&gt;, 取值是 &lt;code&gt;-2&lt;/code&gt;. &lt;/p&gt;
+
+&lt;p&gt;尺寸尽量小，能包住自身的全部内容就行, &lt;strong&gt;plus padding&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;一个确定的尺寸，大于等于0的一个数值。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;父容器的大小状态&quot;&gt;父容器的大小状态&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Padding&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;留白。自身内容的大小加上留白就是父容器的内容的真正大小。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;MeasureSpec&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;当父容器要确定子View的大小的时候，父容器需要告诉子View自身的大小状态。当父容器所属的大小状态不同时，对子View的尺寸约束是不一样的。父容器大小状态有下面三种情况：&lt;/p&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;parent&lt;/th&gt;
+&lt;th&gt;child&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;UNSPECIFIED&lt;/td&gt;
+&lt;td&gt;父容器对子View没有任何约束，子View可以按自身需要，任意大小。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EXACTLY&lt;/td&gt;
+&lt;td&gt;父容器大小是一个确定的数值，子View只能限定在指定大小内。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AT_MOST&lt;/td&gt;
+&lt;td&gt;父容器本身以及内含的所有子View大小不能超过指定大小。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;View的尺寸大小和尺寸状态&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;尺寸大小的数据类型是 &lt;code&gt;int&lt;/code&gt;, 8个字节。&lt;/p&gt;
+
+&lt;p&gt;尺寸大小和尺寸状态在很多时候需要一起传递，为了减少对象的分配，把三种尺寸状态编码到尺寸大小&lt;code&gt;int&lt;/code&gt;变量的最高位2个位中。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;UNSPECIFIED&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;+-----------+----------
+| 00xx xxxx | 剩余的7个字节.    0x00 &amp;lt;&amp;lt; 30 + value
++-----------+----------
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;EXACTLY&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;+-----------+----------
+| 01xx xxxx | 剩余的7个字节.    0x01 &amp;lt;&amp;lt; 30 + value
++-----------+----------
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;AT_MOST&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;+-----------+----------
+| 10xx xxxx | 剩余的7个字节.    0x10 &amp;lt;&amp;lt; 30 + value
++-----------+----------
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;子view尺寸的最终确定&quot;&gt;子View尺寸的最终确定&lt;/h3&gt;
+
+&lt;p&gt;子View有一个期望的尺寸大小，父容器有尺寸大小约束，这两方面的约束协调，用来计算View的大小状态。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;根据父容器的尺寸状态，以及子View的&lt;code&gt;LayoutParams&lt;/code&gt;，可以确定子View的大小和状态：&lt;code&gt;MeasureSpec&lt;/code&gt;，并要求子View确定自身大小。&lt;/p&gt;
+
+&lt;p&gt;调用子View的&lt;code&gt;measure()&lt;/code&gt;方法，子View的&lt;code&gt;onMeasure()&lt;/code&gt;方法也会被执行。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;子View在&lt;code&gt;onMeasure()&lt;/code&gt;方法中，根据父容器给出的尺寸大小和约束，根据自身情况，确定最终的大小。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;父容器根据子View的确定的大小，最终确定自身大小。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;需要考虑的因素&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  父容器的尺寸状态:
+
+&lt;ol&gt;
+&lt;li&gt;EXACTLY&lt;/li&gt;
+&lt;li&gt;AT_MOST&lt;/li&gt;
+&lt;li&gt;UNSPECIFIED&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;  父容器的尺寸大小: &lt;code&gt;parentSize&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;父容器的留白:&lt;code&gt;parentPadding&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;父容器真正内容的大小是： &lt;code&gt;parentSize&lt;/code&gt; - &lt;code&gt;parentPadding&lt;/code&gt;, 用变量 &lt;code&gt;parentContentSize&lt;/code&gt;代替。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;子View的LayoutParams:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt; 确定的数值, &lt;code&gt;childSize&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt; MATCH_PARENT&lt;/li&gt;
+&lt;li&gt; WRAP_CONTENT&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;需要确定的&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  子View的大小状态&lt;/li&gt;
+&lt;li&gt;  子view的尺寸大小&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;尺寸确定的规则&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;父容器的大小状态处于 &lt;code&gt;EXACTLY&lt;/code&gt; 状态时, 子容器限定在这个大小。&lt;/p&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;child layout&lt;/th&gt;
+&lt;th&gt;mode&lt;/th&gt;
+&lt;th&gt;size&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;确定的大小&lt;/td&gt;
+&lt;td&gt;EXACTLY&lt;/td&gt;
+&lt;td&gt;childSize&lt;/td&gt;
+&lt;td&gt;子View大小可以是自身大小，后期再做确定。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MATCH_PARENT&lt;/td&gt;
+&lt;td&gt;EXACTLY&lt;/td&gt;
+&lt;td&gt;parentContentSize&lt;/td&gt;
+&lt;td&gt;父容器多大，子View就可以多大。大小为父容器大小。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WRAP_CONTENT&lt;/td&gt;
+&lt;td&gt;AT_MOST&lt;/td&gt;
+&lt;td&gt;parentContentSize&lt;/td&gt;
+&lt;td&gt;最大尺寸为父容器尺寸，本身内容不能超过和父容器尺寸。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;父容器尺寸处于&lt;code&gt;AT_MOST&lt;/code&gt;状态时, 子View尺寸不能超过这个尺寸。&lt;/p&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;child layout&lt;/th&gt;
+&lt;th&gt;mode&lt;/th&gt;
+&lt;th&gt;size&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;确定的大小&lt;/td&gt;
+&lt;td&gt;EXACTLY&lt;/td&gt;
+&lt;td&gt;childSize&lt;/td&gt;
+&lt;td&gt;子View的大小可以为自身的大小。后期再做确定&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MATCH_PARENT&lt;/td&gt;
+&lt;td&gt;AT_MOST&lt;/td&gt;
+&lt;td&gt;parentContentSize&lt;/td&gt;
+&lt;td&gt;父容器大小未确定，但子容器想要和父容器一定大。那么确定子View最大可以和父容器一样大。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WRAP_CONTENT&lt;/td&gt;
+&lt;td&gt;AT_MOST&lt;/td&gt;
+&lt;td&gt;parentSize&lt;/td&gt;
+&lt;td&gt;子View需要确定自己的尺寸，最大不超过父容器大小。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;父容器处于 &lt;code&gt;UNSPECIFIED&lt;/code&gt; 状态，需要根据子View的最终大小来确定自己状态。&lt;/p&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;child layout&lt;/th&gt;
+&lt;th&gt;mode&lt;/th&gt;
+&lt;th&gt;size&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;确定的大小&lt;/td&gt;
+&lt;td&gt;EXACTLY&lt;/td&gt;
+&lt;td&gt;childSize&lt;/td&gt;
+&lt;td&gt;子View尺寸为一个确定大小.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MATCH_PARENT&lt;/td&gt;
+&lt;td&gt;UNSPECIFIED&lt;/td&gt;
+&lt;td&gt;待定&lt;/td&gt;
+&lt;td&gt;子view根据自身情况，确定大小。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WRAP_CONTENT&lt;/td&gt;
+&lt;td&gt;UNSPECIFIED&lt;/td&gt;
+&lt;td&gt;待定&lt;/td&gt;
+&lt;td&gt;子View根据自身情况，确定大小。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>How Android caculates view size</title>
       <link>http://liaohuqiu.net/posts/how-does-android-caculate-the-size-of-child-view</link>
       <pubDate>Fri, 14 Mar 2014 00:00:00 +0800</pubDate>
@@ -5995,243 +6264,15 @@ git config --global init.templatedir $template_dir
     </item>
     
     <item>
-      <title>Android中View大小的确定过程</title>
-      <link>http://liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view</link>
-      <pubDate>Fri, 14 Mar 2014 00:00:00 +0800</pubDate>
+      <title>SQLite清空数据库表</title>
+      <link>http://liaohuqiu.net/cn/posts/truncate-table-in-sqlite</link>
+      <pubDate>Thu, 13 Mar 2014 00:00:00 +0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view</guid>
-      <description>&lt;h3 id=&quot;view-and-viewgroup&quot;&gt;View and ViewGroup&lt;/h3&gt;
-
-&lt;p&gt;安卓中有5种基本的 &lt;code&gt;ViewGroup&lt;/code&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;  FrameLayout&lt;/li&gt;
-&lt;li&gt;  RelativeLayout&lt;/li&gt;
-&lt;li&gt;  LinearLayout&lt;/li&gt;
-&lt;li&gt;  TableLayout&lt;/li&gt;
-&lt;li&gt;  AbsoluteLayout&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;ViewGroup&lt;/code&gt;可以添加子View，在xml文件里面，我们可以这样写：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;RelativeLayout&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;match_parent&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;100dp&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;match_parent&amp;quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;ImageView&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;match_parent&amp;quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;20dp&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/RelativeLayout&amp;gt;&lt;/span&gt;
+      <guid>http://liaohuqiu.net/cn/posts/truncate-table-in-sqlite</guid>
+      <description>&lt;p&gt;Sqlite 不支持&lt;code&gt;truncate&lt;/code&gt;，可用 &lt;code&gt;DELETE&lt;/code&gt;代替。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;DELETE FROM table_name
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id=&quot;子view的大小&quot;&gt;子View的大小&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;LayoutParams&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;LayoutParams&lt;/code&gt;用来描述一个View在父容器中大小，它包括了高度和宽度两个维度的信息，每个维度的数据类型都是&lt;code&gt;int&lt;/code&gt;，取值是下面三种情况之一:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;FILL_PARENT&lt;/code&gt; / &lt;code&gt;MATCH_PARENT&lt;/code&gt;, 取值是 &lt;code&gt;-1&lt;/code&gt;. &lt;/p&gt;
-
-&lt;p&gt;填充满父容器, &lt;strong&gt;minus padding&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;WRAP_CONTENT&lt;/code&gt;, 取值是 &lt;code&gt;-2&lt;/code&gt;. &lt;/p&gt;
-
-&lt;p&gt;尺寸尽量小，能包住自身的全部内容就行, &lt;strong&gt;plus padding&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;一个确定的尺寸，大于等于0的一个数值。&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;父容器的大小状态&quot;&gt;父容器的大小状态&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Padding&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;留白。自身内容的大小加上留白就是父容器的内容的真正大小。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;MeasureSpec&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;当父容器要确定子View的大小的时候，父容器需要告诉子View自身的大小状态。当父容器所属的大小状态不同时，对子View的尺寸约束是不一样的。父容器大小状态有下面三种情况：&lt;/p&gt;
-
-&lt;table&gt;&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;parent&lt;/th&gt;
-&lt;th&gt;child&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;UNSPECIFIED&lt;/td&gt;
-&lt;td&gt;父容器对子View没有任何约束，子View可以按自身需要，任意大小。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;EXACTLY&lt;/td&gt;
-&lt;td&gt;父容器大小是一个确定的数值，子View只能限定在指定大小内。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;AT_MOST&lt;/td&gt;
-&lt;td&gt;父容器本身以及内含的所有子View大小不能超过指定大小。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;View的尺寸大小和尺寸状态&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;尺寸大小的数据类型是 &lt;code&gt;int&lt;/code&gt;, 8个字节。&lt;/p&gt;
-
-&lt;p&gt;尺寸大小和尺寸状态在很多时候需要一起传递，为了减少对象的分配，把三种尺寸状态编码到尺寸大小&lt;code&gt;int&lt;/code&gt;变量的最高位2个位中。&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;UNSPECIFIED&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;+-----------+----------
-| 00xx xxxx | 剩余的7个字节.    0x00 &amp;lt;&amp;lt; 30 + value
-+-----------+----------
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;EXACTLY&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;+-----------+----------
-| 01xx xxxx | 剩余的7个字节.    0x01 &amp;lt;&amp;lt; 30 + value
-+-----------+----------
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;AT_MOST&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;+-----------+----------
-| 10xx xxxx | 剩余的7个字节.    0x10 &amp;lt;&amp;lt; 30 + value
-+-----------+----------
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;子view尺寸的最终确定&quot;&gt;子View尺寸的最终确定&lt;/h3&gt;
-
-&lt;p&gt;子View有一个期望的尺寸大小，父容器有尺寸大小约束，这两方面的约束协调，用来计算View的大小状态。&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;根据父容器的尺寸状态，以及子View的&lt;code&gt;LayoutParams&lt;/code&gt;，可以确定子View的大小和状态：&lt;code&gt;MeasureSpec&lt;/code&gt;，并要求子View确定自身大小。&lt;/p&gt;
-
-&lt;p&gt;调用子View的&lt;code&gt;measure()&lt;/code&gt;方法，子View的&lt;code&gt;onMeasure()&lt;/code&gt;方法也会被执行。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;子View在&lt;code&gt;onMeasure()&lt;/code&gt;方法中，根据父容器给出的尺寸大小和约束，根据自身情况，确定最终的大小。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;父容器根据子View的确定的大小，最终确定自身大小。&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;strong&gt;需要考虑的因素&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;  父容器的尺寸状态:
-
-&lt;ol&gt;
-&lt;li&gt;EXACTLY&lt;/li&gt;
-&lt;li&gt;AT_MOST&lt;/li&gt;
-&lt;li&gt;UNSPECIFIED&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;li&gt;  父容器的尺寸大小: &lt;code&gt;parentSize&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;父容器的留白:&lt;code&gt;parentPadding&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;父容器真正内容的大小是： &lt;code&gt;parentSize&lt;/code&gt; - &lt;code&gt;parentPadding&lt;/code&gt;, 用变量 &lt;code&gt;parentContentSize&lt;/code&gt;代替。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;子View的LayoutParams:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt; 确定的数值, &lt;code&gt;childSize&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt; MATCH_PARENT&lt;/li&gt;
-&lt;li&gt; WRAP_CONTENT&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;需要确定的&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;  子View的大小状态&lt;/li&gt;
-&lt;li&gt;  子view的尺寸大小&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;尺寸确定的规则&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;父容器的大小状态处于 &lt;code&gt;EXACTLY&lt;/code&gt; 状态时, 子容器限定在这个大小。&lt;/p&gt;
-
-&lt;table&gt;&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;child layout&lt;/th&gt;
-&lt;th&gt;mode&lt;/th&gt;
-&lt;th&gt;size&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;确定的大小&lt;/td&gt;
-&lt;td&gt;EXACTLY&lt;/td&gt;
-&lt;td&gt;childSize&lt;/td&gt;
-&lt;td&gt;子View大小可以是自身大小，后期再做确定。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;MATCH_PARENT&lt;/td&gt;
-&lt;td&gt;EXACTLY&lt;/td&gt;
-&lt;td&gt;parentContentSize&lt;/td&gt;
-&lt;td&gt;父容器多大，子View就可以多大。大小为父容器大小。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;WRAP_CONTENT&lt;/td&gt;
-&lt;td&gt;AT_MOST&lt;/td&gt;
-&lt;td&gt;parentContentSize&lt;/td&gt;
-&lt;td&gt;最大尺寸为父容器尺寸，本身内容不能超过和父容器尺寸。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;父容器尺寸处于&lt;code&gt;AT_MOST&lt;/code&gt;状态时, 子View尺寸不能超过这个尺寸。&lt;/p&gt;
-
-&lt;table&gt;&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;child layout&lt;/th&gt;
-&lt;th&gt;mode&lt;/th&gt;
-&lt;th&gt;size&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;确定的大小&lt;/td&gt;
-&lt;td&gt;EXACTLY&lt;/td&gt;
-&lt;td&gt;childSize&lt;/td&gt;
-&lt;td&gt;子View的大小可以为自身的大小。后期再做确定&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;MATCH_PARENT&lt;/td&gt;
-&lt;td&gt;AT_MOST&lt;/td&gt;
-&lt;td&gt;parentContentSize&lt;/td&gt;
-&lt;td&gt;父容器大小未确定，但子容器想要和父容器一定大。那么确定子View最大可以和父容器一样大。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;WRAP_CONTENT&lt;/td&gt;
-&lt;td&gt;AT_MOST&lt;/td&gt;
-&lt;td&gt;parentSize&lt;/td&gt;
-&lt;td&gt;子View需要确定自己的尺寸，最大不超过父容器大小。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;父容器处于 &lt;code&gt;UNSPECIFIED&lt;/code&gt; 状态，需要根据子View的最终大小来确定自己状态。&lt;/p&gt;
-
-&lt;table&gt;&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;child layout&lt;/th&gt;
-&lt;th&gt;mode&lt;/th&gt;
-&lt;th&gt;size&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;确定的大小&lt;/td&gt;
-&lt;td&gt;EXACTLY&lt;/td&gt;
-&lt;td&gt;childSize&lt;/td&gt;
-&lt;td&gt;子View尺寸为一个确定大小.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;MATCH_PARENT&lt;/td&gt;
-&lt;td&gt;UNSPECIFIED&lt;/td&gt;
-&lt;td&gt;待定&lt;/td&gt;
-&lt;td&gt;子view根据自身情况，确定大小。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;WRAP_CONTENT&lt;/td&gt;
-&lt;td&gt;UNSPECIFIED&lt;/td&gt;
-&lt;td&gt;待定&lt;/td&gt;
-&lt;td&gt;子View根据自身情况，确定大小。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;但是效率更高的做法是，drop掉表，然后重建。&lt;/p&gt;
 </description>
     </item>
     
@@ -6245,19 +6286,6 @@ git config --global init.templatedir $template_dir
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;DELETE FROM table_name
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;However, it is much more efficient to drop the table and recreate it.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>SQLite清空数据库表</title>
-      <link>http://liaohuqiu.net/cn/posts/truncate-table-in-sqlite</link>
-      <pubDate>Thu, 13 Mar 2014 00:00:00 +0800</pubDate>
-      <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/cn/posts/truncate-table-in-sqlite</guid>
-      <description>&lt;p&gt;Sqlite 不支持&lt;code&gt;truncate&lt;/code&gt;，可用 &lt;code&gt;DELETE&lt;/code&gt;代替。&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;DELETE FROM table_name
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;但是效率更高的做法是，drop掉表，然后重建。&lt;/p&gt;
 </description>
     </item>
     
@@ -6488,11 +6516,11 @@ git config --global init.templatedir $template_dir
     </item>
     
     <item>
-      <title>Jekyll 插件和Github Pages</title>
-      <link>http://liaohuqiu.net/cn/posts/jekyll-plugins-on-github-pages</link>
+      <title>Jekyll Plugins and Github Pages</title>
+      <link>http://liaohuqiu.net/posts/jekyll-plugins-on-github-pages</link>
       <pubDate>Mon, 03 Mar 2014 00:00:00 +0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/cn/posts/jekyll-plugins-on-github-pages</guid>
+      <guid>http://liaohuqiu.net/posts/jekyll-plugins-on-github-pages</guid>
       <description>&lt;h4 id=&quot;first-of-all:&quot;&gt;First of all:&lt;/h4&gt;
 
 &lt;p&gt;Github Pages works in &lt;code&gt;safe mode&lt;/code&gt; in which most of the Jekyll plugins can not work.&lt;/p&gt;
@@ -6591,11 +6619,11 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;git checkout $branch&amp;quot
     </item>
     
     <item>
-      <title>Jekyll Plugins and Github Pages</title>
-      <link>http://liaohuqiu.net/posts/jekyll-plugins-on-github-pages</link>
+      <title>Jekyll 插件和Github Pages</title>
+      <link>http://liaohuqiu.net/cn/posts/jekyll-plugins-on-github-pages</link>
       <pubDate>Mon, 03 Mar 2014 00:00:00 +0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/posts/jekyll-plugins-on-github-pages</guid>
+      <guid>http://liaohuqiu.net/cn/posts/jekyll-plugins-on-github-pages</guid>
       <description>&lt;h4 id=&quot;first-of-all:&quot;&gt;First of all:&lt;/h4&gt;
 
 &lt;p&gt;Github Pages works in &lt;code&gt;safe mode&lt;/code&gt; in which most of the Jekyll plugins can not work.&lt;/p&gt;
