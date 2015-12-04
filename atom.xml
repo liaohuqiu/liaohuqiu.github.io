@@ -4,7 +4,7 @@
   <title>Yet Another Summer Rain</title>
   <link href="http://liaohuqiu.net/"/>
   <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
-  <updated>2015-12-04T10:09:40+08:00</updated>
+  <updated>2015-12-04T10:33:48+08:00</updated>
   <id>http://liaohuqiu.net/</id>
   <author>
     <name>Huqiu Liao / Srain</name>
@@ -35,6 +35,13 @@
 &lt;p&gt;然而又有多少人知道，这些项目的开发者的艰辛和寂寞？&lt;/p&gt;
 
 &lt;p&gt;看着 Swift 项目开发者们时疏时密的提交频率，以及 2014 年发布之前和发布之后截然不同的提交频率，我想象着他们遇到的困难。而在 2013 年之前，长达将近三年的时间里，一直只有 &lt;a href=&quot;https://github.com/lattner&quot;&gt;@lattner&lt;/a&gt; 和 &lt;a href=&quot;https://github.com/DougGregor&quot;&gt;@DougGregor&lt;/a&gt; 两个人，我无法想象他们的孤独和寂寞。&lt;/p&gt;
+
+&lt;div class='row'&gt;
+&lt;div class='col-md-8 col-md-offset-2'&gt;
+&lt;img src='http://ww1.sinaimg.cn/large/599e230bgw1eynf3qvyr1j20s70iz77r.jpg' /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
 
 &lt;p&gt;而对于 PHP7：项目早期成员的辛苦的，甚至夜以继日的工作；PHP NG 是否要合并的纷争；PHP 7 长达将近两年的开发。相信只有很少的，也许只是订阅了邮件组的那些人知道。&lt;/p&gt;
 
