@@ -7,7 +7,7 @@ redcarpet:
 pygments:       true
 paginate:       30
 paginate_path:  "index/page:num"
-permalink:      /posts/:title
+permalink:      /posts/:title/
 
 title:          "Yet Another Summer Rain"
 
