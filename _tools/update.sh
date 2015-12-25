@@ -15,9 +15,9 @@ if [[ $root_dir == *"/_tools"* ]]; then
     show_help
 fi
 
-dest_dir='../liaohuqiu-master'
+dest_dir=`readlink -f ../liaohuqiu-master`
 if [ ! -d $dest_dir ];then
-    echo "please check out master branch on " $dest_dir
+    echo "Destination directory is not existent: " $dest_dir
     exit
 fi
 
@@ -31,10 +31,10 @@ if [ ! -d '_site' ];then
 fi
 
 exe_cmd "cd $dest_dir"
-exe_cmd "git checkout $branch"
+exe_cmd "git checkout master"
 error_code=$?
 if [ $error_code != 0 ];then
-    echo 'Switch branch fail.'
+    echo 'Switch master fail.'
     exit
 else
     ls | grep -v _site|xargs rm -rf
