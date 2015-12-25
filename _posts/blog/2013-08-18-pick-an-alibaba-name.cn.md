@@ -4,7 +4,7 @@ title: "阿里花名：如何起花名"
 description: "关于阿里巴巴的花名: 如何取花名"
 category: blog
 keywords: "阿里 花名 阿里花名 阿里巴巴"
-js: /assets/js/pick-alibaba-name.js?v=1
+js: pick-alibaba-name.js
 
 ---
 在中国三大互联网巨头BAT中，阿里的文化最具魅力。

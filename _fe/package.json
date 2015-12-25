@@ -1,0 +1,30 @@
+{
+  "name": "BloomSky-WEB",
+  "engines": {
+    "node": "^4.1.2"
+  },
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "webpack --progress --colors --watch",
+    "build-prod": "rm -rf ../assets/app/ && webpack --progress --colors -p --watch"
+  },
+  "author": "BloomSky",
+  "dependencies": {},
+  "devDependencies": {
+    "bootstrap-sass": "~3.3.1",
+    "bootstrap-sass-loader": "^1.0.9",
+    "chinese-simplified-common-characters": "^1.0.1",
+    "css-loader": "^0.23.0",
+    "cube-js": "0.0.2",
+    "expose-loader": "^0.7.1",
+    "extract-text-webpack-plugin": "^0.9.1",
+    "file-loader": "^0.8.4",
+    "jquery": "^2.1.4",
+    "less-loader": "^2.2.1",
+    "sass-loader": "^3.1.1",
+    "style-loader": "^0.13.0",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.12.2"
+  }
+}

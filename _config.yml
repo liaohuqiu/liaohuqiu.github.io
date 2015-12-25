@@ -1,17 +1,16 @@
 baseurl:        /
-auto:           true
 
 markdown:       redcarpet
 redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
-pygments:       true
+  extensions:   ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+highlighter:       pygments
 paginate:       30
 paginate_path:  "index/page:num"
 permalink:      /posts/:title/
 
 title:          "Yet Another Summer Rain"
 
-exclude:        ['README.md']
+exclude:        ['_fe', 'README.md']
 
 gems:           ['jekyll-paginate', 'jekyll-multiple-languages']
 
