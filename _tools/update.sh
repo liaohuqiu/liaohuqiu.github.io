@@ -1,5 +1,9 @@
 #!/bin/bash
-
+function exe_cmd()
+{
+    echo $1
+    eval $1
+}
 function show_help() 
 {
     echo "usage: sh _tools/$0; please run this script in the project root directory"
@@ -16,7 +20,6 @@ if [ ! -d $dest_dir ];then
     echo "please check out master branch on " $dest_dir
     exit
 fi
-exit
 
 exe_cmd "cd _fe"
 exe_cmd "npm run build-prod"

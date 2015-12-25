@@ -1,5 +1,5 @@
 {
-  "name": "BloomSky-WEB",
+  "name": "liaohuqiu.net",
   "engines": {
     "node": "^4.1.2"
   },
@@ -8,7 +8,7 @@
   "scripts": {
     "clean": "rm -rf ../assets/app/",
     "build": "webpack --progress --colors --watch",
-    "build-prod": "npm run clean && webpack --progress --colors -p --watch"
+    "build-prod": "npm run clean && webpack --progress --colors -p"
   },
   "author": "BloomSky",
   "dependencies": {},
@@ -21,9 +21,11 @@
     "expose-loader": "^0.7.1",
     "extract-text-webpack-plugin": "^0.9.1",
     "file-loader": "^0.8.4",
+    "imports-loader": "^0.6.5",
     "jquery": "^2.1.4",
     "less-loader": "^2.2.1",
     "sass-loader": "^3.1.1",
+    "sprintf-js": "^1.0.3",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.2"

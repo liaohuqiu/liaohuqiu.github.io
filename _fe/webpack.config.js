@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var root_dir = path.dirname(__dirname);
 var Cube = require('cube-js');
+var SrainBlogPlugin = require('./src/srain-blog-plugin.js');
 
 var name_for_img = "/img/[hash].[ext]";
 var font_version = Cube.formatDate(new Date(), 'yyyyMMddhhmmss');
@@ -66,6 +67,7 @@ module.exports = {
       $: "jquery",
       jQuery: "jquery",
     }),
-    new webpack.optimize.CommonsChunkPlugin('base', 'js/base.js')
+    new webpack.optimize.CommonsChunkPlugin('base', 'js/base.js'),
+    new SrainBlogPlugin(),
   ]
 };
