@@ -16,7 +16,6 @@ module.exports = {
     "404": "./src/js/404.js",
     "pick-alibaba-name": "./src/js/pick-alibaba-name.js",
   },
-  devtool: "source-map",
   output: {
     path: path.join(root_dir, '/assets/app'),
     publicPath: '/assets/app',

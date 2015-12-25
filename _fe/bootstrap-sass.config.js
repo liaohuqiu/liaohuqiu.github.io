@@ -51,6 +51,7 @@ module.exports = {
   styles: {
     "mixins": true,
     "normalize": true,
+    "grid": true,
     /*
     "mixins": true,
     "normalize": true,
