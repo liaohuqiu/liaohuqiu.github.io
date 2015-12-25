@@ -1,2 +1,1 @@
 webpackJsonp([3],[function(n,o,i){(function(n){!function(){function o(){function o(){c++;var t=c%6+1;console.log(t);var r=new Array(t+1).join(". ");return n("#_j_tip").html(r),a&&c>f?void i():void setTimeout(o,e)}function i(){var o=a.url;n("#_j_finding").hide(),a.succ?location.href=o:n("#_j_no_found").fadeIn()}var a,t=location.href,c=0,e=250,f=3e3/e;setTimeout(o,e);var r={url:t};t="http://cimage.sinaapp.com/ajax/find_page_for_gh_page.php",n.post(t,r,function(n){a=n.data},"json")}o()}()}).call(o,i(1))}]);
-//# sourceMappingURL=404.js.map
