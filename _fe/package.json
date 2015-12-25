@@ -6,8 +6,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "clean": "rm -rf ../assets/app/",
     "build": "webpack --progress --colors --watch",
-    "build-prod": "rm -rf ../assets/app/ && webpack --progress --colors -p --watch"
+    "build-prod": "npm run clean && webpack --progress --colors -p --watch"
   },
   "author": "BloomSky",
   "dependencies": {},
