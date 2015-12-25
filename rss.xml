@@ -6,14 +6,14 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Fri, 04 Dec 2015 14:41:49 +0800</pubDate>
-    <lastBuildDate>Fri, 04 Dec 2015 14:41:49 +0800</lastBuildDate>
+    <pubDate>Fri, 25 Dec 2015 14:49:45 -0800</pubDate>
+    <lastBuildDate>Fri, 25 Dec 2015 14:49:45 -0800</lastBuildDate>
 
     
     <item>
       <title>十年磨一剑: 开发者的孤独与伟大</title>
-      <link>http://liaohuqiu.net/cn/posts/roman-wasnot-built-in-a-day</link>
-      <pubDate>Thu, 03 Dec 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/roman-wasnot-built-in-a-day/</link>
+      <pubDate>Thu, 03 Dec 2015 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/roman-wasnot-built-in-a-day</guid>
       <description>&lt;p&gt;美国西海岸时间，2015 年 12 月 3 号。&lt;/p&gt;
@@ -30,9 +30,9 @@
 
 &lt;p&gt;看着 Swift 项目开发者们时疏时密的提交频率，以及 2014 年发布之前和发布之后截然不同的提交频率，我想象着他们遇到的困难。而在 2013 年之前，长达将近三年的时间里，一直只有 &lt;a href=&quot;https://github.com/lattner&quot;&gt;@lattner&lt;/a&gt; 和 &lt;a href=&quot;https://github.com/DougGregor&quot;&gt;@DougGregor&lt;/a&gt; 两个人，我无法想象他们的孤独和寂寞。&lt;/p&gt;
 
-&lt;div class='row'&gt;
-&lt;div class='col-md-8 col-md-offset-2'&gt;
-&lt;img src='http://ww1.sinaimg.cn/large/599e230bgw1eynf3qvyr1j20s70iz77r.jpg' /&gt;
+&lt;div class=&#39;row&#39;&gt;
+&lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
+&lt;img src=&#39;http://ww1.sinaimg.cn/large/599e230bgw1eynf3qvyr1j20s70iz77r.jpg&#39; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
@@ -43,9 +43,9 @@
 
 &lt;p&gt;&lt;a href=&quot;http://weibo.com/laruence&quot;&gt;@Laruence&lt;/a&gt; 说：PHP7 要发布了，他们只是在 twitter 相互庆祝一下罢了。因为他们中的很多人，甚至都没见过面。&lt;/p&gt;
 
-&lt;div class='row'&gt;
-&lt;div class='col-md-5 col-md-offset-3'&gt;
-&lt;img src='http://ww2.sinaimg.cn/large/599e230bgw1eynm9leb0uj20ku112n34.jpg' /&gt;
+&lt;div class=&#39;row&#39;&gt;
+&lt;div class=&#39;col-md-5 col-md-offset-3&#39;&gt;
+&lt;img src=&#39;http://ww2.sinaimg.cn/large/599e230bgw1eynm9leb0uj20ku112n34.jpg&#39; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
@@ -54,8 +54,8 @@
     
     <item>
       <title>我们辛勤劳作的母亲</title>
-      <link>http://liaohuqiu.net/cn/posts/an-apple</link>
-      <pubDate>Wed, 11 Nov 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/an-apple/</link>
+      <pubDate>Wed, 11 Nov 2015 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/an-apple</guid>
       <description>&lt;p&gt;感谢大家的帮忙，好多朋友过来是找购买链接的，我放到最前面吧：&lt;/p&gt;
@@ -96,43 +96,43 @@
 
 &lt;p&gt;&lt;a href=&quot;http://weibo.com/u/1605961742&quot;&gt;@周朝同学&lt;/a&gt;的苹果，目前还剩1000多箱。&lt;/p&gt;
 
-&lt;div class='row'&gt;
-&lt;div class='col-md-5 col-md-offset-3'&gt;
-&lt;img src='http://ww1.sinaimg.cn/large/599e230bgw1exx65njxoqj20ih0wu77x.jpg' /&gt;
+&lt;div class=&#39;row&#39;&gt;
+&lt;div class=&#39;col-md-5 col-md-offset-3&#39;&gt;
+&lt;img src=&#39;http://ww1.sinaimg.cn/large/599e230bgw1exx65njxoqj20ih0wu77x.jpg&#39; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;
-&lt;div class='row'&gt;
-&lt;div class='col-md-5 col-md-offset-3'&gt;
-&lt;img src='http://ww1.sinaimg.cn/large/599e230bgw1exx65p3ubuj20ih0wujvl.jpg' /&gt;
+&lt;div class=&#39;row&#39;&gt;
+&lt;div class=&#39;col-md-5 col-md-offset-3&#39;&gt;
+&lt;img src=&#39;http://ww1.sinaimg.cn/large/599e230bgw1exx65p3ubuj20ih0wujvl.jpg&#39; /&gt;
 &lt;/div&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/div&gt;
-&lt;div class='row'&gt;
-&lt;div class='col-md-5 col-md-offset-3'&gt;
-&lt;img src='http://ww4.sinaimg.cn/large/599e230bgw1exx65qtcdij20ih0wuwiv.jpg' /&gt;
+&lt;div class=&#39;row&#39;&gt;
+&lt;div class=&#39;col-md-5 col-md-offset-3&#39;&gt;
+&lt;img src=&#39;http://ww4.sinaimg.cn/large/599e230bgw1exx65qtcdij20ih0wuwiv.jpg&#39; /&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;/p&gt;
 
 &lt;p&gt;作为朋友，能做的也有限，今天买了三箱苹果，打算送给微博上的朋友。希望可以帮他做下宣传，^_^ ：&lt;/p&gt;
 
-&lt;div class='row'&gt;
-&lt;div class='col-md-5 col-md-offset-3'&gt;
-&lt;img src='http://ww2.sinaimg.cn/large/599e230bgw1exx65s9aa3j20ih0wugop.jpg' /&gt;
+&lt;div class=&#39;row&#39;&gt;
+&lt;div class=&#39;col-md-5 col-md-offset-3&#39;&gt;
+&lt;img src=&#39;http://ww2.sinaimg.cn/large/599e230bgw1exx65s9aa3j20ih0wugop.jpg&#39; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;
-&lt;div class='row'&gt;
-&lt;div class='col-md-5 col-md-offset-3'&gt;
-&lt;img src='http://ww3.sinaimg.cn/large/599e230bgw1exx65u1tklj20ih0wun29.jpg' /&gt;
+&lt;div class=&#39;row&#39;&gt;
+&lt;div class=&#39;col-md-5 col-md-offset-3&#39;&gt;
+&lt;img src=&#39;http://ww3.sinaimg.cn/large/599e230bgw1exx65u1tklj20ih0wun29.jpg&#39; /&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;/p&gt;
 
 &lt;p&gt;我今年怕是没机会吃到你们家的苹果了，&lt;a href=&quot;http://weibo.com/u/1605961742&quot;&gt;@周朝同学&lt;/a&gt;，等我回来。&lt;/p&gt;
 
-&lt;div class='row'&gt;
-&lt;div class='col-md-5 col-md-offset-3'&gt;
-&lt;img src='http://ww3.sinaimg.cn/large/599e230bgw1exx65xet71j20qo0zku0x.jpg' /&gt;
+&lt;div class=&#39;row&#39;&gt;
+&lt;div class=&#39;col-md-5 col-md-offset-3&#39;&gt;
+&lt;img src=&#39;http://ww3.sinaimg.cn/large/599e230bgw1exx65xet71j20qo0zku0x.jpg&#39; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
@@ -145,18 +145,18 @@
 
 &lt;p&gt;这个是微信群，&lt;a href=&quot;http://weibo.com/u/1605961742&quot;&gt;@周朝同学&lt;/a&gt; 在里面：&lt;/p&gt;
 
-&lt;div class='row'&gt;
-&lt;div class='col-md-5 col-md-offset-3'&gt;
-&lt;img src='http://ww4.sinaimg.cn/large/599e230bgw1exx7bq6c0wj20io0ovwhd.jpg' /&gt;
+&lt;div class=&#39;row&#39;&gt;
+&lt;div class=&#39;col-md-5 col-md-offset-3&#39;&gt;
+&lt;img src=&#39;http://ww4.sinaimg.cn/large/599e230bgw1exx7bq6c0wj20io0ovwhd.jpg&#39; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
 
 &lt;p&gt;我的微信公众号：&lt;/p&gt;
 
-&lt;div class='row'&gt;
-&lt;div class='col-md-5 col-md-offset-3'&gt;
-&lt;img src='http://ww3.sinaimg.cn/large/599e230bgw1exx6fk70kpj20by0bygmg.jpg' /&gt;
+&lt;div class=&#39;row&#39;&gt;
+&lt;div class=&#39;col-md-5 col-md-offset-3&#39;&gt;
+&lt;img src=&#39;http://ww3.sinaimg.cn/large/599e230bgw1exx6fk70kpj20by0bygmg.jpg&#39; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
@@ -167,8 +167,8 @@
     
     <item>
       <title>再谈 Android API 兼容性处理</title>
-      <link>http://liaohuqiu.net/cn/posts/android-api-compat-guide</link>
-      <pubDate>Fri, 23 Oct 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/android-api-compat-guide/</link>
+      <pubDate>Fri, 23 Oct 2015 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/android-api-compat-guide</guid>
       <description>&lt;p&gt;在 &lt;a href=&quot;http://www.liaohuqiu.net/cn/posts/using-high-api-level-method-compatibly/&quot;&gt;Android
@@ -297,8 +297,8 @@ static {
     
     <item>
       <title>Android 悬浮窗的小结</title>
-      <link>http://liaohuqiu.net/cn/posts/android-windows-manager</link>
-      <pubDate>Thu, 22 Oct 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/android-windows-manager/</link>
+      <pubDate>Thu, 22 Oct 2015 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/android-windows-manager</guid>
       <description>&lt;p&gt;&lt;a href=&quot;http://weibo.com/2951317192&quot;&gt;睡不着起不来的万先生&lt;/a&gt; 的 &lt;a href=&quot;http://www.jianshu.com/p/167fd5f47d5c&quot;&gt;Android无需权限显示悬浮窗, 兼谈逆向分析app&lt;/a&gt; 对 UC 浏览器的弹窗实现做了详尽的分析。&lt;/p&gt;
@@ -373,8 +373,8 @@ static {
     
     <item>
       <title>React Native: Android 的打包</title>
-      <link>http://liaohuqiu.net/cn/posts/react-native-android-package</link>
-      <pubDate>Mon, 28 Sep 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/react-native-android-package/</link>
+      <pubDate>Mon, 28 Sep 2015 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/react-native-android-package</guid>
       <description>&lt;p&gt;&lt;a href=&quot;http://www.liaohuqiu.net/cn/posts/react-native-1/&quot;&gt;上一篇文章&lt;/a&gt;提到了 React Native 的环境配置和基本的开发调试。本文介绍 React Native 中的资源打包，重点介绍使用 react-native-gradle 插件进行 Android APP 的打包。&lt;/p&gt;
@@ -544,8 +544,8 @@ Options:
     
     <item>
       <title>React Native: 配置和起步</title>
-      <link>http://liaohuqiu.net/cn/posts/react-native-1</link>
-      <pubDate>Wed, 23 Sep 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/react-native-1/</link>
+      <pubDate>Wed, 23 Sep 2015 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/react-native-1</guid>
       <description>&lt;p&gt;2015 年 9 月 15 号，React Native for Android 发布。至此，React 基本完成了对多端的支持。基于 React / React Native 可以：&lt;/p&gt;
@@ -709,7 +709,7 @@ iOS 和 Android 的模拟器，连接 Mac 本机的服务都很方便。但是�
 &lt;li&gt;&lt;p&gt;多端代码复用&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;参考文档:&quot;&gt;参考文档:&lt;/h4&gt;
+&lt;h4 id=&quot;参考文档&quot;&gt;参考文档:&lt;/h4&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;官方文档：&lt;a href=&quot;https://facebook.github.io/react-native/docs/getting-started.html#content&quot;&gt;https://facebook.github.io/react-native/docs/getting-started.html#content&lt;/a&gt;&lt;/p&gt;
@@ -725,8 +725,8 @@ iOS 和 Android 的模拟器，连接 Mac 本机的服务都很方便。但是�
     
     <item>
       <title>为 PHP 构建 RPC 服务</title>
-      <link>http://liaohuqiu.net/cn/posts/build-rpc-service-for-php</link>
-      <pubDate>Thu, 27 Aug 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/build-rpc-service-for-php/</link>
+      <pubDate>Thu, 27 Aug 2015 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/build-rpc-service-for-php</guid>
       <description>&lt;p&gt;本文为 &lt;a href=&quot;http://wattech.eventdove.com/&quot;&gt;&amp;quot;2015 年一淘网、腾讯网媒&amp;amp;微博商业联合技术沙龙&amp;quot;&lt;/a&gt; Keynote 对应的博客文章。&lt;/p&gt;
@@ -737,7 +737,7 @@ iOS 和 Android 的模拟器，连接 Mac 本机的服务都很方便。但是�
 
 &lt;p&gt;本文提到的所有项目和代码都在我的 GitHub: &lt;a href=&quot;https://github.com/liaohuqiu&quot;&gt;https://github.com/liaohuqiu&lt;/a&gt; 同样欢迎关注。&lt;/p&gt;
 
-&lt;h3 id=&quot;php-+-rpc&quot;&gt;PHP + RPC&lt;/h3&gt;
+&lt;h3 id=&quot;php-rpc&quot;&gt;PHP + RPC&lt;/h3&gt;
 
 &lt;p&gt;PHP 为了资源格式，用进程方式处理请求，这使得一些和业务系统的状态量无法在 PHP 程序中进行良好的访问。&lt;/p&gt;
 
@@ -922,7 +922,7 @@ dict    data;       // {}
 &lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;日志-/-异常-/-调试&quot;&gt;日志 / 异常 / 调试&lt;/h4&gt;
+&lt;h4 id=&quot;日志-异常-调试&quot;&gt;日志 / 异常 / 调试&lt;/h4&gt;
 
 &lt;p&gt;日志&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;2015-08-27 12:24:43,692 DEBUG (&amp;#39;127.0.0.1&amp;#39;, 33441): message received: proxy.Query((2, &amp;#39;android-gems&amp;#39;, &amp;#39;index_data&amp;#39;, []))
@@ -963,8 +963,8 @@ dict    data;       // {}
     
     <item>
       <title>升级到 Android 6.0</title>
-      <link>http://liaohuqiu.net/cn/posts/m-developer-preview-3-final-sdk</link>
-      <pubDate>Tue, 18 Aug 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/m-developer-preview-3-final-sdk/</link>
+      <pubDate>Tue, 18 Aug 2015 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/m-developer-preview-3-final-sdk</guid>
       <description>&lt;p&gt;昨天（2015-08-17T10:23:00-07:00）Android 6.0 发布。今天 &lt;a href=&quot;http://weibo.com/u/1919737834&quot;&gt;@空之(小地方的布丁雪糕)&lt;/a&gt; 一大早就带了一包棉花糖分给大家吃，这样的技术调调，真是让我们非常感动。&lt;/p&gt;
@@ -981,8 +981,8 @@ dict    data;       // {}
     
     <item>
       <title>Speed up your build in Android Studio</title>
-      <link>http://liaohuqiu.net/posts/speed-up-your-build</link>
-      <pubDate>Wed, 22 Jul 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/speed-up-your-build/</link>
+      <pubDate>Wed, 22 Jul 2015 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/speed-up-your-build</guid>
       <description>&lt;p&gt;Gradle provides a lot of flexibility, but this power comes at the cost of a slower build process. Android Studio is based on Gradle.&lt;/p&gt;
@@ -1008,9 +1008,9 @@ dict    data;       // {}
 
 &lt;p&gt;If you want to figure out the cause, you can try profiling your build process. You can add the &lt;code&gt;--profile&lt;/code&gt; flag to any Gradle task. Adding this flag will create a report under &lt;code&gt;build/reports/profile&lt;/code&gt;. It looks like:&lt;/p&gt;
 
-&lt;div class='row'&gt;
-    &lt;div class='col-md-8 col-md-offset-2'&gt;
-        &lt;img src='/assets/img/speed-up-your-build/profile.png' width='100%'/&gt;
+&lt;div class=&#39;row&#39;&gt;
+    &lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
+        &lt;img src=&#39;/assets/img/speed-up-your-build/profile.png&#39; width=&#39;100%&#39;/&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1018,9 +1018,9 @@ dict    data;       // {}
 
 &lt;p&gt;To enable &lt;code&gt;profile&lt;/code&gt; in Android Studio, you must config the command line options like bellow:&lt;/p&gt;
 
-&lt;div class='row'&gt;
-    &lt;div class='col-md-8 col-md-offset-2'&gt;
-        &lt;img src='/assets/img/speed-up-your-build/enable-profile-in-as.png' width='100%'/&gt;
+&lt;div class=&#39;row&#39;&gt;
+    &lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
+        &lt;img src=&#39;/assets/img/speed-up-your-build/enable-profile-in-as.png&#39; width=&#39;100%&#39;/&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1036,7 +1036,7 @@ dict    data;       // {}
 
 &lt;h3 id=&quot;solutions&quot;&gt;Solutions&lt;/h3&gt;
 
-&lt;h4 id=&quot;1.-disable-long-running-task&quot;&gt;1. Disable long running task&lt;/h4&gt;
+&lt;h4 id=&quot;1-disable-long-running-task&quot;&gt;1. Disable long running task&lt;/h4&gt;
 
 &lt;p&gt;We can disable some long running tasks in dev mode.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;n&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;whenTaskAdded&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;task&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;
@@ -1045,13 +1045,13 @@ dict    data;       // {}
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4 id=&quot;2.-shrink-the-project&quot;&gt;2. Shrink the project&lt;/h4&gt;
+&lt;h4 id=&quot;2-shrink-the-project&quot;&gt;2. Shrink the project&lt;/h4&gt;
 
 &lt;p&gt;We can not really shrink the project unless we remove some functions of our APP. But we can shrink our project in dev mode. We can disable some module, here is the structure of our project:&lt;/p&gt;
 
-&lt;div class='row'&gt;
-    &lt;div class='col-md-4 col-md-offset-4'&gt;
-        &lt;img src='/assets/img/speed-up-your-build/project-structure.png' width='100%'/&gt;
+&lt;div class=&#39;row&#39;&gt;
+    &lt;div class=&#39;col-md-4 col-md-offset-4&#39;&gt;
+        &lt;img src=&#39;/assets/img/speed-up-your-build/project-structure.png&#39; width=&#39;100%&#39;/&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1102,29 +1102,29 @@ dict    data;       // {}
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;This is the profile before we adjust our project:&lt;/p&gt;
 
-&lt;div class='row'&gt;
-    &lt;div class='col-md-8 col-md-offset-2'&gt;
-        &lt;img src='/assets/img/speed-up-your-build/profile-before.png' width='100%'/&gt;
+&lt;div class=&#39;row&#39;&gt;
+    &lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
+        &lt;img src=&#39;/assets/img/speed-up-your-build/profile-before.png&#39; width=&#39;100%&#39;/&gt;
     &lt;/div&gt;
 &lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;And this is the current profile:&lt;/p&gt;
 
-&lt;div class='row'&gt;
-    &lt;div class='col-md-8 col-md-offset-2'&gt;
-        &lt;img src='/assets/img/speed-up-your-build/profile-after.png' width='100%'/&gt;
+&lt;div class=&#39;row&#39;&gt;
+    &lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
+        &lt;img src=&#39;/assets/img/speed-up-your-build/profile-after.png&#39; width=&#39;100%&#39;/&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;p&gt;We only need about 15 seconds to finish a debug build, if we only modify the resource, that will be faster.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;3.-jack-and-jill&quot;&gt;3. Jack and Jill&lt;/h4&gt;
+&lt;h4 id=&quot;3-jack-and-jill&quot;&gt;3. Jack and Jill&lt;/h4&gt;
 
 &lt;p&gt;It is a experimental new Android tool chain, it may be faster in the future, for it can meger the dex file in a very fast way.&lt;/p&gt;
 
-&lt;div class='row'&gt;
-    &lt;div class='col-md-8 col-md-offset-2'&gt;
-        &lt;img src='/assets/img/speed-up-your-build/jack-and-jill.png' width='100%'/&gt;
+&lt;div class=&#39;row&#39;&gt;
+    &lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
+        &lt;img src=&#39;/assets/img/speed-up-your-build/jack-and-jill.png&#39; width=&#39;100%&#39;/&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1134,8 +1134,8 @@ dict    data;       // {}
     
     <item>
       <title>ISO 8601 in Bash, Java, PHP, Python</title>
-      <link>http://liaohuqiu.net/posts/iso-8601-date-format</link>
-      <pubDate>Fri, 17 Jul 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/iso-8601-date-format/</link>
+      <pubDate>Fri, 17 Jul 2015 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/iso-8601-date-format</guid>
       <description>&lt;p&gt;Here is &lt;a href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot;&gt;https://en.wikipedia.org/wiki/ISO_8601&lt;/a&gt;,  what we want is &lt;code&gt;2015-07-17T17:47:18+08:00&lt;/code&gt;.&lt;/p&gt;
@@ -1201,8 +1201,8 @@ dict    data;       // {}
     
     <item>
       <title>Corpse Bride</title>
-      <link>http://liaohuqiu.net/posts/corpse-bride</link>
-      <pubDate>Mon, 22 Jun 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/corpse-bride/</link>
+      <pubDate>Mon, 22 Jun 2015 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/corpse-bride</guid>
       <description>&lt;p&gt;Finally, Victor and Victoria are together, and it seems that the story has a happy ending.&lt;/p&gt;
@@ -1211,9 +1211,9 @@ dict    data;       // {}
 
 &lt;p&gt;She walks out the door, turns into thousands of butterflies in the moonlight. The butterflies fly towards to the moon.&lt;/p&gt;
 
-&lt;div class='row'&gt;
-&lt;div class='col-md-8 col-md-offset-2'&gt;
-&lt;img src='http://srain-blog.qiniudn.com/corpse-bride/trun-to-butter-fly.png' /&gt;
+&lt;div class=&#39;row&#39;&gt;
+&lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
+&lt;img src=&#39;http://srain-blog.qiniudn.com/corpse-bride/trun-to-butter-fly.png&#39; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
@@ -1250,9 +1250,9 @@ dict    data;       // {}
 
 &lt;p&gt;Even after he had cheat her, hurt her, she still loved him very much:&lt;/p&gt;
 
-&lt;div class='row'&gt;
-&lt;div class='col-md-8 col-md-offset-2'&gt;
-&lt;img src='http://srain-blog.qiniudn.com/corpse-bride/shed-the-tears.png' /&gt;
+&lt;div class=&#39;row&#39;&gt;
+&lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
+&lt;img src=&#39;http://srain-blog.qiniudn.com/corpse-bride/shed-the-tears.png&#39; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
@@ -1271,9 +1271,9 @@ dict    data;       // {}
 &lt;p&gt;Yet it seems that I still have some tears to shed.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;div class='row'&gt;
-&lt;div class='col-md-8 col-md-offset-2'&gt;
-&lt;img src='http://srain-blog.qiniudn.com/corpse-bride/but-you-are-not-mine.png' /&gt;
+&lt;div class=&#39;row&#39;&gt;
+&lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
+&lt;img src=&#39;http://srain-blog.qiniudn.com/corpse-bride/but-you-are-not-mine.png&#39; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
@@ -1308,8 +1308,8 @@ dict    data;       // {}
     
     <item>
       <title>2015年5月：在路上</title>
-      <link>http://liaohuqiu.net/cn/posts/2015-may</link>
-      <pubDate>Sat, 30 May 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/2015-may/</link>
+      <pubDate>Sat, 30 May 2015 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/2015-may</guid>
       <description>&lt;h3 id=&quot;流水的五月&quot;&gt;流水的五月&lt;/h3&gt;
@@ -1362,9 +1362,9 @@ dict    data;       // {}
 &lt;p&gt;携程不行上艺龙，这是为大家指出双活新模式，看来以后同业公司要一对一对的开。 &lt;a href=&quot;http://weibo.com/1421147990/CjW09kXRu&quot;&gt;@eygle&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;div class='row'&gt;
-    &lt;div class='col-md-6 col-md-offset-3'&gt;
-    &lt;img src='http://ww4.sinaimg.cn/large/54b4ff56gw1esk1q41fayj20ox05fq58.jpg' /&gt;
+&lt;div class=&#39;row&#39;&gt;
+    &lt;div class=&#39;col-md-6 col-md-offset-3&#39;&gt;
+    &lt;img src=&#39;http://ww4.sinaimg.cn/large/54b4ff56gw1esk1q41fayj20ox05fq58.jpg&#39; /&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1398,8 +1398,8 @@ dict    data;       // {}
     
     <item>
       <title>通过 shell 执行 python 报错: No such file or directory</title>
-      <link>http://liaohuqiu.net/cn/posts/python-script-in-bin-directory</link>
-      <pubDate>Wed, 13 May 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/python-script-in-bin-directory/</link>
+      <pubDate>Wed, 13 May 2015 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/python-script-in-bin-directory</guid>
       <description>&lt;h4 id=&quot;问题&quot;&gt;问题&lt;/h4&gt;
@@ -1445,8 +1445,8 @@ dict    data;       // {}
     
     <item>
       <title>LeakCanary 中文使用说明</title>
-      <link>http://liaohuqiu.net/cn/posts/leak-canary-read-me</link>
-      <pubDate>Sun, 10 May 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/leak-canary-read-me/</link>
+      <pubDate>Sun, 10 May 2015 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/leak-canary-read-me</guid>
       <description>&lt;h3 id=&quot;leakcanary&quot;&gt;LeakCanary&lt;/h3&gt;
@@ -1459,9 +1459,9 @@ dict    data;       // {}
 &lt;p&gt;千里之堤， 毁于蚁穴。 -- 《韩非子·喻老》&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;div class='row'&gt;
-&lt;div class='col-md-8 col-md-offset-2'&gt;
-&lt;img src='https://raw.githubusercontent.com/liaohuqiu/leakcanary/master/assets/screenshot.png' /&gt;
+&lt;div class=&#39;row&#39;&gt;
+&lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
+&lt;img src=&#39;https://raw.githubusercontent.com/liaohuqiu/leakcanary/master/assets/screenshot.png&#39; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
@@ -1663,9 +1663,9 @@ dict    data;       // {}
   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/application&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/manifest&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;div class='row'&gt;
-&lt;div class='col-md-4 col-md-offset-4'&gt;
-&lt;img src='https://github.com/liaohuqiu/leakcanary/raw/master/assets/icon_512.png'/&gt;
+&lt;div class=&#39;row&#39;&gt;
+&lt;div class=&#39;col-md-4 col-md-offset-4&#39;&gt;
+&lt;img src=&#39;https://github.com/liaohuqiu/leakcanary/raw/master/assets/icon_512.png&#39;/&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
@@ -1680,8 +1680,8 @@ dict    data;       // {}
     
     <item>
       <title>LeakCanary: 让内存泄露无所遁形</title>
-      <link>http://liaohuqiu.net/cn/posts/leak-canary</link>
-      <pubDate>Sat, 09 May 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/leak-canary/</link>
+      <pubDate>Sat, 09 May 2015 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/leak-canary</guid>
       <description>&lt;blockquote&gt;
@@ -1696,9 +1696,9 @@ dict    data;       // {}
 
 &lt;p&gt;在 &lt;a href=&quot;https://squareup.com/help/global/en/article/5243-download-the-square-register-app&quot;&gt;Square Register&lt;/a&gt; 中, 在签名页面，&lt;a href=&quot;https://corner.squareup.com/2010/07/smooth-signatures.html&quot;&gt;我们把客户的签名画在 bitmap cache 上&lt;/a&gt;。 这个 bitmap 的尺寸几乎和屏幕的尺寸一样大，在创建这个 bitmap 对象时，经常会引发 &lt;code&gt;OutOfMemoryError&lt;/code&gt;，简称&lt;code&gt;OOM&lt;/code&gt;。&lt;/p&gt;
 
-&lt;div class='row'&gt;
-&lt;div class='col-md-8 col-md-offset-2'&gt;
-&lt;img src='https://corner.squareup.com/images/leakcanary/signature.png' /&gt;
+&lt;div class=&#39;row&#39;&gt;
+&lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
+&lt;img src=&#39;https://corner.squareup.com/images/leakcanary/signature.png&#39; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
@@ -1787,9 +1787,9 @@ refWatcher.watch(schrodingerCat);
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;然后你会在通知栏看到这样很漂亮的一个界面:&lt;/p&gt;
 
-&lt;div class='row'&gt;
-&lt;div class='col-md-8 col-md-offset-2'&gt;
-&lt;img src='https://corner.squareup.com/images/leakcanary/leaktrace.png'/&gt;
+&lt;div class=&#39;row&#39;&gt;
+&lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
+&lt;img src=&#39;https://corner.squareup.com/images/leakcanary/leaktrace.png&#39;/&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
@@ -1800,9 +1800,9 @@ refWatcher.watch(schrodingerCat);
 
 &lt;p&gt;结果是惊艳的，我们减少了 94% 的由 OOM 导致的 crash。&lt;/p&gt;
 
-&lt;div class='row'&gt;
-&lt;div class='col-md-8 col-md-offset-2'&gt;
-&lt;img src='https://corner.squareup.com/images/leakcanary/oom_rate.png'/&gt;
+&lt;div class=&#39;row&#39;&gt;
+&lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
+&lt;img src=&#39;https://corner.squareup.com/images/leakcanary/oom_rate.png&#39;/&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
@@ -1819,39 +1819,9 @@ refWatcher.watch(schrodingerCat);
     </item>
     
     <item>
-      <title>有一事相求，请在 GitHub 上关注我吧</title>
-      <link>http://liaohuqiu.net/cn/posts/follow-me-on-github</link>
-      <pubDate>Tue, 05 May 2015 00:00:00 +0800</pubDate>
-      <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/cn/posts/follow-me-on-github</guid>
-      <description>&lt;p&gt;非常抱歉写这样一个文章，我遇到一个事情，需要大家的帮助。&lt;/p&gt;
-
-&lt;p&gt;最近内部公司举行一个活动，评比开源社区的活跃贡献者。评比指标是 GitHub 上 Follower 和 Contribution 的数量。&lt;/p&gt;
-
-&lt;p&gt;GitHub是一个伟大的网站，我们可以和来自世界各地的朋友协作，交流，分享： &lt;code&gt;Build software better, together.&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;我也开源了一些项目，并且认真维护和改进：跟进issue，修复问题，更新完善文档。我希望这些项目对需要的人有帮助，希望我的工作可以让项目的使用者们心生喜悦。&lt;/p&gt;
-
-&lt;p&gt;我参加了公司的这个评比活动，希望成为公司和同事认同的 “&lt;code&gt;开源社区的活跃贡献者&lt;/code&gt;”，我持续提交， 一直很活跃，但我发现我的 Follower 数量较少，可能无法被评选上，所以我在这里请求朋友们关注我的 GitHub ：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;h4&gt;&lt;a href=&quot;https://github.com/liaohuqiu&quot;&gt;https://github.com/liaohuqiu&lt;/a&gt;&lt;/h4&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;谢谢大家。&lt;/p&gt;
-
-&lt;p&gt;我对很多技术领域都感兴趣，如果发现有新的好的项目，我也会通过 Star 来分享给大家。&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;另外，这个是我的新浪微博，&lt;a href=&quot;http://weibo.com/liaohuqiu&quot;&gt;http://weibo.com/liaohuqiu&lt;/a&gt; 欢迎和朋友们分享交流。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Help: Would you please follow me on GitHub</title>
-      <link>http://liaohuqiu.net/posts/follow-me-on-github</link>
-      <pubDate>Tue, 05 May 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/follow-me-on-github/</link>
+      <pubDate>Tue, 05 May 2015 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/follow-me-on-github</guid>
       <description>&lt;p&gt;My dear friends:&lt;/p&gt;
@@ -1883,9 +1853,39 @@ refWatcher.watch(schrodingerCat);
     </item>
     
     <item>
+      <title>有一事相求，请在 GitHub 上关注我吧</title>
+      <link>http://liaohuqiu.net/cn/posts/follow-me-on-github/</link>
+      <pubDate>Tue, 05 May 2015 00:00:00 -0700</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/cn/posts/follow-me-on-github</guid>
+      <description>&lt;p&gt;非常抱歉写这样一个文章，我遇到一个事情，需要大家的帮助。&lt;/p&gt;
+
+&lt;p&gt;最近内部公司举行一个活动，评比开源社区的活跃贡献者。评比指标是 GitHub 上 Follower 和 Contribution 的数量。&lt;/p&gt;
+
+&lt;p&gt;GitHub是一个伟大的网站，我们可以和来自世界各地的朋友协作，交流，分享： &lt;code&gt;Build software better, together.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;我也开源了一些项目，并且认真维护和改进：跟进issue，修复问题，更新完善文档。我希望这些项目对需要的人有帮助，希望我的工作可以让项目的使用者们心生喜悦。&lt;/p&gt;
+
+&lt;p&gt;我参加了公司的这个评比活动，希望成为公司和同事认同的 “&lt;code&gt;开源社区的活跃贡献者&lt;/code&gt;”，我持续提交， 一直很活跃，但我发现我的 Follower 数量较少，可能无法被评选上，所以我在这里请求朋友们关注我的 GitHub ：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;h4&gt;&lt;a href=&quot;https://github.com/liaohuqiu&quot;&gt;https://github.com/liaohuqiu&lt;/a&gt;&lt;/h4&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;谢谢大家。&lt;/p&gt;
+
+&lt;p&gt;我对很多技术领域都感兴趣，如果发现有新的好的项目，我也会通过 Star 来分享给大家。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;另外，这个是我的新浪微博，&lt;a href=&quot;http://weibo.com/liaohuqiu&quot;&gt;http://weibo.com/liaohuqiu&lt;/a&gt; 欢迎和朋友们分享交流。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>关于红杏的公益代理, Android Studio以及freso的编译</title>
-      <link>http://liaohuqiu.net/cn/posts/about-red-apricot-and-compiling-fresco</link>
-      <pubDate>Sat, 11 Apr 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/about-red-apricot-and-compiling-fresco/</link>
+      <pubDate>Sat, 11 Apr 2015 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/about-red-apricot-and-compiling-fresco</guid>
       <description>&lt;p&gt;前几天红杏开放了公益代理，专门为开发人员开放，免费使用。&lt;/p&gt;
@@ -1985,9 +1985,9 @@ refWatcher.watch(schrodingerCat);
 
 &lt;p&gt;打开SDK Manager的设置页, mac 没有入口，需要通过 &lt;code&gt;cmd + ,&lt;/code&gt; 打开。&lt;/p&gt;
 
-&lt;div class='row'&gt;
-    &lt;div class='col-md-6 col-md-offset-3'&gt;
-        &lt;img src='http://srain-blog.qiniudn.com/red-apricot/red-apricot-sdk-manager-set-proxy.png' width='100%'/&gt;
+&lt;div class=&#39;row&#39;&gt;
+    &lt;div class=&#39;col-md-6 col-md-offset-3&#39;&gt;
+        &lt;img src=&#39;http://srain-blog.qiniudn.com/red-apricot/red-apricot-sdk-manager-set-proxy.png&#39; width=&#39;100%&#39;/&gt;
     &lt;/div&gt;
 &lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;给Android Stuido / Intellij IDEA 配置代理，这样下载gradle或者其他依赖就顺利了。&lt;/p&gt;
@@ -1996,9 +1996,9 @@ refWatcher.watch(schrodingerCat);
 
 &lt;p&gt;Host Name: &lt;code&gt;hx.gy&lt;/code&gt;, Port Number: 1080.&lt;/p&gt;
 
-&lt;div class='row'&gt;
-    &lt;div class='col-md-8 col-md-offset-2'&gt;
-        &lt;img src='http://srain-blog.qiniudn.com/red-apricot/red-apricot-android-stuido-set-proxy.png' width='100%'/&gt;
+&lt;div class=&#39;row&#39;&gt;
+    &lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
+        &lt;img src=&#39;http://srain-blog.qiniudn.com/red-apricot/red-apricot-android-stuido-set-proxy.png&#39; width=&#39;100%&#39;/&gt;
     &lt;/div&gt;
 &lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -2027,8 +2027,8 @@ refWatcher.watch(schrodingerCat);
     
     <item>
       <title>重定义/覆盖Android类库中的文字，颜色等资源</title>
-      <link>http://liaohuqiu.net/cn/posts/replace-or-override-string-in-android-library</link>
-      <pubDate>Sat, 28 Mar 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/replace-or-override-string-in-android-library/</link>
+      <pubDate>Sat, 28 Mar 2015 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/replace-or-override-string-in-android-library</guid>
       <description>&lt;p&gt;收到一份邮件，咨询如果自定义&lt;a href=&quot;https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh%60&quot;&gt;android-Ultra-Pull-To-Refresh&lt;/a&gt;的文字提示：&lt;/p&gt;
@@ -2072,8 +2072,8 @@ refWatcher.watch(schrodingerCat);
     
     <item>
       <title>gitlab 启用注册</title>
-      <link>http://liaohuqiu.net/cn/posts/gitlab-enable-sign-up</link>
-      <pubDate>Sat, 21 Mar 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/gitlab-enable-sign-up/</link>
+      <pubDate>Sat, 21 Mar 2015 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/gitlab-enable-sign-up</guid>
       <description>&lt;p&gt;gitlab 默认安装是没有注册入口的。&lt;/p&gt;
@@ -2091,8 +2091,8 @@ refWatcher.watch(schrodingerCat);
     
     <item>
       <title>我眼中的下拉刷新</title>
-      <link>http://liaohuqiu.net/cn/posts/the-pull-to-refresh-in-my-eyes</link>
-      <pubDate>Thu, 29 Jan 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/the-pull-to-refresh-in-my-eyes/</link>
+      <pubDate>Thu, 29 Jan 2015 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/the-pull-to-refresh-in-my-eyes</guid>
       <description>&lt;h3 id=&quot;背景&quot;&gt;背景&lt;/h3&gt;
@@ -2230,7 +2230,7 @@ refWatcher.watch(schrodingerCat);
 &lt;p&gt;如果从位置3往上推，回到位置2，释放，将不会触发刷新操作。&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;刷新时保持头部-(keepheaderwhilerefresh)&quot;&gt;刷新时保持头部 &lt;code&gt;(KeepHeaderWhileRefresh)&lt;/code&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;刷新时保持头部-keepheaderwhilerefresh&quot;&gt;刷新时保持头部 &lt;code&gt;(KeepHeaderWhileRefresh)&lt;/code&gt;&lt;/h4&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;如果不设置刷新时保持头部。不管&lt;code&gt;下拉刷新&lt;/code&gt;还是&lt;code&gt;释放刷新&lt;/code&gt;，释放之后，回归到初始位置。&lt;/p&gt;&lt;/li&gt;
@@ -2244,7 +2244,7 @@ refWatcher.watch(schrodingerCat);
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;自动刷新(autorefresh)&quot;&gt;自动刷新&lt;code&gt;(AutoRefresh)&lt;/code&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;自动刷新-autorefresh&quot;&gt;自动刷新&lt;code&gt;(AutoRefresh)&lt;/code&gt;&lt;/h4&gt;
 
 &lt;p&gt;用户手动下拉，可以实现数据更新。同时，也允许程序调用，展示刷新UI，实现自动刷新。&lt;/p&gt;
 
@@ -2307,8 +2307,8 @@ refWatcher.watch(schrodingerCat);
     
     <item>
       <title>关于安装Android Maven 本地依赖库</title>
-      <link>http://liaohuqiu.net/cn/posts/android-maven-local-repository</link>
-      <pubDate>Thu, 29 Jan 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/android-maven-local-repository/</link>
+      <pubDate>Thu, 29 Jan 2015 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/android-maven-local-repository</guid>
       <description>&lt;p&gt;如果使用gradle方式，类似这样的依赖非常轻松:&lt;/p&gt;
@@ -2355,8 +2355,8 @@ Platform.Version=5.0.1
     
     <item>
       <title>SimpleHashSet, save 25% memory</title>
-      <link>http://liaohuqiu.net/posts/simple-hashset</link>
-      <pubDate>Mon, 12 Jan 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/simple-hashset/</link>
+      <pubDate>Mon, 12 Jan 2015 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/simple-hashset</guid>
       <description>&lt;p&gt;In fact, &lt;code&gt;java.util.HashSet&lt;/code&gt; is just a wrapper of &lt;code&gt;java.util.HashMap&lt;/code&gt;, so its retained heap size is O(&lt;code&gt;n&lt;/code&gt; * &lt;code&gt;entry_size&lt;/code&gt;).&lt;/p&gt;
@@ -2405,8 +2405,8 @@ Platform.Version=5.0.1
     
     <item>
       <title>SimpleHashSet, 节省25%内存</title>
-      <link>http://liaohuqiu.net/cn/posts/simple-hashset</link>
-      <pubDate>Mon, 12 Jan 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/simple-hashset/</link>
+      <pubDate>Mon, 12 Jan 2015 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/simple-hashset</guid>
       <description>&lt;p&gt;&lt;code&gt;java.util.HashSet&lt;/code&gt; 仅仅是简单包装了 &lt;code&gt;java.util.HashMap&lt;/code&gt;, 内存占用为 O(&lt;code&gt;n&lt;/code&gt; * &lt;code&gt;entry_size&lt;/code&gt;).&lt;/p&gt;
@@ -2457,8 +2457,8 @@ Platform.Version=5.0.1
     
     <item>
       <title>gitlab 使用现有nginx服务器</title>
-      <link>http://liaohuqiu.net/cn/posts/non-bundled-web-server-for-gitlab</link>
-      <pubDate>Thu, 08 Jan 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/non-bundled-web-server-for-gitlab/</link>
+      <pubDate>Thu, 08 Jan 2015 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/non-bundled-web-server-for-gitlab</guid>
       <description>&lt;p&gt;gitlab 安装自带nginx，如果想利用原有nginx，可按如下操作：&lt;/p&gt;
@@ -2550,8 +2550,8 @@ sudo gitlab-ctl reconfigure
     
     <item>
       <title>CentOS的gradle构建环境</title>
-      <link>http://liaohuqiu.net/cn/posts/gradle-in-centos</link>
-      <pubDate>Wed, 07 Jan 2015 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/gradle-in-centos/</link>
+      <pubDate>Wed, 07 Jan 2015 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/gradle-in-centos</guid>
       <description>&lt;p&gt;在CentOS下，用gradle进行编译打包，配合定时任务或者push webhook可以实现定时自动打包或者push后自动打包。&lt;/p&gt;
@@ -2649,8 +2649,8 @@ sudo yum install -y libstdc++.so.6
     
     <item>
       <title>我的2014</title>
-      <link>http://liaohuqiu.net/cn/posts/my-2014</link>
-      <pubDate>Wed, 31 Dec 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/my-2014/</link>
+      <pubDate>Wed, 31 Dec 2014 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/my-2014</guid>
       <description>&lt;p&gt;2014最后一天，和团队同学在11月畅想未来的小店中小聚小饮后，和东极狂奔着，居然还在通惠河畔赶上了班车。到家后，敲下这篇文字。&lt;/p&gt;
@@ -2677,7 +2677,7 @@ sudo yum install -y libstdc++.so.6
 
 &lt;p&gt;午后窗外阳光明媚，我仿佛闻到了春天青草的味道，2015开始了。&lt;/p&gt;
 
-&lt;p style='text-align:right'&gt;2015-01-09&lt;/p&gt;
+&lt;p style=&#39;text-align:right&#39;&gt;2015-01-09&lt;/p&gt;
 
 &lt;hr&gt;
 
@@ -2755,14 +2755,14 @@ sudo yum install -y libstdc++.so.6
 
 &lt;p&gt;2014年就这样过去了，不念过往，不畏将来。&lt;/p&gt;
 
-&lt;p style='text-align:right'&gt;2014-12-31&lt;/p&gt;
+&lt;p style=&#39;text-align:right&#39;&gt;2014-12-31&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Android object size in Dalvik</title>
-      <link>http://liaohuqiu.net/posts/android-object-size-dalvik</link>
-      <pubDate>Mon, 29 Dec 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/android-object-size-dalvik/</link>
+      <pubDate>Mon, 29 Dec 2014 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/android-object-size-dalvik</guid>
       <description>&lt;h3 id=&quot;size-of-data&quot;&gt;Size of data&lt;/h3&gt;
@@ -3019,8 +3019,8 @@ sudo yum install -y libstdc++.so.6
     
     <item>
       <title>JAVA对象大小</title>
-      <link>http://liaohuqiu.net/cn/posts/caculate-object-size-in-java</link>
-      <pubDate>Sat, 27 Dec 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/caculate-object-size-in-java/</link>
+      <pubDate>Sat, 27 Dec 2014 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/caculate-object-size-in-java</guid>
       <description>&lt;h4 id=&quot;对象内存大小度量&quot;&gt;对象内存大小度量&lt;/h4&gt;
@@ -3341,8 +3341,8 @@ class B extends A{
     
     <item>
       <title>一种10s之内的方案</title>
-      <link>http://liaohuqiu.net/cn/posts/1g-in-10s</link>
-      <pubDate>Thu, 25 Dec 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/1g-in-10s/</link>
+      <pubDate>Thu, 25 Dec 2014 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/1g-in-10s</guid>
       <description>&lt;h3 id=&quot;理论上&quot;&gt;理论上&lt;/h3&gt;
@@ -3447,8 +3447,8 @@ TCP的包头: 954.6 * 1000 * 2 * 64 / 1024 / 1024 = 116Mb&lt;/p&gt;
     
     <item>
       <title>Ultra-Ptr 在eclipse中编译的办法</title>
-      <link>http://liaohuqiu.net/cn/posts/compile-ultra-ptr-in-eclipse</link>
-      <pubDate>Fri, 05 Dec 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/compile-ultra-ptr-in-eclipse/</link>
+      <pubDate>Fri, 05 Dec 2014 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/compile-ultra-ptr-in-eclipse</guid>
       <description>&lt;p&gt;&lt;a href=&quot;https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh&quot;&gt;android-Ultra-Pull-To-Refresh&lt;/a&gt;发布之后，收到许多反馈说在eclipse中编译不通过，缺少资源文件。&lt;/p&gt;
@@ -3509,8 +3509,8 @@ TCP的包头: 954.6 * 1000 * 2 * 64 / 1024 / 1024 = 116Mb&lt;/p&gt;
     
     <item>
       <title>aar vs apklib</title>
-      <link>http://liaohuqiu.net/posts/publish-to-maven-central</link>
-      <pubDate>Wed, 03 Dec 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/publish-to-maven-central/</link>
+      <pubDate>Wed, 03 Dec 2014 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/publish-to-maven-central</guid>
       <description>&lt;p&gt;Using &lt;code&gt;android-maven-plugin&lt;/code&gt;, maven can use both &lt;code&gt;apklib&lt;/code&gt; and &lt;code&gt;aar&lt;/code&gt; format.&lt;/p&gt;
@@ -3529,8 +3529,8 @@ TCP的包头: 954.6 * 1000 * 2 * 64 / 1024 / 1024 = 116Mb&lt;/p&gt;
     
     <item>
       <title>Binary tree traversal</title>
-      <link>http://liaohuqiu.net/posts/binnary-tree-traversal-iteratively</link>
-      <pubDate>Sun, 02 Nov 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/binnary-tree-traversal-iteratively/</link>
+      <pubDate>Sun, 02 Nov 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/binnary-tree-traversal-iteratively</guid>
       <description>&lt;p&gt;Here is a full binnary tree:&lt;/p&gt;
@@ -3740,8 +3740,8 @@ N  N  N  N  N  N  N  N
     
     <item>
       <title>根据字符串获取资源id</title>
-      <link>http://liaohuqiu.net/cn/posts/android-get-resource-id-by-string</link>
-      <pubDate>Tue, 28 Oct 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/android-get-resource-id-by-string/</link>
+      <pubDate>Tue, 28 Oct 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/android-get-resource-id-by-string</guid>
       <description>&lt;p&gt;一般地，我们给一个&lt;code&gt;ImageView&lt;/code&gt;设置一个图片可能会采用以下代码:&lt;/p&gt;
@@ -3807,8 +3807,8 @@ N  N  N  N  N  N  N  N
     
     <item>
       <title>手机客户端应用新浪微博绑定流程</title>
-      <link>http://liaohuqiu.net/cn/posts/mobile-app-sina-binding</link>
-      <pubDate>Wed, 08 Oct 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/mobile-app-sina-binding/</link>
+      <pubDate>Wed, 08 Oct 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/mobile-app-sina-binding</guid>
       <description>&lt;p&gt;以网站形式接入新浪微博之后，可以调用丰富的api，实现比如，发布微博，关注公共账号等功能。&lt;/p&gt;
@@ -3829,8 +3829,8 @@ N  N  N  N  N  N  N  N
     
     <item>
       <title>Chrome 扩展开发参考</title>
-      <link>http://liaohuqiu.net/cn/posts/chrome-extension-hi</link>
-      <pubDate>Tue, 30 Sep 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/chrome-extension-hi/</link>
+      <pubDate>Tue, 30 Sep 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/chrome-extension-hi</guid>
       <description>&lt;p&gt;这里是一个开源的chrome扩展的源码，你可以先看这源码，如果看明白了，那就不用看本文了，如果没看明白，那回来继续往下看。&lt;/p&gt;
@@ -3841,8 +3841,8 @@ N  N  N  N  N  N  N  N
     
     <item>
       <title>ssh public key认证免密码登录</title>
-      <link>http://liaohuqiu.net/cn/posts/ssh-public-key-auto-login</link>
-      <pubDate>Tue, 16 Sep 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/ssh-public-key-auto-login/</link>
+      <pubDate>Tue, 16 Sep 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/ssh-public-key-auto-login</guid>
       <description>&lt;p&gt;ssh 登录可以使用公钥认证(ssh public key authentication)。&lt;/p&gt;
@@ -3897,8 +3897,8 @@ test-key
     
     <item>
       <title>ssh-keygen 基本用法</title>
-      <link>http://liaohuqiu.net/cn/posts/ssh-keygen-abc</link>
-      <pubDate>Mon, 15 Sep 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/ssh-keygen-abc/</link>
+      <pubDate>Mon, 15 Sep 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/ssh-keygen-abc</guid>
       <description>&lt;p&gt;ssh 公钥认证是ssh认证的方式之一。通过公钥认证可实现ssh免密码登陆，git的ssh方式也是通过公钥进行认证的。&lt;/p&gt;
@@ -3973,8 +3973,8 @@ E+9IJPQaqqeqCGzrJ6G/XO7om1v9YLLG/H/ZN2tQ&lt;span class=&quot;o&quot;&gt;==&lt;/s
     
     <item>
       <title>Gitlab 简单配置使用</title>
-      <link>http://liaohuqiu.net/cn/posts/git-abc</link>
-      <pubDate>Thu, 11 Sep 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/git-abc/</link>
+      <pubDate>Thu, 11 Sep 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/git-abc</guid>
       <description>&lt;h3 id=&quot;gitlab的安装&quot;&gt;gitlab的安装&lt;/h3&gt;
@@ -3987,9 +3987,9 @@ E+9IJPQaqqeqCGzrJ6G/XO7om1v9YLLG/H/ZN2tQ&lt;span class=&quot;o&quot;&gt;==&lt;/s
 
 &lt;p&gt;安装完成之后，使用默认的用户root用户登录，可以创建用户，管理用户，如下所示:&lt;/p&gt;
 
-&lt;div class='row'&gt;
-    &lt;div class='col-md-12'&gt;
-        &lt;img src='/assets/img/gitlab-abc-admin-area.png'/&gt;
+&lt;div class=&#39;row&#39;&gt;
+    &lt;div class=&#39;col-md-12&#39;&gt;
+        &lt;img src=&#39;/assets/img/gitlab-abc-admin-area.png&#39;/&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
@@ -4025,9 +4025,9 @@ Enter passphrase (empty for no passphrase):
 
 &lt;p&gt;输入之前生成的&lt;code&gt;公钥&lt;/code&gt;，标题随意。&lt;/p&gt;
 
-&lt;div class='row'&gt;
-    &lt;div class='col-md-12'&gt;
-        &lt;img src='/assets/img/gitlab-abc-add-ssh-key.png'/&gt;
+&lt;div class=&#39;row&#39;&gt;
+    &lt;div class=&#39;col-md-12&#39;&gt;
+        &lt;img src=&#39;/assets/img/gitlab-abc-add-ssh-key.png&#39;/&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
@@ -4039,9 +4039,9 @@ Enter passphrase (empty for no passphrase):
 &lt;li&gt;  创建项目:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class='row'&gt;
-    &lt;div class='col-md-12'&gt;
-        &lt;img src='/assets/img/gitlab-abc-project-create.png'/&gt;
+&lt;div class=&#39;row&#39;&gt;
+    &lt;div class=&#39;col-md-12&#39;&gt;
+        &lt;img src=&#39;/assets/img/gitlab-abc-project-create.png&#39;/&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
@@ -4049,9 +4049,9 @@ Enter passphrase (empty for no passphrase):
 &lt;li&gt; 创建完成:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class='row'&gt;
-    &lt;div class='col-md-12'&gt;
-        &lt;img src='/assets/img/gitlab-abc-project-after-created.png'/&gt;
+&lt;div class=&#39;row&#39;&gt;
+    &lt;div class=&#39;col-md-12&#39;&gt;
+        &lt;img src=&#39;/assets/img/gitlab-abc-project-after-created.png&#39;/&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
@@ -4108,9 +4108,9 @@ To git@git.liaohuqiu.net:huqiu/test.git
 &lt;li&gt;提交完成后记录:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class='row'&gt;
-    &lt;div class='col-md-12'&gt;
-        &lt;img src='/assets/img/gitlab-abc-activity-line.png'/&gt;
+&lt;div class=&#39;row&#39;&gt;
+    &lt;div class=&#39;col-md-12&#39;&gt;
+        &lt;img src=&#39;/assets/img/gitlab-abc-activity-line.png&#39;/&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
@@ -4118,9 +4118,9 @@ To git@git.liaohuqiu.net:huqiu/test.git
 &lt;li&gt;项目的文件情况:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class='row'&gt;
-    &lt;div class='col-md-12'&gt;
-        &lt;img src='/assets/img/gitlab-abc-project-files.png'/&gt;
+&lt;div class=&#39;row&#39;&gt;
+    &lt;div class=&#39;col-md-12&#39;&gt;
+        &lt;img src=&#39;/assets/img/gitlab-abc-project-files.png&#39;/&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
@@ -4130,8 +4130,8 @@ To git@git.liaohuqiu.net:huqiu/test.git
     
     <item>
       <title>简单的ssh隧道实现代理上网</title>
-      <link>http://liaohuqiu.net/cn/posts/setup-web-prorxy-by-ssh-tunnel</link>
-      <pubDate>Thu, 28 Aug 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/setup-web-prorxy-by-ssh-tunnel/</link>
+      <pubDate>Thu, 28 Aug 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/setup-web-prorxy-by-ssh-tunnel</guid>
       <description>&lt;p&gt;现在连google也不能访问了。&lt;/p&gt;
@@ -4156,25 +4156,25 @@ To git@git.liaohuqiu.net:huqiu/test.git
 
 &lt;p&gt;安装之后:&lt;/p&gt;
 
-&lt;div class='row'&gt;
-    &lt;div class='col-md-offset-4 col-md-4'&gt;
-        &lt;img src='/assets/img/proxy-switchy-sharp.png'/&gt;
+&lt;div class=&#39;row&#39;&gt;
+    &lt;div class=&#39;col-md-offset-4 col-md-4&#39;&gt;
+        &lt;img src=&#39;/assets/img/proxy-switchy-sharp.png&#39;/&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;p&gt;配置代理&lt;/p&gt;
 
-&lt;div class='row'&gt;
-    &lt;div class='col-md-offset-2 col-md-8'&gt;
-        &lt;img src='/assets/img/proxy-set-socks-v5.png'/&gt;
+&lt;div class=&#39;row&#39;&gt;
+    &lt;div class=&#39;col-md-offset-2 col-md-8&#39;&gt;
+        &lt;img src=&#39;/assets/img/proxy-set-socks-v5.png&#39;/&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;p&gt;设置自动代理, 可以使用我的规则文件: &lt;a href=&quot;https://github.com/liaohuqiu/proxy/blob/master/switch-sharp-rule&quot;&gt;switch-sharp-rule&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class='row'&gt;
-    &lt;div class='col-md-offset-2 col-md-8'&gt;
-        &lt;img src='/assets/img/proxy-auto-swith-online-list.png'/&gt;
+&lt;div class=&#39;row&#39;&gt;
+    &lt;div class=&#39;col-md-offset-2 col-md-8&#39;&gt;
+        &lt;img src=&#39;/assets/img/proxy-auto-swith-online-list.png&#39;/&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 </description>
@@ -4182,8 +4182,8 @@ To git@git.liaohuqiu.net:huqiu/test.git
     
     <item>
       <title>enable epel7 repository for CentOS7</title>
-      <link>http://liaohuqiu.net/posts/enable-epel-repository-for-centos7</link>
-      <pubDate>Fri, 01 Aug 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/enable-epel-repository-for-centos7/</link>
+      <pubDate>Fri, 01 Aug 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/enable-epel-repository-for-centos7</guid>
       <description>&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# wget http://dl.fedoraproject.org/pub/epel/beta/7/x86_64/epel-release-7-0.2.noarch.rpm&lt;/span&gt;
@@ -4193,8 +4193,8 @@ To git@git.liaohuqiu.net:huqiu/test.git
     
     <item>
       <title>PHP: singleton of children class</title>
-      <link>http://liaohuqiu.net/posts/php-singleton-of-children-class</link>
-      <pubDate>Thu, 24 Jul 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/php-singleton-of-children-class/</link>
+      <pubDate>Thu, 24 Jul 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/php-singleton-of-children-class</guid>
       <description>&lt;p&gt;As of &lt;code&gt;PHP 5.3&lt;/code&gt;, there is a new feature: &lt;a href=&quot;http://php.net/manual/en/language.oop5.late-static-bindings.php&quot;&gt;Late static binding&lt;/a&gt; which enables you get the final called class in a static inheritance.&lt;/p&gt;
@@ -4256,8 +4256,8 @@ B
     
     <item>
       <title>PHP静态延迟绑定: 获取子类的单例</title>
-      <link>http://liaohuqiu.net/cn/posts/php-singleton-of-children-class</link>
-      <pubDate>Thu, 24 Jul 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/php-singleton-of-children-class/</link>
+      <pubDate>Thu, 24 Jul 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/php-singleton-of-children-class</guid>
       <description>&lt;p&gt;在一定的需求场景下，你有一个父类和一些子类，你需要获取这些子类的实例又不想在每个子类中写重复的&lt;code&gt;getInstance()&lt;/code&gt;方法。&lt;/p&gt;
@@ -4317,8 +4317,8 @@ B
     
     <item>
       <title>ssh + expect 自动登录服务器</title>
-      <link>http://liaohuqiu.net/cn/posts/ssh-auto-login</link>
-      <pubDate>Wed, 02 Jul 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/ssh-auto-login/</link>
+      <pubDate>Wed, 02 Jul 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/ssh-auto-login</guid>
       <description>&lt;p&gt;secureCRT 记住用户名和密码的功能确实方便，如果你不愿意付费，也不想用破解，你就得另外想一些办法了。&lt;/p&gt;
@@ -4364,8 +4364,8 @@ B
     
     <item>
       <title>通过QUIC协议访问Google</title>
-      <link>http://liaohuqiu.net/cn/posts/visit-google-via-quic</link>
-      <pubDate>Sun, 08 Jun 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/visit-google-via-quic/</link>
+      <pubDate>Sun, 08 Jun 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/visit-google-via-quic</guid>
       <description>&lt;p&gt;Google 已经支持QUIC。&lt;/p&gt;
@@ -4377,9 +4377,84 @@ B
     </item>
     
     <item>
+      <title>setup log center</title>
+      <link>http://liaohuqiu.net/posts/log-center/</link>
+      <pubDate>Wed, 28 May 2014 00:00:00 -0700</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/posts/log-center</guid>
+      <description>&lt;p&gt;In *inux System, there are some log tools, for example: syslog, rsyslog, syslog-ng, etc..&lt;/p&gt;
+
+&lt;p&gt;In our program we can record log to syslog, for example in php:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_NOTICE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;srain&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;some messages@&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Y-m-d H:i:s&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;openlog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_PID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_LOCAL6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;syslog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;closelog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;When we have more than one webserver which will record log, we need a log center to keep all of the log.&lt;/p&gt;
+
+&lt;h3 id=&quot;forwarding&quot;&gt;Forwarding&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;syslog&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    10.11.2.13  # the port is 514 and using the UDP protocal.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    @@10.11.2.13:514    # udp
+*.local6    @10.11.2.13:514     # tcp more reliable than udp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;description d_loghost { udp(&amp;quot;10.11.2.13&amp;quot; port(514)};
+
+log { source(s_sys); description(d_loghost)};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;reciving&quot;&gt;Reciving&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# for udp reception
+$ModLoad imudp
+$UDPServerRun 514
+
+# for tcp reception
+$ModLoad imtcp
+$InputTCPServerRun 514
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;destination df_wrt0 {
+    #  keep log into diffrent files
+    file(&amp;quot;/var/log/$PROGRAM-$YEAR$MONTH$DAY&amp;quot;
+            template(&amp;quot;$FULLDATE $SOURCEIP-$HOST[$PID]: $MSG\n&amp;quot;)
+            template_escape(yes)
+        );
+};
+
+source s_net {
+    udp(ip(0.0.0.0) port(514));
+    tcp(ip(0.0.0.0) port(514));
+};
+
+log { source(s_net); description(df_wrt0)};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;preformance&quot;&gt;Preformance&lt;/h3&gt;
+
+&lt;p&gt;I prefer syslog/rsyslog + syslog-ng. It will be more stable and easy to config.&lt;/p&gt;
+
+&lt;p&gt;There were more than 2000 clients to send log to a log center.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>日志中心：统一日志服务器</title>
-      <link>http://liaohuqiu.net/cn/posts/log-center</link>
-      <pubDate>Wed, 28 May 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/log-center/</link>
+      <pubDate>Wed, 28 May 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/log-center</guid>
       <description>&lt;p&gt;在 *iux 系统上，有 syslog, rsyslog, syslog-ng 几种程序记录日志。&lt;/p&gt;
@@ -4454,84 +4529,9 @@ log { source(s_net); description(df_wrt0)};
     </item>
     
     <item>
-      <title>setup log center</title>
-      <link>http://liaohuqiu.net/posts/log-center</link>
-      <pubDate>Wed, 28 May 2014 00:00:00 +0800</pubDate>
-      <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/posts/log-center</guid>
-      <description>&lt;p&gt;In *inux System, there are some log tools, for example: syslog, rsyslog, syslog-ng, etc..&lt;/p&gt;
-
-&lt;p&gt;In our program we can record log to syslog, for example in php:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_NOTICE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;srain&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;some messages@&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Y-m-d H:i:s&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;openlog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ident&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_PID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;LOG_LOCAL6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;syslog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$priority&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;closelog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;When we have more than one webserver which will record log, we need a log center to keep all of the log.&lt;/p&gt;
-
-&lt;h3 id=&quot;forwarding&quot;&gt;Forwarding&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;syslog&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    10.11.2.13  # the port is 514 and using the UDP protocal.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*.local6    @@10.11.2.13:514    # udp
-*.local6    @10.11.2.13:514     # tcp more reliable than udp
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;description d_loghost { udp(&amp;quot;10.11.2.13&amp;quot; port(514)};
-
-log { source(s_sys); description(d_loghost)};
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;reciving&quot;&gt;Reciving&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;rsyslog&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# for udp reception
-$ModLoad imudp
-$UDPServerRun 514
-
-# for tcp reception
-$ModLoad imtcp
-$InputTCPServerRun 514
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;syslog-ng&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;destination df_wrt0 {
-    #  keep log into diffrent files
-    file(&amp;quot;/var/log/$PROGRAM-$YEAR$MONTH$DAY&amp;quot;
-            template(&amp;quot;$FULLDATE $SOURCEIP-$HOST[$PID]: $MSG\n&amp;quot;)
-            template_escape(yes)
-        );
-};
-
-source s_net {
-    udp(ip(0.0.0.0) port(514));
-    tcp(ip(0.0.0.0) port(514));
-};
-
-log { source(s_net); description(df_wrt0)};
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;preformance&quot;&gt;Preformance&lt;/h3&gt;
-
-&lt;p&gt;I prefer syslog/rsyslog + syslog-ng. It will be more stable and easy to config.&lt;/p&gt;
-
-&lt;p&gt;There were more than 2000 clients to send log to a log center.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>find smallest number greater than given number out of a sorted list</title>
-      <link>http://liaohuqiu.net/posts/smallest-number-greater-than-given-number</link>
-      <pubDate>Tue, 20 May 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/smallest-number-greater-than-given-number/</link>
+      <pubDate>Tue, 20 May 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/smallest-number-greater-than-given-number</guid>
       <description>&lt;p&gt;Give out a sort list:&lt;/p&gt;
@@ -4613,8 +4613,8 @@ log { source(s_net); description(df_wrt0)};
     
     <item>
       <title>Shortcut for arrow keys, move like in vi/vim mode</title>
-      <link>http://liaohuqiu.net/posts/remap-arrow-keys-to-vi-mode</link>
-      <pubDate>Thu, 08 May 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/remap-arrow-keys-to-vi-mode/</link>
+      <pubDate>Thu, 08 May 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/remap-arrow-keys-to-vi-mode</guid>
       <description>&lt;p&gt;I am used to vim and like to move with &lt;kbd&gt;H&lt;/kbd&gt;, &lt;kbd&gt;J&lt;/kbd&gt;, &lt;kbd&gt;K&lt;/kbd&gt;, &lt;kbd&gt;L&lt;/kbd&gt;. &lt;/p&gt;
@@ -4646,11 +4646,13 @@ log { source(s_net); description(df_wrt0)};
     
     <item>
       <title>我的Mac 工作环境配置</title>
-      <link>http://liaohuqiu.net/cn/posts/set-up-mac</link>
-      <pubDate>Mon, 05 May 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/set-up-mac/</link>
+      <pubDate>Mon, 05 May 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/set-up-mac</guid>
-      <description>&lt;h3 id=&quot;新的mac&quot;&gt;新的mac&lt;/h3&gt;
+      <description>&lt;p&gt;&lt;a href=&quot;https://github.com/liaohuqiu/mac-setup&quot;&gt;https://github.com/liaohuqiu/mac-setup&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;新的mac&quot;&gt;新的mac&lt;/h3&gt;
 
 &lt;p&gt;阿里只给ios开发以及部分前端配办公mac。我刚入职，给的居然是台式机！后来申请了一个笔记本，联想的。没法干活。攒了几个月工钱，自己买了mac，生产力立刻提高。前些天回家，回京途中，mac丢了。重写买过一个新的，环境配置挺麻烦的，以此为纪。&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Model: ME865
@@ -4670,7 +4672,7 @@ OS: 10.9.2
 
 &lt;p&gt;&lt;img src=&quot;http://srain-blog.qiniudn.com/mac-setup-keys-fn-ctrl.png&quot;/&gt;&lt;/p&gt;
 
-&lt;h5 id=&quot;fn-/-f1-~-f12&quot;&gt;Fn / F1 ~ F12&lt;/h5&gt;
+&lt;h5 id=&quot;fn-f1-f12&quot;&gt;Fn / F1 ~ F12&lt;/h5&gt;
 
 &lt;p&gt;还原键盘上的F1 ~ F12为标准功能，用Fn + F1 ~ F12 来实现功能。&lt;/p&gt;
 
@@ -4690,15 +4692,25 @@ OS: 10.9.2
 
 &lt;p&gt;&lt;img src=&quot;http://srain-blog.qiniudn.com/mac-setup-keys-vi-mode.png&quot;/&gt;&lt;/p&gt;
 
-&lt;h5 id=&quot;spotlight-快捷键:-option-+-r&quot;&gt;spotlight 快捷键: option + r&lt;/h5&gt;
+&lt;h5 id=&quot;spotlight-快捷键-option-r&quot;&gt;spotlight 快捷键: option + r&lt;/h5&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://srain-blog.qiniudn.com/mac-setup-keys-spotlight.png&quot;/&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;trackpad&quot;&gt;Trackpad&lt;/h5&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;文本选择&lt;/p&gt;
+
+&lt;p&gt;Accessibility &amp;gt; Mouse &amp;amp; ThinkPad &amp;gt; Trackpad Options &amp;gt; Enable dragging &amp;gt; three finger drag&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;h3 id=&quot;software&quot;&gt;Software&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;XCode。如果不需要的话，那就只装命令行工具。git / gcc 等常用必需。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.iterm2.com/&quot;&gt;iTerm&lt;/a&gt; ，取代自带终端。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.iterm2.com/&quot;&gt;iTerm&lt;/a&gt; ，取代自带终端。&lt;/p&gt;
+
+&lt;p&gt;set-up 项目备份文件复制到 &lt;code&gt;/Users/srain/apps/iTerm.app//com.googlecode.iterm2.plist&lt;/code&gt; 即可&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/liaohuqiu/vim_anywhere&quot;&gt;vim anywhere&lt;/a&gt; vim的配置，自带的文本编辑器，如果满足不了你的需求，你可以安装Mac Vim。&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/liaohuqiu/work-anywhere&quot;&gt;work anywhere&lt;/a&gt;，一些小工具软件。&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/liaohuqiu/ssh-auto-login&quot;&gt;ssh auto login&lt;/a&gt;， 登录到linux下工作和开发，你一定会需要。&lt;/p&gt;&lt;/li&gt;
@@ -4719,8 +4731,8 @@ OS: 10.9.2
     
     <item>
       <title>我的idea 配置</title>
-      <link>http://liaohuqiu.net/cn/posts/my-idea-config</link>
-      <pubDate>Mon, 31 Mar 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/my-idea-config/</link>
+      <pubDate>Mon, 31 Mar 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/my-idea-config</guid>
       <description>&lt;h4 id=&quot;基本配置&quot;&gt;基本配置&lt;/h4&gt;
@@ -4792,8 +4804,8 @@ OS: 10.9.2
     
     <item>
       <title>Android中的稀疏数组：SparseArray</title>
-      <link>http://liaohuqiu.net/cn/posts/sparse-array-in-android</link>
-      <pubDate>Sun, 30 Mar 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/sparse-array-in-android/</link>
+      <pubDate>Sun, 30 Mar 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/sparse-array-in-android</guid>
       <description>&lt;p&gt;在一般情况下，使用&lt;code&gt;HashMap&amp;lt;K, V&amp;gt;&lt;/code&gt;，如果&lt;code&gt;K&lt;/code&gt;整数类型的话，使用&lt;code&gt;SparseArray&lt;/code&gt;效率会更高。&lt;/p&gt;
@@ -4988,8 +5000,8 @@ OS: 10.9.2
     
     <item>
       <title>git: 提交前强制检查各个项目用户名邮箱设置</title>
-      <link>http://liaohuqiu.net/cn/posts/using-diffrent-user-config-for-different-repository</link>
-      <pubDate>Thu, 20 Mar 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/using-diffrent-user-config-for-different-repository/</link>
+      <pubDate>Thu, 20 Mar 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/using-diffrent-user-config-for-different-repository</guid>
       <description>&lt;h3 id=&quot;保证提交日志的准确性&quot;&gt;保证提交日志的准确性&lt;/h3&gt;
@@ -5088,8 +5100,8 @@ fatal: empty ident name &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span c
     
     <item>
       <title>git全局钩子</title>
-      <link>http://liaohuqiu.net/cn/posts/git-global-hooks</link>
-      <pubDate>Thu, 20 Mar 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/git-global-hooks/</link>
+      <pubDate>Thu, 20 Mar 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/git-global-hooks</guid>
       <description>&lt;h3 id=&quot;钩子文件在项目目录下&quot;&gt;钩子文件在项目目录下&lt;/h3&gt;
@@ -5141,8 +5153,8 @@ git config --global init.templatedir $template_dir
     
     <item>
       <title>一种简单高效的二进制编码方法</title>
-      <link>http://liaohuqiu.net/cn/posts/binpack</link>
-      <pubDate>Tue, 18 Mar 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/binpack/</link>
+      <pubDate>Tue, 18 Mar 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/binpack</guid>
       <description>&lt;p&gt;JSON是一种非常常见的编码方法，数据编码之后，可进行持久存储或者网络传输。
@@ -5452,8 +5464,8 @@ git config --global init.templatedir $template_dir
     
     <item>
       <title>Gridview的错误用法及替代方案</title>
-      <link>http://liaohuqiu.net/cn/posts/grid-view-do-not</link>
-      <pubDate>Sat, 15 Mar 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/grid-view-do-not/</link>
+      <pubDate>Sat, 15 Mar 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/grid-view-do-not</guid>
       <description>&lt;p&gt;九宫格是很常见的一种UI表现形式，当然根据实际情况，有可能是4宫格，6宫格之类的。&lt;/p&gt;
@@ -5586,8 +5598,8 @@ git config --global init.templatedir $template_dir
     
     <item>
       <title>ListView / GirdView Adpater的getView方法，首项多次调用</title>
-      <link>http://liaohuqiu.net/cn/posts/first-view-will-be-created-multi-times-in-list-view</link>
-      <pubDate>Sat, 15 Mar 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/first-view-will-be-created-multi-times-in-list-view/</link>
+      <pubDate>Sat, 15 Mar 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/first-view-will-be-created-multi-times-in-list-view</guid>
       <description>&lt;p&gt;通过Adapter为&lt;code&gt;AbslistView&lt;/code&gt;提供内容是一个常见的做法：在ListView或者GridView的Adapter中的&lt;code&gt;getView()&lt;/code&gt;方法中，加入一行日志，看&lt;code&gt;getView()&lt;/code&gt;被调用的情况&lt;/p&gt;
@@ -5736,8 +5748,8 @@ git config --global init.templatedir $template_dir
     
     <item>
       <title>SQLite使用参考: 唯一索引，分页，清空表</title>
-      <link>http://liaohuqiu.net/cn/posts/sqlite-tips</link>
-      <pubDate>Fri, 14 Mar 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/sqlite-tips/</link>
+      <pubDate>Fri, 14 Mar 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/sqlite-tips</guid>
       <description>&lt;h3 id=&quot;需求&quot;&gt;需求&lt;/h3&gt;
@@ -5792,250 +5804,9 @@ git config --global init.templatedir $template_dir
     </item>
     
     <item>
-      <title>Android中View大小的确定过程</title>
-      <link>http://liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view</link>
-      <pubDate>Fri, 14 Mar 2014 00:00:00 +0800</pubDate>
-      <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view</guid>
-      <description>&lt;h3 id=&quot;view-and-viewgroup&quot;&gt;View and ViewGroup&lt;/h3&gt;
-
-&lt;p&gt;安卓中有5种基本的 &lt;code&gt;ViewGroup&lt;/code&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;  FrameLayout&lt;/li&gt;
-&lt;li&gt;  RelativeLayout&lt;/li&gt;
-&lt;li&gt;  LinearLayout&lt;/li&gt;
-&lt;li&gt;  TableLayout&lt;/li&gt;
-&lt;li&gt;  AbsoluteLayout&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;ViewGroup&lt;/code&gt;可以添加子View，在xml文件里面，我们可以这样写：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;RelativeLayout&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;match_parent&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;100dp&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;match_parent&amp;quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;ImageView&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;match_parent&amp;quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;20dp&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/RelativeLayout&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id=&quot;子view的大小&quot;&gt;子View的大小&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;LayoutParams&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;LayoutParams&lt;/code&gt;用来描述一个View在父容器中大小，它包括了高度和宽度两个维度的信息，每个维度的数据类型都是&lt;code&gt;int&lt;/code&gt;，取值是下面三种情况之一:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;FILL_PARENT&lt;/code&gt; / &lt;code&gt;MATCH_PARENT&lt;/code&gt;, 取值是 &lt;code&gt;-1&lt;/code&gt;. &lt;/p&gt;
-
-&lt;p&gt;填充满父容器, &lt;strong&gt;minus padding&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;WRAP_CONTENT&lt;/code&gt;, 取值是 &lt;code&gt;-2&lt;/code&gt;. &lt;/p&gt;
-
-&lt;p&gt;尺寸尽量小，能包住自身的全部内容就行, &lt;strong&gt;plus padding&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;一个确定的尺寸，大于等于0的一个数值。&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;父容器的大小状态&quot;&gt;父容器的大小状态&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Padding&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;留白。自身内容的大小加上留白就是父容器的内容的真正大小。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;MeasureSpec&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;当父容器要确定子View的大小的时候，父容器需要告诉子View自身的大小状态。当父容器所属的大小状态不同时，对子View的尺寸约束是不一样的。父容器大小状态有下面三种情况：&lt;/p&gt;
-
-&lt;table&gt;&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;parent&lt;/th&gt;
-&lt;th&gt;child&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;UNSPECIFIED&lt;/td&gt;
-&lt;td&gt;父容器对子View没有任何约束，子View可以按自身需要，任意大小。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;EXACTLY&lt;/td&gt;
-&lt;td&gt;父容器大小是一个确定的数值，子View只能限定在指定大小内。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;AT_MOST&lt;/td&gt;
-&lt;td&gt;父容器本身以及内含的所有子View大小不能超过指定大小。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;View的尺寸大小和尺寸状态&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;尺寸大小的数据类型是 &lt;code&gt;int&lt;/code&gt;, 8个字节。&lt;/p&gt;
-
-&lt;p&gt;尺寸大小和尺寸状态在很多时候需要一起传递，为了减少对象的分配，把三种尺寸状态编码到尺寸大小&lt;code&gt;int&lt;/code&gt;变量的最高位2个位中。&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;UNSPECIFIED&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;+-----------+----------
-| 00xx xxxx | 剩余的7个字节.    0x00 &amp;lt;&amp;lt; 30 + value
-+-----------+----------
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;EXACTLY&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;+-----------+----------
-| 01xx xxxx | 剩余的7个字节.    0x01 &amp;lt;&amp;lt; 30 + value
-+-----------+----------
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;AT_MOST&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;+-----------+----------
-| 10xx xxxx | 剩余的7个字节.    0x10 &amp;lt;&amp;lt; 30 + value
-+-----------+----------
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;子view尺寸的最终确定&quot;&gt;子View尺寸的最终确定&lt;/h3&gt;
-
-&lt;p&gt;子View有一个期望的尺寸大小，父容器有尺寸大小约束，这两方面的约束协调，用来计算View的大小状态。&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;根据父容器的尺寸状态，以及子View的&lt;code&gt;LayoutParams&lt;/code&gt;，可以确定子View的大小和状态：&lt;code&gt;MeasureSpec&lt;/code&gt;，并要求子View确定自身大小。&lt;/p&gt;
-
-&lt;p&gt;调用子View的&lt;code&gt;measure()&lt;/code&gt;方法，子View的&lt;code&gt;onMeasure()&lt;/code&gt;方法也会被执行。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;子View在&lt;code&gt;onMeasure()&lt;/code&gt;方法中，根据父容器给出的尺寸大小和约束，根据自身情况，确定最终的大小。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;父容器根据子View的确定的大小，最终确定自身大小。&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;strong&gt;需要考虑的因素&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;  父容器的尺寸状态:
-
-&lt;ol&gt;
-&lt;li&gt;EXACTLY&lt;/li&gt;
-&lt;li&gt;AT_MOST&lt;/li&gt;
-&lt;li&gt;UNSPECIFIED&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;li&gt;  父容器的尺寸大小: &lt;code&gt;parentSize&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;父容器的留白:&lt;code&gt;parentPadding&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;父容器真正内容的大小是： &lt;code&gt;parentSize&lt;/code&gt; - &lt;code&gt;parentPadding&lt;/code&gt;, 用变量 &lt;code&gt;parentContentSize&lt;/code&gt;代替。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;子View的LayoutParams:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt; 确定的数值, &lt;code&gt;childSize&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt; MATCH_PARENT&lt;/li&gt;
-&lt;li&gt; WRAP_CONTENT&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;需要确定的&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;  子View的大小状态&lt;/li&gt;
-&lt;li&gt;  子view的尺寸大小&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;尺寸确定的规则&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;父容器的大小状态处于 &lt;code&gt;EXACTLY&lt;/code&gt; 状态时, 子容器限定在这个大小。&lt;/p&gt;
-
-&lt;table&gt;&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;child layout&lt;/th&gt;
-&lt;th&gt;mode&lt;/th&gt;
-&lt;th&gt;size&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;确定的大小&lt;/td&gt;
-&lt;td&gt;EXACTLY&lt;/td&gt;
-&lt;td&gt;childSize&lt;/td&gt;
-&lt;td&gt;子View大小可以是自身大小，后期再做确定。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;MATCH_PARENT&lt;/td&gt;
-&lt;td&gt;EXACTLY&lt;/td&gt;
-&lt;td&gt;parentContentSize&lt;/td&gt;
-&lt;td&gt;父容器多大，子View就可以多大。大小为父容器大小。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;WRAP_CONTENT&lt;/td&gt;
-&lt;td&gt;AT_MOST&lt;/td&gt;
-&lt;td&gt;parentContentSize&lt;/td&gt;
-&lt;td&gt;最大尺寸为父容器尺寸，本身内容不能超过和父容器尺寸。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;父容器尺寸处于&lt;code&gt;AT_MOST&lt;/code&gt;状态时, 子View尺寸不能超过这个尺寸。&lt;/p&gt;
-
-&lt;table&gt;&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;child layout&lt;/th&gt;
-&lt;th&gt;mode&lt;/th&gt;
-&lt;th&gt;size&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;确定的大小&lt;/td&gt;
-&lt;td&gt;EXACTLY&lt;/td&gt;
-&lt;td&gt;childSize&lt;/td&gt;
-&lt;td&gt;子View的大小可以为自身的大小。后期再做确定&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;MATCH_PARENT&lt;/td&gt;
-&lt;td&gt;AT_MOST&lt;/td&gt;
-&lt;td&gt;parentContentSize&lt;/td&gt;
-&lt;td&gt;父容器大小未确定，但子容器想要和父容器一定大。那么确定子View最大可以和父容器一样大。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;WRAP_CONTENT&lt;/td&gt;
-&lt;td&gt;AT_MOST&lt;/td&gt;
-&lt;td&gt;parentSize&lt;/td&gt;
-&lt;td&gt;子View需要确定自己的尺寸，最大不超过父容器大小。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;父容器处于 &lt;code&gt;UNSPECIFIED&lt;/code&gt; 状态，需要根据子View的最终大小来确定自己状态。&lt;/p&gt;
-
-&lt;table&gt;&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;child layout&lt;/th&gt;
-&lt;th&gt;mode&lt;/th&gt;
-&lt;th&gt;size&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;确定的大小&lt;/td&gt;
-&lt;td&gt;EXACTLY&lt;/td&gt;
-&lt;td&gt;childSize&lt;/td&gt;
-&lt;td&gt;子View尺寸为一个确定大小.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;MATCH_PARENT&lt;/td&gt;
-&lt;td&gt;UNSPECIFIED&lt;/td&gt;
-&lt;td&gt;待定&lt;/td&gt;
-&lt;td&gt;子view根据自身情况，确定大小。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;WRAP_CONTENT&lt;/td&gt;
-&lt;td&gt;UNSPECIFIED&lt;/td&gt;
-&lt;td&gt;待定&lt;/td&gt;
-&lt;td&gt;子View根据自身情况，确定大小。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
       <title>How Android caculates view size</title>
-      <link>http://liaohuqiu.net/posts/how-does-android-caculate-the-size-of-child-view</link>
-      <pubDate>Fri, 14 Mar 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/how-does-android-caculate-the-size-of-child-view/</link>
+      <pubDate>Fri, 14 Mar 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/how-does-android-caculate-the-size-of-child-view</guid>
       <description>&lt;h3 id=&quot;view-and-viewgroup&quot;&gt;View and ViewGroup&lt;/h3&gt;
@@ -6278,22 +6049,250 @@ git config --global init.templatedir $template_dir
     </item>
     
     <item>
-      <title>SQLite清空数据库表</title>
-      <link>http://liaohuqiu.net/cn/posts/truncate-table-in-sqlite</link>
-      <pubDate>Thu, 13 Mar 2014 00:00:00 +0800</pubDate>
+      <title>Android中View大小的确定过程</title>
+      <link>http://liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view/</link>
+      <pubDate>Fri, 14 Mar 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/cn/posts/truncate-table-in-sqlite</guid>
-      <description>&lt;p&gt;Sqlite 不支持&lt;code&gt;truncate&lt;/code&gt;，可用 &lt;code&gt;DELETE&lt;/code&gt;代替。&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;DELETE FROM table_name
+      <guid>http://liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view</guid>
+      <description>&lt;h3 id=&quot;view-and-viewgroup&quot;&gt;View and ViewGroup&lt;/h3&gt;
+
+&lt;p&gt;安卓中有5种基本的 &lt;code&gt;ViewGroup&lt;/code&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  FrameLayout&lt;/li&gt;
+&lt;li&gt;  RelativeLayout&lt;/li&gt;
+&lt;li&gt;  LinearLayout&lt;/li&gt;
+&lt;li&gt;  TableLayout&lt;/li&gt;
+&lt;li&gt;  AbsoluteLayout&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;ViewGroup&lt;/code&gt;可以添加子View，在xml文件里面，我们可以这样写：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;RelativeLayout&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;match_parent&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;100dp&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;match_parent&amp;quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;wrap_content&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;ImageView&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;match_parent&amp;quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;20dp&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/RelativeLayout&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;但是效率更高的做法是，drop掉表，然后重建。&lt;/p&gt;
+&lt;h3 id=&quot;子view的大小&quot;&gt;子View的大小&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;LayoutParams&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;LayoutParams&lt;/code&gt;用来描述一个View在父容器中大小，它包括了高度和宽度两个维度的信息，每个维度的数据类型都是&lt;code&gt;int&lt;/code&gt;，取值是下面三种情况之一:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;FILL_PARENT&lt;/code&gt; / &lt;code&gt;MATCH_PARENT&lt;/code&gt;, 取值是 &lt;code&gt;-1&lt;/code&gt;. &lt;/p&gt;
+
+&lt;p&gt;填充满父容器, &lt;strong&gt;minus padding&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;WRAP_CONTENT&lt;/code&gt;, 取值是 &lt;code&gt;-2&lt;/code&gt;. &lt;/p&gt;
+
+&lt;p&gt;尺寸尽量小，能包住自身的全部内容就行, &lt;strong&gt;plus padding&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;一个确定的尺寸，大于等于0的一个数值。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;父容器的大小状态&quot;&gt;父容器的大小状态&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Padding&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;留白。自身内容的大小加上留白就是父容器的内容的真正大小。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;MeasureSpec&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;当父容器要确定子View的大小的时候，父容器需要告诉子View自身的大小状态。当父容器所属的大小状态不同时，对子View的尺寸约束是不一样的。父容器大小状态有下面三种情况：&lt;/p&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;parent&lt;/th&gt;
+&lt;th&gt;child&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;UNSPECIFIED&lt;/td&gt;
+&lt;td&gt;父容器对子View没有任何约束，子View可以按自身需要，任意大小。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EXACTLY&lt;/td&gt;
+&lt;td&gt;父容器大小是一个确定的数值，子View只能限定在指定大小内。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AT_MOST&lt;/td&gt;
+&lt;td&gt;父容器本身以及内含的所有子View大小不能超过指定大小。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;View的尺寸大小和尺寸状态&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;尺寸大小的数据类型是 &lt;code&gt;int&lt;/code&gt;, 8个字节。&lt;/p&gt;
+
+&lt;p&gt;尺寸大小和尺寸状态在很多时候需要一起传递，为了减少对象的分配，把三种尺寸状态编码到尺寸大小&lt;code&gt;int&lt;/code&gt;变量的最高位2个位中。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;UNSPECIFIED&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;+-----------+----------
+| 00xx xxxx | 剩余的7个字节.    0x00 &amp;lt;&amp;lt; 30 + value
++-----------+----------
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;EXACTLY&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;+-----------+----------
+| 01xx xxxx | 剩余的7个字节.    0x01 &amp;lt;&amp;lt; 30 + value
++-----------+----------
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;AT_MOST&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;+-----------+----------
+| 10xx xxxx | 剩余的7个字节.    0x10 &amp;lt;&amp;lt; 30 + value
++-----------+----------
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;子view尺寸的最终确定&quot;&gt;子View尺寸的最终确定&lt;/h3&gt;
+
+&lt;p&gt;子View有一个期望的尺寸大小，父容器有尺寸大小约束，这两方面的约束协调，用来计算View的大小状态。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;根据父容器的尺寸状态，以及子View的&lt;code&gt;LayoutParams&lt;/code&gt;，可以确定子View的大小和状态：&lt;code&gt;MeasureSpec&lt;/code&gt;，并要求子View确定自身大小。&lt;/p&gt;
+
+&lt;p&gt;调用子View的&lt;code&gt;measure()&lt;/code&gt;方法，子View的&lt;code&gt;onMeasure()&lt;/code&gt;方法也会被执行。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;子View在&lt;code&gt;onMeasure()&lt;/code&gt;方法中，根据父容器给出的尺寸大小和约束，根据自身情况，确定最终的大小。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;父容器根据子View的确定的大小，最终确定自身大小。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;需要考虑的因素&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  父容器的尺寸状态:
+
+&lt;ol&gt;
+&lt;li&gt;EXACTLY&lt;/li&gt;
+&lt;li&gt;AT_MOST&lt;/li&gt;
+&lt;li&gt;UNSPECIFIED&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;  父容器的尺寸大小: &lt;code&gt;parentSize&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;父容器的留白:&lt;code&gt;parentPadding&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;父容器真正内容的大小是： &lt;code&gt;parentSize&lt;/code&gt; - &lt;code&gt;parentPadding&lt;/code&gt;, 用变量 &lt;code&gt;parentContentSize&lt;/code&gt;代替。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;子View的LayoutParams:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt; 确定的数值, &lt;code&gt;childSize&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt; MATCH_PARENT&lt;/li&gt;
+&lt;li&gt; WRAP_CONTENT&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;需要确定的&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  子View的大小状态&lt;/li&gt;
+&lt;li&gt;  子view的尺寸大小&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;尺寸确定的规则&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;父容器的大小状态处于 &lt;code&gt;EXACTLY&lt;/code&gt; 状态时, 子容器限定在这个大小。&lt;/p&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;child layout&lt;/th&gt;
+&lt;th&gt;mode&lt;/th&gt;
+&lt;th&gt;size&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;确定的大小&lt;/td&gt;
+&lt;td&gt;EXACTLY&lt;/td&gt;
+&lt;td&gt;childSize&lt;/td&gt;
+&lt;td&gt;子View大小可以是自身大小，后期再做确定。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MATCH_PARENT&lt;/td&gt;
+&lt;td&gt;EXACTLY&lt;/td&gt;
+&lt;td&gt;parentContentSize&lt;/td&gt;
+&lt;td&gt;父容器多大，子View就可以多大。大小为父容器大小。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WRAP_CONTENT&lt;/td&gt;
+&lt;td&gt;AT_MOST&lt;/td&gt;
+&lt;td&gt;parentContentSize&lt;/td&gt;
+&lt;td&gt;最大尺寸为父容器尺寸，本身内容不能超过和父容器尺寸。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;父容器尺寸处于&lt;code&gt;AT_MOST&lt;/code&gt;状态时, 子View尺寸不能超过这个尺寸。&lt;/p&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;child layout&lt;/th&gt;
+&lt;th&gt;mode&lt;/th&gt;
+&lt;th&gt;size&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;确定的大小&lt;/td&gt;
+&lt;td&gt;EXACTLY&lt;/td&gt;
+&lt;td&gt;childSize&lt;/td&gt;
+&lt;td&gt;子View的大小可以为自身的大小。后期再做确定&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MATCH_PARENT&lt;/td&gt;
+&lt;td&gt;AT_MOST&lt;/td&gt;
+&lt;td&gt;parentContentSize&lt;/td&gt;
+&lt;td&gt;父容器大小未确定，但子容器想要和父容器一定大。那么确定子View最大可以和父容器一样大。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WRAP_CONTENT&lt;/td&gt;
+&lt;td&gt;AT_MOST&lt;/td&gt;
+&lt;td&gt;parentSize&lt;/td&gt;
+&lt;td&gt;子View需要确定自己的尺寸，最大不超过父容器大小。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;父容器处于 &lt;code&gt;UNSPECIFIED&lt;/code&gt; 状态，需要根据子View的最终大小来确定自己状态。&lt;/p&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;child layout&lt;/th&gt;
+&lt;th&gt;mode&lt;/th&gt;
+&lt;th&gt;size&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;确定的大小&lt;/td&gt;
+&lt;td&gt;EXACTLY&lt;/td&gt;
+&lt;td&gt;childSize&lt;/td&gt;
+&lt;td&gt;子View尺寸为一个确定大小.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MATCH_PARENT&lt;/td&gt;
+&lt;td&gt;UNSPECIFIED&lt;/td&gt;
+&lt;td&gt;待定&lt;/td&gt;
+&lt;td&gt;子view根据自身情况，确定大小。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WRAP_CONTENT&lt;/td&gt;
+&lt;td&gt;UNSPECIFIED&lt;/td&gt;
+&lt;td&gt;待定&lt;/td&gt;
+&lt;td&gt;子View根据自身情况，确定大小。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>Truncate talbe in SQLite</title>
-      <link>http://liaohuqiu.net/posts/truncate-table-in-sqlite</link>
-      <pubDate>Thu, 13 Mar 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/truncate-table-in-sqlite/</link>
+      <pubDate>Thu, 13 Mar 2014 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/truncate-table-in-sqlite</guid>
       <description>&lt;p&gt;Sqlite doesn&amp;#39;t have a &lt;code&gt;truncate&lt;/code&gt; command, we can use &lt;code&gt;DELETE&lt;/code&gt; command.&lt;/p&gt;
@@ -6304,9 +6303,22 @@ git config --global init.templatedir $template_dir
     </item>
     
     <item>
+      <title>SQLite清空数据库表</title>
+      <link>http://liaohuqiu.net/cn/posts/truncate-table-in-sqlite/</link>
+      <pubDate>Thu, 13 Mar 2014 00:00:00 -0700</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/cn/posts/truncate-table-in-sqlite</guid>
+      <description>&lt;p&gt;Sqlite 不支持&lt;code&gt;truncate&lt;/code&gt;，可用 &lt;code&gt;DELETE&lt;/code&gt;代替。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;DELETE FROM table_name
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;但是效率更高的做法是，drop掉表，然后重建。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>setTimeout 和 setTimeInterval的本质区别</title>
-      <link>http://liaohuqiu.net/cn/posts/settimeout-or-settimeinterval</link>
-      <pubDate>Thu, 06 Mar 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/settimeout-or-settimeinterval/</link>
+      <pubDate>Thu, 06 Mar 2014 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/settimeout-or-settimeinterval</guid>
       <description>&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/729921/settimeout-or-setinterval&quot;&gt;http://stackoverflow.com/questions/729921/settimeout-or-setinterval&lt;/a&gt;&lt;/p&gt;
@@ -6315,8 +6327,8 @@ git config --global init.templatedir $template_dir
     
     <item>
       <title>一花一世界: Android中细小组件的生命周期</title>
-      <link>http://liaohuqiu.net/cn/posts/android-lifecycle-component</link>
-      <pubDate>Wed, 05 Mar 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/android-lifecycle-component/</link>
+      <pubDate>Wed, 05 Mar 2014 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/android-lifecycle-component</guid>
       <description>&lt;h3 id=&quot;定义&quot;&gt;定义&lt;/h3&gt;
@@ -6494,7 +6506,7 @@ git config --global init.templatedir $template_dir
 &lt;p&gt;一般应用场景: 在一个列表页面，&lt;code&gt;Activity&lt;/code&gt;含有一个&lt;code&gt;Adapter&lt;/code&gt;, 其中有一个&lt;code&gt;ImageLoader&lt;/code&gt;, 负责图像加载, 并将&lt;code&gt;Activity&lt;/code&gt;作为&lt;code&gt;Context&lt;/code&gt;持有。&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;h5 id=&quot;don&amp;#39;t&quot;&gt;Don&amp;#39;t&lt;/h5&gt;
+&lt;li&gt;&lt;h5 id=&quot;don-39-t&quot;&gt;Don&amp;#39;t&lt;/h5&gt;
 
 &lt;p&gt;实际调用&lt;code&gt;ImageLoader&lt;/code&gt;的&lt;code&gt;stopLoadImage()&lt;/code&gt;方法的不是&lt;code&gt;Activity&lt;/code&gt;, 而是在这个&lt;code&gt;Adapter&lt;/code&gt;内部。然后&lt;code&gt;Adapter&lt;/code&gt;公开一个方法，由&lt;code&gt;Activity&lt;/code&gt;调用。&lt;/p&gt;
 
@@ -6531,11 +6543,11 @@ git config --global init.templatedir $template_dir
     
     <item>
       <title>Jekyll Plugins and Github Pages</title>
-      <link>http://liaohuqiu.net/posts/jekyll-plugins-on-github-pages</link>
-      <pubDate>Mon, 03 Mar 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/jekyll-plugins-on-github-pages/</link>
+      <pubDate>Mon, 03 Mar 2014 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/jekyll-plugins-on-github-pages</guid>
-      <description>&lt;h4 id=&quot;first-of-all:&quot;&gt;First of all:&lt;/h4&gt;
+      <description>&lt;h4 id=&quot;first-of-all&quot;&gt;First of all:&lt;/h4&gt;
 
 &lt;p&gt;Github Pages works in &lt;code&gt;safe mode&lt;/code&gt; in which most of the Jekyll plugins can not work.&lt;/p&gt;
 
@@ -6634,11 +6646,11 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;git checkout $branch&amp;quot
     
     <item>
       <title>Jekyll 插件和Github Pages</title>
-      <link>http://liaohuqiu.net/cn/posts/jekyll-plugins-on-github-pages</link>
-      <pubDate>Mon, 03 Mar 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/jekyll-plugins-on-github-pages/</link>
+      <pubDate>Mon, 03 Mar 2014 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/jekyll-plugins-on-github-pages</guid>
-      <description>&lt;h4 id=&quot;first-of-all:&quot;&gt;First of all:&lt;/h4&gt;
+      <description>&lt;h4 id=&quot;first-of-all&quot;&gt;First of all:&lt;/h4&gt;
 
 &lt;p&gt;Github Pages works in &lt;code&gt;safe mode&lt;/code&gt; in which most of the Jekyll plugins can not work.&lt;/p&gt;
 
@@ -6737,8 +6749,8 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;git checkout $branch&amp;quot
     
     <item>
       <title>Install php imagick extension on CentOS</title>
-      <link>http://liaohuqiu.net/posts/install-php-imagick-on-centos</link>
-      <pubDate>Mon, 03 Mar 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/install-php-imagick-on-centos/</link>
+      <pubDate>Mon, 03 Mar 2014 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/install-php-imagick-on-centos</guid>
       <description>&lt;ol&gt;
@@ -6783,13 +6795,13 @@ make install
     
     <item>
       <title>Work with git branches</title>
-      <link>http://liaohuqiu.net/posts/work-with-git-branches</link>
-      <pubDate>Fri, 14 Feb 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/work-with-git-branches/</link>
+      <pubDate>Fri, 14 Feb 2014 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/work-with-git-branches</guid>
       <description>&lt;h1 id=&quot;branch&quot;&gt;Branch&lt;/h1&gt;
 
-&lt;h5 id=&quot;create-a-branch,-add-some-files,-push-to-remote-repository&quot;&gt;create a branch, add some files, push to remote repository&lt;/h5&gt;
+&lt;h5 id=&quot;create-a-branch-add-some-files-push-to-remote-repository&quot;&gt;create a branch, add some files, push to remote repository&lt;/h5&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git branch branchName
 echo &amp;quot;Some information&amp;quot; &amp;gt; test.txt
 git add test.txt
@@ -6818,7 +6830,7 @@ git branch -D branchName
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;hr&gt;
 
-&lt;h1 id=&quot;merge-&amp;amp;-rebase&quot;&gt;Merge &amp;amp; Rebase&lt;/h1&gt;
+&lt;h1 id=&quot;merge-amp-rebase&quot;&gt;Merge &amp;amp; Rebase&lt;/h1&gt;
 
 &lt;p&gt;Here is a repository has a branch named &lt;code&gt;b1&lt;/code&gt;, it has some commits  &lt;code&gt;A&lt;/code&gt;, &lt;code&gt;B&lt;/code&gt;.
 &lt;code&gt;
@@ -6971,8 +6983,8 @@ $ git push origin +b2
     
     <item>
       <title>Git日常分支操作</title>
-      <link>http://liaohuqiu.net/cn/posts/work-with-git-branches</link>
-      <pubDate>Fri, 14 Feb 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/work-with-git-branches/</link>
+      <pubDate>Fri, 14 Feb 2014 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/work-with-git-branches</guid>
       <description>&lt;p&gt;本文介绍日常中经常遇到的一些分支操作，并给出了详细解释。&lt;/p&gt;
@@ -7022,7 +7034,7 @@ git branch -D branchName
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;hr&gt;
 
-&lt;h1 id=&quot;merge-&amp;amp;-rebase&quot;&gt;Merge &amp;amp; Rebase&lt;/h1&gt;
+&lt;h1 id=&quot;merge-amp-rebase&quot;&gt;Merge &amp;amp; Rebase&lt;/h1&gt;
 
 &lt;p&gt;&lt;code&gt;git pull&lt;/code&gt;是非常笼统的一种操作，下面我们分析日常所有可能遇到的情况：&lt;/p&gt;
 
@@ -7196,7 +7208,7 @@ A -- B ------- D        [b1,remote]
       \
         ------ D -- C1  [b2,local]
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h5 id=&quot;强制推送:-git-push---force&quot;&gt;强制推送: git push --force&lt;/h5&gt;
+&lt;h5 id=&quot;强制推送-git-push-force&quot;&gt;强制推送: git push --force&lt;/h5&gt;
 
 &lt;p&gt;为什么需要强制推送，官方文档：&lt;/p&gt;
 
@@ -7219,8 +7231,8 @@ $ git push origin +b2
     
     <item>
       <title>Some tips for git setup and git config</title>
-      <link>http://liaohuqiu.net/posts/git-setup-and-setting</link>
-      <pubDate>Thu, 13 Feb 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/git-setup-and-setting/</link>
+      <pubDate>Thu, 13 Feb 2014 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/git-setup-and-setting</guid>
       <description>&lt;h1 id=&quot;the-ssh-key&quot;&gt;the ssh key&lt;/h1&gt;
@@ -7237,7 +7249,7 @@ ssh-keygen -t rsa -C &amp;quot;changeme@xxx.com&amp;quot; -f filename
 &lt;h5 id=&quot;list-all-added-ssh-key&quot;&gt;list all added ssh key&lt;/h5&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;ssh-add -l
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h5 id=&quot;you-may-run-into-this-error-when-try-ssh-add:&quot;&gt;you may run into this error when try &lt;code&gt;ssh-add&lt;/code&gt;:&lt;/h5&gt;
+&lt;h5 id=&quot;you-may-run-into-this-error-when-try-ssh-add&quot;&gt;you may run into this error when try &lt;code&gt;ssh-add&lt;/code&gt;:&lt;/h5&gt;
 
 &lt;p class=&quot;alert alert-error&quot;&gt;Could not open a connection to your authentication agent.&lt;/p&gt;
    
@@ -7253,7 +7265,7 @@ IdentityFile ~/.ssh/xxx
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h1 id=&quot;git-config&quot;&gt;git config&lt;/h1&gt;
 
-&lt;h5 id=&quot;global-config-&amp;amp;-repository-config&quot;&gt;global config &amp;amp; repository config&lt;/h5&gt;
+&lt;h5 id=&quot;global-config-amp-repository-config&quot;&gt;global config &amp;amp; repository config&lt;/h5&gt;
 
 &lt;p&gt;The global setting is stored in &lt;code&gt;~/.gitconfig&lt;/code&gt;&lt;/p&gt;
 
@@ -7261,7 +7273,7 @@ IdentityFile ~/.ssh/xxx
 
 &lt;p&gt;&lt;code&gt;git config --global&lt;/code&gt; will use global config, without &lt;code&gt;--global&lt;/code&gt; options will use try to use the config file &lt;code&gt;./git/config&lt;/code&gt; in current directory.&lt;/p&gt;
 
-&lt;h5 id=&quot;config-user-name-&amp;amp;-user-email-for-every-repository&quot;&gt;config user name &amp;amp; user email for every repository&lt;/h5&gt;
+&lt;h5 id=&quot;config-user-name-amp-user-email-for-every-repository&quot;&gt;config user name &amp;amp; user email for every repository&lt;/h5&gt;
 
 &lt;p&gt;You may work with multiple repositories, so it is a good practice to config user information for every repository.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# for global setting
@@ -7291,8 +7303,8 @@ git config --global alias.lg &amp;quot;log --all --graph --pretty=format:&amp;#3
     
     <item>
       <title>命令行下的git配置问题: 多个sshkey, 多个用户身份, git alias</title>
-      <link>http://liaohuqiu.net/cn/posts/git-setup-and-setting</link>
-      <pubDate>Thu, 13 Feb 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/git-setup-and-setting/</link>
+      <pubDate>Thu, 13 Feb 2014 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/git-setup-and-setting</guid>
       <description>&lt;h2 id=&quot;ssh-key&quot;&gt;ssh key&lt;/h2&gt;
@@ -7309,7 +7321,7 @@ ssh-keygen -t rsa -C &amp;quot;changeme@xxx.com&amp;quot; -f filename
 &lt;h5 id=&quot;列出所有的sshkey&quot;&gt;列出所有的sshkey&lt;/h5&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;ssh-add -l
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h5 id=&quot;执行-ssh-add-可能会遇到的问题:&quot;&gt;执行 &lt;code&gt;ssh-add&lt;/code&gt; 可能会遇到的问题:&lt;/h5&gt;
+&lt;h5 id=&quot;执行-ssh-add-可能会遇到的问题&quot;&gt;执行 &lt;code&gt;ssh-add&lt;/code&gt; 可能会遇到的问题:&lt;/h5&gt;
 
 &lt;p class=&quot;alert alert-error&quot;&gt;Could not open a connection to your authentication agent.&lt;/p&gt;
 
@@ -7334,7 +7346,7 @@ IdentityFile ~/.ssh/xxx
 
 &lt;p&gt;&lt;code&gt;git config --global&lt;/code&gt; 操作全局配置, 不带 &lt;code&gt;--global&lt;/code&gt; 选项的话，会尝试相对于当前目录的： &lt;code&gt;./git/config&lt;/code&gt;, 找不到的话，报错。&lt;/p&gt;
 
-&lt;h5 id=&quot;为各个项目单独配置user.name-和-user.email&quot;&gt;为各个项目单独配置&lt;code&gt;user.name&lt;/code&gt; 和 &lt;code&gt;user.email&lt;/code&gt;&lt;/h5&gt;
+&lt;h5 id=&quot;为各个项目单独配置user-name-和-user-email&quot;&gt;为各个项目单独配置&lt;code&gt;user.name&lt;/code&gt; 和 &lt;code&gt;user.email&lt;/code&gt;&lt;/h5&gt;
 
 &lt;p&gt;你可能会在不同的几个项目中工作，各个项目的用户名可能不同，为了保证日志的准确性和提交时无误，最好对各个项目设置&lt;code&gt;user.name&lt;/code&gt;和&lt;code&gt;user.email&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# for global setting
@@ -7366,8 +7378,8 @@ git config --global alias.lg &amp;quot;log --all --graph --pretty=format:&amp;#3
     
     <item>
       <title>Android 高版本API方法在低版本系统上的兼容性处理</title>
-      <link>http://liaohuqiu.net/cn/posts/using-high-api-level-method-compatibly</link>
-      <pubDate>Thu, 23 Jan 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/using-high-api-level-method-compatibly/</link>
+      <pubDate>Thu, 23 Jan 2014 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/using-high-api-level-method-compatibly</guid>
       <description>&lt;p&gt;Android 版本更替，新的版本带来新的特性，新的方法。&lt;/p&gt;
@@ -7471,8 +7483,8 @@ public static long getTotalSpace(File path) {
     
     <item>
       <title>Android存储使用参考</title>
-      <link>http://liaohuqiu.net/cn/posts/storage-in-android</link>
-      <pubDate>Wed, 15 Jan 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/storage-in-android/</link>
+      <pubDate>Wed, 15 Jan 2014 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/storage-in-android</guid>
       <description>&lt;h4 id=&quot;可能遇到的问题&quot;&gt;可能遇到的问题&lt;/h4&gt;
@@ -7757,8 +7769,8 @@ public static File getExternalCacheDir(Context context) {
     
     <item>
       <title>Solution for Loading Image in Android</title>
-      <link>http://liaohuqiu.net/posts/solution-for-loading-image-in-android</link>
-      <pubDate>Sat, 11 Jan 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/solution-for-loading-image-in-android/</link>
+      <pubDate>Sat, 11 Jan 2014 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/solution-for-loading-image-in-android</guid>
       <description>&lt;h4 id=&quot;problems&quot;&gt;Problems&lt;/h4&gt;
@@ -7874,11 +7886,11 @@ If the bitmap configuration used is ARGB_8888 (the default from the Android 2.3 
     
     <item>
       <title>Android统一的页面头部</title>
-      <link>http://liaohuqiu.net/cn/posts/unified-title-header</link>
-      <pubDate>Mon, 06 Jan 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/unified-title-header/</link>
+      <pubDate>Mon, 06 Jan 2014 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/unified-title-header</guid>
-      <description>&lt;p&gt;&lt;img class='cimage' src='http://cimage.sinaapp.com/img/file/16/63/45/55/48.png'&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img class=&#39;cimage&#39; src=&#39;http://cimage.sinaapp.com/img/file/16/63/45/55/48.png&#39;&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;需要解决的问题&quot;&gt;需要解决的问题&lt;/h4&gt;
 
@@ -7980,8 +7992,8 @@ If the bitmap configuration used is ARGB_8888 (the default from the Android 2.3 
     
     <item>
       <title>Android内存使用分析和程序性能分析</title>
-      <link>http://liaohuqiu.net/cn/posts/memory-and-profile-analysis-in-android</link>
-      <pubDate>Fri, 03 Jan 2014 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/memory-and-profile-analysis-in-android/</link>
+      <pubDate>Fri, 03 Jan 2014 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/memory-and-profile-analysis-in-android</guid>
       <description>&lt;p&gt;Android 应用的性能分析，优化，需要检查分析内存使用情况和方法调用情况。本文给出进行这两方面分析的工具和方法。&lt;/p&gt;
@@ -7990,7 +8002,7 @@ If the bitmap configuration used is ARGB_8888 (the default from the Android 2.3 
 
 &lt;hr&gt;
 
-&lt;h5 id=&quot;1.-分析内存使用&quot;&gt;1. 分析内存使用&lt;/h5&gt;
+&lt;h5 id=&quot;1-分析内存使用&quot;&gt;1. 分析内存使用&lt;/h5&gt;
 
 &lt;p&gt;虽然Android系统的Dalvik虚拟机有垃圾回收机制，但因手机内存使用存在不同于普通PC的更大的限制，内存使用方面的问题，我们更应多加注意。&lt;/p&gt;
 
@@ -8006,7 +8018,7 @@ If the bitmap configuration used is ARGB_8888 (the default from the Android 2.3 
 &lt;li&gt;有些对象一直被创建，从未被释放。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&quot;2.-工具&quot;&gt;2. 工具&lt;/h5&gt;
+&lt;h5 id=&quot;2-工具&quot;&gt;2. 工具&lt;/h5&gt;
 
 &lt;p&gt;在Android的ADT中，提供了两种工具可以用来分析内存使用&lt;/p&gt;
 
@@ -8024,7 +8036,7 @@ If the bitmap configuration used is ARGB_8888 (the default from the Android 2.3 
 &lt;p&gt;hprof文件是Java 虚拟机的Heap快照&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h5 id=&quot;3.-查看heap实时情况&quot;&gt;3. 查看Heap实时情况&lt;/h5&gt;
+&lt;h5 id=&quot;3-查看heap实时情况&quot;&gt;3. 查看Heap实时情况&lt;/h5&gt;
 
 &lt;p&gt;&lt;img class=&quot;cimage&quot; src=&quot;http://cimage.sinaapp.com/img/org/17/70/1/5/60/update-heap-status.png&quot;/&gt;&lt;/p&gt;
 
@@ -8034,7 +8046,7 @@ If the bitmap configuration used is ARGB_8888 (the default from the Android 2.3 
 &lt;li&gt; 操作应用，看哪些操作将导致内存用量增大&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h5 id=&quot;4.-memeory-analyzer分析内存使用情况&quot;&gt;4. Memeory Analyzer分析内存使用情况&lt;/h5&gt;
+&lt;h5 id=&quot;4-memeory-analyzer分析内存使用情况&quot;&gt;4. Memeory Analyzer分析内存使用情况&lt;/h5&gt;
 
 &lt;p&gt;根据实时的Heap使用情情况，我们可以大致判断哪些操作，哪些页面可能存在内存是一共问题，但是具体的问题的需要更进一步的数据。&lt;/p&gt;
 
@@ -8138,8 +8150,8 @@ Debug.stopMethodTracing();
     
     <item>
       <title>LRU cache in Android</title>
-      <link>http://liaohuqiu.net/posts/lru-cache-in-android</link>
-      <pubDate>Mon, 23 Dec 2013 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/lru-cache-in-android/</link>
+      <pubDate>Mon, 23 Dec 2013 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/lru-cache-in-android</guid>
       <description>&lt;h4 id=&quot;lru-cache&quot;&gt;LRU cache&lt;/h4&gt;
@@ -8239,8 +8251,8 @@ or the total size of the cache has exceed the limit.&lt;/p&gt;&lt;/li&gt;
     
     <item>
       <title>Android加载图片时需要解决的问题</title>
-      <link>http://liaohuqiu.net/cn/posts/load-image-in-android</link>
-      <pubDate>Mon, 23 Dec 2013 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/load-image-in-android/</link>
+      <pubDate>Mon, 23 Dec 2013 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/load-image-in-android</guid>
       <description>&lt;h3 id=&quot;需要解决的问题&quot;&gt;需要解决的问题&lt;/h3&gt;
@@ -8312,8 +8324,8 @@ or the total size of the cache has exceed the limit.&lt;/p&gt;&lt;/li&gt;
     
     <item>
       <title>How an activity is created</title>
-      <link>http://liaohuqiu.net/posts/how-an-activity-is-created</link>
-      <pubDate>Sun, 24 Nov 2013 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/how-an-activity-is-created/</link>
+      <pubDate>Sun, 24 Nov 2013 00:00:00 -0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/how-an-activity-is-created</guid>
       <description>&lt;h3 id=&quot;interfaces&quot;&gt;Interfaces&lt;/h3&gt;
@@ -8510,11 +8522,11 @@ ActivityThread                                   |                              
     
     <item>
       <title>Nginx proxy_pass: examples for how does nginx proxy_pass map the request</title>
-      <link>http://liaohuqiu.net/posts/nginx-proxy-pass</link>
-      <pubDate>Mon, 16 Sep 2013 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/nginx-proxy-pass/</link>
+      <pubDate>Mon, 16 Sep 2013 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/nginx-proxy-pass</guid>
-      <description>&lt;h3 id=&quot;1.-about&quot;&gt;1. about&lt;/h3&gt;
+      <description>&lt;h3 id=&quot;1-about&quot;&gt;1. about&lt;/h3&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;The &lt;code&gt;proxy_pass&lt;/code&gt; directive sets the address of the proxied server and the URI to which location will be mapped. &lt;/p&gt;
@@ -8533,7 +8545,7 @@ server {
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&quot;2.-location-without-regular-expression&quot;&gt;2. location without regular expression&lt;/h3&gt;
+&lt;h3 id=&quot;2-location-without-regular-expression&quot;&gt;2. location without regular expression&lt;/h3&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;If the &lt;code&gt;proxy_pass&lt;/code&gt; directive is specified without a URI,&lt;/p&gt;
@@ -8557,7 +8569,7 @@ test.com/app/xxxxx =&amp;gt;  http://192.168.154.102/maped_dir/xxxxx
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&quot;3.-location-with-regular-expression&quot;&gt;3. location with regular expression&lt;/h3&gt;
+&lt;h3 id=&quot;3-location-with-regular-expression&quot;&gt;3. location with regular expression&lt;/h3&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;If the location is given by regular expression, can not be a URI part in &lt;code&gt;proxy_pass&lt;/code&gt; directive,  unless there are variables in the directive.&lt;/p&gt;
@@ -8605,8 +8617,8 @@ test.com/app/request/xxxxx =&amp;gt; http://192.168.154.102:9999/some_dir/xxxxx
     
     <item>
       <title>青春不朽，前行无悔</title>
-      <link>http://liaohuqiu.net/cn/posts/baia</link>
-      <pubDate>Wed, 11 Sep 2013 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/baia/</link>
+      <pubDate>Wed, 11 Sep 2013 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/baia</guid>
       <description>&lt;p&gt;一周的百阿之旅匆匆结束；一周前我们匆匆来；一周后我们匆匆去。&lt;/p&gt;
@@ -8651,8 +8663,8 @@ test.com/app/request/xxxxx =&amp;gt; http://192.168.154.102:9999/some_dir/xxxxx
     
     <item>
       <title>Setup PPTP</title>
-      <link>http://liaohuqiu.net/posts/setup-pptp</link>
-      <pubDate>Tue, 10 Sep 2013 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/setup-pptp/</link>
+      <pubDate>Tue, 10 Sep 2013 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/setup-pptp</guid>
       <description>&lt;p&gt;After a lot of tries, I set up a vpn server on my linode via which I can cross the fucking &lt;code&gt;GFW&lt;/code&gt;.&lt;/p&gt;
@@ -8745,8 +8757,8 @@ echo &amp;quot; &amp;quot;
     
     <item>
       <title>batch process file name</title>
-      <link>http://liaohuqiu.net/posts/batch-process-file-name</link>
-      <pubDate>Tue, 27 Aug 2013 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/batch-process-file-name/</link>
+      <pubDate>Tue, 27 Aug 2013 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/batch-process-file-name</guid>
       <description>&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;find . -type f |sed &amp;#39;s/\(.*\)\.html/svn mv &amp;quot;\1.html&amp;quot; &amp;quot;\1.php&amp;quot;/&amp;#39; |sh
@@ -8762,8 +8774,8 @@ svn mv &amp;quot;./cp_m/base/head.html&amp;quot; &amp;quot;./cp_m/base/head.php&
     
     <item>
       <title>阿里花名：如何起花名</title>
-      <link>http://liaohuqiu.net/cn/posts/pick-an-alibaba-name</link>
-      <pubDate>Sun, 18 Aug 2013 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/pick-an-alibaba-name/</link>
+      <pubDate>Sun, 18 Aug 2013 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/pick-an-alibaba-name</guid>
       <description>&lt;p&gt;在中国三大互联网巨头BAT中，阿里的文化最具魅力。&lt;/p&gt;
@@ -8785,22 +8797,22 @@ svn mv &amp;quot;./cp_m/base/head.html&amp;quot; &amp;quot;./cp_m/base/head.php&
 &lt;hr&gt;
 
 &lt;div class=&quot;row&quot;&gt;
-    &lt;div id='input-box' class=&quot;span3&quot;&gt;
-        &lt;textarea id='input_words' rows=&quot;3&quot; placeholder='包含特定的字，可以为一个或者多个，留空则全部随机'&gt;&lt;/textarea&gt;
+    &lt;div id=&#39;input-box&#39; class=&quot;span3&quot;&gt;
+        &lt;textarea id=&#39;input_words&#39; rows=&quot;3&quot; placeholder=&#39;包含特定的字，可以为一个或者多个，留空则全部随机&#39;&gt;&lt;/textarea&gt;
     &lt;/div&gt;
 
-    &lt;div id='input' class=&quot;form-inline span4&quot;&gt;
+    &lt;div id=&#39;input&#39; class=&quot;form-inline span4&quot;&gt;
         &lt;label class=&quot;radio&quot;&gt;
         &lt;input type=&quot;radio&quot; name=&quot;optionsRadios&quot; id=&quot;optionsRadios1&quot; checked=true value=&quot;1&quot;&gt;在前&lt;/label&gt;
         &lt;label class=&quot;radio&quot;&gt;
         &lt;input type=&quot;radio&quot; name=&quot;optionsRadios&quot; id=&quot;optionsRadios2&quot; value=&quot;2&quot;&gt;在后&lt;/label&gt;
-        &lt;button type=&quot;submit&quot; class=&quot;btn&quot; id='j_id_gen_list'&gt;试试手气&lt;/button&gt;
+        &lt;button type=&quot;submit&quot; class=&quot;btn&quot; id=&#39;j_id_gen_list&#39;&gt;试试手气&lt;/button&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
-&lt;div id='result'&gt;
+&lt;div id=&#39;result&#39;&gt;
     &lt;pre&gt;&lt;code&gt;路人甲
 路人乙&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -8809,8 +8821,8 @@ svn mv &amp;quot;./cp_m/base/head.html&amp;quot; &amp;quot;./cp_m/base/head.php&
     
     <item>
       <title>Install LAMP enviroment on a minimum CentOS</title>
-      <link>http://liaohuqiu.net/posts/install-lamp-on-minimum-centos</link>
-      <pubDate>Thu, 15 Aug 2013 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/install-lamp-on-minimum-centos/</link>
+      <pubDate>Thu, 15 Aug 2013 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/install-lamp-on-minimum-centos</guid>
       <description>&lt;p&gt;I install my system in a virtual machine (Vamre workstation 7), the version I install is CentOS 6.4 64bit.&lt;/p&gt;
@@ -8874,8 +8886,8 @@ https://raw.github.com/liaohuqiu/centos_setup/master/setup.sh
     
     <item>
       <title>Install jekyll on CentOS</title>
-      <link>http://liaohuqiu.net/posts/install-jekyll</link>
-      <pubDate>Thu, 08 Aug 2013 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/install-jekyll/</link>
+      <pubDate>Thu, 08 Aug 2013 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/posts/install-jekyll</guid>
       <description>&lt;h3 id=&quot;installation-script-in-github&quot;&gt;Installation script in github&lt;/h3&gt;
@@ -8915,10 +8927,10 @@ jekyll server --watch
     
     <item>
       <title>Yet another summer rain.</title>
-      <link>http://liaohuqiu.net/cn/posts/yet-another-summer-rain</link>
-      <pubDate>Wed, 07 Aug 2013 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/posts/yet-another-summer-rain/</link>
+      <pubDate>Wed, 07 Aug 2013 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/cn/posts/yet-another-summer-rain</guid>
+      <guid>http://liaohuqiu.net/posts/yet-another-summer-rain</guid>
       <description>&lt;p&gt;对于那些为了理想而燃烧的青春，我从来不想多说什么。&lt;/p&gt;
 
 &lt;p&gt;七月初一，立秋。&lt;/p&gt;
@@ -8927,10 +8939,10 @@ jekyll server --watch
     
     <item>
       <title>Yet another summer rain.</title>
-      <link>http://liaohuqiu.net/posts/yet-another-summer-rain</link>
-      <pubDate>Wed, 07 Aug 2013 00:00:00 +0800</pubDate>
+      <link>http://liaohuqiu.net/cn/posts/yet-another-summer-rain/</link>
+      <pubDate>Wed, 07 Aug 2013 00:00:00 -0700</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net/posts/yet-another-summer-rain</guid>
+      <guid>http://liaohuqiu.net/cn/posts/yet-another-summer-rain</guid>
       <description>&lt;p&gt;对于那些为了理想而燃烧的青春，我从来不想多说什么。&lt;/p&gt;
 
 &lt;p&gt;七月初一，立秋。&lt;/p&gt;

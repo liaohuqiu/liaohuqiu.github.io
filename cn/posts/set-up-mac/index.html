@@ -2,34 +2,42 @@
 <html lang="en">
 
 <head>
+<title>我的Mac 工作环境配置 |  Yet Another Summer Rain</title>
 <meta charset='utf-8' />
-<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
-
-<!-- Bootstrap core CSS -->
-<link href="/assets/static/bt3/css/bootstrap.min.css" rel="stylesheet">
+<meta name="google-site-verification" content="SbAzRqb2cWqPDNEITWdNn-OnF4w_dWNJgt37GYC3kqY" />
 
 <!-- Documentation extras -->
-<!--[if lt IE 9]><script src="/assets/static/ie8-responsive-file-warning.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="/assets/compatibility/ie8-responsive-file-warning.js"></script><![endif]-->
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
-  <script src="/assets/static/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="/assets/static/respond.js/1.4.2/respond.min.js"></script>
+  <script src="/assets/compatibility/html5shiv-3.7.0.js"></script>
+  <script src="/assets/compatibility/respond-1.4.2.js"></script>
 <![endif]-->
 
-<!-- jquery -->
-<script src="/assets/static/jquery.min.js"></script>
+<script src="/assets/app/js/base.js?09c6ad006675951c9c5722bf6d9c458a"></script>
+<link href="/assets/app/css/app.css?6ef654c8e1bed4e8cb009afbb7eb2acd" rel="stylesheet">
+<script src="/assets/app/js/app.js?6ef654c8e1bed4e8cb009afbb7eb2acd"></script>
 
-<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
-
-
-<title>我的Mac 工作环境配置 |  Yet Another Summer Rain</title>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+try {
+    ga('create', 'UA-43024238-1', 'liaohuqiu.net');
+    ga('send', 'pageview');
+} catch(err) {
+    console.log(err);
+}
+</script>
 </head>
 
 <body>
@@ -41,9 +49,9 @@
             <div class='about-me'>
                 
                 <a href='/'>English posts</a>
-                <a href='/about/about-me.html'>About</a>
+                <a href='/about/about-me'>About</a>
                 
-                <a href='/about/feed.html'>feed</a>
+                <a href='/about/feed'>feed</a>
             </div>
         </h1>
         
@@ -68,15 +76,12 @@
             --->
             <h2> 我的Mac 工作环境配置 </h2>
             <div>
-                
-                <div class="pull-right bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more">分享到：</a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a><a href="#" class="bds_weixin" data-cmd="weixin"
-                        title="分享到微信">微信</a></div><script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16},"image":{"viewList":["tsina","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["tsina","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new
-Date()/36e5)];</script>
-                
                 <p> 05 May 2014 </p>
             </div>
             <hr>
-            <h3 id="新的mac">新的mac</h3>
+            <p><a href="https://github.com/liaohuqiu/mac-setup">https://github.com/liaohuqiu/mac-setup</a></p>
+
+<h3 id="新的mac">新的mac</h3>
 
 <p>阿里只给ios开发以及部分前端配办公mac。我刚入职，给的居然是台式机！后来申请了一个笔记本，联想的。没法干活。攒了几个月工钱，自己买了mac，生产力立刻提高。前些天回家，回京途中，mac丢了。重写买过一个新的，环境配置挺麻烦的，以此为纪。</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">Model: ME865
@@ -96,7 +101,7 @@ OS: 10.9.2
 
 <p><img src="http://srain-blog.qiniudn.com/mac-setup-keys-fn-ctrl.png"/></p>
 
-<h5 id="fn-/-f1-~-f12">Fn / F1 ~ F12</h5>
+<h5 id="fn-f1-f12">Fn / F1 ~ F12</h5>
 
 <p>还原键盘上的F1 ~ F12为标准功能，用Fn + F1 ~ F12 来实现功能。</p>
 
@@ -116,15 +121,25 @@ OS: 10.9.2
 
 <p><img src="http://srain-blog.qiniudn.com/mac-setup-keys-vi-mode.png"/></p>
 
-<h5 id="spotlight-快捷键:-option-+-r">spotlight 快捷键: option + r</h5>
+<h5 id="spotlight-快捷键-option-r">spotlight 快捷键: option + r</h5>
 
 <p><img src="http://srain-blog.qiniudn.com/mac-setup-keys-spotlight.png"/></p>
+
+<h5 id="trackpad">Trackpad</h5>
+
+<ol>
+<li><p>文本选择</p>
+
+<p>Accessibility &gt; Mouse &amp; ThinkPad &gt; Trackpad Options &gt; Enable dragging &gt; three finger drag</p></li>
+</ol>
 
 <h3 id="software">Software</h3>
 
 <ul>
 <li><p>XCode。如果不需要的话，那就只装命令行工具。git / gcc 等常用必需。</p></li>
-<li><p><a href="http://www.iterm2.com/">iTerm</a> ，取代自带终端。</p></li>
+<li><p><a href="http://www.iterm2.com/">iTerm</a> ，取代自带终端。</p>
+
+<p>set-up 项目备份文件复制到 <code>/Users/srain/apps/iTerm.app//com.googlecode.iterm2.plist</code> 即可</p></li>
 <li><p><a href="https://github.com/liaohuqiu/vim_anywhere">vim anywhere</a> vim的配置，自带的文本编辑器，如果满足不了你的需求，你可以安装Mac Vim。</p></li>
 <li><p><a href="https://github.com/liaohuqiu/work-anywhere">work anywhere</a>，一些小工具软件。</p></li>
 <li><p><a href="https://github.com/liaohuqiu/ssh-auto-login">ssh auto login</a>， 登录到linux下工作和开发，你一定会需要。</p></li>
@@ -163,20 +178,6 @@ var disqus_shortname = 'srain'; // required: replace example with your forum sho
 </div>
 
 
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-try
-{
-    ga('create', 'UA-43024238-1', 'liaohuqiu.net');
-    ga('send', 'pageview');
-} catch(err) {
-    console.log(err);
-}
-</script>
 
-<script src="/assets/static/bt3/js/bootstrap.min.js"></script>
 </body>
 </html>

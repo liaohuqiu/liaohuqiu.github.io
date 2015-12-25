@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
-        <loc>http://www.liaohuqiu.net/404.html</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/404/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/about/about-me.html</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/about/about-me/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
@@ -19,39 +19,39 @@
     
     <url>
         <loc>http://www.liaohuqiu.net/atom.xml</loc>
-        <lastmod>2015-12-04</lastmod>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/index.html</loc>
-        <lastmod>2015-12-04</lastmod>
-        
-        <changefreq>hourly</changefreq>
-        
-    </url>
-    
-    <url>
-        <loc>http://www.liaohuqiu.net/about/feed.html</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/about/feed/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/index.html</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/</loc>
+        <lastmod>2015-12-25</lastmod>
         
-        <changefreq>hourly</changefreq>
+        <changefreq>daily</changefreq>
+        
+    </url>
+    
+    <url>
+        <loc>http://www.liaohuqiu.net/</loc>
+        <lastmod>2015-12-25</lastmod>
+        
+        <changefreq>daily</changefreq>
         
     </url>
     
     <url>
         <loc>http://www.liaohuqiu.net/rss.xml</loc>
-        <lastmod>2015-12-04</lastmod>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
@@ -59,720 +59,720 @@
     
     <url>
         <loc>http://www.liaohuqiu.net/sitemap.xml</loc>
-        <lastmod>2015-12-04</lastmod>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/index/page2/index.html</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/index/page2/</loc>
+        <lastmod>2015-12-25</lastmod>
         
-        <changefreq>hourly</changefreq>
+        <changefreq>daily</changefreq>
         
     </url>
     
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/roman-wasnot-built-in-a-day</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/roman-wasnot-built-in-a-day/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/an-apple</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/an-apple/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/android-api-compat-guide</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/android-api-compat-guide/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/android-windows-manager</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/android-windows-manager/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/react-native-android-package</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/react-native-android-package/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/react-native-1</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/react-native-1/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/build-rpc-service-for-php</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/build-rpc-service-for-php/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/m-developer-preview-3-final-sdk</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/m-developer-preview-3-final-sdk/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/speed-up-your-build</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/speed-up-your-build/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/iso-8601-date-format</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/iso-8601-date-format/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/corpse-bride</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/corpse-bride/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/2015-may</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/2015-may/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/python-script-in-bin-directory</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/python-script-in-bin-directory/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/leak-canary-read-me</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/leak-canary-read-me/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/leak-canary</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/leak-canary/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/follow-me-on-github</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/follow-me-on-github/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/follow-me-on-github</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/follow-me-on-github/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/about-red-apricot-and-compiling-fresco</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/about-red-apricot-and-compiling-fresco/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/replace-or-override-string-in-android-library</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/replace-or-override-string-in-android-library/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/gitlab-enable-sign-up</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/gitlab-enable-sign-up/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/the-pull-to-refresh-in-my-eyes</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/the-pull-to-refresh-in-my-eyes/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/android-maven-local-repository</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/android-maven-local-repository/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/simple-hashset</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/simple-hashset/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/simple-hashset</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/simple-hashset/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/non-bundled-web-server-for-gitlab</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/non-bundled-web-server-for-gitlab/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/gradle-in-centos</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/gradle-in-centos/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/my-2014</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/my-2014/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/android-object-size-dalvik</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/android-object-size-dalvik/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/caculate-object-size-in-java</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/caculate-object-size-in-java/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/1g-in-10s</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/1g-in-10s/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/compile-ultra-ptr-in-eclipse</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/compile-ultra-ptr-in-eclipse/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/publish-to-maven-central</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/publish-to-maven-central/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/binnary-tree-traversal-iteratively</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/binnary-tree-traversal-iteratively/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/android-get-resource-id-by-string</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/android-get-resource-id-by-string/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/mobile-app-sina-binding</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/mobile-app-sina-binding/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/chrome-extension-hi</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/chrome-extension-hi/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/ssh-public-key-auto-login</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/ssh-public-key-auto-login/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/ssh-keygen-abc</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/ssh-keygen-abc/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/git-abc</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/git-abc/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/setup-web-prorxy-by-ssh-tunnel</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/setup-web-prorxy-by-ssh-tunnel/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/enable-epel-repository-for-centos7</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/enable-epel-repository-for-centos7/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/php-singleton-of-children-class</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/php-singleton-of-children-class/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/php-singleton-of-children-class</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/php-singleton-of-children-class/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/ssh-auto-login</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/ssh-auto-login/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/visit-google-via-quic</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/visit-google-via-quic/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/log-center</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/log-center/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/log-center</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/log-center/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/smallest-number-greater-than-given-number</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/smallest-number-greater-than-given-number/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/remap-arrow-keys-to-vi-mode</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/remap-arrow-keys-to-vi-mode/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/set-up-mac</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/set-up-mac/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/my-idea-config</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/my-idea-config/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/sparse-array-in-android</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/sparse-array-in-android/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/using-diffrent-user-config-for-different-repository</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/using-diffrent-user-config-for-different-repository/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/git-global-hooks</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/git-global-hooks/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/binpack</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/binpack/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/grid-view-do-not</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/grid-view-do-not/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/first-view-will-be-created-multi-times-in-list-view</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/first-view-will-be-created-multi-times-in-list-view/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/sqlite-tips</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/sqlite-tips/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/how-does-android-caculate-the-size-of-child-view/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/how-does-android-caculate-the-size-of-child-view</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/truncate-table-in-sqlite</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/truncate-table-in-sqlite/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/truncate-table-in-sqlite</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/truncate-table-in-sqlite/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/settimeout-or-settimeinterval</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/settimeout-or-settimeinterval/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/android-lifecycle-component</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/android-lifecycle-component/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/jekyll-plugins-on-github-pages</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/jekyll-plugins-on-github-pages/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/jekyll-plugins-on-github-pages</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/jekyll-plugins-on-github-pages/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/install-php-imagick-on-centos</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/install-php-imagick-on-centos/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/work-with-git-branches</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/work-with-git-branches/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/work-with-git-branches</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/work-with-git-branches/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/git-setup-and-setting</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/git-setup-and-setting/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/git-setup-and-setting</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/git-setup-and-setting/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/using-high-api-level-method-compatibly</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/using-high-api-level-method-compatibly/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/storage-in-android</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/storage-in-android/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/solution-for-loading-image-in-android</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/solution-for-loading-image-in-android/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/unified-title-header</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/unified-title-header/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/memory-and-profile-analysis-in-android</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/memory-and-profile-analysis-in-android/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/lru-cache-in-android</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/lru-cache-in-android/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/load-image-in-android</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/load-image-in-android/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/how-an-activity-is-created</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/how-an-activity-is-created/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/nginx-proxy-pass</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/nginx-proxy-pass/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/baia</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/baia/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/setup-pptp</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/setup-pptp/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/batch-process-file-name</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/batch-process-file-name/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/pick-an-alibaba-name</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/pick-an-alibaba-name/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/install-lamp-on-minimum-centos</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/install-lamp-on-minimum-centos/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/install-jekyll</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/install-jekyll/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/cn/posts/yet-another-summer-rain</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/posts/yet-another-summer-rain/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         
     </url>
     
     <url>
-        <loc>http://www.liaohuqiu.net/posts/yet-another-summer-rain</loc>
-        <lastmod>2015-12-04</lastmod>
+        <loc>http://www.liaohuqiu.net/cn/posts/yet-another-summer-rain/</loc>
+        <lastmod>2015-12-25</lastmod>
         
         <changefreq>daily</changefreq>
         

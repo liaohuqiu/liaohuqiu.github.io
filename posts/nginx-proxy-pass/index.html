@@ -2,34 +2,42 @@
 <html lang="en">
 
 <head>
+<title>Nginx proxy_pass: examples for how does nginx proxy_pass map the request |  Yet Another Summer Rain</title>
 <meta charset='utf-8' />
-<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
 <meta name="description" content="Some examples for showing how the request URI will be mapped." />
 <meta name="keywords" content="proxy_pass nginx, proxy_pass examples, nginx proxypass" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
-
-<!-- Bootstrap core CSS -->
-<link href="/assets/static/bt3/css/bootstrap.min.css" rel="stylesheet">
+<meta name="google-site-verification" content="SbAzRqb2cWqPDNEITWdNn-OnF4w_dWNJgt37GYC3kqY" />
 
 <!-- Documentation extras -->
-<!--[if lt IE 9]><script src="/assets/static/ie8-responsive-file-warning.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="/assets/compatibility/ie8-responsive-file-warning.js"></script><![endif]-->
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
-  <script src="/assets/static/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="/assets/static/respond.js/1.4.2/respond.min.js"></script>
+  <script src="/assets/compatibility/html5shiv-3.7.0.js"></script>
+  <script src="/assets/compatibility/respond-1.4.2.js"></script>
 <![endif]-->
 
-<!-- jquery -->
-<script src="/assets/static/jquery.min.js"></script>
+<script src="/assets/app/js/base.js?09c6ad006675951c9c5722bf6d9c458a"></script>
+<link href="/assets/app/css/app.css?6ef654c8e1bed4e8cb009afbb7eb2acd" rel="stylesheet">
+<script src="/assets/app/js/app.js?6ef654c8e1bed4e8cb009afbb7eb2acd"></script>
 
-<link rel="stylesheet" type="text/css" media="screen" href="/assets/css/base.css?v=3">
-
-
-<title>Nginx proxy_pass: examples for how does nginx proxy_pass map the request |  Yet Another Summer Rain</title>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+try {
+    ga('create', 'UA-43024238-1', 'liaohuqiu.net');
+    ga('send', 'pageview');
+} catch(err) {
+    console.log(err);
+}
+</script>
 </head>
 
 <body>
@@ -41,9 +49,9 @@
             <div class='about-me'>
                 
                 <a href='/cn'>中文文章</a>
-                <a href='/about/about-me.html'>关于</a>
+                <a href='/about/about-me'>关于</a>
                 
-                <a href='/about/feed.html'>feed</a>
+                <a href='/about/feed'>feed</a>
             </div>
         </h1>
         
@@ -68,11 +76,10 @@
             --->
             <h2> Nginx proxy_pass: examples for how does nginx proxy_pass map the request </h2>
             <div>
-                
                 <p> 16 Sep 2013 </p>
             </div>
             <hr>
-            <h3 id="1.-about">1. about</h3>
+            <h3 id="1-about">1. about</h3>
 
 <ol>
 <li><p>The <code>proxy_pass</code> directive sets the address of the proxied server and the URI to which location will be mapped. </p>
@@ -91,7 +98,7 @@ server {
 </code></pre></div></li>
 </ol>
 
-<h3 id="2.-location-without-regular-expression">2. location without regular expression</h3>
+<h3 id="2-location-without-regular-expression">2. location without regular expression</h3>
 
 <ol>
 <li><p>If the <code>proxy_pass</code> directive is specified without a URI,</p>
@@ -115,7 +122,7 @@ test.com/app/xxxxx =&gt;  http://192.168.154.102/maped_dir/xxxxx
 </code></pre></div></li>
 </ol>
 
-<h3 id="3.-location-with-regular-expression">3. location with regular expression</h3>
+<h3 id="3-location-with-regular-expression">3. location with regular expression</h3>
 
 <ol>
 <li><p>If the location is given by regular expression, can not be a URI part in <code>proxy_pass</code> directive,  unless there are variables in the directive.</p>
@@ -183,20 +190,6 @@ var disqus_shortname = 'srain'; // required: replace example with your forum sho
 </div>
 
 
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-try
-{
-    ga('create', 'UA-43024238-1', 'liaohuqiu.net');
-    ga('send', 'pageview');
-} catch(err) {
-    console.log(err);
-}
-</script>
 
-<script src="/assets/static/bt3/js/bootstrap.min.js"></script>
 </body>
 </html>
