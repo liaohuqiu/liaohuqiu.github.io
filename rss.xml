@@ -6,9 +6,43 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Fri, 25 Dec 2015 15:05:26 -0800</pubDate>
-    <lastBuildDate>Fri, 25 Dec 2015 15:05:26 -0800</lastBuildDate>
+    <pubDate>Sat, 26 Dec 2015 18:54:58 -0800</pubDate>
+    <lastBuildDate>Sat, 26 Dec 2015 18:54:58 -0800</lastBuildDate>
 
+    
+    <item>
+      <title>jekyll-multiple-languages 2.0 is released now</title>
+      <link>http://liaohuqiu.net/posts/jekyll-multiple-languages-2.0/</link>
+      <pubDate>Sat, 26 Dec 2015 00:00:00 -0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/posts/jekyll-multiple-languages-2.0</guid>
+      <description>&lt;h5 id=&quot;jekyll-multiple-languages-2-0-is-released-now&quot;&gt;&lt;a href=&quot;https://github.com/liaohuqiu/jekyll-multiple-languages&quot;&gt;jekyll-multiple-languages 2.0&lt;/a&gt; is released now.&lt;/h5&gt;
+
+&lt;p&gt;In the past half year, I was so busy with my work and life that I did not notice that this plugin was broken with Jekyll 3.&lt;/p&gt;
+
+&lt;p&gt;Thank &lt;a href=&quot;https://github.com/bobgle&quot;&gt;@bobgle&lt;/a&gt; for reporting this &lt;a href=&quot;https://github.com/liaohuqiu/jekyll-multiple-languages/issues/11&quot;&gt;issue&lt;/a&gt;, but I was still have no time to fix it.&lt;/p&gt;
+
+&lt;p&gt;Thanks to the holiday in the past Christmas, I fixed this issue and most of the open issues.&lt;/p&gt;
+
+&lt;p&gt;In this release, I&amp;#39;ve tried to make this plugin simpler and easier to use:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Removed some some useless variables and configurations which are vague, for example:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;url_no_language&lt;/code&gt;, &lt;code&gt;no_fill_default_content&lt;/code&gt;, &lt;code&gt;fill_default_content&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Rewrote the document site and the sample project for this plugin.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://jekyll-langs.liaohuqiu.net/&quot;&gt;http://jekyll-langs.liaohuqiu.net/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Updated the sample project, make sure it contains all the futures in this plugin.&lt;/p&gt;
+
+&lt;p&gt;Sample project: &lt;a href=&quot;https://github.com/liaohuqiu/jekyll-multiple-languages-sample/tree/master&quot;&gt;https://github.com/liaohuqiu/jekyll-multiple-languages-sample/tree/master&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Sample site: &lt;a href=&quot;http://jekyll-langs-sample.liaohuqiu.net/&quot;&gt;http://jekyll-langs-sample.liaohuqiu.net/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Happy coding!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>十年磨一剑: 开发者的孤独与伟大</title>

@@ -4,13 +4,51 @@
   <title>Yet Another Summer Rain</title>
   <link href="http://liaohuqiu.net/"/>
   <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
-  <updated>2015-12-25T15:05:26-08:00</updated>
+  <updated>2015-12-26T18:54:58-08:00</updated>
   <id>http://liaohuqiu.net/</id>
   <author>
     <name>Huqiu Liao / Srain</name>
     <email>srain@php.net</email>
   </author>
 
+  
+  <entry>
+    <id>http://liaohuqiu.net/posts/jekyll-multiple-languages-2.0</id>
+    <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/jekyll-multiple-languages-2.0/"/>
+    <title>jekyll-multiple-languages 2.0 is released now</title>
+    <published>2015-12-26T00:00:00-08:00</published>
+    <updated>2015-12-26T00:00:00-08:00</updated>
+    <author>
+      <name>Huqiu Liao / Srain</name>
+      <uri>http://liaohuqiu.net/</uri>
+    </author>
+    <content type="html">&lt;h5 id=&quot;jekyll-multiple-languages-2-0-is-released-now&quot;&gt;&lt;a href=&quot;https://github.com/liaohuqiu/jekyll-multiple-languages&quot;&gt;jekyll-multiple-languages 2.0&lt;/a&gt; is released now.&lt;/h5&gt;
+
+&lt;p&gt;In the past half year, I was so busy with my work and life that I did not notice that this plugin was broken with Jekyll 3.&lt;/p&gt;
+
+&lt;p&gt;Thank &lt;a href=&quot;https://github.com/bobgle&quot;&gt;@bobgle&lt;/a&gt; for reporting this &lt;a href=&quot;https://github.com/liaohuqiu/jekyll-multiple-languages/issues/11&quot;&gt;issue&lt;/a&gt;, but I was still have no time to fix it.&lt;/p&gt;
+
+&lt;p&gt;Thanks to the holiday in the past Christmas, I fixed this issue and most of the open issues.&lt;/p&gt;
+
+&lt;p&gt;In this release, I&amp;#39;ve tried to make this plugin simpler and easier to use:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Removed some some useless variables and configurations which are vague, for example:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;url_no_language&lt;/code&gt;, &lt;code&gt;no_fill_default_content&lt;/code&gt;, &lt;code&gt;fill_default_content&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Rewrote the document site and the sample project for this plugin.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://jekyll-langs.liaohuqiu.net/&quot;&gt;http://jekyll-langs.liaohuqiu.net/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Updated the sample project, make sure it contains all the futures in this plugin.&lt;/p&gt;
+
+&lt;p&gt;Sample project: &lt;a href=&quot;https://github.com/liaohuqiu/jekyll-multiple-languages-sample/tree/master&quot;&gt;https://github.com/liaohuqiu/jekyll-multiple-languages-sample/tree/master&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Sample site: &lt;a href=&quot;http://jekyll-langs-sample.liaohuqiu.net/&quot;&gt;http://jekyll-langs-sample.liaohuqiu.net/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Happy coding!&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <id>http://liaohuqiu.net/cn/posts/roman-wasnot-built-in-a-day</id>
