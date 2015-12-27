@@ -16,7 +16,6 @@ description: "
 tag:
     - git
 category: blog
-no_fill_default_content: true
 ---
 #Branch
 

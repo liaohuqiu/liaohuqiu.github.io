@@ -16,7 +16,6 @@ description: "
 tag:
     - git
 category: blog
-no_fill_default_content: true
 ---
 
 本文介绍日常中经常遇到的一些分支操作，并给出了详细解释。
