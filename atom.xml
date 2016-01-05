@@ -4,13 +4,132 @@
   <title>Yet Another Summer Rain</title>
   <link href="http://liaohuqiu.net/"/>
   <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
-  <updated>2015-12-31T19:10:16-08:00</updated>
+  <updated>2016-01-04T19:08:11-08:00</updated>
   <id>http://liaohuqiu.net/</id>
   <author>
     <name>Huqiu Liao / Srain</name>
     <email>srain@php.net</email>
   </author>
 
+  
+  <entry>
+    <id>http://liaohuqiu.net/posts/save-authorization-information-for-appcfg</id>
+    <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/save-authorization-information-for-appcfg/"/>
+    <title>appcfg.py: Save the authorization information</title>
+    <published>2016-01-04T00:00:00-08:00</published>
+    <updated>2016-01-04T00:00:00-08:00</updated>
+    <author>
+      <name>Huqiu Liao / Srain</name>
+      <uri>http://liaohuqiu.net/</uri>
+    </author>
+    <content type="html">&lt;p&gt;If we have mutilple Google accounts and mutilple applications to manager, the applications are under different accounts, we need to manager to authorization information for different accounts.&lt;/p&gt;
+
+&lt;p&gt;For example, we have two applications under two accounts, we want to update the application automatically on the command line for each project.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-it-works&quot;&gt;How it works&lt;/h3&gt;
+
+&lt;p&gt;The authorization information will be saved to &lt;code&gt;~/.appcfg_oauth2_tokens&lt;/code&gt; after
+a successful authorization.&lt;/p&gt;
+
+&lt;p&gt;Next time appcfg.py will try to use this authorization in this file.&lt;/p&gt;
+
+&lt;p&gt;If we have the previous authorization.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Copy the authorization file to &lt;code&gt;~/.appcfg_oauth2_tokens&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Execute the action.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If we do not have a previous authorization file.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Remove the previous authorization information if exists.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Execute an action to finish the authorization. Update the application, for example.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Backup the authorization file.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;the-code&quot;&gt;The code&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; exe_cmd&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;eval&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;root_dir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;config_file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$root_dir&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/.appcfg_oauth2_tokens&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;home_config_file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;~/.appcfg_oauth2_tokens&amp;#39;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# use the previous authorization information&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; -f &lt;span class=&quot;nv&quot;&gt;$config_file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+    exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;cp $config_file $home_config_file&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+    exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;rm $home_config_file&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# here we update the Application&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# After a successful authorization, the authorization will be saved to&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# ~/.appcfg_oauth2_tokens&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# use --noauth_local_webserver&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Do not run a local web server to&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# handle redirects during OAuth authorization.&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# change this line do the things you want&lt;/span&gt;
+exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;appcfg.py update app.yaml --noauth_local_webserver&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# save authorization information&lt;/span&gt;
+exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;cp $home_config_file $config_file&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Here is the code on GitHub: &lt;a href=&quot;https://github.com/liaohuqiu/appcfg.py-save-authorization&quot;&gt;https://github.com/liaohuqiu/appcfg.py-save-authorization&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <id>http://liaohuqiu.net/posts/centering-list-items-horizontally</id>
+    <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/centering-list-items-horizontally/"/>
+    <title>Centering List Items Horizontally</title>
+    <published>2016-01-02T00:00:00-08:00</published>
+    <updated>2016-01-02T00:00:00-08:00</updated>
+    <author>
+      <name>Huqiu Liao / Srain</name>
+      <uri>http://liaohuqiu.net/</uri>
+    </author>
+    <content type="html">&lt;p&gt;There are two simple ways to center list item horizontally.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;display: inline-block &amp;amp; text-align: center&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;.list-container {
+    text-align: center;
+    .list-item {
+        display: inline-block;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It&amp;#39;s from &lt;a href=&quot;https://css-tricks.com/centering-list-items-horizontally-slightly-trickier-than-you-might-think/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;width: fit-content &amp;amp; margin: 0 auto;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;.list-centered {
+    margin: 0 auto;
+    width: fit-content;
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+
+    .list-item {
+        float: left;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It&amp;#39;s from &lt;a href=&quot;https://martinwolf.org/2013/04/23/centered-fluid-width-navigation-with-floating-links-thanks-to-fit-content/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Notice: The width of the clildren can not be percentage;&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+  </entry>
   
   <entry>
     <id>http://liaohuqiu.net/cn/posts/2015</id>
