@@ -6,9 +6,88 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Mon, 04 Jan 2016 19:08:11 -0800</pubDate>
-    <lastBuildDate>Mon, 04 Jan 2016 19:08:11 -0800</lastBuildDate>
+    <pubDate>Wed, 13 Jan 2016 16:57:06 -0800</pubDate>
+    <lastBuildDate>Wed, 13 Jan 2016 16:57:06 -0800</lastBuildDate>
 
+    
+    <item>
+      <title>微信助手</title>
+      <link>http://liaohuqiu.net/cn/posts/wechat-helper/</link>
+      <pubDate>Wed, 13 Jan 2016 00:00:00 -0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/cn/posts/wechat-helper</guid>
+      <description>&lt;p&gt;&lt;a href=&quot;https://github.com/0x5e&quot;&gt;@0x5e&lt;/a&gt; 同学的 &lt;a href=&quot;https://github.com/0x5e/wechat-deleted-friends&quot;&gt;wechat-deleted-friends&lt;/a&gt; 项目，提出了一种新的检查自己是否被联系人删除的新方式。真是一个伟大的创新。&lt;/p&gt;
+
+&lt;p&gt;原项目是一段 Python 代码，对于普通用户，使用起来，较为困难，我这两天写了一个 Chrome 插件，希望对大家有帮助。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2 id=&quot;微信助手-chrome-插件&quot;&gt;微信助手 - Chrome 插件&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;检查被谁删除&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;检查黑名单&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;支持大量好友&lt;/p&gt;
+
+&lt;p&gt;时间和精力允许，我会持续加入更多功能。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;使用方法&quot;&gt;使用方法&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;安装&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;从 Chrome 商店安装。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://chrome.google.com/webstore/detail/bdfbkchemknlpmmopkncahjdmocnambd/&quot;&gt;https://chrome.google.com/webstore/detail/bdfbkchemknlpmmopkncahjdmocnambd/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;本插件会频繁升级，暂不支持手动安装扩展。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Windows版本&lt;/strong&gt; 也在开发中，即将发布。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;使用&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt; 时间间隔设置为 &lt;strong&gt;30&lt;/strong&gt; 秒以上&lt;/li&gt;
+&lt;li&gt; 如果提示操作过于频繁，请稍后再试，下次会跳过已经检查过的好友。&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;截图&lt;/p&gt;
+
+&lt;div&gt;&lt;img src=&#39;https://raw.githubusercontent.com/liaohuqiu/wechat-helper/master/art/1.png&#39;/&gt;&lt;/div&gt;
+
+&lt;div&gt;&lt;img src=&#39;https://raw.githubusercontent.com/liaohuqiu/wechat-helper/master/art/2.png&#39;/&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;原理&quot;&gt;原理&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;检查联系人，即创建群组并加人，如果不是好友，无法加入。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如果联系人多，将会分批操作，下次会略过之前检查过的联系人。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;其他&quot;&gt;其他&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;开源&lt;/p&gt;
+
+&lt;p&gt;最近花了一些时间，开发这个 chrome 扩展。从产品设计到编码实现发布都有很多收获。&lt;/p&gt;
+
+&lt;p&gt;其中关于前端开发，关于 Chrome 扩展开发，更是有很多心得。&lt;/p&gt;
+
+&lt;p&gt;目前代码托管在私有 Git 上，在产品稳定之后，我会开源。&lt;/p&gt;
+
+&lt;p&gt;如果这个插件使用的人多的话，我还会写篇文章，分享关于这个插件的非编码开发部分。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;反馈&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt; 有任何问题和建议，请提交到这里: &lt;a href=&quot;https://github.com/liaohuqiu/wechat-helper/issues&quot;&gt;https://github.com/liaohuqiu/wechat-helper/issues&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;感谢&lt;/p&gt;
+
+&lt;p&gt;感谢 &lt;a href=&quot;https://github.com/0x5e&quot;&gt;@0x5e&lt;/a&gt; 同学的 &lt;a href=&quot;https://github.com/0x5e/wechat-deleted-friends&quot;&gt;wechat-deleted-friends&lt;/a&gt;, 所谓巨人的肩膀。^_^&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
     
     <item>
       <title>appcfg.py: Save the authorization information</title>
