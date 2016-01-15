@@ -135,6 +135,6 @@ https://github.com/liaohuqiu/wechat-helper
 
     https://github.com/liaohuqiu/wechat-helper
 
-    > Write the code, change the world, Happy coding!
+    > Write the code, change the world. Happy coding!
 
 [list_sorter]:      https://github.com/liaohuqiu/list-sorter

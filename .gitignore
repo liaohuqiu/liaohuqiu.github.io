@@ -2,3 +2,4 @@ _site/
 assets/app/
 node_modules
 *.map
+npm-debug.log
