@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<title>微信助手 |  Yet Another Summer Rain</title>
+<title>微信助手 Chrome 插件开发手记 |  Yet Another Summer Rain</title>
 <meta charset='utf-8' />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -74,81 +74,139 @@ try {
             </div>
             
             --->
-            <h2> 微信助手 </h2>
+            <h2> 微信助手 Chrome 插件开发手记 </h2>
             <div>
                 <p> 13 Jan 2016 </p>
             </div>
             <hr>
-            <p><a href="https://github.com/0x5e">@0x5e</a> 同学的 <a href="https://github.com/0x5e/wechat-deleted-friends">wechat-deleted-friends</a> 项目，提出了一种新的检查自己是否被联系人删除的新方式。真是一个伟大的创新。</p>
+            <p>现在项目已经开源，大家一起来完善这个项目吧。</p>
 
-<p>原项目是一段 Python 代码，对于普通用户，使用起来，较为困难，我这两天写了一个 Chrome 插件，希望对大家有帮助。</p>
+<p><a href="https://github.com/liaohuqiu/wechat-helper">https://github.com/liaohuqiu/wechat-helper</a></p>
 
 <hr>
 
-<h2 id="微信助手-chrome-插件">微信助手 - Chrome 插件</h2>
+<h3 id="项目背景">项目背景</h3>
+
+<p>上个礼拜看到 <a href="https://github.com/0x5e">@0x5e</a> 同学的 <a href="https://github.com/0x5e/wechat-deleted-friends">wechat-deleted-friends</a> 项目，提出了一种新的检查自己是否被联系人删除的新方式。真是一个伟大的创新。</p>
+
+<p>很多人会群发消息，验证自己是否已经被他人删除了。这种方式是非常不好的方式，对联系人是一种骚扰。而目前这个新的方式，优雅了很多。</p>
+
+<p>原理很简单，利用微信的 Web API 将联系人加入到群组中，如果不是好友关系，无法加入。</p>
+
+<p>不过遗憾的是，但是原项目是一段 Python 代码，使用起来需要计算机功底，我想让普通用户也能享受这样一种便利。</p>
+
+<h3 id="想法">想法</h3>
+
+<p>当时有两个想法：</p>
 
 <ol>
-<li><p>检查被谁删除</p></li>
-<li><p>检查黑名单</p></li>
-<li><p>支持大量好友</p>
-
-<p>时间和精力允许，我会持续加入更多功能。</p></li>
+<li><p>写 Windows 版本，这个用户基数最大，直接 Windows 窗体，安装使用都很方便，.net 系列的技术我也很熟悉。</p></li>
+<li><p>写 Chrome 插件，在网页版中直接发送请求，还省去了登录验证的麻烦。</p></li>
 </ol>
 
-<h3 id="使用方法">使用方法</h3>
+<p>由于 .net 开发之前做得很长时间了，并且当时是当作一个商业项目做的，实现目前这个项目完全没有挑战，所以我选择了较为有挑战的 Chrome 插件。</p>
+
+<blockquote>
+<p>虽然我之前写过一个小插件：<a href="https://github.com/liaohuqiu/list-sorter">List Sorter</a>，不过那个是非常实验性的一个项目，几乎没什么受众。</p>
+</blockquote>
+
+<p>这次，我想做的是一个可以给大众用的产品。</p>
+
+<h3 id="时间">时间</h3>
+
+<p>除去工作之外，现在我手头有好几个事情在同时进行。</p>
+
+<p>时间是从上周三开始，本周一开始内部测试，周三正式对外发布。都是业余时间。</p>
+
+<p>但是我原计划是，周日晚上就发布的，结果项目途中遇到了很多问题，最后是一周时间。</p>
+
+<h3 id="做了些什么">做了些什么</h3>
+
+<p>在这段时间内，完成了：</p>
 
 <ol>
-<li><p>安装</p>
+<li><p>分析了项目的定位和独有优势</p>
 
 <ol>
-<li><p>从 Chrome 商店安装。</p>
-
-<p><a href="https://chrome.google.com/webstore/detail/bdfbkchemknlpmmopkncahjdmocnambd/">https://chrome.google.com/webstore/detail/bdfbkchemknlpmmopkncahjdmocnambd/</a></p></li>
-<li><p>本插件会频繁升级，暂不支持手动安装扩展。</p>
-
-<p><strong>Windows版本</strong> 也在开发中，即将发布。</p></li>
+<li>Chrome 插件，图形化界面，易于使用</li>
+<li>对于大量好友，保存上次状态，下次继续可以跳过</li>
+<li>可检查黑名单</li>
+<li>项目开源后可作为 Chrome 开发的一个参考</li>
 </ol></li>
-<li><p>使用</p>
+<li><p>项目的 UI 方面的设计，包括</p>
 
 <ol>
-<li> 时间间隔设置为 <strong>30</strong> 秒以上</li>
-<li> 如果提示操作过于频繁，请稍后再试，下次会跳过已经检查过的好友。</li>
+<li><p>导航栏中显示一个按钮</p>
+
+<p>增加网页版微信入口，方便用户使用。</p></li>
+<li><p>左侧菜单的设计</p>
+
+<p>包括菜单的显示的内容和交互方式，如何尽量不给用户带去骚扰。</p></li>
+<li><p>以及一个丑陋的图标</p></li>
+<li><p>所有的交互文案</p></li>
 </ol></li>
-<li><p>截图</p>
-
-<div><img src='https://raw.githubusercontent.com/liaohuqiu/wechat-helper/master/art/1.png'/></div>
-
-<div><img src='https://raw.githubusercontent.com/liaohuqiu/wechat-helper/master/art/2.png'/></div></li>
-</ol>
-
-<h3 id="原理">原理</h3>
+<li><p>快速地完成了开发，技术点包括</p>
 
 <ol>
-<li><p>检查联系人，即创建群组并加人，如果不是好友，无法加入。</p></li>
-<li><p>如果联系人多，将会分批操作，下次会略过之前检查过的联系人。</p></li>
-</ol>
+<li><p>Webpack 打包方案</p>
 
-<h3 id="其他">其他</h3>
-
-<ol>
-<li><p>开源</p>
-
-<p>最近花了一些时间，开发这个 chrome 扩展。从产品设计到编码实现发布都有很多收获。</p>
-
-<p>其中关于前端开发，关于 Chrome 扩展开发，更是有很多心得。</p>
-
-<p>目前代码托管在私有 Git 上，在产品稳定之后，我会开源。</p>
-
-<p>如果这个插件使用的人多的话，我还会写篇文章，分享关于这个插件的非编码开发部分。</p></li>
-<li><p>反馈</p>
-
-<ol>
-<li> 有任何问题和建议，请提交到这里: <a href="https://github.com/liaohuqiu/wechat-helper/issues">https://github.com/liaohuqiu/wechat-helper/issues</a></li>
+<p>Chrome 插件有三个入口，需要高定制化的打包方案。</p></li>
+<li><p>Iconfont 技术</p></li>
+<li><p>使用事件，分离出了 UI 和 具体业务逻辑。</p></li>
+<li><p>全套的打包脚本</p></li>
+<li><p>日志分级</p></li>
+<li><p>Chrome 插件下 基于 Webpack 的模板使用</p></li>
+<li><p>Chrome 插件下的 Google Analytics </p></li>
+<li><p>Chrome 插件的 i18n 方案</p></li>
 </ol></li>
-<li><p>感谢</p>
+<li><p>完成了数据统计。</p>
 
-<p>感谢 <a href="https://github.com/0x5e">@0x5e</a> 同学的 <a href="https://github.com/0x5e/wechat-deleted-friends">wechat-deleted-friends</a>, 所谓巨人的肩膀。^_^</p></li>
+<p>包括所有页面的访问，按钮点击。用户改进产品。</p>
+
+<p>一个完善的产品一定要有数据统计。这为产品的改进，功能的好坏提供直接参考。</p></li>
+<li><p>测试和发布</p>
+
+<p>经过多轮测试和改进，最终发布到 Chrome 商店。 <a href="https://chrome.google.com/webstore/detail/bdfbkchemknlpmmopkncahjdmocnambd/">https://chrome.google.com/webstore/detail/bdfbkchemknlpmmopkncahjdmocnambd/</a></p></li>
+<li><p>经完成了开源</p>
+
+<p><a href="https://github.com/liaohuqiu/wechat-helper">https://github.com/liaohuqiu/wechat-helper</a></p></li>
 </ol>
+
+<h3 id="遇到的问题">遇到的问题</h3>
+
+<ol>
+<li><p>UI 和交互设计，进度慢，反复改进多次。术业有专攻，这部分我确实需要多加锻炼。</p></li>
+<li><p>白天要工作。到了晚上（东八区）上午，微信的网络延迟非常高，效率很低。</p></li>
+<li><p>缺少测试账号，接口访问受限之后，只能等着，去做其他事情先了。</p></li>
+<li><p>操作过于频繁，接口访问受限，现在折衷的办法是记录之前检查过的好友，下次继续的时候跳过。</p>
+
+<p>只要是 Web API 目前都有可能遇到这个问题。暂时还没想到解法。</p></li>
+</ol>
+
+<h3 id="心得体会">心得体会</h3>
+
+<ul>
+<li><p><strong>事情虽小，但是标准不会降低。</strong></p>
+
+<p>这次开发时间比较短，但是类似： </p>
+
+<blockquote>
+<p>Debug / Release 包的区分，日志分级，数据统计，多语言支持等等</p>
+</blockquote>
+
+<p>一般情况下，只有较大规模的产品才会处理这些事情，作为一个小插件，我把这些全部做了一遍。</p>
+
+<p>项目发布第一天，Google Analytics 显示，有 1000 多的用户。看到同时在线的人数，最高是 80 。</p></li>
+<li><p><strong>开源</strong></p>
+
+<p>目前，这个项目看起来，还不错。现在将代码开源，希望对大家有所帮助。</p>
+
+<p><a href="https://github.com/liaohuqiu/wechat-helper">https://github.com/liaohuqiu/wechat-helper</a></p>
+
+<blockquote>
+<p>Write the code, change the world, Happy coding!</p>
+</blockquote></li>
+</ul>
 
             <hr>
             <div id="disqus_thread"></div>
