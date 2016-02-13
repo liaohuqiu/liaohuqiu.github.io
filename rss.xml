@@ -6,8 +6,8 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Sat, 13 Feb 2016 15:11:46 +0800</pubDate>
-    <lastBuildDate>Sat, 13 Feb 2016 15:11:46 +0800</lastBuildDate>
+    <pubDate>Sat, 13 Feb 2016 18:05:10 +0800</pubDate>
+    <lastBuildDate>Sat, 13 Feb 2016 18:05:10 +0800</lastBuildDate>
 
     
     <item>
@@ -42,13 +42,22 @@ adb pull /sdcard/tmp-movie.mp4 ~/tmp/
 
 &lt;p&gt;Once we have the movie, wo can use &lt;a href=&quot;http://ezgif.com/&quot;&gt;ezgif.com&lt;/a&gt; to convert it into GIF&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://ezgif.com/&quot;&gt;ezgif.com&lt;/a&gt; has a lot of awesome features, it can convert movies into GIF and also can edit and optmize the image.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&quot;http://ezgif.com/&quot;&gt;ezgif.com&lt;/a&gt; has a lot of awesome features, it can convert movies into GIF and also can edit and optmize the image.&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;By the way, I really like &lt;a href=&quot;http://ezgif.com/&quot;&gt;ezgif.com&lt;/a&gt; and I&amp;#39;ve made a donate for it, hope you will like this website.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;RoboGif&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/izacus/RoboGif&quot;&gt;RoboGif&lt;/a&gt; is a project on GitHub which can do these things for you. &lt;/p&gt;
+
+&lt;p&gt;It calls &lt;code&gt;adb shell&lt;/code&gt; to record the screen then use &lt;code&gt;ffmpeg&lt;/code&gt; to convert this image automatically.&lt;/p&gt;
+
+&lt;p&gt;Thanks for mentioning that &lt;a href=&quot;http://github.com/kyze8439690&quot;&gt;@kyze8439690&lt;/a&gt; :)&lt;/p&gt;
+
+&lt;p&gt;But if you want to edit your GIF: remove some frames, optmize it&amp;#39;s size, &lt;a href=&quot;http://ezgif.com/&quot;&gt;ezgif.com&lt;/a&gt; still you&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
 </description>
     </item>
     
