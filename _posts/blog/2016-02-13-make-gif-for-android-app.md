@@ -38,9 +38,21 @@ Here I will give out 2 methods:
 
         [ezgif.com][] has a lot of awesome features, it can convert movies into GIF and also can edit and optmize the image.
 
->   By the way, I really like [ezgif.com][] and I've made a donate for it, hope you will like this website.
+        >   By the way, I really like [ezgif.com][] and I've made a donate for it, hope you will like this website.
+
+    3. RoboGif
+
+        [RoboGif][] is a project on GitHub which can do these things for you. 
+
+        It calls `adb shell` to record the screen then use `ffmpeg` to convert this image automatically.
+
+        Thanks for mentioning that [@kyze8439690][] :)
+
+        But if you want to edit your GIF: remove some frames, optmize it's size, [ezgif.com][] still you
 
 [Licecap]:          https://github.com/lepht/licecap
 [Genymotion]:       https://www.genymotion.com/
 [ezgif.com]:        http://ezgif.com/
 [adb-shell]:        http://developer.android.com/tools/help/shell.html#screenrecord
+[RoboGif]:          https://github.com/izacus/RoboGif
+[@kyze8439690]:     http://github.com/kyze8439690
