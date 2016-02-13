@@ -4,7 +4,7 @@
   <title>Yet Another Summer Rain</title>
   <link href="http://liaohuqiu.net/"/>
   <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
-  <updated>2016-01-15T14:32:22-08:00</updated>
+  <updated>2016-02-13T15:11:46+08:00</updated>
   <id>http://liaohuqiu.net/</id>
   <author>
     <name>Huqiu Liao / Srain</name>
@@ -13,11 +13,57 @@
 
   
   <entry>
+    <id>http://liaohuqiu.net/posts/make-gif-for-android-app</id>
+    <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/make-gif-for-android-app/"/>
+    <title>Make GIF Snapshot for Android APP</title>
+    <published>2016-02-13T00:00:00+08:00</published>
+    <updated>2016-02-13T00:00:00+08:00</updated>
+    <author>
+      <name>Huqiu Liao / Srain</name>
+      <uri>http://liaohuqiu.net/</uri>
+    </author>
+    <content type="html">&lt;p&gt;Recently, a lot of friends asked me how to make the GIF snapshots for an anroid APP, like the pictures here: &lt;a href=&quot;https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh&quot;&gt;https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Here I will give out 2 methods:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/lepht/licecap&quot;&gt;Licecap&lt;/a&gt; + &lt;a href=&quot;https://www.genymotion.com/&quot;&gt;Genymotion&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/lepht/licecap&quot;&gt;Licecap&lt;/a&gt; can capture the screen easily, it is also very easy to use.&lt;/p&gt;
+
+&lt;p&gt;Your can run your app in &lt;a href=&quot;https://www.genymotion.com/&quot;&gt;Genymotion&lt;/a&gt;, then use &lt;a href=&quot;https://github.com/lepht/licecap&quot;&gt;Licecap&lt;/a&gt; to reocord the screen.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;adb shell&lt;/code&gt; + &lt;a href=&quot;http://ezgif.com/&quot;&gt;ezgif.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If your app can not run in &lt;a href=&quot;https://www.genymotion.com/&quot;&gt;Genymotion&lt;/a&gt;, you can choose this sloution.&lt;/p&gt;
+
+&lt;p&gt;We can use &lt;code&gt;adb shell&lt;/code&gt; to record the snapshots in &lt;code&gt;mp4&lt;/code&gt; format on the device which API level is greater than 19, then convert it into &lt;code&gt;GIF&lt;/code&gt; on &lt;a href=&quot;http://ezgif.com/&quot;&gt;ezgif.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Reocord screen and pull the movie&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;adb shell screenrecord --bit-rate 8000000  /sdcard/tmp-movie.mp4
+adb pull /sdcard/tmp-movie.mp4 ~/tmp/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Click &lt;a href=&quot;http://developer.android.com/tools/help/shell.html#screenrecord&quot;&gt;Here&lt;/a&gt; to read more about &lt;code&gt;adb shell&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Convert to GIF&lt;/p&gt;
+
+&lt;p&gt;Once we have the movie, wo can use &lt;a href=&quot;http://ezgif.com/&quot;&gt;ezgif.com&lt;/a&gt; to convert it into GIF&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://ezgif.com/&quot;&gt;ezgif.com&lt;/a&gt; has a lot of awesome features, it can convert movies into GIF and also can edit and optmize the image.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;By the way, I really like &lt;a href=&quot;http://ezgif.com/&quot;&gt;ezgif.com&lt;/a&gt; and I&amp;#39;ve made a donate for it, hope you will like this website.&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+  </entry>
+  
+  <entry>
     <id>http://liaohuqiu.net/cn/posts/wechat-helper</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/wechat-helper/"/>
     <title>微信助手 Chrome 插件开发手记</title>
-    <published>2016-01-13T00:00:00-08:00</published>
-    <updated>2016-01-13T00:00:00-08:00</updated>
+    <published>2016-01-13T00:00:00+08:00</published>
+    <updated>2016-01-13T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -157,8 +203,8 @@
     <id>http://liaohuqiu.net/posts/save-authorization-information-for-appcfg</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/save-authorization-information-for-appcfg/"/>
     <title>appcfg.py: Save the authorization information</title>
-    <published>2016-01-04T00:00:00-08:00</published>
-    <updated>2016-01-04T00:00:00-08:00</updated>
+    <published>2016-01-04T00:00:00+08:00</published>
+    <updated>2016-01-04T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -233,8 +279,8 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;cp $home_config_file $config_
     <id>http://liaohuqiu.net/posts/centering-list-items-horizontally</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/centering-list-items-horizontally/"/>
     <title>Centering List Items Horizontally</title>
-    <published>2016-01-02T00:00:00-08:00</published>
-    <updated>2016-01-02T00:00:00-08:00</updated>
+    <published>2016-01-02T00:00:00+08:00</published>
+    <updated>2016-01-02T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -276,8 +322,8 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;cp $home_config_file $config_
     <id>http://liaohuqiu.net/cn/posts/2015</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/2015/"/>
     <title>Bye2015Hi2016 —— 他年他月再相见</title>
-    <published>2015-12-31T00:00:00-08:00</published>
-    <updated>2015-12-31T00:00:00-08:00</updated>
+    <published>2015-12-31T00:00:00+08:00</published>
+    <updated>2015-12-31T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -400,8 +446,8 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;cp $home_config_file $config_
     <id>http://liaohuqiu.net/posts/jekyll-multiple-languages-2.0</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/jekyll-multiple-languages-2.0/"/>
     <title>jekyll-multiple-languages 2.0 is released now</title>
-    <published>2015-12-26T00:00:00-08:00</published>
-    <updated>2015-12-26T00:00:00-08:00</updated>
+    <published>2015-12-26T00:00:00+08:00</published>
+    <updated>2015-12-26T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -438,8 +484,8 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;cp $home_config_file $config_
     <id>http://liaohuqiu.net/cn/posts/roman-wasnot-built-in-a-day</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/roman-wasnot-built-in-a-day/"/>
     <title>十年磨一剑: 开发者的孤独与伟大</title>
-    <published>2015-12-03T00:00:00-08:00</published>
-    <updated>2015-12-03T00:00:00-08:00</updated>
+    <published>2015-12-03T00:00:00+08:00</published>
+    <updated>2015-12-03T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -484,8 +530,8 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;cp $home_config_file $config_
     <id>http://liaohuqiu.net/cn/posts/an-apple</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/an-apple/"/>
     <title>我们辛勤劳作的母亲</title>
-    <published>2015-11-11T00:00:00-08:00</published>
-    <updated>2015-11-11T00:00:00-08:00</updated>
+    <published>2015-11-11T00:00:00+08:00</published>
+    <updated>2015-11-11T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -601,8 +647,8 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;cp $home_config_file $config_
     <id>http://liaohuqiu.net/cn/posts/android-api-compat-guide</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/android-api-compat-guide/"/>
     <title>再谈 Android API 兼容性处理</title>
-    <published>2015-10-23T00:00:00-07:00</published>
-    <updated>2015-10-23T00:00:00-07:00</updated>
+    <published>2015-10-23T00:00:00+08:00</published>
+    <updated>2015-10-23T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -735,8 +781,8 @@ static {
     <id>http://liaohuqiu.net/cn/posts/android-windows-manager</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/android-windows-manager/"/>
     <title>Android 悬浮窗的小结</title>
-    <published>2015-10-22T00:00:00-07:00</published>
-    <updated>2015-10-22T00:00:00-07:00</updated>
+    <published>2015-10-22T00:00:00+08:00</published>
+    <updated>2015-10-22T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -815,8 +861,8 @@ static {
     <id>http://liaohuqiu.net/cn/posts/react-native-android-package</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/react-native-android-package/"/>
     <title>React Native: Android 的打包</title>
-    <published>2015-09-28T00:00:00-07:00</published>
-    <updated>2015-09-28T00:00:00-07:00</updated>
+    <published>2015-09-28T00:00:00+08:00</published>
+    <updated>2015-09-28T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -990,8 +1036,8 @@ Options:
     <id>http://liaohuqiu.net/cn/posts/react-native-1</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/react-native-1/"/>
     <title>React Native: 配置和起步</title>
-    <published>2015-09-23T00:00:00-07:00</published>
-    <updated>2015-09-23T00:00:00-07:00</updated>
+    <published>2015-09-23T00:00:00+08:00</published>
+    <updated>2015-09-23T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -1175,8 +1221,8 @@ iOS 和 Android 的模拟器，连接 Mac 本机的服务都很方便。但是�
     <id>http://liaohuqiu.net/cn/posts/build-rpc-service-for-php</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/build-rpc-service-for-php/"/>
     <title>为 PHP 构建 RPC 服务</title>
-    <published>2015-08-27T00:00:00-07:00</published>
-    <updated>2015-08-27T00:00:00-07:00</updated>
+    <published>2015-08-27T00:00:00+08:00</published>
+    <updated>2015-08-27T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -1417,8 +1463,8 @@ dict    data;       // {}
     <id>http://liaohuqiu.net/cn/posts/m-developer-preview-3-final-sdk</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/m-developer-preview-3-final-sdk/"/>
     <title>升级到 Android 6.0</title>
-    <published>2015-08-18T00:00:00-07:00</published>
-    <updated>2015-08-18T00:00:00-07:00</updated>
+    <published>2015-08-18T00:00:00+08:00</published>
+    <updated>2015-08-18T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -1439,8 +1485,8 @@ dict    data;       // {}
     <id>http://liaohuqiu.net/posts/speed-up-your-build</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/speed-up-your-build/"/>
     <title>Speed up your build in Android Studio</title>
-    <published>2015-07-22T00:00:00-07:00</published>
-    <updated>2015-07-22T00:00:00-07:00</updated>
+    <published>2015-07-22T00:00:00+08:00</published>
+    <updated>2015-07-22T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -1596,8 +1642,8 @@ dict    data;       // {}
     <id>http://liaohuqiu.net/posts/iso-8601-date-format</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/iso-8601-date-format/"/>
     <title>ISO 8601 in Bash, Java, PHP, Python</title>
-    <published>2015-07-17T00:00:00-07:00</published>
-    <updated>2015-07-17T00:00:00-07:00</updated>
+    <published>2015-07-17T00:00:00+08:00</published>
+    <updated>2015-07-17T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -1667,8 +1713,8 @@ dict    data;       // {}
     <id>http://liaohuqiu.net/posts/corpse-bride</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/corpse-bride/"/>
     <title>Corpse Bride</title>
-    <published>2015-06-22T00:00:00-07:00</published>
-    <updated>2015-06-22T00:00:00-07:00</updated>
+    <published>2015-06-22T00:00:00+08:00</published>
+    <updated>2015-06-22T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -1778,8 +1824,8 @@ dict    data;       // {}
     <id>http://liaohuqiu.net/cn/posts/2015-may</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/2015-may/"/>
     <title>2015年5月：在路上</title>
-    <published>2015-05-30T00:00:00-07:00</published>
-    <updated>2015-05-30T00:00:00-07:00</updated>
+    <published>2015-05-30T00:00:00+08:00</published>
+    <updated>2015-05-30T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -1872,8 +1918,8 @@ dict    data;       // {}
     <id>http://liaohuqiu.net/cn/posts/python-script-in-bin-directory</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/python-script-in-bin-directory/"/>
     <title>通过 shell 执行 python 报错: No such file or directory</title>
-    <published>2015-05-13T00:00:00-07:00</published>
-    <updated>2015-05-13T00:00:00-07:00</updated>
+    <published>2015-05-13T00:00:00+08:00</published>
+    <updated>2015-05-13T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -1923,8 +1969,8 @@ dict    data;       // {}
     <id>http://liaohuqiu.net/cn/posts/leak-canary-read-me</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/leak-canary-read-me/"/>
     <title>LeakCanary 中文使用说明</title>
-    <published>2015-05-10T00:00:00-07:00</published>
-    <updated>2015-05-10T00:00:00-07:00</updated>
+    <published>2015-05-10T00:00:00+08:00</published>
+    <updated>2015-05-10T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -2162,8 +2208,8 @@ dict    data;       // {}
     <id>http://liaohuqiu.net/cn/posts/leak-canary</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/leak-canary/"/>
     <title>LeakCanary: 让内存泄露无所遁形</title>
-    <published>2015-05-09T00:00:00-07:00</published>
-    <updated>2015-05-09T00:00:00-07:00</updated>
+    <published>2015-05-09T00:00:00+08:00</published>
+    <updated>2015-05-09T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -2306,8 +2352,8 @@ refWatcher.watch(schrodingerCat);
     <id>http://liaohuqiu.net/posts/follow-me-on-github</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/follow-me-on-github/"/>
     <title>Help: Would you please follow me on GitHub</title>
-    <published>2015-05-05T00:00:00-07:00</published>
-    <updated>2015-05-05T00:00:00-07:00</updated>
+    <published>2015-05-05T00:00:00+08:00</published>
+    <updated>2015-05-05T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -2344,8 +2390,8 @@ refWatcher.watch(schrodingerCat);
     <id>http://liaohuqiu.net/cn/posts/follow-me-on-github</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/follow-me-on-github/"/>
     <title>有一事相求，请在 GitHub 上关注我吧</title>
-    <published>2015-05-05T00:00:00-07:00</published>
-    <updated>2015-05-05T00:00:00-07:00</updated>
+    <published>2015-05-05T00:00:00+08:00</published>
+    <updated>2015-05-05T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -2378,8 +2424,8 @@ refWatcher.watch(schrodingerCat);
     <id>http://liaohuqiu.net/cn/posts/about-red-apricot-and-compiling-fresco</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/about-red-apricot-and-compiling-fresco/"/>
     <title>关于红杏的公益代理, Android Studio以及freso的编译</title>
-    <published>2015-04-11T00:00:00-07:00</published>
-    <updated>2015-04-11T00:00:00-07:00</updated>
+    <published>2015-04-11T00:00:00+08:00</published>
+    <updated>2015-04-11T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -2525,8 +2571,8 @@ refWatcher.watch(schrodingerCat);
     <id>http://liaohuqiu.net/cn/posts/replace-or-override-string-in-android-library</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/replace-or-override-string-in-android-library/"/>
     <title>重定义/覆盖Android类库中的文字，颜色等资源</title>
-    <published>2015-03-28T00:00:00-07:00</published>
-    <updated>2015-03-28T00:00:00-07:00</updated>
+    <published>2015-03-28T00:00:00+08:00</published>
+    <updated>2015-03-28T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -2574,8 +2620,8 @@ refWatcher.watch(schrodingerCat);
     <id>http://liaohuqiu.net/cn/posts/gitlab-enable-sign-up</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/gitlab-enable-sign-up/"/>
     <title>gitlab 启用注册</title>
-    <published>2015-03-21T00:00:00-07:00</published>
-    <updated>2015-03-21T00:00:00-07:00</updated>
+    <published>2015-03-21T00:00:00+08:00</published>
+    <updated>2015-03-21T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -2597,8 +2643,8 @@ refWatcher.watch(schrodingerCat);
     <id>http://liaohuqiu.net/cn/posts/the-pull-to-refresh-in-my-eyes</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/the-pull-to-refresh-in-my-eyes/"/>
     <title>我眼中的下拉刷新</title>
-    <published>2015-01-29T00:00:00-08:00</published>
-    <updated>2015-01-29T00:00:00-08:00</updated>
+    <published>2015-01-29T00:00:00+08:00</published>
+    <updated>2015-01-29T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -2817,8 +2863,8 @@ refWatcher.watch(schrodingerCat);
     <id>http://liaohuqiu.net/cn/posts/android-maven-local-repository</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/android-maven-local-repository/"/>
     <title>关于安装Android Maven 本地依赖库</title>
-    <published>2015-01-29T00:00:00-08:00</published>
-    <updated>2015-01-29T00:00:00-08:00</updated>
+    <published>2015-01-29T00:00:00+08:00</published>
+    <updated>2015-01-29T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -2869,8 +2915,8 @@ Platform.Version=5.0.1
     <id>http://liaohuqiu.net/posts/simple-hashset</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/simple-hashset/"/>
     <title>SimpleHashSet, save 25% memory</title>
-    <published>2015-01-12T00:00:00-08:00</published>
-    <updated>2015-01-12T00:00:00-08:00</updated>
+    <published>2015-01-12T00:00:00+08:00</published>
+    <updated>2015-01-12T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -2923,8 +2969,8 @@ Platform.Version=5.0.1
     <id>http://liaohuqiu.net/cn/posts/simple-hashset</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/simple-hashset/"/>
     <title>SimpleHashSet, 节省25%内存</title>
-    <published>2015-01-12T00:00:00-08:00</published>
-    <updated>2015-01-12T00:00:00-08:00</updated>
+    <published>2015-01-12T00:00:00+08:00</published>
+    <updated>2015-01-12T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -2979,8 +3025,8 @@ Platform.Version=5.0.1
     <id>http://liaohuqiu.net/cn/posts/non-bundled-web-server-for-gitlab</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/non-bundled-web-server-for-gitlab/"/>
     <title>gitlab 使用现有nginx服务器</title>
-    <published>2015-01-08T00:00:00-08:00</published>
-    <updated>2015-01-08T00:00:00-08:00</updated>
+    <published>2015-01-08T00:00:00+08:00</published>
+    <updated>2015-01-08T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -3076,8 +3122,8 @@ sudo gitlab-ctl reconfigure
     <id>http://liaohuqiu.net/cn/posts/gradle-in-centos</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/gradle-in-centos/"/>
     <title>CentOS的gradle构建环境</title>
-    <published>2015-01-07T00:00:00-08:00</published>
-    <updated>2015-01-07T00:00:00-08:00</updated>
+    <published>2015-01-07T00:00:00+08:00</published>
+    <updated>2015-01-07T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -3179,8 +3225,8 @@ sudo yum install -y libstdc++.so.6
     <id>http://liaohuqiu.net/cn/posts/my-2014</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/my-2014/"/>
     <title>我的2014</title>
-    <published>2014-12-31T00:00:00-08:00</published>
-    <updated>2014-12-31T00:00:00-08:00</updated>
+    <published>2014-12-31T00:00:00+08:00</published>
+    <updated>2014-12-31T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -3295,8 +3341,8 @@ sudo yum install -y libstdc++.so.6
     <id>http://liaohuqiu.net/posts/android-object-size-dalvik</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/android-object-size-dalvik/"/>
     <title>Android object size in Dalvik</title>
-    <published>2014-12-29T00:00:00-08:00</published>
-    <updated>2014-12-29T00:00:00-08:00</updated>
+    <published>2014-12-29T00:00:00+08:00</published>
+    <updated>2014-12-29T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -3557,8 +3603,8 @@ sudo yum install -y libstdc++.so.6
     <id>http://liaohuqiu.net/cn/posts/caculate-object-size-in-java</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/caculate-object-size-in-java/"/>
     <title>JAVA对象大小</title>
-    <published>2014-12-27T00:00:00-08:00</published>
-    <updated>2014-12-27T00:00:00-08:00</updated>
+    <published>2014-12-27T00:00:00+08:00</published>
+    <updated>2014-12-27T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -3883,8 +3929,8 @@ class B extends A{
     <id>http://liaohuqiu.net/cn/posts/1g-in-10s</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/1g-in-10s/"/>
     <title>一种10s之内的方案</title>
-    <published>2014-12-25T00:00:00-08:00</published>
-    <updated>2014-12-25T00:00:00-08:00</updated>
+    <published>2014-12-25T00:00:00+08:00</published>
+    <updated>2014-12-25T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -3993,8 +4039,8 @@ TCP的包头: 954.6 * 1000 * 2 * 64 / 1024 / 1024 = 116Mb&lt;/p&gt;
     <id>http://liaohuqiu.net/cn/posts/compile-ultra-ptr-in-eclipse</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/compile-ultra-ptr-in-eclipse/"/>
     <title>Ultra-Ptr 在eclipse中编译的办法</title>
-    <published>2014-12-05T00:00:00-08:00</published>
-    <updated>2014-12-05T00:00:00-08:00</updated>
+    <published>2014-12-05T00:00:00+08:00</published>
+    <updated>2014-12-05T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -4059,8 +4105,8 @@ TCP的包头: 954.6 * 1000 * 2 * 64 / 1024 / 1024 = 116Mb&lt;/p&gt;
     <id>http://liaohuqiu.net/posts/publish-to-maven-central</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/publish-to-maven-central/"/>
     <title>aar vs apklib</title>
-    <published>2014-12-03T00:00:00-08:00</published>
-    <updated>2014-12-03T00:00:00-08:00</updated>
+    <published>2014-12-03T00:00:00+08:00</published>
+    <updated>2014-12-03T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -4083,8 +4129,8 @@ TCP的包头: 954.6 * 1000 * 2 * 64 / 1024 / 1024 = 116Mb&lt;/p&gt;
     <id>http://liaohuqiu.net/posts/binnary-tree-traversal-iteratively</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/binnary-tree-traversal-iteratively/"/>
     <title>Binary tree traversal</title>
-    <published>2014-11-02T00:00:00-07:00</published>
-    <updated>2014-11-02T00:00:00-07:00</updated>
+    <published>2014-11-02T00:00:00+08:00</published>
+    <updated>2014-11-02T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -4298,8 +4344,8 @@ N  N  N  N  N  N  N  N
     <id>http://liaohuqiu.net/cn/posts/android-get-resource-id-by-string</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/android-get-resource-id-by-string/"/>
     <title>根据字符串获取资源id</title>
-    <published>2014-10-28T00:00:00-07:00</published>
-    <updated>2014-10-28T00:00:00-07:00</updated>
+    <published>2014-10-28T00:00:00+08:00</published>
+    <updated>2014-10-28T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -4369,8 +4415,8 @@ N  N  N  N  N  N  N  N
     <id>http://liaohuqiu.net/cn/posts/mobile-app-sina-binding</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/mobile-app-sina-binding/"/>
     <title>手机客户端应用新浪微博绑定流程</title>
-    <published>2014-10-08T00:00:00-07:00</published>
-    <updated>2014-10-08T00:00:00-07:00</updated>
+    <published>2014-10-08T00:00:00+08:00</published>
+    <updated>2014-10-08T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -4395,8 +4441,8 @@ N  N  N  N  N  N  N  N
     <id>http://liaohuqiu.net/cn/posts/chrome-extension-hi</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/chrome-extension-hi/"/>
     <title>Chrome 扩展开发参考</title>
-    <published>2014-09-30T00:00:00-07:00</published>
-    <updated>2014-09-30T00:00:00-07:00</updated>
+    <published>2014-09-30T00:00:00+08:00</published>
+    <updated>2014-09-30T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -4411,8 +4457,8 @@ N  N  N  N  N  N  N  N
     <id>http://liaohuqiu.net/cn/posts/ssh-public-key-auto-login</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/ssh-public-key-auto-login/"/>
     <title>ssh public key认证免密码登录</title>
-    <published>2014-09-16T00:00:00-07:00</published>
-    <updated>2014-09-16T00:00:00-07:00</updated>
+    <published>2014-09-16T00:00:00+08:00</published>
+    <updated>2014-09-16T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -4471,8 +4517,8 @@ test-key
     <id>http://liaohuqiu.net/cn/posts/ssh-keygen-abc</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/ssh-keygen-abc/"/>
     <title>ssh-keygen 基本用法</title>
-    <published>2014-09-15T00:00:00-07:00</published>
-    <updated>2014-09-15T00:00:00-07:00</updated>
+    <published>2014-09-15T00:00:00+08:00</published>
+    <updated>2014-09-15T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -4551,8 +4597,8 @@ E+9IJPQaqqeqCGzrJ6G/XO7om1v9YLLG/H/ZN2tQ&lt;span class=&quot;o&quot;&gt;==&lt;/s
     <id>http://liaohuqiu.net/cn/posts/git-abc</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/git-abc/"/>
     <title>Gitlab 简单配置使用</title>
-    <published>2014-09-11T00:00:00-07:00</published>
-    <updated>2014-09-11T00:00:00-07:00</updated>
+    <published>2014-09-11T00:00:00+08:00</published>
+    <updated>2014-09-11T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -4712,8 +4758,8 @@ To git@git.liaohuqiu.net:huqiu/test.git
     <id>http://liaohuqiu.net/cn/posts/setup-web-prorxy-by-ssh-tunnel</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/setup-web-prorxy-by-ssh-tunnel/"/>
     <title>简单的ssh隧道实现代理上网</title>
-    <published>2014-08-28T00:00:00-07:00</published>
-    <updated>2014-08-28T00:00:00-07:00</updated>
+    <published>2014-08-28T00:00:00+08:00</published>
+    <updated>2014-08-28T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -4768,8 +4814,8 @@ To git@git.liaohuqiu.net:huqiu/test.git
     <id>http://liaohuqiu.net/posts/enable-epel-repository-for-centos7</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/enable-epel-repository-for-centos7/"/>
     <title>enable epel7 repository for CentOS7</title>
-    <published>2014-08-01T00:00:00-07:00</published>
-    <updated>2014-08-01T00:00:00-07:00</updated>
+    <published>2014-08-01T00:00:00+08:00</published>
+    <updated>2014-08-01T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -4783,8 +4829,8 @@ To git@git.liaohuqiu.net:huqiu/test.git
     <id>http://liaohuqiu.net/posts/php-singleton-of-children-class</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/php-singleton-of-children-class/"/>
     <title>PHP: singleton of children class</title>
-    <published>2014-07-24T00:00:00-07:00</published>
-    <updated>2014-07-24T00:00:00-07:00</updated>
+    <published>2014-07-24T00:00:00+08:00</published>
+    <updated>2014-07-24T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -4850,8 +4896,8 @@ B
     <id>http://liaohuqiu.net/cn/posts/php-singleton-of-children-class</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/php-singleton-of-children-class/"/>
     <title>PHP静态延迟绑定: 获取子类的单例</title>
-    <published>2014-07-24T00:00:00-07:00</published>
-    <updated>2014-07-24T00:00:00-07:00</updated>
+    <published>2014-07-24T00:00:00+08:00</published>
+    <updated>2014-07-24T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -4915,8 +4961,8 @@ B
     <id>http://liaohuqiu.net/cn/posts/ssh-auto-login</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/ssh-auto-login/"/>
     <title>ssh + expect 自动登录服务器</title>
-    <published>2014-07-02T00:00:00-07:00</published>
-    <updated>2014-07-02T00:00:00-07:00</updated>
+    <published>2014-07-02T00:00:00+08:00</published>
+    <updated>2014-07-02T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -4966,8 +5012,8 @@ B
     <id>http://liaohuqiu.net/cn/posts/visit-google-via-quic</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/visit-google-via-quic/"/>
     <title>通过QUIC协议访问Google</title>
-    <published>2014-06-08T00:00:00-07:00</published>
-    <updated>2014-06-08T00:00:00-07:00</updated>
+    <published>2014-06-08T00:00:00+08:00</published>
+    <updated>2014-06-08T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -4984,8 +5030,8 @@ B
     <id>http://liaohuqiu.net/posts/log-center</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/log-center/"/>
     <title>setup log center</title>
-    <published>2014-05-28T00:00:00-07:00</published>
-    <updated>2014-05-28T00:00:00-07:00</updated>
+    <published>2014-05-28T00:00:00+08:00</published>
+    <updated>2014-05-28T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -5063,8 +5109,8 @@ log { source(s_net); description(df_wrt0)};
     <id>http://liaohuqiu.net/cn/posts/log-center</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/log-center/"/>
     <title>日志中心：统一日志服务器</title>
-    <published>2014-05-28T00:00:00-07:00</published>
-    <updated>2014-05-28T00:00:00-07:00</updated>
+    <published>2014-05-28T00:00:00+08:00</published>
+    <updated>2014-05-28T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -5144,8 +5190,8 @@ log { source(s_net); description(df_wrt0)};
     <id>http://liaohuqiu.net/posts/smallest-number-greater-than-given-number</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/smallest-number-greater-than-given-number/"/>
     <title>find smallest number greater than given number out of a sorted list</title>
-    <published>2014-05-20T00:00:00-07:00</published>
-    <updated>2014-05-20T00:00:00-07:00</updated>
+    <published>2014-05-20T00:00:00+08:00</published>
+    <updated>2014-05-20T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -5231,8 +5277,8 @@ log { source(s_net); description(df_wrt0)};
     <id>http://liaohuqiu.net/posts/remap-arrow-keys-to-vi-mode</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/remap-arrow-keys-to-vi-mode/"/>
     <title>Shortcut for arrow keys, move like in vi/vim mode</title>
-    <published>2014-05-08T00:00:00-07:00</published>
-    <updated>2014-05-08T00:00:00-07:00</updated>
+    <published>2014-05-08T00:00:00+08:00</published>
+    <updated>2014-05-08T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -5268,8 +5314,8 @@ log { source(s_net); description(df_wrt0)};
     <id>http://liaohuqiu.net/cn/posts/set-up-mac</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/set-up-mac/"/>
     <title>我的Mac 工作环境配置</title>
-    <published>2014-05-05T00:00:00-07:00</published>
-    <updated>2014-05-05T00:00:00-07:00</updated>
+    <published>2014-05-05T00:00:00+08:00</published>
+    <updated>2014-05-05T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -5357,8 +5403,8 @@ OS: 10.9.2
     <id>http://liaohuqiu.net/cn/posts/my-idea-config</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/my-idea-config/"/>
     <title>我的idea 配置</title>
-    <published>2014-03-31T00:00:00-07:00</published>
-    <updated>2014-03-31T00:00:00-07:00</updated>
+    <published>2014-03-31T00:00:00+08:00</published>
+    <updated>2014-03-31T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -5434,8 +5480,8 @@ OS: 10.9.2
     <id>http://liaohuqiu.net/cn/posts/sparse-array-in-android</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/sparse-array-in-android/"/>
     <title>Android中的稀疏数组：SparseArray</title>
-    <published>2014-03-30T00:00:00-07:00</published>
-    <updated>2014-03-30T00:00:00-07:00</updated>
+    <published>2014-03-30T00:00:00+08:00</published>
+    <updated>2014-03-30T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -5634,8 +5680,8 @@ OS: 10.9.2
     <id>http://liaohuqiu.net/cn/posts/using-diffrent-user-config-for-different-repository</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/using-diffrent-user-config-for-different-repository/"/>
     <title>git: 提交前强制检查各个项目用户名邮箱设置</title>
-    <published>2014-03-20T00:00:00-07:00</published>
-    <updated>2014-03-20T00:00:00-07:00</updated>
+    <published>2014-03-20T00:00:00+08:00</published>
+    <updated>2014-03-20T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -5738,8 +5784,8 @@ fatal: empty ident name &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span c
     <id>http://liaohuqiu.net/cn/posts/git-global-hooks</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/git-global-hooks/"/>
     <title>git全局钩子</title>
-    <published>2014-03-20T00:00:00-07:00</published>
-    <updated>2014-03-20T00:00:00-07:00</updated>
+    <published>2014-03-20T00:00:00+08:00</published>
+    <updated>2014-03-20T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -5795,8 +5841,8 @@ git config --global init.templatedir $template_dir
     <id>http://liaohuqiu.net/cn/posts/binpack</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/binpack/"/>
     <title>一种简单高效的二进制编码方法</title>
-    <published>2014-03-18T00:00:00-07:00</published>
-    <updated>2014-03-18T00:00:00-07:00</updated>
+    <published>2014-03-18T00:00:00+08:00</published>
+    <updated>2014-03-18T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -6110,8 +6156,8 @@ git config --global init.templatedir $template_dir
     <id>http://liaohuqiu.net/cn/posts/grid-view-do-not</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/grid-view-do-not/"/>
     <title>Gridview的错误用法及替代方案</title>
-    <published>2014-03-15T00:00:00-07:00</published>
-    <updated>2014-03-15T00:00:00-07:00</updated>
+    <published>2014-03-15T00:00:00+08:00</published>
+    <updated>2014-03-15T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -6248,8 +6294,8 @@ git config --global init.templatedir $template_dir
     <id>http://liaohuqiu.net/cn/posts/first-view-will-be-created-multi-times-in-list-view</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/first-view-will-be-created-multi-times-in-list-view/"/>
     <title>ListView / GirdView Adpater的getView方法，首项多次调用</title>
-    <published>2014-03-15T00:00:00-07:00</published>
-    <updated>2014-03-15T00:00:00-07:00</updated>
+    <published>2014-03-15T00:00:00+08:00</published>
+    <updated>2014-03-15T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -6402,8 +6448,8 @@ git config --global init.templatedir $template_dir
     <id>http://liaohuqiu.net/cn/posts/sqlite-tips</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/sqlite-tips/"/>
     <title>SQLite使用参考: 唯一索引，分页，清空表</title>
-    <published>2014-03-14T00:00:00-07:00</published>
-    <updated>2014-03-14T00:00:00-07:00</updated>
+    <published>2014-03-14T00:00:00+08:00</published>
+    <updated>2014-03-14T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -6463,8 +6509,8 @@ git config --global init.templatedir $template_dir
     <id>http://liaohuqiu.net/posts/how-does-android-caculate-the-size-of-child-view</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/how-does-android-caculate-the-size-of-child-view/"/>
     <title>How Android caculates view size</title>
-    <published>2014-03-14T00:00:00-07:00</published>
-    <updated>2014-03-14T00:00:00-07:00</updated>
+    <published>2014-03-14T00:00:00+08:00</published>
+    <updated>2014-03-14T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -6712,8 +6758,8 @@ git config --global init.templatedir $template_dir
     <id>http://liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view/"/>
     <title>Android中View大小的确定过程</title>
-    <published>2014-03-14T00:00:00-07:00</published>
-    <updated>2014-03-14T00:00:00-07:00</updated>
+    <published>2014-03-14T00:00:00+08:00</published>
+    <updated>2014-03-14T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -6957,8 +7003,8 @@ git config --global init.templatedir $template_dir
     <id>http://liaohuqiu.net/posts/truncate-table-in-sqlite</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/truncate-table-in-sqlite/"/>
     <title>Truncate talbe in SQLite</title>
-    <published>2014-03-13T00:00:00-07:00</published>
-    <updated>2014-03-13T00:00:00-07:00</updated>
+    <published>2014-03-13T00:00:00+08:00</published>
+    <updated>2014-03-13T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -6974,8 +7020,8 @@ git config --global init.templatedir $template_dir
     <id>http://liaohuqiu.net/cn/posts/truncate-table-in-sqlite</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/truncate-table-in-sqlite/"/>
     <title>SQLite清空数据库表</title>
-    <published>2014-03-13T00:00:00-07:00</published>
-    <updated>2014-03-13T00:00:00-07:00</updated>
+    <published>2014-03-13T00:00:00+08:00</published>
+    <updated>2014-03-13T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -6991,8 +7037,8 @@ git config --global init.templatedir $template_dir
     <id>http://liaohuqiu.net/cn/posts/settimeout-or-settimeinterval</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/settimeout-or-settimeinterval/"/>
     <title>setTimeout 和 setTimeInterval的本质区别</title>
-    <published>2014-03-06T00:00:00-08:00</published>
-    <updated>2014-03-06T00:00:00-08:00</updated>
+    <published>2014-03-06T00:00:00+08:00</published>
+    <updated>2014-03-06T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -7005,8 +7051,8 @@ git config --global init.templatedir $template_dir
     <id>http://liaohuqiu.net/cn/posts/android-lifecycle-component</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/android-lifecycle-component/"/>
     <title>一花一世界: Android中细小组件的生命周期</title>
-    <published>2014-03-05T00:00:00-08:00</published>
-    <updated>2014-03-05T00:00:00-08:00</updated>
+    <published>2014-03-05T00:00:00+08:00</published>
+    <updated>2014-03-05T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -7225,8 +7271,8 @@ git config --global init.templatedir $template_dir
     <id>http://liaohuqiu.net/posts/jekyll-plugins-on-github-pages</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/jekyll-plugins-on-github-pages/"/>
     <title>Jekyll Plugins and Github Pages</title>
-    <published>2014-03-03T00:00:00-08:00</published>
-    <updated>2014-03-03T00:00:00-08:00</updated>
+    <published>2014-03-03T00:00:00+08:00</published>
+    <updated>2014-03-03T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -7332,8 +7378,8 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;git checkout $branch&amp;quot
     <id>http://liaohuqiu.net/cn/posts/jekyll-plugins-on-github-pages</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/jekyll-plugins-on-github-pages/"/>
     <title>Jekyll 插件和Github Pages</title>
-    <published>2014-03-03T00:00:00-08:00</published>
-    <updated>2014-03-03T00:00:00-08:00</updated>
+    <published>2014-03-03T00:00:00+08:00</published>
+    <updated>2014-03-03T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -7439,8 +7485,8 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;git checkout $branch&amp;quot
     <id>http://liaohuqiu.net/posts/install-php-imagick-on-centos</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/install-php-imagick-on-centos/"/>
     <title>Install php imagick extension on CentOS</title>
-    <published>2014-03-03T00:00:00-08:00</published>
-    <updated>2014-03-03T00:00:00-08:00</updated>
+    <published>2014-03-03T00:00:00+08:00</published>
+    <updated>2014-03-03T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -7489,8 +7535,8 @@ make install
     <id>http://liaohuqiu.net/posts/work-with-git-branches</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/work-with-git-branches/"/>
     <title>Work with git branches</title>
-    <published>2014-02-14T00:00:00-08:00</published>
-    <updated>2014-02-14T00:00:00-08:00</updated>
+    <published>2014-02-14T00:00:00+08:00</published>
+    <updated>2014-02-14T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -7681,8 +7727,8 @@ $ git push origin +b2
     <id>http://liaohuqiu.net/cn/posts/work-with-git-branches</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/work-with-git-branches/"/>
     <title>Git日常分支操作</title>
-    <published>2014-02-14T00:00:00-08:00</published>
-    <updated>2014-02-14T00:00:00-08:00</updated>
+    <published>2014-02-14T00:00:00+08:00</published>
+    <updated>2014-02-14T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -7933,8 +7979,8 @@ $ git push origin +b2
     <id>http://liaohuqiu.net/posts/git-setup-and-setting</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/git-setup-and-setting/"/>
     <title>Some tips for git setup and git config</title>
-    <published>2014-02-13T00:00:00-08:00</published>
-    <updated>2014-02-13T00:00:00-08:00</updated>
+    <published>2014-02-13T00:00:00+08:00</published>
+    <updated>2014-02-13T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -8009,8 +8055,8 @@ git config --global alias.lg &amp;quot;log --all --graph --pretty=format:&amp;#3
     <id>http://liaohuqiu.net/cn/posts/git-setup-and-setting</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/git-setup-and-setting/"/>
     <title>命令行下的git配置问题: 多个sshkey, 多个用户身份, git alias</title>
-    <published>2014-02-13T00:00:00-08:00</published>
-    <updated>2014-02-13T00:00:00-08:00</updated>
+    <published>2014-02-13T00:00:00+08:00</published>
+    <updated>2014-02-13T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -8088,8 +8134,8 @@ git config --global alias.lg &amp;quot;log --all --graph --pretty=format:&amp;#3
     <id>http://liaohuqiu.net/cn/posts/using-high-api-level-method-compatibly</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/using-high-api-level-method-compatibly/"/>
     <title>Android 高版本API方法在低版本系统上的兼容性处理</title>
-    <published>2014-01-23T00:00:00-08:00</published>
-    <updated>2014-01-23T00:00:00-08:00</updated>
+    <published>2014-01-23T00:00:00+08:00</published>
+    <updated>2014-01-23T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -8197,8 +8243,8 @@ public static long getTotalSpace(File path) {
     <id>http://liaohuqiu.net/cn/posts/storage-in-android</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/storage-in-android/"/>
     <title>Android存储使用参考</title>
-    <published>2014-01-15T00:00:00-08:00</published>
-    <updated>2014-01-15T00:00:00-08:00</updated>
+    <published>2014-01-15T00:00:00+08:00</published>
+    <updated>2014-01-15T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -8487,8 +8533,8 @@ public static File getExternalCacheDir(Context context) {
     <id>http://liaohuqiu.net/posts/solution-for-loading-image-in-android</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/solution-for-loading-image-in-android/"/>
     <title>Solution for Loading Image in Android</title>
-    <published>2014-01-11T00:00:00-08:00</published>
-    <updated>2014-01-11T00:00:00-08:00</updated>
+    <published>2014-01-11T00:00:00+08:00</published>
+    <updated>2014-01-11T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -8608,8 +8654,8 @@ If the bitmap configuration used is ARGB_8888 (the default from the Android 2.3 
     <id>http://liaohuqiu.net/cn/posts/unified-title-header</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/unified-title-header/"/>
     <title>Android统一的页面头部</title>
-    <published>2014-01-06T00:00:00-08:00</published>
-    <updated>2014-01-06T00:00:00-08:00</updated>
+    <published>2014-01-06T00:00:00+08:00</published>
+    <updated>2014-01-06T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -8718,8 +8764,8 @@ If the bitmap configuration used is ARGB_8888 (the default from the Android 2.3 
     <id>http://liaohuqiu.net/cn/posts/memory-and-profile-analysis-in-android</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/memory-and-profile-analysis-in-android/"/>
     <title>Android内存使用分析和程序性能分析</title>
-    <published>2014-01-03T00:00:00-08:00</published>
-    <updated>2014-01-03T00:00:00-08:00</updated>
+    <published>2014-01-03T00:00:00+08:00</published>
+    <updated>2014-01-03T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -8880,8 +8926,8 @@ Debug.stopMethodTracing();
     <id>http://liaohuqiu.net/posts/lru-cache-in-android</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/lru-cache-in-android/"/>
     <title>LRU cache in Android</title>
-    <published>2013-12-23T00:00:00-08:00</published>
-    <updated>2013-12-23T00:00:00-08:00</updated>
+    <published>2013-12-23T00:00:00+08:00</published>
+    <updated>2013-12-23T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -8985,8 +9031,8 @@ or the total size of the cache has exceed the limit.&lt;/p&gt;&lt;/li&gt;
     <id>http://liaohuqiu.net/cn/posts/load-image-in-android</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/load-image-in-android/"/>
     <title>Android加载图片时需要解决的问题</title>
-    <published>2013-12-23T00:00:00-08:00</published>
-    <updated>2013-12-23T00:00:00-08:00</updated>
+    <published>2013-12-23T00:00:00+08:00</published>
+    <updated>2013-12-23T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -9062,8 +9108,8 @@ or the total size of the cache has exceed the limit.&lt;/p&gt;&lt;/li&gt;
     <id>http://liaohuqiu.net/posts/how-an-activity-is-created</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/how-an-activity-is-created/"/>
     <title>How an activity is created</title>
-    <published>2013-11-24T00:00:00-08:00</published>
-    <updated>2013-11-24T00:00:00-08:00</updated>
+    <published>2013-11-24T00:00:00+08:00</published>
+    <updated>2013-11-24T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -9264,8 +9310,8 @@ ActivityThread                                   |                              
     <id>http://liaohuqiu.net/posts/nginx-proxy-pass</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/nginx-proxy-pass/"/>
     <title>Nginx proxy_pass: examples for how does nginx proxy_pass map the request</title>
-    <published>2013-09-16T00:00:00-07:00</published>
-    <updated>2013-09-16T00:00:00-07:00</updated>
+    <published>2013-09-16T00:00:00+08:00</published>
+    <updated>2013-09-16T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -9363,8 +9409,8 @@ test.com/app/request/xxxxx =&amp;gt; http://192.168.154.102:9999/some_dir/xxxxx
     <id>http://liaohuqiu.net/cn/posts/baia</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/baia/"/>
     <title>青春不朽，前行无悔</title>
-    <published>2013-09-11T00:00:00-07:00</published>
-    <updated>2013-09-11T00:00:00-07:00</updated>
+    <published>2013-09-11T00:00:00+08:00</published>
+    <updated>2013-09-11T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -9413,8 +9459,8 @@ test.com/app/request/xxxxx =&amp;gt; http://192.168.154.102:9999/some_dir/xxxxx
     <id>http://liaohuqiu.net/posts/setup-pptp</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/setup-pptp/"/>
     <title>Setup PPTP</title>
-    <published>2013-09-10T00:00:00-07:00</published>
-    <updated>2013-09-10T00:00:00-07:00</updated>
+    <published>2013-09-10T00:00:00+08:00</published>
+    <updated>2013-09-10T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -9511,8 +9557,8 @@ echo &amp;quot; &amp;quot;
     <id>http://liaohuqiu.net/posts/batch-process-file-name</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/batch-process-file-name/"/>
     <title>batch process file name</title>
-    <published>2013-08-27T00:00:00-07:00</published>
-    <updated>2013-08-27T00:00:00-07:00</updated>
+    <published>2013-08-27T00:00:00+08:00</published>
+    <updated>2013-08-27T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -9532,8 +9578,8 @@ svn mv &amp;quot;./cp_m/base/head.html&amp;quot; &amp;quot;./cp_m/base/head.php&
     <id>http://liaohuqiu.net/cn/posts/pick-an-alibaba-name</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/pick-an-alibaba-name/"/>
     <title>阿里花名：如何起花名</title>
-    <published>2013-08-18T00:00:00-07:00</published>
-    <updated>2013-08-18T00:00:00-07:00</updated>
+    <published>2013-08-18T00:00:00+08:00</published>
+    <updated>2013-08-18T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -9583,8 +9629,8 @@ svn mv &amp;quot;./cp_m/base/head.html&amp;quot; &amp;quot;./cp_m/base/head.php&
     <id>http://liaohuqiu.net/posts/install-lamp-on-minimum-centos</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/install-lamp-on-minimum-centos/"/>
     <title>Install LAMP enviroment on a minimum CentOS</title>
-    <published>2013-08-15T00:00:00-07:00</published>
-    <updated>2013-08-15T00:00:00-07:00</updated>
+    <published>2013-08-15T00:00:00+08:00</published>
+    <updated>2013-08-15T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -9652,8 +9698,8 @@ https://raw.github.com/liaohuqiu/centos_setup/master/setup.sh
     <id>http://liaohuqiu.net/posts/install-jekyll</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/install-jekyll/"/>
     <title>Install jekyll on CentOS</title>
-    <published>2013-08-08T00:00:00-07:00</published>
-    <updated>2013-08-08T00:00:00-07:00</updated>
+    <published>2013-08-08T00:00:00+08:00</published>
+    <updated>2013-08-08T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -9697,8 +9743,8 @@ jekyll server --watch
     <id>http://liaohuqiu.net/posts/yet-another-summer-rain</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/yet-another-summer-rain/"/>
     <title>Yet another summer rain.</title>
-    <published>2013-08-07T00:00:00-07:00</published>
-    <updated>2013-08-07T00:00:00-07:00</updated>
+    <published>2013-08-07T00:00:00+08:00</published>
+    <updated>2013-08-07T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
@@ -9713,8 +9759,8 @@ jekyll server --watch
     <id>http://liaohuqiu.net/cn/posts/yet-another-summer-rain</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/yet-another-summer-rain/"/>
     <title>Yet another summer rain.</title>
-    <published>2013-08-07T00:00:00-07:00</published>
-    <updated>2013-08-07T00:00:00-07:00</updated>
+    <published>2013-08-07T00:00:00+08:00</published>
+    <updated>2013-08-07T00:00:00+08:00</updated>
     <author>
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
