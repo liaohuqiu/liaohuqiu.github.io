@@ -5,40 +5,40 @@ css: /assets/css/about-me.css?v=1
 category: about
 ---
 
-### Basic
+### Links
 
-* [I am On GitHub](https://github.com/liaohuqiu) 
+* [GitHub](https://github.com/liaohuqiu) 
 
-* [I am On StackOverflow](http://stackoverflow.com/users/2446397/) 
+    Most of my projects are hosted on GitHub.
 
-* [twitter](https://twitter.com/liaohuqiu)
+* [StackOverflow](http://stackoverflow.com/users/2446397/) 
+
+* [Twitter](https://twitter.com/liaohuqiu)
 
 * [Facebook](https://www.facebook.com/huqiu.liao)
 
-* [微博](http://weibo.com/liaohuqiu/)
+* [新浪微博](http://weibo.com/liaohuqiu/)
 
-* [email](mailto:srain@php.net)
+    欢迎关注我新浪微博！
 
-<!---
-<h2>hobbies</h2>
+* [Email](mailto:srain@php.net)
 
-<div class='about-me'>
-    <div class='row'>
-        <div class='span3 pic'>
-            <p>I like this:</p>
-            <img src='http://cimage.sinaapp.com/img/org/32/63/3/44/64/srain-skating.jpg' class="img-rounded cimage"/>
-        </div>
 
-        <div class='span3 pic'>
-            <p>And this.</p>
-            <img src='http://cimage.sinaapp.com/img/org/34/39/69/81/44/srain-with-helmet.jpg' class="img-rounded cimage"/>
-        </div>
-    </div>
+### Videos
 
-    <p>A video, I was playing slalom skating:</p>
+* A video, I was playing the slalom skating:
 
-    <embed src="http://player.youku.com/player.php/sid/XMzg0Mjc3ODg=/v.swf" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
-
+<div class='tc'>
+<iframe width="420" height="315" src="https://www.youtube.com/embed/Ngxqto5Sf-0" frameborder="0" allowfullscreen></iframe>
 </div>
 
--->
+
+---
+
+
+<div class='wechat-mp-qrcode'>
+    WeChat Subscriptions / 微信公众号<br/>
+    <img src='/assets/img/qrcode_for_wechat_mp.jpg' /><br/>
+    Only Chinese content available :(. 
+</div>
+
