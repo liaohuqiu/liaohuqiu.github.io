@@ -29,7 +29,7 @@ category: about
 * A video, I was playing the slalom skating:
 
 <div class='tc'>
-<iframe width="420" height="315" src="https://www.youtube.com/embed/Ngxqto5Sf-0" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/Ngxqto5Sf-0" frameborder="0" allowfullscreen></iframe>
 </div>
 
 
