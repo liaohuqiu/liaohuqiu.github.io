@@ -4,7 +4,7 @@
   <title>Yet Another Summer Rain</title>
   <link href="http://liaohuqiu.net/"/>
   <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
-  <updated>2016-02-23T02:58:07+08:00</updated>
+  <updated>2016-02-23T06:26:24+08:00</updated>
   <id>http://liaohuqiu.net/</id>
   <author>
     <name>Huqiu Liao / Srain</name>
@@ -4320,7 +4320,7 @@ N  N  N  N  N  N  N  N
 
 &lt;p&gt;So when &lt;code&gt;next&lt;/code&gt; is &lt;code&gt;Nil&lt;/code&gt;, check if the right child of the top node in stack is &lt;code&gt;Nil&lt;/code&gt; or visited. If yes, pop it, mark it as visited(put its value into result list), set it to be the &lt;code&gt;last_visited&lt;/code&gt;. &lt;/p&gt;
 
-&lt;p&gt;If not, set the right node to be the &lt;code&gt;next&lt;/code&gt;. The right node will be set to &lt;code&gt;last_visited&lt;/code&gt; when it has no right child or its right child is visit. So the parent will be visited afterwards.&lt;/p&gt;
+&lt;p&gt;If not, set the right node to be the &lt;code&gt;next&lt;/code&gt;. The right node will be set to &lt;code&gt;last_visited&lt;/code&gt; when it has no right child or its right child is visited. So the parent will be visited afterwards.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;c&quot;&gt;# @param root, a tree node&lt;/span&gt;
     &lt;span class=&quot;c&quot;&gt;# @return a list of integers&lt;/span&gt;

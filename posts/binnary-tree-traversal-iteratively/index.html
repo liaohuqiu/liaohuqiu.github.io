@@ -255,7 +255,7 @@ N  N  N  N  N  N  N  N
 
 <p>So when <code>next</code> is <code>Nil</code>, check if the right child of the top node in stack is <code>Nil</code> or visited. If yes, pop it, mark it as visited(put its value into result list), set it to be the <code>last_visited</code>. </p>
 
-<p>If not, set the right node to be the <code>next</code>. The right node will be set to <code>last_visited</code> when it has no right child or its right child is visit. So the parent will be visited afterwards.</p>
+<p>If not, set the right node to be the <code>next</code>. The right node will be set to <code>last_visited</code> when it has no right child or its right child is visited. So the parent will be visited afterwards.</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
     <span class="c"># @param root, a tree node</span>
     <span class="c"># @return a list of integers</span>
