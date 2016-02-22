@@ -1,8 +1,8 @@
 ---
 layout: post_wide
 title: Binary tree traversal
-description: "iteratively, recursively; preorder, inorder, postorder"
-keywords: "binnary tree, traversal, iteratively, recursively, preorder, inorder, postorder"
+description: "iteratively, recursively; pre-order, in-order, post-order"
+keywords: "binnary tree, traversal, iteratively, recursively, pre-order, in-order, post-order"
 category: blog
 ---
 
@@ -19,27 +19,27 @@ Here is a full binnary tree:
 N  N  N  N  N  N  N  N
 ```
 
-* Preorder Traversal
+* Pre-order Traversal
     1. visit root first
-    2. visit left child by preorder traversal
-    3. visit right child by preorder traversal
+    2. visit left child by pre-order traversal
+    3. visit right child by pre-order traversal
 
     ```
     1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
     ```
 
-* Inoder Traversal
-    1. visit left child in inorder
+* In-order Traversal
+    1. visit left child in in-order
     2. visit root
-    3. visit right child in inorder
+    3. visit right child in in-order
 
     ```
     3 -> 2 -> 4 -> 1 -> 6 -> 5 -> 7
     ```
 
-* PostOrder Traversal
-    1. visit left child in postorder
-    2. visit right child in postorder
+* Post-order Traversal
+    1. visit left child in post-order
+    2. visit right child in post-order
     3. visit root
 
     ```
@@ -58,22 +58,22 @@ class TreeNode:
         self.right = None
 ```
 
-*  Preorder
+*  Pre-order
 
     ```python
     class Solution:
         def preorderTraversal(self, root):
             res = []
             if root:
+                res.append(root.val)
                 if root.left:
                     res.extend(self.preorderTraversal(root.left))
-                res.append(root.val)
                 if root.right:
                     res.extend(self.preorderTraversal(root.right))
             return res
     ```
 
-*  Inoder
+*  In-order
 
     ```python
     class Solution:
@@ -89,7 +89,7 @@ class TreeNode:
     ```
 
 
-*  PostOrder
+*  Post-order
 
     ```python
     class Solution:
@@ -105,15 +105,15 @@ class TreeNode:
     ```
 
 ### Iteratively
-Traversing iteratively needs extra space instead of calls function recursively.
+Traversing iteratively needs extra space instead of calling function recursively.
 
-#### Preorder Traversal
+#### Pre-order Traversal
 
-Preorder is easy. 
+Pre-order is easy. 
 
 1. push root to stack
 2. pop a node from stack
-3. mark it as visited, push its right and left child to stack if they are not `Nil`, push right first to make sure than left child will be poped first.
+3. mark it as visited(put its value into result list), push its right and left child to stack if they are not `Nil`, push right first to make sure than left child will be poped first.
 4. when stack has no node to pop, traversal is done.
 
 ```python
@@ -137,11 +137,11 @@ class Solution:
 ```
 
 
-#### Inorder Traversal
+#### In-order Traversal
 
 1. Set next node to be visited to root.
 2. If next node is not `Nil`, push it to stack, set next node to be visited to its left child
-3. If next node is `Nil`, pop its parent node from stack, mark it as visited, then set next node to be visited to its right brother node.
+3. If next node is `Nil`, pop its parent node from stack, mark it as visited(put its value into result list), then set next node to be visited to its right brother node.
 4. If next node is a child node and it is `Nil`, its parent has been visited, its grandfather node will be poped from the stack and be visited.
 5. when stack has no node to be visited and next node is `Nil`, traversal is done.
 
@@ -181,17 +181,17 @@ class Solution:
         return res
 ```
 
-#### Postorder Traversal
+#### Post-order Traversal
 
-PostOrder is similar to inorder but more complicated. 
+Post-order is similar to in-order but more complicated. 
 
-We can trace to the leftmost node from a root node, like inorder.
+We can trace to the leftmost node from a root node, like in-order.
 
 When `next` is `Nil`, its parent node should be visited after right child. So we should not pop stack unless the right child of the top node in stack is `Nil` or has been visited.
 
 We use a variable `last_visited` to mark the node marked visited last time.
 
-So when `next` is `Nil`, check if the right child of the top node in stack is `Nil` or visited. If yes, pop it, mark it as visited, set it to be the `last_visited`. 
+So when `next` is `Nil`, check if the right child of the top node in stack is `Nil` or visited. If yes, pop it, mark it as visited(put its value into result list), set it to be the `last_visited`. 
 
 If not, set the right node to be the `next`. The right node will be set to `last_visited` when it has no right child or its right child is visit. So the parent will be visited afterwards.
 
