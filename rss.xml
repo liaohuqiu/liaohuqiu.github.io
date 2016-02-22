@@ -6,8 +6,8 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Sat, 20 Feb 2016 17:47:46 +0800</pubDate>
-    <lastBuildDate>Sat, 20 Feb 2016 17:47:46 +0800</lastBuildDate>
+    <pubDate>Tue, 23 Feb 2016 02:58:07 +0800</pubDate>
+    <lastBuildDate>Tue, 23 Feb 2016 02:58:07 +0800</lastBuildDate>
 
     
     <item>
@@ -3997,29 +3997,29 @@ TCP的包头: 954.6 * 1000 * 2 * 64 / 1024 / 1024 = 116Mb&lt;/p&gt;
 N  N  N  N  N  N  N  N
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Preorder Traversal&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Pre-order Traversal&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;visit root first&lt;/li&gt;
-&lt;li&gt;visit left child by preorder traversal&lt;/li&gt;
-&lt;li&gt;visit right child by preorder traversal&lt;/li&gt;
+&lt;li&gt;visit left child by pre-order traversal&lt;/li&gt;
+&lt;li&gt;visit right child by pre-order traversal&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;1 -&amp;gt; 2 -&amp;gt; 3 -&amp;gt; 4 -&amp;gt; 5 -&amp;gt; 6 -&amp;gt; 7
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Inoder Traversal&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;In-order Traversal&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;visit left child in inorder&lt;/li&gt;
+&lt;li&gt;visit left child in in-order&lt;/li&gt;
 &lt;li&gt;visit root&lt;/li&gt;
-&lt;li&gt;visit right child in inorder&lt;/li&gt;
+&lt;li&gt;visit right child in in-order&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;3 -&amp;gt; 2 -&amp;gt; 4 -&amp;gt; 1 -&amp;gt; 6 -&amp;gt; 5 -&amp;gt; 7
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;PostOrder Traversal&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Post-order Traversal&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;visit left child in postorder&lt;/li&gt;
-&lt;li&gt;visit right child in postorder&lt;/li&gt;
+&lt;li&gt;visit left child in post-order&lt;/li&gt;
+&lt;li&gt;visit right child in post-order&lt;/li&gt;
 &lt;li&gt;visit root&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;3 -&amp;gt; 4 -&amp;gt; 2 -&amp;gt; 6 -&amp;gt; 7 -&amp;gt; 5 -&amp;gt; 1
@@ -4036,19 +4036,19 @@ N  N  N  N  N  N  N  N
         &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Preorder&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Pre-order&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;preorderTraversal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
             &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
                 &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;extend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;preorderTraversal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
             &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
                 &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;extend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;preorderTraversal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Inoder&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;In-order&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;inorderTraversal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
@@ -4060,7 +4060,7 @@ N  N  N  N  N  N  N  N
                 &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;extend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inorderTraversal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;PostOrder&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Post-order&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;postorderTraversal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
@@ -4076,16 +4076,16 @@ N  N  N  N  N  N  N  N
 
 &lt;h3 id=&quot;iteratively&quot;&gt;Iteratively&lt;/h3&gt;
 
-&lt;p&gt;Traversing iteratively needs extra space instead of calls function recursively.&lt;/p&gt;
+&lt;p&gt;Traversing iteratively needs extra space instead of calling function recursively.&lt;/p&gt;
 
-&lt;h4 id=&quot;preorder-traversal&quot;&gt;Preorder Traversal&lt;/h4&gt;
+&lt;h4 id=&quot;pre-order-traversal&quot;&gt;Pre-order Traversal&lt;/h4&gt;
 
-&lt;p&gt;Preorder is easy. &lt;/p&gt;
+&lt;p&gt;Pre-order is easy. &lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;push root to stack&lt;/li&gt;
 &lt;li&gt;pop a node from stack&lt;/li&gt;
-&lt;li&gt;mark it as visited, push its right and left child to stack if they are not &lt;code&gt;Nil&lt;/code&gt;, push right first to make sure than left child will be poped first.&lt;/li&gt;
+&lt;li&gt;mark it as visited(put its value into result list), push its right and left child to stack if they are not &lt;code&gt;Nil&lt;/code&gt;, push right first to make sure than left child will be poped first.&lt;/li&gt;
 &lt;li&gt;when stack has no node to pop, traversal is done.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
@@ -4106,12 +4106,12 @@ N  N  N  N  N  N  N  N
                 &lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4 id=&quot;inorder-traversal&quot;&gt;Inorder Traversal&lt;/h4&gt;
+&lt;h4 id=&quot;in-order-traversal&quot;&gt;In-order Traversal&lt;/h4&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Set next node to be visited to root.&lt;/li&gt;
 &lt;li&gt;If next node is not &lt;code&gt;Nil&lt;/code&gt;, push it to stack, set next node to be visited to its left child&lt;/li&gt;
-&lt;li&gt;If next node is &lt;code&gt;Nil&lt;/code&gt;, pop its parent node from stack, mark it as visited, then set next node to be visited to its right brother node.&lt;/li&gt;
+&lt;li&gt;If next node is &lt;code&gt;Nil&lt;/code&gt;, pop its parent node from stack, mark it as visited(put its value into result list), then set next node to be visited to its right brother node.&lt;/li&gt;
 &lt;li&gt;If next node is a child node and it is &lt;code&gt;Nil&lt;/code&gt;, its parent has been visited, its grandfather node will be poped from the stack and be visited.&lt;/li&gt;
 &lt;li&gt;when stack has no node to be visited and next node is &lt;code&gt;Nil&lt;/code&gt;, traversal is done.&lt;/li&gt;
 &lt;/ol&gt;
@@ -4150,17 +4150,17 @@ N  N  N  N  N  N  N  N
                 &lt;span class=&quot;nb&quot;&gt;next&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4 id=&quot;postorder-traversal&quot;&gt;Postorder Traversal&lt;/h4&gt;
+&lt;h4 id=&quot;post-order-traversal&quot;&gt;Post-order Traversal&lt;/h4&gt;
 
-&lt;p&gt;PostOrder is similar to inorder but more complicated. &lt;/p&gt;
+&lt;p&gt;Post-order is similar to in-order but more complicated. &lt;/p&gt;
 
-&lt;p&gt;We can trace to the leftmost node from a root node, like inorder.&lt;/p&gt;
+&lt;p&gt;We can trace to the leftmost node from a root node, like in-order.&lt;/p&gt;
 
 &lt;p&gt;When &lt;code&gt;next&lt;/code&gt; is &lt;code&gt;Nil&lt;/code&gt;, its parent node should be visited after right child. So we should not pop stack unless the right child of the top node in stack is &lt;code&gt;Nil&lt;/code&gt; or has been visited.&lt;/p&gt;
 
 &lt;p&gt;We use a variable &lt;code&gt;last_visited&lt;/code&gt; to mark the node marked visited last time.&lt;/p&gt;
 
-&lt;p&gt;So when &lt;code&gt;next&lt;/code&gt; is &lt;code&gt;Nil&lt;/code&gt;, check if the right child of the top node in stack is &lt;code&gt;Nil&lt;/code&gt; or visited. If yes, pop it, mark it as visited, set it to be the &lt;code&gt;last_visited&lt;/code&gt;. &lt;/p&gt;
+&lt;p&gt;So when &lt;code&gt;next&lt;/code&gt; is &lt;code&gt;Nil&lt;/code&gt;, check if the right child of the top node in stack is &lt;code&gt;Nil&lt;/code&gt; or visited. If yes, pop it, mark it as visited(put its value into result list), set it to be the &lt;code&gt;last_visited&lt;/code&gt;. &lt;/p&gt;
 
 &lt;p&gt;If not, set the right node to be the &lt;code&gt;next&lt;/code&gt;. The right node will be set to &lt;code&gt;last_visited&lt;/code&gt; when it has no right child or its right child is visit. So the parent will be visited afterwards.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;

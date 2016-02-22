@@ -8,8 +8,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
-<meta name="description" content="iteratively, recursively; preorder, inorder, postorder" />
-<meta name="keywords" content="binnary tree, traversal, iteratively, recursively, preorder, inorder, postorder" />
+<meta name="description" content="iteratively, recursively; pre-order, in-order, post-order" />
+<meta name="keywords" content="binnary tree, traversal, iteratively, recursively, pre-order, in-order, post-order" />
 
 <meta name="google-site-verification" content="SbAzRqb2cWqPDNEITWdNn-OnF4w_dWNJgt37GYC3kqY" />
 
@@ -90,29 +90,29 @@ try {
 N  N  N  N  N  N  N  N
 </code></pre></div>
 <ul>
-<li><p>Preorder Traversal</p>
+<li><p>Pre-order Traversal</p>
 
 <ol>
 <li>visit root first</li>
-<li>visit left child by preorder traversal</li>
-<li>visit right child by preorder traversal</li>
+<li>visit left child by pre-order traversal</li>
+<li>visit right child by pre-order traversal</li>
 </ol>
 <div class="highlight"><pre><code class="language-text" data-lang="text">1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6 -&gt; 7
 </code></pre></div></li>
-<li><p>Inoder Traversal</p>
+<li><p>In-order Traversal</p>
 
 <ol>
-<li>visit left child in inorder</li>
+<li>visit left child in in-order</li>
 <li>visit root</li>
-<li>visit right child in inorder</li>
+<li>visit right child in in-order</li>
 </ol>
 <div class="highlight"><pre><code class="language-text" data-lang="text">3 -&gt; 2 -&gt; 4 -&gt; 1 -&gt; 6 -&gt; 5 -&gt; 7
 </code></pre></div></li>
-<li><p>PostOrder Traversal</p>
+<li><p>Post-order Traversal</p>
 
 <ol>
-<li>visit left child in postorder</li>
-<li>visit right child in postorder</li>
+<li>visit left child in post-order</li>
+<li>visit right child in post-order</li>
 <li>visit root</li>
 </ol>
 <div class="highlight"><pre><code class="language-text" data-lang="text">3 -&gt; 4 -&gt; 2 -&gt; 6 -&gt; 7 -&gt; 5 -&gt; 1
@@ -129,19 +129,19 @@ N  N  N  N  N  N  N  N
         <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="bp">None</span>
 </code></pre></div>
 <ul>
-<li><p>Preorder</p>
+<li><p>Pre-order</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">preorderTraversal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
         <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">if</span> <span class="n">root</span><span class="p">:</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">:</span>
                 <span class="n">res</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">preorderTraversal</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">))</span>
-            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">:</span>
                 <span class="n">res</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">preorderTraversal</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">res</span>
 </code></pre></div></li>
-<li><p>Inoder</p>
+<li><p>In-order</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">inorderTraversal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
         <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
@@ -153,7 +153,7 @@ N  N  N  N  N  N  N  N
                 <span class="n">res</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inorderTraversal</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">res</span>
 </code></pre></div></li>
-<li><p>PostOrder</p>
+<li><p>Post-order</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">postorderTraversal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
         <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
@@ -169,16 +169,16 @@ N  N  N  N  N  N  N  N
 
 <h3 id="iteratively">Iteratively</h3>
 
-<p>Traversing iteratively needs extra space instead of calls function recursively.</p>
+<p>Traversing iteratively needs extra space instead of calling function recursively.</p>
 
-<h4 id="preorder-traversal">Preorder Traversal</h4>
+<h4 id="pre-order-traversal">Pre-order Traversal</h4>
 
-<p>Preorder is easy. </p>
+<p>Pre-order is easy. </p>
 
 <ol>
 <li>push root to stack</li>
 <li>pop a node from stack</li>
-<li>mark it as visited, push its right and left child to stack if they are not <code>Nil</code>, push right first to make sure than left child will be poped first.</li>
+<li>mark it as visited(put its value into result list), push its right and left child to stack if they are not <code>Nil</code>, push right first to make sure than left child will be poped first.</li>
 <li>when stack has no node to pop, traversal is done.</li>
 </ol>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
@@ -199,12 +199,12 @@ N  N  N  N  N  N  N  N
                 <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">res</span>
 </code></pre></div>
-<h4 id="inorder-traversal">Inorder Traversal</h4>
+<h4 id="in-order-traversal">In-order Traversal</h4>
 
 <ol>
 <li>Set next node to be visited to root.</li>
 <li>If next node is not <code>Nil</code>, push it to stack, set next node to be visited to its left child</li>
-<li>If next node is <code>Nil</code>, pop its parent node from stack, mark it as visited, then set next node to be visited to its right brother node.</li>
+<li>If next node is <code>Nil</code>, pop its parent node from stack, mark it as visited(put its value into result list), then set next node to be visited to its right brother node.</li>
 <li>If next node is a child node and it is <code>Nil</code>, its parent has been visited, its grandfather node will be poped from the stack and be visited.</li>
 <li>when stack has no node to be visited and next node is <code>Nil</code>, traversal is done.</li>
 </ol>
@@ -243,17 +243,17 @@ N  N  N  N  N  N  N  N
                 <span class="nb">next</span> <span class="o">=</span> <span class="n">mid</span><span class="o">.</span><span class="n">right</span>
         <span class="k">return</span> <span class="n">res</span>
 </code></pre></div>
-<h4 id="postorder-traversal">Postorder Traversal</h4>
+<h4 id="post-order-traversal">Post-order Traversal</h4>
 
-<p>PostOrder is similar to inorder but more complicated. </p>
+<p>Post-order is similar to in-order but more complicated. </p>
 
-<p>We can trace to the leftmost node from a root node, like inorder.</p>
+<p>We can trace to the leftmost node from a root node, like in-order.</p>
 
 <p>When <code>next</code> is <code>Nil</code>, its parent node should be visited after right child. So we should not pop stack unless the right child of the top node in stack is <code>Nil</code> or has been visited.</p>
 
 <p>We use a variable <code>last_visited</code> to mark the node marked visited last time.</p>
 
-<p>So when <code>next</code> is <code>Nil</code>, check if the right child of the top node in stack is <code>Nil</code> or visited. If yes, pop it, mark it as visited, set it to be the <code>last_visited</code>. </p>
+<p>So when <code>next</code> is <code>Nil</code>, check if the right child of the top node in stack is <code>Nil</code> or visited. If yes, pop it, mark it as visited(put its value into result list), set it to be the <code>last_visited</code>. </p>
 
 <p>If not, set the right node to be the <code>next</code>. The right node will be set to <code>last_visited</code> when it has no right child or its right child is visit. So the parent will be visited afterwards.</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
