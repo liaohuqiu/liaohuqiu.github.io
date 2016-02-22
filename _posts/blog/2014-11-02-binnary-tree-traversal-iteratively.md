@@ -193,7 +193,7 @@ We use a variable `last_visited` to mark the node marked visited last time.
 
 So when `next` is `Nil`, check if the right child of the top node in stack is `Nil` or visited. If yes, pop it, mark it as visited(put its value into result list), set it to be the `last_visited`. 
 
-If not, set the right node to be the `next`. The right node will be set to `last_visited` when it has no right child or its right child is visit. So the parent will be visited afterwards.
+If not, set the right node to be the `next`. The right node will be set to `last_visited` when it has no right child or its right child is visited. So the parent will be visited afterwards.
 
 ```python
 class Solution:
