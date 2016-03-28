@@ -22,9 +22,9 @@
   <script src="/assets/compatibility/respond-1.4.2.js"></script>
 <![endif]-->
 
-<script src="/assets/app/js/base.js?a63b49119abc24eb9022f25696b53530"></script>
-<link href="/assets/app/css/app.css?8183e8a9fb7e82cd9119de3eda7dc7ad" rel="stylesheet">
-<script src="/assets/app/js/app.js?8183e8a9fb7e82cd9119de3eda7dc7ad"></script>
+<script src="/assets/app/js/base.js?cc49c38c1342e06ae5eb6dbac90b26aa"></script>
+<link href="/assets/app/css/app.css?486787f2f177eb026254714f0eb1806d" rel="stylesheet">
+<script src="/assets/app/js/app.js?486787f2f177eb026254714f0eb1806d"></script>
 
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -42,29 +42,71 @@ try {
 
 <body>
 
-<!-- HEADER -->
-<div id="header_wrap" class="outer">
-    <header class="inner">
-        <h1 id="site_title"><a href="/">Srain</a>
-            <div class='about-me'>
-                
-                <a href='/'>English posts</a>
-                <a href='/about/about-me'>About</a>
-                
-                <a href='/about/feed'>feed</a>
-            </div>
-        </h1>
-        
-        <a>质有高低，境界不同。</a>
-        
-    </header>
-</div>
+<header id="header">
+  <div class='site-container'>
+    <div class='mobile-nav-toggle mobile-display'>
+      <div class='bar top-bar'></div>
+      <div class='bar middle-bar'></div>
+      <div class='bar bottom-bar'></div>
+    </div>
+    <div class='header-logo-container'>
+      <h1 id="site_title"><a href="/">Srain</a></h1>
+      
+      <a>质有高低，境界不同。</a>
+      
+    </div>
+    <div class='desktop-menu desktop-display'>
+      
+<ul class="header-menu" role="menuigation">
+  <li class="header-menu-item">
+  <a class="header-menu-link" href="/">English posts</a>
+  </li>
+  <li class="header-menu-item">
+  <a class="header-menu-link" href="/about/about-me">About</a>
+  </li>
+  <li class="header-menu-item">
+  <a class="header-menu-link" href="/about/friends">Frieds</a>
+  </li>
+  <li class="header-menu-item">
+  <a class="header-menu-link" href="/about/feed">Feed</a>
+  </li>
+</ul>
+
+
+    </div>
+  </div>
+  <div class='mobile-menu mobile-display'>
+    
+<ul class="header-menu" role="menuigation">
+  <li class="header-menu-item">
+  <a class="header-menu-link" href="/">English posts</a>
+  </li>
+  <li class="header-menu-item">
+  <a class="header-menu-link" href="/about/about-me">About</a>
+  </li>
+  <li class="header-menu-item">
+  <a class="header-menu-link" href="/about/friends">Frieds</a>
+  </li>
+  <li class="header-menu-item">
+  <a class="header-menu-link" href="/about/feed">Feed</a>
+  </li>
+</ul>
+
+
+  </div>
+</header>
+
 
 <!-- MAIN CONTENT -->
 <div class='home'>
     <div id="main_content_wrap" class="outer">
         <div class="main-content inner">
             <ul class="article-list">
+
+<li class='title-box'>
+<h3><a href="/cn/posts/chrome-extension-hi/">Chrome 扩展开发参考</a></h3>
+<div class="title-desc">Chrome 扩展开发参考</div>
+</li>
 
 <li class='title-box'>
 <h3><a href="/cn/posts/ssh-public-key-auto-login/">ssh public key认证免密码登录</a></h3>
@@ -209,11 +251,6 @@ try {
 <li class='title-box'>
 <h3><a href="/cn/posts/load-image-in-android/">Android加载图片时需要解决的问题</a></h3>
 <div class="title-desc">简述加载图片时需要处理好的几个问题</div>
-</li>
-
-<li class='title-box'>
-<h3><a href="/cn/posts/baia/">青春不朽，前行无悔</a></h3>
-<div class="title-desc">百阿之旅心得</div>
 </li>
 
 </ul>

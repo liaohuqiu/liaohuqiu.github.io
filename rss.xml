@@ -6,9 +6,162 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Tue, 23 Feb 2016 06:26:24 +0800</pubDate>
-    <lastBuildDate>Tue, 23 Feb 2016 06:26:24 +0800</lastBuildDate>
+    <pubDate>Tue, 29 Mar 2016 00:50:38 +0800</pubDate>
+    <lastBuildDate>Tue, 29 Mar 2016 00:50:38 +0800</lastBuildDate>
 
+    
+    <item>
+      <title>欢迎大家参加 Google Study Jams 学习小组</title>
+      <link>http://liaohuqiu.net/cn/posts/google-study-jams/</link>
+      <pubDate>Mon, 28 Mar 2016 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/cn/posts/google-study-jams</guid>
+      <description>&lt;h3 id=&quot;关于学习和学习小组&quot;&gt;关于学习和学习小组&lt;/h3&gt;
+
+&lt;p&gt;这几天，看到 Google Study Jams 的时候，我想起，不管是我在学校还是近些年走向工作以后，我都喜欢找三五好友一起，组一个学习小组，一起学习。&lt;/p&gt;
+
+&lt;p&gt;在学校时，那些考试前夕，几个小伙伴一起复习，在夜归的路上的场景，犹如在眼前。&lt;/p&gt;
+
+&lt;p&gt;工作之后，周末的时候，相约一起去咖啡厅或者其中一个小伙伴的公司，看书，编码，聊天，也是乐趣无穷。&lt;/p&gt;
+
+&lt;h3 id=&quot;什么是-google-study-jams&quot;&gt;什么是 Google Study Jams&lt;/h3&gt;
+
+&lt;div class=&#39;row&#39;&gt;
+    &lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
+        &lt;img src=&#39;http://ww2.sinaimg.cn/large/8a41f469jw1f27y2nqh6ij21cw0iw77t.jpg&#39;/&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://developerstudyjams.com/&quot;&gt;英文官网的解释&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;Google Developers Study Jams is a free series of global, community-run, in-person study groups. The current Study Jams series is presented in partnership with Udacity and will follow their Android for Beginners curriculum.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Google Study Jams 是一个免费的学习小组，目前进行的是面向初学者（甚至零基础）的 Android 开发课程。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;学习小组的形式&quot;&gt;学习小组的形式&lt;/h3&gt;
+
+&lt;p&gt;这个是一个全球性的，社区支持驱动的，免费的，纯公益的活动，任何人都可以参加，对零基础，即使你不会编程。&lt;/p&gt;
+
+&lt;p&gt;你也可以邀请你身边的朋友们一起来参与，活动的形式有线上和线下两种。&lt;/p&gt;
+
+&lt;p&gt;在学校小组中，有讲师带领大家，或者大家通过自学，互相帮助，交流沟通，最终完成一个 App，然后发布到应用市场。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;当然，如果你很了解 Android 的开发，你可以担任讲师。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;时间安排&quot;&gt;时间安排&lt;/h3&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;时间&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;2016 年 3 月 22 日&lt;/td&gt;
+&lt;td&gt;网站发布活动通知，报名启动&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3 月 22 日 ~ 4 月 30 日&lt;/td&gt;
+&lt;td&gt;各报名团队进行 Android 技术学习&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2016 年 4 月 30 日&lt;/td&gt;
+&lt;td&gt;网站关闭报名渠道，截止结业申请&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2016 年 5 月 02 日&lt;/td&gt;
+&lt;td&gt;网站公布结业成员和证书获得者&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2016 年 6 月 15 日&lt;/td&gt;
+&lt;td&gt;网站截至 App 作品提交&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2016 年 6 月 30 日&lt;/td&gt;
+&lt;td&gt;网站公布参与者 App 作品和优秀作品获得者&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;h3 id=&quot;你会收获什么&quot;&gt;你会收获什么&lt;/h3&gt;
+
+&lt;p&gt;如果你想学习编程，这将是一个绝好的机会。&lt;/p&gt;
+
+&lt;p&gt;除了技能上的收获，你会认识很多热爱学习的朋友，和优秀的 Android 开发者。&lt;/p&gt;
+
+&lt;p&gt;另外所有活动的参与者，都可以得到相应的证书，以及一些小礼物作为奖励。&lt;/p&gt;
+
+&lt;p&gt;关于优胜者，还设有以下的奖励:&lt;/p&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;奖励&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;2016 Google Developer StudyJams 中国结业证书&lt;/td&gt;
+&lt;td&gt;参加 StudyJams 活动并顺利完成课程提交apk的学习者将获得此证书&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2016 Google Developer StudyJams 中国优秀组织者/讲师证书&lt;/td&gt;
+&lt;td&gt;组委会将按照小组结业率、小组参与人数评选全国前10%，为小组组织者和讲师颁发证书&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2016 Google Developer StudyJams 中国最有影响力证书&lt;/td&gt;
+&lt;td&gt;组委会将统计报名阶段推荐人，按照推荐人推荐参与人数和结业率排名选取前10%，为推荐人颁发证书&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2016 Google Developer StudyJams 中国作品奖杯&lt;/td&gt;
+&lt;td&gt;在实践阶段中成功上传至GooglePlay的作品即符合条件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2016 Google Developer StudyJams 中国优胜作品奖杯&lt;/td&gt;
+&lt;td&gt;组委会将邀请评委会成员一起选取前10%，为优秀作品开发者颁发奖杯&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;仅供参考，最终以 &lt;a href=&quot;http://www.studyjamscn.com/&quot;&gt;活动论坛&lt;/a&gt; 为准。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;课程预览视频&quot;&gt;课程预览视频&lt;/h3&gt;
+
+&lt;div class=&#39;row&#39;&gt;
+    &lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
+        &lt;embed src=&quot;http://static.video.qq.com/TPout.swf?vid=u0189bvpj48&amp;auto=0&quot; allowFullScreen=&quot;true&quot; quality=&quot;high&quot; width=&quot;580&quot; height=&quot;480&quot; align=&quot;middle&quot; allowScriptAccess=&quot;always&quot; type=&quot;application/x-shockwave-flash&quot;/&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;课程中包含的-googler-想对你说的话&quot;&gt;课程中包含的 Googler 想对你说的话&lt;/h3&gt;
+
+&lt;div class=&#39;row&#39;&gt;
+    &lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
+        &lt;embed src=&quot;http://static.video.qq.com/TPout.swf?vid=q0189eptczk&amp;auto=0&quot; allowFullScreen=&quot;true&quot; quality=&quot;high&quot; width=&quot;580&quot; height=&quot;480&quot; align=&quot;middle&quot; allowScriptAccess=&quot;always&quot; type=&quot;application/x-shockwave-flash&quot;/&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;报名&quot;&gt;报名&lt;/h3&gt;
+
+&lt;div class=&#39;row&#39;&gt;
+    &lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
+        &lt;img src=&#39;http://ww1.sinaimg.cn/large/8a41f469jw1f27yaqt2kzj21cw0iwwjc.jpg&#39;/&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;如果你愿意付出时间，和别人组队，解答问题，热爱分享，那么就快些加入我们吧。报名地址请点击 &lt;a href=&quot;https://gdgdocs.org/r/liFNzc)&quot;&gt;这里&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;全国的 Android 初学者都在等你的加入，希望与你一起成长。&lt;/p&gt;
+
+&lt;p&gt;同时，这个活动的受众群体是零编程基础的朋友，如果你是一位有经验的开发者，活动参与过程中，请给予更多的包容和理解。&lt;/p&gt;
+
+&lt;p&gt;如果针对这个活动有任何问题，你可以邮件到： 
+&lt;a href=&quot;mailto:study-jams-china@google.com&quot;&gt;study-jams-china@google.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;更多的信息，欢迎访问 &lt;a href=&quot;http://www.studyjamscn.com/&quot;&gt;活动论坛&lt;/a&gt; 。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Make GIF Snapshot for Android APP</title>
