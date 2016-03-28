@@ -4,10 +4,10 @@ layout: about_me
 category: feed
 ---
 
-<h4 class='tc'>这是我的一些朋友的站点，欢迎访问他们。</h4>
+<h4 class='tc'>这是我的一些朋友的站点，欢迎访问。</h4>
 
-<div class="friend-list">
-<ul>
+<div class="friend-list clearfix">
+<ul class='clearfix'>
 <li><a href="http://androiddevtools.cn/"><img src="http://7xrhuv.com1.z0.glb.clouddn.com/androiddevtools_cn.png" width="130px" height="64px" alt="androiddevtools" title="收集整理Android开发所需的Android SDK、开发中用到的工具、Android开发教程、Android设计规范，免费的设计素材等。欢迎大家推荐自己在Android开发过程中用的好用的工具、学习开发教程、用到设计素材。"></a></li>
 
 <li><a href="http://androidweekly.cn/"><img src="http://7xrhuv.com1.z0.glb.clouddn.com/androidweekly_cn.png" width="130px" height="64px" alt="androidweekly" title="Android 开发技术周报,汇集互联网上每周Android开发的技术文章、开源项目、开发工具、视频教程、Android设计教程、设计资源等。"></a></li>

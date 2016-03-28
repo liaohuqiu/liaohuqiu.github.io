@@ -2,8 +2,15 @@
   ul {
     list-style: none;
     li {
-      float: left;
-      margin: 30px;
+      @include for_desktop {
+        float: left;
+        margin: 30px;
+      }
+      @include for_mobile {
+        float: left;
+        width: 100%;
+        text-align: center;
+      }
       img {
         width: 130px;
         height: 65px;
