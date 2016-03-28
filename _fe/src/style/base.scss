@@ -1,12 +1,141 @@
-.tc {
-  text-align: center;
+// app color
+$color_primary_dark: #7A3243;
+$color_primary: #007edf;
+
+$color_text_primary: #666666;
+$color_text_secondary: #737272;
+$color_border: #4A4A4A;
+$color_button: #4A4A4A;
+
+// bootstrap color
+$brand-primary: $color_primary;
+$btn-primary-bg: $color_primary;
+$btn-primary-border: $color_primary;
+
+$font-size-base: 14px;
+
+$body-bg: #fafafa;
+$text-color: #4A4A4A;
+$link-color: #4A4A4A;
+$link-hover-decoration: none;
+$link-hover-color: $link-color;
+$input-border-radius-small: 0px;
+$input-border-radius-big: 0px;
+
+// for fonts
+$font_light: 300;
+$font_semibold: 600;
+$font_bold: 700;
+
+$d_padding_left: 80px;
+$d_width: 1440px;
+
+$app_border: 1px solid #e5e5e5;
+
+
+@mixin define($key, $v1920, $v1366, $v960, $v768, $v640, $v414, $v_lt_414) {
+  @media (min-width: 1920px) {
+    #{$key}: #{$v1920};
+  }
+
+  @media (min-width: 1280px) and (max-width: #{(1920 - 0.5)}px) {
+    #{$key}: #{$v1366};
+  }
+
+  @media (min-width: 960px) and (max-width: #{(1280 - 0.5)}px) {
+    #{$key}: #{$v960};
+  }
+
+  @media (min-width: 768px) and (max-width: #{(960 - 0.5)}px) {
+    #{$key}: #{$v768};
+  }
+
+  @media (min-width: 640px) and (max-width: #{(768 - 0.5)}px) {
+    #{$key}: #{$v640};
+  }
+
+  @media (min-width: 414px) and (max-width: #{(640 - 0.5)}px) {
+    #{$key}: #{$v414};
+  }
+
+  @media (max-width: #{(414 - 0.5)}px) {
+    #{$key}: #{$v_lt_414};
+  }
 }
 
-.wechat-mp-qrcode {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
-  img {
-    width: 150px;
+@mixin when_smaller_than($size) {
+  @media (max-width: #{$size - 0.5}px) {
+    @content;
   }
+}
+@mixin when_larger_than($size) {
+  @media (min-width: #{$size}px) {
+    @content;
+  }
+}
+
+@mixin for_desktop {
+  @include when_larger_than(768) {
+    @content
+  }
+}
+@mixin for_mobile {
+  @include when_smaller_than(768) {
+    @content
+  }
+}
+
+@mixin transition($value) {
+  -webkit-transition: #{$value};
+  -moz-transition: #{$value};
+  -ms-transition: #{$value};
+  -o-transition: #{$value};
+  transition: #{$value};
+}
+
+@mixin transform_origin($value){
+  -webkit-transform-origin: #{$value};
+  -moz-transform-origin: #{$value};
+  -ms-transform-origin: #{$value};
+  -o-transform-origin: #{$value};
+  transform-origin: #{$value};
+}
+
+@mixin transform($value){
+  -webkit-transform: #{$value};
+  -moz-transform: #{$value};
+  -ms-transform: #{$value};
+  -o-transform: #{$value};
+  transform: #{$value};
+}
+
+
+//
+// Border-radius
+//
+
+@mixin border-radius($radius){
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+//
+// Box-shadow
+//
+@mixin box-shadow($x-axis, $y-axis, $blur, $spread, $color) {
+  -webkit-box-shadow: $x-axis $y-axis $blur $spread $color;
+  -moz-box-shadow: $x-axis $y-axis $blur $spread $color;
+  -o-box-shadow: $x-axis $y-axis $blur $spread $color;
+  box-shadow: $x-axis $y-axis $blur $spread $color;
+}
+
+// linear-gradient
+
+@mixin bg-linear-gradient($angle, $start-color, $stop-color) {
+  background: $start-color; // for old browsers that don't support gradient
+  background: -webkit-linear-gradient($angle, $start-color, $stop-color);
+  background: -o-linear-gradient($angle, $start-color, $stop-color);
+  background: -moz-linear-gradient($angle, $start-color, $stop-color);
+  background: linear-gradient($angle, $start-color, $stop-color);
 }

@@ -1,0 +1,70 @@
+$bar_height: 5px;
+$bar_width: 30px;
+$bar_color: $color_primary;
+
+$nav_height: 74px;
+$nav_width: 34px;
+
+$margin_top: ($nav_height - ($bar_height * 5 )) / 2;
+$margin_left: ($nav_width - $bar_width) / 2;
+
+.mobile-nav-toggle {
+
+  margin: $margin_top $margin_left;
+  float: right;
+  width: $bar_width;
+  height: $bar_height * 5;
+  position: relative;
+
+  @include for_desktop {
+    display: none;
+  }
+
+  .bar {
+    width: $bar_width;
+    height: $bar_height;
+    background-color: $bar_color;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    @include transform_origin(50% 50%);
+    @include transition('-webkit-transform .1s 0s ease-in-out,top .1s .1s ease-in-out');
+
+    &.top-bar {
+
+    }
+
+    &.middle-bar {
+      top: $bar_height * 2;
+      @include transition('opacity 0s .15s linear');
+    }
+
+    &.bottom-bar {
+      top: $bar_height * 4;
+    }
+  }
+}
+
+.toggle-open {
+  .mobile-nav-toggle {
+    .bar {
+      &.top-bar {
+        top: $bar_height * 2;
+        @include transform(rotate(45deg));
+        @include transition('top .1s .1s ease-in-out,transform .1s .2s ease-in-out');
+      }
+
+      &.middle-bar {
+        opacity: 0;
+      }
+
+      &.bottom-bar {
+        top: $bar_height * 2;
+        @include transform(rotate(-45deg));
+        @include transition('top .1s .1s ease-in-out,transform .1s .2s ease-in-out');
+      }
+    }
+  }
+}

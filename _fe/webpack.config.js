@@ -1,4 +1,6 @@
 var path = require('path');
+
+var module_path = path.resolve(__dirname, 'node_modules');
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var root_dir = path.dirname(__dirname);
@@ -23,7 +25,12 @@ module.exports = {
   },
   module: {
     loaders: [
-      {
+    {
+      test: /\.js$/,
+      exclude: module_path,
+      loader: 'babel'
+    },
+    {
       test: /.*\.(gif|png|jpe?g)$/i,
       loader: "url?limit=10000&name=" + name_for_img
     },

@@ -1,0 +1,29 @@
+.tc {
+  text-align: center;
+}
+
+.wechat-mp-qrcode {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  img {
+    width: 150px;
+  }
+}
+
+.desktop-display {
+  @include for_mobile {
+    display: none;
+  }
+}
+.mobile-display {
+  @include for_desktop {
+    display: none;
+  }
+}
+
+.site-container {
+  max-width: 900px;
+  margin: 0 auto;
+  width: 90%;
+}

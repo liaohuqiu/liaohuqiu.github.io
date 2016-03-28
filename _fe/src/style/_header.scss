@@ -1,0 +1,63 @@
+#header {
+
+  .site-container {
+    position: relative;
+    padding: 30px 10px 20px 10px;
+
+    .header-logo-container {
+    }
+
+    .desktop-menu {
+
+      position: absolute;
+      top: 30px;
+      right: 0;
+
+      .header-menu {
+        list-style: none;
+
+        @include for_desktop {
+          float: right;
+        }
+
+        .header-menu-item {
+          float: left;
+          margin: 0 10px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  .mobile-menu {
+
+    width: 100%;
+    top: 114px;
+    z-index: 100;
+    position: absolute;
+    background: #D3E5EC;
+    padding: 15px 0;
+
+    .header-menu {
+      list-style: none;
+      margin: 0;
+      .header-menu-item {
+        float: none;
+        text-align: center;
+        border-bottom: darken($color_primary, 20%);
+        padding: 1% 10px 2% 17px;
+        font-size: 16px;
+
+        &:last-child {
+          border-bottom: none;
+        }
+        .header-menu-link {
+          padding: 5px;
+          text-decoration: none;
+        }
+      }
+    }
+
+    display: none;
+  }
+}

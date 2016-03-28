@@ -42,28 +42,7 @@ try {
 
 <body>
 
-<!-- HEADER -->
-<div id="header_wrap" class="outer">
-    <header class="inner">
-        <h1 id="site_title"><a href="/">Srain</a>
-            <div class='about-me'>
-                {% if page.language == 'en' %}
-                <a href='/cn'>中文文章</a>
-                <a href='/about/about-me'>关于</a>
-                {% else %}
-                <a href='/'>English posts</a>
-                <a href='/about/about-me'>About</a>
-                {% endif %}
-                <a href='/about/feed'>feed</a>
-            </div>
-        </h1>
-        {% if page.language == 'en' %}
-        <a>Make it better.</a>
-        {% else %}
-        <a>质有高低，境界不同。</a>
-        {% endif %}
-    </header>
-</div>
+{% include header.html %}
 
 <!-- MAIN CONTENT -->
 {{ content }}
