@@ -27,6 +27,12 @@ keywords: "Google Study Jams"
 
 **Google Study Jams 是一个免费的学习小组，目前进行的是面向初学者（甚至零基础）的 Android 开发课程。**
 
+### 适用人群
+
+*  完全不懂编程的人
+*  编程新手
+*  有编程经验但希望转入 Android 开发的人
+
 ### 学习小组的形式
 
 这个是一个全球性的，社区支持驱动的，免费的，纯公益的活动，任何人都可以参加，对零基础，即使你不会编程。
@@ -102,7 +108,11 @@ keywords: "Google Study Jams"
 如果针对这个活动有任何问题，你可以邮件到： 
 [study-jams-china@google.com](mailto:study-jams-china@google.com)
 
-更多的信息，欢迎访问 [活动论坛][bbs] 。
+### 重要的链接
+
+> **更多的信息，欢迎访问 [活动论坛][bbs] 。**
+
+> **报名地址请点击 [这里][reg]。**
 
 
 [developerstudyjams]:      http://developerstudyjams.com/
