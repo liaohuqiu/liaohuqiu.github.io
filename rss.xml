@@ -6,9 +6,42 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Tue, 29 Mar 2016 09:17:26 +0800</pubDate>
-    <lastBuildDate>Tue, 29 Mar 2016 09:17:26 +0800</lastBuildDate>
+    <pubDate>Fri, 08 Apr 2016 11:59:32 +0800</pubDate>
+    <lastBuildDate>Fri, 08 Apr 2016 11:59:32 +0800</lastBuildDate>
 
+    
+    <item>
+      <title>Fail2Ban: whois is taking up 100% of the cpu</title>
+      <link>http://liaohuqiu.net/posts/fail-to-ban-whois-cup-100/</link>
+      <pubDate>Fri, 08 Apr 2016 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/posts/fail-to-ban-whois-cup-100</guid>
+      <description>&lt;p&gt;Today I noticed that one of my linode has been in 100% usage of CPU from May 31.&lt;/p&gt;
+
+&lt;p&gt;I login in to it, use &lt;code&gt;htop&lt;/code&gt; to check what is going on:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#39;http://ww3.sinaimg.cn/large/599e230bjw1f2p5ap0vw6j21yc07ojt2.jpg&#39;/&gt;&lt;/p&gt;
+
+&lt;p&gt;As we can seen, whois is taking up most of the cpu, and I&amp;#39;ve never used this command before.&lt;/p&gt;
+
+&lt;p&gt;So I use &lt;code&gt;ps&lt;/code&gt; to figure out which process started &lt;code&gt;whois&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;[huqiu@*** ~]$ ps -ef | grep whois
+root     25775  2649  0 Mar31 ?        00:00:00 sh -c printf %b &amp;quot;Subject: [Fail2Ban] SSH: banned 118.220.255.157 from `uname -n`?Date: `LC_TIME=C date -u +&amp;quot;%a, %d %h %Y %T +0000&amp;quot;`?From: Fail2Ban &amp;lt;fail2ban@example.com&amp;gt;?To: you@example.com\n?Hi,\n?The IP 118.220.255.157 has just been banned by Fail2Ban after?5 attempts against SSH.\n\n?Here is more information about 118.220.255.157:\n?`/usr/bin/whois 118.220.255.157 || echo missing whois program`\n?Regards,\n?Fail2Ban&amp;quot; | /usr/sbin/sendmail -f
+fail2ban@example.com you@example.com
+root     25776 25775  0 Mar31 ?        00:00:00 sh -c printf %b &amp;quot;Subject: [Fail2Ban] SSH: banned 118.220.255.157 from `uname -n`?Date: `LC_TIME=C date -u +&amp;quot;%a, %d %h %Y %T +0000&amp;quot;`?From: Fail2Ban &amp;lt;fail2ban@example.com&amp;gt;?To: you@example.com\n?Hi,\n?The IP 118.220.255.157 has just been banned by Fail2Ban after?5 attempts against SSH.\n\n?Here is more information about 118.220.255.157:\n?`/usr/bin/whois 118.220.255.157 || echo missing whois program`\n?Regards,\n?Fail2Ban&amp;quot; | /usr/sbin/sendmail -f
+fail2ban@example.com you@example.com
+root     25782 25776  0 Mar31 ?        00:00:00 sh -c printf %b &amp;quot;Subject: [Fail2Ban] SSH: banned 118.220.255.157 from `uname -n`?Date: `LC_TIME=C date -u +&amp;quot;%a, %d %h %Y %T +0000&amp;quot;`?From: Fail2Ban &amp;lt;fail2ban@example.com&amp;gt;?To: you@example.com\n?Hi,\n?The IP 118.220.255.157 has just been banned by Fail2Ban after?5 attempts against SSH.\n\n?Here is more information about 118.220.255.157:\n?`/usr/bin/whois 118.220.255.157 || echo missing whois program`\n?Regards,\n?Fail2Ban&amp;quot; | /usr/sbin/sendmail -f
+fail2ban@example.com you@example.com
+root     25783 25782 99 Mar31 ?        7-06:42:01 /usr/bin/whois 118.220.255.157
+huqiu    32576 29742  0 03:37 pts/3    00:00:00 grep whois
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It is very clear that Fail2Ban are trying to collecting some information and send the alarm email. (Ops, I did not config the right email address.)&lt;/p&gt;
+
+&lt;p&gt;I kill the process, and everything is working normally. I am search this on Google then I got this link which described the same issue:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://unix.stackexchange.com/questions/165053/why-would-whois-take-up-100-of-the-cpu&quot;&gt;http://unix.stackexchange.com/questions/165053/why-would-whois-take-up-100-of-the-cpu&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>欢迎大家参加 Google Study Jams 学习小组</title>
