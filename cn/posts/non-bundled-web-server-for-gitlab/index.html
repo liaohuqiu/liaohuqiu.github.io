@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<title>gitlab 使用现有nginx服务器 |  Yet Another Summer Rain</title>
+<title>gitlab 使用现有 nginx 服务器 |  Yet Another Summer Rain</title>
 <meta charset='utf-8' />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -111,22 +111,25 @@ try {
             </div>
             
             --->
-            <h2> gitlab 使用现有nginx服务器 </h2>
+            <h2> gitlab 使用现有 nginx 服务器 </h2>
             <div>
                 <p> 08 Jan 2015 </p>
             </div>
             <hr>
-            <p>gitlab 安装自带nginx，如果想利用原有nginx，可按如下操作：</p>
+            <p>gitlab 安装自带 nginx，如果想利用原有 nginx，可按如下操作：</p>
 
 <blockquote>
-<p>官方文档: <a href="https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md">https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md</a></p>
+<p>8.0 版本 socket 文件位置有变动，感谢评论区的同学。</p>
 </blockquote>
 
 <ul>
 <li><p>nginx 增加虚拟主机配置</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text"># gitlab socket 文件地址
 upstream gitlab {
-  server unix:/var/opt/gitlab/gitlab-rails/tmp/sockets/gitlab.socket;
+  # 7.x 版本在此位置
+  # server unix:/var/opt/gitlab/gitlab-rails/tmp/sockets/gitlab.socket;
+  # 8.0 位置
+  server unix://var/opt/gitlab/gitlab-rails/sockets/gitlab.socket;
 }
 
 server {
@@ -184,19 +187,19 @@ server {
   error_page 502 /502.html;
 }
 </code></pre></div></li>
-<li><p>禁用自带nginx</p>
+<li><p>禁用自带 nginx</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">vim /etc/gitlab/gitlab.rb
 </code></pre></div>
 <p>加入</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">nginx[&#39;enable&#39;] = false
 </code></pre></div></li>
-<li><p>重启nginx, 重启gitlab</p>
+<li><p>重启 nginx, 重启gitlab</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">sudo /usr/local/nginx/sbin/nginx -s reload
 sudo gitlab-ctl reconfigure
 </code></pre></div></li>
 <li><p>权限配置</p>
 
-<p>访问会报502。原本是nginx用户无法访问gitlab用户的socket文件，用户权限配置，因人而异。粗暴地:</p>
+<p>访问会报502。原本是 nginx 用户无法访问gitlab用户的 socket 文件，用户权限配置，因人而异。粗暴地:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">sudo chmod -R o+x /var/opt/gitlab/gitlab-rails
 </code></pre></div></li>
 </ul>

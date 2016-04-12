@@ -6,8 +6,8 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Fri, 08 Apr 2016 11:59:32 +0800</pubDate>
-    <lastBuildDate>Fri, 08 Apr 2016 11:59:32 +0800</lastBuildDate>
+    <pubDate>Tue, 12 Apr 2016 12:51:28 +0800</pubDate>
+    <lastBuildDate>Tue, 12 Apr 2016 12:51:28 +0800</lastBuildDate>
 
     
     <item>
@@ -3109,22 +3109,25 @@ Platform.Version=5.0.1
     </item>
     
     <item>
-      <title>gitlab 使用现有nginx服务器</title>
+      <title>gitlab 使用现有 nginx 服务器</title>
       <link>http://liaohuqiu.net/cn/posts/non-bundled-web-server-for-gitlab/</link>
       <pubDate>Thu, 08 Jan 2015 00:00:00 +0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/non-bundled-web-server-for-gitlab</guid>
-      <description>&lt;p&gt;gitlab 安装自带nginx，如果想利用原有nginx，可按如下操作：&lt;/p&gt;
+      <description>&lt;p&gt;gitlab 安装自带 nginx，如果想利用原有 nginx，可按如下操作：&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;官方文档: &lt;a href=&quot;https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md&quot;&gt;https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;8.0 版本 socket 文件位置有变动，感谢评论区的同学。&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;nginx 增加虚拟主机配置&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# gitlab socket 文件地址
 upstream gitlab {
-  server unix:/var/opt/gitlab/gitlab-rails/tmp/sockets/gitlab.socket;
+  # 7.x 版本在此位置
+  # server unix:/var/opt/gitlab/gitlab-rails/tmp/sockets/gitlab.socket;
+  # 8.0 位置
+  server unix://var/opt/gitlab/gitlab-rails/sockets/gitlab.socket;
 }
 
 server {
@@ -3182,19 +3185,19 @@ server {
   error_page 502 /502.html;
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;禁用自带nginx&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;禁用自带 nginx&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;vim /etc/gitlab/gitlab.rb
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;加入&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;nginx[&amp;#39;enable&amp;#39;] = false
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;重启nginx, 重启gitlab&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;重启 nginx, 重启gitlab&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;sudo /usr/local/nginx/sbin/nginx -s reload
 sudo gitlab-ctl reconfigure
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;权限配置&lt;/p&gt;
 
-&lt;p&gt;访问会报502。原本是nginx用户无法访问gitlab用户的socket文件，用户权限配置，因人而异。粗暴地:&lt;/p&gt;
+&lt;p&gt;访问会报502。原本是 nginx 用户无法访问gitlab用户的 socket 文件，用户权限配置，因人而异。粗暴地:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;sudo chmod -R o+x /var/opt/gitlab/gitlab-rails
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
