@@ -1,20 +1,23 @@
 ---
 layout: post_wide
-title: "gitlab 使用现有nginx服务器"
+title: "gitlab 使用现有 nginx 服务器"
 description: ""
 category: blog
 ---
 
-gitlab 安装自带nginx，如果想利用原有nginx，可按如下操作：
+gitlab 安装自带 nginx，如果想利用原有 nginx，可按如下操作：
 
-> 官方文档: https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md
+> 8.0 版本 socket 文件位置有变动，感谢评论区的同学。
 
 * nginx 增加虚拟主机配置
 
     ```
     # gitlab socket 文件地址
     upstream gitlab {
-      server unix:/var/opt/gitlab/gitlab-rails/tmp/sockets/gitlab.socket;
+      # 7.x 版本在此位置
+      # server unix:/var/opt/gitlab/gitlab-rails/tmp/sockets/gitlab.socket;
+      # 8.0 位置
+      server unix://var/opt/gitlab/gitlab-rails/sockets/gitlab.socket;
     }
     
     
@@ -76,7 +79,7 @@ gitlab 安装自带nginx，如果想利用原有nginx，可按如下操作：
     }
     ```
 
-*  禁用自带nginx
+*  禁用自带 nginx
 
     ```
     vim /etc/gitlab/gitlab.rb
@@ -88,7 +91,7 @@ gitlab 安装自带nginx，如果想利用原有nginx，可按如下操作：
     nginx['enable'] = false
     ```
     
-* 重启nginx, 重启gitlab
+* 重启 nginx, 重启gitlab
 
     ```
     sudo /usr/local/nginx/sbin/nginx -s reload
@@ -97,7 +100,7 @@ gitlab 安装自带nginx，如果想利用原有nginx，可按如下操作：
 
 * 权限配置
     
-    访问会报502。原本是nginx用户无法访问gitlab用户的socket文件，用户权限配置，因人而异。粗暴地:
+    访问会报502。原本是 nginx 用户无法访问gitlab用户的 socket 文件，用户权限配置，因人而异。粗暴地:
 
     ```
     sudo chmod -R o+x /var/opt/gitlab/gitlab-rails
