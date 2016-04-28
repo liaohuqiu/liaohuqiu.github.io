@@ -113,7 +113,7 @@ So `byte[0]` will take: 8 + 4 + 4 + 4 = 20 bytes. The final size after alignment
 
 `byte[0]` ~ `byte[4]` are all 24 bytes.
 
-`char[0] will also take 24 bytes. And from `char[0]` to `char[2]`, they are all 24 bytes.
+`char[0]` will also take 24 bytes. And from `char[0]` to `char[2]`, they are all 24 bytes.
 
 
 #### Size of `String`

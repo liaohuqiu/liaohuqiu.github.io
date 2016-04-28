@@ -5,6 +5,12 @@ description: "使用红杏代理更新Android SDK，让使用Android Studio轻�
 category: blog
 ---
 
+红杏目前已经处于不可以用状态。各位请通过工单系统申请退款。
+
+April 28, 2016 更新。
+
+---
+
 前几天红杏开放了公益代理，专门为开发人员开放，免费使用。
 
 从今以后更新android sdk，使用Android Studio都会顺利很多。一直以来使用Android Studio最大的障碍，现在通过红杏公益代理可以得到解决了。
