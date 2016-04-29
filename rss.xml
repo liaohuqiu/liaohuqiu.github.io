@@ -6,8 +6,8 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Fri, 29 Apr 2016 10:05:05 +0800</pubDate>
-    <lastBuildDate>Fri, 29 Apr 2016 10:05:05 +0800</lastBuildDate>
+    <pubDate>Sat, 30 Apr 2016 00:09:41 +0800</pubDate>
+    <lastBuildDate>Sat, 30 Apr 2016 00:09:41 +0800</lastBuildDate>
 
     
     <item>
@@ -3980,7 +3980,7 @@ sudo yum install -y libstdc++.so.6
 &lt;p&gt;未重排之前:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;     32 bit                    64bit +UseCompressedOops
 
-[HEADER: 12 bytes]  8           [HEADER: 12 bytes] 12
+[HEADER:  8 bytes]  8           [HEADER: 12 bytes] 12
 [a:       1 byte ]  9           [a:       1 byte ] 13
 [padding: 3 bytes] 12           [padding: 3 bytes] 16
 [c:       4 bytes] 16           [c:       4 bytes] 20
