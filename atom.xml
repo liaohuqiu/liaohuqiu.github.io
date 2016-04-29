@@ -4,13 +4,138 @@
   <title>Yet Another Summer Rain</title>
   <link href="http://liaohuqiu.net/"/>
   <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
-  <updated>2016-04-12T12:51:28+08:00</updated>
+  <updated>2016-04-29T09:38:39+08:00</updated>
   <id>http://liaohuqiu.net/</id>
   <author>
     <name>Huqiu Liao / Srain</name>
     <email>srain@php.net</email>
   </author>
 
+  
+  <entry>
+    <id>http://liaohuqiu.net/cn/posts/android-enum-memory-usage</id>
+    <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/android-enum-memory-usage/"/>
+    <title>Android 中的 Enum 到底占多少内存？该如何用？</title>
+    <published>2016-04-28T00:00:00+08:00</published>
+    <updated>2016-04-28T00:00:00+08:00</updated>
+    <author>
+      <name>Huqiu Liao / Srain</name>
+      <uri>http://liaohuqiu.net/</uri>
+    </author>
+    <content type="html">&lt;h3 id=&quot;关于-enum-的使用&quot;&gt;关于 Enum 的使用&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;Enum&lt;/code&gt; 需要占用较大的内存，如果对内存敏感，请尽量少使用 &lt;code&gt;Enum&lt;/code&gt;，换用做静态常量。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://developer.android.com/training/articles/memory.html#Overhead&quot;&gt;文档&lt;/a&gt; 提到：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Enums often require more than twice as much memory as static constants. You should strictly avoid using enums on Android.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;关于具体要占用多少内存呢？说得比较模糊。&lt;/p&gt;
+
+&lt;h3 id=&quot;内存占用对比&quot;&gt;内存占用对比&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.liaohuqiu.net/posts/android-object-size-dalvik/&quot;&gt;我&lt;/a&gt; 在 《&lt;a href=&quot;http://www.liaohuqiu.net/posts/android-object-size-dalvik/&quot;&gt;Dalvik 中的对象大小&lt;/a&gt;》一文中， 介绍过如何衡量对象的大小，这个文章非常详细，建议大家看看
+，现举例说明。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;enum&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MonthEnum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// 4 bytes&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;JANUARY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// -&amp;gt; 87 bytes&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// 4 bytes&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;FEBRUARY&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// -&amp;gt;  88 bytes&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// 生成的数组 24 + 4 + 4&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// MonthEnum[] values&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MonthConst&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// 4 bytes&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JANUARY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// 4 bytes&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FEBRUARY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UseMonth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// 4 bytes&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mMonth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MonthConst&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;JANUARY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// 4 bytes&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MonthEnum&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mMonthEnum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MonthEnum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;JANUARY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;我们不考虑 &lt;code&gt;MonthEnum&lt;/code&gt; 和 &lt;code&gt;MonthConst&lt;/code&gt; 他们对于 dex 大小的影响，这个没什么意义，几十个 &lt;code&gt;Enum&lt;/code&gt; 占用的大小，也不及一张图片。&lt;/p&gt;
+
+&lt;p&gt;我们要对比的是 &lt;code&gt;UseMonth&lt;/code&gt; 中这两种写法所占用的内存大小在 Dalvik 虚拟机下的区别。&lt;/p&gt;
+
+&lt;p&gt;在 &lt;code&gt;UseMonth&lt;/code&gt; 中，他们一个是 &lt;code&gt;int&lt;/code&gt; 类型，一个是对象引用，都是 4 字节，没有区别。&lt;/p&gt;
+
+&lt;p&gt;我们对比的大小，指的是对象本身的大小加上对象成员指向的其他对象大小，即 shadow heap + maintain heap。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;MonthEnum&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;对于一个 &lt;code&gt;MonthEnum&lt;/code&gt;， &lt;code&gt;JANUARY&lt;/code&gt; 和 &lt;code&gt;FEBRUARY&lt;/code&gt; 是两个指向 &lt;code&gt;MonthEnum&lt;/code&gt; 实例的引用。他们分别占用 4 个字节。&lt;/p&gt;
+
+&lt;p&gt;他们指向的实例对象还要占用额外的内存。&lt;/p&gt;
+
+&lt;p&gt;我们看看 &lt;code&gt;enum&lt;/code&gt; 的定义：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Enum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ordinal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;作为 &lt;code&gt;Enum&lt;/code&gt; 成员变量 &lt;code&gt;name&lt;/code&gt;（对象引用） 和 &lt;code&gt;ordinal&lt;/code&gt;（int） 他们各占用 4 个字节，该对象实例占用：12 + 4 + 4 = 20 bytes，对齐之后是 24 字节。&lt;/p&gt;
+
+&lt;p&gt;但是，&lt;code&gt;name&lt;/code&gt; 是字符串，空字符串对象本身就是 32 字节，加上其中的字符数组最少也会占据 24 个字节, 对字符串加字符数组最少会占据 56 个字节。故一个 &lt;code&gt;Enum&lt;/code&gt; 实例，最少 80 个字节。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;MonthEnum.JANUARY&lt;/code&gt;，含有 7 个字符，87 个字节；&lt;code&gt;MonthEnum.FEBRUARY&lt;/code&gt;，8 个字符，88 个字节。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/143285/how-much-memory-do-enums-take&quot;&gt;枚举编译完之后&lt;/a&gt; 会有一个 &lt;code&gt;values()&lt;/code&gt; 数组，两个对象引用的数组占用： 24 + 4 + 4 = 32 bytes。&lt;/p&gt;
+
+&lt;p&gt;总计是: 4 + 4 + 87 + 88 + 32&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;MonthConst&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;JANUARY&lt;/code&gt; 和 &lt;code&gt;FEBRUARY&lt;/code&gt; 各占 4 个字节。共计 8 个字节。&lt;/p&gt;
+
+&lt;p&gt;总计是: 4 + 4&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上面我们对比了只具有两个枚举值的枚举和常量，如果数量更多的话，枚举的命名更长的话，这个差距会更大。&lt;/p&gt;
+
+&lt;h4 id=&quot;文档所说的两倍&quot;&gt;文档所说的两倍&lt;/h4&gt;
+
+&lt;p&gt;所以实际占用的内存，并非 &lt;a href=&quot;http://developer.android.com/training/articles/memory.html#Overhead&quot;&gt;文档&lt;/a&gt; 所说的两倍左右。&lt;/p&gt;
+
+&lt;p&gt;假设有 n 个枚举值，仅仅考虑枚举类，静态占用的内存，n 个引用 + n 个数组 + 24 空数组长度： 8n + 24。&lt;/p&gt;
+
+&lt;p&gt;而对于 n 个值的常量，则有 4n 字节。当 n 很大时，这样的关系是两倍，但是枚举引用所指向的内存（retained heap）没有考虑进来。&lt;/p&gt;
+
+&lt;h3 id=&quot;该用不该用？&quot;&gt;该用不该用？&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://developer.android.com/training/articles/memory.html#Overhead&quot;&gt;文档&lt;/a&gt; 提到：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;You should strictly avoid using enums on Android.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;枚举有其其他的特性，如果你需要这些特性，比如：非连续数值的判断，重载等时，可以用。&lt;/p&gt;
+
+&lt;p&gt;另外，内存用量也并非那么地可怕，枚举带来的编码的便捷，代码可读性的提升也是很大的利好。&lt;/p&gt;
+
+&lt;p&gt;看到这里，你应该了解了所有的细节了，是否该用，各位自己权衡。&lt;/p&gt;
+
+&lt;p&gt;更多的讨论，可以看这里： &lt;a href=&quot;http://stackoverflow.com/questions/29183904/should-i-strictly-avoid-using-enums-on-android&quot;&gt;该不该用枚举&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;如果更好地使用常量&quot;&gt;如果更好地使用常量&lt;/h3&gt;
+
+&lt;p&gt;如果应用确实对内存用量敏感，或者你就是追求极致，可用常量来代替枚举。&lt;/p&gt;
+
+&lt;p&gt;常量一般会和 Bit  Mask 结合起来用，这样可以极致地减少了内存使用，同时使代码有较好的可读性。&lt;/p&gt;
+
+&lt;p&gt;下一篇文章会提到。&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <id>http://liaohuqiu.net/posts/fail-to-ban-whois-cup-100</id>
@@ -59,7 +184,13 @@ huqiu    32576 29742  0 03:37 pts/3    00:00:00 grep whois
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
     </author>
-    <content type="html">&lt;h3 id=&quot;关于学习和学习小组&quot;&gt;关于学习和学习小组&lt;/h3&gt;
+    <content type="html">&lt;p&gt;该活动结束啦，谢谢大家的关注。&lt;/p&gt;
+
+&lt;p&gt;April 28, 2016 更新。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h3 id=&quot;关于学习和学习小组&quot;&gt;关于学习和学习小组&lt;/h3&gt;
 
 &lt;p&gt;这几天，看到 Google Study Jams 的时候，我想起，不管是我在学校还是近些年走向工作以后，我都喜欢找三五好友一起，组一个学习小组，一起学习。&lt;/p&gt;
 
@@ -2613,13 +2744,21 @@ refWatcher.watch(schrodingerCat);
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
     </author>
-    <content type="html">&lt;p&gt;非常抱歉写这样一个文章，我遇到一个事情，需要大家的帮助。&lt;/p&gt;
+    <content type="html">&lt;p&gt;活动结束了，我也离开阿里了。非常感谢各位对我的支持。&lt;/p&gt;
+
+&lt;p&gt;非常感谢！&lt;/p&gt;
+
+&lt;p&gt;April 28, 2016 更新。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;非常抱歉写这样一个文章，我遇到一个事情，需要大家的帮助。&lt;/p&gt;
 
 &lt;p&gt;最近内部公司举行一个活动，评比开源社区的活跃贡献者。评比指标是 GitHub 上 Follower 和 Contribution 的数量。&lt;/p&gt;
 
 &lt;p&gt;GitHub是一个伟大的网站，我们可以和来自世界各地的朋友协作，交流，分享： &lt;code&gt;Build software better, together.&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;我也开源了一些项目，并且认真维护和改进：跟进issue，修复问题，更新完善文档。我希望这些项目对需要的人有帮助，希望我的工作可以让项目的使用者们心生喜悦。&lt;/p&gt;
+&lt;p&gt;我也开源了一些项目，并且认真维护和改进：跟进 issue，修复问题，更新完善文档。我希望这些项目对需要的人有帮助，希望我的工作可以让项目的使用者们心生喜悦。&lt;/p&gt;
 
 &lt;p&gt;我参加了公司的这个评比活动，希望成为公司和同事认同的 “&lt;code&gt;开源社区的活跃贡献者&lt;/code&gt;”，我持续提交， 一直很活跃，但我发现我的 Follower 数量较少，可能无法被评选上，所以我在这里请求朋友们关注我的 GitHub ：&lt;/p&gt;
 
@@ -2647,7 +2786,13 @@ refWatcher.watch(schrodingerCat);
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
     </author>
-    <content type="html">&lt;p&gt;前几天红杏开放了公益代理，专门为开发人员开放，免费使用。&lt;/p&gt;
+    <content type="html">&lt;p&gt;红杏目前已经处于不可以用状态。各位请通过工单系统申请退款。&lt;/p&gt;
+
+&lt;p&gt;April 28, 2016 更新。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;前几天红杏开放了公益代理，专门为开发人员开放，免费使用。&lt;/p&gt;
 
 &lt;p&gt;从今以后更新android sdk，使用Android Studio都会顺利很多。一直以来使用Android Studio最大的障碍，现在通过红杏公益代理可以得到解决了。&lt;/p&gt;
 
@@ -3786,7 +3931,7 @@ sudo yum install -y libstdc++.so.6
 
 &lt;p&gt;&lt;code&gt;byte[0]&lt;/code&gt; ~ &lt;code&gt;byte[4]&lt;/code&gt; are all 24 bytes.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;char[0] will also take 24 bytes. And from&lt;/code&gt;char[0]&lt;code&gt;to&lt;/code&gt;char[2]`, they are all 24 bytes.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;char[0]&lt;/code&gt; will also take 24 bytes. And from &lt;code&gt;char[0]&lt;/code&gt; to &lt;code&gt;char[2]&lt;/code&gt;, they are all 24 bytes.&lt;/p&gt;
 
 &lt;h4 id=&quot;size-of-string&quot;&gt;Size of &lt;code&gt;String&lt;/code&gt;&lt;/h4&gt;
 
