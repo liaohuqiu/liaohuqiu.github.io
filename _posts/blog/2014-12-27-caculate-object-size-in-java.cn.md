@@ -131,7 +131,7 @@ localhost:~ srain$ jinfo -flag UseCompressedOops 13133
     ```
          32 bit                    64bit +UseCompressedOops
 
-    [HEADER: 12 bytes]  8           [HEADER: 12 bytes] 12
+    [HEADER:  8 bytes]  8           [HEADER: 12 bytes] 12
     [a:       1 byte ]  9           [a:       1 byte ] 13
     [padding: 3 bytes] 12           [padding: 3 bytes] 16
     [c:       4 bytes] 16           [c:       4 bytes] 20
