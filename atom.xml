@@ -4,7 +4,7 @@
   <title>Yet Another Summer Rain</title>
   <link href="http://liaohuqiu.net/"/>
   <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
-  <updated>2016-04-29T09:38:39+08:00</updated>
+  <updated>2016-04-29T10:05:05+08:00</updated>
   <id>http://liaohuqiu.net/</id>
   <author>
     <name>Huqiu Liao / Srain</name>
@@ -22,7 +22,11 @@
       <name>Huqiu Liao / Srain</name>
       <uri>http://liaohuqiu.net/</uri>
     </author>
-    <content type="html">&lt;h3 id=&quot;关于-enum-的使用&quot;&gt;关于 Enum 的使用&lt;/h3&gt;
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;听说过一些论调，Enum 不该用啊，占用了很大的 dex 文件，占用很多内存。而到底确切占用了多少内存，没说。本文分析了枚举所占用的精确的内存大小，方便大家权衡选择，希望对大家有帮助。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;关于-enum-的使用&quot;&gt;关于 Enum 的使用&lt;/h3&gt;
 
 &lt;p&gt;&lt;code&gt;Enum&lt;/code&gt; 需要占用较大的内存，如果对内存敏感，请尽量少使用 &lt;code&gt;Enum&lt;/code&gt;，换用做静态常量。&lt;/p&gt;
 

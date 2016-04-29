@@ -6,8 +6,8 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Fri, 29 Apr 2016 09:38:39 +0800</pubDate>
-    <lastBuildDate>Fri, 29 Apr 2016 09:38:39 +0800</lastBuildDate>
+    <pubDate>Fri, 29 Apr 2016 10:05:05 +0800</pubDate>
+    <lastBuildDate>Fri, 29 Apr 2016 10:05:05 +0800</lastBuildDate>
 
     
     <item>
@@ -16,7 +16,11 @@
       <pubDate>Thu, 28 Apr 2016 00:00:00 +0800</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/android-enum-memory-usage</guid>
-      <description>&lt;h3 id=&quot;关于-enum-的使用&quot;&gt;关于 Enum 的使用&lt;/h3&gt;
+      <description>&lt;blockquote&gt;
+&lt;p&gt;听说过一些论调，Enum 不该用啊，占用了很大的 dex 文件，占用很多内存。而到底确切占用了多少内存，没说。本文分析了枚举所占用的精确的内存大小，方便大家权衡选择，希望对大家有帮助。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;关于-enum-的使用&quot;&gt;关于 Enum 的使用&lt;/h3&gt;
 
 &lt;p&gt;&lt;code&gt;Enum&lt;/code&gt; 需要占用较大的内存，如果对内存敏感，请尽量少使用 &lt;code&gt;Enum&lt;/code&gt;，换用做静态常量。&lt;/p&gt;
 
