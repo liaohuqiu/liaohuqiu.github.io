@@ -4,13 +4,227 @@
   <title>Yet Another Summer Rain</title>
   <link href="http://liaohuqiu.net/"/>
   <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
-  <updated>2016-04-30T00:09:41+08:00</updated>
+  <updated>2016-05-06T17:24:27+08:00</updated>
   <id>http://liaohuqiu.net/</id>
   <author>
     <name>Huqiu Liao / Srain</name>
     <email>srain@php.net</email>
   </author>
 
+  
+  <entry>
+    <id>http://liaohuqiu.net/cn/posts/lody</id>
+    <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/lody/"/>
+    <title>我所认识的『天才』少年：Lody</title>
+    <published>2016-05-05T00:00:00+08:00</published>
+    <updated>2016-05-05T00:00:00+08:00</updated>
+    <author>
+      <name>Huqiu Liao / Srain</name>
+      <uri>http://liaohuqiu.net/</uri>
+    </author>
+    <content type="html">&lt;h4 id=&quot;lody-同学&quot;&gt;Lody 同学&lt;/h4&gt;
+
+&lt;p&gt;最近我问 &lt;a href=&quot;https://github.com/oasisfeng&quot;&gt;冯老师&lt;/a&gt; 有没有认识很不错的同学。&lt;a href=&quot;https://github.com/oasisfeng&quot;&gt;冯老师&lt;/a&gt; 沉吟了一会，说 &lt;a href=&quot;https://github.com/asLody&quot;&gt;Lody&lt;/a&gt; 不错。&lt;/p&gt;
+
+&lt;p&gt;哦，&lt;a href=&quot;https://github.com/asLody&quot;&gt;Lody&lt;/a&gt; 同学，是不错。&lt;/p&gt;
+
+&lt;p&gt;他的中文名字是：罗迪，目前在宁波上学，高二。听说，他对插件化和安全有一些研究。&lt;/p&gt;
+
+&lt;p&gt;4 月 20 号，他发布了一个项目: &lt;a href=&quot;https://github.com/asLody/TurboDex&quot;&gt;TurboDex&lt;/a&gt;，也正是这项目，使得更多的同学认识了 &lt;a href=&quot;https://github.com/asLody&quot;&gt;Lody&lt;/a&gt; 同学。&lt;/p&gt;
+
+&lt;p&gt;这个项目用于快速加载 dex，从中可以看到了许多的亮点，全英文的注释和 README，jni 部分的代码非常工整。&lt;/p&gt;
+
+&lt;p&gt;我惊讶于这是一个高二的同学做的项目，于是转了他的微博：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://weibo.com/1503535883/DrXm4DGSn&quot;&gt;『三个事情：1. Lody 同学这个项目实现了快速加载 dex；2. Lody 同学的代码写得不错； 3. Lody 同学，今年高二。』&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/599e230bjw1f3lmoxph2gj21kw0hlmyn.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;很多同学和朋友在留言中对一个能写出这样代码的 &lt;a href=&quot;https://github.com/asLody&quot;&gt;Lody&lt;/a&gt; 同学感到很好奇。&lt;/p&gt;
+
+&lt;p&gt;于是我在微信上简单地和他聊了聊，进行了一个简单的，下面的部分是当时我们的交谈记录：&lt;/p&gt;
+
+&lt;h5 id=&quot;什么时候开始写代码&quot;&gt;什么时候开始写代码&lt;/h5&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;你是几年级因为什么原因开始写代码的啊？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Lody:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;初二那段时间我爸买了个新手机，不久系统就被玩坏了，我一不小心学会了刷机，之后开始定制手机的 ROM 包，发布给用户。 &lt;/p&gt;
+
+&lt;p&gt;但是后来又觉得单纯的做 ROM，很没有意思，我需要更深入的了解 Android，于是我开始学习 Smali（我学的第一个语言不是 Java），Smali 这个语言是虚拟机字节码的描述语言。&lt;/p&gt;
+
+&lt;p&gt;我在没有学习 JAVA 的情况下去鼓捣这个总觉得有哪里不通，后来我终于开始学习高级语言，从 C++ 搞到 JAVA，又从 JAVA 学到 Android，大概到了初三基础就扎实了。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id=&quot;使用哪些编程语言&quot;&gt;使用哪些编程语言&lt;/h5&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;你主要编程语言是什么，现在看来。你 C++ 和 Java 都写，今天也看了你的代码了，确实写得不错。其他语言你还有涉猎吗？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Lody:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;除了 Android 以外，我对 Node.js 技术也比较感兴趣，所以我对 JavaScript 以及衍生的 CoffeeScript 和 TypeScript 也有涉猎。&lt;/p&gt;
+
+&lt;p&gt;还有一段时间我热衷于 Unity3D，趁机领略了 C#。&lt;/p&gt;
+
+&lt;p&gt;在高一那段时间，我对 Android 跟动态化有关的技术都非常感兴趣，我尝试将 Lua 移植到 Android，Android 跟 Lua 结合带来的好处是能够动态执行代码，于是我领略了 Lua。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id=&quot;如何安排时间&quot;&gt;如何安排时间&lt;/h5&gt;
+
+&lt;p&gt;我记得我上高中的时候，课业压力很重，不知道 Lody 同学是怎么安排时间的。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;我们之前就看你开源了一个项目，这次又开源了一个项目，这些项目的代码量都不算小，需要很大的时间投入。你现在读高二，应该是课业繁重的时候。你现在觉得学习压力大吗？你是如何安排学习时间和写代码的时间的？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Lody:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;学习压力肯定会有，不过适逢高考改革，写代码也成为了高考的一门科目，这让我有了更多发挥的空间。一般只有到了晚上和休息天我才有可以自我安排的时间，这样的时间最适合写代码了，不过还是学习第一，代码第二。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id=&quot;关于英语&quot;&gt;关于英语&lt;/h5&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;我们看了你的项目，你的注释，文档全部都是英文，你的英文水平很好啊，你平时都是怎么学习英语的？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Lody:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;除了高中英语外，我的英文颇受 Android 源码里的注释的影响，Google 工程师写的注释我有好多不认识，所以我在看代码的时候会同时打开翻译软件。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id=&quot;关于解决问题&quot;&gt;关于解决问题&lt;/h5&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;我们看到你项目中有好些技术难点；周围同学写代码的人很少，你现在所涉猎项目，都是非常前沿的技术，想请问，平时如果你遇到问题，你都是怎么解决的呢？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Lody:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;我研究的很多东西（或者说是鼓捣），都是没有前人探索过或者总结过经验的，对于非基础的东西，我更倾向于将问题细化，尝试在搜索引擎中寻找线索，搜索引擎未必有，那么我就会直接翻阅源码，有句话说得好：Read the fucking source code，一切问题都能从源头找到答案。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id=&quot;什么是天才&quot;&gt;什么是天才&lt;/h5&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;我们都看到，你现在在编码方面做得相当不错了，我听到有人说：『Lody 是天才！』。这三年多来，你付出了大量的时间在学习和编码上，关于天分和勤奋，你是怎么看的？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Lody:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;我不认为自己是天才，因为毕竟写代码的能力都是磨练出来的。我觉得这可能跟我的性格和思考的方式有关，很多的项目都是大脑里突然闪现的奇思妙想。 所以我觉得勤奋是最重要的东西，勤奋能为自己的能力打下坚实的基础，有了基础，后面的道路就是一条阳光大道。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id=&quot;同学们都在干嘛&quot;&gt;同学们都在干嘛&lt;/h5&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;嗯，你现在是学校里面的风云人物吗？你的同学当中或者你认识的同龄人中，像你这样写代码的同学多吗？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Lody:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;风云人物不敢当，认识我的比较多。说实话，这样年龄喜欢写代码的寥寥无几，大多数同学还是把时间泡在了游戏上面，但是同龄人里面写代码的也是有的，去年 DaoCloud 还给青年码农搞了一个 GTC（青少年开发者大会），挺有意思的。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id=&quot;父母的支持&quot;&gt;父母的支持&lt;/h5&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;你的爸妈对你写程序有什么样的看法呢？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Lody:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;我爸妈也看到了我写代码这方面的能力，挺支持我的，如果没有他们的支持，我也不会买到第一本100RMB的《C++从入门到放弃》.可以说，每一个脚步都是机缘.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id=&quot;关于大学&quot;&gt;关于大学&lt;/h5&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;你有参加过，或者计划参加类似 NOI 这样的信息竞赛吗？关于大学，你有什么想法？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Lody:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;没有参加过这方面的竞赛，因为我不是很偏向算法这块。大学的话，代码写得好跟高考有帮助，我还去申请了专利，万一校长一鸡冻，高考都不用了。&lt;/p&gt;
+
+&lt;p&gt;我觉得大学随遇而安即可，而且强求也未必有结果。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id=&quot;关于未来&quot;&gt;关于未来&lt;/h5&gt;
+
+&lt;p&gt;看起来，他对自己的有过很认真的考虑的：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;关于未来，你有什么计划吗？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Lody:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;我有幸认识了很多这个领域的技术大牛，让我发现我还有很多很多的不足，能够认识这些朋友，绝对是我学习之路的捷径。 &lt;/p&gt;
+
+&lt;p&gt;现在我也积累了不少 Android 这块的东西，很多东西我有自己独到的理解，尤其是动态化的领域，所以我计划在未来写一本无水分的 Android 干货技术书。关于未来的工作方向，我偏向于当一个 RD，有时间研究非业务层的东西，提升才能更快。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id=&quot;想去实习&quot;&gt;想去实习&lt;/h5&gt;
+
+&lt;p&gt;听到他说他想当一个 RD，我想我有个公司的话，我是很希望 Lody 这样的同学来我公司实习的，于是我问：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;如果你有时间的话，你是否会考虑一些公司的实习岗位？如果考虑的话，你倾向于什么样类型的公司？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Lody:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;会的，我最缺少的就是团队经验，如果有实习的机会我不会错过。关于公司，我没有明确的选择，主要看公司里面是怎样的团队，能和有激情的coder们一起愉快的写代码，那再好不过了。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5 id=&quot;经验分享&quot;&gt;经验分享&lt;/h5&gt;
+
+&lt;p&gt;到最后，我想问一下，Lody 是否有什么经验或者心得想和大家分享的：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;你有什么想和大家分享的吗？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Lody:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;我建议大家都装一个 &lt;a href=&quot;http://www.teamviewer.com/en/&quot;&gt;TeamViewer&lt;/a&gt;，没事的时候直播写代码或者找认识的同学直播给你写代码。&lt;/p&gt;
+
+&lt;p&gt;也可以上这个网站: &lt;a href=&quot;https://www.livecoding.tv%EF%BC%8C%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E5%8D%83%E5%A5%87%E7%99%BE%E6%80%AA%E7%9A%84%E4%BA%BA%E5%86%99%E5%8D%83%E5%A5%87%E7%99%BE%E6%80%AA%E7%9A%84%E4%BB%A3%E7%A0%81%E3%80%82&quot;&gt;https://www.livecoding.tv，可以看到千奇百怪的人写千奇百怪的代码。&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;我眼中的-lody&quot;&gt;我眼中的 Lody&lt;/h3&gt;
+
+&lt;p&gt;交谈到了上面就结束了，但我和 Lody 同学的交流一直持续着。&lt;/p&gt;
+
+&lt;p&gt;他有空的时候，也会和我们一起讨论，交流。除了技术上的潜质，我还看到了他身上的善良和勇敢。&lt;/p&gt;
+
+&lt;p&gt;群里有时大家会说一些成人意味较浓的笑话，他会表示他的不喜；魏则西去世所折射出来的无奈，也让我们看到了他的难过。&lt;/p&gt;
+
+&lt;p&gt;他有着强大的独立思考能力，正确的学习方法；聪明勤奋，勇敢善良。&lt;/p&gt;
+
+&lt;p&gt;他期待着的未来，也是我期待的未来，在他身上，我看到了美好。&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <id>http://liaohuqiu.net/cn/posts/android-enum-memory-usage</id>
@@ -131,7 +345,7 @@
 
 &lt;p&gt;更多的讨论，可以看这里： &lt;a href=&quot;http://stackoverflow.com/questions/29183904/should-i-strictly-avoid-using-enums-on-android&quot;&gt;该不该用枚举&lt;/a&gt;。&lt;/p&gt;
 
-&lt;h3 id=&quot;如果更好地使用常量&quot;&gt;如果更好地使用常量&lt;/h3&gt;
+&lt;h3 id=&quot;如何更好地使用常量&quot;&gt;如何更好地使用常量&lt;/h3&gt;
 
 &lt;p&gt;如果应用确实对内存用量敏感，或者你就是追求极致，可用常量来代替枚举。&lt;/p&gt;
 
