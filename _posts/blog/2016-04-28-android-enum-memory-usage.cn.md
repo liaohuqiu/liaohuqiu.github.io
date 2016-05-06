@@ -114,7 +114,7 @@ public class UseMonth {
 
 更多的讨论，可以看这里： [该不该用枚举][should-i-strictly-avoid-using-enums-on-android]。
 
-### 如果更好地使用常量
+### 如何更好地使用常量
 
 如果应用确实对内存用量敏感，或者你就是追求极致，可用常量来代替枚举。
 
