@@ -6,9 +6,75 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Wed, 11 May 2016 02:10:18 +0800</pubDate>
-    <lastBuildDate>Wed, 11 May 2016 02:10:18 +0800</lastBuildDate>
+    <pubDate>Wed, 11 May 2016 20:43:08 +0800</pubDate>
+    <lastBuildDate>Wed, 11 May 2016 20:43:08 +0800</lastBuildDate>
 
+    
+    <item>
+      <title>美丽的卷积云</title>
+      <link>http://liaohuqiu.net/cn/posts/cirro-cumulus/</link>
+      <pubDate>Wed, 11 May 2016 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/cn/posts/cirro-cumulus</guid>
+      <description>&lt;p&gt;整理旧物，发现了一本以前的笔记本。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/599e230bjw1f3ry2m8h6fj20zk0q0ai4.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;我很清楚是哪天，在哪里买了这个笔记本。&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;p&gt;它突然让我想起了刚毕业的那段时间。&lt;/p&gt;
+
+&lt;p&gt;那如风的日子。我总记得，那时微熹的早晨，那轻柔的晨风，那天边美丽的卷积云。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/599e230bjw1f3ry2l8jw2j20zk0nptdl.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;我想，如果是的话，那样的日子一定也是如风的五月。&lt;/p&gt;
+
+&lt;p&gt;那会，我刚毕业，在万柳租了一套房。考了摩托车驾照，买了辆 GP150 做通勤。每天都在公司待到很晚，经常 11，12 点回到住处。&lt;/p&gt;
+
+&lt;p&gt;回去之后，洗澡收拾，准备一下第二天的要穿的衣服，或者要带的东西，看会书就睡觉了。&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;p&gt;每天早上，我都会早早起来去小区旁边的『长春健身园』锻炼。&lt;/p&gt;
+
+&lt;p&gt;我有一个很简单的蒸蛋器，晚上定好时，早上开始煮，锻炼回来，吃个鸡蛋垫垫肚子，洗个澡，然后就去公司了。&lt;/p&gt;
+
+&lt;p&gt;到公司时，8 点来钟。很多时候，都是第一个。&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;p&gt;简单，安静的生活。有时安静到让我感到慌张。&lt;/p&gt;
+
+&lt;p&gt;然而就这样，日复一日。&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;p&gt;这样的日子，我过了很长时间，直到有一天，我平静的生活被打破了。&lt;/p&gt;
+
+&lt;p&gt;我翻开笔记本，看到了当时我的心情：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/599e230bjw1f3ry2n6v4hj20qy0ctgo4.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;字迹有点潦草，写的是：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;9 月 4 日&lt;/p&gt;
+
+&lt;p&gt;『天边美丽的卷积云啊，你可知昨晚我蒸鸡蛋没放鸡蛋啊。』&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;p&gt;呵呵，『我的生活，放荡……，像只狗……，像只流浪狗。』&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>BitMask 使用参考</title>
@@ -20,11 +86,11 @@
 
 &lt;p&gt;在前一篇文章：&lt;a href=&quot;http://www.liaohuqiu.net/cn/posts/android-enum-memory-usage/&quot;&gt;Android 中的 Enum 到底占多少内存？该如何用？&lt;/a&gt; 中提到内存占用的问题。&lt;/p&gt;
 
-&lt;p&gt;对于 JAVA 类应用，内存效率方面需要注意：&lt;/p&gt;
+&lt;p&gt;对于 Java 类应用，内存方面需要注意：&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;不要占用大量内存，否则可用内存少，也将有更大的可能触发 GC。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;不要频繁创建对象，频繁创建和销毁对象，有更大的可能性触发 GC。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;不要占用大量内存，否则可用内存少；触发 GC 或 &lt;code&gt;OutOfMemoryError&lt;/code&gt;；&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;不要频繁创建对象，频繁内存分配，触发 GC。&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;对于枚举和常量:&lt;/p&gt;
@@ -38,7 +104,7 @@
 
 &lt;p&gt;使用常量，可以大量节省内存，在 C 之类的语言中，大量使用 BitMask 来进行状态表示。&lt;/p&gt;
 
-&lt;p&gt;在 Android 中，也大量地使用了 BitMask，比如 &lt;code&gt;android.vie.View&lt;/code&gt; 这个类。&lt;/p&gt;
+&lt;p&gt;在 Android 中，也大量地使用了 BitMask，比如 &lt;code&gt;android.view.View&lt;/code&gt; 这个类。&lt;/p&gt;
 
 &lt;h3 id=&quot;位操作&quot;&gt;位操作&lt;/h3&gt;
 
@@ -83,7 +149,7 @@
 
 &lt;p&gt;使用 BitMask 可用非常少的资源表达非常丰富的状态。&lt;/p&gt;
 
-&lt;p&gt;在 JAVA 中，一个 byte 类型，有 8 位（bit），可以表达 8 个不同的状态，并且这些状态是互不影响的。而 int 类型，则有 32 位，可以表达 32 种状态。&lt;/p&gt;
+&lt;p&gt;在 Java 中，一个 byte 类型，有 8 位（bit），可以表达 8 个不同的状态，并且这些状态是互不影响的。而 int 类型，则有 32 位，可以表达 32 种状态。&lt;/p&gt;
 
 &lt;p&gt;更为重要的是，基于 BitMask 可 &lt;strong&gt;非常简单地&lt;/strong&gt; 进行组合状态查询。&lt;/p&gt;
 
@@ -132,9 +198,13 @@ AND 0000 0010
 
 &lt;h3 id=&quot;例子&quot;&gt;例子&lt;/h3&gt;
 
-&lt;p&gt;下面结合一个例子来做说明。相关代码在这里： &lt;a href=&quot;https://github.com/liaohuqiu/android-BitMaskSample/blob/master/app%2Fsrc%2Fmain%2Fjava%2Fin%2Fsrain%2Fbitmasksample%2Fpeople%2FPoet.java&quot;&gt;https://github.com/liaohuqiu/android-BitMaskSample&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下面结合一个例子来做说明。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Li_Bai&quot;&gt;李白&lt;/a&gt; 是个诗人，生活简单『朴素』，有时候写诗，有时候喝酒，有时候边写诗，边喝酒。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;相关代码在这里： &lt;a href=&quot;https://github.com/liaohuqiu/android-BitMaskSample/blob/master/app%2Fsrc%2Fmain%2Fjava%2Fin%2Fsrain%2Fbitmasksample%2Fpeople%2FPoet.java&quot;&gt;https://github.com/liaohuqiu/android-BitMaskSample&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Li_Bai&quot;&gt;李白&lt;/a&gt; 是个诗人，生活简单『朴素』：有时候写诗；有时候喝酒；有时候边写诗，边喝酒。&lt;/p&gt;
 
 &lt;p&gt;不管是忙于写诗还是忙于喝酒，李白都是在忙碌状态中。&lt;/p&gt;
 
@@ -149,7 +219,7 @@ AND 0000 0010
               |
    drinking --+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;两个 MASK 为：&lt;/p&gt;
+&lt;p&gt;两个 mask 为：&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// 0000 0010&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;STATE_BUSY_IN_WRITING&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x01&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
@@ -228,7 +298,7 @@ AND 0000 0010
 
 &lt;p&gt;我听到过很多论调，说用『枚举不好，官方也建议别用，因为占用很多内存，效率不高』，这些也都是人云亦云的典型。&lt;/p&gt;
 
-&lt;p&gt;除非你写的是类似 &lt;code&gt;View&lt;/code&gt; 这样的核心基础类，否则，如果连枚举这样内存开销都有问题的话，你的问题可就大了。&lt;/p&gt;
+&lt;p&gt;实际上，除非你写的是类似 &lt;code&gt;View&lt;/code&gt; 这样的核心基础类或者超大型应用，否则，如果连枚举这样内存开销都有问题的话，这个项目的问题就真的大了。&lt;/p&gt;
 </description>
     </item>
     

@@ -120,11 +120,11 @@ try {
 
 <p>在前一篇文章：<a href="http://www.liaohuqiu.net/cn/posts/android-enum-memory-usage/">Android 中的 Enum 到底占多少内存？该如何用？</a> 中提到内存占用的问题。</p>
 
-<p>对于 JAVA 类应用，内存效率方面需要注意：</p>
+<p>对于 Java 类应用，内存方面需要注意：</p>
 
 <ol>
-<li><p>不要占用大量内存，否则可用内存少，也将有更大的可能触发 GC。</p></li>
-<li><p>不要频繁创建对象，频繁创建和销毁对象，有更大的可能性触发 GC。</p></li>
+<li><p>不要占用大量内存，否则可用内存少；触发 GC 或 <code>OutOfMemoryError</code>；</p></li>
+<li><p>不要频繁创建对象，频繁内存分配，触发 GC。</p></li>
 </ol>
 
 <p>对于枚举和常量:</p>
@@ -138,7 +138,7 @@ try {
 
 <p>使用常量，可以大量节省内存，在 C 之类的语言中，大量使用 BitMask 来进行状态表示。</p>
 
-<p>在 Android 中，也大量地使用了 BitMask，比如 <code>android.vie.View</code> 这个类。</p>
+<p>在 Android 中，也大量地使用了 BitMask，比如 <code>android.view.View</code> 这个类。</p>
 
 <h3 id="位操作">位操作</h3>
 
@@ -183,7 +183,7 @@ try {
 
 <p>使用 BitMask 可用非常少的资源表达非常丰富的状态。</p>
 
-<p>在 JAVA 中，一个 byte 类型，有 8 位（bit），可以表达 8 个不同的状态，并且这些状态是互不影响的。而 int 类型，则有 32 位，可以表达 32 种状态。</p>
+<p>在 Java 中，一个 byte 类型，有 8 位（bit），可以表达 8 个不同的状态，并且这些状态是互不影响的。而 int 类型，则有 32 位，可以表达 32 种状态。</p>
 
 <p>更为重要的是，基于 BitMask 可 <strong>非常简单地</strong> 进行组合状态查询。</p>
 
@@ -232,9 +232,13 @@ AND 0000 0010
 
 <h3 id="例子">例子</h3>
 
-<p>下面结合一个例子来做说明。相关代码在这里： <a href="https://github.com/liaohuqiu/android-BitMaskSample/blob/master/app%2Fsrc%2Fmain%2Fjava%2Fin%2Fsrain%2Fbitmasksample%2Fpeople%2FPoet.java">https://github.com/liaohuqiu/android-BitMaskSample</a></p>
+<p>下面结合一个例子来做说明。</p>
 
-<p><a href="https://en.wikipedia.org/wiki/Li_Bai">李白</a> 是个诗人，生活简单『朴素』，有时候写诗，有时候喝酒，有时候边写诗，边喝酒。</p>
+<blockquote>
+<p>相关代码在这里： <a href="https://github.com/liaohuqiu/android-BitMaskSample/blob/master/app%2Fsrc%2Fmain%2Fjava%2Fin%2Fsrain%2Fbitmasksample%2Fpeople%2FPoet.java">https://github.com/liaohuqiu/android-BitMaskSample</a>。</p>
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/Li_Bai">李白</a> 是个诗人，生活简单『朴素』：有时候写诗；有时候喝酒；有时候边写诗，边喝酒。</p>
 
 <p>不管是忙于写诗还是忙于喝酒，李白都是在忙碌状态中。</p>
 
@@ -249,7 +253,7 @@ AND 0000 0010
               |
    drinking --+
 </code></pre></div>
-<p>两个 MASK 为：</p>
+<p>两个 mask 为：</p>
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// 0000 0010</span>
 <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">byte</span> <span class="n">STATE_BUSY_IN_WRITING</span> <span class="o">=</span> <span class="mh">0x01</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="o">;</span>
 
@@ -328,7 +332,7 @@ AND 0000 0010
 
 <p>我听到过很多论调，说用『枚举不好，官方也建议别用，因为占用很多内存，效率不高』，这些也都是人云亦云的典型。</p>
 
-<p>除非你写的是类似 <code>View</code> 这样的核心基础类，否则，如果连枚举这样内存开销都有问题的话，你的问题可就大了。</p>
+<p>实际上，除非你写的是类似 <code>View</code> 这样的核心基础类或者超大型应用，否则，如果连枚举这样内存开销都有问题的话，这个项目的问题就真的大了。</p>
 
             <hr>
             
