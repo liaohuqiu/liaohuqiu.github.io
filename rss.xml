@@ -6,8 +6,8 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Sun, 05 Jun 2016 11:26:32 +0800</pubDate>
-    <lastBuildDate>Sun, 05 Jun 2016 11:26:32 +0800</lastBuildDate>
+    <pubDate>Sun, 05 Jun 2016 13:36:37 +0800</pubDate>
+    <lastBuildDate>Sun, 05 Jun 2016 13:36:37 +0800</lastBuildDate>
 
     
     <item>
@@ -51,9 +51,9 @@
 &lt;p&gt;Firebase 拥有丰富的功能，其中核心功能是 Analiytics。除了各种报表，Analiytics 有：&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;和其他功能联通的报表展示&lt;/li&gt;
-&lt;li&gt;强大的事件支持：完善的默认事件和自定义事件&lt;/li&gt;
-&lt;li&gt;强大的受众（用户）定义&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;和其他功能联通的报表展示&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;强大的事件支持：完善的默认事件和自定义事件&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;强大的受众（用户）定义&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h4 id=&quot;面向开发者的功能&quot;&gt;面向开发者的功能&lt;/h4&gt;
