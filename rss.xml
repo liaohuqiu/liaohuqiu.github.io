@@ -6,9 +6,134 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Thu, 19 May 2016 23:59:46 +0800</pubDate>
-    <lastBuildDate>Thu, 19 May 2016 23:59:46 +0800</lastBuildDate>
+    <pubDate>Sun, 05 Jun 2016 11:26:32 +0800</pubDate>
+    <lastBuildDate>Sun, 05 Jun 2016 11:26:32 +0800</lastBuildDate>
 
+    
+    <item>
+      <title>Firebase 简介</title>
+      <link>http://liaohuqiu.net/cn/posts/take-a-glance-at-fire-base/</link>
+      <pubDate>Fri, 03 Jun 2016 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/cn/posts/take-a-glance-at-fire-base</guid>
+      <description>&lt;p&gt;上礼拜参加了 I/O 2016，按照以往的惯例，每次 I/O 大会回来后社区都会办一次 I/O Recap 的回顾活动，向本地的开发者讲述 I/O 经历、介绍最新技术。&lt;/p&gt;
+
+&lt;p&gt;本文对 Firebase 的功能特性，应用场景做简单介绍，是我在 I/O Recap 分享的大纲。&lt;/p&gt;
+
+&lt;p&gt;关于 Firebase，有两个很好的途径可以了解信息，分别是官网的文档和 Youtube 的视频。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://firebase.google.com&quot;&gt;https://firebase.google.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/user/Firebase&quot;&gt;https://www.youtube.com/user/Firebase&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;本文是在反复阅读文档和观看视频后的总结，供大家参考。&lt;/p&gt;
+
+&lt;h3 id=&quot;firebase-解决的问题&quot;&gt;Firebase 解决的问题&lt;/h3&gt;
+
+&lt;p&gt;创业公司 / 团队面临的挑战：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Technical：是否能实现？&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Product：如何打造用户喜爱的产品？&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Market：如何推广？&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Finance：如何盈利？如何生存？&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Scale：如何面对规模的增长？&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Firebase 旨在打造『无服务器』的 app 开发，助力 app 快速改进，实现精准的推广&lt;/strong&gt;。 &lt;/p&gt;
+
+&lt;h3 id=&quot;firebase-功能点&quot;&gt;Firebase 功能点&lt;/h3&gt;
+
+&lt;h4 id=&quot;核心功能&quot;&gt;核心功能&lt;/h4&gt;
+
+&lt;p&gt;Firebase 拥有丰富的功能，其中核心功能是 Analiytics。除了各种报表，Analiytics 有：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;和其他功能联通的报表展示&lt;/li&gt;
+&lt;li&gt;强大的事件支持：完善的默认事件和自定义事件&lt;/li&gt;
+&lt;li&gt;强大的受众（用户）定义&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;面向开发者的功能&quot;&gt;面向开发者的功能&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Remote Config&lt;/p&gt;
+
+&lt;p&gt;远程配置，支持根据各种条件返回配置。可做 AB Testing。结合 Analiytics 报表，可快速进行更改迭代。这个是亮点。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Cloud Messaging&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Firebase Cloud Messaging (FCM) is the new version of GCM. It inherits the reliable and scalable GCM infrastructure, plus new features!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;看来国内还是不能用。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Crash Reporting&lt;/p&gt;
+
+&lt;p&gt;报表做得很不错。支持自定义日志。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Test Lab&lt;/p&gt;
+
+&lt;p&gt;用于真机测试。国内有些替代解决方案。目前按设备时长收费。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Authentication&lt;/p&gt;
+
+&lt;p&gt;用户认证，支持多种帐号体系，也支持注册和密码重置，免注册，自定义 UI。开发者不需要自己开发这样的通用系统，结省大量时间。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Realtime Database&lt;/p&gt;
+
+&lt;p&gt;数据库支持。同时支持实时分发到订阅。看起来可做聊天了。有存储和连接数限制。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Storage&lt;/p&gt;
+
+&lt;p&gt;存储支持。实际就是 Google Cloud Storage 的封装。结合 Authentication 实现用户存储。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Hosting&lt;/p&gt;
+
+&lt;p&gt;资源托管，CDN 支持。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Cloud Messaging，Crash Reporting，Test Lab 是 app 开发的标配。 Remote Config，Authentication，Storage，Hosting 则是『无服务器』化的支持。&lt;/p&gt;
+
+&lt;h4 id=&quot;面向业务增长的功能&quot;&gt;面向业务增长的功能&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Notification console&lt;/p&gt;
+
+&lt;p&gt;结合 Analiytics，对指定用户发送 Notification，比如给加入购物车但未付款的用户发送代金券。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;App Indexing&lt;/p&gt;
+
+&lt;p&gt;将 web 和 app 联系起来，在搜索结果页展示 app 信息，点击即可安装或者打开指定页面。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Dynamic Links&lt;/p&gt;
+
+&lt;p&gt;适用于推广，尤其是个性化推广，app 安装后可进入指定页面；也可用于 app 指定内容的分享。结合 Analiytics，效果一目了然。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Invite&lt;/p&gt;
+
+&lt;p&gt;和 Dynamic Links 一样，集成之后，用来作类似优惠码邀请这样的功能，结合 Analiytics 进行数据分析。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Adwords&lt;/p&gt;
+
+&lt;p&gt;初次可针对特定人群进行广告推广，后续可选用 Analiytics 中的特定人群，比如安装后付费的用户，以提高转化率。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;以上几点都是为 app 增长量身定做和功能。&lt;/p&gt;
+
+&lt;h3 id=&quot;应用场景&quot;&gt;应用场景&lt;/h3&gt;
+
+&lt;h4 id=&quot;app-快速开发&quot;&gt;App 快速开发&lt;/h4&gt;
+
+&lt;p&gt;对于小团队，资源有限，『无服务器』加快了开发速度。Crash Reporting， Test Lab 等功能提高了 app 质量。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://firebase.googleblog.com/2015/05/firebase-now-works-with-react-native_40.html&quot;&gt;目前 Firebase 支持 React Native 了&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h4 id=&quot;基于数据的产品改进&quot;&gt;基于数据的产品改进&lt;/h4&gt;
+
+&lt;p&gt;开发集成后可用 Firebase 进行快速的实验和改进。针对不同的用户，Remote Config 给出不同的配置，app 以此提供不同的功能。&lt;/p&gt;
+
+&lt;p&gt;通过 Analiytics 可直观地看出效果好坏，改变 Remote Config 的值进行功能的全量开放。&lt;/p&gt;
+
+&lt;p&gt;数据真实，速度快，非常高效，而这所有的一切，一个人就可完成。&lt;/p&gt;
+
+&lt;h4 id=&quot;市场推广&quot;&gt;市场推广&lt;/h4&gt;
+
+&lt;p&gt;SEO，邀请，分享，广告，定向 Notification 解决了很大一部分的市场推广问题。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Google I/O 见闻</title>
@@ -158,8 +283,8 @@
 
 &lt;p&gt;缺乏事实依据的报道，缺乏专业素养的新闻，充满了谬误和滑稽。&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;看前段时间阿里的 Weex 的高调开源预热。再看 Google 发布会上关于技术改进的态度：没有大新闻，just make it better。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;国内现在部分技术会议，喜欢邀请一些吸引人眼球的女性作为演讲者，技术会议请个技术实力不怎样的女主播什么的。早上的 Keynote 也有几位女性演讲者，演讲水平，专业素养让人佩服。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;路遇 Sundar Pichai，商量着去合影什么的。到了他面前，被人抢先，我帮他们拍一张之后，Pichai 说，Sorry I am with my family，遁走了……&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;国内现在部分技术会议，喜欢邀请一些新引人隐球的女性作为演讲者，技术回忆请个技术实力不怎样的女主播什么的。早上的 Keynote 也有几位女性演讲者，演讲水平，专业素养让人佩服。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;路遇 Sundar Pichai，商量者去合影什么的。到了他面前，被人抢先，我帮他们拍一张之后，Pichai 说，Sorry I am with my family，遁走了……&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;这几天的阳光，真是明媚和毒辣。哦，对了，今年没有赠品。&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
