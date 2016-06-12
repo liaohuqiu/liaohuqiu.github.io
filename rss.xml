@@ -6,9 +6,33 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Wed, 08 Jun 2016 09:52:42 +0800</pubDate>
-    <lastBuildDate>Wed, 08 Jun 2016 09:52:42 +0800</lastBuildDate>
+    <pubDate>Sun, 12 Jun 2016 08:19:30 +0800</pubDate>
+    <lastBuildDate>Sun, 12 Jun 2016 08:19:30 +0800</lastBuildDate>
 
+    
+    <item>
+      <title>不停向前，只为更好的自己 —— 致参加 Study Jams 的同学们</title>
+      <link>http://liaohuqiu.net/cn/posts/mountains/</link>
+      <pubDate>Tue, 07 Jun 2016 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/cn/posts/mountains</guid>
+      <description>&lt;p&gt;5 月 17 日，Mountain View 的『Sports Page』酒吧，程路和我并排坐着，我们有一句没一句地聊着。&lt;/p&gt;
+
+&lt;p&gt;他说，你知道吗，Study Jams 这个活动，有近 600 人坚持完成了课程并获得证书，有 140 多位同学成功把自己的 App 发布到 Google Play。&lt;/p&gt;
+
+&lt;p&gt;我感到非常震惊。他们是一群零基础的同学，有些人甚至从来都没写过代码。&lt;/p&gt;
+
+&lt;p&gt;我想着那一个月中，这几百个同学经历的挫折和挑战；我想着那一个月中，他们收获的成功和喜悦；我抬头望天空，加州夏天 7 点来钟的夜晚，全是瑰丽的晚霞。&lt;/p&gt;
+
+&lt;p&gt;我想起，我本科和研究生学的是『航空宇航推进』，研究生毕业后，几乎所有的同学都去了研究所工作。安稳的工作，不错的待遇。而对我来说，那是毫无悬念的日子，可预知的未来。为了能有更大的挑战，寻找更大的可能性，我决定去互联网行业工作。这在当时被一些老师称为是『愚蠢的决定』，还被当做笑谈讲给后届的同学听。&lt;/p&gt;
+
+&lt;p&gt;我想起，我还在阿里巴巴工作的时候，中午经常可以看到有一个人在楼下的广场滑旱冰，我看着他一次次地变得熟练。一天，我们遇到了，他居然是个老头！他说，他今年 61 岁了。&lt;/p&gt;
+
+&lt;p&gt;我之前一直用拼音输入法，但是拼音输入法的重码太多了，而五笔重码很少。为了达到更快的输入速度，我开始练习『五笔』。当我说我要练习『五笔』的时候，有些人打赌说我肯定学不会的。而现在，现在这篇文章就是用五笔输入法写的。虽然现在输入速度还是很慢，但我知道以后会越来越快的。&lt;/p&gt;
+
+&lt;p&gt;这几年，我们练习音乐，练习写作；我们阅读，我们倾听；我们去旅行，我们去经历；我们不断接纳新事物，迎接新挑战，我们不断向前，只为更好的自己。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Firebase 简介</title>
