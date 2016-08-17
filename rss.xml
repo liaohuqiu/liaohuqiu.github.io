@@ -6,9 +6,61 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Sun, 12 Jun 2016 08:19:30 +0800</pubDate>
-    <lastBuildDate>Sun, 12 Jun 2016 08:19:30 +0800</lastBuildDate>
+    <pubDate>Wed, 17 Aug 2016 10:46:55 +0800</pubDate>
+    <lastBuildDate>Wed, 17 Aug 2016 10:46:55 +0800</lastBuildDate>
 
+    
+    <item>
+      <title>命令行终端保持连接</title>
+      <link>http://liaohuqiu.net/cn/posts/keep-alive-terminal-connection/</link>
+      <pubDate>Tue, 16 Aug 2016 00:00:00 +0800</pubDate>
+      <author>srain@php.net (Huqiu Liao / Srain)</author>
+      <guid>http://liaohuqiu.net/cn/posts/keep-alive-terminal-connection</guid>
+      <description>&lt;h3 id=&quot;服务器希望断开闲置连接&quot;&gt;服务器希望断开闲置连接&lt;/h3&gt;
+
+&lt;p&gt;为了控制 ssh 的连接数，服务器希望断开一段时间无操作的连接，可在 &lt;code&gt;/etc/ssh/sshd_config&lt;/code&gt; 中配置：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# Disable TCPKeepAlive and use ClientAliveInterval instead to prevent TCP Spoofing attacks
+TCPKeepAlive no
+ClientAliveInterval 60
+ClientAliveCountMax 3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;如在指定时间内没收到客户端响应，连接断开。&lt;/p&gt;
+
+&lt;h3 id=&quot;客户端希望保持连接&quot;&gt;客户端希望保持连接&lt;/h3&gt;
+
+&lt;p&gt;如果你正在不同的服务器上，开了好几个窗口，分别切换到不同的目录下，机械键盘敲得啪啪作响。这个时候，同事过来讨论问题，讨论完后，你喝了口水，看了看屏幕，恢复了思路，手指重回键盘，开始继续敲入熟悉的命令，结果：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Write failed broken pipe
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;看来，你需要重新连接了&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h5 id=&quot;iterm2&quot;&gt;iTerm2&lt;/h5&gt;
+
+&lt;p&gt;iTerm2 中有一个选项： &lt;code&gt;When idle, send ASCII code 0 every 10 seconds&lt;/code&gt;，其中，ASCII code 和时间可指定。&lt;/p&gt;
+
+&lt;p&gt;通过这个配置，可以达到保持连接的目的，但同时也带来一些副作用，比如：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;一些命令行输出中会有不期待出现的字符；&lt;/li&gt;
+&lt;li&gt;或者，&lt;strong&gt;VI / Vim 中会插入一些不想要的内容&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;正确的做法&quot;&gt;正确的做法&lt;/h5&gt;
+
+&lt;p&gt;正确的做法是，通过配置 &lt;code&gt;ServerAliveInterval&lt;/code&gt; 来实现，在 &lt;code&gt;~/.ssh/config&lt;/code&gt; 中加入：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;ServerAliveInterval=1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;数值根据实际情况做调整。&lt;/p&gt;
+
+&lt;p&gt;当然，各个服务器的配置不一样，你也可以做差异化的配置，以减少不必要的发包：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Host *hostname.com
+   ServerAliveInterval 60
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;另外，如果你是第一次配置 &lt;code&gt;~/.ssh/config&lt;/code&gt;，请注意该文件的权限，否则配置将不起作用：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;chmod 600 ~/.ssh/config
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;好了，这样问题就完美解决了，&lt;strong&gt;Enjoy!&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>不停向前，只为更好的自己 —— 致参加 Study Jams 的同学们</title>

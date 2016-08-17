@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-<title>Android 高版本API方法在低版本系统上的兼容性处理 |  Yet Another Summer Rain</title>
+<title>命令行终端保持连接 |  Yet Another Summer Rain</title>
 <meta charset='utf-8' />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
-<meta name="description" content="" />
+<meta name="description" content="不要使用 iTerm2 的 Send ASCII code when idle" />
 <meta name="keywords" content="" />
 
 <meta name="google-site-verification" content="SbAzRqb2cWqPDNEITWdNn-OnF4w_dWNJgt37GYC3kqY" />
@@ -111,107 +111,54 @@ try {
             </div>
             
             --->
-            <h2> Android 高版本API方法在低版本系统上的兼容性处理 </h2>
+            <h2> 命令行终端保持连接 </h2>
             <div>
-                <p> 23 Jan 2014 </p>
+                <p> 16 Aug 2016 </p>
             </div>
             <hr>
-            <p>Android 版本更替，新的版本带来新的特性，新的方法。</p>
+            <h3 id="服务器希望断开闲置连接">服务器希望断开闲置连接</h3>
 
-<p>新的方法带来许多便利，但无法在低版本系统上运行，如果兼容性处理不恰当，APP在低版本系统上，运行时将会crash。</p>
-
-<p>本文以一个具体的例子说明如何在使用高API level的方法时处理好兼容性问题。</p>
-
-<p>例子：<strong>根据给出路径，获取此路径所在分区的总空间大小。</strong></p>
-
-<p>在<a href="http://www.liaohuqiu.net/storage-in-android/" title="安卓文件存储使用参考">安卓中的文件存储使用参考</a>中提到:</p>
-
-<blockquote>
-<p>获取文件系统用量情况，在API level 9及其以上的系统，可直接调用<code>File</code>对象的相关方法，以下需自行计算</p>
-</blockquote>
-
-<h5 id="一般实现">一般实现</h5>
-
-<p>就此需求而言，API level 9及其以上，调用 <code>File.getTotalSpace()</code> 即可, 但是在API level 8 以下系统<code>File</code>对象并不存在此方法。</p>
-
-<p>如以下方法：</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">/**
- * Returns the total size in bytes of the partition containing this path.
- * Returns 0 if this path does not exist.
- * 
- * @param path
- * @return -1 means path is null, 0 means path is not exist.
- */
-public static long getTotalSpace(File path) {
-    if (path == null) {
-        return -1;
-    }
-    return path.getTotalSpace();
-}
+<p>为了控制 ssh 的连接数，服务器希望断开一段时间无操作的连接，可在 <code>/etc/ssh/sshd_config</code> 中配置：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"># Disable TCPKeepAlive and use ClientAliveInterval instead to prevent TCP Spoofing attacks
+TCPKeepAlive no
+ClientAliveInterval 60
+ClientAliveCountMax 3
 </code></pre></div>
-<h5 id="处理无法编译通过">处理无法编译通过</h5>
+<p>如在指定时间内没收到客户端响应，连接断开。</p>
 
-<p>如果<code>minSdkVersion</code>设置为8，那么build时候会报以下错误：</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">Call requires API level 9 (current min is 8)
+<h3 id="客户端希望保持连接">客户端希望保持连接</h3>
+
+<p>如果你正在不同的服务器上，开了好几个窗口，分别切换到不同的目录下，机械键盘敲得啪啪作响。这个时候，同事过来讨论问题，讨论完后，你喝了口水，看了看屏幕，恢复了思路，手指重回键盘，开始继续敲入熟悉的命令，结果：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Write failed broken pipe
 </code></pre></div>
-<p>为了编译可以通过，可以添加 <code>@SuppressLint(&quot;NewApi&quot;)</code> 或者 <code>@TargeApi(9)</code>。</p>
+<p><strong>看来，你需要重新连接了</strong>。</p>
 
-<blockquote>
-<p>用<code>@TargeApi($API_LEVEL)</code>显式表明方法的API level要求，而不是<code>@SuppressLint(&quot;NewApi&quot;)</code>;</p>
-</blockquote>
+<h5 id="iterm2">iTerm2</h5>
 
-<p>但是这样只是能编译通过，到了API level8的系统运行，将会引发 <code>java.lang.NoSuchMethodError</code>。</p>
+<p>iTerm2 中有一个选项： <code>When idle, send ASCII code 0 every 10 seconds</code>，其中，ASCII code 和时间可指定。</p>
+
+<p>通过这个配置，可以达到保持连接的目的，但同时也带来一些副作用，比如：</p>
+
+<ul>
+<li>一些命令行输出中会有不期待出现的字符；</li>
+<li>或者，<strong>VI / Vim 中会插入一些不想要的内容</strong>。</li>
+</ul>
 
 <h5 id="正确的做法">正确的做法</h5>
 
-<p>为了运行时不报错, 需要:</p>
+<p>正确的做法是，通过配置 <code>ServerAliveInterval</code> 来实现，在 <code>~/.ssh/config</code> 中加入：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">ServerAliveInterval=1
+</code></pre></div>
+<p>数值根据实际情况做调整。</p>
 
-<ol>
-<li> 判断运行时版本，在低版本系统不调用此方法</li>
-<li><p>同时为了保证功能的完整性，需要提供低版本功能实现</p>
-
-<p>如下：</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">/**
- * Returns the total size in bytes of the partition containing this path.
- * Returns 0 if this path does not exist.
- * 
- * @param path
- * @return -1 means path is null, 0 means path is not exist.
- */
-@TargetApi(Build.VERSION_CODES.GINGERBREAD) 
-    // using @TargeApi instead of @SuppressLint(&quot;NewApi&quot;)
-@SuppressWarnings(&quot;deprecation&quot;)
-public static long getTotalSpace(File path) {
-    if (path == null) {
-        return -1;
-    }
-    if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.GINGERBREAD) {
-        return path.getTotalSpace();
-    }
-    // implements getTotalSpace() in API lower than GINGERBREAD
-    else {
-        if (!path.exists()) {
-            return 0;
-        } else {
-            final StatFs stats = new StatFs(path.getPath());
-            // Using deprecated method in low API level system, 
-            // add @SuppressWarnings(&quot;description&quot;) to suppress the warning
-            return (long) stats.getBlockSize() * (long) stats.getBlockCount();
-        }
-    }
-}
-</code></pre></div></li>
-</ol>
-
-<h4 id="总结">总结</h4>
-
-<p>在使用高于<code>minSdkVersion</code> API level的方法需要:</p>
-
-<ol>
-<li>用<code>@TargeApi($API_LEVEL)</code> 使可以编译通过, 不建议使用<code>@SuppressLint(&quot;NewApi&quot;)</code>;</li>
-<li>运行时判断API level; 仅在足够高，有此方法的API level系统中，调用此方法;</li>
-<li>保证功能完整性，保证低API版本通过其他方法提供功能实现。</li>
-</ol>
+<p>当然，各个服务器的配置不一样，你也可以做差异化的配置，以减少不必要的发包：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Host *hostname.com
+   ServerAliveInterval 60
+</code></pre></div>
+<p>另外，如果你是第一次配置 <code>~/.ssh/config</code>，请注意该文件的权限，否则配置将不起作用：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">chmod 600 ~/.ssh/config
+</code></pre></div>
+<p>好了，这样问题就完美解决了，<strong>Enjoy!</strong></p>
 
             <hr>
             
