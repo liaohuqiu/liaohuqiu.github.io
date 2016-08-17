@@ -6,8 +6,8 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Wed, 17 Aug 2016 10:46:55 +0800</pubDate>
-    <lastBuildDate>Wed, 17 Aug 2016 10:46:55 +0800</lastBuildDate>
+    <pubDate>Wed, 17 Aug 2016 18:30:44 +0800</pubDate>
+    <lastBuildDate>Wed, 17 Aug 2016 18:30:44 +0800</lastBuildDate>
 
     
     <item>
@@ -47,7 +47,7 @@ ClientAliveCountMax 3
 &lt;h5 id=&quot;正确的做法&quot;&gt;正确的做法&lt;/h5&gt;
 
 &lt;p&gt;正确的做法是，通过配置 &lt;code&gt;ServerAliveInterval&lt;/code&gt; 来实现，在 &lt;code&gt;~/.ssh/config&lt;/code&gt; 中加入：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;ServerAliveInterval=1
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;ServerAliveInterval=30
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;数值根据实际情况做调整。&lt;/p&gt;
 
