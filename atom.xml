@@ -4,13 +4,261 @@
   <title>Yet Another Summer Rain</title>
   <link href="http://liaohuqiu.net/"/>
   <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
-  <updated>2016-08-17T18:30:44+08:00</updated>
+  <updated>2016-09-21T22:57:05+08:00</updated>
   <id>http://liaohuqiu.net/</id>
   <author>
     <name>Huqiu Liao / Srain</name>
     <email>srain@php.net</email>
   </author>
 
+  
+  <entry>
+    <id>http://liaohuqiu.net/cn/posts/about-mdcc-2016-android-sesion</id>
+    <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/about-mdcc-2016-android-sesion/"/>
+    <title>九月，我们在 MDCC 的一场聚会</title>
+    <published>2016-09-21T00:00:00+08:00</published>
+    <updated>2016-09-21T00:00:00+08:00</updated>
+    <author>
+      <name>Huqiu Liao / Srain</name>
+      <uri>http://liaohuqiu.net/</uri>
+    </author>
+    <content type="html">&lt;p&gt;时间很快，又是一年，『天朗气清，惠风和畅』，『时维九月，序属三秋』。去年此时，承蒙 MDCC 邀请，在 Android 分会场做了一个分享。&lt;/p&gt;
+
+&lt;p&gt;在这个会上认识了非常多优秀的同学，有些是前来做演讲的同学，有些是前来参会的之前只在社区中线上打过交道的同学。和大家交流，受益匪浅。这个是当时的合影：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/599e230bjw1f81dqtb601j20zk0npn6p.jpg&quot; alt=&quot;MDCC 2015&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;技术会议，一是产出高质量的内容推动技术传播，或是提出观点，百家争鸣；另一是，在会议内容可通过直播或者录播，足不出户轻松观看的今天，会议提供了一个结识业界朋友，见面交流的机会。&lt;/p&gt;
+
+&lt;p&gt;第一是核心价值，第二是锦上添花。&lt;/p&gt;
+
+&lt;p&gt;今年有幸得 MDCC 邀请，担任 Android 分会场的『出品人』，帮忙邀请讲师，组织内容。&lt;/p&gt;
+
+&lt;p&gt;经过这几个月的准备，一切都已经准备妥当，好些同学的 PPT / Keynote 都已经修改了好多次了。趁现在有些时间，简单记录一下这过程中发生的事情，为了将来留念。&lt;/p&gt;
+
+&lt;h3 id=&quot;回归初心，从容器化到组件化&quot;&gt;回归初心，从容器化到组件化&lt;/h3&gt;
+
+&lt;p&gt;今年六月，和 唐小引（唐小引同学今年负责整个 MDCC, &lt;a href=&quot;http://weibo.com/u/2019731997&quot;&gt;http://weibo.com/u/2019731997&lt;/a&gt; ）见面讨论的时候，我第一个想到的是『冯老师』( &lt;a href=&quot;https://github.com/oasisfeng&quot;&gt;https://github.com/oasisfeng&lt;/a&gt; )。&lt;/p&gt;
+
+&lt;p&gt;我们不喜称『大神』，『大牛』，『大拿』，而是以『同学』相称。我们认为，技术的事情，时间而已。但『冯老师』是我们给 冯森林 同学的外号，因他知识面实在是太广博了。&lt;/p&gt;
+
+&lt;p&gt;我还在阿里的时候，就对冯老师有所耳闻，当时他负责手机淘宝 Android 团队，但从没见过面。在去年的 MDCC 上，有幸见到了他，之后我们大家有交流（其实主要是冯老师说，我们大家领悟学习）。今年 5 月，我们同行参加 Google IO，一路上和冯老师交流，所学甚多。&lt;/p&gt;
+
+&lt;p&gt;我和冯老师『汇报』了我帮忙筹办 MDCC 的一些想法和理念，问他是否愿意给大家分享一些东西，冯老师说他考虑两天，看看有什么可以分享的。&lt;/p&gt;
+
+&lt;p&gt;两天之后，冯老师在 Slack 上说，他想做一个分享：《回归初心，从容器化到组件化》。时下，容器化，插件化流行：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;大小团队如何技术选型？&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如何提升开发效率？&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如何提高项目可维护性？&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如何模块化？如何解耦？依赖注入？&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如何加快项目构建速度？&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;在 2012 年底加入阿里巴巴无线事业部开始的漫长技术探索中，Atlas 是唯一一个伴随着我从始至终的项目。三年来的不断思考、试错和推倒重来，从插件化到动态化、从组件化到单元化，我们自认为构建了一个宏伟的框架。但最近这一年离开阿里后的独立开发之路，才让我有机会站在一个微末的视角重新审视此前的雄心壮志。回归原点，重拾初心，方得拨云见日，希望这次能带给大家我对『组件化』的朴素诠释。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;相信你会和我一样，从这里找到一些答案和启示。&lt;/p&gt;
+
+&lt;h3 id=&quot;滴滴，国际化&quot;&gt;滴滴，国际化&lt;/h3&gt;
+
+&lt;p&gt;Trinea( &lt;a href=&quot;https://github.com/Trinea&quot;&gt;https://github.com/Trinea&lt;/a&gt; ）同学去了滴滴后，在社区很难见到他的身影了。他一直勤勤恳恳，低头做事，频繁来返于京杭，飞越白天黑夜穿梭于北京和纽约。&lt;/p&gt;
+
+&lt;p&gt;前不久，滴滴和 UBer 合并，规模再次扩张。这半年多，我去过滴滴好几次，每次看到那些紧张忙碌的人们，都心生感想，是这些朴素低调务实的人们，滴滴有了这样一个规模。&lt;/p&gt;
+
+&lt;p&gt;我和很多个滴滴的同学联系，问他们是否有时间来做个分享，他们都说忙不过来了。我有些沮丧，这几年滴滴的规模的增长，里面技术的挑战不可谓不大，能在倾听他们的心得，体会，不可谓不是一件幸事，难道今年就这样算了？&lt;/p&gt;
+
+&lt;p&gt;一个多月前的一天，我抱着试试看的心态（估计 Trinea 看到这个的时候，以他对技术社区的热情，他心里会嘀咕：有什么不好意思的，这事，再忙也得来啊），问他：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;『国内？国外？』，&lt;/p&gt;
+
+&lt;p&gt;『国内啊』&lt;/p&gt;
+
+&lt;p&gt;『北京？杭州？』&lt;/p&gt;
+
+&lt;p&gt;……&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;第二天，我收到他的一条微信：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;想了下安排，为了和你跟冯老师们一聚，我争取最近半个月内把要处理的事处理完。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;是夜，凌晨一点。&lt;/p&gt;
+
+&lt;p&gt;在后来的这一个月里，我们多次在凌晨沟通，交流，议题选定，行程安排，Keynote 修改。到目前，终于一切妥当。这次，Trinea 同学，会给我们分享滴滴国际化方面的技术挑战：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;如何做地图选型？&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如何做地图扩展适配？&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;网络如何优化？&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如何对项目整体做技术拆分？&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;项目演进的过程中，有什么经验教训和心得体会？&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;24 号，欢迎交流。&lt;/p&gt;
+
+&lt;h3 id=&quot;facebook-fresco-loading-image-faster&quot;&gt;Facebook: Fresco, loading image faster&lt;/h3&gt;
+
+&lt;p&gt;本次会议，除了国内一流的公司和团队，我也计划邀请一些国际上顶尖的团队或开发者过来交流。&lt;/p&gt;
+
+&lt;p&gt;图片加载几乎是任何一个 App 都要处理的事情。Fresco(&lt;a href=&quot;http://fresco-cn.org&quot;&gt;http://fresco-cn.org&lt;/a&gt; / &lt;a href=&quot;http://frescolib.org/&quot;&gt;http://frescolib.org/&lt;/a&gt;) 这个 Android 中加载图片的库，将图片加载这个事情做到了极致。项目开源一年多来，吸引了大量的用户。其在 5.0 以下，用匿名共享内存存放 BitMap 数据的做法是一个创举。&lt;/p&gt;
+
+&lt;p&gt;Fresco 处理了大量面对业务的开发者不需要关注的细节。我们只需要使用 Fresco 就好了，剩下的交给 Fresco 都会搞定。但是我们如果了解这些细节，对开发出一个出色的 App，成为一个卓越的工程师，是大有裨益的。&lt;/p&gt;
+
+&lt;p&gt;这次，我们非常荣幸地邀请到了 Fresco Team 的工程师给我们分享关于 Android 中的图片加载，关于 Fresco。&lt;/p&gt;
+
+&lt;p&gt;同时 姚家艺（ &lt;a href=&quot;https://github.com/desmond1121&quot;&gt;https://github.com/desmond1121&lt;/a&gt; ）和我作为 Fresco 中文文档的译者和维护者，也都在现场。关于图片加载，关于 Fresco，欢迎交流。&lt;/p&gt;
+
+&lt;h3 id=&quot;性能优化&quot;&gt;性能优化&lt;/h3&gt;
+
+&lt;p&gt;关于 Android 性能优化，虽然已经有大量的资料可考，但这是一个常谈常新的话题。张明云(&lt;a href=&quot;https://github.com/zmywly8866&quot;&gt;https://github.com/zmywly8866&lt;/a&gt;) 同学，活跃于『简书』和『知乎』，运营了多个 Android 相关的话题。对于性能优化，他持续总结，持续实践。我对性能优化算是有一定了解的，之前他发表的『应用开发进阶必经之路之性能优化』(&lt;a href=&quot;http://www.jianshu.com/p/65efbccfacf7&quot;&gt;http://www.jianshu.com/p/65efbccfacf7&lt;/a&gt;) 总结得非常好。他在『知乎 Live』上的分享也很不错。&lt;/p&gt;
+
+&lt;p&gt;这次他会就：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;应用性能状况&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;性能优化流程、原则、指标和工具&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;性能优化实战/ 实际优化效果&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;等方面，分享他的心得和体会。敬请期待。&lt;/p&gt;
+
+&lt;h3 id=&quot;微信-tinker-热补丁实践演进之路&quot;&gt;微信 Tinker 热补丁实践演进之路&lt;/h3&gt;
+
+&lt;p&gt;六月的时候，和微信 Android 团队的 赵原（&lt;a href=&quot;https://github.com/kirozhao&quot;&gt;https://github.com/kirozhao&lt;/a&gt; ）同学见面（之前只在电脑屏幕上看过他的一个技术演讲），他是一个低头认真做事的典范。这个 86 年小伙子，从微信的第一行代码开始，到现在负责整个 Android 团队，对微信的技术变革了如指掌。他告诉我，接下来，微信会开源一部分成熟的，通用的技术。&lt;/p&gt;
+
+&lt;p&gt;七月的时候，我问他可否推荐一个同学，分享一下微信的最近的技术演进，或者任何其他。他说有个优秀的，更年轻的小伙子可以去做分享，他叫：张绍文 （&lt;a href=&quot;https://github.com/shwenzhang/&quot;&gt;https://github.com/shwenzhang/&lt;/a&gt; ），是微信高级开发工程师，主要负责架构、插件化、编译、性能优化、组件化等。&lt;/p&gt;
+
+&lt;p&gt;而分享的话题是：《微信 Tinker 热补丁实践演进之路》。微信这个体量的应用，热修复技术的演进，遇到的问题，经验心得，是非常有参考价值的。&lt;/p&gt;
+
+&lt;p&gt;更为重要的是，Tinker 将会在 24 号这天开源！让我们拭目以待，24 号 GitHub 上，Tencent（&lt;a href=&quot;https://github.com/Tencent/&quot;&gt;https://github.com/Tencent/&lt;/a&gt; ）这个目前还没任何公开项目的组织上，第一个出现的项目会是什么！&lt;/p&gt;
+
+&lt;h3 id=&quot;其它的更多&quot;&gt;其它的更多&lt;/h3&gt;
+
+&lt;p&gt;还有其他更多优秀的讲师和精彩的议题，阿里的，网易的，等等，篇幅所限，这里不再一一谈及。可到大会网站了解更多。&lt;a href=&quot;http://mdcc.csdn.net/&quot;&gt;http://mdcc.csdn.net/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;社区专家&quot;&gt;社区专家&lt;/h3&gt;
+
+&lt;p&gt;这次，我们还邀请了一些社区的开发者作为社区嘉宾参会：&lt;/p&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名字&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;吴晶&lt;/td&gt;
+&lt;td&gt;小米&lt;/td&gt;
+&lt;td&gt;小米软件开发工程师，Android笔记博主&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;http://www.race604.com&quot;&gt;http://www.race604.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;许建林&lt;/td&gt;
+&lt;td&gt;YOLO&lt;/td&gt;
+&lt;td&gt;热爱编程，目前专注于安卓开发，喜欢开源，喜欢敏捷，喜欢技术，喜欢折腾……&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://github.com/Piasy&quot;&gt;https://github.com/Piasy&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;张会超&lt;/td&gt;
+&lt;td&gt;郑州GDG&lt;/td&gt;
+&lt;td&gt;菜鸟 Android 程序猿，Google Fans，Android开发技术周报 ( &lt;a href=&quot;http://www.androidweekly.cn&quot;&gt;http://www.androidweekly.cn&lt;/a&gt; ) 和 AndroidDevTools ( &lt;a href=&quot;http://www.androiddevtools.cn&quot;&gt;http://www.androiddevtools.cn&lt;/a&gt; ) 网站创办者，郑州GDG组织者，爱开源，爱Android，爱折腾 :)&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://github.com/inferjay&quot;&gt;https://github.com/inferjay&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;孙鹏飞&lt;/td&gt;
+&lt;td&gt;百度-金融&lt;/td&gt;
+&lt;td&gt;孙鹏飞，百度金融团队高级安卓开发工程师，长期关注开源社区，github 重度用户，对 hotfix 和插件技术有一定了解。&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://github.com/dodola&quot;&gt;https://github.com/dodola&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;何红辉&lt;/td&gt;
+&lt;td&gt;明日虫洞科技有限公司&lt;/td&gt;
+&lt;td&gt;热爱技术，热爱分享的工程师&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://github.com/hehonghui&quot;&gt;https://github.com/hehonghui&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;张勇&lt;/td&gt;
+&lt;td&gt;乐视体育／产品技术中心／技术总监&lt;/td&gt;
+&lt;td&gt;DroidPlugin 作者，插件化&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://github.com/cmzy&quot;&gt;https://github.com/cmzy&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;白云鹏&lt;/td&gt;
+&lt;td&gt;霍尼韦尔&lt;/td&gt;
+&lt;td&gt;移动应用开发者&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;http://baiyunpeng.com&quot;&gt;http://baiyunpeng.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;姚家艺&lt;/td&gt;
+&lt;td&gt;BiliBili / Android 平台组 / Android开发&lt;/td&gt;
+&lt;td&gt;努力成为全栈中的 Android 开发者。Fresco 中文文档译者之一。&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://github.com/desmond1121&quot;&gt;https://github.com/desmond1121&lt;/a&gt;  &lt;a href=&quot;http://desmondyao.com&quot;&gt;http://desmondyao.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;王玉成&lt;/td&gt;
+&lt;td&gt;清华大学微电子所&lt;/td&gt;
+&lt;td&gt;/ 6年嵌入式系统及驱动开发经验。对物联网及智能硬件领域时刻关注&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;http://blog.csdn.net/wfing&quot;&gt;http://blog.csdn.net/wfing&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;孙胜杰&lt;/td&gt;
+&lt;td&gt;Xmonster Inc. 技术负责人&lt;/td&gt;
+&lt;td&gt;AndResGuard 维护者，前微信、手机 QQ 开发，linux kernel committer，多个 android 开源项目的贡献者&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://github.com/simpleton&quot;&gt;https://github.com/simpleton&lt;/a&gt;  &lt;a href=&quot;http://simsun.me&quot;&gt;http://simsun.me&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;王永杰&lt;/td&gt;
+&lt;td&gt;京东 Android 系统架构组负责人&lt;/td&gt;
+&lt;td&gt;国防科大学士，北交大硕士，曾担任盛大创新院高级研究员，负责微酷等应用的研发工作。2013年加入京东，任无线业务部技术专家、架构委员会主任架构师、Android系统架构负责人。&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://github.com/wangyj&quot;&gt;https://github.com/wangyj&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;任玉刚&lt;/td&gt;
+&lt;td&gt;滴滴出行 技术专家&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;http://github.com/singwhatiwanna&quot;&gt;http://github.com/singwhatiwanna&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;张鸿洋&lt;/td&gt;
+&lt;td&gt;百度科技&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;http://blog.csdn.net/lmj623565791&quot;&gt;http://blog.csdn.net/lmj623565791&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;p&gt;以上是部分参会的社区的同学，这些同学都会在会议现场，欢迎交流。&lt;/p&gt;
+
+&lt;h3 id=&quot;会议的-app&quot;&gt;会议的 App&lt;/h3&gt;
+
+&lt;p&gt;虽然我只是在 Android 专场帮忙，但为了这次会议，我们几个小伙伴还做了一个会议的 App，目前 iOS 和 Android 版本目前都已经可以在应用市场下载安装了。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Pober Wong（&lt;a href=&quot;https://github.com/Bob1993/&quot;&gt;https://github.com/Bob1993/&lt;/a&gt; ）负责用 React Native 开发 App&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;OKernal （刘舒，Flipboard 中国，负责产品，&lt;a href=&quot;http://weibo.com/206781304&quot;&gt;http://weibo.com/206781304&lt;/a&gt; ）帮忙做产品层面的一些事情。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;我。帮忙抓取数据，提供后端接口支持，做了一些力所能及的小事：&lt;a href=&quot;https://github.com/liaohuqiu&quot;&gt;https://github.com/liaohuqiu&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这其中大部分的工作，都是在中秋节时完成的。现在，项目也已经开源： &lt;a href=&quot;https://github.com/Bob1993/mdcc-client&quot;&gt;https://github.com/Bob1993/mdcc-client&lt;/a&gt; ，为了感谢这两位同学，MDCC 赠送他们两张嘉宾票。&lt;/p&gt;
+
+&lt;h3 id=&quot;meetup&quot;&gt;Meetup&lt;/h3&gt;
+
+&lt;p&gt;为了这次聚会，同学们有的跨越高山，有的飞越重洋。『千里逢迎』，和去年一样，我继续做东，薄酒一份，招待大家。&lt;/p&gt;
+
+&lt;p&gt;有『胜友如云』，期待『高朋满座』。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/599e230bjw1f81dqsy40dj20zk0qowk2.jpg&quot; alt=&quot;MDCC 2015 Meet up&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;好了，到时见。&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <id>http://liaohuqiu.net/cn/posts/keep-alive-terminal-connection</id>
