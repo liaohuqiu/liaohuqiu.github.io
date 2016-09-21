@@ -42,7 +42,7 @@ iTerm2 中有一个选项： `When idle, send ASCII code 0 every 10 seconds`，�
 正确的做法是，通过配置 `ServerAliveInterval` 来实现，在 `~/.ssh/config` 中加入：
 
 ```
-ServerAliveInterval=1
+ServerAliveInterval=30
 ```
 
 数值根据实际情况做调整。
