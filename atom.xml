@@ -4,13 +4,68 @@
   <title>Yet Another Summer Rain</title>
   <link href="http://liaohuqiu.net/"/>
   <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
-  <updated>2016-09-26T10:04:30+08:00</updated>
+  <updated>2016-09-27T09:58:58+08:00</updated>
   <id>http://liaohuqiu.net/</id>
   <author>
     <name>Huqiu Liao / Srain</name>
     <email>srain@php.net</email>
   </author>
 
+  
+  <entry>
+    <id>http://liaohuqiu.net/cn/posts/a-wise-man-knows-when-to-jump-the-ship</id>
+    <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/a-wise-man-knows-when-to-jump-the-ship/"/>
+    <title>良禽择木而栖</title>
+    <published>2016-09-27T00:00:00+08:00</published>
+    <updated>2016-09-27T00:00:00+08:00</updated>
+    <author>
+      <name>Huqiu Liao / Srain</name>
+      <uri>http://liaohuqiu.net/</uri>
+    </author>
+    <content type="html">&lt;p&gt;知乎上『&lt;a href=&quot;https://www.zhihu.com/question/46294596&quot;&gt;异乡好居&lt;/a&gt;』闹得沸沸扬扬。&lt;/p&gt;
+
+&lt;p&gt;这是一个公司对工程师（或可以说对任何它们的员工）极其不尊重的闹剧：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;对员工没基本的尊重&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;工作随便调动，强制让次日去北京工作，不去算旷工&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;随便制定罚款理由&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;随便开除员工&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;删除工程师电脑上代码，然后诬告员工删除公司价值几百万的代码&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;...&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;这样的闹剧或说是悲剧，一直都在上演。看过很多优秀的工程师朋友遭遇的各种不开心的不公正待遇，心中总有『安得广厦千万间，大庇天下寒士倶欢颜』的无奈和悲凉。&lt;/p&gt;
+
+&lt;p&gt;良禽择木而栖，优秀的人才应该去好的地方。从目前这个事情来看，好的公司应该：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;老板 / 公司要有格局&lt;/p&gt;
+
+&lt;p&gt;公司报表作假。这样的公司，你要小心，因为他们还可能会跟你说是因为生存压力。&lt;/p&gt;
+
+&lt;p&gt;招人只看价格。认为可以通过堆人的方式完成规模扩张。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;抠门和节俭的区别&lt;/p&gt;
+
+&lt;p&gt;人走关灯是节俭，连个大显示器都不给配，这个是格局不行。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;灵活的人事制度，尊重人才，尤其是技术人才&lt;/p&gt;
+
+&lt;p&gt;前一天加班到 11 点，第二天身体不舒服早走两个小时，要请假半天。这样的公司，你可别去。&lt;/p&gt;
+
+&lt;p&gt;用代码量来衡量工程师的工作。&lt;/p&gt;
+
+&lt;p&gt;认为工程师的工作可以被随便替代。不明白新员工融入的时间成本，不了解让技术团队动作的机制。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;管理靠的是激励，不是威胁&lt;/p&gt;
+
+&lt;p&gt;人才的高产出靠的是激励。尤其是优秀的人才，因为他们都是高度自觉的。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;试用期 8 折？试用期 6 个月？&lt;/p&gt;
+
+&lt;p&gt;这样做合法，一点问题都没有。但对于优秀的人才，3 个月，100% 待遇，是不是更得体一些呢？&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;当然，团队管理，激励，薪酬福利，工作流程，团队文化，成长空间等等其他的无数的方面，都是考量的因素。作为工程师，最好去一家技术驱动、技术大佬主导的公司。&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <id>http://liaohuqiu.net/cn/posts/mdcc-2016-brief-summary</id>
