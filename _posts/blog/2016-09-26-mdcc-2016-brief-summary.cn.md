@@ -41,7 +41,7 @@ category: blog
 
     附上一张『马琳』的图。
 
-    ![](http://ww1.sinaimg.cn/large/599e230bjw1f84sva9z4zj20qo0zkq7s.jpg)
+    ![](//ww1.sinaimg.cn/large/599e230bjw1f84sva9z4zj20qo0zkq7s.jpg)
 
 3. 云信 IM 推送保障及网络优化实践
 

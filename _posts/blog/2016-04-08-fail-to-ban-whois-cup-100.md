@@ -9,7 +9,7 @@ Today I noticed that one of my linode has been in 100% usage of CPU from May 31.
 
 I login in to it, use `htop` to check what is going on:
 
-<img src='http://ww3.sinaimg.cn/large/599e230bjw1f2p5ap0vw6j21yc07ojt2.jpg'/>
+<img src='//ww3.sinaimg.cn/large/599e230bjw1f2p5ap0vw6j21yc07ojt2.jpg'/>
 
 As we can seen, whois is taking up most of the cpu, and I've never used this command before.
 

@@ -7,7 +7,7 @@ category: blog
 
 整理旧物，发现了一本以前的笔记本。
 
-![](http://ww3.sinaimg.cn/large/599e230bjw1f3ry2m8h6fj20zk0q0ai4.jpg)
+![](//ww3.sinaimg.cn/large/599e230bjw1f3ry2m8h6fj20zk0q0ai4.jpg)
 
 我很清楚是哪天，在哪里买了这个笔记本。
 
@@ -17,7 +17,7 @@ category: blog
 
 那如风的日子。我总记得，那时微熹的早晨，那轻柔的晨风，那天边美丽的卷积云。
 
-![](http://ww2.sinaimg.cn/large/599e230bjw1f3ry2l8jw2j20zk0nptdl.jpg)
+![](//ww2.sinaimg.cn/large/599e230bjw1f3ry2l8jw2j20zk0nptdl.jpg)
 
 我想，如果是的话，那样的日子一定也是如风的五月。
 
@@ -45,7 +45,7 @@ category: blog
 
 我翻开笔记本，看到了当时我的心情：
 
-![](http://ww2.sinaimg.cn/large/599e230bjw1f3ry2n6v4hj20qy0ctgo4.jpg)
+![](//ww2.sinaimg.cn/large/599e230bjw1f3ry2n6v4hj20qy0ctgo4.jpg)
 
 字迹有点潦草，写的是：
 
