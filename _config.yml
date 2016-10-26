@@ -11,7 +11,7 @@ permalink:      /posts/:title/
 
 title:          "Yet Another Summer Rain"
 
-exclude:        ['_fe', 'README.md', 'bash.sh', 'manager.sh', '_docker']
+exclude:        ['_fe', 'README.md', 'base.sh', 'manager.sh', '_docker']
 
 gems:           ['jekyll-paginate', 'jekyll-multiple-languages']
 
