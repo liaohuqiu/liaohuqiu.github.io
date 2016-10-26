@@ -9,7 +9,7 @@ category: blog
 
 在这个会上认识了非常多优秀的同学，有些是前来做演讲的同学，有些是前来参会的之前只在社区中线上打过交道的同学。和大家交流，受益匪浅。这个是当时的合影：
 
-![MDCC 2015](http://ww3.sinaimg.cn/large/599e230bjw1f81dqtb601j20zk0npn6p.jpg)
+![MDCC 2015](//ww3.sinaimg.cn/large/599e230bjw1f81dqtb601j20zk0npn6p.jpg)
 
 技术会议，一是产出高质量的内容推动技术传播，或是提出观点，百家争鸣；另一是，在会议内容可通过直播或者录播，足不出户轻松观看的今天，会议提供了一个结识业界朋友，见面交流的机会。
 
@@ -165,6 +165,6 @@ Fresco 处理了大量面对业务的开发者不需要关注的细节。我们�
 
 有『胜友如云』，期待『高朋满座』。
 
-![MDCC 2015 Meet up](http://ww4.sinaimg.cn/large/599e230bjw1f81dqsy40dj20zk0qowk2.jpg)
+![MDCC 2015 Meet up](//ww4.sinaimg.cn/large/599e230bjw1f81dqsy40dj20zk0qowk2.jpg)
 
 好了，到时见。

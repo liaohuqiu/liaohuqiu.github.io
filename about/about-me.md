@@ -38,7 +38,7 @@ category: about
 
 <div class='wechat-mp-qrcode'>
     WeChat Subscriptions / 微信公众号<br/>
-    <img src='http://www.liaohuqiu.net/assets/img/qrcode_for_wechat_mp.jpg' /><br/>
+    <img src='//www.liaohuqiu.net/assets/img/qrcode_for_wechat_mp.jpg' /><br/>
     Only Chinese content available :(. 
 </div>
 

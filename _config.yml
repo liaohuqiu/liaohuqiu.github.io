@@ -2,7 +2,8 @@ baseurl:        /
 
 markdown:       redcarpet
 redcarpet:
-  extensions:   ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+  # extensions:   ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+  extensions:   ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables"]
 highlighter:       pygments
 paginate:       30
 paginate_path:  "index/page:num"
@@ -17,8 +18,6 @@ gems:           ['jekyll-paginate', 'jekyll-multiple-languages']
 host_name:      'www.liaohuqiu.net'
 
 author:         liaohuqiu@gmail.com 廖祜秋
-s_host:         'http://srain-blog.qiniudn.com'
-# s_host:         ''
 
 # -----------------
 

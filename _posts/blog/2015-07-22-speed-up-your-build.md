@@ -31,7 +31,7 @@ If you want to figure out the cause, you can try profiling your build process. Y
 
 <div class='row'>
     <div class='col-md-8 col-md-offset-2'>
-        <img src='{{s_host}}/assets/img/speed-up-your-build/profile.png' width='100%'/>
+        <img src='{{tag_for_empty_s_host}}/assets/img/speed-up-your-build/profile.png' width='100%'/>
     </div>
 </div>
 
@@ -41,7 +41,7 @@ To enable `profile` in Android Studio, you must config the command line options 
 
 <div class='row'>
     <div class='col-md-8 col-md-offset-2'>
-        <img src='{{s_host}}/assets/img/speed-up-your-build/enable-profile-in-as.png' width='100%'/>
+        <img src='{{tag_for_empty_s_host}}/assets/img/speed-up-your-build/enable-profile-in-as.png' width='100%'/>
     </div>
 </div>
 
@@ -75,7 +75,7 @@ We can not really shrink the project unless we remove some functions of our APP.
 
 <div class='row'>
     <div class='col-md-4 col-md-offset-4'>
-        <img src='{{s_host}}/assets/img/speed-up-your-build/project-structure.png' width='100%'/>
+        <img src='{{tag_for_empty_s_host}}/assets/img/speed-up-your-build/project-structure.png' width='100%'/>
     </div>
 </div>
 
@@ -134,7 +134,7 @@ In this way, we can reduce a lot of dependence in debug complie. Once the projec
 
     <div class='row'>
         <div class='col-md-8 col-md-offset-2'>
-            <img src='{{s_host}}/assets/img/speed-up-your-build/profile-before.png' width='100%'/>
+            <img src='{{tag_for_empty_s_host}}/assets/img/speed-up-your-build/profile-before.png' width='100%'/>
         </div>
     </div>
 
@@ -142,7 +142,7 @@ In this way, we can reduce a lot of dependence in debug complie. Once the projec
 
     <div class='row'>
         <div class='col-md-8 col-md-offset-2'>
-            <img src='{{s_host}}/assets/img/speed-up-your-build/profile-after.png' width='100%'/>
+            <img src='{{tag_for_empty_s_host}}/assets/img/speed-up-your-build/profile-after.png' width='100%'/>
         </div>
     </div>
 
@@ -154,7 +154,7 @@ It is a experimental new Android tool chain, it may be faster in the future, for
 
 <div class='row'>
     <div class='col-md-8 col-md-offset-2'>
-        <img src='{{s_host}}/assets/img/speed-up-your-build/jack-and-jill.png' width='100%'/>
+        <img src='{{tag_for_empty_s_host}}/assets/img/speed-up-your-build/jack-and-jill.png' width='100%'/>
     </div>
 </div>
 
