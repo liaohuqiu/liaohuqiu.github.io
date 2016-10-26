@@ -22,9 +22,9 @@
   <script src="/assets/compatibility/respond-1.4.2.js"></script>
 <![endif]-->
 
-<script src="/assets/app/js/base.js?0a28b3aa46052225b2250b8cfa6c7bf4"></script>
-<link href="/assets/app/css/app.css?ef84dbe94bc99086130b84769b59ff0e" rel="stylesheet">
-<script src="/assets/app/js/app.js?ef84dbe94bc99086130b84769b59ff0e"></script>
+<script src="/assets/app/js/base.js?faee782a91e268dee1ae1a36ff3af289"></script>
+<link href="/assets/app/css/app.css?12e17495cc79dd2d4cb25f6288213d50" rel="stylesheet">
+<script src="/assets/app/js/app.js?12e17495cc79dd2d4cb25f6288213d50"></script>
 
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -116,7 +116,7 @@ try {
                 <p> 29 Jan 2015 </p>
             </div>
             <hr>
-            <h3 id="背景">背景</h3>
+            <h3>背景</h3>
 
 <p>在APP交互中，下拉刷新是非常常见的一种交互方式。在使用APP的时候，这也成为了一种潜意识的操作了。</p>
 
@@ -140,7 +140,7 @@ try {
 
 <p>且不说把这两个功能合并在一起在设计上的缺陷，用Header View来实现下拉刷新，在UI体验上就是大打折扣的。</p>
 
-<h3 id="回归简单">回归简单</h3>
+<h3>回归简单</h3>
 
 <p>最为朴素直观的想法和认知，下拉刷新的样式布局应该是这样的:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">               +--------------------+
@@ -181,7 +181,7 @@ try {
 <p>于是我从<a href="https://github.com/etao-open-source/cube-sdk">Cube-SDK</a> 中把下拉刷新独立出来。这就有了<a href="https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh">android-Ultra-Pull-to-Refresh</a>。</p>
 </blockquote>
 
-<h4 id="交互">交互</h4>
+<h4>交互</h4>
 
 <p>Header View 和 Content View 的位置关系如下图:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">       +--------------+                                                刷新距离
@@ -208,7 +208,7 @@ try {
              位置1                         位置2                         位置3
             初始状态                    未达刷新距离                  达到刷新距离
 </code></pre></div>
-<h4 id="位置关系">位置关系</h4>
+<h4>位置关系</h4>
 
 <p>手指触摸屏幕往下拉动，Header View 和 Content View 也往下移动。</p>
 
@@ -222,7 +222,7 @@ try {
 <li><p>位置3。继续下拉，Content View 头部越过刷新线, 从位置2到到达位置3。在位置3，释放将会触发刷新。</p></li>
 </ol>
 
-<h4 id="距离的定义">距离的定义</h4>
+<h4>距离的定义</h4>
 
 <ul>
 <li><p>下拉距离<code>(Offset)</code></p>
@@ -238,7 +238,7 @@ try {
 <p>这个时候的<code>下拉距离</code>，我们称为<strong>刷新时保持头部的距离</strong>，这个距离一般是头部的高度，但是只要你愿意，你可以自定义。</p></li>
 </ul>
 
-<h4 id="下拉刷新和释放刷新">下拉刷新和释放刷新</h4>
+<h4>下拉刷新和释放刷新</h4>
 
 <ul>
 <li><p>下拉刷新<code>(PullToRefresh)</code></p>
@@ -251,7 +251,7 @@ try {
 <p>如果从位置3往上推，回到位置2，释放，将不会触发刷新操作。</p></li>
 </ul>
 
-<h4 id="刷新时保持头部-keepheaderwhilerefresh">刷新时保持头部 <code>(KeepHeaderWhileRefresh)</code></h4>
+<h4>刷新时保持头部 <code>(KeepHeaderWhileRefresh)</code></h4>
 
 <ul>
 <li><p>如果不设置刷新时保持头部。不管<code>下拉刷新</code>还是<code>释放刷新</code>，释放之后，回归到初始位置。</p></li>
@@ -265,7 +265,7 @@ try {
 </ul></li>
 </ul>
 
-<h4 id="自动刷新-autorefresh">自动刷新<code>(AutoRefresh)</code></h4>
+<h4>自动刷新<code>(AutoRefresh)</code></h4>
 
 <p>用户手动下拉，可以实现数据更新。同时，也允许程序调用，展示刷新UI，实现自动刷新。</p>
 
@@ -284,7 +284,7 @@ try {
 <p>到<code>刷新时保持头部的距离</code>之后，才开始进入刷新状态。</p></li>
 </ul>
 
-<h4 id="接口和实现">接口和实现</h4>
+<h4>接口和实现</h4>
 
 <ul>
 <li><p><code>PtrHandler</code> </p>
@@ -312,7 +312,7 @@ try {
 <p><code>PtrFrameLayout</code> 接受一个<code>PtrHandler</code> 和多个<code>PtrUIHandler</code>。在下拉刷新的过程中，你可以通过非常灵活的方式展现出各种效果。</p></li>
 </ul>
 
-<h4 id="一些疑难问题">一些疑难问题</h4>
+<h4>一些疑难问题</h4>
 
 <ol>
 <li><p>列表无法向上滑动，总是下拉。<code>PtrHandler.checkCanDoRefresh</code> 这个方法实现有问题。</p></li>
@@ -328,7 +328,7 @@ try {
             
             <div class='wechat-mp-qrcode'>
                 欢迎关注我的微信公众号<br/>
-                <img src='http://www.liaohuqiu.net/assets/img/qrcode_for_wechat_mp.jpg' /><br/>
+                <img src='//www.liaohuqiu.net/assets/img/qrcode_for_wechat_mp.jpg' /><br/>
                 <p>欢迎关注我的 <a href='http://weibo.com/liaohuqiu/'>新浪微博</a>，有问题随时交流。</p>
                 <p>欢迎关注我的 <a href='https://github.com/liaohuqiu'>GitHub</a>，了解我最新关注的项目。</p>
             </div>

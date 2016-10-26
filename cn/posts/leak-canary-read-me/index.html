@@ -22,9 +22,9 @@
   <script src="/assets/compatibility/respond-1.4.2.js"></script>
 <![endif]-->
 
-<script src="/assets/app/js/base.js?0a28b3aa46052225b2250b8cfa6c7bf4"></script>
-<link href="/assets/app/css/app.css?ef84dbe94bc99086130b84769b59ff0e" rel="stylesheet">
-<script src="/assets/app/js/app.js?ef84dbe94bc99086130b84769b59ff0e"></script>
+<script src="/assets/app/js/base.js?faee782a91e268dee1ae1a36ff3af289"></script>
+<link href="/assets/app/css/app.css?12e17495cc79dd2d4cb25f6288213d50" rel="stylesheet">
+<script src="/assets/app/js/app.js?12e17495cc79dd2d4cb25f6288213d50"></script>
 
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -116,7 +116,7 @@ try {
                 <p> 10 May 2015 </p>
             </div>
             <hr>
-            <h3 id="leakcanary">LeakCanary</h3>
+            <h3>LeakCanary</h3>
 
 <p>Android 和 Java 内存泄露检测。</p>
 
@@ -133,11 +133,11 @@ try {
 
 <p></div></p>
 
-<h4 id="demo">demo</h4>
+<h4>demo</h4>
 
 <p>一个非常简单的 LeakCanary demo: <a href="https://github.com/liaohuqiu/leakcanary-demo">https://github.com/liaohuqiu/leakcanary-demo</a></p>
 
-<h3 id="开始使用">开始使用</h3>
+<h3>开始使用</h3>
 
 <p>在 <code>build.gradle</code> 中加入引用，不同的编译使用不同的引用：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text"> dependencies {
@@ -156,11 +156,11 @@ try {
 </code></pre></div>
 <p><strong>这样，就万事俱备了！</strong> 在 debug build 中，如果检测到某个 activity 有内存泄露，LeakCanary 就是自动地显示一个通知。</p>
 
-<h2 id="为什么需要使用-leakcanary？">为什么需要使用 LeakCanary？</h2>
+<h2>为什么需要使用 LeakCanary？</h2>
 
 <p>问得好，看这个文章<a href="/cn/posts/leak-canary/">LeakCanary: 让内存泄露无所遁形</a></p>
 
-<h3 id="如何使用">如何使用</h3>
+<h3>如何使用</h3>
 
 <p>使用 <code>RefWatcher</code> 监控那些本该被回收的对象。</p>
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">RefWatcher</span> <span class="n">refWatcher</span> <span class="o">=</span> <span class="o">{...};</span>
@@ -194,7 +194,7 @@ try {
   <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
-<h3 id="工作机制">工作机制</h3>
+<h3>工作机制</h3>
 
 <ol>
 <li><p><code>RefWatcher.watch()</code> 创建一个 <a href="https://github.com/square/leakcanary/blob/master/library/leakcanary-watcher/src/main/java/com/squareup/leakcanary/KeyedWeakReference.java">KeyedWeakReference</a> 到要被监控的对象。</p></li>
@@ -206,7 +206,7 @@ try {
 <li><p>引用链传递到 APP 进程中的 <code>DisplayLeakService</code>， 并以通知的形式展示出来。</p></li>
 </ol>
 
-<h3 id="如何复制-leak-trace？">如何复制 leak trace？</h3>
+<h3>如何复制 leak trace？</h3>
 
 <p>在 Logcat 中，你可以看到类似这样的 leak trace：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">In com.example.leakcanary:1.0:1 com.example.leakcanary.MainActivity has leaked:
@@ -222,7 +222,7 @@ try {
 </code></pre></div>
 <p>你甚至可以通过分享按钮把这些东西分享出去。</p>
 
-<h3 id="sdk-导致的内存泄露">SDK 导致的内存泄露</h3>
+<h3>SDK 导致的内存泄露</h3>
 
 <p>随着时间的推移，很多SDK 和厂商 ROM 中的内存泄露问题已经被尽快修复了。但是，当这样的问题发生时，一般的开发者能做的事情很有限。</p>
 
@@ -232,7 +232,7 @@ try {
 
 <p>开发版本的 Snapshots 包在这里： <a href="https://oss.sonatype.org/content/repositories/snapshots/">Sonatype&#39;s <code>snapshots</code> repository</a>。</p>
 
-<h3 id="leak-trace-之外">leak trace 之外</h3>
+<h3>leak trace 之外</h3>
 
 <p>有时，leak trace 不够，你需要通过 <a href="http://eclipse.org/mat/">MAT</a> 或者 <a href="https://www.yourkit.com/">YourKit</a> 深挖 dump 文件。</p>
 
@@ -247,9 +247,9 @@ try {
 <li>剩下的，就是动手修复了。最好是检查到 GC root 的最短强引用路径开始。</li>
 </ol>
 
-<h3 id="自定义">自定义</h3>
+<h3>自定义</h3>
 
-<h4 id="ui-样式">UI 样式</h4>
+<h4>UI 样式</h4>
 
 <p><code>DisplayLeakActivity</code> 有一个默认的图标和标签，你只要在你自己的 APP 资源中，替换以下资源就可。</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">res/
@@ -268,7 +268,7 @@ try {
   <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&quot;__leak_canary_display_activity_label&quot;</span><span class="nt">&gt;</span>MyLeaks<span class="nt">&lt;/string&gt;</span>
 <span class="nt">&lt;/resources&gt;</span>
 </code></pre></div>
-<h4 id="保存-leak-trace">保存 leak trace</h4>
+<h4>保存 leak trace</h4>
 
 <p><code>DisplayLeakActivity</code> saves up to 7 heap dumps &amp; leak traces in the app directory. You can change that number by providing <code>R.integer.__leak_canary_max_stored_leaks</code> in your app:</p>
 
@@ -278,7 +278,7 @@ try {
   <span class="nt">&lt;integer</span> <span class="na">name=</span><span class="s">&quot;__leak_canary_max_stored_leaks&quot;</span><span class="nt">&gt;</span>20<span class="nt">&lt;/integer&gt;</span>
 <span class="nt">&lt;/resources&gt;</span>
 </code></pre></div>
-<h4 id="上传-leak-trace-到服务器">上传 leak trace 到服务器</h4>
+<h4>上传 leak trace 到服务器</h4>
 
 <p>你可以改变处理完成的默认行为，将 leak trace 和 heap dump 上传到你的服务器以便统计分析。</p>
 
@@ -339,7 +339,7 @@ try {
 
 <hr>
 
-<h4 id="demo">demo</h4>
+<h4>demo</h4>
 
 <p>一个非常简单的 LeakCanary demo: <a href="https://github.com/liaohuqiu/leakcanary-demo">https://github.com/liaohuqiu/leakcanary-demo</a></p>
 
@@ -347,7 +347,7 @@ try {
             
             <div class='wechat-mp-qrcode'>
                 欢迎关注我的微信公众号<br/>
-                <img src='http://www.liaohuqiu.net/assets/img/qrcode_for_wechat_mp.jpg' /><br/>
+                <img src='//www.liaohuqiu.net/assets/img/qrcode_for_wechat_mp.jpg' /><br/>
                 <p>欢迎关注我的 <a href='http://weibo.com/liaohuqiu/'>新浪微博</a>，有问题随时交流。</p>
                 <p>欢迎关注我的 <a href='https://github.com/liaohuqiu'>GitHub</a>，了解我最新关注的项目。</p>
             </div>

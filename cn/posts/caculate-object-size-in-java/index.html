@@ -22,9 +22,9 @@
   <script src="/assets/compatibility/respond-1.4.2.js"></script>
 <![endif]-->
 
-<script src="/assets/app/js/base.js?0a28b3aa46052225b2250b8cfa6c7bf4"></script>
-<link href="/assets/app/css/app.css?ef84dbe94bc99086130b84769b59ff0e" rel="stylesheet">
-<script src="/assets/app/js/app.js?ef84dbe94bc99086130b84769b59ff0e"></script>
+<script src="/assets/app/js/base.js?faee782a91e268dee1ae1a36ff3af289"></script>
+<link href="/assets/app/css/app.css?12e17495cc79dd2d4cb25f6288213d50" rel="stylesheet">
+<script src="/assets/app/js/app.js?12e17495cc79dd2d4cb25f6288213d50"></script>
 
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -116,7 +116,7 @@ try {
                 <p> 27 Dec 2014 </p>
             </div>
             <hr>
-            <h4 id="对象内存大小度量">对象内存大小度量</h4>
+            <h4>对象内存大小度量</h4>
 
 <p>在做内存优化时，需要知道每个对象占用的内存的大小，</p>
 
@@ -149,11 +149,11 @@ try {
 
 <p>本文讨论的是对象自身的大小，即 Shadow heap size。Retained heap size 递归计算即可得。</p>
 
-<h4 id="度量工具">度量工具</h4>
+<h4>度量工具</h4>
 
 <p>对象大小的计算可用<code>java.lang.instrument.Instrumentation</code> 或者 dump 内存之后用 memory analyzer 分析。 这是一份示例代码<a href="https://github.com/liaohuqiu/java-object-size">java-object-size</a></p>
 
-<h4 id="基本数据类型大小">基本数据类型大小</h4>
+<h4>基本数据类型大小</h4>
 
 <p>基本数据类型大小如下: <a href="http://en.wikibooks.org/wiki/Java_Programming/Primitive_Types">From WIKI</a></p>
 
@@ -206,7 +206,7 @@ try {
 </tr>
 </tbody></table>
 
-<h4 id="引用的大小">引用的大小</h4>
+<h4>引用的大小</h4>
 
 <p>在 32 位的 JVM 上，一个对象引用占用 4 个字节；在 64 位上，占用 8 个字节。通过 <code>java -d64 -version</code> 可确定是否是 64 位的 JVM。</p>
 
@@ -216,7 +216,7 @@ try {
 <div class="highlight"><pre><code class="language-text" data-lang="text">localhost:~ srain$ jinfo -flag UseCompressedOops 13133
 -XX:+UseCompressedOops
 </code></pre></div>
-<h4 id="对象头部的大小">对象头部的大小</h4>
+<h4>对象头部的大小</h4>
 
 <p>对象头，结构如下<a href="http://mail.openjdk.java.net/pipermail/hotspot-runtime-dev/2008-May/000147.html">(来源)</a>:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">+------------------+------------------+------------------ +---------------+
@@ -229,7 +229,7 @@ try {
 
 <p>在开启 <code>UseCompressedOops</code> 的 64 位机器上，引用成了 4 字节，一共 12 字节。 按照 8 位对齐，实际占用 16 字节。</p>
 
-<h4 id="对象的内存布局">对象的内存布局</h4>
+<h4>对象的内存布局</h4>
 
 <ol>
 <li><p>每个对象的内存占用按 8 字节对齐</p></li>
@@ -340,7 +340,7 @@ class B extends A{
 <li><p>非静态的内部类，有一个隐藏的对外部类的引用。</p></li>
 </ol>
 
-<h4 id="数组的内存占用大小">数组的内存占用大小</h4>
+<h4>数组的内存占用大小</h4>
 
 <p>数组也是对象，故有对象的头部，另外数组还有一个记录数组长度的 int 类型，随后是每一个数组的元素：基本数据类型或者引用。8 字节对齐。</p>
 
@@ -356,7 +356,7 @@ class B extends A{
 <p>byte[0], 16 字节头部，4 字节的 int 长度信息，20 字节，对齐后 24 字节。byte[0] ~ byte[4] 都是 24 字节。</p></li>
 </ul>
 
-<h4 id="字符串大小">字符串大小</h4>
+<h4>字符串大小</h4>
 
 <table><thead>
 <tr>
@@ -420,7 +420,7 @@ class B extends A{
 
 <p>不计算 value 引用的 Retained heap size, 字符串本身就需要 24 ~ 40 字节大小。</p>
 
-<h4 id="参考资料">参考资料</h4>
+<h4>参考资料</h4>
 
 <hr>
 
@@ -434,7 +434,7 @@ class B extends A{
             
             <div class='wechat-mp-qrcode'>
                 欢迎关注我的微信公众号<br/>
-                <img src='http://www.liaohuqiu.net/assets/img/qrcode_for_wechat_mp.jpg' /><br/>
+                <img src='//www.liaohuqiu.net/assets/img/qrcode_for_wechat_mp.jpg' /><br/>
                 <p>欢迎关注我的 <a href='http://weibo.com/liaohuqiu/'>新浪微博</a>，有问题随时交流。</p>
                 <p>欢迎关注我的 <a href='https://github.com/liaohuqiu'>GitHub</a>，了解我最新关注的项目。</p>
             </div>

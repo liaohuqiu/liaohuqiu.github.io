@@ -22,9 +22,9 @@
   <script src="/assets/compatibility/respond-1.4.2.js"></script>
 <![endif]-->
 
-<script src="/assets/app/js/base.js?0a28b3aa46052225b2250b8cfa6c7bf4"></script>
-<link href="/assets/app/css/app.css?ef84dbe94bc99086130b84769b59ff0e" rel="stylesheet">
-<script src="/assets/app/js/app.js?ef84dbe94bc99086130b84769b59ff0e"></script>
+<script src="/assets/app/js/base.js?faee782a91e268dee1ae1a36ff3af289"></script>
+<link href="/assets/app/css/app.css?12e17495cc79dd2d4cb25f6288213d50" rel="stylesheet">
+<script src="/assets/app/js/app.js?12e17495cc79dd2d4cb25f6288213d50"></script>
 
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -116,7 +116,7 @@ try {
                 <p> 16 Aug 2016 </p>
             </div>
             <hr>
-            <h3 id="服务器希望断开闲置连接">服务器希望断开闲置连接</h3>
+            <h3>服务器希望断开闲置连接</h3>
 
 <p>为了控制 ssh 的连接数，服务器希望断开一段时间无操作的连接，可在 <code>/etc/ssh/sshd_config</code> 中配置：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text"># Disable TCPKeepAlive and use ClientAliveInterval instead to prevent TCP Spoofing attacks
@@ -126,14 +126,14 @@ ClientAliveCountMax 3
 </code></pre></div>
 <p>如在指定时间内没收到客户端响应，连接断开。</p>
 
-<h3 id="客户端希望保持连接">客户端希望保持连接</h3>
+<h3>客户端希望保持连接</h3>
 
 <p>如果你正在不同的服务器上，开了好几个窗口，分别切换到不同的目录下，机械键盘敲得啪啪作响。这个时候，同事过来讨论问题，讨论完后，你喝了口水，看了看屏幕，恢复了思路，手指重回键盘，开始继续敲入熟悉的命令，结果：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">Write failed broken pipe
 </code></pre></div>
 <p><strong>看来，你需要重新连接了</strong>。</p>
 
-<h5 id="iterm2">iTerm2</h5>
+<h5>iTerm2</h5>
 
 <p>iTerm2 中有一个选项： <code>When idle, send ASCII code 0 every 10 seconds</code>，其中，ASCII code 和时间可指定。</p>
 
@@ -144,7 +144,7 @@ ClientAliveCountMax 3
 <li>或者，<strong>VI / Vim 中会插入一些不想要的内容</strong>。</li>
 </ul>
 
-<h5 id="正确的做法">正确的做法</h5>
+<h5>正确的做法</h5>
 
 <p>正确的做法是，通过配置 <code>ServerAliveInterval</code> 来实现，在 <code>~/.ssh/config</code> 中加入：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">ServerAliveInterval=30
@@ -164,7 +164,7 @@ ClientAliveCountMax 3
             
             <div class='wechat-mp-qrcode'>
                 欢迎关注我的微信公众号<br/>
-                <img src='http://www.liaohuqiu.net/assets/img/qrcode_for_wechat_mp.jpg' /><br/>
+                <img src='//www.liaohuqiu.net/assets/img/qrcode_for_wechat_mp.jpg' /><br/>
                 <p>欢迎关注我的 <a href='http://weibo.com/liaohuqiu/'>新浪微博</a>，有问题随时交流。</p>
                 <p>欢迎关注我的 <a href='https://github.com/liaohuqiu'>GitHub</a>，了解我最新关注的项目。</p>
             </div>

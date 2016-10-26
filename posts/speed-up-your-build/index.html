@@ -22,9 +22,9 @@
   <script src="/assets/compatibility/respond-1.4.2.js"></script>
 <![endif]-->
 
-<script src="/assets/app/js/base.js?0a28b3aa46052225b2250b8cfa6c7bf4"></script>
-<link href="/assets/app/css/app.css?ef84dbe94bc99086130b84769b59ff0e" rel="stylesheet">
-<script src="/assets/app/js/app.js?ef84dbe94bc99086130b84769b59ff0e"></script>
+<script src="/assets/app/js/base.js?faee782a91e268dee1ae1a36ff3af289"></script>
+<link href="/assets/app/css/app.css?12e17495cc79dd2d4cb25f6288213d50" rel="stylesheet">
+<script src="/assets/app/js/app.js?12e17495cc79dd2d4cb25f6288213d50"></script>
 
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -135,7 +135,7 @@ try {
 
 <p>But all of them can not bring significant speeding up, the build tool in Android Studio has already done most these work.</p>
 
-<h3 id="profile">Profile</h3>
+<h3>Profile</h3>
 
 <p>If you want to figure out the cause, you can try profiling your build process. You can add the <code>--profile</code> flag to any Gradle task. Adding this flag will create a report under <code>build/reports/profile</code>. It looks like:</p>
 
@@ -155,7 +155,7 @@ try {
     </div>
 </div>
 
-<h3 id="why-it-is-so-slow">Why it is so slow</h3>
+<h3>Why it is so slow</h3>
 
 <p>After we inspect the profile again and again, we can figure out some reasons that make build process slow:</p>
 
@@ -165,9 +165,9 @@ try {
 <li><p>too much dependencies</p></li>
 </ul>
 
-<h3 id="solutions">Solutions</h3>
+<h3>Solutions</h3>
 
-<h4 id="1-disable-long-running-task">1. Disable long running task</h4>
+<h4>1. Disable long running task</h4>
 
 <p>We can disable some long running tasks in dev mode.</p>
 <div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">tasks</span><span class="o">.</span><span class="na">whenTaskAdded</span> <span class="o">{</span> <span class="n">task</span> <span class="o">-&gt;</span>
@@ -176,7 +176,7 @@ try {
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
-<h4 id="2-shrink-the-project">2. Shrink the project</h4>
+<h4>2. Shrink the project</h4>
 
 <p>We can not really shrink the project unless we remove some functions of our APP. But we can shrink our project in dev mode. We can disable some module, here is the structure of our project:</p>
 
@@ -249,7 +249,7 @@ try {
 <p>We only need about 15 seconds to finish a debug build, if we only modify the resource, that will be faster.</p></li>
 </ul>
 
-<h4 id="3-jack-and-jill">3. Jack and Jill</h4>
+<h4>3. Jack and Jill</h4>
 
 <p>It is a experimental new Android tool chain, it may be faster in the future, for it can meger the dex file in a very fast way.</p>
 

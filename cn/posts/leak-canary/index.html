@@ -22,9 +22,9 @@
   <script src="/assets/compatibility/respond-1.4.2.js"></script>
 <![endif]-->
 
-<script src="/assets/app/js/base.js?0a28b3aa46052225b2250b8cfa6c7bf4"></script>
-<link href="/assets/app/css/app.css?ef84dbe94bc99086130b84769b59ff0e" rel="stylesheet">
-<script src="/assets/app/js/app.js?ef84dbe94bc99086130b84769b59ff0e"></script>
+<script src="/assets/app/js/base.js?faee782a91e268dee1ae1a36ff3af289"></script>
+<link href="/assets/app/css/app.css?12e17495cc79dd2d4cb25f6288213d50" rel="stylesheet">
+<script src="/assets/app/js/app.js?12e17495cc79dd2d4cb25f6288213d50"></script>
 
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -124,7 +124,7 @@ try {
         at android.graphics.Bitmap.createBitmap(Bitmap.java:689)
         at com.squareup.ui.SignView.createSignatureBitmap(SignView.java:121)
 </code></pre></div>
-<h4 id="谁也不会喜欢-outofmemoryerror">谁也不会喜欢 <code>OutOfMemoryError</code></h4>
+<h4>谁也不会喜欢 <code>OutOfMemoryError</code></h4>
 
 <p>在 <a href="https://squareup.com/help/global/en/article/5243-download-the-square-register-app">Square Register</a> 中, 在签名页面，<a href="https://corner.squareup.com/2010/07/smooth-signatures.html">我们把客户的签名画在 bitmap cache 上</a>。 这个 bitmap 的尺寸几乎和屏幕的尺寸一样大，在创建这个 bitmap 对象时，经常会引发 <code>OutOfMemoryError</code>，简称<code>OOM</code>。</p>
 
@@ -143,17 +143,17 @@ try {
 <li><p>我们没想过在 Java heap 内存之外创建 bitmap 。苦逼的我们，那会 <a href="https://github.com/facebook/fresco">Fresco</a> 还不存在。</p></li>
 </ul>
 
-<h4 id="路子走错了">路子走错了</h4>
+<h4>路子走错了</h4>
 
 <p>其实 bitmap 的尺寸不是真正的问题，当内存吃紧的时候，到处都有可能引发 OO。在创建大对象，比如 bitmap 的时候，更有可能发生。OOM 只是一个表象，更深层次的问题可能是: <strong>内存泄露</strong>。</p>
 
-<h4 id="什么是内存泄露">什么是内存泄露</h4>
+<h4>什么是内存泄露</h4>
 
 <p>一些对象有着有限的生命周期。当这些对象所要做的事情完成了，我们希望他们会被回收掉。但是如果有一系列对这个对象的引用，那么在我们期待这个对象生命周期结束的时候被收回的时候，它是不会被回收的。它还会占用内存，这就造成了内存泄露。持续累加，内存很快被耗尽。</p>
 
 <p>比如，当 <code>Activity.onDestroy</code> 被调用之后，activity 以及它涉及到的 view 和相关的 bitmap 都应该被回收。但是，如果有一个后台线程持有这个 activity 的引用，那么 activity 对应的内存就不能被回收。这最终将会导致内存耗尽，然后因为 OOM 而 crash。</p>
 
-<h4 id="对战内存泄露">对战内存泄露</h4>
+<h4>对战内存泄露</h4>
 
 <p>排查内存泄露是一个全手工的过程，这在 Raizlabs 的 <a href="http://www.raizlabs.com/dev/2014/03/wrangling-dalvik-memory-management-in-android-part-1-of-2/">Wrangling Dalvik</a> 系列文章中有详细描述。</p>
 
@@ -172,7 +172,7 @@ try {
 
 <p>如果有一个类库能在发生 OOM 之前把这些事情全部都搞定，然后你只要修复这些问题就好了，岂不妙哉！</p>
 
-<h4 id="leakcanary">LeakCanary</h4>
+<h4>LeakCanary</h4>
 
 <p><a href="https://github.com/square/leakcanary">LeakCanary</a> 是一个检测内存泄露的开源类库。你可以在 debug 包种轻松检测内存泄露。</p>
 
@@ -226,7 +226,7 @@ refWatcher.watch(schrodingerCat);
 
 <p></div></p>
 
-<h4 id="结论">结论</h4>
+<h4>结论</h4>
 
 <p>使用 LeakCanary 之后，我们修复了我们 APP 中相当多的内存泄露。我们甚至发现了 <a href="https://github.com/square/leakcanary/blob/master/library/leakcanary-android/src/main/java/com/squareup/leakcanary/AndroidExcludedRefs.java">Android SDK 中的一些内存泄露问题</a>。</p>
 
@@ -252,7 +252,7 @@ refWatcher.watch(schrodingerCat);
             
             <div class='wechat-mp-qrcode'>
                 欢迎关注我的微信公众号<br/>
-                <img src='http://www.liaohuqiu.net/assets/img/qrcode_for_wechat_mp.jpg' /><br/>
+                <img src='//www.liaohuqiu.net/assets/img/qrcode_for_wechat_mp.jpg' /><br/>
                 <p>欢迎关注我的 <a href='http://weibo.com/liaohuqiu/'>新浪微博</a>，有问题随时交流。</p>
                 <p>欢迎关注我的 <a href='https://github.com/liaohuqiu'>GitHub</a>，了解我最新关注的项目。</p>
             </div>

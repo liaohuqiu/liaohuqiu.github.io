@@ -22,9 +22,9 @@
   <script src="/assets/compatibility/respond-1.4.2.js"></script>
 <![endif]-->
 
-<script src="/assets/app/js/base.js?0a28b3aa46052225b2250b8cfa6c7bf4"></script>
-<link href="/assets/app/css/app.css?ef84dbe94bc99086130b84769b59ff0e" rel="stylesheet">
-<script src="/assets/app/js/app.js?ef84dbe94bc99086130b84769b59ff0e"></script>
+<script src="/assets/app/js/base.js?faee782a91e268dee1ae1a36ff3af289"></script>
+<link href="/assets/app/css/app.css?12e17495cc79dd2d4cb25f6288213d50" rel="stylesheet">
+<script src="/assets/app/js/app.js?12e17495cc79dd2d4cb25f6288213d50"></script>
 
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -122,7 +122,7 @@ try {
 
 <p>这样做使得登录服务器更加安全和快捷。</p>
 
-<h3 id="客户端生成公钥和私钥">客户端生成公钥和私钥</h3>
+<h3>客户端生成公钥和私钥</h3>
 
 <p>生成一个名为test的公钥和私钥对，密码留空不输入。具体的说明请看这里: <a href="http://www.liaohuqiu.net/cn/posts/ssh-keygen-abc/">ssh-keygen 基本用法</a></p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">[huqiu@101 ~]$ cd .ssh/
@@ -137,11 +137,11 @@ ssh-rsa
 AAAAB3NzaC1yc2EAAAABIwAAAQEAogyXOlD77fWF0bTm0r2HrRf8SKPKWjSv4pZKPZfBHOSZI8B0EDGr5/dpsMCPHUcZBt9v5BgJvLao/znBabap6TWt1yuStDh2rnzXY5uTFah0AiMlnQ7DhjkcctdLfLErz1V2jFTXEC2oGOanLoObpHV+LyeXkn/+i0VekT3QiULSkpzK/gsCtaLmaHLbGxv4GGGAoHtTZrfw09hGo47AeiyxzczcBa7TPXSATVPtCStWk+jzMcIyTyxcE7ORIsClN5xNLnbXiEQF5jOcP0qbjAmOH256E565VFh2WC8srjadfUm6jZLEiE5w7lp2/3rRynAsnF0zjEONE9aPUPhiNw==
 test-key
 </code></pre></div>
-<h3 id="配置公钥到服务器">配置公钥到服务器</h3>
+<h3>配置公钥到服务器</h3>
 
 <p>将公钥内容添加到服务器的<code>~/.ssh/authorized_keys</code> 文件中.</p>
 
-<h3 id="alias-实现命令快速登陆">alias 实现命令快速登陆</h3>
+<h3>alias 实现命令快速登陆</h3>
 
 <p>做好配置之后，通过ssh可以直接登录了。对经常登录的服务器，可以将ssh登录命令的alias加到 <code>~/.bash_profile</code>文件中。</p>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>cat ~/.bash_profile <span class="p">|</span> grep 101
@@ -150,7 +150,7 @@ test-key
 <p>登录的时候:</p>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>to-101
 </code></pre></div>
-<h3 id="无法登录一般的原因">无法登录一般的原因</h3>
+<h3>无法登录一般的原因</h3>
 
 <ul>
 <li><p>客户端的私钥和公钥文件位置必须位于 <code>~/.ssh</code> 下。</p></li>
@@ -160,7 +160,7 @@ test-key
 <li><p>服务器端 <code>~/.ssh/authorized_keys</code> 文件名确保没错 :).</p></li>
 </ul>
 
-<h3 id="ssh-copy-id">ssh-copy-id</h3>
+<h3>ssh-copy-id</h3>
 
 <p><code>ssh-copy-id</code> 是一个小脚本，你可以用这个小脚本完成以上工作。这个脚本在linux系统上一般都有。</p>
 
@@ -168,7 +168,7 @@ test-key
             
             <div class='wechat-mp-qrcode'>
                 欢迎关注我的微信公众号<br/>
-                <img src='http://www.liaohuqiu.net/assets/img/qrcode_for_wechat_mp.jpg' /><br/>
+                <img src='//www.liaohuqiu.net/assets/img/qrcode_for_wechat_mp.jpg' /><br/>
                 <p>欢迎关注我的 <a href='http://weibo.com/liaohuqiu/'>新浪微博</a>，有问题随时交流。</p>
                 <p>欢迎关注我的 <a href='https://github.com/liaohuqiu'>GitHub</a>，了解我最新关注的项目。</p>
             </div>

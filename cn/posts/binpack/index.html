@@ -22,9 +22,9 @@
   <script src="/assets/compatibility/respond-1.4.2.js"></script>
 <![endif]-->
 
-<script src="/assets/app/js/base.js?0a28b3aa46052225b2250b8cfa6c7bf4"></script>
-<link href="/assets/app/css/app.css?ef84dbe94bc99086130b84769b59ff0e" rel="stylesheet">
-<script src="/assets/app/js/app.js?ef84dbe94bc99086130b84769b59ff0e"></script>
+<script src="/assets/app/js/base.js?faee782a91e268dee1ae1a36ff3af289"></script>
+<link href="/assets/app/css/app.css?12e17495cc79dd2d4cb25f6288213d50" rel="stylesheet">
+<script src="/assets/app/js/app.js?12e17495cc79dd2d4cb25f6288213d50"></script>
 
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -123,7 +123,7 @@ try {
 
 <p>本文介绍一种二进制编码方法，具有编码解码速度快，编码后数据量小的特点，同时类似JSON，编码后的数据也是自描述的。</p>
 
-<h3 id="支持的常用数据类型">支持的常用数据类型</h3>
+<h3>支持的常用数据类型</h3>
 
 <ul>
 <li><p>Null。空类型。</p></li>
@@ -141,11 +141,11 @@ try {
 <li><p>Dictionary，key-value键值对。值可以是支持的任意类型，包括Dictionary本身</p></li>
 </ul>
 
-<h1 id="编码方法">编码方法</h1>
+<h1>编码方法</h1>
 
 <hr>
 
-<h3 id="null">Null</h3>
+<h3>Null</h3>
 
 <ul>
 <li><p>编码成一个特殊字节</p>
@@ -155,7 +155,7 @@ try {
 </code></pre></div></li>
 </ul>
 
-<h3 id="bool">Bool</h3>
+<h3>Bool</h3>
 
 <p><code>true</code>和<code>false</code>分别被编码成一个特殊的字节。</p>
 
@@ -172,7 +172,7 @@ try {
 </code></pre></div></li>
 </ul>
 
-<h3 id="integer">Integer</h3>
+<h3>Integer</h3>
 
 <p>整数会被编码成一个或者多个字节。</p>
 
@@ -238,7 +238,7 @@ try {
 </code></pre></div></li>
 </ul>
 
-<h3 id="blob">Blob</h3>
+<h3>Blob</h3>
 
 <ul>
 <li><p>二进制流编码后的数据分成两部分，前一部分是原始数据的长度（字节数），后部分是二进制流原始数据。如下：</p>
@@ -266,7 +266,7 @@ try {
 </code></pre></div></li>
 </ol>
 
-<h3 id="string">String</h3>
+<h3>String</h3>
 
 <ul>
 <li><p>字符串数据的编码方式和<code>Blob</code>一样，也是先编码长度，然后编码数据。</p>
@@ -285,7 +285,7 @@ try {
 </code></pre></div></li>
 </ul>
 
-<h3 id="float">Float</h3>
+<h3>Float</h3>
 
 <ul>
 <li><p>浮点数类型支持单精度和双精度。编码时，先编码这两种数据类型的类型信息到一个字节。然后再编码浮点数<code>IEEE-754</code>标准表示的32位或64位数据。</p></li>
@@ -303,7 +303,7 @@ try {
 </code></pre></div></li>
 </ul>
 
-<h3 id="list">List</h3>
+<h3>List</h3>
 
 <ul>
 <li><p>为了编码<code>List</code>和<code>Dictionary</code>数据类型，定义了一个特殊的字节，用来做闭合标志，如下：</p>
@@ -337,7 +337,7 @@ try {
 </code></pre></div></li>
 </ul>
 
-<h3 id="dictionary">Dictionary</h3>
+<h3>Dictionary</h3>
 
 <ul>
 <li><p>和<code>List</code>编码类似，<code>Dictionary</code>编码时先编码类型信息，<code>Dictionary</code>类型信息是：</p>
@@ -370,7 +370,7 @@ try {
 </code></pre></div></li>
 </ul>
 
-<h3 id="一些常量值定义">一些常量值定义</h3>
+<h3>一些常量值定义</h3>
 
 <ul>
 <li><p>类型信息：</p>
@@ -403,7 +403,7 @@ try {
 </code></pre></div></li>
 </ul>
 
-<h3 id="实现">实现</h3>
+<h3>实现</h3>
 
 <ul>
 <li><p>php实现: <a href="https://github.com/binpack/binpack-php">https://github.com/binpack/binpack-php</a></p></li>
@@ -411,7 +411,7 @@ try {
 <li><p>其他语言，TODO</p></li>
 </ul>
 
-<h3 id="性能">性能</h3>
+<h3>性能</h3>
 
 <ul>
 <li>  在php实现中，对比msgpack，编码后两者数据量大小相等，但本编码方法所耗时间是前者是前者3/4。</li>
@@ -423,7 +423,7 @@ try {
             
             <div class='wechat-mp-qrcode'>
                 欢迎关注我的微信公众号<br/>
-                <img src='http://www.liaohuqiu.net/assets/img/qrcode_for_wechat_mp.jpg' /><br/>
+                <img src='//www.liaohuqiu.net/assets/img/qrcode_for_wechat_mp.jpg' /><br/>
                 <p>欢迎关注我的 <a href='http://weibo.com/liaohuqiu/'>新浪微博</a>，有问题随时交流。</p>
                 <p>欢迎关注我的 <a href='https://github.com/liaohuqiu'>GitHub</a>，了解我最新关注的项目。</p>
             </div>

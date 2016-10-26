@@ -22,9 +22,9 @@
   <script src="/assets/compatibility/respond-1.4.2.js"></script>
 <![endif]-->
 
-<script src="/assets/app/js/base.js?0a28b3aa46052225b2250b8cfa6c7bf4"></script>
-<link href="/assets/app/css/app.css?ef84dbe94bc99086130b84769b59ff0e" rel="stylesheet">
-<script src="/assets/app/js/app.js?ef84dbe94bc99086130b84769b59ff0e"></script>
+<script src="/assets/app/js/base.js?faee782a91e268dee1ae1a36ff3af289"></script>
+<link href="/assets/app/css/app.css?12e17495cc79dd2d4cb25f6288213d50" rel="stylesheet">
+<script src="/assets/app/js/app.js?12e17495cc79dd2d4cb25f6288213d50"></script>
 
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -116,29 +116,29 @@ try {
                 <p> 14 Feb 2014 </p>
             </div>
             <hr>
-            <h1 id="branch">Branch</h1>
+            <h1>Branch</h1>
 
-<h5 id="create-a-branch-add-some-files-push-to-remote-repository">create a branch, add some files, push to remote repository</h5>
+<h5>create a branch, add some files, push to remote repository</h5>
 <div class="highlight"><pre><code class="language-text" data-lang="text">git branch branchName
 echo &quot;Some information&quot; &gt; test.txt
 git add test.txt
 git commit -m &#39;add text.txt&#39;
 git push origin branchName
 </code></pre></div>
-<h5 id="list-all-local-branches">list all local branches</h5>
+<h5>list all local branches</h5>
 <div class="highlight"><pre><code class="language-text" data-lang="text">git branch -a
 </code></pre></div>
-<h5 id="checkout-remote-branch">checkout remote branch</h5>
+<h5>checkout remote branch</h5>
 
 <p>There is a branch named <code>dev</code> in remote repository, you want to trace that:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">git branch -b dev origin/dev
 </code></pre></div>
-<h5 id="delete-remote-branch">delete remote branch</h5>
+<h5>delete remote branch</h5>
 <div class="highlight"><pre><code class="language-text" data-lang="text">git push origin --delete &lt;branchName&gt;
 
 git push origin :&lt;branchName&gt;
 </code></pre></div>
-<h5 id="delete-local-branch">delete local branch</h5>
+<h5>delete local branch</h5>
 <div class="highlight"><pre><code class="language-text" data-lang="text">// -d means --delete
 git branch -d branchName
 
@@ -147,7 +147,7 @@ git branch -D branchName
 </code></pre></div>
 <hr>
 
-<h1 id="merge-amp-rebase">Merge &amp; Rebase</h1>
+<h1>Merge &amp; Rebase</h1>
 
 <p>Here is a repository has a branch named <code>b1</code>, it has some commits  <code>A</code>, <code>B</code>.
 <code>
@@ -193,7 +193,7 @@ A -- B      [b1]
 #
 nothing to commit (working directory clean)
 </code></pre></div>
-<h5 id="git-fetch">git fetch</h5>
+<h5>git fetch</h5>
 
 <p>After <code>git fetch</code>, your local repository will be one of the following status:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">Case A: Local Case A + Remote Case B
@@ -226,7 +226,7 @@ A -- B -- D             [b1]
       \
         --- C           [b2]
 </code></pre></div>
-<h5 id="what-is-fast-forward">what is <code>fast-forward</code></h5>
+<h5>what is <code>fast-forward</code></h5>
 
 <p>If the branch has not diverged, and <code>HEAD</code> is behind, it can do <code>fast-forward</code>.</p>
 
@@ -234,7 +234,7 @@ A -- B -- D             [b1]
 
 <p><code>git merge --ff-only origin/master</code> will try to use <code>fast-forward</code>, abort if fast-forward is not possible.</p>
 
-<h5 id="git-merge-in-one-branch">git merge in one branch</h5>
+<h5>git merge in one branch</h5>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ git merge
 </code></pre></div>
 <p>After merged:</p>
@@ -251,7 +251,7 @@ Case D: Merge, a new commit `E` will be created automatically.
               \        /
                 ---- C          [b1]
 </code></pre></div>
-<h5 id="git-merge-two-branches">git merge two branches</h5>
+<h5>git merge two branches</h5>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ git merge origin/b1
 </code></pre></div>
 <p>After Merged:</p>
@@ -260,18 +260,18 @@ Case D: Merge, a new commit `E` will be created automatically.
               \        \
                 -- C -- E       [b2]
 </code></pre></div>
-<h5 id="git-pull">git pull</h5>
+<h5>git pull</h5>
 
 <p><code>git pull</code> = <code>git fetch + git merge</code></p>
 
-<h5 id="git-rebase-in-one-branch">git rebase in one branch</h5>
+<h5>git rebase in one branch</h5>
 <div class="highlight"><pre><code class="language-text" data-lang="text"># Case E
 $ git rebase
 A -- B ------- D        [b1,remote]
       \
         ------ D -- C1  [b1,local]
 </code></pre></div>
-<h5 id="git-rebase-in-diffrent-branches">git rebase in diffrent branches</h5>
+<h5>git rebase in diffrent branches</h5>
 <div class="highlight"><pre><code class="language-text" data-lang="text"># Case F
 $ git rebase origin/b1
 
@@ -279,7 +279,7 @@ A -- B ------- D        [b1,remote]
       \
         ------ D -- C1  [b2,local]
 </code></pre></div>
-<h5 id="git-push-force">git push force</h5>
+<h5>git push force</h5>
 
 <p>Why?</p>
 
