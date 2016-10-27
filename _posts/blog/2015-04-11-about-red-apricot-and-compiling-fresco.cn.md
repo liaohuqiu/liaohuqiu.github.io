@@ -110,7 +110,7 @@ Facebook上月开源的Fresco 是一个Android Studio项目，作为一个基础
 
     <div class='row'>
         <div class='col-md-6 col-md-offset-3'>
-            <img src='//img1.liaohuqiu.com/red-apricot/red-apricot-sdk-manager-set-proxy.png' width='100%'/>
+            <img src='//{{ site.s_host }}/red-apricot/red-apricot-sdk-manager-set-proxy.png' width='100%'/>
         </div>
     </div>
 
@@ -122,7 +122,7 @@ Facebook上月开源的Fresco 是一个Android Studio项目，作为一个基础
 
     <div class='row'>
         <div class='col-md-8 col-md-offset-2'>
-            <img src='//img1.liaohuqiu.com/red-apricot/red-apricot-android-stuido-set-proxy.png' width='100%'/>
+            <img src='//{{ site.s_host }}/red-apricot/red-apricot-android-stuido-set-proxy.png' width='100%'/>
         </div>
     </div>
 

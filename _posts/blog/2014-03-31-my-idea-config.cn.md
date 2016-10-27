@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-title: "我的idea 配置"
+title: "我的 idea 配置"
 description: ""
 category: blog
 ---

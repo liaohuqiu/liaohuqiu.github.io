@@ -1,7 +1,7 @@
 ---
 layout: post_wide
-title: "Jekyll 插件和Github Pages"
-description: "Github Pages运行在安全模式下，大部分的插件是不能使用的。如何可以在使用各种插件的同时，又可以使用Github Pages的托管服务？"
+title: "Jekyll 插件和 Github Pages"
+description: "Github Pages 运行在安全模式下，大部分的插件是不能使用的。如何可以在使用各种插件的同时，又可以使用 Github Pages 的托管服务？"
 keywords:   "Jekyll plugins, not working Github pages"
 category: blog
 ---

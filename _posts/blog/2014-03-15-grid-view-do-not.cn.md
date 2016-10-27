@@ -1,7 +1,7 @@
 ---
 layout: post_wide
-title: "Gridview的错误用法及替代方案"
-description: "类似9宫格的页面，使用GridView，有可能导致首项被多次创建和绘制，本文给出一个替代方案。"
+title: "Gridview 的错误用法及替代方案"
+description: "类似9宫格的页面，使用 GridView，有可能导致首项被多次创建和绘制，本文给出一个替代方案。"
 category: blog
 ---
 
@@ -9,25 +9,25 @@ category: blog
 
 ###常规实现
 
-这样的 `m x n` 的表现形式，很容易让人想起用GridView。但是数据项又不够多，不够翻页。
+这样的 `m x n` 的表现形式，很容易让人想起用 GridView。但是数据项又不够多，不够翻页。
 
-有些能够滑动翻页的，是重写`Gridview` 的 `onMeasure` 方法，设置一个很大的高度，然后外面包一层 `ScrollView`。
+有些能够滑动翻页的，是重写 `Gridview` 的 `onMeasure` 方法，设置一个很大的高度，然后外面包一层 `ScrollView`。
 
 * 带来的问题
-    1. 这样会导致`GirdView`一次把全部列表项都加载完。`GirdView` 设计的View复用的初衷就达不到了。
-    2. 如果列表项中有一个图片是后加载的，图片加载完后，`ImageView`会`requestLayout()`。这将会导致`GridView`绘制第一项。
+    1. 这样会导致 `GirdView` 一次把全部列表项都加载完。`GirdView` 设计的 View 复用的初衷就达不到了。
+    2. 如果列表项中有一个图片是后加载的，图片加载完后，`ImageView` 会 `requestLayout()`。这将会导致 `GridView`绘制第一项。
 
-        如果总共有9项。最坏的情况，首项将会被绘制9次甚至更多。
+        如果总共有 9 项。最坏的情况，首项将会被绘制 9 次甚至更多。
 
 ###替代方案
 
-对于这样的应用场景，如果不需要复用view也没有翻页的需求，简单绘制每一项就可以了。
+对于这样的应用场景，如果不需要复用 view 也没有翻页的需求，简单绘制每一项就可以了。
 
-1.  从索引0开始绘制每一项，计算行列位置。根据行列位置以及行列间距，每项大小确定每个view的起始位置。
+1.  从索引 0 开始绘制每一项，计算行列位置。根据行列位置以及行列间距，每项大小确定每个 view 的起始位置。
 
-2.  使用`RelativeLayout`做父容器，使用margin 来偏移每项子元素。
+2.  使用 `RelativeLayout` 做父容器，使用 margin 来偏移每项子元素。
 
-3.  设定每项使用`RelativeLayout.LayoutParams`，确定每项尺寸大小。尺寸状态都是`EXACTLY`.
+3.  设定每项使用 `RelativeLayout.LayoutParams`，确定每项尺寸大小。尺寸状态都是 `EXACTLY`.
 
     ---
 
@@ -64,7 +64,7 @@ category: blog
             top = (verticalSpacing + h) * row;
         }
     
-        // 用margin 来偏移
+        // 用 margin 来偏移
         lyp.setMargins(left, top, 0, 0);
     
         // 创建view
@@ -73,11 +73,11 @@ category: blog
     }
     ```
 
-在上面代码中，实际创建view是在`BlockListAdapter`的`getView()`完成的，这是和`ListAdapter`类似的Adapter，但是更简单。
+在上面代码中，实际创建 view 是在 `BlockListAdapter` 的 `getView()` 完成的，这是和 `ListAdapter` 类似的 Adapter，但是更简单。
 
 * 带来的好处
-    1.  简单可依赖，既然不用复用，那么就不用AbsListView的复用机制。继承于`RelativeLayout`，核心函数简单可靠。
-    2.  效率提升，不使用复用机制，每个view只被创建一次。
+    1.  简单可依赖，既然不用复用，那么就不用 AbsListView 的复用机制。继承于 `RelativeLayout`，核心函数简单可靠。
+    2.  效率提升，不使用复用机制，每个 view 只被创建一次。
 
 
 ###例子
@@ -113,7 +113,7 @@ category: blog
     mBlockListAdapter.setBlockSize(mSize, mSize);
     mBlockListAdapter.setColumnNum(3);
 
-    // 关联Adapte
+    // 关联 Adapte
     mBlockListView.setAdapter(mBlockListAdapter);
 
     // 显示数据
@@ -124,6 +124,6 @@ category: blog
 
 [BlockListAdapter 源码](https://github.com/etao-open-source/cube-sdk/blob/master/core/src/com/srain/cube/views/block/BlockListAdapter.java)
 
-[BlockListView的源码](https://github.com/etao-open-source/cube-sdk/blob/master/core/src/com/srain/cube/views/block/BlockListView.java)
+[BlockListView 的源码](https://github.com/etao-open-source/cube-sdk/blob/master/core/src/com/srain/cube/views/block/BlockListView.java)
 
 [例子的源码](https://github.com/etao-open-source/cube-sdk/blob/master/sample-and-tests/src/com/srain/cube/sample/ui/fragment/HomeFragment.java)

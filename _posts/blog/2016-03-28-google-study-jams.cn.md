@@ -23,7 +23,7 @@ April 28, 2016 更新。
 
 <div class='row'>
     <div class='col-md-8 col-md-offset-2'>
-        <img src='//ww2.sinaimg.cn/large/8a41f469jw1f27y2nqh6ij21cw0iw77t.jpg'/>
+        <img src='//{{ site.s_host }}/large/8a41f469jw1f27y2nqh6ij21cw0iw77t.jpg'/>
     </div>
 </div>
 
@@ -101,7 +101,7 @@ April 28, 2016 更新。
 
 <div class='row'>
     <div class='col-md-8 col-md-offset-2'>
-        <img src='//ww1.sinaimg.cn/large/8a41f469jw1f27yaqt2kzj21cw0iwwjc.jpg'/>
+        <img src='//{{ site.s_host }}/large/8a41f469jw1f27yaqt2kzj21cw0iwwjc.jpg'/>
     </div>
 </div>
 

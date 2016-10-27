@@ -1,11 +1,11 @@
 ---
 layout: post_wide
-title: "ListView / GirdView Adpater的getView方法，首项多次调用"
-description: "本文解释了getView首项被执行多次的原因，并给出了一些参考解决方案。"
+title: "ListView / GirdView Adpater 的 getView 方法，首项多次调用"
+description: "本文解释了 getView 首项被执行多次的原因，并给出了一些参考解决方案。"
 category: blog
 ---
 
-通过Adapter为`AbslistView`提供内容是一个常见的做法：在ListView或者GridView的Adapter中的`getView()`方法中，加入一行日志，看`getView()`被调用的情况
+通过 Adapter 为 `AbslistView` 提供内容是一个常见的做法：在 ListView 或者 GridView 的 Adapter 中的 `getView()` 方法中，加入一行日志，看 `getView()` 被调用的情况
 
 ```java
 public View getView(int position, View convertView, ViewGroup parent) {
@@ -23,7 +23,7 @@ public View getView(int position, View convertView, ViewGroup parent) {
 
 ###问题表现
 
-对于ListView，我们使用如下的一个xml文件：
+对于 ListView，我们使用如下的一个xml文件：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -44,9 +44,9 @@ public View getView(int position, View convertView, ViewGroup parent) {
 </RelativeLayout>
 ```
 
-**getView 方法返回的view含有一个网络图片，下载完成后，会导致重新绘制。**
+**getView 方法返回的 view 含有一个网络图片，下载完成后，会导致重新绘制。**
 
-运行程序，在Logcat中 ***有可能*** 会看到`getView 0`会被打印出很多条。
+运行程序，在 Logcat 中 ***有可能*** 会看到 `getView 0` 会被打印出很多条。
 
 ```
 03-15 14:32:41.980    cube_list﹕ getView 0, true
@@ -66,20 +66,20 @@ public View getView(int position, View convertView, ViewGroup parent) {
 03-15 14:32:42.020    cube_list﹕ getView 4, true
 ```
 
-**第一页之后，第0项不再被绘制，但GridView 情况却糟糕多了, 滑动的过程，第0项还在不停被绘制。**
+**第一页之后，第 0 项不再被绘制，但 GridView 情况却糟糕多了, 滑动的过程，第 0 项还在不停被绘制。**
 
 ---
 
 ###原因分析
 
-起因：类似这样的情况，都是加入了列表项之后，列表项自身的一些操作，比如加入图片，导致整个view重新绘制。在重新绘制的过程中，onMeasure方法会创建出列表项来确定大小。
+起因：类似这样的情况，都是加入了列表项之后，列表项自身的一些操作，比如加入图片，导致整个 view 重新绘制。在重新绘制的过程中，onMeasure 方法会创建出列表项来确定大小。
 
 ####ListView
 
 在`onMeasure()`时：
 
 1.  如果宽度或者高度的状态为 UNSPECIFIED, 会多次绘制列表首项，直到大小确定为止。
-2.  如果高度的状态为AT_MOST, 会绘制多个列表项进行确定大小。
+2.  如果高度的状态为 AT_MOST, 会绘制多个列表项进行确定大小。
 
 主要代码如下：
 
@@ -91,7 +91,7 @@ protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
     int widthMode = MeasureSpec.getMode(widthMeasureSpec);
     int heightMode = MeasureSpec.getMode(heightMeasureSpec);
 
-    // ViewMode 处于UNSPECIFIED 状态，绘制首项来确定大小
+    // ViewMode 处于 UNSPECIFIED 状态，绘制首项来确定大小
     mItemCount = mAdapter == null ? 0 : mAdapter.getCount();
     if (mItemCount > 0 && (widthMode == MeasureSpec.UNSPECIFIED 
         || heightMode == MeasureSpec.UNSPECIFIED)) {
@@ -119,12 +119,12 @@ protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
 ####解决方案：
 
-如果`ListView`大小未决，则会绘制列表项，以确定自身大小。让`ListView`大小处于`EXACTLY`状态即可。
+如果 `ListView` 大小未决，则会绘制列表项，以确定自身大小。让 `ListView` 大小处于 `EXACTLY` 状态即可。
 
-根据 [Android中View大小的确定过程](http://www.liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view/)，所描述：
+根据 [Android中 View 大小的确定过程](http://www.liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view/)，所描述：
 
-1.  如果ListView父容器大小确定，设置尺寸为 `match_parent` 不会出现此问题。
-2.  不管父容器什么状态，`ListView`大小为确定数值不会出现此问题。
+1.  如果 ListView 父容器大小确定，设置尺寸为 `match_parent` 不会出现此问题。
+2.  不管父容器什么状态，`ListView` 大小为确定数值不会出现此问题。
 
 ---
 
@@ -150,11 +150,11 @@ protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 }
 ```
 
-只要重新确定大小，首项就一定会被重绘，这个是非常险恶的。从`onMeasure`的实现来看，几乎无法避免，只能从业务方入手。
+只要重新确定大小，首项就一定会被重绘，这个是非常险恶的。从 `onMeasure` 的实现来看，几乎无法避免，只能从业务方入手。
 
 1.  如果是类似九宫格的应用场景，这里有一个解决方案。[Gridview的错误用法及替代方案](http://www.liaohuqiu.net/cn/posts/grid-view-do-not/)
 
-2.  一定有翻屏的需求，可用ListView代替。
+2.  一定有翻屏的需求，可用 ListView 代替。
 
 3.  釜底抽薪，让列表项不要求重绘。
 

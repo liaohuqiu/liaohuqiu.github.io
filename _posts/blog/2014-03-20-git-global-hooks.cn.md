@@ -1,13 +1,13 @@
 ---
 layout: post_wide
-title: git全局钩子
+title: git 全局钩子
 description: git全局钩子的配置
 category: blog
 ---
 
 
 ###钩子文件在项目目录下
-[git的钩子](http://git-scm.com/book/en/Customizing-Git-Git-Hooks)放在git项目下的`.git/hooks`目录。
+[ git 的钩子](http://git-scm.com/book/en/Customizing-Git-Git-Hooks)放在 git 项目下的 `.git/hooks` 目录。
 
 ```bash
 ls -l .git/hooks
@@ -18,14 +18,14 @@ ls -l .git/hooks
 ###模板目录
 我们可用模板目录来解决这个问题。
 
-在`git init` 或者 `git clone`时，如果指定有模板目录，会使用拷贝模板目录下的文件到`.git/`目录下。
+在 `git init` 或者 `git clone`时，如果指定有模板目录，会使用拷贝模板目录下的文件到 `.git/` 目录下。
 
 ```bash
 git init --template "path-to-template-dir"
 git clone --template "path-to-template-dir"
 ```
 
-好了，那么解决方案就是：把统一的钩子文件放到模板目录，然后在`git init` / `git clone`时候指定模板目录？
+好了，那么解决方案就是：把统一的钩子文件放到模板目录，然后在 `git init` / `git clone` 时候指定模板目录？
 
 不行，这样还是太麻烦了。
 
@@ -48,11 +48,11 @@ chmod -R a+x $tempalte_hooks_dir
 git config --global init.templatedir $template_dir
 ```
 
-在`git init`或者`git clone`时，会自动拷贝钩子文件到项目的钩子目录。
-已有项目，执行`git init`重新初始化项目即可。
+在 `git init` 或者 `git clone` 时，会自动拷贝钩子文件到项目的钩子目录。
+已有项目，执行 `git init` 重新初始化项目即可。
 
 ###直接可用的脚本
 
-上面那段脚本，来自我的github：[https://github.com/liaohuqiu/work-anywhere/blob/master/tools/update-git-config.sh](https://github.com/liaohuqiu/work-anywhere/blob/master/tools/update-git-config.sh)
+上面那段脚本，来自我的 github：[https://github.com/liaohuqiu/work-anywhere/blob/master/tools/update-git-config.sh](https://github.com/liaohuqiu/work-anywhere/blob/master/tools/update-git-config.sh)
 
-将你需要的钩子文件放在`sample/git-templete/hooks`文件夹下即可。
+将你需要的钩子文件放在 `sample/git-templete/hooks`文件夹下即可。

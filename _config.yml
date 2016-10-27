@@ -16,6 +16,8 @@ exclude:        ['_fe', 'README.md', 'base.sh', 'manager.sh', '_docker']
 gems:           ['jekyll-paginate', 'jekyll-multiple-languages']
 
 host_name:      'www.liaohuqiu.net'
+s_host:         'img1.liaohuqiu.com'
+error_s_host:   'cimage.sinaapp.com'
 
 author:         liaohuqiu@gmail.com 廖祜秋
 

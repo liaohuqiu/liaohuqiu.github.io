@@ -26,7 +26,7 @@ Swift 和 PHP7 无疑是伟大的项目。发布或者开源之后，引起了�
 
 <div class='row'>
 <div class='col-md-8 col-md-offset-2'>
-<img src='//ww1.sinaimg.cn/large/599e230bgw1eynf3qvyr1j20s70iz77r.jpg' />
+<img src='//{{ site.s_host }}/large/599e230bgw1eynf3qvyr1j20s70iz77r.jpg' />
 </div>
 </div>
 
@@ -41,7 +41,7 @@ Swift 和 PHP7 无疑是伟大的项目。发布或者开源之后，引起了�
 
 <div class='row'>
 <div class='col-md-5 col-md-offset-3'>
-<img src='//ww2.sinaimg.cn/large/599e230bgw1eynm9leb0uj20ku112n34.jpg' />
+<img src='//{{ site.s_host }}/large/599e230bgw1eynm9leb0uj20ku112n34.jpg' />
 </div>
 </div>
 

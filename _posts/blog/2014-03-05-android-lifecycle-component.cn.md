@@ -1,7 +1,7 @@
 ---
 layout: post_wide
-title:  "一花一世界: Android中细小组件的生命周期"
-description: "如何在Activity,Fragement中各生命周期优雅地处理好, 资源释放,停止网络请求等问题。"
+title:  "一花一世界: Android 中细小组件的生命周期"
+description: "如何在 Activity,Fragement 中各生命周期优雅地处理好, 资源释放,停止网络请求等问题。"
 keywords:   "Android, 组件，生命周期，onStop 停止"
 category: blog
 ---

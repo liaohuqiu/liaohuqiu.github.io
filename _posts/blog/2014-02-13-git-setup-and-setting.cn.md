@@ -1,7 +1,7 @@
 ---
 layout: post_wide
-title: "命令行下的git配置问题: 多个sshkey, 多个用户身份, git alias"
-description:  'git使用多个sshkey；git实用设置'
+title: "命令行下的git配置问题: 多个 sshkey, 多个用户身份, git alias"
+description:  'git 使用多个 sshkey；git 实用设置'
 tag:
     - git
 category: blog
@@ -13,12 +13,12 @@ category: blog
 cd ~/.ssh/
 ssh-keygen -t rsa -C "changeme@xxx.com" -f filename
 ```
-如果没有指定`f`选项或者`f`选项为空，生成的私钥和公钥为: `id_rsa`, `id_rsa.pub`.
+如果没有指定 `f` 选项或者 `f` 选项为空，生成的私钥和公钥为: `id_rsa`, `id_rsa.pub`.
 
-#####添加sshkey
+#####添加 sshkey
     ssh-add ~/.ssh/xxx
 
-#####列出所有的sshkey
+#####列出所有的 sshkey
     ssh-add -l
 
 #####执行 `ssh-add` 可能会遇到的问题:
@@ -28,8 +28,8 @@ ssh-keygen -t rsa -C "changeme@xxx.com" -f filename
    
     eval `ssh-agent -s`
 
-#####机器重启又得重新添加sshkey，如何永久添加sshkey
-把sshkey私钥的路径加入到 `~/.ssh/config`, 如下：
+#####机器重启又得重新添加 sshkey，如何永久添加 sshkey
+把 sshkey 私钥的路径加入到 `~/.ssh/config`, 如下：
 
 ```
 $ vim ~/.ssh/config
@@ -49,7 +49,7 @@ IdentityFile ~/.ssh/xxx
 
 #####为各个项目单独配置`user.name` 和 `user.email`
 
-你可能会在不同的几个项目中工作，各个项目的用户名可能不同，为了保证日志的准确性和提交时无误，最好对各个项目设置`user.name`和`user.email`
+你可能会在不同的几个项目中工作，各个项目的用户名可能不同，为了保证日志的准确性和提交时无误，最好对各个项目设置 `user.name` 和 `user.email`
 
 
 ```
@@ -76,8 +76,4 @@ git config --global alias.co 'checkout'
 
 #git lg to view commit log like network graph
 git config --global alias.lg "log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit"
-
-#... 
-# whatever you like
 ```
-<img class="cimage" src="http://cimage.sinaapp.com/img/org/11/37/93/43/47/git-lg-graph.png"/>
