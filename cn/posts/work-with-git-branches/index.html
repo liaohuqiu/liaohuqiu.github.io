@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<title>Git日常分支操作 |  Yet Another Summer Rain</title>
+<title>Git 日常分支操作 |  Yet Another Summer Rain</title>
 <meta charset='utf-8' />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -111,7 +111,7 @@ try {
             </div>
             
             --->
-            <h2> Git日常分支操作 </h2>
+            <h2> Git 日常分支操作 </h2>
             <div>
                 <p> 14 Feb 2014 </p>
             </div>
@@ -146,7 +146,7 @@ git push origin branchName
 </code></pre></div>
 <h5>检出一个远程分支</h5>
 
-<p>远程有一个<code>dev</code>分支，你想check out这个分支到本地：</p>
+<p>远程有一个 <code>dev</code> 分支，你想 check out 这个分支到本地：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">git branch -b dev origin/dev
 </code></pre></div>
 <h5>开发告一段落，你把远程一些没用的分支删除：</h5>
@@ -165,7 +165,7 @@ git branch -D branchName
 
 <h1>Merge &amp; Rebase</h1>
 
-<p><code>git pull</code>是非常笼统的一种操作，下面我们分析日常所有可能遇到的情况：</p>
+<p><code>git pull</code> 是非常笼统的一种操作，下面我们分析日常所有可能遇到的情况：</p>
 
 <p>假设代码库有一个分支 <code>b1</code>, 当前有两次提交： <code>A</code>, <code>B</code>，如下：
 <code>
@@ -254,18 +254,18 @@ A -- B -- D             [b1]
 
 <h5>什么是： <code>fast-forward</code></h5>
 
-<p>在<code>git fetch</code>之后，如果本地分支和远程分支没有分叉，并且本地分支指向较旧脚本，那么，这个分支称为可以<code>fast-forward</code>;</p>
+<p>在 <code>git fetch</code> 之后，如果本地分支和远程分支没有分叉，并且本地分支指向较旧脚本，那么，这个分支称为可以 <code>fast-forward</code>;</p>
 
 <p>在 <code>fast-forward</code>时，本地分支把指针指向最新的提交，并不会生成一个提交。</p>
 
-<p>如果分支可以<code>fast-forward</code>，执行 <code>git merge</code>时，实际执行的是<code>fast-forward</code>。如果不能，则合并，并自动产生一个提交。</p>
+<p>如果分支可以 <code>fast-forward</code>，执行 <code>git merge</code>时，实际执行的是<code>fast-forward</code>。如果不能，则合并，并自动产生一个提交。</p>
 
 <p>很多情况下，我们并不希望有这样的自动合并产生，因为他产生了一个自动提交，会让版本变得交叉，不清晰。</p>
 
-<p>我们希望，能<code>fast-forward</code>就<code>fast-forward</code>, `，否则我们用rebase命令合并。可以这样：</p>
+<p>我们希望，能 <code>fast-forward</code> 就 <code>fast-forward</code>, `，否则我们用rebase命令合并。可以这样：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">git merge --ff-only origin/master
 </code></pre></div>
-<p>如果不能<code>fast-forward</code>, merge 操作会终止。</p>
+<p>如果不能 <code>fast-forward</code>, merge 操作会终止。</p>
 
 <hr>
 
@@ -288,7 +288,7 @@ Case D: 合并，并且自动生成一个提交E
 </code></pre></div>
 <h5>git merge 合并两个分支</h5>
 
-<p>当前在<code>b2</code>上，合并远程<code>b1</code>的改动，对应Case E</p>
+<p>当前在 <code>b2</code> 上，合并远程 <code>b1</code> 的改动，对应 Case E</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ git merge origin/b1
 </code></pre></div>
 <p>合并之后 ：</p>
@@ -305,14 +305,14 @@ Case D: 合并，并且自动生成一个提交E
 
 <h5>git rebase</h5>
 
-<p>只有当一个分支出现分叉，或者在不同的分之间，git rebase才有意义。命令格式：</p>
+<p>只有当一个分支出现分叉，或者在不同的分之间，git rebase 才有意义。命令格式：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">git rebase 目标分支
 </code></pre></div>
 <p>在git rebase时：</p>
 
 <ol>
 <li><p>把本地未推送的所有提交，放到暂存区。</p></li>
-<li><p>然后将本分支的指针指向目标分支最新提交，即改变本地分支的基础，简称<code>变基</code>, :).</p></li>
+<li><p>然后将本分支的指针指向目标分支最新提交，即改变本地分支的基础，简称<code>变基</code>, 这个翻译真是太糟糕了。</p></li>
 <li><p>然后将暂存区的本地未推送的提交挨个应用回本分支。</p></li>
 </ol>
 
@@ -325,11 +325,11 @@ A -- B ------- D        [b1,remote]
 
                 图2
 </code></pre></div>
-<p>先将本地的提交<code>C</code>暂存，然后指向<code>D</code>, 应用<code>C</code>，<code>C</code>在<code>D</code>之前，变成了<code>C1</code>。注意这个和上面<code>git merge</code>（图1）的区别。</p>
+<p>先将本地的提交 <code>C</code> 暂存，然后指向 <code>D</code>, 应用 <code>C</code>，<code>C</code> 在 <code>D</code> 之前，变成了 <code>C1</code>。注意这个和上面 e<code>git merge</code>（图1）的区别。</p>
 
-<h5>不同分支的rebase</h5>
+<h5>不同分支的 rebase</h5>
 
-<p>这其实和同一个分支类似，不过注意，不同分支rebase可能需要强制推送：</p>
+<p>这其实和同一个分支类似，不过注意，不同分支 rebase 可能需要强制推送：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text"># Case F
 $ git rebase origin/b1
 
@@ -345,17 +345,17 @@ A -- B ------- D        [b1,remote]
 <p>Usually, the command refuses to update a remote ref that is not an ancestor of the local ref used to overwrite it.</p>
 </blockquote>
 
-<p>Case F, 如果<code>b2</code>在 <code>D</code> 和 <code>C</code> 之前，有其他的提交已经推送到服务器了，则需要强制推送，因为他们是从<code>B</code>开始分叉的。</p>
+<p>Case F, 如果<code>b2</code>在 <code>D</code> 和 <code>C</code> 之前，有其他的提交已经推送到服务器了，则需要强制推送，因为他们是从 <code>B</code> 开始分叉的。</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">         pushed
 A -- B -..... --- D        [b1,remote]
       \
         -.... --- D -- C1  [b2,local]
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">$ git push origin b2 -f
+</code></pre></div>
+<p>.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ git push origin b2 -f
 $ git push origin b2 --force
 $ git push origin +b2
 </code></pre></div>
-<p>日常git中分支的操作，一般就是以上几种。</p>
-
             <hr>
             
             <div class='wechat-mp-qrcode'>

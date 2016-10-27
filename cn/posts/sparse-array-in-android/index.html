@@ -116,24 +116,24 @@ try {
                 <p> 30 Mar 2014 </p>
             </div>
             <hr>
-            <p>在一般情况下，使用<code>HashMap&lt;K, V&gt;</code>，如果<code>K</code>整数类型的话，使用<code>SparseArray</code>效率会更高。</p>
+            <p>在一般情况下，使用 <code>HashMap&lt;K, V&gt;</code>，如果 <code>K</code> 整数类型的话，使用 <code>SparseArray</code> 效率会更高。</p>
 
-<p>和<code>HashMap</code>类似，<code>SparseArray</code>建立整数索引和对象的关系。和简单的对象数组相比，<code>SparseArray</code>允许索引之间有间隔。</p>
+<p>和<code>HashMap</code>类似，<code>SparseArray</code> 建立整数索引和对象的关系。和简单的对象数组相比，<code>SparseArray</code> 允许索引之间有间隔。</p>
 
-<p><code>SparseArray</code>支持和<code>HashMap</code>类似的<code>put</code>和<code>get</code>方法。在其内部，维护着两个数组，一个用于存储索引，一个用于存储对象。</p>
+<p><code>SparseArray</code> 支持和 <code>HashMap</code> 类似的 <code>put</code> 和 <code>get</code> 方法。在其内部，维护着两个数组，一个用于存储索引，一个用于存储对象。</p>
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SparseArray</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">Cloneable</span> <span class="o">{</span>
 
     <span class="kd">private</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">mKeys</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">Object</span><span class="o">[]</span> <span class="n">mValues</span><span class="o">;</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">mSize</span><span class="o">;</span>
 </code></pre></div>
-<p>整数索引被从小到大映射到<code>mKeys</code>数组中。</p>
+<p>整数索引被从小到大映射到 <code>mKeys</code> 数组中。</p>
 
 <h3>索引的映射</h3>
 
 <p>在计算整数索引映射到数组中的位置的时候，用了一个改造过的的二分搜索算法：</p>
 
-<p>这个算法输入的参数是：要搜索的数组<code>a</code>，搜索的起始位置<code>start</code>, 搜索的长度<code>len</code>, 要检索的关键字<code>key</code>，如下:</p>
+<p>这个算法输入的参数是：要搜索的数组<code>a</code>，搜索的起始位置 <code>start</code>, 搜索的长度 <code>len</code>, 要检索的关键字 <code>key</code>，如下:</p>
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">binarySearch</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">len</span><span class="o">,</span> <span class="kt">int</span> <span class="n">key</span><span class="o">)</span> <span class="o">{</span>
     <span class="kt">int</span> <span class="n">high</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">len</span><span class="o">,</span> <span class="n">low</span> <span class="o">=</span> <span class="n">start</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">guess</span><span class="o">;</span>
 
@@ -154,7 +154,7 @@ try {
         <span class="k">return</span> <span class="o">~</span><span class="n">high</span><span class="o">;</span>
 <span class="o">}</span>
 </code></pre></div>
-<p>这是一个巧妙设计的算法，如果输入的<code>key</code>在区间内则返回等于关键字或者最小的大于关键字的索引。</p>
+<p>这是一个巧妙设计的算法，如果输入的 <code>key</code> 在区间内则返回等于关键字或者最小的大于关键字的索引。</p>
 
 <p>如果关键字不在区间内，则将区间首个索引或者区间最后一个索引加1取反码，非负数的反码都是负数，因为符号位被取反了。</p>
 
@@ -164,7 +164,7 @@ try {
 | 2 | 5 | 8 |   |   |
 +---+---+---+---+---+
 </code></pre></div>
-<p>对于<code>start = 0</code>, <code>len = 3</code>, 对于不同的关键字：</p>
+<p>对于 <code>start = 0</code>, <code>len = 3</code>, 对于不同的关键字：</p>
 
 <table><thead>
 <tr>
@@ -186,7 +186,7 @@ try {
 <tr>
 <td>4</td>
 <td>1</td>
-<td>返回最小的比关键字大的值的对应的索引, 即5的索引</td>
+<td>返回最小的比关键字大的值的对应的索引, 即 5 的索引</td>
 </tr>
 <tr>
 <td>5</td>
@@ -200,9 +200,9 @@ try {
 </tr>
 </tbody></table>
 
-<h3>put过程</h3>
+<h3>put 过程</h3>
 
-<p>put的过程分为以下几步：</p>
+<p>put 的过程分为以下几步：</p>
 
 <ol>
 <li><p>计算索引映射。</p></li>
@@ -215,13 +215,13 @@ try {
 
 <p>如果计算出的映射索引，在现有对象的位置上，需要移动区段。</p>
 
-<p>对于上述数组，如果要插入4：计算得的索引为1，需要将索引位置开始的所有元素后移：</p>
+<p>对于上述数组，如果要插入 4：计算得的索引为 1，需要将索引位置开始的所有元素后移：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">  0   1   2   3   4
 +---+---+---+---+---+
 | 2 |   | 5 | 8 |   | 
 +---+---+---+---+---+
 </code></pre></div></li>
-<li><p>最后，设置值，将数据长度加1。</p>
+<li><p>最后，设置值，将数据长度加 1。</p>
 
 <hr>
 
@@ -248,7 +248,7 @@ try {
             <span class="n">System</span><span class="o">.</span><span class="na">arraycopy</span><span class="o">(</span><span class="n">mValues</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">mValues</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">mSize</span> <span class="o">-</span> <span class="n">i</span><span class="o">);</span>
         <span class="o">}</span>
 
-        <span class="c1">// 4. 设置值，长度加1</span>
+        <span class="c1">// 4. 设置值，长度加 1</span>
         <span class="n">mKeys</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">key</span><span class="o">;</span>
         <span class="n">mValues</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
         <span class="n">mSize</span><span class="o">++;</span>
@@ -257,11 +257,11 @@ try {
 </code></pre></div></li>
 </ol>
 
-<h3>get和遍历</h3>
+<h3>get 和遍历</h3>
 
 <ul>
 <li>  如果索引不存在，<code>indexOfKey(int key)</code>，将会返回负数值。</li>
-<li><p>遍历需要获取数组的总的对象大小，然后用<code>keyAt(int index)</code>获取索引或者<code>valueAt(int index)</code>获取值。</p>
+<li><p>遍历需要获取数组的总的对象大小，然后用 <code>keyAt(int index)</code> 获取索引或者 <code>valueAt(int index)</code> 获取值。</p>
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kt">int</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">sparseArray</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
        <span class="n">key</span> <span class="o">=</span> <span class="n">sparseArray</span><span class="o">.</span><span class="na">keyAt</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
@@ -275,33 +275,32 @@ try {
 <p>稀疏数组的使用，对于索引是整数的情景，有时能带来一些效率的提升。</p>
 
 <ol>
-<li> 减少了hashCode时间消耗</li>
+<li> 减少了 hashCode 时间消耗</li>
 <li> 减小了所使用的内存大小。</li>
 </ol>
 
-<p>和<code>SparseArray</code>类似的，有<code>SparseBooleanArray</code>, <code>SparseIntArray</code>。前者，减少了存储对象占用的空间，后者减少了类型转换。</p>
+<p>和 <code>SparseArray</code> 类似的，有 <code>SparseBooleanArray</code>, <code>SparseIntArray</code>。前者，减少了存储对象占用的空间，后者减少了类型转换。</p>
 
 <p>但在所管理的对象数量很大时，效率却反而有可能更低：</p>
 
 <ol>
 <li> 在插入的时候，有可能导致大段数组的复制;</li>
 <li> 在删除之后，也有可能导致数组的大段元素被按个移动（不是复制数组，而是一个一个单独移动）;</li>
-<li> 索引的映射，采用了二分查找，时间复杂度为O(logn)。</li>
+<li> 索引的映射，采用了二分查找，时间复杂度为 O(logn)。</li>
 </ol>
 
 <hr>
 
-<p>写完这篇文章，搜索了一下<a href="https://www.google.com.hk/search?newwindow=1&amp;safe=strict&amp;espv=2&amp;es_sm=91&amp;q=Android%E4%B8%AD%E7%9A%84%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84&amp;oq=Android%E4%B8%AD%E7%9A%84%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84&amp;gs_l=serp.3...3053247.3054108.0.3054377.2.2.0.0.0.0.365.365.3-1.1.0....0...1c.2.38.serp..2.0.0.Qv5XeRT1LoA">相关的内容</a>
-发现中文的文章，大部分都是重复的，几个原创的也有一些错误。特强调如下：</p>
+<p>写完这篇文章，搜索了一下 <a href="https://www.google.com.hk/search?newwindow=1&amp;safe=strict&amp;espv=2&amp;es_sm=91&amp;q=Android%E4%B8%AD%E7%9A%84%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84&amp;oq=Android%E4%B8%AD%E7%9A%84%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84&amp;gs_l=serp.3...3053247.3054108.0.3054377.2.2.0.0.0.0.365.365.3-1.1.0....0...1c.2.38.serp..2.0.0.Qv5XeRT1LoA">相关的内容</a> 发现中文的文章，大部分都是重复的，几个原创的也有一些错误。特强调如下：</p>
 
 <ol>
-<li><p><strong><code>SparseArray</code>是针对<code>HashMap</code>做的优化。</strong></p>
+<li><p><strong><code>SparseArray</code> 是针对<code>HashMap</code>做的优化。</strong></p>
 
 <ol>
-<li><code>HashMap</code>内部的存储结构，导致一些内存的浪费。</li>
-<li>在刚扩容完，<code>SparseArray</code>和<code>HashMap</code>都会存在一些没被利用的内存。</li>
+<li><code>HashMap</code> 内部的存储结构，导致一些内存的浪费。</li>
+<li>在刚扩容完，<code>SparseArray</code> 和 <code>HashMap</code> 都会存在一些没被利用的内存。</li>
 </ol></li>
-<li><p><strong><code>SparseArray</code>并不是任何时候都会更快，有时反而会更慢</strong></p></li>
+<li><p><strong><code>SparseArray</code> 并不是任何时候都会更快，有时反而会更慢</strong></p></li>
 </ol>
 
             <hr>

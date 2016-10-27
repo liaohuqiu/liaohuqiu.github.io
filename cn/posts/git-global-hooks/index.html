@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<title>git全局钩子 |  Yet Another Summer Rain</title>
+<title>git 全局钩子 |  Yet Another Summer Rain</title>
 <meta charset='utf-8' />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -111,14 +111,14 @@ try {
             </div>
             
             --->
-            <h2> git全局钩子 </h2>
+            <h2> git 全局钩子 </h2>
             <div>
                 <p> 20 Mar 2014 </p>
             </div>
             <hr>
             <h3>钩子文件在项目目录下</h3>
 
-<p><a href="http://git-scm.com/book/en/Customizing-Git-Git-Hooks">git的钩子</a>放在git项目下的<code>.git/hooks</code>目录。</p>
+<p><a href="http://git-scm.com/book/en/Customizing-Git-Git-Hooks"> git 的钩子</a>放在 git 项目下的 <code>.git/hooks</code> 目录。</p>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">ls -l .git/hooks
 </code></pre></div>
 <p>如果我们所有项目都需要一个通用的钩子，那么我们需要在所有的项目中都放置钩子文件。挨个复制显然不是一个可行的方案。</p>
@@ -127,11 +127,11 @@ try {
 
 <p>我们可用模板目录来解决这个问题。</p>
 
-<p>在<code>git init</code> 或者 <code>git clone</code>时，如果指定有模板目录，会使用拷贝模板目录下的文件到<code>.git/</code>目录下。</p>
+<p>在 <code>git init</code> 或者 <code>git clone</code>时，如果指定有模板目录，会使用拷贝模板目录下的文件到 <code>.git/</code> 目录下。</p>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">git init --template <span class="s2">&quot;path-to-template-dir&quot;</span>
 git clone --template <span class="s2">&quot;path-to-template-dir&quot;</span>
 </code></pre></div>
-<p>好了，那么解决方案就是：把统一的钩子文件放到模板目录，然后在<code>git init</code> / <code>git clone</code>时候指定模板目录？</p>
+<p>好了，那么解决方案就是：把统一的钩子文件放到模板目录，然后在 <code>git init</code> / <code>git clone</code> 时候指定模板目录？</p>
 
 <p>不行，这样还是太麻烦了。</p>
 
@@ -152,14 +152,14 @@ chmod -R a+x $tempalte_hooks_dir
 # 设置全局模板目录
 git config --global init.templatedir $template_dir
 </code></pre></div>
-<p>在<code>git init</code>或者<code>git clone</code>时，会自动拷贝钩子文件到项目的钩子目录。
-已有项目，执行<code>git init</code>重新初始化项目即可。</p>
+<p>在 <code>git init</code> 或者 <code>git clone</code> 时，会自动拷贝钩子文件到项目的钩子目录。
+已有项目，执行 <code>git init</code> 重新初始化项目即可。</p>
 
 <h3>直接可用的脚本</h3>
 
-<p>上面那段脚本，来自我的github：<a href="https://github.com/liaohuqiu/work-anywhere/blob/master/tools/update-git-config.sh">https://github.com/liaohuqiu/work-anywhere/blob/master/tools/update-git-config.sh</a></p>
+<p>上面那段脚本，来自我的 github：<a href="https://github.com/liaohuqiu/work-anywhere/blob/master/tools/update-git-config.sh">https://github.com/liaohuqiu/work-anywhere/blob/master/tools/update-git-config.sh</a></p>
 
-<p>将你需要的钩子文件放在<code>sample/git-templete/hooks</code>文件夹下即可。</p>
+<p>将你需要的钩子文件放在 <code>sample/git-templete/hooks</code>文件夹下即可。</p>
 
             <hr>
             

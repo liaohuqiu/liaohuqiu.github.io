@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<title>Android存储使用参考 |  Yet Another Summer Rain</title>
+<title>Android 存储使用参考 |  Yet Another Summer Rain</title>
 <meta charset='utf-8' />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -111,26 +111,26 @@ try {
             </div>
             
             --->
-            <h2> Android存储使用参考 </h2>
+            <h2> Android 存储使用参考 </h2>
             <div>
                 <p> 15 Jan 2014 </p>
             </div>
             <hr>
             <h4>可能遇到的问题</h4>
 
-<p>android系统自身自带有存储，另外也可以通过sd卡来扩充存储空间。前者好比pc中的硬盘，后者好移动硬盘。
+<p>Android 系统自身自带有存储，另外也可以通过 SD 卡来扩充存储空间。
 前者空间较小，后者空间大，但后者不一定可用。
 开发应用，处理本地数据存取时，可能会遇到这些问题：</p>
 
 <ol>
-<li> 需要判断sd卡是否可用: 占用过多机身内部存储，容易招致用户反感，优先将数据存放于sd卡;</li>
+<li> 需要判断 SD 卡是否可用: 占用过多机身内部存储，容易招致用户反感，优先将数据存放于 SD 卡;</li>
 <li><p>应用数据存放路径，同其他应用应该保持一致，应用卸载时，清除数据:</p>
 
 <ul>
-<li>标新立异在sd卡根目录建一个目录，招致用户反感</li>
+<li>标新立异在 SD 卡根目录建一个目录，招致用户反感</li>
 <li>用户卸载应用后，残留目录或者数据在用户机器上，招致用户反感</li>
 </ul></li>
-<li><p>需要判断两者的可用空间: sd卡存在时，可用空间反而小于机身内部存储，这时应该选用机身存储;</p></li>
+<li><p>需要判断两者的可用空间: SD 卡存在时，可用空间反而小于机身内部存储，这时应该选用机身存储;</p></li>
 <li><p>数据安全性，本应用数据不愿意被其他应用读写;</p></li>
 <li><p>图片缓存等，不应该被扫描加入到用户相册等媒体库中去。</p></li>
 </ol>
@@ -145,9 +145,9 @@ try {
 &lt;uses-permission android:name=&quot;android.permission.READ_EXTERNAL_STORAGE&quot; /&gt;
 </code></pre></div>
 <blockquote>
-<p>从API 19 / Andorid 4.4 / KITKAT开始，不再需要显式声明这两个权限，除非要读写其他应用的应用数据(<code>$appDataDir</code>)</p>
+<p>从 API 19 / Andorid 4.4 / KITKAT 开始，不再需要显式声明这两个权限，除非要读写其他应用的应用数据(<code>$appDataDir</code>)</p>
 </blockquote></li>
-<li><p>判断sd卡可用：</p>
+<li><p>判断 sd 卡可用：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">/**
  * Check if the primary &quot;external&quot; storage device is available.
  * 
@@ -172,13 +172,13 @@ public static boolean hasSDCardMounted() {
 <li><p>根据系统用户不同，所能占用的存储空间大小也有不同</p>
 
 <blockquote>
-<p>在API level 9及其以上时，<code>File</code>对象的<code>getFreeSpace()</code>方法获取系统root用户可用空间；</p>
+<p>在 API level 9 及其以上时，<code>File</code> 对象的 <code>getFreeSpace()</code> 方法获取系统 root 用户可用空间；</p>
 
-<p><code>getUsableSpace()</code>取非root用户可用空间</p>
+<p><code>getUsableSpace()</code> 取非 root 用户可用空间</p>
 </blockquote></li>
 <li><p>当有多个存储可用时获取磁盘用量，根据当前系统情况选用合适的存储。</p></li>
-<li><p>根据系统存储用量，合理设定app所用的空间大小；运行时，也可做动态调整。</p></li>
-<li><p>在API level 9及其以上的系统，可直接调用<code>File</code>对象的相关方法，以下需自行计算:</p>
+<li><p>根据系统存储用量，合理设定 app 所用的空间大小；运行时，也可做动态调整。</p></li>
+<li><p>在 API level 9 及其以上的系统，可直接调用 <code>File</code> 对象的相关方法，以下需自行计算:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">@TargetApi(VERSION_CODES.GINGERBREAD)
 public static long getUsableSpace(File path) {
     if (path == null) {
@@ -202,7 +202,7 @@ public static long getUsableSpace(File path) {
 
 <h4>路径的规律</h4>
 
-<p>一般地，通过<code>Context</code> 和 <code>Environment</code>相关的方法获取文件存取的路径。</p>
+<p>一般地，通过 <code>Context</code> 和 <code>Environment</code> 相关的方法获取文件存取的路径。</p>
 
 <p>通过这两个类可获取各种路径，如图：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">    ($rootDir)
@@ -252,8 +252,8 @@ public static long getUsableSpace(File path) {
 <li><p>根目录(<code>$rootDir</code>)：</p>
 
 <ul>
-<li>内部存储路径： <code>/data</code>, 通过<code>Environment.getDataDirectory()</code> 获取</li>
-<li><p>外部存储路径： <code>/storage/sdcard0</code> (也有类似 /mnt/ 这样的）,通过<code>Environment.getExternalStorageDirectory()</code>获取</p>
+<li>内部存储路径： <code>/data</code>, 通过 <code>Environment.getDataDirectory()</code> 获取</li>
+<li><p>外部存储路径： <code>/storage/sdcard0</code> (也有类似 /mnt/ 这样的），通过 <code>Environment.getExternalStorageDirectory()</code> 获取</p>
 
 <p>示例:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">Environment.getDataDirectory(): 
@@ -271,7 +271,7 @@ Environment.getExternalStorageDirectory():
 <li>外部存储: <code>$appDataDir = $rootDir/Andorid/data/$packageName</code></li>
 </ul>
 
-<p><strong><em>在这些目录下的数据，在app卸载之后，会被系统删除，我们应将应用的数据放于这两个目录中。</em></strong></p>
+<p><strong><em>在这些目录下的数据，在 app 卸载之后，会被系统删除，我们应将应用的数据放于这两个目录中。</em></strong></p>
 
 <hr></li>
 <li><p>外部存储中，公开的数据目录。
@@ -289,7 +289,7 @@ Environment.getExternalStoragePublicDirectory(&quot;folder1&quot;):
 <hr></li>
 <li><p>应用数据目录下的目录</p>
 
-<p><strong>一般的在$appDataDir下，会有两个目录</strong>：</p>
+<p><strong>一般的在 $appDataDir 下，会有两个目录</strong>：</p>
 
 <ol>
 <li><p>数据缓存：<code>$cacheDir = $appDataDir/cache</code>:  </p>
@@ -311,9 +311,9 @@ Context.getExternalCacheDir():
 <li><p>文件目录 <code>$filesDir = $appDataDir/files</code>:  </p>
 
 <ul>
-<li><p>内部存储：通过<code>Context.getFilesDir()</code> 获取</p>
+<li><p>内部存储：通过 <code>Context.getFilesDir()</code> 获取</p>
 
-<p><code>Context.getFileStreamPath(String name)</code>返回以<code>name</code>为文件名的文件对象，<code>name</code>为空，则返回 <code>$filesDir</code> 本身</p>
+<p><code>Context.getFileStreamPath(String name)</code>返回以<code>name</code>为文件名的文件对象，<code>name</code> 为空，则返回 <code>$filesDir</code> 本身</p>
 
 <p>示例:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">Context.getFilesDir(): 
@@ -325,9 +325,9 @@ Context.getFileStreamPath(&quot;&quot;):
 Context.getFileStreamPath(&quot;file1&quot;):
         /data/data/com.srain.cube.sample/files/file1
 </code></pre></div></li>
-<li><p>外部存储：通过<code>Context.getExternalFilesDir(String type)</code>, <code>type</code>为空字符串时获取.</p>
+<li><p>外部存储：通过 <code>Context.getExternalFilesDir(String type)</code>, <code>type</code> 为空字符串时获取.</p>
 
-<p><code>type</code>系统指定了几种类型:</p>
+<p><code>type</code> 系统指定了几种类型:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">Environment.DIRECTORY_MUSIC
 Environment.DIRECTORY_PICTURES
 ...
@@ -344,7 +344,7 @@ Context.getExternalFilesDir(Environment.DIRECTORY_MUSIC)
 <hr></li>
 <li><p><code>$cacheDir / $filesDir</code> 安全性</p>
 
-<p>在内部存储中，<code>$cacheDir</code>, <code>$filesDir</code>是app安全的，其他应用无法读取本应用的数据，而外部存储则不是。</p>
+<p>在内部存储中，<code>$cacheDir</code>, <code>$filesDir</code>是 app 安全的，其他应用无法读取本应用的数据，而外部存储则不是。</p>
 
 <p>在外部存储中，这两个文件夹其他应用程序也可访问。</p>
 
@@ -355,16 +355,16 @@ Context.getExternalFilesDir(Environment.DIRECTORY_MUSIC)
 
 <p>在内部存储中：通过 <code>Context.getDir(String name, int mode)</code>可获取和 <code>$filesDir</code> / <code>$cacheDir</code> 同级的目录</p>
 
-<p>目录的命名规则为 <code>app_ + name</code>, 通过mode可控制此目录为app私有还是其他app可读写。</p>
+<p>目录的命名规则为 <code>app_ + name</code>, 通过 mode 可控制此目录为 app 私有还是其他 app 可读写。</p>
 
 <p>示例:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">Context.getDir(&quot;dir1&quot;, MODE_PRIVATE):
         Context.getDir: /data/data/com.srain.cube.sample/app_dir1
 </code></pre></div>
 <hr></li>
-<li><p><strong>特别注意, 对于外部存储，获取<code>$cacheDir</code> 或者 <code>$filesDir</code>及其下的路径</strong></p>
+<li><p><strong>特别注意, 对于外部存储，获取 <code>$cacheDir</code> 或者 <code>$filesDir</code> 及其下的路径</strong></p>
 
-<p>在API level 8 以下，或者空间不足，相关的方法获路径为空时，需要自己构造。</p>
+<p>在 API level 8 以下，或者空间不足，相关的方法获路径为空时，需要自己构造。</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">@TargetApi(VERSION_CODES.FROYO)
 public static File getExternalCacheDir(Context context) {
 

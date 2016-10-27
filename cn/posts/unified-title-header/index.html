@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-<title>Android统一的页面头部 |  Yet Another Summer Rain</title>
+<title>Android 统一的页面头部 |  Yet Another Summer Rain</title>
 <meta charset='utf-8' />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
-<meta name="description" content="本文介绍了使用Activity做页面，实现统一的页头的方法" />
+<meta name="description" content="本文介绍了使用 Activity 做页面，实现统一的页头的方法" />
 <meta name="keywords" content="" />
 
 <meta name="google-site-verification" content="SbAzRqb2cWqPDNEITWdNn-OnF4w_dWNJgt37GYC3kqY" />
@@ -111,19 +111,17 @@ try {
             </div>
             
             --->
-            <h2> Android统一的页面头部 </h2>
+            <h2> Android 统一的页面头部 </h2>
             <div>
                 <p> 06 Jan 2014 </p>
             </div>
             <hr>
-            <p><img class='cimage' src='http://cimage.sinaapp.com/img/file/16/63/45/55/48.png'></p>
-
-<h4>需要解决的问题</h4>
+            <h4>需要解决的问题</h4>
 
 <p>没有统一的页头处理，导致：</p>
 
 <ul>
-<li>各个页面的layout文件都需要细碎地包含页头信息，id的不一致，给管理带来麻烦</li>
+<li>各个页面的 layout 文件都需要细碎地包含页头信息，id 的不一致，给管理带来麻烦</li>
 <li>有可能导致样式不统一</li>
 <li>样式如果要改动，那必是伤筋动骨</li>
 <li>各个页面，分头各自处理页头逻辑重复劳动，一些统一的逻辑，比如统一埋点，却又容易出现不一致</li>
@@ -139,7 +137,7 @@ try {
 
 <ul>
 <li>  页头控件形式实现。</li>
-<li>  一个基类Activity使用此控件，公开<code>setTitle()</code>等方法，处理页头点击返回，数据记录等逻辑。</li>
+<li>  一个基类 Activity 使用此控件，公开 <code>setTitle()</code> 等方法，处理页头点击返回，数据记录等逻辑。</li>
 </ul></li>
 <li><p>抽象和封装</p>
 
@@ -163,7 +161,7 @@ try {
    +- +setCenterOnClickListner();
    +- +setRightOnClickListner();
 </code></pre></div></li>
-<li><p><code>TitleHeaderBar</code> 继承于 <code>HeaderBarBase</code>, 对应的布局文件为：<code>base_header_bar_title.xml</code>，处理普通页头UI和业务逻辑。</p></li>
+<li><p><code>TitleHeaderBar</code> 继承于 <code>HeaderBarBase</code>, 对应的布局文件为：<code>base_header_bar_title.xml</code>，处理普通页头 UI 和业务逻辑。</p></li>
 </ol>
 
 <p><code>TitleHeaderBar.java</code></p>
@@ -193,9 +191,9 @@ try {
 </code></pre></div>
 <ul>
 <li><code>TitleBaseActivity</code>的内容为布局文件中<code>LinearLayout</code>;</li>
-<li><code>LinearLayout</code>包含了一个<code>TitleHeaderBar</code>, 可以统一统一页面返回，点击数据埋点等细化的业务逻辑;</li>
-<li>重写<code>setContentView()</code>, 将内容添加到了此<code>LinearLayout</code>上</li>
-<li>直接继承<code>TitleBaseActivity</code>使用即可, 使用简单:</li>
+<li><code>LinearLayout</code> 包含了一个 <code>TitleHeaderBar</code>, 可以统一统一页面返回，点击数据埋点等细化的业务逻辑;</li>
+<li>重写 <code>setContentView()</code>, 将内容添加到了此 <code>LinearLayout</code> 上</li>
+<li>直接继承 <code>TitleBaseActivity</code> 使用即可, 使用简单:</li>
 </ul>
 
 <p><code>TitleBaseActivity.java</code>:</p>
@@ -211,7 +209,7 @@ try {
 </code></pre></div></li>
 <li><p>扩展性</p>
 
-<p>即可继承<code>TitleBaseActivity</code>, 也可以在布局文件中使用<code>TitleHeaderBar</code>, 甚至可以从<code>HeaderBarBase</code>继承, 实现定制的头部。</p></li>
+<p>即可继承 <code>TitleBaseActivity</code>, 也可以在布局文件中使用 <code>TitleHeaderBar</code>, 甚至可以从 <code>HeaderBarBase</code> 继承, 实现定制的头部。</p></li>
 </ul>
 
             <hr>

@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-<title>命令行下的git配置问题: 多个sshkey, 多个用户身份, git alias |  Yet Another Summer Rain</title>
+<title>命令行下的git配置问题: 多个 sshkey, 多个用户身份, git alias |  Yet Another Summer Rain</title>
 <meta charset='utf-8' />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
-<meta name="description" content="git使用多个sshkey；git实用设置" />
+<meta name="description" content="git 使用多个 sshkey；git 实用设置" />
 <meta name="keywords" content="" />
 
 <meta name="google-site-verification" content="SbAzRqb2cWqPDNEITWdNn-OnF4w_dWNJgt37GYC3kqY" />
@@ -111,7 +111,7 @@ try {
             </div>
             
             --->
-            <h2> 命令行下的git配置问题: 多个sshkey, 多个用户身份, git alias </h2>
+            <h2> 命令行下的git配置问题: 多个 sshkey, 多个用户身份, git alias </h2>
             <div>
                 <p> 13 Feb 2014 </p>
             </div>
@@ -122,12 +122,12 @@ try {
 <div class="highlight"><pre><code class="language-text" data-lang="text">cd ~/.ssh/
 ssh-keygen -t rsa -C &quot;changeme@xxx.com&quot; -f filename
 </code></pre></div>
-<p>如果没有指定<code>f</code>选项或者<code>f</code>选项为空，生成的私钥和公钥为: <code>id_rsa</code>, <code>id_rsa.pub</code>.</p>
+<p>如果没有指定 <code>f</code> 选项或者 <code>f</code> 选项为空，生成的私钥和公钥为: <code>id_rsa</code>, <code>id_rsa.pub</code>.</p>
 
-<h5>添加sshkey</h5>
+<h5>添加 sshkey</h5>
 <div class="highlight"><pre><code class="language-text" data-lang="text">ssh-add ~/.ssh/xxx
 </code></pre></div>
-<h5>列出所有的sshkey</h5>
+<h5>列出所有的 sshkey</h5>
 <div class="highlight"><pre><code class="language-text" data-lang="text">ssh-add -l
 </code></pre></div>
 <h5>执行 <code>ssh-add</code> 可能会遇到的问题:</h5>
@@ -137,9 +137,9 @@ ssh-keygen -t rsa -C &quot;changeme@xxx.com&quot; -f filename
 <p>解决办法:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">eval `ssh-agent -s`
 </code></pre></div>
-<h5>机器重启又得重新添加sshkey，如何永久添加sshkey</h5>
+<h5>机器重启又得重新添加 sshkey，如何永久添加 sshkey</h5>
 
-<p>把sshkey私钥的路径加入到 <code>~/.ssh/config</code>, 如下：</p>
+<p>把 sshkey 私钥的路径加入到 <code>~/.ssh/config</code>, 如下：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ vim ~/.ssh/config
 
 IdentityFile ~/.ssh/gitHubKey
@@ -157,7 +157,7 @@ IdentityFile ~/.ssh/xxx
 
 <h5>为各个项目单独配置<code>user.name</code> 和 <code>user.email</code></h5>
 
-<p>你可能会在不同的几个项目中工作，各个项目的用户名可能不同，为了保证日志的准确性和提交时无误，最好对各个项目设置<code>user.name</code>和<code>user.email</code></p>
+<p>你可能会在不同的几个项目中工作，各个项目的用户名可能不同，为了保证日志的准确性和提交时无误，最好对各个项目设置 <code>user.name</code> 和 <code>user.email</code></p>
 <div class="highlight"><pre><code class="language-text" data-lang="text"># for global setting
 git config --global user.name xxx
 git config --global user.email xxx@xxx.com
@@ -177,12 +177,7 @@ git config --global alias.co &#39;checkout&#39;
 
 #git lg to view commit log like network graph
 git config --global alias.lg &quot;log --all --graph --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)&lt;%an&gt;%Creset&#39; --abbrev-commit&quot;
-
-#... 
-# whatever you like
 </code></pre></div>
-<p><img class="cimage" src="http://cimage.sinaapp.com/img/org/11/37/93/43/47/git-lg-graph.png"/></p>
-
             <hr>
             
             <div class='wechat-mp-qrcode'>

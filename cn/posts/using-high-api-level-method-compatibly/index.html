@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<title>Android 高版本API方法在低版本系统上的兼容性处理 |  Yet Another Summer Rain</title>
+<title>Android 高版本 API 方法在低版本系统上的兼容性处理 |  Yet Another Summer Rain</title>
 <meta charset='utf-8' />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -111,28 +111,28 @@ try {
             </div>
             
             --->
-            <h2> Android 高版本API方法在低版本系统上的兼容性处理 </h2>
+            <h2> Android 高版本 API 方法在低版本系统上的兼容性处理 </h2>
             <div>
                 <p> 23 Jan 2014 </p>
             </div>
             <hr>
             <p>Android 版本更替，新的版本带来新的特性，新的方法。</p>
 
-<p>新的方法带来许多便利，但无法在低版本系统上运行，如果兼容性处理不恰当，APP在低版本系统上，运行时将会crash。</p>
+<p>新的方法带来许多便利，但无法在低版本系统上运行，如果兼容性处理不恰当，APP 在低版本系统上，运行时将会 crash。</p>
 
-<p>本文以一个具体的例子说明如何在使用高API level的方法时处理好兼容性问题。</p>
+<p>本文以一个具体的例子说明如何在使用高 API level 的方法时处理好兼容性问题。</p>
 
 <p>例子：<strong>根据给出路径，获取此路径所在分区的总空间大小。</strong></p>
 
 <p>在<a href="http://www.liaohuqiu.net/storage-in-android/" title="安卓文件存储使用参考">安卓中的文件存储使用参考</a>中提到:</p>
 
 <blockquote>
-<p>获取文件系统用量情况，在API level 9及其以上的系统，可直接调用<code>File</code>对象的相关方法，以下需自行计算</p>
+<p>获取文件系统用量情况，在 API level 9 及其以上的系统，可直接调用 <code>File</code> 对象的相关方法，以下需自行计算</p>
 </blockquote>
 
 <h5>一般实现</h5>
 
-<p>就此需求而言，API level 9及其以上，调用 <code>File.getTotalSpace()</code> 即可, 但是在API level 8 以下系统<code>File</code>对象并不存在此方法。</p>
+<p>就此需求而言，API level 9 及其以上，调用 <code>File.getTotalSpace()</code> 即可, 但是在 API level 8 以下系统<code>File</code>对象并不存在此方法。</p>
 
 <p>如以下方法：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">/**
@@ -151,7 +151,7 @@ public static long getTotalSpace(File path) {
 </code></pre></div>
 <h5>处理无法编译通过</h5>
 
-<p>如果<code>minSdkVersion</code>设置为8，那么build时候会报以下错误：</p>
+<p>如果 <code>minSdkVersion</code> 设置为 8，那么 build 时候会报以下错误：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">Call requires API level 9 (current min is 8)
 </code></pre></div>
 <p>为了编译可以通过，可以添加 <code>@SuppressLint(&quot;NewApi&quot;)</code> 或者 <code>@TargeApi(9)</code>。</p>
@@ -160,7 +160,7 @@ public static long getTotalSpace(File path) {
 <p>用<code>@TargeApi($API_LEVEL)</code>显式表明方法的API level要求，而不是<code>@SuppressLint(&quot;NewApi&quot;)</code>;</p>
 </blockquote>
 
-<p>但是这样只是能编译通过，到了API level8的系统运行，将会引发 <code>java.lang.NoSuchMethodError</code>。</p>
+<p>但是这样只是能编译通过，到了 API level8 的系统运行，将会引发 <code>java.lang.NoSuchMethodError</code>。</p>
 
 <h5>正确的做法</h5>
 
@@ -205,11 +205,11 @@ public static long getTotalSpace(File path) {
 
 <h4>总结</h4>
 
-<p>在使用高于<code>minSdkVersion</code> API level的方法需要:</p>
+<p>在使用高于 <code>minSdkVersion</code> API level 的方法需要:</p>
 
 <ol>
-<li>用<code>@TargeApi($API_LEVEL)</code> 使可以编译通过, 不建议使用<code>@SuppressLint(&quot;NewApi&quot;)</code>;</li>
-<li>运行时判断API level; 仅在足够高，有此方法的API level系统中，调用此方法;</li>
+<li>用 <code>@TargeApi($API_LEVEL)</code> 使可以编译通过, 不建议使用 <code>@SuppressLint(&quot;NewApi&quot;)</code>;</li>
+<li>运行时判断 API level; 仅在足够高，有此方法的 API level 系统中，调用此方法;</li>
 <li>保证功能完整性，保证低API版本通过其他方法提供功能实现。</li>
 </ol>
 

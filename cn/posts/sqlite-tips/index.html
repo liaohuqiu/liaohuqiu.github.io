@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-<title>SQLite使用参考: 唯一索引，分页，清空表 |  Yet Another Summer Rain</title>
+<title>SQLite 使用参考: 唯一索引，分页，清空表 |  Yet Another Summer Rain</title>
 <meta charset='utf-8' />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
-<meta name="description" content="本文使用一个例子讲述Sqlite中的索引，分页，和清空表的最佳做法" />
-<meta name="keywords" content="sqlite分页，sqllite清空表，sqlite索引" />
+<meta name="description" content="本文使用一个例子讲述 Sqlite 中的索引，分页，和清空表的最佳做法" />
+<meta name="keywords" content="sqlite 分页，sqllite 清空表，sqlite 索引" />
 
 <meta name="google-site-verification" content="SbAzRqb2cWqPDNEITWdNn-OnF4w_dWNJgt37GYC3kqY" />
 
@@ -111,7 +111,7 @@ try {
             </div>
             
             --->
-            <h2> SQLite使用参考: 唯一索引，分页，清空表 </h2>
+            <h2> SQLite 使用参考: 唯一索引，分页，清空表 </h2>
             <div>
                 <p> 14 Mar 2014 </p>
             </div>
@@ -119,18 +119,18 @@ try {
             <h3>需求</h3>
 
 <ul>
-<li> Android中的Sqlite</li>
+<li> Android 中的 Sqlite</li>
 <li> 保存用户看过的书，isbn, title, read_time，多次看记录最后一次看的时间。</li>
-<li> ListView时间从新到旧显示，记录可能有很多，有翻页。</li>
+<li> ListView 时间从新到旧显示，记录可能有很多，有翻页。</li>
 <li> 可清除所有历史记录</li>
 </ul>
 
 <h3>数据库设计</h3>
 
 <ul>
-<li> id主键，自增长</li>
-<li> isbn唯一键，记录重复，更新read_time</li>
-<li> read_time索引。</li>
+<li> id 主键，自增长</li>
+<li> isbn 唯一键，记录重复，更新 read_time</li>
+<li> read_time 索引。</li>
 </ul>
 <div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">s_read_books</span> <span class="p">(</span>
     <span class="n">id</span> <span class="nb">integer</span> <span class="k">primary</span> <span class="k">key</span> <span class="n">autoincrement</span><span class="p">,</span> 
@@ -148,8 +148,8 @@ try {
 
 <h3>分页</h3>
 
-<p><code>limit num, offset</code>在sqlite，还是会全部读出数据，所以分页不用offset。
-<code>read_time</code>有索引，分页操作，根据之前的<code>read_time</code>用做条件筛选。</p>
+<p><code>limit num, offset</code> 在 sqlite，还是会全部读出数据，所以分页不用 offset。
+<code>read_time</code>有索引，分页操作，根据之前的 <code>read_time</code> 用做条件筛选。</p>
 
 <p>首次</p>
 <div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">s_read_books</span> <span class="k">order</span> <span class="k">by</span> <span class="n">read_time</span> <span class="k">desc</span> <span class="k">limit</span> <span class="err">$</span><span class="n">num_per_page</span>
@@ -159,10 +159,10 @@ try {
 </code></pre></div>
 <h3>清空表</h3>
 
-<p>Sqlite 不支持<code>truncate</code>，可用 <code>DELETE</code>代替。</p>
+<p>Sqlite 不支持 <code>truncate</code>，可用 <code>DELETE</code> 代替。</p>
 <div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">s_read_books</span>
 </code></pre></div>
-<p>但是效率更高的做法是，drop掉表，然后重建。</p>
+<p>但是效率更高的做法是，drop 掉表，然后重建。</p>
 <div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">s_read_books</span>
 </code></pre></div>
             <hr>

@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-<title>Gridview的错误用法及替代方案 |  Yet Another Summer Rain</title>
+<title>Gridview 的错误用法及替代方案 |  Yet Another Summer Rain</title>
 <meta charset='utf-8' />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
-<meta name="description" content="类似9宫格的页面，使用GridView，有可能导致首项被多次创建和绘制，本文给出一个替代方案。" />
+<meta name="description" content="类似9宫格的页面，使用 GridView，有可能导致首项被多次创建和绘制，本文给出一个替代方案。" />
 <meta name="keywords" content="" />
 
 <meta name="google-site-verification" content="SbAzRqb2cWqPDNEITWdNn-OnF4w_dWNJgt37GYC3kqY" />
@@ -111,7 +111,7 @@ try {
             </div>
             
             --->
-            <h2> Gridview的错误用法及替代方案 </h2>
+            <h2> Gridview 的错误用法及替代方案 </h2>
             <div>
                 <p> 15 Mar 2014 </p>
             </div>
@@ -120,29 +120,29 @@ try {
 
 <h3>常规实现</h3>
 
-<p>这样的 <code>m x n</code> 的表现形式，很容易让人想起用GridView。但是数据项又不够多，不够翻页。</p>
+<p>这样的 <code>m x n</code> 的表现形式，很容易让人想起用 GridView。但是数据项又不够多，不够翻页。</p>
 
-<p>有些能够滑动翻页的，是重写<code>Gridview</code> 的 <code>onMeasure</code> 方法，设置一个很大的高度，然后外面包一层 <code>ScrollView</code>。</p>
+<p>有些能够滑动翻页的，是重写 <code>Gridview</code> 的 <code>onMeasure</code> 方法，设置一个很大的高度，然后外面包一层 <code>ScrollView</code>。</p>
 
 <ul>
 <li><p>带来的问题</p>
 
 <ol>
-<li>这样会导致<code>GirdView</code>一次把全部列表项都加载完。<code>GirdView</code> 设计的View复用的初衷就达不到了。</li>
-<li><p>如果列表项中有一个图片是后加载的，图片加载完后，<code>ImageView</code>会<code>requestLayout()</code>。这将会导致<code>GridView</code>绘制第一项。</p>
+<li>这样会导致 <code>GirdView</code> 一次把全部列表项都加载完。<code>GirdView</code> 设计的 View 复用的初衷就达不到了。</li>
+<li><p>如果列表项中有一个图片是后加载的，图片加载完后，<code>ImageView</code> 会 <code>requestLayout()</code>。这将会导致 <code>GridView</code>绘制第一项。</p>
 
-<p>如果总共有9项。最坏的情况，首项将会被绘制9次甚至更多。</p></li>
+<p>如果总共有 9 项。最坏的情况，首项将会被绘制 9 次甚至更多。</p></li>
 </ol></li>
 </ul>
 
 <h3>替代方案</h3>
 
-<p>对于这样的应用场景，如果不需要复用view也没有翻页的需求，简单绘制每一项就可以了。</p>
+<p>对于这样的应用场景，如果不需要复用 view 也没有翻页的需求，简单绘制每一项就可以了。</p>
 
 <ol>
-<li><p>从索引0开始绘制每一项，计算行列位置。根据行列位置以及行列间距，每项大小确定每个view的起始位置。</p></li>
-<li><p>使用<code>RelativeLayout</code>做父容器，使用margin 来偏移每项子元素。</p></li>
-<li><p>设定每项使用<code>RelativeLayout.LayoutParams</code>，确定每项尺寸大小。尺寸状态都是<code>EXACTLY</code>.</p>
+<li><p>从索引 0 开始绘制每一项，计算行列位置。根据行列位置以及行列间距，每项大小确定每个 view 的起始位置。</p></li>
+<li><p>使用 <code>RelativeLayout</code> 做父容器，使用 margin 来偏移每项子元素。</p></li>
+<li><p>设定每项使用 <code>RelativeLayout.LayoutParams</code>，确定每项尺寸大小。尺寸状态都是 <code>EXACTLY</code>.</p>
 
 <hr>
 
@@ -177,7 +177,7 @@ try {
         <span class="n">top</span> <span class="o">=</span> <span class="o">(</span><span class="n">verticalSpacing</span> <span class="o">+</span> <span class="n">h</span><span class="o">)</span> <span class="o">*</span> <span class="n">row</span><span class="o">;</span>
     <span class="o">}</span>
 
-    <span class="c1">// 用margin 来偏移</span>
+    <span class="c1">// 用 margin 来偏移</span>
     <span class="n">lyp</span><span class="o">.</span><span class="na">setMargins</span><span class="o">(</span><span class="n">left</span><span class="o">,</span> <span class="n">top</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
 
     <span class="c1">// 创建view</span>
@@ -187,14 +187,14 @@ try {
 </code></pre></div></li>
 </ol>
 
-<p>在上面代码中，实际创建view是在<code>BlockListAdapter</code>的<code>getView()</code>完成的，这是和<code>ListAdapter</code>类似的Adapter，但是更简单。</p>
+<p>在上面代码中，实际创建 view 是在 <code>BlockListAdapter</code> 的 <code>getView()</code> 完成的，这是和 <code>ListAdapter</code> 类似的 Adapter，但是更简单。</p>
 
 <ul>
 <li>带来的好处
 
 <ol>
-<li> 简单可依赖，既然不用复用，那么就不用AbsListView的复用机制。继承于<code>RelativeLayout</code>，核心函数简单可靠。</li>
-<li> 效率提升，不使用复用机制，每个view只被创建一次。</li>
+<li> 简单可依赖，既然不用复用，那么就不用 AbsListView 的复用机制。继承于 <code>RelativeLayout</code>，核心函数简单可靠。</li>
+<li> 效率提升，不使用复用机制，每个 view 只被创建一次。</li>
 </ol></li>
 </ul>
 
@@ -226,7 +226,7 @@ try {
 <span class="n">mBlockListAdapter</span><span class="o">.</span><span class="na">setBlockSize</span><span class="o">(</span><span class="n">mSize</span><span class="o">,</span> <span class="n">mSize</span><span class="o">);</span>
 <span class="n">mBlockListAdapter</span><span class="o">.</span><span class="na">setColumnNum</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
 
-<span class="c1">// 关联Adapte</span>
+<span class="c1">// 关联 Adapte</span>
 <span class="n">mBlockListView</span><span class="o">.</span><span class="na">setAdapter</span><span class="o">(</span><span class="n">mBlockListAdapter</span><span class="o">);</span>
 
 <span class="c1">// 显示数据</span>
@@ -238,7 +238,7 @@ try {
 
 <p><a href="https://github.com/etao-open-source/cube-sdk/blob/master/core/src/com/srain/cube/views/block/BlockListAdapter.java">BlockListAdapter 源码</a></p>
 
-<p><a href="https://github.com/etao-open-source/cube-sdk/blob/master/core/src/com/srain/cube/views/block/BlockListView.java">BlockListView的源码</a></p>
+<p><a href="https://github.com/etao-open-source/cube-sdk/blob/master/core/src/com/srain/cube/views/block/BlockListView.java">BlockListView 的源码</a></p>
 
 <p><a href="https://github.com/etao-open-source/cube-sdk/blob/master/sample-and-tests/src/com/srain/cube/sample/ui/fragment/HomeFragment.java">例子的源码</a></p>
 

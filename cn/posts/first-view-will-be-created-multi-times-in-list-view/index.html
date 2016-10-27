@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-<title>ListView / GirdView Adpater的getView方法，首项多次调用 |  Yet Another Summer Rain</title>
+<title>ListView / GirdView Adpater 的 getView 方法，首项多次调用 |  Yet Another Summer Rain</title>
 <meta charset='utf-8' />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
-<meta name="description" content="本文解释了getView首项被执行多次的原因，并给出了一些参考解决方案。" />
+<meta name="description" content="本文解释了 getView 首项被执行多次的原因，并给出了一些参考解决方案。" />
 <meta name="keywords" content="" />
 
 <meta name="google-site-verification" content="SbAzRqb2cWqPDNEITWdNn-OnF4w_dWNJgt37GYC3kqY" />
@@ -111,12 +111,12 @@ try {
             </div>
             
             --->
-            <h2> ListView / GirdView Adpater的getView方法，首项多次调用 </h2>
+            <h2> ListView / GirdView Adpater 的 getView 方法，首项多次调用 </h2>
             <div>
                 <p> 15 Mar 2014 </p>
             </div>
             <hr>
-            <p>通过Adapter为<code>AbslistView</code>提供内容是一个常见的做法：在ListView或者GridView的Adapter中的<code>getView()</code>方法中，加入一行日志，看<code>getView()</code>被调用的情况</p>
+            <p>通过 Adapter 为 <code>AbslistView</code> 提供内容是一个常见的做法：在 ListView 或者 GridView 的 Adapter 中的 <code>getView()</code> 方法中，加入一行日志，看 <code>getView()</code> 被调用的情况</p>
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">View</span> <span class="nf">getView</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">,</span> <span class="n">View</span> <span class="n">convertView</span><span class="o">,</span> <span class="n">ViewGroup</span> <span class="n">parent</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="err">&#39;</span><span class="n">cube_list</span><span class="err">&#39;</span><span class="o">,</span> 
         <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;getView %s, %s&quot;</span><span class="o">,</span> <span class="n">position</span><span class="o">,</span> <span class="n">convertView</span> <span class="o">==</span> <span class="kc">null</span><span class="o">));</span>
@@ -131,7 +131,7 @@ try {
 </code></pre></div>
 <h3>问题表现</h3>
 
-<p>对于ListView，我们使用如下的一个xml文件：</p>
+<p>对于 ListView，我们使用如下的一个xml文件：</p>
 <div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="nt">&lt;RelativeLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
     <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
@@ -149,9 +149,9 @@ try {
 
 <span class="nt">&lt;/RelativeLayout&gt;</span>
 </code></pre></div>
-<p><strong>getView 方法返回的view含有一个网络图片，下载完成后，会导致重新绘制。</strong></p>
+<p><strong>getView 方法返回的 view 含有一个网络图片，下载完成后，会导致重新绘制。</strong></p>
 
-<p>运行程序，在Logcat中 <strong><em>有可能</em></strong> 会看到<code>getView 0</code>会被打印出很多条。</p>
+<p>运行程序，在 Logcat 中 <strong><em>有可能</em></strong> 会看到 <code>getView 0</code> 会被打印出很多条。</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">03-15 14:32:41.980    cube_list﹕ getView 0, true
 03-15 14:32:41.980    cube_list﹕ getView 1, false
 03-15 14:32:41.980    cube_list﹕ getView 2, false
@@ -168,13 +168,13 @@ try {
 03-15 14:32:42.010    cube_list﹕ getView 3, true
 03-15 14:32:42.020    cube_list﹕ getView 4, true
 </code></pre></div>
-<p><strong>第一页之后，第0项不再被绘制，但GridView 情况却糟糕多了, 滑动的过程，第0项还在不停被绘制。</strong></p>
+<p><strong>第一页之后，第 0 项不再被绘制，但 GridView 情况却糟糕多了, 滑动的过程，第 0 项还在不停被绘制。</strong></p>
 
 <hr>
 
 <h3>原因分析</h3>
 
-<p>起因：类似这样的情况，都是加入了列表项之后，列表项自身的一些操作，比如加入图片，导致整个view重新绘制。在重新绘制的过程中，onMeasure方法会创建出列表项来确定大小。</p>
+<p>起因：类似这样的情况，都是加入了列表项之后，列表项自身的一些操作，比如加入图片，导致整个 view 重新绘制。在重新绘制的过程中，onMeasure 方法会创建出列表项来确定大小。</p>
 
 <h4>ListView</h4>
 
@@ -182,7 +182,7 @@ try {
 
 <ol>
 <li> 如果宽度或者高度的状态为 UNSPECIFIED, 会多次绘制列表首项，直到大小确定为止。</li>
-<li> 如果高度的状态为AT_MOST, 会绘制多个列表项进行确定大小。</li>
+<li> 如果高度的状态为 AT_MOST, 会绘制多个列表项进行确定大小。</li>
 </ol>
 
 <p>主要代码如下：</p>
@@ -193,7 +193,7 @@ try {
     <span class="kt">int</span> <span class="n">widthMode</span> <span class="o">=</span> <span class="n">MeasureSpec</span><span class="o">.</span><span class="na">getMode</span><span class="o">(</span><span class="n">widthMeasureSpec</span><span class="o">);</span>
     <span class="kt">int</span> <span class="n">heightMode</span> <span class="o">=</span> <span class="n">MeasureSpec</span><span class="o">.</span><span class="na">getMode</span><span class="o">(</span><span class="n">heightMeasureSpec</span><span class="o">);</span>
 
-    <span class="c1">// ViewMode 处于UNSPECIFIED 状态，绘制首项来确定大小</span>
+    <span class="c1">// ViewMode 处于 UNSPECIFIED 状态，绘制首项来确定大小</span>
     <span class="n">mItemCount</span> <span class="o">=</span> <span class="n">mAdapter</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">mAdapter</span><span class="o">.</span><span class="na">getCount</span><span class="o">();</span>
     <span class="k">if</span> <span class="o">(</span><span class="n">mItemCount</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">widthMode</span> <span class="o">==</span> <span class="n">MeasureSpec</span><span class="o">.</span><span class="na">UNSPECIFIED</span> 
         <span class="o">||</span> <span class="n">heightMode</span> <span class="o">==</span> <span class="n">MeasureSpec</span><span class="o">.</span><span class="na">UNSPECIFIED</span><span class="o">))</span> <span class="o">{</span>
@@ -220,13 +220,13 @@ try {
 </code></pre></div>
 <h4>解决方案：</h4>
 
-<p>如果<code>ListView</code>大小未决，则会绘制列表项，以确定自身大小。让<code>ListView</code>大小处于<code>EXACTLY</code>状态即可。</p>
+<p>如果 <code>ListView</code> 大小未决，则会绘制列表项，以确定自身大小。让 <code>ListView</code> 大小处于 <code>EXACTLY</code> 状态即可。</p>
 
-<p>根据 <a href="http://www.liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view/">Android中View大小的确定过程</a>，所描述：</p>
+<p>根据 <a href="http://www.liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view/">Android中 View 大小的确定过程</a>，所描述：</p>
 
 <ol>
-<li> 如果ListView父容器大小确定，设置尺寸为 <code>match_parent</code> 不会出现此问题。</li>
-<li> 不管父容器什么状态，<code>ListView</code>大小为确定数值不会出现此问题。</li>
+<li> 如果 ListView 父容器大小确定，设置尺寸为 <code>match_parent</code> 不会出现此问题。</li>
+<li> 不管父容器什么状态，<code>ListView</code> 大小为确定数值不会出现此问题。</li>
 </ol>
 
 <hr>
@@ -250,11 +250,11 @@ try {
     <span class="c1">// ...</span>
 <span class="o">}</span>
 </code></pre></div>
-<p>只要重新确定大小，首项就一定会被重绘，这个是非常险恶的。从<code>onMeasure</code>的实现来看，几乎无法避免，只能从业务方入手。</p>
+<p>只要重新确定大小，首项就一定会被重绘，这个是非常险恶的。从 <code>onMeasure</code> 的实现来看，几乎无法避免，只能从业务方入手。</p>
 
 <ol>
 <li><p>如果是类似九宫格的应用场景，这里有一个解决方案。<a href="http://www.liaohuqiu.net/cn/posts/grid-view-do-not/">Gridview的错误用法及替代方案</a></p></li>
-<li><p>一定有翻屏的需求，可用ListView代替。</p></li>
+<li><p>一定有翻屏的需求，可用 ListView 代替。</p></li>
 <li><p>釜底抽薪，让列表项不要求重绘。</p></li>
 </ol>
 

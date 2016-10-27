@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
-<meta name="description" content="binpack编码方法" />
+<meta name="description" content="binpack 编码方法" />
 <meta name="keywords" content="binpack" />
 
 <meta name="google-site-verification" content="SbAzRqb2cWqPDNEITWdNn-OnF4w_dWNJgt37GYC3kqY" />
@@ -116,29 +116,29 @@ try {
                 <p> 18 Mar 2014 </p>
             </div>
             <hr>
-            <p>JSON是一种非常常见的编码方法，数据编码之后，可进行持久存储或者网络传输。
-和xml类似，JSON也是自描述的，编码后的数据具有一定的可读性并且相对xml数据更小。</p>
+            <p>JSON 是一种非常常见的编码方法，数据编码之后，可进行持久存储或者网络传输。
+和 xml 类似，JSON 也是自描述的，编码后的数据具有一定的可读性并且相对 xml 数据更小。</p>
 
-<p>但在RPC调用的数据传输时，使用JSON编解码速度慢，数据量也太大。</p>
+<p>但在 RPC 调用的数据传输时，使用 JSON 编解码速度慢，数据量也太大。</p>
 
-<p>本文介绍一种二进制编码方法，具有编码解码速度快，编码后数据量小的特点，同时类似JSON，编码后的数据也是自描述的。</p>
+<p>本文介绍一种二进制编码方法，具有编码解码速度快，编码后数据量小的特点，同时类似 JSON，编码后的数据也是自描述的。</p>
 
 <h3>支持的常用数据类型</h3>
 
 <ul>
 <li><p>Null。空类型。</p></li>
 <li><p>Bool。布尔值，<code>true</code>或者<code>false</code>。</p></li>
-<li><p><a href="http://en.wikipedia.org/wiki/Integer_%28computer_science%29">Integer</a>。根据长度不同，支持：8 ~ 64位。</p></li>
+<li><p><a href="http://en.wikipedia.org/wiki/Integer_%28computer_science%29">Integer</a>。根据长度不同，支持：8 ~ 64 位。</p></li>
 <li><p>Blob，二进制流。</p></li>
-<li><p>String。字符串。C风格字符串不包含最后一个字符。</p></li>
+<li><p>String。字符串。C 风格字符串不包含最后一个字符。</p></li>
 <li><p>Float，浮点数。</p>
 
 <ul>
 <li>Single，单精度浮点数，32位，4字节。</li>
 <li>Double，双精度浮点数，64为，8字节。</li>
 </ul></li>
-<li><p>List，数组。值可以是支持的任意类型，包括List本身。</p></li>
-<li><p>Dictionary，key-value键值对。值可以是支持的任意类型，包括Dictionary本身</p></li>
+<li><p>List，数组。值可以是支持的任意类型，包括 List 本身。</p></li>
+<li><p>Dictionary，key-value 键值对。值可以是支持的任意类型，包括 Dictionary 本身</p></li>
 </ul>
 
 <h1>编码方法</h1>
@@ -157,7 +157,7 @@ try {
 
 <h3>Bool</h3>
 
-<p><code>true</code>和<code>false</code>分别被编码成一个特殊的字节。</p>
+<p><code>true</code> 和 <code>false</code> 分别被编码成一个特殊的字节。</p>
 
 <ul>
 <li><p><code>true</code></p>
@@ -179,7 +179,7 @@ try {
 <ul>
 <li><p>整数的类型信息和符号信息被编码到最后一个字节</p>
 
-<p>最后一个字节前三个位用来存储整数区别于其他数据类型的标志以及符号位，第4，5个位用来存储整数的长度信息</p>
+<p>最后一个字节前三个位用来存储整数区别于其他数据类型的标志以及符号位，第 4，5 个位用来存储整数的长度信息</p>
 
 <ul>
 <li><p>非负整数的前三位</p>
@@ -192,7 +192,7 @@ try {
 | 011x xxxx |  0x60
 +-----------+
 </code></pre></div></li>
-<li><p>整数的长度信息被编码进第4，5位:</p>
+<li><p>整数的长度信息被编码进第 4，5 位:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+
 | xxx0 0xxx |   64bits
 +-----------+
@@ -207,15 +207,15 @@ try {
 +-----------+
 </code></pre></div></li>
 </ul></li>
-<li><p>除去最后一个字节，其他字节（如果编码后的数据是多个字节的话）的首位都是1，最后一个字节存储整数数据类型信息，该字节首位是0。这样设计，会给解码带来便利。</p>
+<li><p>除去最后一个字节，其他字节（如果编码后的数据是多个字节的话）的首位都是 1，最后一个字节存储整数数据类型信息，该字节首位是 0。这样设计，会给解码带来便利。</p>
 
-<p>最后一个字节的3个位，以及其他字节的7个位，用来储存整数的数值信息，如图：</p>
+<p>最后一个字节的 3 个位，以及其他字节的 7 个位，用来储存整数的数值信息，如图：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">    7 bits                  3 bits
 +-----------+...........+-----------+
 | 1xxx xxxx | 1xxx xxxx | .... .xxx |
 +-----------+...........+-----------+
 </code></pre></div>
-<p>整数的绝对值数值的二进制补码(Two&#39;s Complement)，低位在前，高位在后，7位一组，填充到这些编码位上。</p>
+<p>整数的绝对值数值的二进制补码(Two&#39;s Complement)，低位在前，高位在后，7 位一组，填充到这些编码位上。</p>
 <div class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// allocate buf</span>
 <span class="kt">char</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="n">buf</span><span class="p">;</span>
 <span class="c1">// 小于0x08的数值，编码到最后一个字节的后三位</span>
@@ -251,8 +251,8 @@ try {
 <p>原始数据的长度的编码和整数相似，但有两个地方不一样：</p>
 
 <ol>
-<li><p>编码到最后一个字节的<code>Blob</code>的数据类型信息是<code>0x10</code>;</p></li>
-<li><p>最后一个字节有4个位可用来存储编码后的长度信息，对于整数，只有3个:</p>
+<li><p>编码到最后一个字节的 <code>Blob</code> 的数据类型信息是 <code>0x10</code>;</p></li>
+<li><p>最后一个字节有 4 个位可用来存储编码后的长度信息，对于整数，只有 3 个:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">              0x10 + 4bits
 +...........+-----------+
 | 1xxx xxxx | 0001 xxxx |
@@ -269,11 +269,11 @@ try {
 <h3>String</h3>
 
 <ul>
-<li><p>字符串数据的编码方式和<code>Blob</code>一样，也是先编码长度，然后编码数据。</p>
+<li><p>字符串数据的编码方式和 <code>Blob</code> 一样，也是先编码长度，然后编码数据。</p>
 
-<p><strong>字符串数据以及长度不包括C风格字符串中的结束字节。</strong></p>
+<p><strong>字符串数据以及长度不包括 C 风格字符串中的结束字节。</strong></p>
 
-<p>编码到长度数据最后一个字节的<code>String</code>的数据类型信息是: <code>0x20</code>，如下:</p>
+<p>编码到长度数据最后一个字节的 <code>String</code> 的数据类型信息是: <code>0x20</code>，如下:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">              0x20 + 4 bits
 +...........+-----------+
 | 1xxx xxxx | 0010 xxxx |
@@ -288,9 +288,9 @@ try {
 <h3>Float</h3>
 
 <ul>
-<li><p>浮点数类型支持单精度和双精度。编码时，先编码这两种数据类型的类型信息到一个字节。然后再编码浮点数<code>IEEE-754</code>标准表示的32位或64位数据。</p></li>
+<li><p>浮点数类型支持单精度和双精度。编码时，先编码这两种数据类型的类型信息到一个字节。然后再编码浮点数 <code>IEEE-754</code> 标准表示的 32 位或 64 位数据。</p></li>
 <li><p>编码时高位在前。 </p></li>
-<li><p>编码后，单精度浮点数占5个字节；双精度浮点数占9个字节，如下所示：</p>
+<li><p>编码后，单精度浮点数占 5 个字节；双精度浮点数占 9 个字节，如下所示：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">  0x06        8 bytes
 +-----------+===========+
 | 0000 0110 |    data   |  双精度
@@ -306,21 +306,19 @@ try {
 <h3>List</h3>
 
 <ul>
-<li><p>为了编码<code>List</code>和<code>Dictionary</code>数据类型，定义了一个特殊的字节，用来做闭合标志，如下：</p>
+<li><p>为了编码 <code>List</code> 和 <code>Dictionary</code> 数据类型，定义了一个特殊的字节，用来做闭合标志，如下：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+
 | 0000 0001 |   0x01
 +-----------+
 </code></pre></div></li>
-<li><p><code>List</code>的数据类型信息编码成一个字节：</p>
+<li><p><code>List</code> 的数据类型信息编码成一个字节：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+
 | 0000 0010 |   0x02
 +-----------+
 </code></pre></div></li>
 <li><p>在编码时，第一个字节是类型信息，然后是每个子元素，最后是闭合字节：</p>
-
-<p>The last byte is <code>Closure</code>.</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+
-| 0000 0010 | List类型信息字节
+| 0000 0010 | List 类型信息字节
 +-----------+----------------------------
 |          元素 1                       
 +----------------------------------------
@@ -340,12 +338,12 @@ try {
 <h3>Dictionary</h3>
 
 <ul>
-<li><p>和<code>List</code>编码类似，<code>Dictionary</code>编码时先编码类型信息，<code>Dictionary</code>类型信息是：</p>
+<li><p>和 <code>List</code> 编码类似，<code>Dictionary</code> 编码时先编码类型信息，<code>Dictionary</code> 类型信息是：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+
 | 0000 0011 |   0x03
 +-----------+
 </code></pre></div></li>
-<li><p>类型信息之后，是<code>Dictionary</code>的每个键值对，最后是闭合字节：</p>
+<li><p>类型信息之后，是 <code>Dictionary</code> 的每个键值对，最后是闭合字节：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">+-----------+
 | 0000 0011 | 类型信息
 +-----------+----------------------------
@@ -406,15 +404,15 @@ try {
 <h3>实现</h3>
 
 <ul>
-<li><p>php实现: <a href="https://github.com/binpack/binpack-php">https://github.com/binpack/binpack-php</a></p></li>
-<li><p>Java实现: <a href="https://github.com/binpack/binpack-java">https://github.com/binpack/binpack-java</a></p></li>
+<li><p>php 实现: <a href="https://github.com/binpack/binpack-php">https://github.com/binpack/binpack-php</a></p></li>
+<li><p>Java 实现: <a href="https://github.com/binpack/binpack-java">https://github.com/binpack/binpack-java</a></p></li>
 <li><p>其他语言，TODO</p></li>
 </ul>
 
 <h3>性能</h3>
 
 <ul>
-<li>  在php实现中，对比msgpack，编码后两者数据量大小相等，但本编码方法所耗时间是前者是前者3/4。</li>
+<li>  在 php 实现中，对比 msgpack，编码后两者数据量大小相等，但本编码方法所耗时间是前者是前者 3/4。</li>
 </ul>
 
 <p><a href="https://github.com/binpack/binpack">https://github.com/binpack/binpack</a></p>
