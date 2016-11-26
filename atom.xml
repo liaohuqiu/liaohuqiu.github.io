@@ -4,13 +4,84 @@
   <title>Yet Another Summer Rain</title>
   <link href="http://liaohuqiu.net/"/>
   <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
-  <updated>2016-11-07T04:01:23+00:00</updated>
+  <updated>2016-11-26T01:15:56+00:00</updated>
   <id>http://liaohuqiu.net/</id>
   <author>
     <name>Huqiu Liao / Srain</name>
     <email>srain@php.net</email>
   </author>
 
+  
+  <entry>
+    <id>http://liaohuqiu.net/cn/posts/ssh-agent-forward</id>
+    <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/ssh-agent-forward/"/>
+    <title>ssh-agent 转发</title>
+    <published>2016-11-29T00:00:00+00:00</published>
+    <updated>2016-11-29T00:00:00+00:00</updated>
+    <author>
+      <name>Huqiu Liao / Srain</name>
+      <uri>http://liaohuqiu.net/</uri>
+    </author>
+    <content type="html">&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;你需要在多个服务器之间工作，通过 ssh key，你可以从本机登录这几个服务器。你登录到一个其中一个服务器 A，你想从 A 到另一个服务器 B，但服务器 B 上没有 A 的公钥，无法直接从 A 登录到 B。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;你本机使用 ssh key 访问 GitHub 或者其他基于 ssh 认证的服务器，比如 Gitlab。你在本地提交代码，你可以登录服务器，你想在服务器上更新代码。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;这样的场景，可以使用 ssh-agent。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;ssh 登录时，加入 &lt;code&gt;-A&lt;/code&gt; 选项，开启转发。你可以通过设置 &lt;code&gt;alias ssh=&amp;#39;ssh -A&amp;#39;&lt;/code&gt; 来实现；&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;启动 ssh-agent，并通过 ssh-add 加入要转发的 key。通过 &lt;code&gt;ssh-add -l&lt;/code&gt; 查看有哪些 key 已经加入。* key 的数量不能过多，ssh 会依次尝试使用这里的每一个 key，如果 key 数量过多，会达到最大尝试次数，认证失败。 *&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;你可直接使用将以下的脚本，加入到你的 ~/.bash_profile 中，在 &lt;code&gt;add_ssh_keys&lt;/code&gt; 这个函数中，加入你要转发的 key，重新载入 ~/.bash_profile 即可。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; add_ssh_keys&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# Will load ~/.ssh/id_rsa&lt;/span&gt;
+    /usr/bin/ssh-add
+    &lt;span class=&quot;c&quot;&gt;# You also can add your other keys here&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# For example: /usr/bin/ssh-add&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;SSH_ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;$HOME/.ssh/environment&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; _start_agent &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Initialising new SSH agent...&amp;quot;&lt;/span&gt;
+    /usr/bin/ssh-agent &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; sed &lt;span class=&quot;s1&quot;&gt;&amp;#39;s/^echo/#echo/&amp;#39;&lt;/span&gt; &amp;gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;${SSH_ENV}&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;succeeded
+    chmod &lt;span class=&quot;m&quot;&gt;600&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;${SSH_ENV}&amp;quot;&lt;/span&gt;
+    . &lt;span class=&quot;s2&quot;&gt;&amp;quot;${SSH_ENV}&amp;quot;&lt;/span&gt; &amp;gt; /dev/null
+    add_ssh_keys
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; start_ssh_agent&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# Source SSH settings, if applicable&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; -f &lt;span class=&quot;s2&quot;&gt;&amp;quot;${SSH_ENV}&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+        . &lt;span class=&quot;s2&quot;&gt;&amp;quot;${SSH_ENV}&amp;quot;&lt;/span&gt; &amp;gt; /dev/null
+        &lt;span class=&quot;c&quot;&gt;#ps ${SSH_AGENT_PID} doesn&amp;#39;t work under cywgin&lt;/span&gt;
+        ps -ef &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; grep &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;SSH_AGENT_PID&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; grep ssh-agent&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&amp;gt; /dev/null &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        _start_agent&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+    _start_agent&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; set_alias&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;ls -l&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ssh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;ssh -A&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+start_ssh_agent
+set_alias
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ssh-agent 有风险，使用使用谨慎。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://heipei.github.io/2015/02/26/SSH-Agent-Forwarding-considered-harmful/&quot;&gt;https://heipei.github.io/2015/02/26/SSH-Agent-Forwarding-considered-harmful/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://rabexc.org/posts/pitfalls-of-ssh-agents&quot;&gt;http://rabexc.org/posts/pitfalls-of-ssh-agents&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+  </entry>
   
   <entry>
     <id>http://liaohuqiu.net/cn/posts/a-wise-man-knows-when-to-jump-the-ship</id>
@@ -6643,12 +6714,14 @@ B
 
 &lt;p&gt;这样直接输入 &lt;code&gt;to-101&lt;/code&gt; 就可以登录了。&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;好了，欢迎star和贡献代码。&lt;/strong&gt; &lt;a href=&quot;https://github.com/liaohuqiu/ssh-auto-login&quot;&gt;https://github.com/liaohuqiu/ssh-auto-login&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/liaohuqiu/ssh-auto-login&quot;&gt;https://github.com/liaohuqiu/ssh-auto-login&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3&gt;注意&lt;/h3&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;配置完后生成一个auto-gen 目录，这里保存着用户名和密码，请注意账号安全。&lt;/p&gt;
+
+&lt;p&gt;本方法有安全风险，使用需谨慎。&lt;/p&gt;
 &lt;/blockquote&gt;
 </content>
   </entry>
@@ -6967,27 +7040,52 @@ log { source(s_net); description(df_wrt0)};
     </author>
     <content type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/liaohuqiu/mac-setup&quot;&gt;https://github.com/liaohuqiu/mac-setup&lt;/a&gt;&lt;/p&gt;
 
+&lt;h3&gt;Update&lt;/h3&gt;
+
+&lt;p&gt;本文写于 2014-05-05，现在两年多过去了，很多朋友用了这个配置，觉得很不错，我今天（2016-11-29）做一个更新，删除了过时内容，加入了一些新的配置。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;输入法切换，control + 空格，不要用 command + 空格，command 用大拇指，空格也是，无法快速切换。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://www.liaohuqiu.net/cn/posts/ssh-agent-forward/&quot;&gt;配置 ssh-agent forward&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr&gt;
+
 &lt;h3&gt;新的 Mac&lt;/h3&gt;
 
-&lt;p&gt;阿里只给ios开发以及部分前端配办公 Mac。我刚入职，给的居然是台式机！后来申请了一个笔记本，联想的。没法干活。攒了几个月工钱，自己买了 Mac，生产力立刻提高。前些天回家，回京途中，Mac 丢了。重写买过一个新的，环境配置挺麻烦的，以此为纪。&lt;/p&gt;
+&lt;p&gt;阿里只给 iOS 开发以及部分前端配办公 Mac。我刚入职，给的居然是台式机！后来申请了一个笔记本，联想的。没法干活。攒了几个月工钱，自己买了 Mac，生产力立刻提高。前些天回家，回京途中，Mac 丢了。重写买过一个新的，环境配置挺麻烦的，以此为纪。&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Model: ME865
 OS: 10.9.2
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;听说，现在阿里的实习的同学，还是用着台式机。我真后悔没给我们的实习的同学配 15 寸 Mac（目前是 13 寸顶配 + U2515H）。 2016-11-29&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;hr&gt;
 
-&lt;h3&gt;改键&lt;/h3&gt;
+&lt;h2&gt;改键&lt;/h2&gt;
 
 &lt;h5&gt;fn 和 ctrl 键&lt;/h5&gt;
 
-&lt;p&gt;不知道基于什么反人类的考虑，fn居然会在键盘最左下。公司的 ThinkPad T430，就是这样的。官方居然还振振有辞：&lt;a href=&quot;http://blog.lenovo.com/design/fn-versus-ctrl-let-the-games-begin&quot;&gt;http://blog.lenovo.com/design/fn-versus-ctrl-let-the-games-begin&lt;/a&gt;。你可以在BIOS里面修改，但是你不能把那两个键抠下来，交换他们的位置。&lt;/p&gt;
+&lt;p&gt;不知道基于什么反人类的考虑，fn 居然会在键盘最左下。公司的 ThinkPad T430，就是这样的。官方居然还振振有辞：&lt;a href=&quot;http://blog.lenovo.com/design/fn-versus-ctrl-let-the-games-begin&quot;&gt;http://blog.lenovo.com/design/fn-versus-ctrl-let-the-games-begin&lt;/a&gt;。你可以在 BIOS 里面修改，但是你不能把那两个键抠下来，交换他们的位置。&lt;/p&gt;
 
-&lt;p&gt;Mac 稍微好点，你可以把 fn 和 ctrl 抠下来，交换位置，然后装上去。&lt;/p&gt;
+&lt;p&gt;Mac 稍微好点，你可以把 fn 和 ctrl 抠下来，交换位置，然后装上去。然后利用软件交换这两个键。&lt;/p&gt;
 
 &lt;p&gt;软件上改键，借助:  &lt;a href=&quot;https://pqrs.org/macosx/keyremap4macbook/&quot;&gt;https://pqrs.org/macosx/keyremap4macbook/&lt;/a&gt;。&lt;/p&gt;
 
+&lt;p&gt;我的配置可以从这里直接导入： &lt;a href=&quot;https://github.com/liaohuqiu/mac-setup/blob/master/script/karabiner-import&quot;&gt;https://github.com/liaohuqiu/mac-setup/blob/master/script/karabiner-import&lt;/a&gt;&lt;/p&gt;
+
 &lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/mac-setup-keys-fn-ctrl.png&quot;/&gt;&lt;/p&gt;
 
-&lt;h5&gt;Fn / F1 ~ F12&lt;/h5&gt;
+&lt;h4&gt;系统设置&lt;/h4&gt;
+
+&lt;p&gt;以下的配置都在系统设置中完成：&lt;/p&gt;
+
+&lt;h5&gt;Spotlight 快捷键: option + r&lt;/h5&gt;
+
+&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/mac-setup-keys-spotlight.png&quot;/&gt;&lt;/p&gt;
+
+&lt;h5&gt;fn / F1 ~ F12&lt;/h5&gt;
 
 &lt;p&gt;还原键盘上的 F1 ~ F12 为标准功能，用 Fn + F1 ~ F12 来实现功能。&lt;/p&gt;
 
@@ -6997,19 +7095,21 @@ OS: 10.9.2
 
 &lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/mac-setup-keys-f11-f12.png&quot;/&gt;&lt;/p&gt;
 
-&lt;p&gt;Fn + F1 ~ F12 实现功能:&lt;/p&gt;
+&lt;h5&gt;fn + F1 ~ F12 实现功能原有功能&lt;/h5&gt;
+
+&lt;p&gt;因为 control 和 fn 已经交换，所以要用软件改键：&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/mac-setup-keys-fn-f1-f12.png&quot;/&gt;&lt;/p&gt;
 
 &lt;h5&gt;vi mode&lt;/h5&gt;
 
+&lt;blockquote&gt;
+&lt;p&gt;Mac 10.12 暂时无法使用&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;p&gt;option + hjkl 移动光标&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/mac-setup-keys-vi-mode.png&quot;/&gt;&lt;/p&gt;
-
-&lt;h5&gt;spotlight 快捷键: option + r&lt;/h5&gt;
-
-&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/mac-setup-keys-spotlight.png&quot;/&gt;&lt;/p&gt;
 
 &lt;h5&gt;Trackpad&lt;/h5&gt;
 
@@ -7022,18 +7122,14 @@ OS: 10.9.2
 &lt;h3&gt;Software&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.iterm2.com/&quot;&gt;iTerm&lt;/a&gt; ，取代自带终端。&lt;/p&gt;
-
-&lt;p&gt;set-up 项目备份文件复制到 &lt;code&gt;/Users/srain/apps/iTerm.app//com.googlecode.iterm2.plist&lt;/code&gt; 即可&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/liaohuqiu/vim_anywhere&quot;&gt;vim anywhere&lt;/a&gt; vim的配置，自带的文本编辑器，如果满足不了你的需求，你可以安装Mac Vim。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.iterm2.com/&quot;&gt;iTerm&lt;/a&gt; ，取代自带终端。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/liaohuqiu/vim_anywhere&quot;&gt;vim anywhere&lt;/a&gt; vim 的配置，自带的文本编辑器&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/liaohuqiu/work-anywhere&quot;&gt;work anywhere&lt;/a&gt;，一些小工具软件。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;虚拟机 + CentOS&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;大部分的本地开发工作，比如 Docker ，会在虚拟机里面进行。&lt;/p&gt;
 
-&lt;p&gt;大部分的开发工作，会在虚拟机里面进行。&lt;a href=&quot;http://www.liaohuqiu.net/posts/install-lamp-on-minimum-centos/&quot;&gt;最小化安装CentOS&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;VirtualBox + CentOS &lt;a href=&quot;http://www.liaohuqiu.net/posts/install-lamp-on-minimum-centos/&quot;&gt;最小化安装 CentOS&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://lifehacker.com/5714966/five-best-virtual-machine-applications&quot;&gt;各种虚拟机，自选&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;基本的安装脚本：&lt;a href=&quot;https://github.com/liaohuqiu/centos-setup&quot;&gt;https://github.com/liaohuqiu/centos-setup&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;虚拟机用 NAT 和外界通信。本地和虚拟机通信，记得用 host-only 网络。&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr&gt;

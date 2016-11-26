@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<title>我的 Mac 工作环境配置 |  Yet Another Summer Rain</title>
+<title>ssh-agent 转发 |  Yet Another Summer Rain</title>
 <meta charset='utf-8' />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -111,108 +111,69 @@ try {
             </div>
             
             --->
-            <h2> 我的 Mac 工作环境配置 </h2>
+            <h2> ssh-agent 转发 </h2>
             <div>
-                <p> 05 May 2014 </p>
+                <p> 29 Nov 2016 </p>
             </div>
             <hr>
-            <p><a href="https://github.com/liaohuqiu/mac-setup">https://github.com/liaohuqiu/mac-setup</a></p>
-
-<h3>Update</h3>
-
-<p>本文写于 2014-05-05，现在两年多过去了，很多朋友用了这个配置，觉得很不错，我今天（2016-11-29）做一个更新，删除了过时内容，加入了一些新的配置。</p>
-
-<ol>
-<li><p>输入法切换，control + 空格，不要用 command + 空格，command 用大拇指，空格也是，无法快速切换。</p></li>
-<li><p><a href="https://www.liaohuqiu.net/cn/posts/ssh-agent-forward/">配置 ssh-agent forward</a></p></li>
+            <ol>
+<li><p>你需要在多个服务器之间工作，通过 ssh key，你可以从本机登录这几个服务器。你登录到一个其中一个服务器 A，你想从 A 到另一个服务器 B，但服务器 B 上没有 A 的公钥，无法直接从 A 登录到 B。</p></li>
+<li><p>你本机使用 ssh key 访问 GitHub 或者其他基于 ssh 认证的服务器，比如 Gitlab。你在本地提交代码，你可以登录服务器，你想在服务器上更新代码。</p></li>
 </ol>
 
-<hr>
+<p>这样的场景，可以使用 ssh-agent。</p>
 
-<h3>新的 Mac</h3>
+<ol>
+<li><p>ssh 登录时，加入 <code>-A</code> 选项，开启转发。你可以通过设置 <code>alias ssh=&#39;ssh -A&#39;</code> 来实现；</p></li>
+<li><p>启动 ssh-agent，并通过 ssh-add 加入要转发的 key。通过 <code>ssh-add -l</code> 查看有哪些 key 已经加入。* key 的数量不能过多，ssh 会依次尝试使用这里的每一个 key，如果 key 数量过多，会达到最大尝试次数，认证失败。 *</p></li>
+</ol>
 
-<p>阿里只给 iOS 开发以及部分前端配办公 Mac。我刚入职，给的居然是台式机！后来申请了一个笔记本，联想的。没法干活。攒了几个月工钱，自己买了 Mac，生产力立刻提高。前些天回家，回京途中，Mac 丢了。重写买过一个新的，环境配置挺麻烦的，以此为纪。</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">Model: ME865
-OS: 10.9.2
+<p>你可直接使用将以下的脚本，加入到你的 ~/.bash_profile 中，在 <code>add_ssh_keys</code> 这个函数中，加入你要转发的 key，重新载入 ~/.bash_profile 即可。</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">function</span> add_ssh_keys<span class="o">()</span> <span class="o">{</span>
+    <span class="c"># Will load ~/.ssh/id_rsa</span>
+    /usr/bin/ssh-add
+    <span class="c"># You also can add your other keys here</span>
+    <span class="c"># For example: /usr/bin/ssh-add</span>
+<span class="o">}</span>
+
+<span class="nv">SSH_ENV</span><span class="o">=</span><span class="s2">&quot;$HOME/.ssh/environment&quot;</span>
+<span class="k">function</span> _start_agent <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Initialising new SSH agent...&quot;</span>
+    /usr/bin/ssh-agent <span class="p">|</span> sed <span class="s1">&#39;s/^echo/#echo/&#39;</span> &gt; <span class="s2">&quot;${SSH_ENV}&quot;</span>
+    <span class="nb">echo </span>succeeded
+    chmod <span class="m">600</span> <span class="s2">&quot;${SSH_ENV}&quot;</span>
+    . <span class="s2">&quot;${SSH_ENV}&quot;</span> &gt; /dev/null
+    add_ssh_keys
+<span class="o">}</span>
+
+<span class="k">function</span> start_ssh_agent<span class="o">()</span> <span class="o">{</span>
+    <span class="c"># Source SSH settings, if applicable</span>
+    <span class="k">if</span> <span class="o">[</span> -f <span class="s2">&quot;${SSH_ENV}&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        . <span class="s2">&quot;${SSH_ENV}&quot;</span> &gt; /dev/null
+        <span class="c">#ps ${SSH_AGENT_PID} doesn&#39;t work under cywgin</span>
+        ps -ef <span class="p">|</span> grep <span class="k">${</span><span class="nv">SSH_AGENT_PID</span><span class="k">}</span> <span class="p">|</span> grep ssh-agent<span class="nv">$ </span>&gt; /dev/null <span class="o">||</span> <span class="o">{</span>
+        _start_agent<span class="p">;</span>
+    <span class="o">}</span>
+<span class="k">else</span>
+    _start_agent<span class="p">;</span>
+<span class="k">fi</span>
+<span class="o">}</span>
+
+<span class="k">function</span> set_alias<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">alias </span><span class="nv">ll</span><span class="o">=</span><span class="s1">&#39;ls -l&#39;</span>
+    <span class="nb">alias </span><span class="nv">ssh</span><span class="o">=</span><span class="s1">&#39;ssh -A&#39;</span>
+<span class="o">}</span>
+
+start_ssh_agent
+set_alias
 </code></pre></div>
 <blockquote>
-<p>听说，现在阿里的实习的同学，还是用着台式机。我真后悔没给我们的实习的同学配 15 寸 Mac（目前是 13 寸顶配 + U2515H）。 2016-11-29</p>
+<p>ssh-agent 有风险，使用使用谨慎。</p>
+
+<p><a href="https://heipei.github.io/2015/02/26/SSH-Agent-Forwarding-considered-harmful/">https://heipei.github.io/2015/02/26/SSH-Agent-Forwarding-considered-harmful/</a></p>
+
+<p><a href="http://rabexc.org/posts/pitfalls-of-ssh-agents">http://rabexc.org/posts/pitfalls-of-ssh-agents</a></p>
 </blockquote>
-
-<hr>
-
-<h2>改键</h2>
-
-<h5>fn 和 ctrl 键</h5>
-
-<p>不知道基于什么反人类的考虑，fn 居然会在键盘最左下。公司的 ThinkPad T430，就是这样的。官方居然还振振有辞：<a href="http://blog.lenovo.com/design/fn-versus-ctrl-let-the-games-begin">http://blog.lenovo.com/design/fn-versus-ctrl-let-the-games-begin</a>。你可以在 BIOS 里面修改，但是你不能把那两个键抠下来，交换他们的位置。</p>
-
-<p>Mac 稍微好点，你可以把 fn 和 ctrl 抠下来，交换位置，然后装上去。然后利用软件交换这两个键。</p>
-
-<p>软件上改键，借助:  <a href="https://pqrs.org/macosx/keyremap4macbook/">https://pqrs.org/macosx/keyremap4macbook/</a>。</p>
-
-<p>我的配置可以从这里直接导入： <a href="https://github.com/liaohuqiu/mac-setup/blob/master/script/karabiner-import">https://github.com/liaohuqiu/mac-setup/blob/master/script/karabiner-import</a></p>
-
-<p><img src="//img1.liaohuqiu.com/mac-setup-keys-fn-ctrl.png"/></p>
-
-<h4>系统设置</h4>
-
-<p>以下的配置都在系统设置中完成：</p>
-
-<h5>Spotlight 快捷键: option + r</h5>
-
-<p><img src="//img1.liaohuqiu.com/mac-setup-keys-spotlight.png"/></p>
-
-<h5>fn / F1 ~ F12</h5>
-
-<p>还原键盘上的 F1 ~ F12 为标准功能，用 Fn + F1 ~ F12 来实现功能。</p>
-
-<p><img src="//img1.liaohuqiu.com/mac-setup-keys-fn.png"/></p>
-
-<p>解除被占用的 F11 和 F12:</p>
-
-<p><img src="//img1.liaohuqiu.com/mac-setup-keys-f11-f12.png"/></p>
-
-<h5>fn + F1 ~ F12 实现功能原有功能</h5>
-
-<p>因为 control 和 fn 已经交换，所以要用软件改键：</p>
-
-<p><img src="//img1.liaohuqiu.com/mac-setup-keys-fn-f1-f12.png"/></p>
-
-<h5>vi mode</h5>
-
-<blockquote>
-<p>Mac 10.12 暂时无法使用</p>
-</blockquote>
-
-<p>option + hjkl 移动光标</p>
-
-<p><img src="//img1.liaohuqiu.com/mac-setup-keys-vi-mode.png"/></p>
-
-<h5>Trackpad</h5>
-
-<ol>
-<li><p>文本选择</p>
-
-<p>Accessibility &gt; Mouse &amp; ThinkPad &gt; Trackpad Options &gt; Enable dragging &gt; three finger drag</p></li>
-</ol>
-
-<h3>Software</h3>
-
-<ul>
-<li><p><a href="http://www.iterm2.com/">iTerm</a> ，取代自带终端。</p></li>
-<li><p><a href="https://github.com/liaohuqiu/vim_anywhere">vim anywhere</a> vim 的配置，自带的文本编辑器</p></li>
-<li><p><a href="https://github.com/liaohuqiu/work-anywhere">work anywhere</a>，一些小工具软件。</p></li>
-<li><p>大部分的本地开发工作，比如 Docker ，会在虚拟机里面进行。</p>
-
-<p>VirtualBox + CentOS <a href="http://www.liaohuqiu.net/posts/install-lamp-on-minimum-centos/">最小化安装 CentOS</a></p>
-
-<p>虚拟机用 NAT 和外界通信。本地和虚拟机通信，记得用 host-only 网络。</p></li>
-</ul>
-
-<hr>
-
-<p>大概基本就这些了，这样就可以开始工作了。</p>
 
             <hr>
             
