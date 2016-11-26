@@ -22,18 +22,11 @@ function stop_container() {
     run_cmd "$cmd"
 }
 
-docker_domain=docker.srain.in
+function list_contains() {
+    local var="$1"
+    local str="$2"
+    local val
 
-function push_image() {
-    image_name=$1
-    url=$docker_domain/$image_name
-    run_cmd "docker tag -f $image_name $url"
-    run_cmd "docker push $url"
-}
-
-function pull_image() {
-    image_name=$1
-    url=$docker_domain/$image_name
-    run_cmd "docker pull $url"
-    run_cmd "docker tag $url $image_name"
+    eval "val=\" \${$var} \""
+    [ "${val%% $str *}" != "$val" ]
 }

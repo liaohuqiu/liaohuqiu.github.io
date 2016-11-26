@@ -7,17 +7,22 @@ SCRIPTFILE=`basename $0`
 
 source $prj_path/base.sh
 
-app_image=srain/blog-jekyll
-app_fe_image=srain/blog-fe
+app_image=liaohuqiu/blog-jekyll
+app_fe_image=liaohuqiu/blog-fe
 app_container=blog-jekyll
 app_fe_container=blog-fe
 
-function build_blog_image() {
+function build_blog() {
     docker build -t $app_image $prj_path/_docker/blog-jekyll/
 }
 
-function build_fe_image() {
+function build_fe() {
     docker build -t $app_fe_image $prj_path/_fe
+    local fe_dir=_fe
+    if [ -d "$fe_dir/node_modules" ]; then
+        run_cmd "rm $fe_dir/node_modules"
+    fi
+    run_cmd "ln -sf /opt/node_npm_data/node_modules $fe_dir/"
 }
 
 function run_blog_container() {
@@ -37,11 +42,11 @@ function run_fe_container() {
     run_cmd "docker run -it $args --rm --name $app_fe_container $app_fe_image $cmd"
 }
 
-function stop_blog_container() {
+function stop_blog() {
     stop_container $app_container
 }
 
-function stop_fe_container() {
+function stop_fe() {
     stop_container $app_fe_container
 }
 
@@ -61,82 +66,34 @@ function into_blog() {
     run_blog_container '/bin/bash'
 }
 
-function build_log() {
+function build() {
     run_blog_container 'jekyll build -w'
 }
 
-function show_usage() {
+function help() {
 	cat <<-EOF
     
-    Usage: mamanger.sh [options]
+    Usage: manager [options]
 
 	    Valid options are:
 
-            build-blog-image
+            build_blog
             build                   build blog
-            into-blog
-            stop-blog
+            into_blog
+            stop_blog
 
-            build-fe-image
-            fe-build
-            fe-build-prod
-            into-fe
-            stop-fe
+            build_fe
+            fe_build
+            fe_build_prod
+            into_fe
+            stop_fe
 
             -h                      show this help message and exit
 
 EOF
-	exit $1
 }
 
-while :; do
-    case $1 in
-        -h|-\?|--help)
-            show_usage
-            exit
-            ;;
-        build-blog-image)
-            build_blog_image
-            exit
-            ;;
-        build-fe-image)
-            build_fe_image
-            exit
-            ;;
-        build)
-            build_log
-            exit
-            ;;
-        into-blog)
-            into_blog
-            exit
-            ;;
-        stop-blog)
-            stop_blog_container
-            exit
-            ;;
-        into-fe)
-            into_fe
-            exit
-            ;;
-        stop-fe)
-            stop_fe_container
-            exit
-            ;;
-        fe-build)
-            fe_build
-            exit
-            ;;
-        fe-build-prod)
-            fe_build_prod
-            exit
-            ;;
-        *)               # Default case: If no more options then break out of the loop.
-            printf 'ERROR: no such option.\n' >&2
-            show_usage
-            exit 1
-            break
-    esac
-
-    shift
-done
+action=${1:-help}
+ALL_COMMANDS="build_blog build into_blog stop_blog build_fe fe_build fe_build_prod into_fe stop_fe"
+list_contains ALL_COMMANDS "$action" || action=help
+$action "$@"

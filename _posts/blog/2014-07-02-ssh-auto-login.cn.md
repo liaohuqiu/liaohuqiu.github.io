@@ -43,8 +43,10 @@ source install_shortcut.sh to-101 192.168.154.101 用户名 密码
 
 这样直接输入 `to-101` 就可以登录了。
 
-**好了，欢迎star和贡献代码。** https://github.com/liaohuqiu/ssh-auto-login
+https://github.com/liaohuqiu/ssh-auto-login
 
 ### 注意
 
 >  配置完后生成一个auto-gen 目录，这里保存着用户名和密码，请注意账号安全。
+
+>  本方法有安全风险，使用需谨慎。
