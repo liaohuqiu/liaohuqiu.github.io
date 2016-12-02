@@ -133,9 +133,9 @@ try {
 <p>你可直接使用将以下的脚本，加入到你的 ~/.bash_profile 中，在 <code>add_ssh_keys</code> 这个函数中，加入你要转发的 key，重新载入 ~/.bash_profile 即可。</p>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">function</span> add_ssh_keys<span class="o">()</span> <span class="o">{</span>
     <span class="c"># Will load ~/.ssh/id_rsa</span>
-    /usr/bin/ssh-add
+    ssh-add
     <span class="c"># You also can add the other keys here</span>
-    <span class="c"># For example: /usr/bin/ssh-add</span>
+    <span class="c"># For example, add your GitHub key: ssh-add ~/.ssh/github</span>
 <span class="o">}</span>
 
 <span class="nv">SSH_ENV</span><span class="o">=</span><span class="s2">&quot;$HOME/.ssh/environment&quot;</span>
