@@ -14,7 +14,9 @@ category: blog
 
 1. ssh 登录时，加入 `-A` 选项，开启转发。你可以通过设置 `alias ssh='ssh -A'` 来实现；
 
-2. 启动 ssh-agent，并通过 ssh-add 加入要转发的 key。通过 `ssh-add -l` 查看有哪些 key 已经加入。* key 的数量不能过多，ssh 会依次尝试使用这里的每一个 key，如果 key 数量过多，会达到最大尝试次数，认证失败。 *
+2. 启动 ssh-agent，并通过 ssh-add 加入要转发的 key。通过 `ssh-add -l` 查看有哪些 key 已经加入。
+
+    **key 的数量不能过多，ssh 会依次尝试使用这里的每一个 key，如果 key 数量过多，会达到最大尝试次数，认证失败。**
 
 你可直接使用将以下的脚本，加入到你的 ~/.bash_profile 中，在 `add_ssh_keys` 这个函数中，加入你要转发的 key，重新载入 ~/.bash_profile 即可。
 
@@ -22,7 +24,7 @@ category: blog
 function add_ssh_keys() {
     # Will load ~/.ssh/id_rsa
     /usr/bin/ssh-add
-    # You also can add your other keys here
+    # You also can add the other keys here
     # For example: /usr/bin/ssh-add
 }
 
@@ -42,11 +44,11 @@ function start_ssh_agent() {
         . "${SSH_ENV}" > /dev/null
         #ps ${SSH_AGENT_PID} doesn't work under cywgin
         ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+            _start_agent;
+        }
+    else
         _start_agent;
-    }
-else
-    _start_agent;
-fi
+    fi
 }
 
 function set_alias() {
