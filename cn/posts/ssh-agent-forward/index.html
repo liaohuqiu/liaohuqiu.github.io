@@ -134,7 +134,7 @@ try {
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">function</span> add_ssh_keys<span class="o">()</span> <span class="o">{</span>
     <span class="c"># Will load ~/.ssh/id_rsa</span>
     /usr/bin/ssh-add
-    <span class="c"># You also can add your other keys here</span>
+    <span class="c"># You also can add the other keys here</span>
     <span class="c"># For example: /usr/bin/ssh-add</span>
 <span class="o">}</span>
 
@@ -154,11 +154,11 @@ try {
         . <span class="s2">&quot;${SSH_ENV}&quot;</span> &gt; /dev/null
         <span class="c">#ps ${SSH_AGENT_PID} doesn&#39;t work under cywgin</span>
         ps -ef <span class="p">|</span> grep <span class="k">${</span><span class="nv">SSH_AGENT_PID</span><span class="k">}</span> <span class="p">|</span> grep ssh-agent<span class="nv">$ </span>&gt; /dev/null <span class="o">||</span> <span class="o">{</span>
+            _start_agent<span class="p">;</span>
+        <span class="o">}</span>
+    <span class="k">else</span>
         _start_agent<span class="p">;</span>
-    <span class="o">}</span>
-<span class="k">else</span>
-    _start_agent<span class="p">;</span>
-<span class="k">fi</span>
+    <span class="k">fi</span>
 <span class="o">}</span>
 
 <span class="k">function</span> set_alias<span class="o">()</span> <span class="o">{</span>

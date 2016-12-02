@@ -6,8 +6,8 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Fri, 02 Dec 2016 00:13:51 +0000</pubDate>
-    <lastBuildDate>Fri, 02 Dec 2016 00:13:51 +0000</lastBuildDate>
+    <pubDate>Fri, 02 Dec 2016 00:54:38 +0000</pubDate>
+    <lastBuildDate>Fri, 02 Dec 2016 00:54:38 +0000</lastBuildDate>
 
     
     <item>
@@ -34,7 +34,7 @@
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; add_ssh_keys&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;c&quot;&gt;# Will load ~/.ssh/id_rsa&lt;/span&gt;
     /usr/bin/ssh-add
-    &lt;span class=&quot;c&quot;&gt;# You also can add your other keys here&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# You also can add the other keys here&lt;/span&gt;
     &lt;span class=&quot;c&quot;&gt;# For example: /usr/bin/ssh-add&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
@@ -54,11 +54,11 @@
         . &lt;span class=&quot;s2&quot;&gt;&amp;quot;${SSH_ENV}&amp;quot;&lt;/span&gt; &amp;gt; /dev/null
         &lt;span class=&quot;c&quot;&gt;#ps ${SSH_AGENT_PID} doesn&amp;#39;t work under cywgin&lt;/span&gt;
         ps -ef &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; grep &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;SSH_AGENT_PID&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; grep ssh-agent&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&amp;gt; /dev/null &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            _start_agent&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
         _start_agent&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-    _start_agent&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; set_alias&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
