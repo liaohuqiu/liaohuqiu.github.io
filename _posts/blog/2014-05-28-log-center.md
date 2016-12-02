@@ -35,14 +35,14 @@ When we have more than one webserver which will record log, we need a log center
 * rsyslog
 
     ```
-    *.local6    @@10.11.2.13:514    # udp
-    *.local6    @10.11.2.13:514     # tcp more reliable than udp
+    *.local6    @@10.11.2.13:514    # tcp
+    *.local6    @10.11.2.13:601     # udp
     ```
 
 * syslog-ng
 
     ```
-    description d_loghost { udp("10.11.2.13" port(514)};
+    description d_loghost { udp("10.11.2.13" port(601)};
 
     log { source(s_sys); description(d_loghost)};
     ```
@@ -54,7 +54,7 @@ When we have more than one webserver which will record log, we need a log center
     ```
     # for udp reception
     $ModLoad imudp
-    $UDPServerRun 514
+    $UDPServerRun 601
     
     # for tcp reception
     $ModLoad imtcp
@@ -65,7 +65,7 @@ When we have more than one webserver which will record log, we need a log center
 
     ```
     destination df_wrt0 {
-        #  keep log into diffrent files
+        # 不同的 ident 不同的文件
         file("/var/log/$PROGRAM-$YEAR$MONTH$DAY"
                 template("$FULLDATE $SOURCEIP-$HOST[$PID]: $MSG\n")
                 template_escape(yes)
@@ -73,11 +73,11 @@ When we have more than one webserver which will record log, we need a log center
     };
 
     source s_net {
-        udp(ip(0.0.0.0) port(514));
+        udp(ip(0.0.0.0) port(601));
         tcp(ip(0.0.0.0) port(514));
     };
 
-    log { source(s_net); description(df_wrt0)};
+    log { source(s_net); destination(df_wrt0);};
     ```
 
 ### Preformance

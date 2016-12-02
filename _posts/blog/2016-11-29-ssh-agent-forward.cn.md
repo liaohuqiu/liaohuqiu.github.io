@@ -23,9 +23,9 @@ category: blog
 ```bash
 function add_ssh_keys() {
     # Will load ~/.ssh/id_rsa
-    /usr/bin/ssh-add
+    ssh-add
     # You also can add the other keys here
-    # For example: /usr/bin/ssh-add
+    # For example, add your GitHub key: ssh-add ~/.ssh/github
 }
 
 SSH_ENV="$HOME/.ssh/environment"

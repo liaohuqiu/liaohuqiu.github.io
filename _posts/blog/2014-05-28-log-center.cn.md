@@ -21,11 +21,11 @@ syslog($priority, $message);
 closelog();
 ```
 
-我们在各个web前端输出日志。然后把日志统一输出到一个日志服务器上，便于使用。
+我们在各个 web 前端输出日志。然后把日志统一输出到一个日志服务器上，便于使用。
 
 在产生日志的机器上，我们配置好日志转发，在日志中心服务器，收集这些日志。
 
-可以通过tcp协议和udp协议进行日志转发。
+可以通过 tcp 协议和 udp 协议进行日志转发。
 
 ###转发配置
 
@@ -38,14 +38,14 @@ closelog();
 * rsyslog
 
     ```
-    *.local6    @@10.11.2.13:514    # udp
-    *.local6    @10.11.2.13:514     # tcp 更稳定
+    *.local6    @@10.11.2.13:514    # tcp
+    *.local6    @10.11.2.13:601     # udp
     ```
 
 * syslog-ng
 
     ```
-    description d_loghost { udp("10.11.2.13" port(514)};
+    description d_loghost { udp("10.11.2.13" port(601)};
 
     log { source(s_sys); description(d_loghost)};
     ```
@@ -55,7 +55,7 @@ closelog();
 *   rsyslog
 
     ```
-    # 接收udp
+    # 接收 udp
     $ModLoad imudp
     $UDPServerRun 514
     
@@ -76,11 +76,11 @@ closelog();
     };
 
     source s_net {
-        udp(ip(0.0.0.0) port(514));
+        udp(ip(0.0.0.0) port(601));
         tcp(ip(0.0.0.0) port(514));
     };
 
-    log { source(s_net); description(df_wrt0)};
+    log { source(s_net); destination(df_wrt0);};
     ```
 
 ### 性能
