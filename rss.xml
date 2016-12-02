@@ -6,8 +6,8 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Sat, 26 Nov 2016 01:15:56 +0000</pubDate>
-    <lastBuildDate>Sat, 26 Nov 2016 01:15:56 +0000</lastBuildDate>
+    <pubDate>Fri, 02 Dec 2016 00:13:51 +0000</pubDate>
+    <lastBuildDate>Fri, 02 Dec 2016 00:13:51 +0000</lastBuildDate>
 
     
     <item>
@@ -25,7 +25,9 @@
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;ssh 登录时，加入 &lt;code&gt;-A&lt;/code&gt; 选项，开启转发。你可以通过设置 &lt;code&gt;alias ssh=&amp;#39;ssh -A&amp;#39;&lt;/code&gt; 来实现；&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;启动 ssh-agent，并通过 ssh-add 加入要转发的 key。通过 &lt;code&gt;ssh-add -l&lt;/code&gt; 查看有哪些 key 已经加入。* key 的数量不能过多，ssh 会依次尝试使用这里的每一个 key，如果 key 数量过多，会达到最大尝试次数，认证失败。 *&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;启动 ssh-agent，并通过 ssh-add 加入要转发的 key。通过 &lt;code&gt;ssh-add -l&lt;/code&gt; 查看有哪些 key 已经加入。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;key 的数量不能过多，ssh 会依次尝试使用这里的每一个 key，如果 key 数量过多，会达到最大尝试次数，认证失败。&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;你可直接使用将以下的脚本，加入到你的 ~/.bash_profile 中，在 &lt;code&gt;add_ssh_keys&lt;/code&gt; 这个函数中，加入你要转发的 key，重新载入 ~/.bash_profile 即可。&lt;/p&gt;
@@ -6765,6 +6767,7 @@ log { source(s_net); description(df_wrt0)};
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;输入法切换，control + 空格，不要用 command + 空格，command 用大拇指，空格也是，无法快速切换。&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://www.liaohuqiu.net/cn/posts/ssh-agent-forward/&quot;&gt;配置 ssh-agent forward&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;修改 Caps lock 为 ESC，方便 Vim 操作。&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;hr&gt;

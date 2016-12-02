@@ -125,7 +125,9 @@ try {
 
 <ol>
 <li><p>ssh 登录时，加入 <code>-A</code> 选项，开启转发。你可以通过设置 <code>alias ssh=&#39;ssh -A&#39;</code> 来实现；</p></li>
-<li><p>启动 ssh-agent，并通过 ssh-add 加入要转发的 key。通过 <code>ssh-add -l</code> 查看有哪些 key 已经加入。* key 的数量不能过多，ssh 会依次尝试使用这里的每一个 key，如果 key 数量过多，会达到最大尝试次数，认证失败。 *</p></li>
+<li><p>启动 ssh-agent，并通过 ssh-add 加入要转发的 key。通过 <code>ssh-add -l</code> 查看有哪些 key 已经加入。</p>
+
+<p><strong>key 的数量不能过多，ssh 会依次尝试使用这里的每一个 key，如果 key 数量过多，会达到最大尝试次数，认证失败。</strong></p></li>
 </ol>
 
 <p>你可直接使用将以下的脚本，加入到你的 ~/.bash_profile 中，在 <code>add_ssh_keys</code> 这个函数中，加入你要转发的 key，重新载入 ~/.bash_profile 即可。</p>
