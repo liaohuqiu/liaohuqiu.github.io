@@ -6,8 +6,8 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Sat, 10 Dec 2016 16:32:45 +0000</pubDate>
-    <lastBuildDate>Sat, 10 Dec 2016 16:32:45 +0000</lastBuildDate>
+    <pubDate>Sun, 11 Dec 2016 09:32:42 +0000</pubDate>
+    <lastBuildDate>Sun, 11 Dec 2016 09:32:42 +0000</lastBuildDate>
 
     
     <item>
@@ -6825,7 +6825,7 @@ OS: 10.9.2
 &lt;h5&gt;vi mode&lt;/h5&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;Mac 10.12 暂时无法使用&lt;/p&gt;
+&lt;p&gt;Mac 10.12 以上系统请参考： &lt;a href=&quot;http://www.huazhou.space/2016/12/11/VimMode/&quot;&gt;http://www.huazhou.space/2016/12/11/VimMode/&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;option + hjkl 移动光标&lt;/p&gt;
