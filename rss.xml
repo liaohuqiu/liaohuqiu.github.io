@@ -6,8 +6,8 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Sun, 11 Dec 2016 09:32:42 +0000</pubDate>
-    <lastBuildDate>Sun, 11 Dec 2016 09:32:42 +0000</lastBuildDate>
+    <pubDate>Tue, 21 Mar 2017 18:25:31 +0000</pubDate>
+    <lastBuildDate>Tue, 21 Mar 2017 18:25:31 +0000</lastBuildDate>
 
     
     <item>
@@ -6758,31 +6758,29 @@ log { source(s_net); destination(df_wrt0);};
       <pubDate>Mon, 05 May 2014 00:00:00 +0000</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
       <guid>http://liaohuqiu.net/cn/posts/set-up-mac</guid>
-      <description>&lt;p&gt;&lt;a href=&quot;https://github.com/liaohuqiu/mac-setup&quot;&gt;https://github.com/liaohuqiu/mac-setup&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3&gt;Update&lt;/h3&gt;
+      <description>&lt;h3&gt;Update&lt;/h3&gt;
 
 &lt;p&gt;本文写于 2014-05-05，现在两年多过去了，很多朋友用了这个配置，觉得很不错，我今天（2016-11-29）做一个更新，删除了过时内容，加入了一些新的配置。&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;输入法切换，control + 空格，不要用 command + 空格，command 用大拇指，空格也是，无法快速切换。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;输入法切换，Control + 空格，不要用 Command + 空格，command 用大拇指，空格也是，无法快速切换。&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://www.liaohuqiu.net/cn/posts/ssh-agent-forward/&quot;&gt;配置 ssh-agent forward&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;修改 Caps lock 为 ESC，方便 Vim 操作。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;修改 Caps Lock 为 ESC，方便 Vim 操作。&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;hr&gt;
 
-&lt;h3&gt;新的 Mac&lt;/h3&gt;
+&lt;h2&gt;软件&lt;/h2&gt;
 
-&lt;p&gt;阿里只给 iOS 开发以及部分前端配办公 Mac。我刚入职，给的居然是台式机！后来申请了一个笔记本，联想的。没法干活。攒了几个月工钱，自己买了 Mac，生产力立刻提高。前些天回家，回京途中，Mac 丢了。重写买过一个新的，环境配置挺麻烦的，以此为纪。&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Model: ME865
-OS: 10.9.2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-&lt;p&gt;听说，现在阿里的实习的同学，还是用着台式机。我真后悔没给我们的实习的同学配 15 寸 Mac（目前是 13 寸顶配 + U2515H）。 2016-11-29&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.iterm2.com/&quot;&gt;iTerm&lt;/a&gt; ，取代自带终端。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/liaohuqiu/vim_anywhere&quot;&gt;vim anywhere&lt;/a&gt; vim 的配置；&lt;a href=&quot;https://github.com/liaohuqiu/work-anywhere&quot;&gt;work anywhere&lt;/a&gt;，一些小工具软件。直接用这个脚本安装：&lt;a href=&quot;https://gist.github.com/liaohuqiu/92c00403c78459caf8440da8d7432c94&quot;&gt;init-git-and-vim&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;大部分的本地开发工作，比如 Docker ，会在虚拟机里面进行。&lt;/p&gt;
 
-&lt;hr&gt;
+&lt;p&gt;VirtualBox + CentOS &lt;a href=&quot;http://www.liaohuqiu.net/posts/install-lamp-on-minimum-centos/&quot;&gt;最小化安装 CentOS&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;虚拟机用 NAT 和外界通信。本地和虚拟机通信，记得用 host-only 网络。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2&gt;改键&lt;/h2&gt;
 
@@ -6792,11 +6790,9 @@ OS: 10.9.2
 
 &lt;p&gt;Mac 稍微好点，你可以把 fn 和 ctrl 抠下来，交换位置，然后装上去。然后利用软件交换这两个键。&lt;/p&gt;
 
-&lt;p&gt;软件上改键，借助:  &lt;a href=&quot;https://pqrs.org/macosx/keyremap4macbook/&quot;&gt;https://pqrs.org/macosx/keyremap4macbook/&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;软件上改键，借助:  &lt;a href=&quot;https://github.com/tekezo/Karabiner-Elements&quot;&gt;Karabiner-Elements&lt;/a&gt; （Update: &lt;a href=&quot;https://pqrs.org/macosx/keyremap4macbook/&quot;&gt;https://pqrs.org/macosx/keyremap4macbook/&lt;/a&gt; 目前对 10.11 支持不好，不推荐）&lt;/p&gt;
 
-&lt;p&gt;我的配置可以从这里直接导入： &lt;a href=&quot;https://github.com/liaohuqiu/mac-setup/blob/master/script/karabiner-import&quot;&gt;https://github.com/liaohuqiu/mac-setup/blob/master/script/karabiner-import&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/mac-setup-keys-fn-ctrl.png&quot;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/mac-setup-keys-fn-ctrl-01.png&quot;/&gt;&lt;/p&gt;
 
 &lt;h4&gt;系统设置&lt;/h4&gt;
 
@@ -6816,46 +6812,19 @@ OS: 10.9.2
 
 &lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/mac-setup-keys-f11-f12.png&quot;/&gt;&lt;/p&gt;
 
-&lt;h5&gt;fn + F1 ~ F12 实现功能原有功能&lt;/h5&gt;
-
-&lt;p&gt;因为 control 和 fn 已经交换，所以要用软件改键：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/mac-setup-keys-fn-f1-f12.png&quot;/&gt;&lt;/p&gt;
-
 &lt;h5&gt;vi mode&lt;/h5&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;Mac 10.12 以上系统请参考： &lt;a href=&quot;http://www.huazhou.space/2016/12/11/VimMode/&quot;&gt;http://www.huazhou.space/2016/12/11/VimMode/&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;上下左右移动用小箭头是非常费劲的事情，在 vim 中 hjkl 可以在手不离开键盘的情况下，快速完成。&lt;/p&gt;
 
-&lt;p&gt;option + hjkl 移动光标&lt;/p&gt;
+&lt;p&gt;使用 &lt;a href=&quot;https://www.keyboardmaestro.com/main/&quot;&gt;Keyboard Maestro&lt;/a&gt; 改键，实现 option + hjkl 移动光标：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/mac-setup-keys-vi-mode.png&quot;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/mac-setup-keys-vi-mode-01.png&quot;/&gt;&lt;/p&gt;
 
-&lt;h5&gt;Trackpad&lt;/h5&gt;
+&lt;p&gt;配置可从这是直接导入：&lt;a href=&quot;//img1.liaohuqiu.com/vim_mode.kmmacros?attname=&quot;&gt;vim_mode.kmmacros&lt;/a&gt;&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;文本选择&lt;/p&gt;
+&lt;h4&gt;使用三个手指选择文本&lt;/h4&gt;
 
-&lt;p&gt;Accessibility &amp;gt; Mouse &amp;amp; ThinkPad &amp;gt; Trackpad Options &amp;gt; Enable dragging &amp;gt; three finger drag&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3&gt;Software&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.iterm2.com/&quot;&gt;iTerm&lt;/a&gt; ，取代自带终端。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/liaohuqiu/vim_anywhere&quot;&gt;vim anywhere&lt;/a&gt; vim 的配置，自带的文本编辑器&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/liaohuqiu/work-anywhere&quot;&gt;work anywhere&lt;/a&gt;，一些小工具软件。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;大部分的本地开发工作，比如 Docker ，会在虚拟机里面进行。&lt;/p&gt;
-
-&lt;p&gt;VirtualBox + CentOS &lt;a href=&quot;http://www.liaohuqiu.net/posts/install-lamp-on-minimum-centos/&quot;&gt;最小化安装 CentOS&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;虚拟机用 NAT 和外界通信。本地和虚拟机通信，记得用 host-only 网络。&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;大概基本就这些了，这样就可以开始工作了。&lt;/p&gt;
+&lt;p&gt;Accessibility &amp;gt; Mouse &amp;amp; ThinkPad &amp;gt; Trackpad Options &amp;gt; Enable dragging &amp;gt; three finger drag&lt;/p&gt;
 </description>
     </item>
     
