@@ -4,13 +4,57 @@
   <title>Yet Another Summer Rain</title>
   <link href="http://liaohuqiu.net/"/>
   <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
-  <updated>2017-03-21T18:25:31+00:00</updated>
+  <updated>2017-04-11T01:01:06+00:00</updated>
   <id>http://liaohuqiu.net/</id>
   <author>
     <name>Huqiu Liao / Srain</name>
     <email>srain@php.net</email>
   </author>
 
+  
+  <entry>
+    <id>http://liaohuqiu.net/cn/posts/tow-men</id>
+    <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/tow-men/"/>
+    <title>感谢两位远到而来同学</title>
+    <published>2017-04-11T00:00:00+00:00</published>
+    <updated>2017-04-11T00:00:00+00:00</updated>
+    <author>
+      <name>Huqiu Liao / Srain</name>
+      <uri>http://liaohuqiu.net/</uri>
+    </author>
+    <content type="html">&lt;p&gt;2015 年 11 月，华州和展鑫同学从广州到北京，到我团队实习。两个从没到过北方的小伙子，到了北京，租了房子，只因对我的信任，感谢他们。&lt;/p&gt;
+
+&lt;p&gt;昨天，他们走了，回学校去了，昨天看他们空着的工位，心里有些失落。&lt;/p&gt;
+
+&lt;p&gt;非常感谢他们过去五个多月来卓越的工作：从后端到前端再到自动化测试，从运维到开发再到数据平台；从 Python，PHP 到 Java / Android，到 Shell，再到前端；从 Vim，Docker，再到 Redash，Redshift，ELK。&lt;/p&gt;
+
+&lt;p&gt;这些工具的使用，他们的学习和掌握的速度，让人惊讶！自身快速成长的同时，也给团队带来了巨大的价值。&lt;/p&gt;
+
+&lt;p&gt;可惜，遗憾，不舍，时间只有区区五个月。不过和之前三个月相比，情义更长，也算好事一件。&lt;/p&gt;
+
+&lt;p&gt;翻看手机，既无他们太多影像，找到几张既也是无意留之。&lt;/p&gt;
+
+&lt;p&gt;感谢你们，你们是早上八九点钟的太阳，愿你们的未来像清晨的山野和湖泊那样清澈明亮。同时也愿以后遇到的同学时间会更长，不必来去匆匆。&lt;/p&gt;
+
+&lt;p&gt;为记。2017 年 4 月 13 号，北京。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/large/599e230bly1fekokxqy0dj22c0340e82.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;在北京 GDG DevFest 2015 上，华州和展鑫 &lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/large/599e230bly1fekokv2xsyj23402c01ky.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;在北京 GDG DevFest 2015 上，华州做了一个闪电分享&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/large/599e230bly1fekol04nq8j22c0340u0x.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;我们每天很早就开始工作，这是在 2016 年快要结束的前几天的某个早上，他们一个在刷 Leetcode，一个在练 typing speed。&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/large/599e230bly1fekosm595oj23402c0hdt.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <id>http://liaohuqiu.net/cn/posts/ssh-agent-forward</id>
