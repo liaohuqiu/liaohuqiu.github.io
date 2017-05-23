@@ -1,0 +1,39 @@
+---
+layout: post_wide
+title: "感谢两位远到而来同学"
+description: ""
+keywords:   ""
+category: blog
+---
+
+2015 年 11 月，华州和展鑫同学从广州到北京，到我团队实习。两个从没到过北方的小伙子，到了北京，租了房子，只因对我的信任，感谢他们。
+
+昨天，他们走了，回学校去了，昨天看他们空着的工位，心里有些失落。
+
+非常感谢他们过去五个多月来卓越的工作：从后端到前端再到自动化测试，从运维到开发再到数据平台；从 Python，PHP 到 Java / Android，到 Shell，再到前端；从 Vim，Docker，再到 Redash，Redshift，ELK。
+
+这些工具的使用，他们的学习和掌握的速度，让人惊讶！自身快速成长的同时，也给团队带来了巨大的价值。
+
+可惜，遗憾，不舍，时间只有区区五个月。不过和之前三个月相比，情义更长，也算好事一件。
+
+翻看手机，既无他们太多影像，找到几张既也是无意留之。
+
+感谢你们，你们是早上八九点钟的太阳，愿你们的未来像清晨的山野和湖泊那样清澈明亮。同时也愿以后遇到的同学时间会更长，不必来去匆匆。
+
+为记。2017 年 4 月 13 号，北京。
+
+---
+
+![](//{{ site.s_host }}/large/599e230bly1fekokxqy0dj22c0340e82.jpg)
+
+<center>在北京 GDG DevFest 2015 上，华州和展鑫 </center>
+
+![](//{{ site.s_host }}/large/599e230bly1fekokv2xsyj23402c01ky.jpg)
+
+<center>在北京 GDG DevFest 2015 上，华州做了一个闪电分享</center>
+
+![](//{{ site.s_host }}/large/599e230bly1fekol04nq8j22c0340u0x.jpg)
+
+<center>我们每天很早就开始工作，这是在 2016 年快要结束的前几天的某个早上，他们一个在刷 Leetcode，一个在练 typing speed。</center>
+
+![](//{{ site.s_host }}/large/599e230bly1fekosm595oj23402c0hdt.jpg)
