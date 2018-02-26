@@ -58,7 +58,7 @@ category: blog
             proxy_pass   http://127.0.0.1/some_dir/$1;      # ok
         }
 
-        > Update from the comment by @Chris Young 
+    > Update from the comment by [@Chris Young](#comment-1822059799)
 
 2. variables in `proxy_pass` directive:
 
