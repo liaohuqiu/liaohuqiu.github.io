@@ -54,9 +54,11 @@ category: blog
 1.  If the location is given by regular expression, can not be a URI part in `proxy_pass` directive,  unless there are variables in the directive.
 
         location  ~ ^/app/(.*)$ {
-            #proxy_pass   http://127.0.0.1/some_dir;    #error
-            proxy_pass   http://127.0.0.1/some_dir/$1r;    #ok
+            # proxy_pass   http://127.0.0.1/some_dir;       # error
+            proxy_pass   http://127.0.0.1/some_dir/$1;      # ok
         }
+
+        > Update from the comment by @Chris Young 
 
 2. variables in `proxy_pass` directive:
 
