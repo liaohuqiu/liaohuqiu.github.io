@@ -164,10 +164,13 @@ test.com/app/xxxxx =&gt;  http://192.168.154.102/maped_dir/xxxxx
 <ol>
 <li><p>If the location is given by regular expression, can not be a URI part in <code>proxy_pass</code> directive,  unless there are variables in the directive.</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">location  ~ ^/app/(.*)$ {
-    #proxy_pass   http://127.0.0.1/some_dir;    #error
-    proxy_pass   http://127.0.0.1/some_dir/$1r;    #ok
+    # proxy_pass   http://127.0.0.1/some_dir;       # error
+    proxy_pass   http://127.0.0.1/some_dir/$1;      # ok
 }
-</code></pre></div></li>
+</code></pre></div>
+<blockquote>
+<p>Update from the comment by <a href="#comment-1822059799">@Chris Young</a></p>
+</blockquote></li>
 <li><p>variables in <code>proxy_pass</code> directive:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">location ~ ^/app/(.*)$ {
     proxy_pass       http://192.169.154.102:$1;

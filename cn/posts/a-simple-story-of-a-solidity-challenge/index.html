@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>一次白帽黑客挑战赛 |  Yet Another Summer Rain</title>
+<meta charset='utf-8' />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="liaohuqiu@gmail.com 廖祜秋" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+
+<meta name="google-site-verification" content="SbAzRqb2cWqPDNEITWdNn-OnF4w_dWNJgt37GYC3kqY" />
+
+<!-- Documentation extras -->
+<!--[if lt IE 9]><script src="/assets/compatibility/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="/assets/compatibility/html5shiv-3.7.0.js"></script>
+  <script src="/assets/compatibility/respond-1.4.2.js"></script>
+<![endif]-->
+
+<script src="/assets/app/js/base.js?faee782a91e268dee1ae1a36ff3af289"></script>
+<link href="/assets/app/css/app.css?12e17495cc79dd2d4cb25f6288213d50" rel="stylesheet">
+<script src="/assets/app/js/app.js?12e17495cc79dd2d4cb25f6288213d50"></script>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+try {
+    ga('create', 'UA-43024238-1', 'liaohuqiu.net');
+    ga('send', 'pageview');
+} catch(err) {
+    console.log(err);
+}
+</script>
+</head>
+
+<body>
+
+<header id="header">
+  <div class='site-container'>
+    <div class='mobile-nav-toggle mobile-display'>
+      <div class='bar top-bar'></div>
+      <div class='bar middle-bar'></div>
+      <div class='bar bottom-bar'></div>
+    </div>
+    <div class='header-logo-container'>
+      <h1 id="site_title"><a href="/">Srain</a></h1>
+      
+      <a>质有高低，境界不同。</a>
+      
+    </div>
+    <div class='desktop-menu desktop-display'>
+      
+<ul class="header-menu" role="menuigation">
+  <li class="header-menu-item">
+  <a class="header-menu-link" href="/">English posts</a>
+  </li>
+  <li class="header-menu-item">
+  <a class="header-menu-link" href="/about/about-me">About</a>
+  </li>
+  <li class="header-menu-item">
+  <a class="header-menu-link" href="/about/friends">Friends</a>
+  </li>
+  <li class="header-menu-item">
+  <a class="header-menu-link" href="/about/feed">Feed</a>
+  </li>
+</ul>
+
+
+    </div>
+  </div>
+  <div class='mobile-menu mobile-display'>
+    
+<ul class="header-menu" role="menuigation">
+  <li class="header-menu-item">
+  <a class="header-menu-link" href="/">English posts</a>
+  </li>
+  <li class="header-menu-item">
+  <a class="header-menu-link" href="/about/about-me">About</a>
+  </li>
+  <li class="header-menu-item">
+  <a class="header-menu-link" href="/about/friends">Friends</a>
+  </li>
+  <li class="header-menu-item">
+  <a class="header-menu-link" href="/about/feed">Feed</a>
+  </li>
+</ul>
+
+
+  </div>
+</header>
+
+
+<!-- MAIN CONTENT -->
+<div class='post'>
+    <div id="main_content_wrap" class="outer">
+        <div class="md-body main-content inner wide">
+            <!--
+            
+            <div class="alert alert-warning" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                
+                <strong><a target='_blank' href='/cn/posts/follow-me-on-github/'>一事相求, 还望相助：请在 GitHub 上关注我吧!</a></strong>
+                
+            </div>
+            
+            --->
+            <h2> 一次白帽黑客挑战赛 </h2>
+            <div>
+                <p> 07 Apr 2018 </p>
+            </div>
+            <hr>
+            <h3>赛制与规则说明</h3>
+
+<p>本项目所有的目前在 <a href="https://github.com/liaohuqiu/cube-box/blob/master/src/challenge/README.md">GitHub 上</a>，这个是 <a href="https://github.com/liaohuqiu/cube-box/blob/master/src/challenge/README.md">本次挑战赛的规则</a>。</p>
+
+<h3>规则解说</h3>
+
+<ol>
+<li><p>重生次数，首次破解时间很重要。</p></li>
+<li><p>成绩和报名账户的收入和成本相关。</p></li>
+<li><p>规则不限。</p></li>
+<li><p>48 小时，北京时间 2018 年 4 月 4 号 15:00 到 6 号 15:00。</p></li>
+</ol>
+
+<h3>代码解读</h3>
+
+<ul>
+<li><p>30 分钟限制：每 30 分钟才可取钱</p></li>
+<li><p>16 小时限制：<code>selfdestruct()</code> 在 <code>lastUpdated</code> 16 小时才后可攻击，<code>addToReserve()</code> 可更新 <code>lastUpdated</code>。</p></li>
+</ul>
+
+<p>这使得很多操作在比赛期间只能操作 2 次。</p>
+
+<ul>
+<li><p><code>GameVerifier</code> 控制权限，<code>addGamer()</code> 可添加新地址，需要知道第二个参数的取值规律。</p></li>
+<li><p><code>TimeDelayedVault</code> 和 <code>CommonWalletLibrary</code></p>
+
+<ul>
+<li><code>withdrawFund()</code> 非常容易构造 <code>reentry</code>，麻烦的是要团队配合投票。</li>
+<li> 构造函数中 <code>initializeVault</code> 是个笔误，无法调用成功 <code>initilizeVault()</code>，部署完后，所有合约都是没有 owner 的。</li>
+<li> owner 可调用 <code>resolve()</code>，在 <code>lastUpdated</code> 后 16 个小时销毁合约，余额会转到 owner 对应的地址。</li>
+</ul></li>
+</ul>
+
+<h3>攻防分析</h3>
+
+<ul>
+<li><p>最简单的，<code>reentry</code> 除去 gas，收入不多。这个越早越好，简单易行，主要考验团队配合。</p></li>
+<li><p><code>addGamer()</code> 可添加<strong>非报名地址</strong>，用于各种攻防操作，防追踪。同时可通过 <code>addToReserve()</code> 加钱，增加收益。</p></li>
+<li><p>抢占 owner，然后等时间到，<code>resolve()</code> 收钱；但任何人都可调用 <code>addToReserve()</code> 阻止。</p></li>
+</ul>
+
+<h3>分工</h3>
+
+<p>我们是 3 期 C 组。参加的同学有: WYF，BJ，LJW，LYN，XCY，和我。BJ 因为要赶之前作业，过程没参与，LYN 同学是后半段参与的。</p>
+
+<ul>
+<li><p>WYF 是队长，不过赛期他东京回国，事情也多，没办法实时在线。他应该是组内比较了解智能合约的同学，大策略都是他出的主意。</p></li>
+<li><p>LJW 和 XCY 在线时间多，不过 XCY 同学好像是在美西。</p></li>
+<li><p>我飞机晚点 4 号凌晨到北京，有几个应酬，还要陪女朋友不能整天待电脑前面，6 号早 6 点飞杭州，在线时间不也多。</p></li>
+</ul>
+
+<h3>本组攻防过程</h3>
+
+<h5>1. 抢占 owner</h5>
+
+<p>4 号早上起来，写了一会工作代码，下午比赛开始之后，简单看了除 reentry 没想到其它办法（新手视野不广），琢磨一个多小时，组里没什么动静，去参加一个饭局。</p>
+
+<p>4 号晚，WYF 在群里说检查合约的 <code>initilizeVault()</code> 调用了没，要抢，我喝酒喝得晕乎乎的，没理解。洗澡的时候，突然警醒。和 WYF 同学电话沟通了一下，检查<a href="https://ropsten.etherscan.io/address/0x5138da08c878ec23b82b85a86eca47230f96f62b">所有合约</a> 发现有部分合约已经被抢占，<code>CommonWalletLibrary</code> 也被抢占。</p>
+
+<p>迅速写了 <a href="https://github.com/liaohuqiu/cube-box/blob/master/src/challenge/src/init.js">代码</a>，把能抢占的都抢占了，组内简单同步，然后睡觉去了。</p>
+
+<p>早上醒来，WYF 同学说给 <code>CommonWalletLibrary</code> 续命了，花了 3 个 eth，这个钱要赚回来。上午要出门陪女朋友看电影，结束大概是抢占 owner 之后的 16 小时，写好了 <a href="https://github.com/liaohuqiu/cube-box/blob/master/src/challenge/src/check.js">检查可 <code>resolve()</code> 合约的代码</a> 和 <a href="https://github.com/liaohuqiu/cube-box/blob/master/src/challenge/src/kill.js">调用 <code>resolve()</code> 的代码</a>，然后出门了。</p>
+
+<p>电影不错。</p>
+
+<p>回来之后，留了一个合约没收割（后面发现还漏了一个），其它控制的合约全销毁了，收获大概 20 个 eth，发现大群里有一些动静。</p>
+
+<p>这时候时间过去一半，时间系数 0.5。</p>
+
+<p>监控发现又有组重生，迅速占领。</p>
+
+<h5>2. 攻占 GameVerifier</h5>
+
+<p>想要扩大战果，靠 <code>reentry</code> 和 <code>resolve()</code> 是不行的。要破解 <code>addGamer()</code> 大量加强，然后 <code>reentry</code>。当时我们 <code>reentry</code> 还没实现。晚上大家电话会议，确定分工如下：</p>
+
+<ul>
+<li><p>LJW 同学实现 <code>reentry</code>，并负责调度大家 <code>addAuthorizedAccount()</code></p></li>
+<li><p>XCY 和我复杂攻占 <code>addGamer()</code>。</p></li>
+</ul>
+
+<p>WYF 和我用 MEW 调用测试 magic num，发现 1 是不行的，但是看 input data 以及 porosity 反编译出来的都是 1，不解，决定看 opcode。</p>
+
+<p>Opcode 用了对比法，我写了一个没任何验证的 <code>GameVerifier</code>，将 <a href="https://github.com/liaohuqiu/cube-box/blob/master/src/challenge/opcodes/without-check.txt">它的 opcode</a> 和 <a href="https://github.com/liaohuqiu/cube-box/blob/master/src/challenge/opcodes/origin.txt">部署在链上的 <code>GameVerifier</code> 的 opcode</a> 做了对比。</p>
+
+<blockquote>
+<p>比赛结束后发现，结果和 porosity 反编译出来是一致的。即:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">function addGamer(address,uint256) {
+      if (!msg.value) {
+      }
+      if ((arg_24 == 0x100000)) {
+         store[var_Rtj0D] = 0x1;
+         return;
+      }
+      store[var_Rtj0D] = 0x1;
+      return;
+}
+</code></pre></div>
+<p>是用 MEW 调用的问题，用 web3 调用即可。</p>
+</blockquote>
+
+<h5>3. 跳板合约和傀儡合约</h5>
+
+<p>到了晚上 12 点左右，对着黄皮书看 opcode，眼睛都要瞎了，WYF 提出了一个疯狂的想法：</p>
+
+<p>随便构造一个合约，用非报名帐号给这个合约充钱，然后销毁这个合约（跳板合约），把钱转给竞赛的合约（傀儡合约，其它组的和我们自组的），然后销毁傀儡合约。</p>
+
+<p>立刻简单测试，可行：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">contract Jumper {
+    address vault;
+    address owner;
+
+    function Jumper() payable {
+        owner = msg.sender;
+    }
+
+    function setVault(address v) {
+        require(msg.sender == owner);
+        vault = v;
+    }
+
+    function addFund() payable returns(uint) {
+        return this.balance;
+    }
+
+    function kill() {
+        require(msg.sender == owner);
+        selfdestruct(vault);
+    }
+}
+</code></pre></div>
+<blockquote>
+<p>这个代码是 XCY 同学写的，我写的版本非常简陋。他这个版本很好：</p>
+
+<ol>
+<li><p>因为局势随时变化，很可能给这个跳板合约充了钱，要 kill 的时候，发现傀儡合约不能销毁了，<code>setVault()</code> 保证了灵活性。</p></li>
+<li><p>这次功防，很大一部分是 owner 造成的。这个合约 owner 处理得很好。</p></li>
+</ol>
+</blockquote>
+
+<p>因为明早 4 点多要起来赶航班，大家同步完，做了分工：</p>
+
+<ul>
+<li>XCY 在美西，他请假一天，继续破解 <code>addGamer()</code></li>
+<li>大家都屯币</li>
+<li>我去睡觉，防止猝死</li>
+</ul>
+
+<h5>4. 快速致富</h5>
+
+<p>早上起来，车车同学（XCY）传来好消息：</p>
+
+<ol>
+<li>addGamer 的 magic number 就是 1。</li>
+<li>他屯了 500  个币了。</li>
+</ol>
+
+<p>时间是北京时间 6 点多，其它同学都还没醒，没同步沟通。</p>
+
+<p>不过这个时候我和 XCY 同学交流，更倾向于用跳板合约攻击了。</p>
+
+<p>考虑到其他组可能也想到这个方案，取胜的方案是比谁可以快速拿到大量的 eth。</p>
+
+<p>在北京首都机场写了<a href="https://github.com/liaohuqiu/cube-box/blob/master/src/challenge/src/request-eth.py">快速刷币的脚本</a>。将地址放入到脚本中，多个线程并发调用，faucet 对单 IP 有请求数限制，本身网站并发能力也有限，动不动就挂。每个帐号有 10 个 eth 之后，就不能再申请，需要把钱转走。</p>
+
+<p>落地杭州后，在去办公室的路上，尝试写自动转钱脚本，简单的 transfer 一直没调试成功，人差点被彪悍的司机颠吐……</p>
+
+<p>到了办公室 9 点多，大家电话同步，形成决议：</p>
+
+<p><strong>用跳板合约攻击，手头可用的傀儡合约是 5 个左右（实际 6 个），分批多个批次行动</strong>。</p>
+
+<p>这里有一个权衡，因为目前我们手头没很多币，如果：</p>
+
+<ol>
+<li><p>第一笔钱到帐之后，我的帐号是被一直监控的，活跃的团队还有好几个，风险是我们控制的剩余合约可能被续命，好处是立刻行动至少还会立刻可拿到收益。</p></li>
+<li><p>等攒够足够多的钱，几个小时之后，比如到 1w 个 eth 的时候，再进行操作。风险是到后来可能一个可用的合约都没了，好处是早期不会惹人注意可一次拿下。</p></li>
+</ol>
+
+<p>很多时候，基于一个情况，是没一个最优解的，团队合作的要诀是形成一个决定，然后坚决执行。</p>
+
+<p>于是大家都去攒币，10 点半左右完成第一波 1000 个 eth 入帐；又过了 1 个小时，大家手工刷的 2000 个 eth 准备好了，再次入帐。</p>
+
+<p>这个我的 <a href="https://github.com/liaohuqiu/cube-box/blob/master/src/challenge/src/transfer-eth.js">自动转账脚本</a> 也完成了，LJW 和 LYN 把他们的地址和私钥给我，我一个小时不到，攒了 3000 多个，于是完成了第三次入帐。</p>
+
+<p>钱都是转到 XCY 同学帐号，他操作跳板合约到傀儡合约，我负责杀死傀儡合约拿到钱。</p>
+
+<p>最后一波想到 10000，每个 IP 有并发限制，我动用了相关阿里云 6 个机器，将 100 来个帐号，分成 6 组，但由于并发量太大，faucet 被撸挂了。</p>
+
+<p>faucet 挂了大概 20 分钟后，监控发现，没有可用的合约了，收工，最终战果： <a href="https://ropsten.etherscan.io/address/0xd48a0ff0c1555ce2e85a0f456ab461e17516d4e6">将近 7000 个 eth</a>。</p>
+
+<p>下午两点左右，杭州的天气不错，希望你那里也是一样。</p>
+
+<p>不一会，老董到群里祝贺我们，并建议我们不要刷 faucet，影响不好，说刷那么多币干嘛——原来他自己都没想到可以用跳板合约这样的方式进行攻击的，^_*</p>
+
+<p>事情就这么个事情，整个过程还有一些可提升的地方，但大家已经表现得很不错的，和这样的队友在一起，感觉很棒。我玩得很开心，希望队友们也是，^_^</p>
+
+<h5>5. 总结</h5>
+
+<p>最终我们组拿了第一，撒花庆祝。颁发了一个 MVP 的奖给我，但实际真是当之有愧，自己有几斤几两还是很清楚的，你看，我连朋友圈都没好意思发……</p>
+
+<p>总结下来，成功因素有:</p>
+
+<ol>
+<li><p>聪明，很多好想法是 WYF 同学提出来的，他接触智能合约时间也不长，这个小伙子很有天赋。我也曾努力琢磨，但却没什么好想法——只有努力过才知道，天分有多么重要。</p></li>
+<li><p>勤奋，团队是 48 小时连轴转的。大部分的同学 48 个小时是一直参与的，尤其刷币的时候，全靠努力——嗯，全靠体力。</p></li>
+<li><p>团队协作。单枪匹马，匹夫之勇是行不通的：个人力量和团队的力量较量，无异于以卵击石。战斗时期的团队协作，沟通，决策，执行步步不能差。</p></li>
+<li><p>运气，遇上给力的队员，确实是好运，哈哈。</p></li>
+</ol>
+
+<hr>
+
+<p>本文是在 3 期结业典礼上的复盘发言。</p>
+
+            <hr>
+            
+            <div class='wechat-mp-qrcode'>
+                欢迎关注我的微信公众号<br/>
+                <img src='//www.liaohuqiu.net/assets/img/qrcode_for_wechat_mp.jpg' /><br/>
+                <p>欢迎关注我的 <a href='http://weibo.com/liaohuqiu/'>新浪微博</a>，有问题随时交流。</p>
+                <p>欢迎关注我的 <a href='https://github.com/liaohuqiu'>GitHub</a>，了解我最新关注的项目。</p>
+            </div>
+            
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'srain'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>
