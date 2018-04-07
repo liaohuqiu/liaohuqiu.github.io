@@ -4,7 +4,7 @@
   <title>Yet Another Summer Rain</title>
   <link href="http://liaohuqiu.net/"/>
   <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
-  <updated>2018-04-07T08:30:37+00:00</updated>
+  <updated>2018-04-07T08:33:50+00:00</updated>
   <id>http://liaohuqiu.net/</id>
   <author>
     <name>Huqiu Liao / Srain</name>
@@ -24,7 +24,7 @@
     </author>
     <content type="html">&lt;h3&gt;赛制与规则说明&lt;/h3&gt;
 
-&lt;p&gt;本项目所有的目前在 &lt;a href=&quot;https://github.com/liaohuqiu/cube-box/blob/master/src/challenge/README.md&quot;&gt;GitHub 上&lt;/a&gt;，这个是 &lt;a href=&quot;https://github.com/liaohuqiu/cube-box/blob/master/src/challenge/README.md&quot;&gt;本次挑战赛的规则&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;本项目所有的代码和相关资料在 &lt;a href=&quot;https://github.com/liaohuqiu/cube-box/blob/master/src/challenge/README.md&quot;&gt;GitHub 上&lt;/a&gt;，这个是 &lt;a href=&quot;https://github.com/liaohuqiu/cube-box/blob/master/src/challenge/README.md&quot;&gt;本次挑战赛的规则&lt;/a&gt;，如果不了解本次挑战赛的读者，请先阅读规则。&lt;/p&gt;
 
 &lt;h3&gt;规则解说&lt;/h3&gt;
 

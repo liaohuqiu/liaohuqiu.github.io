@@ -6,8 +6,8 @@
     <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
-    <pubDate>Sat, 07 Apr 2018 08:30:37 +0000</pubDate>
-    <lastBuildDate>Sat, 07 Apr 2018 08:30:37 +0000</lastBuildDate>
+    <pubDate>Sat, 07 Apr 2018 08:33:50 +0000</pubDate>
+    <lastBuildDate>Sat, 07 Apr 2018 08:33:50 +0000</lastBuildDate>
 
     
     <item>
@@ -18,7 +18,7 @@
       <guid>http://liaohuqiu.net/cn/posts/a-simple-story-of-a-solidity-challenge</guid>
       <description>&lt;h3&gt;赛制与规则说明&lt;/h3&gt;
 
-&lt;p&gt;本项目所有的目前在 &lt;a href=&quot;https://github.com/liaohuqiu/cube-box/blob/master/src/challenge/README.md&quot;&gt;GitHub 上&lt;/a&gt;，这个是 &lt;a href=&quot;https://github.com/liaohuqiu/cube-box/blob/master/src/challenge/README.md&quot;&gt;本次挑战赛的规则&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;本项目所有的代码和相关资料在 &lt;a href=&quot;https://github.com/liaohuqiu/cube-box/blob/master/src/challenge/README.md&quot;&gt;GitHub 上&lt;/a&gt;，这个是 &lt;a href=&quot;https://github.com/liaohuqiu/cube-box/blob/master/src/challenge/README.md&quot;&gt;本次挑战赛的规则&lt;/a&gt;，如果不了解本次挑战赛的读者，请先阅读规则。&lt;/p&gt;
 
 &lt;h3&gt;规则解说&lt;/h3&gt;
 
