@@ -70,6 +70,10 @@ class App(devops.DevOpsApp):
         cmd = 'jekyll build'
         self._run_blog_container(cmd)
 
+    def build_w(self):
+        cmd = 'jekyll build -w'
+        self._run_blog_container(cmd)
+
     def into_blog(self):
         cmd = '/bin/bash'
         self._run_blog_container(cmd)
