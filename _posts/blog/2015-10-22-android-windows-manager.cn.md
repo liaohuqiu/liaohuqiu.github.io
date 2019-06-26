@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/android-windows-manager
+permalink: /cn/posts/android-windows-manager/
 title: "Android 悬浮窗的小结"
 description: ""
 category: blog

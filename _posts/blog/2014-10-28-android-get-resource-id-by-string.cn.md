@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/android-get-resource-id-by-string
+permalink: /cn/posts/android-get-resource-id-by-string/
 title: "根据字符串获取资源id"
 description: "android根据字符串获取资源id的多种方式"
 category: blog

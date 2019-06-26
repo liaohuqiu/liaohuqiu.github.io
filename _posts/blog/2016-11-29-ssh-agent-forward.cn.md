@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/ssh-agent-forward
+permalink: /cn/posts/ssh-agent-forward/
 title: "ssh-agent 转发"
 description: ""
 keywords:   ""

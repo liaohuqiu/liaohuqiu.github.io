@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/pick-an-alibaba-name
+permalink: /cn/posts/pick-an-alibaba-name/
 title: "阿里花名：如何起花名"
 description: "关于阿里巴巴的花名: 如何取花名"
 category: blog

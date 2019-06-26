@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/a-simple-story-of-a-solidity-challenge
+permalink: /cn/posts/a-simple-story-of-a-solidity-challenge/
 title: "一次白帽黑客挑战赛"
 description: ""
 keywords:   ""

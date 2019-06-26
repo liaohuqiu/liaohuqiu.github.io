@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/android-enum-memory-usage
+permalink: /cn/posts/android-enum-memory-usage/
 title: "Android 中的 Enum 到底占多少内存？该如何用？"
 description: ""
 category: blog

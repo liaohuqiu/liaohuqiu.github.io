@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/wechat-helper
+permalink: /cn/posts/wechat-helper/
 title: "微信助手 Chrome 插件开发手记"
 description: ""
 category: blog

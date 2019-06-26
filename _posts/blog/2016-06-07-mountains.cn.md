@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/mountains
+permalink: /cn/posts/mountains/
 title: "不停向前，只为更好的自己 —— 致参加 Study Jams 的同学们"   
 description: ""
 category: blog

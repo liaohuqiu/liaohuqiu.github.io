@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/google-study-jams
+permalink: /cn/posts/google-study-jams/
 title: "欢迎大家参加 Google Study Jams 学习小组"
 description: "Android 设备已经随处可见，你是否想过也能写一个应用在你的 Android 手机上运行？"
 keywords: "Google Study Jams"

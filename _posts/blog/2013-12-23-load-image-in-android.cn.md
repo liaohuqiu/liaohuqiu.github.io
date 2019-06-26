@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/load-image-in-android
+permalink: /cn/posts/load-image-in-android/
 title:  Android 加载图片时需要解决的问题
 description: 简述加载图片时需要处理好的几个问题
 category: blog

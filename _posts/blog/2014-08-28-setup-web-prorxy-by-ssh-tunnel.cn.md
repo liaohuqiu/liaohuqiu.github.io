@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/setup-web-prorxy-by-ssh-tunnel
+permalink: /cn/posts/setup-web-prorxy-by-ssh-tunnel/
 title: "简单的ssh隧道实现代理上网"
 description: ""
 category: blog

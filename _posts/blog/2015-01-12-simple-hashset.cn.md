@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/simple-hashset
+permalink: /cn/posts/simple-hashset/
 title: "SimpleHashSet, 节省25%内存"
 description: ""
 category: blog

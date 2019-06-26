@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/android-studio-3-preview
+permalink: /cn/posts/android-studio-3-preview/
 title: "Android Studio 3 Preview 发布"
 description: ""
 keywords:   ""

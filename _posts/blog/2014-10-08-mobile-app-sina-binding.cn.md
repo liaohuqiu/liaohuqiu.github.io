@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/mobile-app-sina-binding
+permalink: /cn/posts/mobile-app-sina-binding/
 title: "手机客户端应用新浪微博绑定流程"
 description: "客户端绑定微博流程 客户端一键关注微博"
 category: blog

@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/mdcc-2016-brief-summary
+permalink: /cn/posts/mdcc-2016-brief-summary/
 title: "MDCC 2016 PPT 下载及简单点评"
 description: ""
 category: blog

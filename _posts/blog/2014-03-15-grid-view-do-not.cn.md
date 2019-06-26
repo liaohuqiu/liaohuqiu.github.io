@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/grid-view-do-not
+permalink: /cn/posts/grid-view-do-not/
 title: "Gridview 的错误用法及替代方案"
 description: "类似9宫格的页面，使用 GridView，有可能导致首项被多次创建和绘制，本文给出一个替代方案。"
 category: blog

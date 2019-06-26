@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/chrome-extension-hi
+permalink: /cn/posts/chrome-extension-hi/
 title: "Chrome 扩展开发参考"
 description: "Chrome 扩展开发参考"
 category: blog

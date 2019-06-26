@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/replace-or-override-string-in-android-library
+permalink: /cn/posts/replace-or-override-string-in-android-library/
 title: "重定义/覆盖Android类库中的文字，颜色等资源"
 description: ""
 category: blog

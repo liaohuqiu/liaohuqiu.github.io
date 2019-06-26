@@ -103,12 +103,17 @@ class App(devops.DevOpsApp):
         link = '/cn/posts/' + link
         self.logger.info('%s => %s', file_path, link)
         link_text = 'permalink: %s' % (link)
+        link_text_right = 'permalink: %s/' % (link)
         content = file.file_get_contents(file_path)
-        if link_text in content:
-            return
         lines = content.split('\n')
-        lines.insert(2, link_text)
-        file.file_put_contents(file_path, '\n'.join(lines))
+        new_lines = []
+        for line in lines:
+            if line == link_text:
+                new_lines.append(link_text_right)
+            else:
+                new_lines.append(line)
+
+        file.file_put_contents(file_path, '\n'.join(new_lines))
 
 
 

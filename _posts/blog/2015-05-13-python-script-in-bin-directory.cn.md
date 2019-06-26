@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/python-script-in-bin-directory
+permalink: /cn/posts/python-script-in-bin-directory/
 title: "通过 shell 执行 python 报错: No such file or directory"
 description: ""
 category: blog

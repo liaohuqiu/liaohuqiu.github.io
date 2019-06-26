@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/first-view-will-be-created-multi-times-in-list-view
+permalink: /cn/posts/first-view-will-be-created-multi-times-in-list-view/
 title: "ListView / GirdView Adpater 的 getView 方法，首项多次调用"
 description: "本文解释了 getView 首项被执行多次的原因，并给出了一些参考解决方案。"
 category: blog

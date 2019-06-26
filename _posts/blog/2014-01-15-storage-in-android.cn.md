@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/storage-in-android
+permalink: /cn/posts/storage-in-android/
 title:  Android 存储使用参考
 description: 本文介绍了安卓使用存储时会遇到的一些问题，以及处理参考。
 category: blog

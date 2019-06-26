@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/bitmasp-and-lipo
+permalink: /cn/posts/bitmasp-and-lipo/
 title: "BitMask 使用参考"
 description: ""
 category: blog

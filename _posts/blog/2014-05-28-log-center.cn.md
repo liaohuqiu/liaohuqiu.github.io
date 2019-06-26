@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/log-center
+permalink: /cn/posts/log-center/
 title: "日志中心：统一日志服务器"
 description: "统一日志服务器配置"
 keywords:   "syslog syslogd syslog-ng rsyslog"

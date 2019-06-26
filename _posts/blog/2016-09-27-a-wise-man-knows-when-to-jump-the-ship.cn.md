@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/a-wise-man-knows-when-to-jump-the-ship
+permalink: /cn/posts/a-wise-man-knows-when-to-jump-the-ship/
 title: "良禽择木而栖"
 description: ""
 category: blog

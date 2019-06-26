@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-permalink: /cn/posts/sqlite-tips
+permalink: /cn/posts/sqlite-tips/
 title: "SQLite 使用参考: 唯一索引，分页，清空表"
 description: "本文使用一个例子讲述 Sqlite 中的索引，分页，和清空表的最佳做法"
 keywords:   "sqlite 分页，sqllite 清空表，sqlite 索引"
