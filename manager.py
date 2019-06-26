@@ -67,7 +67,7 @@ class App(devops.DevOpsApp):
         self.shell_run('ln -sf /opt/node_npm_data/node_modules ' + node_modules_in_host)
 
     def build(self):
-        cmd = 'jekyll build -w'
+        cmd = 'jekyll build'
         self._run_blog_container(cmd)
 
     def into_blog(self):
