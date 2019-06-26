@@ -45,8 +45,8 @@ class App(devops.DevOpsApp):
         }
         args = dockerutil.base_docker_args(container_name=blog_container, volumes=volumes, working_dir=working_dir)
 
-        cmd_data = {'image': blog_image, 'args': args, 'cmd': cmd}
-        cmd = template.render_str('docker run -it --rm {{ args }} {{ image }} {{ cmd }}', cmd_data)
+        cmd_data = {'image': blog_image, 'args': args, 'cmd': cmd, 'mod': dockerutil.fg_mode()}
+        cmd = template.render_str('docker run {{ mod }} --rm {{ args }} {{ image }} {{ cmd }}', cmd_data)
         self.shell_run(cmd)
 
     def _run_fe_container(self, cmd):
@@ -57,8 +57,8 @@ class App(devops.DevOpsApp):
         }
         args = dockerutil.base_docker_args(container_name=fe_container, volumes=volumes, working_dir=working_dir)
 
-        cmd_data = {'image': app_fe_image, 'args': args, 'cmd': cmd}
-        cmd = template.render_str('docker run -it --rm {{ args }} {{ image }} {{ cmd }}', cmd_data)
+        cmd_data = {'image': app_fe_image, 'args': args, 'cmd': cmd, 'mod': dockerutil.fg_mode()}
+        cmd = template.render_str('docker run {{ mod }} --rm {{ args }} {{ image }} {{ cmd }}', cmd_data)
         self.shell_run(cmd)
 
     def _link_node_modules(self, node_modules_in_host):
