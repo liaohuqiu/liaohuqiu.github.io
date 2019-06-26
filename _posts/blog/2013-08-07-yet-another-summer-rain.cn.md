@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/yet-another-summer-rain
 title: Yet another summer rain.
 description: For another rain, for another summer.
 category: blog

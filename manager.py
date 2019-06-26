@@ -12,7 +12,7 @@ APP_NAME = 'srain'
 blog_image = 'liaohuqiu/blog-jekyll:1.0'
 app_fe_image = 'liaohuqiu/blog-fe:1.0'
 blog_container = 'blog-jekyll'
-app_fe_container = 'blog-fe'
+fe_container = 'blog-fe'
 
 
 class App(devops.DevOpsApp):
@@ -35,6 +35,7 @@ class App(devops.DevOpsApp):
         self.shell_run(cmd)
 
     def _run_blog_container(self, cmd):
+        self.remove_container(blog_container, force=True)
         working_dir = '/opt/app'
         self.site_dir = '/opt/data/g-nginx/persistent/sites/liaohuqiu'
         file.ensure_dir(self.site_dir)
@@ -49,11 +50,12 @@ class App(devops.DevOpsApp):
         self.shell_run(cmd)
 
     def _run_fe_container(self, cmd):
+        self.remove_container(fe_container, force=True)
         working_dir = '/opt/app/_fe'
         volumes = {
             self.root_dir: '/opt/app',
         }
-        args = dockerutil.base_docker_args(container_name=app_fe_container, volumes=volumes, working_dir=working_dir)
+        args = dockerutil.base_docker_args(container_name=fe_container, volumes=volumes, working_dir=working_dir)
 
         cmd_data = {'image': app_fe_image, 'args': args, 'cmd': cmd}
         cmd = template.render_str('docker run -it --rm {{ args }} {{ image }} {{ cmd }}', cmd_data)
@@ -88,9 +90,26 @@ class App(devops.DevOpsApp):
         self._run_fe_container(cmd)
 
     def fix(self):
-        import os
         dir = self.root_dir + '/_posts/blog'
         list = os.listdir(dir)
+        for name in list:
+            self.fix_item(os.path.join(dir, name))
+
+    def fix_item(self, file_path):
+        if '.cn' not in file_path or '.new' in file_path:
+            return
+        file_name = os.path.basename(file_path)
+        link = '-'.join(file_name.replace('.cn.md', '').split('-')[3:])
+        link = '/cn/posts/' + link
+        self.logger.info('%s => %s', file_path, link)
+        link_text = 'permalink: %s' % (link)
+        content = file.file_get_contents(file_path)
+        if link_text in content:
+            return
+        lines = content.split('\n')
+        lines.insert(2, link_text)
+        file.file_put_contents(file_path, '\n'.join(lines))
+
 
 
 if __name__ == '__main__':

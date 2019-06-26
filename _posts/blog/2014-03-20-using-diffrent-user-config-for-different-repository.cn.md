@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/using-diffrent-user-config-for-different-repository
 title: "git: 提交前强制检查各个项目用户名邮箱设置"
 description: "为各个项目单独设置用户名和邮箱，并在提交前强制检查。"
 category: blog

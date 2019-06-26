@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/take-a-glance-at-fire-base
 title: "Firebase 简介"
 description: ""
 category: blog

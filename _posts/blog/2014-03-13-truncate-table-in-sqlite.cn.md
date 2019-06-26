@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/truncate-table-in-sqlite
 title: SQLite 清空数据库表
 description: SQLite 如何清空数据库表
 category: blog

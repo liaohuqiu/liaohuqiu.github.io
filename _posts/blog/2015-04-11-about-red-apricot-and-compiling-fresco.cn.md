@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/about-red-apricot-and-compiling-fresco
 title: "关于红杏的公益代理, Android Studio以及freso的编译"
 description: "使用红杏代理更新Android SDK，让使用Android Studio轻松愉快"
 category: blog

@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/roman-wasnot-built-in-a-day
 title: "十年磨一剑: 开发者的孤独与伟大"
 description: "写在 PHP7 发布和 Swift 开源之日"
 category: blog

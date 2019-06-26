@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/react-native-android-package
 title: "React Native: Android 的打包"
 description: ""
 category: blog

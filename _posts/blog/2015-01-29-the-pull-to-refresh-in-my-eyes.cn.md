@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/the-pull-to-refresh-in-my-eyes
 title: "我眼中的下拉刷新"
 description: ""
 category: blog

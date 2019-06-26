@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/android-api-compat-guide
 title: "再谈 Android API 兼容性处理"
 description: ""
 category: blog

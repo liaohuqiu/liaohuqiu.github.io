@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/ssh-keygen-abc
 title: "ssh-keygen 基本用法"
 description: "介绍ssh-kengen的生成密钥的基本用法"
 category: blog

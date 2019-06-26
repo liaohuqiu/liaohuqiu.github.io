@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/how-does-android-caculate-the-size-of-child-view
 title: "Android中 View 大小的确定过程"
 description: "Android中有 ViewGroup，ViewGroup 可以包含子 View，本文讲解 View 尺寸大小的确定过程"
 keywords:   "安卓View大小，安卓 View 计算大小"

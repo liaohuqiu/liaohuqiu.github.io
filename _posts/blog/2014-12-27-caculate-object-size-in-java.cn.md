@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/caculate-object-size-in-java
 title: "JAVA 对象大小"
 description: ""
 category: blog

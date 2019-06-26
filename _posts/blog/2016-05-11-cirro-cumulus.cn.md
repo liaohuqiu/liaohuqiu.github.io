@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/cirro-cumulus
 title: "美丽的卷积云"
 description: ""
 category: blog

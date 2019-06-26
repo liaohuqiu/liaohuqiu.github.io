@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/git-setup-and-setting
 title: "命令行下的git配置问题: 多个 sshkey, 多个用户身份, git alias"
 description:  'git 使用多个 sshkey；git 实用设置'
 tag:

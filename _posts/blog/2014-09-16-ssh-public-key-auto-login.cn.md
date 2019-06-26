@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/ssh-public-key-auto-login
 title: "ssh public key认证免密码登录"
 description: "利用ssh 公钥认证实现免密码登录服务器"
 keywords:   "ssh-keygen, ssh public key, 免登录"

@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/keep-alive-terminal-connection
 title: "命令行终端保持连接"
 description: "不要使用 iTerm2 的 Send ASCII code when idle"
 category: blog

@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/gradle-in-centos
 title: "CentOS的gradle构建环境"
 description: ""
 category: blog

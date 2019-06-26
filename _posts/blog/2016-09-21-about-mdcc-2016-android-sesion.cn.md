@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/about-mdcc-2016-android-sesion
 title: "九月，我们在 MDCC 的一场聚会"
 description: ""
 category: blog

@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/my-idea-config
 title: "我的 idea 配置"
 description: ""
 category: blog

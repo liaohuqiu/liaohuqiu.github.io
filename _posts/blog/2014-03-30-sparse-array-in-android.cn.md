@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/sparse-array-in-android
 title: "Android中的稀疏数组：SparseArray"
 description: "Android稀疏数组的实现; SparseArray in Android"
 keywords: "SparseArray in Android"

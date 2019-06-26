@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/non-bundled-web-server-for-gitlab
 title: "gitlab 使用现有 nginx 服务器"
 description: ""
 category: blog

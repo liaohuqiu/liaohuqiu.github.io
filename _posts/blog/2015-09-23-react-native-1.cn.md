@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/react-native-1
 title: "React Native: 配置和起步"
 description: ""
 category: blog

@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/m-developer-preview-3-final-sdk
 title: "升级到 Android 6.0"
 description: ""
 category: blog

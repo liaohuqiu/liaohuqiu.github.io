@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/follow-me-on-github
 title: "有一事相求，请在 GitHub 上关注我吧"
 description: ""
 category: blog

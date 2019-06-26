@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/leak-canary
 title: "LeakCanary: 让内存泄露无所遁形"
 description: ""
 category: blog

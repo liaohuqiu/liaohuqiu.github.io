@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/using-high-api-level-method-compatibly
 title:  Android 高版本 API 方法在低版本系统上的兼容性处理
 description: 
 category: blog

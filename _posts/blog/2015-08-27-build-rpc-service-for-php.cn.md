@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/build-rpc-service-for-php
 title: "为 PHP 构建 RPC 服务"
 description: ""
 category: blog

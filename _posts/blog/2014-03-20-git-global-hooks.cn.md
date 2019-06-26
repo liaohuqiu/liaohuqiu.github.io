@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/git-global-hooks
 title: git 全局钩子
 description: git全局钩子的配置
 category: blog

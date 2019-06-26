@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/work-with-git-branches
 title: "Git 日常分支操作"
 description: "
         <p>介绍日常中经常遇到的一些分支操作：</p>

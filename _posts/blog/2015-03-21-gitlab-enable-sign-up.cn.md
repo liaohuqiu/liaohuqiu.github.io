@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/gitlab-enable-sign-up
 title: "gitlab 启用注册"
 description: ""
 category: blog

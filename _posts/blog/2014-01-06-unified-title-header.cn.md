@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/unified-title-header
 title:  Android 统一的页面头部
 description: 本文介绍了使用 Activity 做页面，实现统一的页头的方法
 category: blog

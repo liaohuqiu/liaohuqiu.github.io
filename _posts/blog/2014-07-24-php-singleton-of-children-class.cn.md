@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/php-singleton-of-children-class
 title: 'PHP静态延迟绑定: 获取子类的单例'
 description: "父类的静态方法getInstance() 获取各个子类的单例"
 category: blog

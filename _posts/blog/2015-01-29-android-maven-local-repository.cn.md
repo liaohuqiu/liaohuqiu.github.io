@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/android-maven-local-repository
 title: "关于安装Android Maven 本地依赖库"
 description: ""
 category: blog

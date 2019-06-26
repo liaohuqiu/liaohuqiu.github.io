@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/visit-google-via-quic
 title: "通过QUIC协议访问Google"
 description: "通过QUIC协议访问Google，无法访问可以试试这个"
 keywords:   "Google无法访问 Google被墙 谷歌无法访问 谷歌被墙"

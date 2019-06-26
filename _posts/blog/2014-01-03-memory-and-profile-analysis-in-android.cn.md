@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/memory-and-profile-analysis-in-android
 title:  Android 内存使用分析和程序性能分析
 description: 安卓开发做性能优化时，如何分析内存使用？如何查看 app 中方法调用情况，找出性能瓶颈？
 category: blog

@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/compile-ultra-ptr-in-eclipse
 title: Ultra-Ptr 在eclipse中编译的办法
 description: ""
 keywords: ""

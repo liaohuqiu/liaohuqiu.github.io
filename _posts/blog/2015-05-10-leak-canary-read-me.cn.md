@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/leak-canary-read-me
 title: "LeakCanary 中文使用说明"
 description: ""
 category: blog

@@ -1,5 +1,6 @@
 ---
 layout: post_wide
+permalink: /cn/posts/ssh-auto-login
 title: ssh + expect 自动登录服务器
 description: "mac下 ssh自动登录"
 category: blog
