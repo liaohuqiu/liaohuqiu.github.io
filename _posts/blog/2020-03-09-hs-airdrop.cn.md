@@ -18,7 +18,7 @@ Handshake Orgnization 融资以后，向 GNU、Mozilla 和其它互联网基金�
 
 需要做几个事情：
 
-1. 打开 https://www.namebase.io，点击右上角 Log In，使用 GitHub 账号登录；
+1. 打开 https://www.namebase.io ，点击右上角 Log In，使用 GitHub 账号登录；
 2. 点击 verify 完成身份验证；
 3. 领取，按照文档比较麻烦，安装过程比较繁琐，我构建了 docker 镜像，方便大家使用。
 
