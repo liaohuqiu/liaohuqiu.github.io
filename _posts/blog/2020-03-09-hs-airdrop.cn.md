@@ -38,12 +38,18 @@ cd hs-airdrop
 
 <img src="https://srain-blog.android-gems.com/hs-airdrop/1.png"  width="640" height="auto">
 
-如：
+SSH key 示例：
+
+```
+cd hs-airdrop
+./get-airdrop ~/.ssh/id_rsa hs1qtjhjaru9xs2mm6kyu24d8e53rzm6n6pearmstr 1
+```
+
+PGP key 示例：
 
 ```
 cd hs-airdrop
 ./get-airdrop ~/.gnupg/secring.gpg 0x12345678 hs1qtjhjaru9xs2mm6kyu24d8e53rzm6n6pearmstr 1
-./get-airdrop ~/.ssh/id_rsa hs1qtjhjaru9xs2mm6kyu24d8e53rzm6n6pearmstr 1
 ```
 
 过程中输入 Passphrase，为空直接回车。最后会在最后展示一段 Base64，如图：
