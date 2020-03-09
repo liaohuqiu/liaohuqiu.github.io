@@ -4,7 +4,7 @@
   <title>Yet Another Summer Rain</title>
   <link href="http://liaohuqiu.net/"/>
   <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
-  <updated>2018-07-14T00:29:18+00:00</updated>
+  <updated>2020-03-09T15:19:52+00:00</updated>
   <id>http://liaohuqiu.net/</id>
   <author>
     <name>Huqiu Liao / Srain</name>
@@ -13,7 +13,82 @@
 
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/a-simple-story-of-a-solidity-challenge</id>
+    <id>http://liaohuqiu.net/posts/wisdom-teeth-removal</id>
+    <link type="text/html" rel="alternate" href="http://liaohuqiu.net/posts/wisdom-teeth-removal/"/>
+    <title>牙齿修复经历</title>
+    <published>2019-06-26T00:00:00+00:00</published>
+    <updated>2019-06-26T00:00:00+00:00</updated>
+    <author>
+      <name>Huqiu Liao / Srain</name>
+      <uri>http://liaohuqiu.net/</uri>
+    </author>
+    <content type="html">&lt;h4&gt;之前&lt;/h4&gt;
+
+&lt;p&gt;小时候，不注意口腔卫生，又爱吃糖，于是有了蛀牙。我记得，大概是大二的时候，右下的两个臼齿开始发作，在北航东门一个私人诊所做了根管，当时用的填充材料是「银汞合金」。做完就了事了，没做牙套，因为不痛，一直没管，灰黑色的填充物就那样裸露着，一晃十来年。期间还因为咬了硬物，崩了一块。&lt;/p&gt;
+
+&lt;p&gt;对一些不是那么紧急的事情，不清楚具体要怎么操作，想想觉得麻烦的事，能拖则拖，对于一些文书的工作更是如此。比如：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;有段时间一直咳嗽，觉得问题不大，一直没管，其实是小问题。觉得去医院麻烦，拖了很长时间，后来吃了不到 10 块钱的药就好了。&lt;/li&gt;
+&lt;li&gt;到杭州一年了，还没办理工作居住证，之前一直是暂住证登记。觉得手续很麻烦，其实已经非常简单了，办理的地方就在我每天来回的路上。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;我想是因为之前做这些事情没给我太多的正反馈，有时甚至是负反馈，比如：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;去办一个护照，花了整整一个上午。&lt;/li&gt;
+&lt;li&gt;去一趟医院，通常都是半天。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;不过由于做这些事情的次数越来越多，慢慢也就越来越熟练了。&lt;/p&gt;
+
+&lt;h4&gt;修复&lt;/h4&gt;
+
+&lt;p&gt;2018 年底开始，有计划地对牙齿进行了逐步的修复。多次就诊的经历告诉我，选医院很重要。我的诉求是：1. 排队不用很久，时间可控；2. 看病过程，信息透明，不会因信息不透明而导致恐慌。最后我选择了杭州城西口腔医院，号称杭州最贵，我倒真希望是这样，贵一定有贵的道理。&lt;/p&gt;
+
+&lt;p&gt;我在 2018 年 12 月，我分别去了三次：2 个牙齿分别做了一次根管修复，补牙和定制牙冠，佩戴牙冠。因为是预约制，全程没有任何等待，非常高效；过程也非常愉快，和医生的合作也非常顺利，没有感到任何肉体上的痛苦。&lt;/p&gt;
+
+&lt;p&gt;牙齿 X 光照片显示，我的 4 个智齿长得非常茁壮，方向没歪是个好事，但已经开始挤压其它牙齿的生长空间了，另外有一个有轻微的龋齿。另外团队有几个小伙子，他们最近去拔了智齿，恢复得非常快，既然如此，我决定把我的也拔了。&lt;/p&gt;
+
+&lt;p&gt;预约了早上 8 点 30 的号，8 点 20 左右到了医院，取了号，到诊室医生就叫我了。因为之前有就诊记录，我到的时候，我的 X 光片已经投影出来了。&lt;/p&gt;
+
+&lt;p&gt;简单说明来意：例行检查和分两次拔 4 颗智齿。检查很快，大概 8 点 25 开始注射麻药，然后签手术知情书。手术结束大概是 9 点 50，留待观察 30 分钟。&lt;/p&gt;
+
+&lt;p&gt;左下的牙根交错，花了一个多小时，左上的非常快，大概 1 分钟。&lt;/p&gt;
+
+&lt;p&gt;10 点多，我就回到办公室了。没吃止痛，下午麻醉失效后，觉得有一些痛，可以忍受，强度不比口腔溃疡的强度大。后来就不怎么痛了。全天没耽误工作。&lt;/p&gt;
+
+&lt;p&gt;最开始有点紧张心率到 120 左右，后面全程非常轻松，拔完后有一些激动，心率又到了 120。&lt;/p&gt;
+
+&lt;div class=&#39;row&#39;&gt;
+&lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
+&lt;img src=&#39;//srain-blog.android-gems.com/wisdom-teeth-removal/1.png&#39; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;医院给了一个「拔牙后注意事项」。&lt;/p&gt;
+
+&lt;div class=&#39;row&#39;&gt;
+&lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
+&lt;img src=&#39;//srain-blog.android-gems.com/wisdom-teeth-removal/2.jpg?imageView2/0/w/1280&#39; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;第二天起来，已经不疼了，计划下周去拆线，然后把剩下的两颗给拔。对了，这次下来，一共才花 400 多，其中上面一颗是医保报销的，因为之前同事还有止痛和消炎，这次没开药。&lt;/p&gt;
+
+&lt;h4&gt;几点建议&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;牙齿相关的问题，及早就诊，不要拖。否则会导致更多肉体和经济上的负担。&lt;/li&gt;
+&lt;li&gt;智齿早拔早轻松，我的医生叫「庞澄丽」，很不错，推荐给大家。&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <id>http://liaohuqiu.net/cn/posts/a-simple-story-of-a-solidity-challenge.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/a-simple-story-of-a-solidity-challenge/"/>
     <title>一次白帽黑客挑战赛</title>
     <published>2018-04-07T00:00:00+00:00</published>
@@ -237,7 +312,7 @@
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/android-studio-3-preview</id>
+    <id>http://liaohuqiu.net/cn/posts/android-studio-3-preview.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/android-studio-3-preview/"/>
     <title>Android Studio 3 Preview 发布</title>
     <published>2017-05-17T00:00:00+00:00</published>
@@ -286,7 +361,7 @@
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/tow-men</id>
+    <id>http://liaohuqiu.net/cn/posts/tow-men.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/tow-men/"/>
     <title>感谢两位远到而来同学</title>
     <published>2017-04-11T00:00:00+00:00</published>
@@ -313,24 +388,24 @@
 
 &lt;hr&gt;
 
-&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/large/599e230bly1fekokxqy0dj22c0340e82.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;//srain-blog.android-gems.com/large/599e230bly1fekokxqy0dj22c0340e82.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;center&gt;在北京 GDG DevFest 2015 上，华州和展鑫 &lt;/center&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/large/599e230bly1fekokv2xsyj23402c01ky.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;//srain-blog.android-gems.com/large/599e230bly1fekokv2xsyj23402c01ky.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;center&gt;在北京 GDG DevFest 2015 上，华州做了一个闪电分享&lt;/center&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/large/599e230bly1fekol04nq8j22c0340u0x.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;//srain-blog.android-gems.com/large/599e230bly1fekol04nq8j22c0340u0x.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;center&gt;我们每天很早就开始工作，这是在 2016 年快要结束的前几天的某个早上，他们一个在刷 Leetcode，一个在练 typing speed。&lt;/center&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/large/599e230bly1fekosm595oj23402c0hdt.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;//srain-blog.android-gems.com/large/599e230bly1fekosm595oj23402c0hdt.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </content>
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/ssh-agent-forward</id>
+    <id>http://liaohuqiu.net/cn/posts/ssh-agent-forward.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/ssh-agent-forward/"/>
     <title>ssh-agent 转发</title>
     <published>2016-11-29T00:00:00+00:00</published>
@@ -403,7 +478,7 @@ set_alias
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/a-wise-man-knows-when-to-jump-the-ship</id>
+    <id>http://liaohuqiu.net/cn/posts/a-wise-man-knows-when-to-jump-the-ship.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/a-wise-man-knows-when-to-jump-the-ship/"/>
     <title>良禽择木而栖</title>
     <published>2016-09-27T00:00:00+00:00</published>
@@ -458,7 +533,7 @@ set_alias
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/mdcc-2016-brief-summary</id>
+    <id>http://liaohuqiu.net/cn/posts/mdcc-2016-brief-summary.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/mdcc-2016-brief-summary/"/>
     <title>MDCC 2016 PPT 下载及简单点评</title>
     <published>2016-09-26T00:00:00+00:00</published>
@@ -502,7 +577,7 @@ set_alias
 
 &lt;p&gt;附上一张『马琳』的图。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/large/599e230bjw1f84sva9z4zj20qo0zkq7s.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;&lt;img src=&quot;//srain-blog.android-gems.com/large/599e230bjw1f84sva9z4zj20qo0zkq7s.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;云信 IM 推送保障及网络优化实践&lt;/p&gt;
 
 &lt;p&gt;减少内存占用，电量优化，推送，技术的克制，还有不少优化的小点。内容很多。有视频就好了。&lt;/p&gt;&lt;/li&gt;
@@ -545,7 +620,7 @@ set_alias
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/about-mdcc-2016-android-sesion</id>
+    <id>http://liaohuqiu.net/cn/posts/about-mdcc-2016-android-sesion.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/about-mdcc-2016-android-sesion/"/>
     <title>九月，我们在 MDCC 的一场聚会</title>
     <published>2016-09-21T00:00:00+00:00</published>
@@ -558,7 +633,7 @@ set_alias
 
 &lt;p&gt;在这个会上认识了非常多优秀的同学，有些是前来做演讲的同学，有些是前来参会的之前只在社区中线上打过交道的同学。和大家交流，受益匪浅。这个是当时的合影：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/large/599e230bjw1f81dqtb601j20zk0npn6p.jpg&quot; alt=&quot;MDCC 2015&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;//srain-blog.android-gems.com/large/599e230bjw1f81dqtb601j20zk0npn6p.jpg&quot; alt=&quot;MDCC 2015&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;技术会议，一是产出高质量的内容推动技术传播，或是提出观点，百家争鸣；另一是，在会议内容可通过直播或者录播，足不出户轻松观看的今天，会议提供了一个结识业界朋友，见面交流的机会。&lt;/p&gt;
 
@@ -786,14 +861,14 @@ set_alias
 
 &lt;p&gt;有『胜友如云』，期待『高朋满座』。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/large/599e230bjw1f81dqsy40dj20zk0qowk2.jpg&quot; alt=&quot;MDCC 2015 Meet up&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;//srain-blog.android-gems.com/large/599e230bjw1f81dqsy40dj20zk0qowk2.jpg&quot; alt=&quot;MDCC 2015 Meet up&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;好了，到时见。&lt;/p&gt;
 </content>
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/keep-alive-terminal-connection</id>
+    <id>http://liaohuqiu.net/cn/posts/keep-alive-terminal-connection.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/keep-alive-terminal-connection/"/>
     <title>命令行终端保持连接</title>
     <published>2016-08-16T00:00:00+00:00</published>
@@ -849,7 +924,7 @@ ClientAliveCountMax 3
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/mountains</id>
+    <id>http://liaohuqiu.net/cn/posts/mountains.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/mountains/"/>
     <title>不停向前，只为更好的自己 —— 致参加 Study Jams 的同学们</title>
     <published>2016-06-07T00:00:00+00:00</published>
@@ -877,7 +952,7 @@ ClientAliveCountMax 3
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/take-a-glance-at-fire-base</id>
+    <id>http://liaohuqiu.net/cn/posts/take-a-glance-at-fire-base.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/take-a-glance-at-fire-base/"/>
     <title>Firebase 简介</title>
     <published>2016-06-03T00:00:00+00:00</published>
@@ -1006,7 +1081,7 @@ ClientAliveCountMax 3
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/google-io-2016</id>
+    <id>http://liaohuqiu.net/cn/posts/google-io-2016.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/google-io-2016/"/>
     <title>Google I/O 见闻</title>
     <published>2016-05-18T00:00:00+00:00</published>
@@ -1165,7 +1240,7 @@ ClientAliveCountMax 3
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/cirro-cumulus</id>
+    <id>http://liaohuqiu.net/cn/posts/cirro-cumulus.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/cirro-cumulus/"/>
     <title>美丽的卷积云</title>
     <published>2016-05-11T00:00:00+00:00</published>
@@ -1176,7 +1251,7 @@ ClientAliveCountMax 3
     </author>
     <content type="html">&lt;p&gt;整理旧物，发现了一本以前的笔记本。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/large/599e230bjw1f3ry2m8h6fj20zk0q0ai4.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;//srain-blog.android-gems.com/large/599e230bjw1f3ry2m8h6fj20zk0q0ai4.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;我很清楚是哪天，在哪里买了这个笔记本。&lt;/p&gt;
 
@@ -1186,7 +1261,7 @@ ClientAliveCountMax 3
 
 &lt;p&gt;那如风的日子。我总记得，那时微熹的早晨，那轻柔的晨风，那天边美丽的卷积云。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/large/599e230bjw1f3ry2l8jw2j20zk0nptdl.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;//srain-blog.android-gems.com/large/599e230bjw1f3ry2l8jw2j20zk0nptdl.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;我想，如果是的话，那样的日子一定也是如风的五月。&lt;/p&gt;
 
@@ -1214,7 +1289,7 @@ ClientAliveCountMax 3
 
 &lt;p&gt;我翻开笔记本，看到了当时我的心情：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/large/599e230bjw1f3ry2n6v4hj20qy0ctgo4.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;//srain-blog.android-gems.com/large/599e230bjw1f3ry2n6v4hj20qy0ctgo4.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;字迹有点潦草，写的是：&lt;/p&gt;
 
@@ -1235,7 +1310,7 @@ ClientAliveCountMax 3
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/bitmasp-and-lipo</id>
+    <id>http://liaohuqiu.net/cn/posts/bitmasp-and-lipo.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/bitmasp-and-lipo/"/>
     <title>BitMask 使用参考</title>
     <published>2016-05-09T00:00:00+00:00</published>
@@ -1465,7 +1540,7 @@ AND 0000 0010
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/lody</id>
+    <id>http://liaohuqiu.net/cn/posts/lody.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/lody/"/>
     <title>我所认识的『天才』少年：Lody</title>
     <published>2016-05-05T00:00:00+00:00</published>
@@ -1492,7 +1567,7 @@ AND 0000 0010
 &lt;p&gt;&lt;a href=&quot;http://weibo.com/1503535883/DrXm4DGSn&quot;&gt;『三个事情：1. Lody 同学这个项目实现了快速加载 dex；2. Lody 同学的代码写得不错； 3. Lody 同学，今年高二。』&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/large/599e230bjw1f3lmoxph2gj21kw0hlmyn.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;//srain-blog.android-gems.com/large/599e230bjw1f3lmoxph2gj21kw0hlmyn.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;很多同学和朋友在留言中对一个能写出这样代码的 &lt;a href=&quot;https://github.com/asLody&quot;&gt;Lody&lt;/a&gt; 同学感到很好奇。&lt;/p&gt;
 
@@ -1679,7 +1754,7 @@ AND 0000 0010
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/android-enum-memory-usage</id>
+    <id>http://liaohuqiu.net/cn/posts/android-enum-memory-usage.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/android-enum-memory-usage/"/>
     <title>Android 中的 Enum 到底占多少内存？该如何用？</title>
     <published>2016-04-28T00:00:00+00:00</published>
@@ -1821,7 +1896,7 @@ AND 0000 0010
 
 &lt;p&gt;I login in to it, use &lt;code&gt;htop&lt;/code&gt; to check what is going on:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#39;//img1.liaohuqiu.com/large/599e230bjw1f2p5ap0vw6j21yc07ojt2.jpg&#39;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#39;//srain-blog.android-gems.com/large/599e230bjw1f2p5ap0vw6j21yc07ojt2.jpg&#39;/&gt;&lt;/p&gt;
 
 &lt;p&gt;As we can seen, whois is taking up most of the cpu, and I&amp;#39;ve never used this command before.&lt;/p&gt;
 
@@ -1845,7 +1920,7 @@ huqiu    32576 29742  0 03:37 pts/3    00:00:00 grep whois
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/google-study-jams</id>
+    <id>http://liaohuqiu.net/cn/posts/google-study-jams.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/google-study-jams/"/>
     <title>欢迎大家参加 Google Study Jams 学习小组</title>
     <published>2016-03-28T00:00:00+00:00</published>
@@ -1872,7 +1947,7 @@ huqiu    32576 29742  0 03:37 pts/3    00:00:00 grep whois
 
 &lt;div class=&#39;row&#39;&gt;
     &lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
-        &lt;img src=&#39;//img1.liaohuqiu.com/large/8a41f469jw1f27y2nqh6ij21cw0iw77t.jpg&#39;/&gt;
+        &lt;img src=&#39;//srain-blog.android-gems.com/large/8a41f469jw1f27y2nqh6ij21cw0iw77t.jpg&#39;/&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1998,7 +2073,7 @@ huqiu    32576 29742  0 03:37 pts/3    00:00:00 grep whois
 
 &lt;div class=&#39;row&#39;&gt;
     &lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
-        &lt;img src=&#39;//img1.liaohuqiu.com/large/8a41f469jw1f27yaqt2kzj21cw0iwwjc.jpg&#39;/&gt;
+        &lt;img src=&#39;//srain-blog.android-gems.com/large/8a41f469jw1f27yaqt2kzj21cw0iwwjc.jpg&#39;/&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
@@ -2077,7 +2152,7 @@ adb pull /sdcard/tmp-movie.mp4 ~/tmp/
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/wechat-helper</id>
+    <id>http://liaohuqiu.net/cn/posts/wechat-helper.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/wechat-helper/"/>
     <title>微信助手 Chrome 插件开发手记</title>
     <published>2016-01-13T00:00:00+00:00</published>
@@ -2337,7 +2412,7 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;cp $home_config_file $config_
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/2015</id>
+    <id>http://liaohuqiu.net/cn/posts/2015.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/2015/"/>
     <title>Bye2015Hi2016 —— 他年他月再相见</title>
     <published>2015-12-31T00:00:00+00:00</published>
@@ -2499,7 +2574,7 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;cp $home_config_file $config_
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/roman-wasnot-built-in-a-day</id>
+    <id>http://liaohuqiu.net/cn/posts/roman-wasnot-built-in-a-day.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/roman-wasnot-built-in-a-day/"/>
     <title>十年磨一剑: 开发者的孤独与伟大</title>
     <published>2015-12-03T00:00:00+00:00</published>
@@ -2524,7 +2599,7 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;cp $home_config_file $config_
 
 &lt;div class=&#39;row&#39;&gt;
 &lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
-&lt;img src=&#39;//img1.liaohuqiu.com/large/599e230bgw1eynf3qvyr1j20s70iz77r.jpg&#39; /&gt;
+&lt;img src=&#39;//srain-blog.android-gems.com/large/599e230bgw1eynf3qvyr1j20s70iz77r.jpg&#39; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
@@ -2537,7 +2612,7 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;cp $home_config_file $config_
 
 &lt;div class=&#39;row&#39;&gt;
 &lt;div class=&#39;col-md-5 col-md-offset-3&#39;&gt;
-&lt;img src=&#39;//img1.liaohuqiu.com/large/599e230bgw1eynm9leb0uj20ku112n34.jpg&#39; /&gt;
+&lt;img src=&#39;//srain-blog.android-gems.com/large/599e230bgw1eynm9leb0uj20ku112n34.jpg&#39; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
@@ -2545,7 +2620,7 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;cp $home_config_file $config_
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/an-apple</id>
+    <id>http://liaohuqiu.net/cn/posts/an-apple.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/an-apple/"/>
     <title>我们辛勤劳作的母亲</title>
     <published>2015-11-11T00:00:00+00:00</published>
@@ -2594,19 +2669,19 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;cp $home_config_file $config_
 
 &lt;div class=&#39;row&#39;&gt;
 &lt;div class=&#39;col-md-5 col-md-offset-3&#39;&gt;
-&lt;img src=&#39;//img1.liaohuqiu.com/large/599e230bgw1exx65njxoqj20ih0wu77x.jpg&#39; /&gt;
+&lt;img src=&#39;//srain-blog.android-gems.com/large/599e230bgw1exx65njxoqj20ih0wu77x.jpg&#39; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;
 &lt;div class=&#39;row&#39;&gt;
 &lt;div class=&#39;col-md-5 col-md-offset-3&#39;&gt;
-&lt;img src=&#39;//img1.liaohuqiu.com/large/599e230bgw1exx65p3ubuj20ih0wujvl.jpg&#39; /&gt;
+&lt;img src=&#39;//srain-blog.android-gems.com/large/599e230bgw1exx65p3ubuj20ih0wujvl.jpg&#39; /&gt;
 &lt;/div&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/div&gt;
 &lt;div class=&#39;row&#39;&gt;
 &lt;div class=&#39;col-md-5 col-md-offset-3&#39;&gt;
-&lt;img src=&#39;//img1.liaohuqiu.com/large/599e230bgw1exx65qtcdij20ih0wuwiv.jpg&#39; /&gt;
+&lt;img src=&#39;//srain-blog.android-gems.com/large/599e230bgw1exx65qtcdij20ih0wuwiv.jpg&#39; /&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;/p&gt;
 
@@ -2614,13 +2689,13 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;cp $home_config_file $config_
 
 &lt;div class=&#39;row&#39;&gt;
 &lt;div class=&#39;col-md-5 col-md-offset-3&#39;&gt;
-&lt;img src=&#39;//img1.liaohuqiu.com/large/599e230bgw1exx65s9aa3j20ih0wugop.jpg&#39; /&gt;
+&lt;img src=&#39;//srain-blog.android-gems.com/large/599e230bgw1exx65s9aa3j20ih0wugop.jpg&#39; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;
 &lt;div class=&#39;row&#39;&gt;
 &lt;div class=&#39;col-md-5 col-md-offset-3&#39;&gt;
-&lt;img src=&#39;//img1.liaohuqiu.com/large/599e230bgw1exx65u1tklj20ih0wun29.jpg&#39; /&gt;
+&lt;img src=&#39;//srain-blog.android-gems.com/large/599e230bgw1exx65u1tklj20ih0wun29.jpg&#39; /&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;/p&gt;
 
@@ -2628,7 +2703,7 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;cp $home_config_file $config_
 
 &lt;div class=&#39;row&#39;&gt;
 &lt;div class=&#39;col-md-5 col-md-offset-3&#39;&gt;
-&lt;img src=&#39;//img1.liaohuqiu.com/large/599e230bgw1exx65xet71j20qo0zku0x.jpg&#39; /&gt;
+&lt;img src=&#39;//srain-blog.android-gems.com/large/599e230bgw1exx65xet71j20qo0zku0x.jpg&#39; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
@@ -2643,7 +2718,7 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;cp $home_config_file $config_
 
 &lt;div class=&#39;row&#39;&gt;
 &lt;div class=&#39;col-md-5 col-md-offset-3&#39;&gt;
-&lt;img src=&#39;//img1.liaohuqiu.com/large/599e230bgw1exx7bq6c0wj20io0ovwhd.jpg&#39; /&gt;
+&lt;img src=&#39;//srain-blog.android-gems.com/large/599e230bgw1exx7bq6c0wj20io0ovwhd.jpg&#39; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
@@ -2652,7 +2727,7 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;cp $home_config_file $config_
 
 &lt;div class=&#39;row&#39;&gt;
 &lt;div class=&#39;col-md-5 col-md-offset-3&#39;&gt;
-&lt;img src=&#39;//img1.liaohuqiu.com/large/599e230bgw1exx6fk70kpj20by0bygmg.jpg&#39; /&gt;
+&lt;img src=&#39;//srain-blog.android-gems.com/large/599e230bgw1exx6fk70kpj20by0bygmg.jpg&#39; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
@@ -2662,7 +2737,7 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;cp $home_config_file $config_
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/android-api-compat-guide</id>
+    <id>http://liaohuqiu.net/cn/posts/android-api-compat-guide.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/android-api-compat-guide/"/>
     <title>再谈 Android API 兼容性处理</title>
     <published>2015-10-23T00:00:00+00:00</published>
@@ -2796,7 +2871,7 @@ static {
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/android-windows-manager</id>
+    <id>http://liaohuqiu.net/cn/posts/android-windows-manager.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/android-windows-manager/"/>
     <title>Android 悬浮窗的小结</title>
     <published>2015-10-22T00:00:00+00:00</published>
@@ -2876,7 +2951,7 @@ static {
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/react-native-android-package</id>
+    <id>http://liaohuqiu.net/cn/posts/react-native-android-package.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/react-native-android-package/"/>
     <title>React Native: Android 的打包</title>
     <published>2015-09-28T00:00:00+00:00</published>
@@ -3051,7 +3126,7 @@ Options:
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/react-native-1</id>
+    <id>http://liaohuqiu.net/cn/posts/react-native-1.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/react-native-1/"/>
     <title>React Native: 配置和起步</title>
     <published>2015-09-23T00:00:00+00:00</published>
@@ -3236,7 +3311,7 @@ iOS 和 Android 的模拟器，连接 Mac 本机的服务都很方便。但是�
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/build-rpc-service-for-php</id>
+    <id>http://liaohuqiu.net/cn/posts/build-rpc-service-for-php.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/build-rpc-service-for-php/"/>
     <title>为 PHP 构建 RPC 服务</title>
     <published>2015-08-27T00:00:00+00:00</published>
@@ -3478,7 +3553,7 @@ dict    data;       // {}
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/m-developer-preview-3-final-sdk</id>
+    <id>http://liaohuqiu.net/cn/posts/m-developer-preview-3-final-sdk.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/m-developer-preview-3-final-sdk/"/>
     <title>升级到 Android 6.0</title>
     <published>2015-08-18T00:00:00+00:00</published>
@@ -3745,7 +3820,7 @@ dict    data;       // {}
 
 &lt;div class=&#39;row&#39;&gt;
 &lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
-&lt;img src=&#39;//img1.liaohuqiu.com/corpse-bride/trun-to-butter-fly.png&#39; /&gt;
+&lt;img src=&#39;//srain-blog.android-gems.com/corpse-bride/trun-to-butter-fly.png&#39; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
@@ -3784,7 +3859,7 @@ dict    data;       // {}
 
 &lt;div class=&#39;row&#39;&gt;
 &lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
-&lt;img src=&#39;//img1.liaohuqiu.com/corpse-bride/shed-the-tears.png&#39; /&gt;
+&lt;img src=&#39;//srain-blog.android-gems.com/corpse-bride/shed-the-tears.png&#39; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
@@ -3805,7 +3880,7 @@ dict    data;       // {}
 
 &lt;div class=&#39;row&#39;&gt;
 &lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
-&lt;img src=&#39;//img1.liaohuqiu.com/corpse-bride/but-you-are-not-mine.png&#39; /&gt;
+&lt;img src=&#39;//srain-blog.android-gems.com/corpse-bride/but-you-are-not-mine.png&#39; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;/div&gt;&lt;/p&gt;
@@ -3839,7 +3914,7 @@ dict    data;       // {}
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/2015-may</id>
+    <id>http://liaohuqiu.net/cn/posts/2015-may.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/2015-may/"/>
     <title>2015年5月：在路上</title>
     <published>2015-05-30T00:00:00+00:00</published>
@@ -3900,7 +3975,7 @@ dict    data;       // {}
 
 &lt;div class=&#39;row&#39;&gt;
     &lt;div class=&#39;col-md-6 col-md-offset-3&#39;&gt;
-    &lt;img src=&#39;//img1.liaohuqiu.com/large/54b4ff56gw1esk1q41fayj20ox05fq58.jpg&#39; /&gt;
+    &lt;img src=&#39;//srain-blog.android-gems.com/large/54b4ff56gw1esk1q41fayj20ox05fq58.jpg&#39; /&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
@@ -3933,7 +4008,7 @@ dict    data;       // {}
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/python-script-in-bin-directory</id>
+    <id>http://liaohuqiu.net/cn/posts/python-script-in-bin-directory.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/python-script-in-bin-directory/"/>
     <title>通过 shell 执行 python 报错: No such file or directory</title>
     <published>2015-05-13T00:00:00+00:00</published>
@@ -3984,7 +4059,7 @@ dict    data;       // {}
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/leak-canary-read-me</id>
+    <id>http://liaohuqiu.net/cn/posts/leak-canary-read-me.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/leak-canary-read-me/"/>
     <title>LeakCanary 中文使用说明</title>
     <published>2015-05-10T00:00:00+00:00</published>
@@ -4223,7 +4298,7 @@ dict    data;       // {}
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/leak-canary</id>
+    <id>http://liaohuqiu.net/cn/posts/leak-canary.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/leak-canary/"/>
     <title>LeakCanary: 让内存泄露无所遁形</title>
     <published>2015-05-09T00:00:00+00:00</published>
@@ -4405,7 +4480,7 @@ refWatcher.watch(schrodingerCat);
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/follow-me-on-github</id>
+    <id>http://liaohuqiu.net/cn/posts/follow-me-on-github.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/follow-me-on-github/"/>
     <title>有一事相求，请在 GitHub 上关注我吧</title>
     <published>2015-05-05T00:00:00+00:00</published>
@@ -4447,7 +4522,7 @@ refWatcher.watch(schrodingerCat);
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/about-red-apricot-and-compiling-fresco</id>
+    <id>http://liaohuqiu.net/cn/posts/about-red-apricot-and-compiling-fresco.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/about-red-apricot-and-compiling-fresco/"/>
     <title>关于红杏的公益代理, Android Studio以及freso的编译</title>
     <published>2015-04-11T00:00:00+00:00</published>
@@ -4561,7 +4636,7 @@ refWatcher.watch(schrodingerCat);
 
 &lt;div class=&#39;row&#39;&gt;
     &lt;div class=&#39;col-md-6 col-md-offset-3&#39;&gt;
-        &lt;img src=&#39;//img1.liaohuqiu.com/red-apricot/red-apricot-sdk-manager-set-proxy.png&#39; width=&#39;100%&#39;/&gt;
+        &lt;img src=&#39;//srain-blog.android-gems.com/red-apricot/red-apricot-sdk-manager-set-proxy.png&#39; width=&#39;100%&#39;/&gt;
     &lt;/div&gt;
 &lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;给Android Stuido / Intellij IDEA 配置代理，这样下载gradle或者其他依赖就顺利了。&lt;/p&gt;
@@ -4572,7 +4647,7 @@ refWatcher.watch(schrodingerCat);
 
 &lt;div class=&#39;row&#39;&gt;
     &lt;div class=&#39;col-md-8 col-md-offset-2&#39;&gt;
-        &lt;img src=&#39;//img1.liaohuqiu.com/red-apricot/red-apricot-android-stuido-set-proxy.png&#39; width=&#39;100%&#39;/&gt;
+        &lt;img src=&#39;//srain-blog.android-gems.com/red-apricot/red-apricot-android-stuido-set-proxy.png&#39; width=&#39;100%&#39;/&gt;
     &lt;/div&gt;
 &lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -4600,7 +4675,7 @@ refWatcher.watch(schrodingerCat);
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/replace-or-override-string-in-android-library</id>
+    <id>http://liaohuqiu.net/cn/posts/replace-or-override-string-in-android-library.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/replace-or-override-string-in-android-library/"/>
     <title>重定义/覆盖Android类库中的文字，颜色等资源</title>
     <published>2015-03-28T00:00:00+00:00</published>
@@ -4649,7 +4724,7 @@ refWatcher.watch(schrodingerCat);
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/gitlab-enable-sign-up</id>
+    <id>http://liaohuqiu.net/cn/posts/gitlab-enable-sign-up.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/gitlab-enable-sign-up/"/>
     <title>gitlab 启用注册</title>
     <published>2015-03-21T00:00:00+00:00</published>
@@ -4672,7 +4747,7 @@ refWatcher.watch(schrodingerCat);
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/the-pull-to-refresh-in-my-eyes</id>
+    <id>http://liaohuqiu.net/cn/posts/the-pull-to-refresh-in-my-eyes.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/the-pull-to-refresh-in-my-eyes/"/>
     <title>我眼中的下拉刷新</title>
     <published>2015-01-29T00:00:00+00:00</published>
@@ -4892,7 +4967,7 @@ refWatcher.watch(schrodingerCat);
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/android-maven-local-repository</id>
+    <id>http://liaohuqiu.net/cn/posts/android-maven-local-repository.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/android-maven-local-repository/"/>
     <title>关于安装Android Maven 本地依赖库</title>
     <published>2015-01-29T00:00:00+00:00</published>
@@ -4998,7 +5073,7 @@ Platform.Version=5.0.1
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/simple-hashset</id>
+    <id>http://liaohuqiu.net/cn/posts/simple-hashset.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/simple-hashset/"/>
     <title>SimpleHashSet, 节省25%内存</title>
     <published>2015-01-12T00:00:00+00:00</published>
@@ -5054,7 +5129,7 @@ Platform.Version=5.0.1
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/non-bundled-web-server-for-gitlab</id>
+    <id>http://liaohuqiu.net/cn/posts/non-bundled-web-server-for-gitlab.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/non-bundled-web-server-for-gitlab/"/>
     <title>gitlab 使用现有 nginx 服务器</title>
     <published>2015-01-08T00:00:00+00:00</published>
@@ -5154,7 +5229,7 @@ sudo gitlab-ctl reconfigure
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/gradle-in-centos</id>
+    <id>http://liaohuqiu.net/cn/posts/gradle-in-centos.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/gradle-in-centos/"/>
     <title>CentOS的gradle构建环境</title>
     <published>2015-01-07T00:00:00+00:00</published>
@@ -5257,7 +5332,7 @@ sudo yum install -y libstdc++.so.6
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/my-2014</id>
+    <id>http://liaohuqiu.net/cn/posts/my-2014.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/my-2014/"/>
     <title>我的2014</title>
     <published>2014-12-31T00:00:00+00:00</published>
@@ -5635,7 +5710,7 @@ sudo yum install -y libstdc++.so.6
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/caculate-object-size-in-java</id>
+    <id>http://liaohuqiu.net/cn/posts/caculate-object-size-in-java.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/caculate-object-size-in-java/"/>
     <title>JAVA 对象大小</title>
     <published>2014-12-27T00:00:00+00:00</published>
@@ -5961,7 +6036,7 @@ class B extends A{
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/1g-in-10s</id>
+    <id>http://liaohuqiu.net/cn/posts/1g-in-10s.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/1g-in-10s/"/>
     <title>一种10s之内的方案</title>
     <published>2014-12-25T00:00:00+00:00</published>
@@ -6071,7 +6146,7 @@ TCP的包头: 954.6 * 1000 * 2 * 64 / 1024 / 1024 = 116Mb&lt;/p&gt;
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/compile-ultra-ptr-in-eclipse</id>
+    <id>http://liaohuqiu.net/cn/posts/compile-ultra-ptr-in-eclipse.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/compile-ultra-ptr-in-eclipse/"/>
     <title>Ultra-Ptr 在eclipse中编译的办法</title>
     <published>2014-12-05T00:00:00+00:00</published>
@@ -6376,7 +6451,7 @@ N  N  N  N  N  N  N  N
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/android-get-resource-id-by-string</id>
+    <id>http://liaohuqiu.net/cn/posts/android-get-resource-id-by-string.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/android-get-resource-id-by-string/"/>
     <title>根据字符串获取资源id</title>
     <published>2014-10-28T00:00:00+00:00</published>
@@ -6447,7 +6522,7 @@ N  N  N  N  N  N  N  N
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/mobile-app-sina-binding</id>
+    <id>http://liaohuqiu.net/cn/posts/mobile-app-sina-binding.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/mobile-app-sina-binding/"/>
     <title>手机客户端应用新浪微博绑定流程</title>
     <published>2014-10-08T00:00:00+00:00</published>
@@ -6473,7 +6548,7 @@ N  N  N  N  N  N  N  N
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/chrome-extension-hi</id>
+    <id>http://liaohuqiu.net/cn/posts/chrome-extension-hi.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/chrome-extension-hi/"/>
     <title>Chrome 扩展开发参考</title>
     <published>2014-09-30T00:00:00+00:00</published>
@@ -6489,7 +6564,7 @@ N  N  N  N  N  N  N  N
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/ssh-public-key-auto-login</id>
+    <id>http://liaohuqiu.net/cn/posts/ssh-public-key-auto-login.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/ssh-public-key-auto-login/"/>
     <title>ssh public key认证免密码登录</title>
     <published>2014-09-16T00:00:00+00:00</published>
@@ -6549,7 +6624,7 @@ test-key
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/ssh-keygen-abc</id>
+    <id>http://liaohuqiu.net/cn/posts/ssh-keygen-abc.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/ssh-keygen-abc/"/>
     <title>ssh-keygen 基本用法</title>
     <published>2014-09-15T00:00:00+00:00</published>
@@ -6629,7 +6704,7 @@ E+9IJPQaqqeqCGzrJ6G/XO7om1v9YLLG/H/ZN2tQ&lt;span class=&quot;o&quot;&gt;==&lt;/s
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/git-abc</id>
+    <id>http://liaohuqiu.net/cn/posts/git-abc.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/git-abc/"/>
     <title>Gitlab 简单配置使用</title>
     <published>2014-09-11T00:00:00+00:00</published>
@@ -6790,7 +6865,7 @@ To git@git.liaohuqiu.net:huqiu/test.git
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/setup-web-prorxy-by-ssh-tunnel</id>
+    <id>http://liaohuqiu.net/cn/posts/setup-web-prorxy-by-ssh-tunnel.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/setup-web-prorxy-by-ssh-tunnel/"/>
     <title>简单的ssh隧道实现代理上网</title>
     <published>2014-08-28T00:00:00+00:00</published>
@@ -6928,7 +7003,7 @@ B
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/php-singleton-of-children-class</id>
+    <id>http://liaohuqiu.net/cn/posts/php-singleton-of-children-class.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/php-singleton-of-children-class/"/>
     <title>PHP静态延迟绑定: 获取子类的单例</title>
     <published>2014-07-24T00:00:00+00:00</published>
@@ -6993,7 +7068,7 @@ B
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/ssh-auto-login</id>
+    <id>http://liaohuqiu.net/cn/posts/ssh-auto-login.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/ssh-auto-login/"/>
     <title>ssh + expect 自动登录服务器</title>
     <published>2014-07-02T00:00:00+00:00</published>
@@ -7046,7 +7121,7 @@ B
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/visit-google-via-quic</id>
+    <id>http://liaohuqiu.net/cn/posts/visit-google-via-quic.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/visit-google-via-quic/"/>
     <title>通过QUIC协议访问Google</title>
     <published>2014-06-08T00:00:00+00:00</published>
@@ -7143,7 +7218,7 @@ log { source(s_net); destination(df_wrt0);};
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/log-center</id>
+    <id>http://liaohuqiu.net/cn/posts/log-center.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/log-center/"/>
     <title>日志中心：统一日志服务器</title>
     <published>2014-05-28T00:00:00+00:00</published>
@@ -7348,7 +7423,7 @@ log { source(s_net); destination(df_wrt0);};
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/set-up-mac</id>
+    <id>http://liaohuqiu.net/cn/posts/set-up-mac.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/set-up-mac/"/>
     <title>我的 Mac 工作环境配置</title>
     <published>2014-05-05T00:00:00+00:00</published>
@@ -7391,7 +7466,7 @@ log { source(s_net); destination(df_wrt0);};
 
 &lt;p&gt;软件上改键，借助:  &lt;a href=&quot;https://github.com/tekezo/Karabiner-Elements&quot;&gt;Karabiner-Elements&lt;/a&gt; （Update: &lt;a href=&quot;https://pqrs.org/macosx/keyremap4macbook/&quot;&gt;https://pqrs.org/macosx/keyremap4macbook/&lt;/a&gt; 目前对 10.11 支持不好，不推荐）&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/mac-setup-keys-fn-ctrl-01.png&quot;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;//srain-blog.android-gems.com/mac-setup-keys-fn-ctrl-01.png&quot;/&gt;&lt;/p&gt;
 
 &lt;h4&gt;系统设置&lt;/h4&gt;
 
@@ -7399,17 +7474,17 @@ log { source(s_net); destination(df_wrt0);};
 
 &lt;h5&gt;Spotlight 快捷键: option + r&lt;/h5&gt;
 
-&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/mac-setup-keys-spotlight.png&quot;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;//srain-blog.android-gems.com/mac-setup-keys-spotlight.png&quot;/&gt;&lt;/p&gt;
 
 &lt;h5&gt;fn / F1 ~ F12&lt;/h5&gt;
 
 &lt;p&gt;还原键盘上的 F1 ~ F12 为标准功能，用 Fn + F1 ~ F12 来实现功能。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/mac-setup-keys-fn.png&quot;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;//srain-blog.android-gems.com/mac-setup-keys-fn.png&quot;/&gt;&lt;/p&gt;
 
 &lt;p&gt;解除被占用的 F11 和 F12:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/mac-setup-keys-f11-f12.png&quot;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;//srain-blog.android-gems.com/mac-setup-keys-f11-f12.png&quot;/&gt;&lt;/p&gt;
 
 &lt;h5&gt;vi mode&lt;/h5&gt;
 
@@ -7417,9 +7492,9 @@ log { source(s_net); destination(df_wrt0);};
 
 &lt;p&gt;使用 &lt;a href=&quot;https://www.keyboardmaestro.com/main/&quot;&gt;Keyboard Maestro&lt;/a&gt; 改键，实现 option + hjkl 移动光标：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;//img1.liaohuqiu.com/mac-setup-keys-vi-mode-01.png&quot;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;//srain-blog.android-gems.com/mac-setup-keys-vi-mode-01.png&quot;/&gt;&lt;/p&gt;
 
-&lt;p&gt;配置可从这是直接导入：&lt;a href=&quot;//img1.liaohuqiu.com/vim_mode.kmmacros?attname=&quot;&gt;vim_mode.kmmacros&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;配置可从这是直接导入：&lt;a href=&quot;//srain-blog.android-gems.com/vim_mode.kmmacros?attname=&quot;&gt;vim_mode.kmmacros&lt;/a&gt;&lt;/p&gt;
 
 &lt;h4&gt;使用三个手指选择文本&lt;/h4&gt;
 
@@ -7428,7 +7503,7 @@ log { source(s_net); destination(df_wrt0);};
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/my-idea-config</id>
+    <id>http://liaohuqiu.net/cn/posts/my-idea-config.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/my-idea-config/"/>
     <title>我的 idea 配置</title>
     <published>2014-03-31T00:00:00+00:00</published>
@@ -7505,7 +7580,7 @@ log { source(s_net); destination(df_wrt0);};
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/sparse-array-in-android</id>
+    <id>http://liaohuqiu.net/cn/posts/sparse-array-in-android.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/sparse-array-in-android/"/>
     <title>Android中的稀疏数组：SparseArray</title>
     <published>2014-03-30T00:00:00+00:00</published>
@@ -7704,7 +7779,7 @@ log { source(s_net); destination(df_wrt0);};
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/using-diffrent-user-config-for-different-repository</id>
+    <id>http://liaohuqiu.net/cn/posts/using-diffrent-user-config-for-different-repository.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/using-diffrent-user-config-for-different-repository/"/>
     <title>git: 提交前强制检查各个项目用户名邮箱设置</title>
     <published>2014-03-20T00:00:00+00:00</published>
@@ -7808,7 +7883,7 @@ fatal: empty ident name &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span c
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/git-global-hooks</id>
+    <id>http://liaohuqiu.net/cn/posts/git-global-hooks.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/git-global-hooks/"/>
     <title>git 全局钩子</title>
     <published>2014-03-20T00:00:00+00:00</published>
@@ -7865,7 +7940,7 @@ git config --global init.templatedir $template_dir
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/binpack</id>
+    <id>http://liaohuqiu.net/cn/posts/binpack.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/binpack/"/>
     <title>一种简单高效的二进制编码方法</title>
     <published>2014-03-18T00:00:00+00:00</published>
@@ -8178,7 +8253,7 @@ git config --global init.templatedir $template_dir
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/grid-view-do-not</id>
+    <id>http://liaohuqiu.net/cn/posts/grid-view-do-not.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/grid-view-do-not/"/>
     <title>Gridview 的错误用法及替代方案</title>
     <published>2014-03-15T00:00:00+00:00</published>
@@ -8316,7 +8391,7 @@ git config --global init.templatedir $template_dir
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/first-view-will-be-created-multi-times-in-list-view</id>
+    <id>http://liaohuqiu.net/cn/posts/first-view-will-be-created-multi-times-in-list-view.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/first-view-will-be-created-multi-times-in-list-view/"/>
     <title>ListView / GirdView Adpater 的 getView 方法，首项多次调用</title>
     <published>2014-03-15T00:00:00+00:00</published>
@@ -8470,7 +8545,7 @@ git config --global init.templatedir $template_dir
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/sqlite-tips</id>
+    <id>http://liaohuqiu.net/cn/posts/sqlite-tips.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/sqlite-tips/"/>
     <title>SQLite 使用参考: 唯一索引，分页，清空表</title>
     <published>2014-03-14T00:00:00+00:00</published>
@@ -8780,7 +8855,7 @@ git config --global init.templatedir $template_dir
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view</id>
+    <id>http://liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/how-does-android-caculate-the-size-of-child-view/"/>
     <title>Android中 View 大小的确定过程</title>
     <published>2014-03-14T00:00:00+00:00</published>
@@ -9042,7 +9117,7 @@ git config --global init.templatedir $template_dir
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/truncate-table-in-sqlite</id>
+    <id>http://liaohuqiu.net/cn/posts/truncate-table-in-sqlite.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/truncate-table-in-sqlite/"/>
     <title>SQLite 清空数据库表</title>
     <published>2014-03-13T00:00:00+00:00</published>
@@ -9059,7 +9134,7 @@ git config --global init.templatedir $template_dir
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/settimeout-or-settimeinterval</id>
+    <id>http://liaohuqiu.net/cn/posts/settimeout-or-settimeinterval.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/settimeout-or-settimeinterval/"/>
     <title>setTimeout 和 setTimeInterval 的本质区别</title>
     <published>2014-03-06T00:00:00+00:00</published>
@@ -9073,7 +9148,7 @@ git config --global init.templatedir $template_dir
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/android-lifecycle-component</id>
+    <id>http://liaohuqiu.net/cn/posts/android-lifecycle-component.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/android-lifecycle-component/"/>
     <title>一花一世界: Android 中细小组件的生命周期</title>
     <published>2014-03-05T00:00:00+00:00</published>
@@ -9400,7 +9475,7 @@ exe_cmd &lt;span class=&quot;s2&quot;&gt;&amp;quot;git checkout $branch&amp;quot
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/jekyll-plugins-on-github-pages</id>
+    <id>http://liaohuqiu.net/cn/posts/jekyll-plugins-on-github-pages.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/jekyll-plugins-on-github-pages/"/>
     <title>Jekyll 插件和 Github Pages</title>
     <published>2014-03-03T00:00:00+00:00</published>
@@ -9749,7 +9824,7 @@ $ git push origin +b2
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/work-with-git-branches</id>
+    <id>http://liaohuqiu.net/cn/posts/work-with-git-branches.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/work-with-git-branches/"/>
     <title>Git 日常分支操作</title>
     <published>2014-02-14T00:00:00+00:00</published>
@@ -10077,7 +10152,7 @@ git config --global alias.lg &amp;quot;log --all --graph --pretty=format:&amp;#3
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/git-setup-and-setting</id>
+    <id>http://liaohuqiu.net/cn/posts/git-setup-and-setting.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/git-setup-and-setting/"/>
     <title>命令行下的git配置问题: 多个 sshkey, 多个用户身份, git alias</title>
     <published>2014-02-13T00:00:00+00:00</published>
@@ -10151,7 +10226,7 @@ git config --global alias.lg &amp;quot;log --all --graph --pretty=format:&amp;#3
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/using-high-api-level-method-compatibly</id>
+    <id>http://liaohuqiu.net/cn/posts/using-high-api-level-method-compatibly.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/using-high-api-level-method-compatibly/"/>
     <title>Android 高版本 API 方法在低版本系统上的兼容性处理</title>
     <published>2014-01-23T00:00:00+00:00</published>
@@ -10260,7 +10335,7 @@ public static long getTotalSpace(File path) {
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/storage-in-android</id>
+    <id>http://liaohuqiu.net/cn/posts/storage-in-android.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/storage-in-android/"/>
     <title>Android 存储使用参考</title>
     <published>2014-01-15T00:00:00+00:00</published>
@@ -10671,7 +10746,7 @@ If the bitmap configuration used is ARGB_8888 (the default from the Android 2.3 
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/unified-title-header</id>
+    <id>http://liaohuqiu.net/cn/posts/unified-title-header.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/unified-title-header/"/>
     <title>Android 统一的页面头部</title>
     <published>2014-01-06T00:00:00+00:00</published>
@@ -10779,7 +10854,7 @@ If the bitmap configuration used is ARGB_8888 (the default from the Android 2.3 
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/memory-and-profile-analysis-in-android</id>
+    <id>http://liaohuqiu.net/cn/posts/memory-and-profile-analysis-in-android.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/memory-and-profile-analysis-in-android/"/>
     <title>Android 内存使用分析和程序性能分析</title>
     <published>2014-01-03T00:00:00+00:00</published>
@@ -11056,7 +11131,7 @@ or the total size of the cache has exceed the limit.&lt;/p&gt;&lt;/li&gt;
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/load-image-in-android</id>
+    <id>http://liaohuqiu.net/cn/posts/load-image-in-android.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/load-image-in-android/"/>
     <title>Android 加载图片时需要解决的问题</title>
     <published>2013-12-23T00:00:00+00:00</published>
@@ -11429,7 +11504,7 @@ test.com/app/request/xxxxx =&amp;gt; http://192.168.154.102:9999/some_dir/xxxxx
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/baia</id>
+    <id>http://liaohuqiu.net/cn/posts/baia.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/baia/"/>
     <title>青春不朽，前行无悔</title>
     <published>2013-09-11T00:00:00+00:00</published>
@@ -11604,7 +11679,7 @@ svn mv &amp;quot;./cp_m/base/head.html&amp;quot; &amp;quot;./cp_m/base/head.php&
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/pick-an-alibaba-name</id>
+    <id>http://liaohuqiu.net/cn/posts/pick-an-alibaba-name.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/pick-an-alibaba-name/"/>
     <title>阿里花名：如何起花名</title>
     <published>2013-08-18T00:00:00+00:00</published>
@@ -11785,7 +11860,7 @@ jekyll server --watch
   </entry>
   
   <entry>
-    <id>http://liaohuqiu.net/cn/posts/yet-another-summer-rain</id>
+    <id>http://liaohuqiu.net/cn/posts/yet-another-summer-rain.cn</id>
     <link type="text/html" rel="alternate" href="http://liaohuqiu.net/cn/posts/yet-another-summer-rain/"/>
     <title>Yet another summer rain.</title>
     <published>2013-08-07T00:00:00+00:00</published>
