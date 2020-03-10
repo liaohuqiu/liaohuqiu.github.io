@@ -67,7 +67,7 @@ cd hs-airdrop
 
 然后提示成功，打开 https://www.namebase.io/dashboard 会显示有进行中的交易，16 个小时左右到帐。
 
-<img src="https://srain-blog.android-gems.com/hs-airdrop/5.png"  width="640" height="auto">
+<img src="https://srain-blog.android-gems.com/hs-airdrop/7.png"  width="640" height="auto">
 
 ### 换成 BTC
 
