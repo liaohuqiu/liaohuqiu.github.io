@@ -28,7 +28,7 @@ category: blog
 
 > 本来想去复旦找的 我是武汉的 现在没问题不敢到处跑[泪]
 
-<img src="https://srain-blog.android-gems.com/find-the-one/001.png"  width="640" height="auto">
+<img src="https://srain-blog.android-gems.com/find-the-one/001.png"  width="420" height="auto">
 
 多么动人！我已经忘记我上次有这样的冲动，去近乎概率为零地寻找一个人，是什么时候了。我想起「寻找李慧珍」：
 
