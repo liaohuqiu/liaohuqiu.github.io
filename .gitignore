@@ -3,3 +3,4 @@ node_modules
 *.map
 npm-debug.log
 .idea
+_posts/.DS_Store

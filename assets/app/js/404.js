@@ -1,1 +1,61 @@
-webpackJsonp([3],[function(n,o,i){(function(n){"use strict";!function(){function o(){function o(){c++;var a=c%6+1;console.log(a);var u=new Array(a+1).join(". ");return n("#_j_tip").html(u),t&&c>r?void i():void setTimeout(o,e)}function i(){var o=t.url;n("#_j_finding").hide(),t.succ?location.href=o:n("#_j_no_found").fadeIn()}var t,a=location.href,c=0,e=250,r=3e3/e;setTimeout(o,e);var u={url:a};a="http://cimage.sinaapp.com/ajax/find_page_for_gh_page.php",n.post(a,u,function(n){t=n.data},"json")}o()}()}).call(o,i(1))}]);
+webpackJsonp([0],[
+/* 0 */
+/*!***********************!*\
+  !*** ./src/js/404.js ***!
+  \***********************/
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	
+	(function () {
+	
+	  function find_page() {
+	    var url = location.href;
+	    var time = 0;
+	    var time_interval = 250;
+	    var time_n = 3000 / time_interval;
+	    var ret_data;
+	    function wait() {
+	
+	      time++;
+	      var len = time % 6 + 1;
+	      console.log(len);
+	      var str = new Array(len + 1).join('. ');
+	      $('#_j_tip').html(str);
+	
+	      if (ret_data && time > time_n) {
+	        show_result();
+	        return;
+	      }
+	      setTimeout(wait, time_interval);
+	    }
+	
+	    setTimeout(wait, time_interval);
+	
+	    function show_result() {
+	
+	      var url = ret_data['url'];
+	      $('#_j_finding').hide();
+	
+	      if (ret_data['succ']) {
+	        location.href = url;
+	      } else {
+	        $('#_j_no_found').fadeIn();
+	      }
+	    }
+	
+	    var data = { url: url };
+	    url = 'http://cimage.sinaapp.com/ajax/find_page_for_gh_page.php';
+	    $.post(url, data, function (ret) {
+	
+	      ret_data = ret.data;
+	    }, 'json');
+	  };
+	
+	  find_page();
+	})();
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! jquery */ 1)))
+
+/***/ }
+]);
+//# sourceMappingURL=404.js.map
