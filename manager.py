@@ -9,8 +9,8 @@ from cpbox.tool import functocli
 from cpbox.tool import template
 
 APP_NAME = 'srain'
-blog_image = 'docker.0xhash.cn/liaohuqiu/blog-jekyll:1.0'
-app_fe_image = 'docker.0xhash.cn/liaohuqiu/blog-fe:1.0'
+blog_image = 'liaohuqiu/blog-jekyll:1.0'
+app_fe_image = 'liaohuqiu/blog-fe:1.0'
 blog_container = 'blog-jekyll'
 fe_container = 'blog-fe'
 
