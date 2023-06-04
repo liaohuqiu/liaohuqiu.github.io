@@ -5,40 +5,22 @@ css: /assets/css/about-me.css?v=1
 category: about
 ---
 
-### Links
+## 个人信息
 
-* [GitHub](https://github.com/liaohuqiu) 
+* GitHub: https://github.com/liaohuqiu
+* Email: liaohuqiu@gmail.comohuqiu
+* 网站: https://liaohuqiu.com
 
-    Most of my projects are hosted on GitHub.
+## 教育背景
 
-* [StackOverflow](http://stackoverflow.com/users/2446397/) 
+* 北京航空航天大学 / 2008 – 2011 / 硕士 / 航空宇航推进理论与工程 
+* 北京航空航天大学 / 2004 – 2008 / 学士 / 飞行器动力工程 
 
-* [Twitter](https://twitter.com/liaohuqiu)
+## 工作经历
 
-* [Facebook](https://www.facebook.com/huqiu.liao)
-
-* [新浪微博](http://weibo.com/liaohuqiu/)
-
-    欢迎关注我新浪微博！
-
-* [Email](mailto:srain@php.net)
-
-
-### Videos
-
-* A video, I was playing the slalom skating:
-
-<div class='tc'>
-<iframe src="https://www.youtube.com/embed/Ngxqto5Sf-0" frameborder="0" allowfullscreen></iframe>
-</div>
-
-
----
-
-
-<div class='wechat-mp-qrcode'>
-    WeChat Subscriptions / 微信公众号<br/>
-    <img src='//www.liaohuqiu.com/assets/img/qrcode_for_wechat_mp.jpg' /><br/>
-    Only Chinese content available :(. 
-</div>
-
+* 2019.09 - 2021.10 / 万有算力
+* 2017.07 - 2019.08 / 一周CP
+* 2016.10 - 2017.07 / 中国耀盛
+* 2015.10 - 2016.10 / BloomSky.com
+* 2013.10 - 2015.10 / 阿里巴巴
+* 2011.01 - 2013.09 / 开心网

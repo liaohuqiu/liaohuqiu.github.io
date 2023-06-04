@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-title: "领 HNS 空投，买矿机，屯 BTC"
+title: "HNS 空投"
 description: ""
 keywords:   ""
 category: blog

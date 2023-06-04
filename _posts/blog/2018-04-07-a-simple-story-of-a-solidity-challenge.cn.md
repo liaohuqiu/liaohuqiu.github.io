@@ -1,7 +1,7 @@
 ---
 layout: post_wide
 permalink: /cn/posts/a-simple-story-of-a-solidity-challenge/
-title: "一次白帽黑客挑战赛"
+title: "Solidity 智能合约攻防"
 description: ""
 keywords:   ""
 category: blog
