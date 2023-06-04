@@ -15,8 +15,8 @@ exclude:        ['_fe', 'README.md', 'base.sh', 'manager.sh', '_docker', 'roles'
 
 gems:           ['jekyll-paginate']
 
-host_name:      'www.liaohuqiu.net'
-s_host:         'srain-blog.android-gems.com'
+host_name:      'www.liaohuqiu.com'
+s_host:         '/assets/blog-img'
 error_s_host:   'cimage.sinaapp.com'
 
 author:         liaohuqiu@gmail.com 廖祜秋

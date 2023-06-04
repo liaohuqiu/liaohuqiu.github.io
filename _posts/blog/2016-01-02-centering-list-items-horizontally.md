@@ -1,6 +1,6 @@
 ---
 layout: post_wide
-title: "Centering List Items Horizontally"
+title: "CSS: Centering List Items Horizontally"
 description: 
 category: blog
 ---

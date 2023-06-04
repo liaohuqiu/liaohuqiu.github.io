@@ -42,7 +42,7 @@ PHP 为了资源格式，用进程方式处理请求，这使得一些和业务�
 
 * 序列化协议的选择
 
-    选用简单类型的序列化协议，没有选择低效的 JSON， 也没有使用 Google Protobuf。选用了 [BinPack](http://binpack.liaohuqiu.net/)，比 MessagePack 更为简单和高效。
+    选用简单类型的序列化协议，没有选择低效的 JSON， 也没有使用 Google Protobuf。选用了 [BinPack](http://binpack.liaohuqiu.com/)，比 MessagePack 更为简单和高效。
 
 * RPC 协议
 
@@ -215,21 +215,3 @@ PHP 为了资源格式，用进程方式处理请求，这使得一些和业务�
 2015-08-27 12:25:06,491 DEBUG ('127.0.0.1', 33452): answer fiber stop
 ```
 
-#### 实现
-
-目前已经有的实现：
-
-* Python:  https://github.com/liaohuqiu/cube-rpc-python
-
-* JAVA，即将开源
-
-* C++，即将开源
-
-
-#### 现实世界的例子
-
-现实世界中，已经有一些应用了。
-
-比如 [Android-Gems](http://www.android-gems.com/)。
-
-另外，在阿里巴巴内部的一些应用，比如 “阿里巴巴技术协会” 网站，提供了排行，动态，标签等服务。

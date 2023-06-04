@@ -5,25 +5,25 @@ layout: null
 <feed xmlns="http://www.w3.org/2005/Atom">
  
   <title>Yet Another Summer Rain</title>
-  <link href="http://liaohuqiu.net/"/>
-  <link type="application/atom+xml" rel="self" href="http://liaohuqiu.net/atom.xml"/>
+  <link href="http://liaohuqiu.com/"/>
+  <link type="application/atom+xml" rel="self" href="http://liaohuqiu.com/atom.xml"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
-  <id>http://liaohuqiu.net/</id>
+  <id>http://liaohuqiu.com/</id>
   <author>
-    <name>Huqiu Liao / Srain</name>
+    <name>Huqiu Liao</name>
     <email>srain@php.net</email>
   </author>
 
   {% for post in site.posts %}
   <entry>
-    <id>http://liaohuqiu.net{{ post.id }}</id>
-    <link type="text/html" rel="alternate" href="http://liaohuqiu.net{{ post.url }}"/>
+    <id>http://liaohuqiu.com{{ post.id }}</id>
+    <link type="text/html" rel="alternate" href="http://liaohuqiu.com{{ post.url }}"/>
     <title>{{ post.title }}</title>
     <published>{{ post.date | date_to_xmlschema }}</published>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
     <author>
-      <name>Huqiu Liao / Srain</name>
-      <uri>http://liaohuqiu.net/</uri>
+      <name>Huqiu Liao</name>
+      <uri>http://liaohuqiu.com/</uri>
     </author>
     <content type="html">{{ post.content | xml_escape }}</content>
   </entry>

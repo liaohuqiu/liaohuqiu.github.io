@@ -4,9 +4,9 @@ layout: null
 <?xml version="1.0"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>liaohuqiu.net</title>
-    <link>http://liaohuqiu.net/</link>
-    <atom:link href="http://liaohuqiu.net/rss.xml" rel="self" type="application/rss+xml" />
+    <title>liaohuqiu.com</title>
+    <link>http://liaohuqiu.com/</link>
+    <atom:link href="http://liaohuqiu.com/rss.xml" rel="self" type="application/rss+xml" />
     <description>Yet Another Summer Rain</description>
     <language>en-us</language>
     <pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
@@ -15,10 +15,10 @@ layout: null
     {% for post in site.posts %}
     <item>
       <title>{{ post.title }}</title>
-      <link>http://liaohuqiu.net{{ post.url }}</link>
+      <link>http://liaohuqiu.com{{ post.url }}</link>
       <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
       <author>srain@php.net (Huqiu Liao / Srain)</author>
-      <guid>http://liaohuqiu.net{{ post.id }}</guid>
+      <guid>http://liaohuqiu.com{{ post.id }}</guid>
       <description>{{ post.content | xml_escape }}</description>
     </item>
     {% endfor %}

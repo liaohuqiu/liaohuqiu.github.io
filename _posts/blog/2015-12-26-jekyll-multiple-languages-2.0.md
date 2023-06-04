@@ -21,13 +21,13 @@ In this release, I've tried to make this plugin simpler and easier to use:
 
 2.  Rewrote the document site and the sample project for this plugin.
 
-    http://jekyll-langs.liaohuqiu.net/
+    http://jekyll-langs.liaohuqiu.com/
 
 3.  Updated the sample project, make sure it contains all the futures in this plugin.
 
     Sample project: https://github.com/liaohuqiu/jekyll-multiple-languages-sample/tree/master
 
-    Sample site: http://jekyll-langs-sample.liaohuqiu.net/
+    Sample site: http://jekyll-langs-sample.liaohuqiu.com/
 
 Happy coding!
 

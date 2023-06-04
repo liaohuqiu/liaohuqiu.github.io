@@ -22,7 +22,7 @@ category: feed
 
 <li><a href="http://hukai.me/"><img src="http://hukai.me/images/avatar/130_64.jpg" width="130px" height="64px" alt="胡凯" title="Hi，我是胡凯，就职于腾讯从事Android开发的工作"></a></li>
 
-<li><a href="http://www.liaohuqiu.net"><img src="http://image.liaohuqiu.net/images/links/logo-64-130.png" width="130px" height="64px" alt="秋百万" title="Yet another summer rain, 秋百万"></a></li>
+<li><a href="http://www.liaohuqiu.com"><img src="http://image.liaohuqiu.com/images/links/logo-64-130.png" width="130px" height="64px" alt="秋百万" title="Yet another summer rain, 秋百万"></a></li>
 
 <li><a href="http://stormzhang.com/"><img src="http://stormzhang.com/image/avatar_64.png" width="130px" height="64px" alt="stormzhang" title="Android开发者 + Ruby语言爱好者 + Google脑残粉，爱技术，爱尝鲜，爱开源，爱设计，也爱赚钱！ 热爱并沉溺于移动互联网，Want to make a good app!"></a></li>
 

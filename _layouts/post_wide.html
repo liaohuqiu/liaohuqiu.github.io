@@ -11,16 +11,6 @@ layout:     base
             <hr>
             {{ content }}
             <hr>
-            {% if page.language == 'cn' %}
-            <div class='wechat-mp-qrcode'>
-                <p>欢迎关注我的 <a href='http://weibo.com/liaohuqiu/'>新浪微博</a>，有问题随时交流。</p>
-                <p>欢迎关注我的 <a href='https://github.com/liaohuqiu'>GitHub</a>，了解我最新关注的项目。</p>
-            </div>
-            {% else %}
-            <div class='wechat-mp-qrcode'>
-                <p>Follow Me on <a href='https://github.com/liaohuqiu'>GitHub</a></p>
-            </div>
-            {% endif %}
             {% include comment.html %}
         </div>
     </div>

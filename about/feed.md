@@ -6,8 +6,8 @@ category: feed
 
 * RSS
 
-    http://www.liaohuqiu.net/rss.xml
+    https://www.liaohuqiu.com/rss.xml
 
 * ATOM
 
-    http://www.liaohuqiu.net/atom.xml
+    https://www.liaohuqiu.com/atom.xml

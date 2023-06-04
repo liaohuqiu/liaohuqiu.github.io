@@ -4,3 +4,4 @@ node_modules
 npm-debug.log
 .idea
 _posts/.DS_Store
+*/.DS_Store
